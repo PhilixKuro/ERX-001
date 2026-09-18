@@ -87,24 +87,42 @@ docker/
 ├── restore.sh          从 backups/ 恢复
 ├── seed-demo.sh        建公司 + 导演示数据
 ├── set-locale.sh       设界面语言与默认公司
+├── lock-apps.sh        把各 app 当前 commit 写进 apps.json
 ├── save-images.sh      导出镜像供离线迁移
 ├── load-images.sh      导入镜像
+├── apps.json           装哪些 app、哪个分支、锁到哪个 commit
 ├── scripts/            容器内执行的逻辑（由上面的脚本调用）
 ├── backups/            备份文件，不进 git
 └── images/             导出的镜像，不进 git
-frappe-bench/           bench 本体（首次 up.sh 时生成），不进 git
+frappe-bench/           bench 本体（首次 up.sh 时生成），整个不进 git
 ```
 
-容器内 `/workspace` 就是项目根。bench 的 `apps/frappe` 与 `apps/erpnext` 都是**指向本仓库 submodule 的符号链接**：
+容器内 `/workspace` 就是项目根。
+
+## 源码在哪、怎么管版本
+
+遵循 frappe_docker 官方模型：**bench 自己 clone 各 app，`frappe-bench/` 整个不进主仓库版本管理**（官方文档原话："The `development` directory is ignored by git"）。
 
 ```
-frappe-bench/apps/frappe  -> /workspace/apps/frappe
-frappe-bench/apps/erpnext -> /workspace/apps/erpnext
+frappe-bench/apps/frappe     ← 独立 git 仓库
+frappe-bench/apps/erpnext    ← 独立 git 仓库
+frappe-bench/apps/<自有app>  ← bench new-app 建的，同样独立
 ```
 
-所以**你改 `apps/` 下的源码立即生效**，不需要复制或重装。
+每个 app 各自是完整仓库，remote 分工：
 
-注意 `bench init --frappe-path` 只表示「从哪儿取代码」，它会 clone 出独立副本；`setup.sh` 在 init 后会把那份副本换成符号链接。改 setup.sh 时别把这步删掉，否则改源码不生效。
+| remote | 指向 | 用途 |
+|---|---|---|
+| `origin` | 自有 fork | 推改动 |
+| `upstream` | 官方 | 只读拉更新（push URL 已设为无效值防误推） |
+
+所以改源码、commit、push、合并上游都在那三个目录里各自进行，主仓库的 `git status` 看不到它们。
+
+**版本记录**：`apps.json` 记 url + branch + commit。合并上游或确认版本可用后跑 `docker/lock-apps.sh` 更新它，换机器时 `up.sh` 按它对齐（用 `reset --hard`，仍停在分支上，不进 detached HEAD；有未提交改动时跳过，不会丢代码）。
+
+**在 VS Code 里看这三个仓库的改动**：`.vscode/settings.json` 已用 `git.scanRepositories` 显式列出（它们在 gitignore 内，编辑器默认不扫）。源代码管理面板会并列显示主仓库、frappe、erpnext。新增自有 app 后在那里追加一行。
+
+**自己要排除的临时文件**写进该仓库的 `.git/info/exclude`，别改上游的 `.gitignore`——那是上游文件，改了会成为每次合并的冲突点。
 
 ## 端口
 
@@ -122,7 +140,7 @@ netsh interface ipv4 show excludedportrange protocol=tcp
 
 ## 版本与解释器
 
-本环境用 **ERPNext / Frappe v16**（`apps/` 两个 submodule 锁 `version-16`）。
+本环境用 **ERPNext / Frappe v16**（分支与 commit 见 `apps.json`）。
 
 镜像 `frappe/bench:latest` 自带 Python 3.12 / 3.14 与 Node 22 / 24，两套分别服务两个大版本：
 
@@ -133,17 +151,37 @@ netsh interface ipv4 show excludedportrange protocol=tcp
 
 v16 **强制** Python 3.14，故 `setup.sh` 锁 3.14.7。`bench init` 不读 `PYENV_VERSION`，须显式传 `--python`，否则由它自行挑选。
 
-## 符号链接带来的三处必需修补
+## Windows 上的几处适配
 
-`apps/frappe` 与 `apps/erpnext` 是指向本仓库 submodule 的符号链接（这样改源码即时生效），代价是有三处路径推导会失准。三者都已在 `scripts/setup.sh` 里处理，**改脚本时别当冗余删掉**：
+脚本里有几段专为 Windows + Docker Desktop 环境而写，注释已就地说明原因，**别当冗余删掉**：
 
-| 症状 | 原因 | 修法 |
+| 现象 | 原因 | 处理 |
 |---|---|---|
-| `bench start` 起不来，socketio 报连 `127.0.0.1:6379` | `node_utils.js` 用 `path.resolve(__dirname,"..","..")` 算 bench 根，符号链接下算出 `/workspace` | Procfile 的 `socketio` / `watch` 行前注入 `FRAPPE_BENCH_ROOT` |
-| 页面能打开但 CSS/JS 全 404、完全没有样式 | `bench init` 的构建产物写在它自己 clone 的 `apps/frappe` 副本里，该副本随后被换成符号链接 | 符号链接建好后补跑一次 `bench build`（步骤 6） |
-| `bench build` 报 `ENOENT: /workspace/sites/common_site_config.json` | erpnext 的 `banking` 子应用在 `proxyOptions.ts` 顶层读 `../../../sites/...`，符号链接下算出 `/workspace/sites` | 建 `/workspace/sites -> frappe-bench/sites` 兼容链接（步骤 5b） |
+| `Connection was reset` / 连不上 GitHub | 宿主机 git 用 libcurl、不读注册表里的系统代理，流量绕过 Clash 直连 | 每个仓库各自 `git config http.https://github.com/.proxy`（`.git/config` 独立，换机器须重配） |
+| `bench init` 报 `Invalid frappe path` | 容器内 `127.0.0.1` 指容器自己；而 `/workspace` 即主仓库根、其仓库级代理配置优先于 global | `setup.sh` 用 `GIT_CONFIG_*` 环境变量注入 `host.docker.internal:7897`（见 `.env` 的 `GIT_PROXY`） |
+| `Cwd must be an absolute path` | Git Bash（MSYS）把 `-w /workspace` 改写成 Windows 路径 | 脚本开头 `export MSYS_NO_PATHCONV=1` |
+| `dubious ownership in repository` | bind mount 进容器的仓库所有者对不上 | `setup.sh` 设 `safe.directory '*'`（容器重建即丢，故每次搭建都设） |
+| 端口绑定被拒 | Hyper-V 保留了 9000（本机为 8995-9094） | socketio 宿主侧用 9100，见「端口」节 |
+| 源代码管理面板一打开就几十个假改动 | Windows 不保存 Unix 执行位，git 报成 mode 变更（内容零改动） | `setup.sh` 给各 app 设 `core.fileMode false` |
+| `.sh` 报 `bad interpreter` | 被 checkout 成 CRLF | `.gitattributes` 强制 `*.sh` 为 `eol=lf` |
 
-第二条尤其容易漏：`sites/assets/assets.json` 在构建**开始时**就写好了，所以它存在并不代表构建成功。判据要看 `apps/frappe/frappe/public/dist/css/` 下有没有实际文件。
+另有一条与平台无关但同样会重现：**`bench init` 不读 `PYENV_VERSION`**，不显式传 `--python` 就会自行挑选。v16 强制 Python 3.14，故 `setup.sh` 锁 3.14.7。
+
+## v16 全新安装需要的额外初始化
+
+v16 把一批初始化搬到了界面上的配置向导里，而 `bench new-site` 会把 `setup_complete` 置 1 使向导不再出现。于是全新安装比 v15 需要更多显式步骤，`seed-demo.sh` 已覆盖：
+
+| 缺什么 | 症状 |
+|---|---|
+| `install_fixtures` 未被调用 | 建公司报 `LinkValidationError: Warehouse Type: Transit` |
+| `frappe.defaults` 的 `stock_uom` | 建商品报 `MandatoryError: stock_uom`（注意：设 `Stock Settings.stock_uom` 无效，v16 已不引用该字段） |
+| Price List 表为空 | 建订单报 `MandatoryError: selling_price_list, price_list_currency, plc_conversion_rate` |
+| 全局 `currency` 仍是镜像默认的 INR | 单据汇率校验失败 |
+| `Installed Application` 的 `is_setup_complete` | 登录被强制跳到 `/desk/setup-wizard`（v16 的判据是这张表，不是 `System Settings.setup_complete`） |
+
+`setup_demo_data()` 的签名也变了（v16 需传公司名），脚本按函数签名分派以兼容两版。
+
+**排查时注意**：v16 的 `setup_demo_data()` 把异常吞进 Error Log 后正常返回（v15 会 `raise`），所以「跑完没报错」不等于成功。`seed-demo.sh` 因此在每步落库后加断言，并在失败时摘出 Error Log。
 
 ## 出问题时
 
@@ -176,11 +214,28 @@ curl -H 'Host: erx.localhost' -o /dev/null -w '%{http_code}\n' http://localhost:
 
 ### 界面完全没有样式
 
-CSS/JS 全 404 时是前端资源没构建。见上文「符号链接带来的三处必需修补」第二条：
+症状是页面结构和交互都在（JS 正常），但没有样式、图标失去尺寸约束后变得很大。原因是 CSS 404：HTML 引用的文件名带内容哈希，与磁盘上的不一致就取不到。
 
 ```bash
 docker/shell.sh
 bench build
+exit
 ```
 
 浏览器需 Ctrl-Shift-R 强制刷新——它会缓存 404 响应。
+
+**验证要测全部资源，不能抽查**。曾出现过 `login.bundle` 哈希恰好匹配、`desk.bundle` 不匹配的情况，只看登录页会误判为正常：
+
+```bash
+curl -s -c /tmp/ck -o /dev/null -X POST -H 'Content-Type: application/json' \
+  -d '{"usr":"Administrator","pwd":"admin"}' http://localhost:8000/api/method/login
+curl -sL -b /tmp/ck -o /tmp/dk.html http://localhost:8000/app
+for u in $(grep -oE '/assets/[^"]+\.(css|js)' /tmp/dk.html | sort -u); do
+  c=$(curl -s -b /tmp/ck -o /dev/null -w '%{http_code}' "http://localhost:8000$u")
+  [ "$c" != 200 ] && echo "$c $u"
+done
+```
+
+无输出即全部正常（desk 页约 55 个资源）。
+
+另外 `sites/assets/assets.json` 在构建**开始时**就写好，它存在不代表构建成功——判据要看 `frappe-bench/apps/frappe/frappe/public/dist/css/` 下有没有实际文件。

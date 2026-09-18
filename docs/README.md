@@ -4,12 +4,13 @@
 
 | 找什么 | 去哪 |
 |---|---|
-| Frappe 框架源码 | `apps/frappe/`（fork 的 submodule，锁 version-16） |
-| ERPNext 业务源码 | `apps/erpnext/`（fork 的 submodule，锁 version-16） |
-| 本项目二次开发内容 | 自有 app（待创建） |
+| Frappe 框架源码 | `frappe-bench/apps/frappe/`（独立 git 仓库，origin 指自有 fork） |
+| ERPNext 业务源码 | `frappe-bench/apps/erpnext/`（同上） |
+| 本项目二次开发内容 | 自有 app（待创建，将落在 `frappe-bench/apps/` 下） |
+| 装了哪些 app、锁在哪个版本 | `docker/apps.json` |
 | 开发环境怎么起、怎么换机器 | [../docker/README.md](../docker/README.md) |
 
-扩展方式、上游同步流程、改源码的留痕义务见 [开发守则.md](开发守则.md)。
+`frappe-bench/` 整个不进主仓库版本管理，各 app 是独立仓库、各自提交推送。三层仓库的分工、上游同步流程、改源码的留痕义务见 [开发守则.md](开发守则.md)。
 
 ## 必读文件
 
