@@ -1,0 +1,42 @@
+{
+  // frappe-bench/ 被 .gitignore 排除（官方模型：bench 不进主仓库版本管理），
+  // VS Code 默认不会在那里找 git 仓库。显式列出，源代码管理面板才会把这三层
+  // 一并显示：主仓库 ERX-001、frappe、erpnext，各自独立提交与推送。
+  // 新增自有 app 后在此追加一行。
+  "git.scanRepositories": [
+    "frappe-bench/apps/frappe",
+    "frappe-bench/apps/erpnext"
+  ],
+
+  // 只影响资源管理器的显隐，不影响 git 扫描与搜索。
+  // bench 里 env/ 与 node_modules/ 文件极多，展开会拖慢编辑器。
+  "files.exclude": {
+    "frappe-bench/env": true,
+    "frappe-bench/apps/*/node_modules": true,
+    "frappe-bench/sites/assets": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true
+  },
+
+  // 搜索时跳过这些，否则全文搜索会被依赖与构建产物淹没
+  "search.exclude": {
+    "frappe-bench/env": true,
+    "frappe-bench/apps/*/node_modules": true,
+    "frappe-bench/apps/*/*/public/dist": true,
+    "frappe-bench/sites": true,
+    "docker/backups": true,
+    "docker/images": true
+  },
+
+  // Frappe 的 Python 解释器在 bench 的 venv 里（容器内路径，宿主机侧仅供
+  // 编辑器识别导入，实际运行在容器中）
+  "python.analysis.extraPaths": [
+    "frappe-bench/apps/frappe",
+    "frappe-bench/apps/erpnext"
+  ],
+
+  // 容器内执行的脚本必须是 LF，与 .gitattributes 一致
+  "[shellscript]": {
+    "files.eol": "\n"
+  }
+}

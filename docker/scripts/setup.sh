@@ -112,20 +112,48 @@ if [ ! -f "$APPS_JSON" ]; then
 fi
 
 # 逐条读取。用 python 解析而非 jq——镜像里不一定有 jq。
-while IFS=$'\t' read -r app_url app_branch; do
+# commit 字段可选：有则 checkout 到该 commit（精确锁定，保证多机一致），
+# 无则停在分支最新。由 docker/lock-apps.sh 写入。
+while IFS=$'\t' read -r app_url app_branch app_commit; do
   [ -z "$app_url" ] && continue
   app_name=$(basename "$app_url" .git)
+
   if [ -d "apps/$app_name" ]; then
     ok "$app_name 已存在"
+  elif [ "$app_name" = "frappe" ]; then
+    # frappe 由上面的 bench init 装，不能走 get-app
+    ok "frappe 由 bench init 装（跳过 get-app）"
   else
     log "获取 $app_name（$app_branch）"
     bench get-app --branch "$app_branch" --resolve-deps "$app_url"
     ok "$app_name 已获取"
   fi
+
+  # 锁定到指定 commit。已是该 commit 则跳过；有未提交改动时不动，避免丢改动。
+  if [ -n "$app_commit" ] && [ -d "apps/$app_name/.git" ]; then
+    current=$(git -C "apps/$app_name" rev-parse HEAD)
+    if [ "$current" = "$app_commit" ]; then
+      ok "$app_name 已在锁定的 commit ${app_commit:0:12}"
+    elif [ -n "$(git -C "apps/$app_name" status --porcelain)" ]; then
+      echo "  警告：$app_name 有未提交改动，跳过 checkout 到 ${app_commit:0:12}" >&2
+    else
+      log "$app_name 对齐到锁定的 ${app_commit:0:12}"
+      # shallow clone 可能不含该 commit，先取回
+      git -C "apps/$app_name" fetch --depth 1 origin "$app_commit" 2>/dev/null \
+        || git -C "apps/$app_name" fetch origin 2>/dev/null || true
+      # 用 reset --hard 而非 checkout <sha>：后者进入 detached HEAD，你之后
+      # 改代码无法直接 commit 到分支。这样仍停在 $app_branch 上。
+      if git -C "apps/$app_name" reset --hard -q "$app_commit" 2>/dev/null; then
+        ok "已对齐到 ${app_commit:0:12}（仍在 $app_branch 分支）"
+      else
+        echo "  警告：取不到 commit ${app_commit:0:12}，保持当前 ${current:0:12}" >&2
+      fi
+    fi
+  fi
 done < <("$BENCH_DIR/env/bin/python" - "$APPS_JSON" <<'PY'
 import json, sys
 for a in json.load(open(sys.argv[1], encoding="utf-8")):
-    print(a["url"], a.get("branch", "version-16"), sep="\t")
+    print(a["url"], a.get("branch", "version-16"), a.get("commit", ""), sep="\t")
 PY
 )
 
@@ -163,6 +191,11 @@ for d in apps/*/; do
     git -C "$d" remote add upstream "$official"
     git -C "$d" remote set-url --push upstream DISABLED_use_origin_instead
   fi
+
+  # Windows 文件系统不保存 Unix 执行位，git 会把上游几十个文件报成
+  # "old mode 100755 / new mode 100644"（内容零改动）。不关掉的话
+  # VS Code 源代码管理面板一打开就是几十个假改动，真改动被淹没。
+  git -C "$d" config core.fileMode false
 
   ok "$app_name  origin=$(git -C "$d" remote get-url origin 2>/dev/null || echo 无)  upstream=$(git -C "$d" remote get-url upstream 2>/dev/null || echo 无)"
 done
