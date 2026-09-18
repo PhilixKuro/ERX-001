@@ -1,14 +1,22 @@
 #!/usr/bin/env bash
-# 在容器内首次搭建 bench 与站点。幂等：已存在的步骤会跳过。
+# 在容器内搭建 bench 与站点。幂等：已完成的步骤会跳过。
 #
 # 不直接运行本脚本——用宿主机的 docker/up.sh，它会拉起容器后调用这里。
+#
+# 遵循 frappe_docker 官方模型：bench 自己 clone 各 app，不用符号链接。
+# bench 目录整个不进主仓库 git（官方文档：development directory is ignored by
+# git）；版本由 docker/apps.json 声明，换机器按它重建。
+# 各 app 在 frappe-bench/apps/ 下是独立 git 仓库，remote 指自有 fork，
+# 改源码就在那里改、commit、push，合并上游用 fetch upstream && merge。
 set -euo pipefail
 
 SITE_NAME="${SITE_NAME:-erx.localhost}"
-BENCH_NAME="${BENCH_NAME:-bench}"
+BENCH_NAME="${BENCH_NAME:-frappe-bench}"
 DB_ROOT_PASSWORD="${DB_ROOT_PASSWORD:-123}"
 ADMIN_PASSWORD="${ADMIN_PASSWORD:-admin}"
-FRAPPE_BRANCH="version-16"
+FRAPPE_REPO="${FRAPPE_REPO:-https://github.com/PhilixKuro/frappe.git}"
+FRAPPE_BRANCH="${FRAPPE_BRANCH:-version-16}"
+FRAPPE_UPSTREAM="${FRAPPE_UPSTREAM:-https://github.com/frappe/frappe.git}"
 
 # frappe v16 声明 requires-python = ">=3.14,<3.15"，是硬要求而非偏好。
 # bench init 不读 PYENV_VERSION，须显式传 --python，否则由它自行挑选。
@@ -17,6 +25,7 @@ PY_BIN="$HOME/.pyenv/versions/$PY_VERSION/bin/python"
 
 WS=/workspace
 BENCH_DIR="$WS/$BENCH_NAME"
+APPS_JSON="$WS/docker/apps.json"
 
 log() { printf '\n\033[36m==> %s\033[0m\n' "$*"; }
 ok()  { printf '\033[32m    %s\033[0m\n' "$*"; }
@@ -28,31 +37,56 @@ log "标记 workspace 内的仓库为 git 可信路径"
 git config --global --add safe.directory '*'
 ok "已设置"
 
+# ---------- 0b. 容器内 git 代理 ----------
+# bench init / get-app 要从 GitHub clone。宿主机的代理在容器里不可直接引用——
+# 容器内的 127.0.0.1 是容器自己，须用 host.docker.internal 指向宿主。
+# 容器重建即丢，故每次搭建都设。GIT_PROXY 为空则跳过（无需代理的网络环境）。
+GIT_PROXY="${GIT_PROXY:-}"
+if [ -n "$GIT_PROXY" ]; then
+  log "配置容器内 git 代理"
+  git config --global "http.https://github.com/.proxy" "$GIT_PROXY"
+  # 用 GIT_CONFIG_* 环境变量注入，优先级高于任何配置文件。
+  # 必须这样做：/workspace 就是主仓库根目录，宿主机为它配的代理是
+  # 127.0.0.1:7897——在容器里那指向容器自己。而仓库级配置优先于 global，
+  # 会盖掉上面那行。不改那个文件，因为它同时被宿主机的 git 使用。
+  export GIT_CONFIG_COUNT=1
+  export GIT_CONFIG_KEY_0="http.https://github.com/.proxy"
+  export GIT_CONFIG_VALUE_0="$GIT_PROXY"
+  if timeout 25 git ls-remote --heads "$FRAPPE_REPO" "$FRAPPE_BRANCH" >/dev/null 2>&1; then
+    ok "代理可用：$GIT_PROXY"
+  else
+    echo "错误：经 $GIT_PROXY 仍无法访问 $FRAPPE_REPO。" >&2
+    echo "检查宿主机代理端口，或在 docker/.env 里改 GIT_PROXY（留空表示不用代理）。" >&2
+    exit 1
+  fi
+else
+  git config --global --unset-all "http.https://github.com/.proxy" 2>/dev/null || true
+  ok "未设代理（GIT_PROXY 为空）"
+fi
+
 # ---------- 1. bench init ----------
-# 判据用 env/bin/python：bench init 最后才建 venv，故它存在即代表 init 真的跑完了。
+# 判据用 env/bin/python：bench init 最后才建 venv，故它存在即代表 init 跑完了。
 if [ -x "$BENCH_DIR/env/bin/python" ]; then
   ok "bench 已存在，跳过 init"
 else
-  # bench init 拒绝往已存在的目录写，故先清掉上次失败留下的空壳
   if [ -d "$BENCH_DIR" ]; then
     if [ -z "$(ls -A "$BENCH_DIR" 2>/dev/null)" ]; then
       rmdir "$BENCH_DIR"
     else
       echo "错误：$BENCH_DIR 已存在且非空，但没有可用的 env/bin/python。" >&2
-      echo "这是上次搭建中断留下的残留。确认里面没有你要保留的东西后删掉它再重跑：" >&2
+      echo "这是上次搭建中断留下的残留。确认无需保留后删掉再重跑：" >&2
       echo "  rm -rf $BENCH_DIR" >&2
       exit 1
     fi
   fi
 
-  [ -x "$PY_BIN" ] || { echo "找不到 Python $PY_VERSION（$PY_BIN）。可用版本：$(pyenv versions --bare | tr '\n' ' ')" >&2; exit 1; }
+  [ -x "$PY_BIN" ] || { echo "找不到 Python $PY_VERSION（$PY_BIN）。可用：$(pyenv versions --bare | tr '\n' ' ')" >&2; exit 1; }
 
-  log "初始化 bench（Python $PY_VERSION，使用本仓库的 apps/frappe submodule）"
-  # 用本地 submodule 作为 frappe 源，改源码立即生效
+  log "初始化 bench（Python $PY_VERSION，frappe $FRAPPE_BRANCH）"
   bench init \
     --skip-redis-config-generation \
     --python "$PY_BIN" \
-    --frappe-path "$WS/apps/frappe" \
+    --frappe-path "$FRAPPE_REPO" \
     --frappe-branch "$FRAPPE_BRANCH" \
     --no-backups \
     "$BENCH_DIR"
@@ -62,38 +96,6 @@ fi
 
 cd "$BENCH_DIR"
 
-# ---------- 1b. frappe 改指 submodule ----------
-# bench init 的 --frappe-path 只是「从哪儿取代码」，它会 git clone 出一份独立副本。
-# 那样改 apps/frappe/ 的源码不会生效，故换成符号链接指回本仓库 submodule。
-if [ -L "apps/frappe" ]; then
-  ok "frappe 已指向 submodule"
-else
-  log "将 frappe 改指本仓库 submodule（使改源码即时生效）"
-  if [ -d "apps/frappe/.git" ] && [ -n "$(git -C apps/frappe status --porcelain 2>/dev/null)" ]; then
-    echo "错误：bench 内的 apps/frappe 副本有未提交改动，不能直接替换。" >&2
-    echo "先把改动挪到 $WS/apps/frappe，再重跑本脚本。" >&2
-    exit 1
-  fi
-  rm -rf apps/frappe
-  ln -s "$WS/apps/frappe" "apps/frappe"
-  ./env/bin/pip install --quiet --no-cache-dir -e "$WS/apps/frappe"
-  ok "frappe 已指向 submodule"
-fi
-
-# ---------- 1c. Node 依赖装进 submodule ----------
-# bench init 的 yarn install 装在它自己 clone 的那份副本里，随副本一起被删。
-# 符号链接指向 submodule 后，node_modules 必须在 submodule 内，否则 socketio
-# 启动即 MODULE_NOT_FOUND、bench start 整体退出。
-for app in frappe erpnext; do
-  if [ -d "$WS/apps/$app/node_modules" ]; then
-    ok "$app 的 node 依赖已存在"
-  else
-    log "安装 $app 的 node 依赖"
-    (cd "$WS/apps/$app" && yarn install --check-files)
-    ok "$app node 依赖已安装"
-  fi
-done
-
 # ---------- 2. 指向容器服务 ----------
 log "配置数据库与 Redis 主机"
 bench set-config -g db_host mariadb
@@ -101,36 +103,73 @@ bench set-config -g redis_cache "redis://redis-cache:6379"
 bench set-config -g redis_queue "redis://redis-queue:6379"
 bench set-config -g redis_socketio "redis://redis-queue:6379"
 sed -i '/redis/d' ./Procfile 2>/dev/null || true
-
-# apps/frappe 是符号链接，node_utils.js 用 path.resolve(__dirname,"..","..")
-# 会算出 /workspace 而非 bench 根，socketio 遂读不到 common_site_config.json、
-# 回落连 127.0.0.1:6379 并退出。FRAPPE_BENCH_ROOT 是 frappe 自带的覆盖口。
-# 逐进程注入而非设成容器环境变量——后者只能指一个 bench，v15/v16 并存会互相串。
-if ! grep -q 'FRAPPE_BENCH_ROOT' ./Procfile 2>/dev/null; then
-  sed -i "s|^socketio: |socketio: FRAPPE_BENCH_ROOT=$BENCH_DIR |" ./Procfile
-  sed -i "s|^watch: |watch: FRAPPE_BENCH_ROOT=$BENCH_DIR |" ./Procfile
-fi
 ok "已指向 mariadb / redis-cache / redis-queue"
 
-# ---------- 3. 挂接 erpnext submodule ----------
-if [ -d "apps/erpnext" ]; then
-  ok "erpnext 已在 bench 中"
-else
-  log "挂接 apps/erpnext（复用本仓库 submodule）"
-  ln -s "$WS/apps/erpnext" "apps/erpnext"
-  ./env/bin/pip install --no-cache-dir -e "$WS/apps/erpnext"
-  # apps.txt 末行常无换行符，直接 >> 会拼成 "frappeerpnext"。
-  # sed 先补上缺失的尾换行，再追加。
-  if ! grep -qx 'erpnext' sites/apps.txt 2>/dev/null; then
-    [ -s sites/apps.txt ] && sed -i -e '$a\' sites/apps.txt
-    echo 'erpnext' >> sites/apps.txt
-  fi
-  ok "erpnext 已挂接"
+# ---------- 3. 按 apps.json 装 app ----------
+log "按 docker/apps.json 安装 app"
+if [ ! -f "$APPS_JSON" ]; then
+  echo "找不到 $APPS_JSON" >&2; exit 1
 fi
 
-# ---------- 4. 建站点 ----------
+# 逐条读取。用 python 解析而非 jq——镜像里不一定有 jq。
+while IFS=$'\t' read -r app_url app_branch; do
+  [ -z "$app_url" ] && continue
+  app_name=$(basename "$app_url" .git)
+  if [ -d "apps/$app_name" ]; then
+    ok "$app_name 已存在"
+  else
+    log "获取 $app_name（$app_branch）"
+    bench get-app --branch "$app_branch" --resolve-deps "$app_url"
+    ok "$app_name 已获取"
+  fi
+done < <("$BENCH_DIR/env/bin/python" - "$APPS_JSON" <<'PY'
+import json, sys
+for a in json.load(open(sys.argv[1], encoding="utf-8")):
+    print(a["url"], a.get("branch", "version-16"), sep="\t")
+PY
+)
+
+# ---------- 4. 各 app 的 remote 命名归位 ----------
+# bench init / get-app 用 `git clone --origin upstream` 建仓库，于是「自有 fork」
+# 被命名为 upstream、且没有 origin——与惯例相反，容易把改动推错地方。
+# 这里归位成：origin = 自有 fork（推改动），upstream = 官方（只读拉更新，
+# push URL 设为无效值以防误推）。
+log "归位各 app 的 remote 命名"
+for d in apps/*/; do
+  app_name=$(basename "$d")
+  [ -d "$d/.git" ] || continue
+
+  case "$app_name" in
+    frappe)  official="$FRAPPE_UPSTREAM" ;;
+    erpnext) official="https://github.com/frappe/erpnext.git" ;;
+    *)       official="" ;;   # 自有 app 无上游
+  esac
+
+  # 自有 fork 的 URL：优先取现有 origin，否则取 bench 建的那个 upstream
+  fork=$(git -C "$d" remote get-url origin 2>/dev/null || true)
+  if [ -z "$fork" ]; then
+    fork=$(git -C "$d" remote get-url upstream 2>/dev/null || true)
+    # 若现有 upstream 已是官方地址，说明命名已正确，不是待归位的 fork
+    [ "$fork" = "$official" ] && fork=""
+  fi
+
+  if [ -n "$fork" ]; then
+    git -C "$d" remote remove origin 2>/dev/null || true
+    git -C "$d" remote add origin "$fork"
+  fi
+
+  if [ -n "$official" ]; then
+    git -C "$d" remote remove upstream 2>/dev/null || true
+    git -C "$d" remote add upstream "$official"
+    git -C "$d" remote set-url --push upstream DISABLED_use_origin_instead
+  fi
+
+  ok "$app_name  origin=$(git -C "$d" remote get-url origin 2>/dev/null || echo 无)  upstream=$(git -C "$d" remote get-url upstream 2>/dev/null || echo 无)"
+done
+
+# ---------- 5. 建站点 ----------
 # 判据不能只看目录存在——建站中途失败会留下有 site_config.json 但数据库未建成的
-# 残缺站点。以「能否真正连上库并查到表」为准。
+# 残缺站点。以「能否真正连上库」为准。
 site_is_healthy() {
   [ -f "sites/$SITE_NAME/site_config.json" ] || return 1
   bench --site "$SITE_NAME" list-apps >/dev/null 2>&1
@@ -154,45 +193,18 @@ else
   ok "站点已创建"
 fi
 
-# ---------- 5. 装 erpnext ----------
-if bench --site "$SITE_NAME" list-apps 2>/dev/null | grep -qx 'erpnext'; then
-  ok "erpnext 已安装在站点上"
-else
-  log "在站点上安装 erpnext"
-  bench --site "$SITE_NAME" install-app erpnext
-  ok "erpnext 已安装"
-fi
-
-# ---------- 5b. /workspace/sites 兼容链接 ----------
-# erpnext 的 banking 子应用在 proxyOptions.ts 顶层就 readFileSync
-# '../../../sites/common_site_config.json'——从 apps/erpnext/banking 往上三级。
-# 正常布局下那是 frappe-bench/sites，但 apps/erpnext 是指向 submodule 的符号
-# 链接，往上三级成了 /workspace/sites，于是 bench build 以 ENOENT 失败。
-# 该文件是模块顶层代码，import 即执行，构建也绕不过，故补一个兼容链接。
-if [ -L "$WS/sites" ]; then
-  ok "/workspace/sites 链接已存在"
-else
-  log "建立 /workspace/sites -> $BENCH_DIR/sites 兼容链接"
-  rm -rf "$WS/sites"
-  ln -s "$BENCH_DIR/sites" "$WS/sites"
-  ok "已建立"
-fi
-
-# ---------- 6. 构建前端资源 ----------
-# 必须做，且必须在 1b 之后：bench init 的构建产物写在它自己 clone 的那份
-# apps/frappe 副本里（产物落在 app 源码目录的 public/dist/，不在 bench 目录），
-# 1b 把副本换成符号链接后那些产物就没了。漏掉这步的表现是页面能打开但
-# 所有 CSS/JS 都 404、界面完全没有样式。
-# 判据用 dist/css 下有无文件——assets.json 在构建开始时就写好了，不能作准。
-if [ -n "$(ls -A "$WS/apps/frappe/frappe/public/dist/css" 2>/dev/null)" ]; then
-  ok "前端资源已构建"
-else
-  log "构建前端资源（需数分钟）"
-  bench build
-  [ -n "$(ls -A "$WS/apps/frappe/frappe/public/dist/css" 2>/dev/null)" ] \
-    || { echo "bench build 未产出 dist/css，中止。" >&2; exit 1; }
-  ok "前端资源已构建"
-fi
+# ---------- 6. 在站点上装 app ----------
+for d in apps/*/; do
+  app_name=$(basename "$d")
+  [ "$app_name" = "frappe" ] && continue   # frappe 随建站自动装
+  if bench --site "$SITE_NAME" list-apps 2>/dev/null | grep -qx "$app_name"; then
+    ok "$app_name 已安装在站点上"
+  else
+    log "在站点上安装 $app_name"
+    bench --site "$SITE_NAME" install-app "$app_name"
+    ok "$app_name 已安装"
+  fi
+done
 
 # ---------- 7. 开发模式 ----------
 log "开启开发模式"
@@ -203,16 +215,34 @@ ok "开发模式已开启"
 # ---------- 8. 默认站点 ----------
 # Frappe 按 HTTP Host 头选站点。浏览器访问 localhost:8000 而站点名是
 # erx.localhost，没有 default_site 兜底就整站 404「localhost does not exist」。
-# 校验而非只调用——这个值曾被后续写 common_site_config.json 的操作覆盖掉。
 log "设默认站点"
 bench use "$SITE_NAME"
-actual=$(bench --site "$SITE_NAME" execute frappe.get_conf 2>/dev/null | grep -oE "'default_site': '[^']*'" | cut -d"'" -f4)
-if [ "$actual" != "$SITE_NAME" ]; then
-  # execute 取不到时退回读文件
-  grep -q "\"default_site\": \"$SITE_NAME\"" sites/common_site_config.json \
-    || { echo "default_site 未写入 common_site_config.json，中止。" >&2; exit 1; }
-fi
+grep -q "\"default_site\": \"$SITE_NAME\"" sites/common_site_config.json \
+  || { echo "default_site 未写入 common_site_config.json，中止。" >&2; exit 1; }
 ok "默认站点为 $SITE_NAME（改动后须重启 bench start 才生效）"
+
+# ---------- 9. 校验前端资源 ----------
+# bench init / get-app 会各自构建。这里只校验产物确实在，不重复构建。
+# 判据看 dist/css 下有无实际文件——assets.json 在构建开始时就写好了，不能作准。
+log "校验前端资源"
+missing=""
+for d in apps/*/; do
+  app_name=$(basename "$d")
+  pub="$d/$app_name/public/dist/css"
+  [ -d "$d/$app_name/public" ] || continue
+  [ -n "$(ls -A "$pub" 2>/dev/null)" ] || missing="$missing $app_name"
+done
+if [ -n "$missing" ]; then
+  log "以下 app 缺前端产物，重新构建：$missing"
+  bench build
+fi
+for d in apps/*/; do
+  app_name=$(basename "$d")
+  [ -d "$d/$app_name/public" ] || continue
+  [ -n "$(ls -A "$d/$app_name/public/dist/css" 2>/dev/null)" ] \
+    || { echo "bench build 后 $app_name 仍无 dist/css，中止。" >&2; exit 1; }
+done
+ok "前端资源齐备"
 
 cat <<EOF
 
@@ -221,9 +251,11 @@ cat <<EOF
   站点:     $SITE_NAME
   用户:     Administrator
   密码:     $ADMIN_PASSWORD
+  Python:   $PY_VERSION
 
 启动开发服务器（在宿主机执行）:
   docker/start.sh
-
 然后访问 http://localhost:${WEB_PORT:-8000}
+
+下一步（可选）：docker/seed-demo.sh 建公司与演示数据
 EOF

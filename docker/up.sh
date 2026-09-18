@@ -28,9 +28,12 @@ done
 echo "==> 搭建 bench 与站点（幂等，已存在则跳过）"
 docker compose exec -T \
   -e SITE_NAME="${SITE_NAME:-erx.localhost}" \
-  -e BENCH_NAME="${BENCH_NAME:-bench}" \
+  -e BENCH_NAME="${BENCH_NAME:-frappe-bench}" \
   -e DB_ROOT_PASSWORD="${DB_ROOT_PASSWORD:-123}" \
   -e ADMIN_PASSWORD="${ADMIN_PASSWORD:-admin}" \
   -e WEB_PORT="${WEB_PORT:-8000}" \
+  -e GIT_PROXY="${GIT_PROXY:-}" \
+  -e FRAPPE_REPO="${FRAPPE_REPO:-https://github.com/PhilixKuro/frappe.git}" \
+  -e FRAPPE_BRANCH="${FRAPPE_BRANCH:-version-16}" \
   -w /workspace \
   frappe bash /workspace/docker/scripts/setup.sh

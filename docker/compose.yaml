@@ -42,15 +42,9 @@ services:
     command: sleep infinity
     environment:
       - SHELL=/bin/bash
-      # FRAPPE_BENCH_ROOT 不设在这里，而由 Procfile 逐进程注入
-      # （见 scripts/setup.sh 的 Procfile 步骤）。原因：apps/frappe 是指向
-      # submodule 的符号链接，node_utils.js 里 path.resolve(__dirname,"..","..")
-      # 会算出 /workspace 而非 bench 根，socketio 遂读不到
-      # common_site_config.json、回落连 127.0.0.1:6379 后整个 bench start 退出。
-      # 注入点跟着 bench 走，比容器级变量更不易在改动目录结构时失配。
     working_dir: /workspace/frappe-bench
     volumes:
-      # 项目根挂进容器：bench、apps submodule、docs 都在里面
+      # 项目根挂进容器：bench、docker 脚本、docs 都在里面
       - ..:/workspace:cached
     ports:
       # v15 环境。宿主侧 socketio 默认 9100——9000 常落在 Hyper-V 保留段。

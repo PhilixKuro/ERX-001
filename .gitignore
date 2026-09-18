@@ -5,11 +5,11 @@ docker/.env
 docker/backups/
 docker/images/
 
-# bench 本体由 docker/up.sh 生成，含 venv 与 node_modules
+# bench 整个不进版本管理——遵循 frappe_docker 官方模型（官方文档：
+# "The development directory is ignored by git"）。各 app 在
+# frappe-bench/apps/ 下各自是独立 git 仓库，remote 指自有 fork，改源码在那里
+# 改并 push；版本由 docker/apps.json 声明，换机器按它重建。
 frappe-bench/
 
 # bench 在项目根留下的运行时产物
 config/
-
-# 兼容链接，指向 frappe-bench/sites（见 docker/scripts/setup.sh 步骤 5b）
-/sites
