@@ -198,8 +198,21 @@ fi
 log "开启开发模式"
 bench --site "$SITE_NAME" set-config developer_mode 1
 bench --site "$SITE_NAME" clear-cache
-bench use "$SITE_NAME"
 ok "开发模式已开启"
+
+# ---------- 8. 默认站点 ----------
+# Frappe 按 HTTP Host 头选站点。浏览器访问 localhost:8000 而站点名是
+# erx.localhost，没有 default_site 兜底就整站 404「localhost does not exist」。
+# 校验而非只调用——这个值曾被后续写 common_site_config.json 的操作覆盖掉。
+log "设默认站点"
+bench use "$SITE_NAME"
+actual=$(bench --site "$SITE_NAME" execute frappe.get_conf 2>/dev/null | grep -oE "'default_site': '[^']*'" | cut -d"'" -f4)
+if [ "$actual" != "$SITE_NAME" ]; then
+  # execute 取不到时退回读文件
+  grep -q "\"default_site\": \"$SITE_NAME\"" sites/common_site_config.json \
+    || { echo "default_site 未写入 common_site_config.json，中止。" >&2; exit 1; }
+fi
+ok "默认站点为 $SITE_NAME（改动后须重启 bench start 才生效）"
 
 cat <<EOF
 

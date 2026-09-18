@@ -154,3 +154,33 @@ docker/down.sh && docker/up.sh                          # 重启
 ```
 
 数据库连不上先确认 mariadb 是 healthy。站点起不来时进 `docker/shell.sh` 跑 `bench doctor`。
+
+### 整站 404「localhost does not exist」
+
+Frappe 按 HTTP Host 头选站点。浏览器访问的是 `localhost:8000`，而站点名是 `erx.localhost`，靠 `common_site_config.json` 的 `default_site` 兜底。该值缺失时**所有路径**都 404，包括 `/api/method/ping`。
+
+```bash
+docker/shell.sh
+bench use erx.localhost      # 重设
+exit
+# 然后 Ctrl-C 停掉 start.sh 再重跑——web 进程只在启动时读这个配置
+```
+
+判断依据：带 Host 头能通就说明只是 `default_site` 的问题。
+
+```bash
+curl -H 'Host: erx.localhost' -o /dev/null -w '%{http_code}\n' http://localhost:8000/app
+```
+
+也可以直接用 http://erx.localhost:8000 访问，绕过这个设置（Windows 对 `.localhost` 域名默认解析到 127.0.0.1，无须改 hosts）。
+
+### 界面完全没有样式
+
+CSS/JS 全 404 时是前端资源没构建。见上文「符号链接带来的三处必需修补」第二条：
+
+```bash
+docker/shell.sh
+bench build
+```
+
+浏览器需 Ctrl-Shift-R 强制刷新——它会缓存 404 响应。
