@@ -1,0 +1,5 @@
+# 容器内执行的脚本必须是 LF——CRLF 会让 bash 报 "bad interpreter: no such file
+# or directory"，在新机器上 checkout 后脚本直接不可用。
+*.sh text eol=lf
+docker/compose.yaml text eol=lf
+docker/.env.example text eol=lf

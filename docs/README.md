@@ -1,5 +1,16 @@
 # ERX-001 — 文档导航
 
+## 代码去哪找
+
+| 找什么 | 去哪 |
+|---|---|
+| Frappe 框架源码 | `apps/frappe/`（fork 的 submodule，锁 version-16） |
+| ERPNext 业务源码 | `apps/erpnext/`（fork 的 submodule，锁 version-16） |
+| 本项目二次开发内容 | 自有 app（待创建） |
+| 开发环境怎么起、怎么换机器 | [../docker/README.md](../docker/README.md) |
+
+扩展方式、上游同步流程、改源码的留痕义务见 [开发守则.md](开发守则.md)。
+
 ## 必读文件
 
 1. [项目概况.md](项目概况.md)
