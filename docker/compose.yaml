@@ -1,0 +1,72 @@
+# ERX-001 开发环境
+#
+# 数据库/Redis 用 named volume（性能），bench 代码用 bind mount（可改、可拷走）。
+# 换机器后用 scripts/setup.sh 重建环境，用 scripts/restore.sh 恢复数据。
+# 详见 docker/README.md。
+
+name: erx001
+
+services:
+  mariadb:
+    image: docker.io/mariadb:11.8
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --skip-character-set-client-handshake
+    environment:
+      MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD:-123}"
+      MARIADB_AUTO_UPGRADE: 1
+    volumes:
+      - mariadb-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  redis-cache:
+    image: docker.io/redis:alpine
+    volumes:
+      - redis-cache-data:/data
+    restart: unless-stopped
+
+  redis-queue:
+    image: docker.io/redis:alpine
+    volumes:
+      - redis-queue-data:/data
+    restart: unless-stopped
+
+  frappe:
+    image: docker.io/frappe/bench:latest
+    command: sleep infinity
+    environment:
+      - SHELL=/bin/bash
+      # FRAPPE_BENCH_ROOT 不设在这里，而由 Procfile 逐进程注入
+      # （见 scripts/setup.sh 的 Procfile 步骤）。原因：apps/frappe 是指向
+      # submodule 的符号链接，node_utils.js 里 path.resolve(__dirname,"..","..")
+      # 会算出 /workspace 而非 bench 根，socketio 遂读不到
+      # common_site_config.json、回落连 127.0.0.1:6379 后整个 bench start 退出。
+      # 注入点跟着 bench 走，比容器级变量更不易在改动目录结构时失配。
+    working_dir: /workspace/frappe-bench
+    volumes:
+      # 项目根挂进容器：bench、apps submodule、docs 都在里面
+      - ..:/workspace:cached
+    ports:
+      # v15 环境。宿主侧 socketio 默认 9100——9000 常落在 Hyper-V 保留段。
+      - "${WEB_PORT:-8000}:8000"        # Frappe web
+      - "${SOCKETIO_PORT:-9100}:9000"   # realtime
+      - "${WATCH_PORT:-6787}:6787"      # asset watcher
+    depends_on:
+      mariadb:
+        condition: service_healthy
+      redis-cache:
+        condition: service_started
+      redis-queue:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  mariadb-data:
+  redis-cache-data:
+  redis-queue-data:

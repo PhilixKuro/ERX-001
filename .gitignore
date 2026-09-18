@@ -1,1 +1,15 @@
 .claude/*
+
+# 开发环境本机配置与数据
+docker/.env
+docker/backups/
+docker/images/
+
+# bench 本体由 docker/up.sh 生成，含 venv 与 node_modules
+frappe-bench/
+
+# bench 在项目根留下的运行时产物
+config/
+
+# 兼容链接，指向 frappe-bench/sites（见 docker/scripts/setup.sh 步骤 5b）
+/sites
