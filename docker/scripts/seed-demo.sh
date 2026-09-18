@@ -162,7 +162,7 @@ PY
   ok "公司与会计年度完成"
 fi
 
-# ---------- 2. 导入演示数据 ----------
+# ---------- 3. 导入演示数据 ----------
 log "检查演示数据"
 demo_exists=$(../env/bin/python -c "
 import frappe
@@ -207,7 +207,7 @@ PY
   ok "演示数据完成"
 fi
 
-# ---------- 3. 默认公司对齐到演示数据所在那家 ----------
+# ---------- 4. 默认公司对齐到演示数据所在那家 ----------
 # setup_demo_data() 建了一个 "(Demo)" 副本公司并把全部演示单据放在它名下。
 # 默认公司若仍指主公司，打开演示单据会被 ERPNext 报成「没有权限」——实际是
 # 跨公司数据隔离，不是角色缺失。
@@ -226,7 +226,31 @@ else:
 PY
 ok "完成"
 
-# ---------- 4. 清缓存 ----------
+# ---------- 5. 标记配置完成 ----------
+# 否则登录后被强制跳到 /desk/setup-wizard 填表。
+# v16 的判据不是 System Settings.setup_complete，而是 Installed Application
+# 表里 frappe 与 erpnext 两行的 is_setup_complete 是否都为 1
+# （见 apps/frappe/frappe/__init__.py 的 is_setup_complete()）。
+# 光设 System Settings 无效——这是 v15 的判据。
+log "标记配置完成"
+../env/bin/python <<PY
+import frappe
+frappe.init(site="$SITE_NAME"); frappe.connect()
+
+for row in frappe.get_all("Installed Application", pluck="name"):
+    frappe.db.set_value("Installed Application", row, "is_setup_complete", 1)
+frappe.db.set_single_value("System Settings", "setup_complete", 1)
+# 首页从 setup-wizard 改回工作区
+frappe.db.set_default("desktop:home_page", "workspace")
+frappe.db.commit()
+frappe.clear_cache()
+
+assert frappe.is_setup_complete(), "is_setup_complete() 仍为 False，登录会被跳到向导"
+print("    已标记完成，首页为 workspace")
+PY
+ok "完成"
+
+# ---------- 6. 清缓存 ----------
 log "清缓存"
 cd "$BENCH_DIR"
 bench --site "$SITE_NAME" clear-cache
