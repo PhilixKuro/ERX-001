@@ -1,6 +1,6 @@
 # 开发环境（Docker）
 
-Frappe v15 + ERPNext v15 的容器化开发环境。宿主机只需 Docker，其余依赖全在容器里。
+Frappe v16 + ERPNext v16 的容器化开发环境（分支与 commit 见 `apps.json`）。宿主机只需 Docker，其余依赖全在容器里。
 
 ## 日常用法
 
@@ -16,8 +16,6 @@ Frappe v15 + ERPNext v15 的容器化开发环境。宿主机只需 Docker，其
 | 清除演示数据 | `docker/seed-demo.sh --clear` |
 | 改界面语言 / 默认公司 | `docker/set-locale.sh` |
 | 删容器与数据 | `docker/down.sh --purge` |
-
-v16 并行环境另有一套：`up-v16.sh` / `start-v16.sh` / `shell-v16.sh`（见下方「两套版本并存」）。
 
 登录：`Administrator` / `admin`（密码在 `.env` 的 `ADMIN_PASSWORD`）。
 
