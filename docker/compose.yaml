@@ -47,9 +47,13 @@ services:
       # 项目根挂进容器：bench、docker 脚本、docs 都在里面
       - ..:/workspace:cached
     ports:
-      # v15 环境。宿主侧 socketio 默认 9100——9000 常落在 Hyper-V 保留段。
+      # 宿主侧 socketio 用 9100——9000 落在 Windows 保留段（实测 netsh 排除范围含
+      # 8995-9094），宿主绑不上。容器内也监听 9100（由站点配置 socketio_port 决定），
+      # 故两侧同号直通：浏览器按站点配置里的端口去连宿主，同号才连得上。
+      # 改这里必须同步改 sites/common_site_config.json 的 socketio_port，否则
+      # realtime 静默断连（P1-S2-R1 第 15 步实测踩过）。
       - "${WEB_PORT:-8000}:8000"        # Frappe web
-      - "${SOCKETIO_PORT:-9100}:9000"   # realtime
+      - "${SOCKETIO_PORT:-9100}:9100"   # realtime
       - "${WATCH_PORT:-6787}:6787"      # asset watcher
     depends_on:
       mariadb:

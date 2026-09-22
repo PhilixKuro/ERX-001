@@ -129,14 +129,43 @@ frappe-bench/apps/<自有app>  ← bench new-app 建的，同样独立
 | 用途 | 宿主机 | 容器内 |
 |---|---|---|
 | Frappe web | 8000 | 8000 |
-| Realtime (socketio) | 9100 | 9000 |
+| Realtime (socketio) | 9100 | **9100**（两侧同号） |
 | 资源监视 | 6787 | 6787 |
 
-Windows 上 9000 常落在 Hyper-V 保留端口段，故宿主机侧用 9100。端口冲突时改 `.env`，不改 `compose.yaml`。查保留段：
+Windows 上 9000 常落在 Hyper-V 保留端口段（本机实测 8995-9094），故 socketio 两侧都用 9100。查保留段：
 
 ```bash
 netsh interface ipv4 show excludedportrange protocol=tcp
 ```
+
+### ⚠ socketio 端口必须两侧同号，且与站点配置一致
+
+**`socketio_port` 这一个值同时管两头**：容器内 `realtime/index.js` 据它 `listen`，浏览器则经 `boot.py` → `frappe.boot.socketio_port` → `socketio_client.js` 据它拼连接 URL。**浏览器连的是宿主，用的却是站点配置里的端口号**，所以宿主映射必须与该配置同号，否则浏览器连一个没人监听的宿主端口。
+
+**改 socketio 端口要同时改两处**（只改一处会让 realtime 静默断连——不报错、只是界面再也不自动更新）：
+
+```bash
+# 1. 站点配置（--parse 不可省，否则写成字符串 "9100" 而非整数）
+docker compose exec -T -w /workspace/frappe-bench frappe   bench set-config -g socketio_port 9100 --parse
+
+# 2. compose 映射改成同号，然后重建容器（端口映射变更须重建）
+#    - "${SOCKETIO_PORT:-9100}:9100"
+docker compose up -d
+```
+
+**自查是否断连**：浏览器 F12 Console 若反复出现 `socketio_client.js` 的 `ERR_CONNECTION_REFUSED` 与 `xhr poll error`，即端口没对上。
+
+```bash
+# 宿主侧该通
+curl -s -o /dev/null -w '%{http_code}
+' "http://localhost:9100/socket.io/?EIO=4&transport=polling"   # 期望 200
+# 容器内监听端口
+docker compose exec -T frappe bash -c 'netstat -tlnp | grep 9100'
+```
+
+**最直接的验法**：开两个浏览器标签打开同一张单据，在一个里改字段保存，另一个应自己更新。
+
+**曾经踩过**：环境自 v15 时期起 compose 映射为 `9100:9000` 而站点配置是 `9000`，故 realtime 全程断连、界面从不自动刷新。P1-S1 的全部实操都在这个状态下做的（P1-S2-R1 第 15、16 步查明并修复）。
 
 ## 版本与解释器
 
