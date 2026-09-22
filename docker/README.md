@@ -14,7 +14,9 @@ Frappe v16 + ERPNext v16 的容器化开发环境（分支与 commit 见 `apps.j
 | 恢复站点数据 | `docker/restore.sh` |
 | 建公司 + 演示数据 | `docker/seed-demo.sh` |
 | 清除演示数据 | `docker/seed-demo.sh --clear` |
+| **只补 v16 初始化，不建公司不导演示数据** | `docker/seed-demo.sh --bare` |
 | 改界面语言 / 默认公司 | `docker/set-locale.sh` |
+| **抹掉全部数据重来** | 见下方「重装站点」节——**不是单跑 reinstall，有三个坑** |
 | 删容器与数据 | `docker/down.sh --purge` |
 
 登录：`Administrator` / `admin`（密码在 `.env` 的 `ADMIN_PASSWORD`）。
@@ -180,6 +182,58 @@ v16 把一批初始化搬到了界面上的配置向导里，而 `bench new-site
 `setup_demo_data()` 的签名也变了（v16 需传公司名），脚本按函数签名分派以兼容两版。
 
 **排查时注意**：v16 的 `setup_demo_data()` 把异常吞进 Error Log 后正常返回（v15 会 `raise`），所以「跑完没报错」不等于成功。`seed-demo.sh` 因此在每步落库后加断言，并在失败时摘出 Error Log。
+
+## 重装站点（抹掉全部数据重来）
+
+教学实操、演示前重置这类场合要一个干净站点。**跑之前先 `docker/backup.sh`**，并把那份备份另存一个子目录——`backup.sh` 每类只保留最新一份，下次备份会覆盖它。
+
+```bash
+docker/backup.sh
+cp docker/backups/<时间戳>-* docker/backups/保留-某个名字/
+
+docker/shell.sh
+bench --site erx.localhost reinstall --yes --admin-password admin --db-root-password 123
+bench --site erx.localhost install-app erpnext     # 见下方坑一，这一步不能省
+exit
+
+docker/seed-demo.sh --bare      # 只补 v16 缺的初始化，不建公司、不导演示数据
+docker/set-locale.sh            # 补回中文，见坑三
+```
+
+**⚠ 坑一：`--admin-password` 必须显式传，否则 drop 完数据库才失败，并把 erpnext 弄丢。**
+
+不传时报 `EOFError`。成因：`frappe/commands/site.py` 的 `_reinstall()` 把 `admin_password=None` 原样传给 `_new_site()`，而 `frappe/utils/install.py` 的 `get_admin_password()` 是 `frappe.conf.get("admin_password") or getpass.getpass(...)`——站点 `site_config.json` 里**没有** `admin_password` 字段（`up.sh` 建站时经命令行传入、不落盘），而 `docker compose exec -T` 无 TTY，`getpass` 遂抛异常。
+
+**真正的代价在失败点的位置**：`_reinstall()` 先读旧库的 `get_installed_apps()` 拿到 `["frappe","erpnext"]`，然后 drop 库、按序装 app。它在**装完 frappe、装 erpnext 之前**死掉，此时 `installed_apps` 已被改写成只剩 frappe。**故第二次 reinstall 只会装 frappe**——它读的是已被污染的那份清单。必须 `install-app erpnext` 单独补装。
+
+判据：`bench --site erx.localhost list-apps` 应同时列出 frappe 与 erpnext。
+
+**⚠ 坑二：`--bare` 是给"骨架由人手工建"的场合用的。** 它跑 `seed-demo.sh` 的第 1、5、6 段（v16 前置数据 / `is_setup_complete` 标记 / 清缓存），跳过建公司、演示数据、默认公司对齐。**不能简化成"只跑第 1 段"**——缺第 5 段那个标记，登录会被强制跳配置向导。
+
+**⚠ 坑三：reinstall 抹掉语言设置，界面回英文。** `Language` 记录与 `System Settings.language`、`User.language` 都要重设，跑 `set-locale.sh` 即可。不补的话按中文写的操作文档全部对不上。
+
+**重装后的核验**（别只看脚本输出）：
+
+```bash
+docker/shell.sh
+cd sites && ../env/bin/python -c "
+import frappe; frappe.init(site='erx.localhost'); frappe.connect()
+print('Company:', frappe.db.count('Company'))              # 应为 0
+print('setup_complete:', frappe.is_setup_complete())       # 应为 True
+print('Warehouse Type Transit:', bool(frappe.db.exists('Warehouse Type','Transit')))
+print('UOM:', frappe.db.count('UOM'))                      # 应为 239
+print('Price List:', frappe.db.count('Price List'))        # 应为 2
+print('lang:', frappe.db.get_single_value('System Settings','language'))
+"
+```
+
+再验 web 层：登录 + `/app` 返 200 + desk 页全部静态资源均 200（脚本见本文末「界面完全没有样式」节，**要测全部资源不能抽查**）。
+
+## 路由前缀是 /desk/ 不是 /app/
+
+v16 把 desk 的路由前缀改成了 `/desk/`，`hooks.py` 里 `/app/(.*)` 已降为到 `/desk/\1` 的**重定向**（实测 `/app/...` 返 301）。旧写法还能用，所以不会立刻报错，但写文档与脚本时一律用 `/desk/`。
+
+**树形 DocType 要走树视图**：`Account` / `Warehouse` / `Cost Center` 等 `is_tree=1` 的，落到列表路由会显示空白（它们的 `*_list.js` 是空文件，实现在 `*_tree.js`）。地址形如 `http://localhost:8000/desk/account/view/tree`。
 
 ## 出问题时
 

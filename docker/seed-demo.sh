@@ -3,6 +3,8 @@
 #
 #   docker/seed-demo.sh            建公司 + 导演示数据（幂等）
 #   docker/seed-demo.sh --clear    只清除演示数据，保留公司
+#   docker/seed-demo.sh --bare     只补 v16 缺的初始化，不建公司、不导演示数据
+#                                  （骨架由人手工建的场合用，如教学实操）
 #
 # 公司信息可在 .env 里改（COMPANY_NAME / COMPANY_COUNTRY / COMPANY_CURRENCY 等）。
 set -euo pipefail

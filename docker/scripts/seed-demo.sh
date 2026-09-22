@@ -2,6 +2,11 @@
 # 建公司 + 导入 ERPNext 演示数据。在容器内跑——用宿主机的 docker/seed-demo.sh 调用。
 #
 # 演示数据是假的，日后清理见 docker/seed-demo.sh --clear。
+#
+# --bare 只补 v16 全新安装缺的那五处初始化（第 1、5、6 段），**不建公司、不导演示数据**。
+# 用于「要一个能登录、但骨架由人手工建」的空站点——教学实操与 DEC-011 要求的干净
+# 弹簧厂环境都属这种。缺了第 5 段（is_setup_complete）登录会被强制跳配置向导，
+# 故 --bare 不能简化成「只跑第 1 段」。
 set -euo pipefail
 
 SITE_NAME="${SITE_NAME:-erx.localhost}"
@@ -16,6 +21,9 @@ log() { printf '\n\033[36m==> %s\033[0m\n' "$*"; }
 ok()  { printf '\033[32m    %s\033[0m\n' "$*"; }
 
 cd "$BENCH_DIR/sites"
+
+BARE=0
+[ "${1:-}" = "--bare" ] && BARE=1
 
 if [ "${1:-}" = "--clear" ]; then
   log "清除演示数据"
@@ -92,6 +100,32 @@ if frappe.defaults.get_defaults().get("currency") != currency:
 frappe.db.commit()
 frappe.clear_cache()
 PY
+
+# ---------- 2-4. 建公司、导演示数据、对齐默认公司 ----------
+# --bare 整块跳过这三段：公司由人手工建（教学实操），演示数据违 DEC-011。
+if [ "$BARE" = "1" ]; then
+  log "--bare：跳过建公司、演示数据、默认公司对齐"
+  # 国家与时区仍要设——它们属站点级、不随公司来，而建公司时的科目表模板候选
+  # 按国别码筛（chart_of_accounts.py 的 get_charts_for_country()）。
+  # language 也必须一并给：它在 System Settings 上 reqd=1，而 reinstall 后该值为空，
+  # 只设 country/time_zone 去 save() 会撞 MandatoryError(language)。这里填 en 兜底，
+  # 中文由 set-locale.sh 随后覆盖（它设 System Settings.language + User.language 两处）。
+  ../env/bin/python <<PY
+import frappe
+frappe.init(site="$SITE_NAME"); frappe.connect()
+ss = frappe.get_single("System Settings")
+ss.country = "$COUNTRY"
+ss.time_zone = "$TIMEZONE"
+if not ss.language:
+    ss.language = "en"
+ss.save(ignore_permissions=True)
+frappe.db.commit()
+print(f"    站点国家=$COUNTRY 时区=$TIMEZONE")
+assert frappe.db.count("Company") == 0, "--bare 不该有公司存在"
+print("    Company 表为 0 行——骨架留给人手工建")
+PY
+  ok "公司与骨架留给人手工建"
+else
 
 # ---------- 2. 建公司与会计年度 ----------
 log "检查公司"
@@ -225,6 +259,8 @@ else:
     print("    无 demo_company，保持不变")
 PY
 ok "完成"
+
+fi   # ← --bare 跳过 2-4 段的结束
 
 # ---------- 5. 标记配置完成 ----------
 # 否则登录后被强制跳到 /desk/setup-wizard 填表。
