@@ -1,0 +1,104 @@
+{
+ "segment": "3b error path in a fresh process (no flag leakage)",
+ "flag_ignore_coa_at_start": "unset",
+ "flag_country_change_at_start": "unset",
+ "accounts_total_before": 627,
+ "frt_before": 6,
+ "error_logs_before": 1,
+ "c3_exists_before": false,
+ "c3_insert_result": "NO EXCEPTION",
+ "c3_insert_failed": false,
+ "flag_ignore_coa_after": "unset",
+ "flag_country_change_after": true,
+ "c3_company_exists": true,
+ "c3_accounts": 95,
+ "accounts_total_after": 722,
+ "c3_roots": [
+  {
+   "name": "Application of Funds (Assets) - V19C",
+   "account_number": "",
+   "account_name": "Application of Funds (Assets)",
+   "root_type": "Asset"
+  },
+  {
+   "name": "Equity - V19C",
+   "account_number": "",
+   "account_name": "Equity",
+   "root_type": "Equity"
+  },
+  {
+   "name": "Expenses - V19C",
+   "account_number": "",
+   "account_name": "Expenses",
+   "root_type": "Expense"
+  },
+  {
+   "name": "Income - V19C",
+   "account_number": "",
+   "account_name": "Income",
+   "root_type": "Income"
+  },
+  {
+   "name": "Source of Funds (Liabilities) - V19C",
+   "account_number": "",
+   "account_name": "Source of Funds (Liabilities)",
+   "root_type": "Liability"
+  }
+ ],
+ "c3_chinese_root_count": 0,
+ "c3_english_root_count": 5,
+ "c3_duplicate_suffix_accounts": [],
+ "c3_duplicate_suffix_count": 0,
+ "c3_VAT_account": {
+  "name": "VAT - V19C",
+  "account_number": null,
+  "parent_account": "Duties and Taxes - V19C",
+  "account_type": "Tax",
+  "tax_rate": 17.0
+ },
+ "c3_defaults": {
+  "default_receivable_account": "Debtors - V19C",
+  "default_payable_account": "Creditors - V19C",
+  "default_income_account": "Sales - V19C",
+  "default_bank_account": null,
+  "default_inventory_account": "Stock In Hand - V19C",
+  "round_off_account": "Round Off - V19C",
+  "default_cash_account": "Cash - V19C",
+  "default_expense_account": "Cost of Goods Sold - V19C"
+ },
+ "c3_side_effects": {
+  "warehouses": 5,
+  "cost_centers": 2,
+  "departments": 13,
+  "sales_templates": 1,
+  "purchase_templates": 1
+ },
+ "c3_account_category_populated": 73,
+ "frt_after": 6,
+ "error_logs_after": 1,
+ "error_logs_today": [],
+ "nsm_bad_rows_site_wide": 0,
+ "BASELINE_accounts": 95,
+ "companies": [
+  {
+   "name": "华东弹簧",
+   "abbr": "HDS",
+   "chart_of_accounts": "Standard"
+  },
+  {
+   "name": "V19A案一",
+   "abbr": "V19A",
+   "chart_of_accounts": "小企业会计准则(2024)"
+  },
+  {
+   "name": "V19A案二",
+   "abbr": "V19B",
+   "chart_of_accounts": "小企业会计准则(2024)"
+  },
+  {
+   "name": "V19A案三",
+   "abbr": "V19C",
+   "chart_of_accounts": "Standard"
+  }
+ ]
+}

@@ -1,0 +1,795 @@
+{
+ "segment": "2 side effects, option A vs V-18 native",
+ "V18_baseline": {
+  "accounts": 267,
+  "json_nodes": 266,
+  "extra_account": "VAT - V18B",
+  "warehouses": 5,
+  "cost_centers": 2,
+  "departments": 13,
+  "financial_report_templates": 6,
+  "error_log_count": 1,
+  "default_receivable_account": "2203 - 预收账款",
+  "default_payable_account": "2211010 - 职工工资",
+  "default_inventory_account": "1421 消耗性生物资产",
+  "default_bank_account": "1012 其他货币资金",
+  "default_income_account": null,
+  "round_off_account": null,
+  "tax_categories": 7,
+  "sales_templates": 5,
+  "purchase_templates": 5
+ },
+ "A_VAT_account": null,
+ "CMP_VAT_account_present": {
+  "A": false,
+  "native_V18": true,
+  "verdict": "不同"
+ },
+ "A_accounts_with_empty_number": [],
+ "erpnext_country_wise_tax_China": {
+  "China Tax": {
+   "account_name": "VAT",
+   "tax_rate": 17.0
+  }
+ },
+ "A_native_China_Tax_templates": {
+  "sales": [],
+  "purchase": []
+ },
+ "erpnext_regional_dirs": [
+  "__pycache__",
+  "address_template",
+  "australia",
+  "doctype",
+  "italy",
+  "print_format",
+  "report",
+  "south_africa",
+  "turkey",
+  "united_arab_emirates",
+  "united_states"
+ ],
+ "erpnext_regional_china_exists": false,
+ "scrub_China": "china",
+ "install_country_fixtures_import": "ImportError -> silently passed: No module named 'erpnext.regional.china'",
+ "A_company_defaults": {
+  "default_receivable_account": "1122 - 应收账款 - V19A",
+  "default_payable_account": "2202 - 应付账款 - V19A",
+  "default_inventory_account": "1403 - 原材料 - V19A",
+  "default_bank_account": "1002 - 银行存款 - V19A",
+  "default_income_account": "5001010 - 销售商品收入 - V19A",
+  "round_off_account": null,
+  "default_cash_account": "1001 - 库存现金 - V19A",
+  "default_expense_account": "5401010 - 销售商品成本 - V19A",
+  "stock_adjustment_account": "400103 - 生产成本-库存调整 - V19A",
+  "default_provisional_account": "220203 - 应付账款-暂估服务 - V19A",
+  "write_off_account": null,
+  "default_discount_account": null,
+  "exchange_gain_loss_account": "5603220 - 财务费用_汇兑差额 - V19A",
+  "default_operating_cost_account": null,
+  "cost_center": "Main - V19A",
+  "round_off_cost_center": "Main - V19A",
+  "default_finance_book": null
+ },
+ "A_six_defaults_vs_native": {
+  "default_receivable_account": {
+   "A_raw": "1122 - 应收账款 - V19A",
+   "A_short": "1122 - 应收账款",
+   "native_V18": "2203 - 预收账款",
+   "same": false
+  },
+  "default_payable_account": {
+   "A_raw": "2202 - 应付账款 - V19A",
+   "A_short": "2202 - 应付账款",
+   "native_V18": "2211010 - 职工工资",
+   "same": false
+  },
+  "default_inventory_account": {
+   "A_raw": "1403 - 原材料 - V19A",
+   "A_short": "1403 - 原材料",
+   "native_V18": "1421 消耗性生物资产",
+   "same": false
+  },
+  "default_bank_account": {
+   "A_raw": "1002 - 银行存款 - V19A",
+   "A_short": "1002 - 银行存款",
+   "native_V18": "1012 其他货币资金",
+   "same": false
+  },
+  "default_income_account": {
+   "A_raw": "5001010 - 销售商品收入 - V19A",
+   "A_short": "5001010 - 销售商品收入",
+   "native_V18": null,
+   "same": false
+  },
+  "round_off_account": {
+   "A_raw": null,
+   "A_short": null,
+   "native_V18": null,
+   "same": true
+  }
+ },
+ "csv_row_count": 35,
+ "csv_field_resolution": [
+  {
+   "field": "default_bank_account",
+   "csv_account_name": "银行存款",
+   "resolved": "1002 - 银行存款 - V19A",
+   "is_current_value": true
+  },
+  {
+   "field": "default_cash_account",
+   "csv_account_name": "库存现金",
+   "resolved": "1001 - 库存现金 - V19A",
+   "is_current_value": true
+  },
+  {
+   "field": "default_payable_account",
+   "csv_account_name": "应付账款",
+   "resolved": "2202 - 应付账款 - V19A",
+   "is_current_value": true
+  },
+  {
+   "field": "default_payable_account",
+   "csv_account_name": "应付账款-供应商款",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_payable_account",
+   "csv_account_name": "应付账款-结算",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_payroll_payable_account",
+   "csv_account_name": "应付职工薪酬-职工工资",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_payroll_payable_account",
+   "csv_account_name": "职工工资",
+   "resolved": "2211010 - 职工工资 - V19A",
+   "is_current_value": false
+  },
+  {
+   "field": "default_receivable_account",
+   "csv_account_name": "应收账款",
+   "resolved": "1122 - 应收账款 - V19A",
+   "is_current_value": true
+  },
+  {
+   "field": "round_off_account",
+   "csv_account_name": "财务费用-圆整差异",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "write_off_account",
+   "csv_account_name": "营业外支出-坏账损失",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "exchange_gain_loss_account",
+   "csv_account_name": "财务费用-汇兑损益",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "exchange_gain_loss_account",
+   "csv_account_name": "财务费用_汇兑差额",
+   "resolved": "5603220 - 财务费用_汇兑差额 - V19A",
+   "is_current_value": true
+  },
+  {
+   "field": "unrealized_exchange_gain_loss_account",
+   "csv_account_name": "财务费用-汇兑损益",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_income_account",
+   "csv_account_name": "主营业务收入",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_income_account",
+   "csv_account_name": "销售商品收入",
+   "resolved": "5001010 - 销售商品收入 - V19A",
+   "is_current_value": true
+  },
+  {
+   "field": "default_expense_account",
+   "csv_account_name": "主营业务成本",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_expense_account",
+   "csv_account_name": "销售商品成本",
+   "resolved": "5401010 - 销售商品成本 - V19A",
+   "is_current_value": true
+  },
+  {
+   "field": "default_expense_claim_payable_account",
+   "csv_account_name": "其他应付款",
+   "resolved": "2241 - 其他应付款 - V19A",
+   "is_current_value": false
+  },
+  {
+   "field": "default_discount_account",
+   "csv_account_name": "财务费用-现金折扣",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_inventory_account",
+   "csv_account_name": "原材料",
+   "resolved": "1403 - 原材料 - V19A",
+   "is_current_value": true
+  },
+  {
+   "field": "stock_adjustment_account",
+   "csv_account_name": "生产成本-库存调整",
+   "resolved": "400103 - 生产成本-库存调整 - V19A",
+   "is_current_value": true
+  },
+  {
+   "field": "stock_adjustment_account",
+   "csv_account_name": "制造企业成本-库存调整",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "stock_received_but_not_billed",
+   "csv_account_name": "应付账款-暂估库存",
+   "resolved": "220202 - 应付账款-暂估库存 - V19A",
+   "is_current_value": false
+  },
+  {
+   "field": "default_provisional_account",
+   "csv_account_name": "应付账款-暂估服务",
+   "resolved": "220203 - 应付账款-暂估服务 - V19A",
+   "is_current_value": true
+  },
+  {
+   "field": "service_received_but_not_billed",
+   "csv_account_name": "应付账款-暂估服务",
+   "resolved": "220203 - 应付账款-暂估服务 - V19A",
+   "is_current_value": false
+  },
+  {
+   "field": "expenses_included_in_valuation",
+   "csv_account_name": "制造费用-结转库存",
+   "resolved": "410199 - 制造费用-结转库存 - V19A",
+   "is_current_value": false
+  },
+  {
+   "field": "expenses_included_in_valuation",
+   "csv_account_name": "制造企业成本-结转库存",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "accumulated_depreciation_account",
+   "csv_account_name": "累计折旧",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "depreciation_expense_account",
+   "csv_account_name": "管理费用-折旧费",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "disposal_account",
+   "csv_account_name": "固定资产清理",
+   "resolved": "1606 - 固定资产清理 - V19A",
+   "is_current_value": false
+  },
+  {
+   "field": "asset_received_but_not_billed",
+   "csv_account_name": "应付账款-暂估资产",
+   "resolved": "220204 - 应付账款-暂估资产 - V19A",
+   "is_current_value": false
+  },
+  {
+   "field": "capital_work_in_progress_account",
+   "csv_account_name": "在建工程",
+   "resolved": "1604 - 在建工程 - V19A",
+   "is_current_value": false
+  },
+  {
+   "field": "expenses_included_in_asset_valuation",
+   "csv_account_name": "制造费用-结转资产",
+   "resolved": "410103 - 制造费用-结转资产 - V19A",
+   "is_current_value": false
+  },
+  {
+   "field": "default_advance_received_account",
+   "csv_account_name": "预收账款",
+   "resolved": "2203 - 预收账款 - V19A",
+   "is_current_value": false
+  },
+  {
+   "field": "default_advance_paid_account",
+   "csv_account_name": "预付账款",
+   "resolved": "1123 - 预付账款 - V19A",
+   "is_current_value": false
+  }
+ ],
+ "csv_rows_unresolved_count": 14,
+ "csv_rows_unresolved": [
+  {
+   "field": "default_payable_account",
+   "csv_account_name": "应付账款-供应商款",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_payable_account",
+   "csv_account_name": "应付账款-结算",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_payroll_payable_account",
+   "csv_account_name": "应付职工薪酬-职工工资",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "round_off_account",
+   "csv_account_name": "财务费用-圆整差异",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "write_off_account",
+   "csv_account_name": "营业外支出-坏账损失",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "exchange_gain_loss_account",
+   "csv_account_name": "财务费用-汇兑损益",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "unrealized_exchange_gain_loss_account",
+   "csv_account_name": "财务费用-汇兑损益",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_income_account",
+   "csv_account_name": "主营业务收入",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_expense_account",
+   "csv_account_name": "主营业务成本",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "default_discount_account",
+   "csv_account_name": "财务费用-现金折扣",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "stock_adjustment_account",
+   "csv_account_name": "制造企业成本-库存调整",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "expenses_included_in_valuation",
+   "csv_account_name": "制造企业成本-结转库存",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "accumulated_depreciation_account",
+   "csv_account_name": "累计折旧",
+   "resolved": null,
+   "is_current_value": null
+  },
+  {
+   "field": "depreciation_expense_account",
+   "csv_account_name": "管理费用-折旧费",
+   "resolved": null,
+   "is_current_value": null
+  }
+ ],
+ "unordered_pick_Receivable": "2203 - 预收账款 - V19A",
+ "unordered_pick_Payable": "2211010 - 职工工资 - V19A",
+ "unordered_pick_Bank": "1012 - 其他货币资金 - V19A",
+ "unordered_pick_Cash": "1001 - 库存现金 - V19A",
+ "unordered_pick_Stock": "1421 - 消耗性生物资产 - V19A",
+ "unordered_pick_Round_Off": null,
+ "A_error_log_count": 1,
+ "CMP_error_log_count": {
+  "A": 1,
+  "native_V18": 1,
+  "verdict": "相同"
+ },
+ "A_error_logs_all": [
+  {
+   "name": "ukksv2d6f5",
+   "method": "Report execution failed for: Stock and Account Value Comparison",
+   "creation": "2026-09-21 04:17:57.241493"
+  }
+ ],
+ "A_error_logs_set_company_default": [],
+ "A_error_logs_company_on_update_method": [],
+ "A_error_logs_create_charts2": [],
+ "A_error_logs_today": [],
+ "A_side_effect_counts": {
+  "warehouses": 5,
+  "cost_centers": 2,
+  "departments": 13
+ },
+ "CMP_warehouses": {
+  "A": 5,
+  "native_V18": 5,
+  "verdict": "相同"
+ },
+ "CMP_cost_centers": {
+  "A": 2,
+  "native_V18": 2,
+  "verdict": "相同"
+ },
+ "CMP_departments": {
+  "A": 13,
+  "native_V18": 13,
+  "verdict": "相同"
+ },
+ "A_warehouses": [
+  {
+   "name": "Goods In Transit - V19A",
+   "is_group": 0,
+   "warehouse_type": "Transit",
+   "account": null
+  },
+  {
+   "name": "Finished Goods - V19A",
+   "is_group": 0,
+   "warehouse_type": null,
+   "account": "1405 - 库存商品 - V19A"
+  },
+  {
+   "name": "Work In Progress - V19A",
+   "is_group": 0,
+   "warehouse_type": null,
+   "account": "1409 - 在产品 - V19A"
+  },
+  {
+   "name": "Stores - V19A",
+   "is_group": 0,
+   "warehouse_type": null,
+   "account": null
+  },
+  {
+   "name": "All Warehouses - V19A",
+   "is_group": 1,
+   "warehouse_type": null,
+   "account": null
+  }
+ ],
+ "A_cost_centers": [
+  {
+   "name": "V19A案一 - V19A",
+   "is_group": 1
+  },
+  {
+   "name": "Main - V19A",
+   "is_group": 0
+  }
+ ],
+ "A_financial_report_templates": [
+  {
+   "name": "Financial Ratios Analysis",
+   "module": "Accounts"
+  },
+  {
+   "name": "Horizontal Balance Sheet (Columnar)",
+   "module": "Accounts"
+  },
+  {
+   "name": "Horizontal Profit and Loss (Columnar)",
+   "module": "Accounts"
+  },
+  {
+   "name": "Standard Balance Sheet (IFRS)",
+   "module": "Accounts"
+  },
+  {
+   "name": "Standard Cash Flow Statement (IFRS)",
+   "module": "Accounts"
+  },
+  {
+   "name": "Standard Profit and Loss (IFRS)",
+   "module": "Accounts"
+  }
+ ],
+ "A_financial_report_template_count": 6,
+ "CMP_financial_report_templates": {
+  "A": 6,
+  "native_V18": 6,
+  "verdict": "相同"
+ },
+ "frt_has_company_field": false,
+ "A_sales_templates": [
+  {
+   "name": "P13专票含税 - V19A",
+   "title": "P13专票含税",
+   "tax_category": "P13专票含税"
+  },
+  {
+   "name": "P3专票含税 - V19A",
+   "title": "P3专票含税",
+   "tax_category": "P3专票含税"
+  },
+  {
+   "name": "P13专票未税 - V19A",
+   "title": "P13专票未税",
+   "tax_category": "P13专票未税"
+  },
+  {
+   "name": "P3专票未税 - V19A",
+   "title": "P3专票未税",
+   "tax_category": "P3专票未税"
+  },
+  {
+   "name": "P0无税 - V19A",
+   "title": "P0无税",
+   "tax_category": "P0无税"
+  }
+ ],
+ "A_purchase_templates": [
+  {
+   "name": "P0无税 - V19A",
+   "title": "P0无税",
+   "tax_category": "P0无税"
+  },
+  {
+   "name": "P13专票未税 - V19A",
+   "title": "P13专票未税",
+   "tax_category": "P13专票未税"
+  },
+  {
+   "name": "P13专票含税 - V19A",
+   "title": "P13专票含税",
+   "tax_category": "P13专票含税"
+  },
+  {
+   "name": "P3专票含税 - V19A",
+   "title": "P3专票含税",
+   "tax_category": "P3专票含税"
+  },
+  {
+   "name": "P1专票含税 - V19A",
+   "title": "P1专票含税",
+   "tax_category": "P1专票含税"
+  }
+ ],
+ "CMP_sales_template_count": {
+  "A": 5,
+  "native_V18": 5,
+  "verdict": "相同"
+ },
+ "CMP_purchase_template_count": {
+  "A": 5,
+  "native_V18": 5,
+  "verdict": "相同"
+ },
+ "A_tax_categories_site_wide": [
+  "P0无税",
+  "P1专票未税",
+  "P3专票未税",
+  "P13专票未税",
+  "P1专票含税",
+  "P3专票含税",
+  "P13专票含税"
+ ],
+ "CMP_tax_category_count": {
+  "A": 7,
+  "native_V18": 7,
+  "verdict": "相同"
+ },
+ "A_tax_rules": [
+  {
+   "name": "ACC-TAX-RULE-2026-00011",
+   "tax_category": "",
+   "sales_tax_template": null,
+   "purchase_tax_template": "P13专票含税 - V19A"
+  },
+  {
+   "name": "ACC-TAX-RULE-2026-00010",
+   "tax_category": "",
+   "sales_tax_template": "P13专票含税 - V19A",
+   "purchase_tax_template": null
+  },
+  {
+   "name": "ACC-TAX-RULE-2026-00009",
+   "tax_category": "P0无税",
+   "sales_tax_template": null,
+   "purchase_tax_template": "P0无税 - V19A"
+  },
+  {
+   "name": "ACC-TAX-RULE-2026-00008",
+   "tax_category": "P13专票未税",
+   "sales_tax_template": null,
+   "purchase_tax_template": "P13专票未税 - V19A"
+  },
+  {
+   "name": "ACC-TAX-RULE-2026-00007",
+   "tax_category": "P1专票含税",
+   "sales_tax_template": null,
+   "purchase_tax_template": "P1专票含税 - V19A"
+  },
+  {
+   "name": "ACC-TAX-RULE-2026-00006",
+   "tax_category": "P3专票含税",
+   "sales_tax_template": null,
+   "purchase_tax_template": "P3专票含税 - V19A"
+  },
+  {
+   "name": "ACC-TAX-RULE-2026-00005",
+   "tax_category": "P13专票含税",
+   "sales_tax_template": null,
+   "purchase_tax_template": "P13专票含税 - V19A"
+  },
+  {
+   "name": "ACC-TAX-RULE-2026-00004",
+   "tax_category": "P3专票未税",
+   "sales_tax_template": "P3专票未税 - V19A",
+   "purchase_tax_template": null
+  },
+  {
+   "name": "ACC-TAX-RULE-2026-00003",
+   "tax_category": "P13专票未税",
+   "sales_tax_template": "P13专票未税 - V19A",
+   "purchase_tax_template": null
+  },
+  {
+   "name": "ACC-TAX-RULE-2026-00002",
+   "tax_category": "P3专票含税",
+   "sales_tax_template": "P3专票含税 - V19A",
+   "purchase_tax_template": null
+  },
+  {
+   "name": "ACC-TAX-RULE-2026-00001",
+   "tax_category": "P13专票含税",
+   "sales_tax_template": "P13专票含税 - V19A",
+   "purchase_tax_template": null
+  }
+ ],
+ "A_item_tax_templates": [],
+ "A_tax_template_account_heads": [
+  [
+   "Sales Taxes and Charges Template",
+   "P3专票未税 - V19A",
+   "2221005 - 销项税额 - V19A",
+   3.0
+  ],
+  [
+   "Sales Taxes and Charges Template",
+   "P0无税 - V19A",
+   "2221005 - 销项税额 - V19A",
+   0.0
+  ],
+  [
+   "Sales Taxes and Charges Template",
+   "P13专票未税 - V19A",
+   "2221005 - 销项税额 - V19A",
+   13.0
+  ],
+  [
+   "Sales Taxes and Charges Template",
+   "P3专票含税 - V19A",
+   "2221005 - 销项税额 - V19A",
+   3.0
+  ],
+  [
+   "Sales Taxes and Charges Template",
+   "P13专票含税 - V19A",
+   "2221005 - 销项税额 - V19A",
+   13.0
+  ],
+  [
+   "Purchase Taxes and Charges Template",
+   "P13专票含税 - V19A",
+   "2221001 - 进项税额 - V19A",
+   13.0
+  ],
+  [
+   "Purchase Taxes and Charges Template",
+   "P3专票含税 - V19A",
+   "2221001 - 进项税额 - V19A",
+   3.0
+  ],
+  [
+   "Purchase Taxes and Charges Template",
+   "P0无税 - V19A",
+   "2221001 - 进项税额 - V19A",
+   0.0
+  ],
+  [
+   "Purchase Taxes and Charges Template",
+   "P13专票未税 - V19A",
+   "2221001 - 进项税额 - V19A",
+   13.0
+  ],
+  [
+   "Purchase Taxes and Charges Template",
+   "P1专票含税 - V19A",
+   "2221001 - 进项税额 - V19A",
+   1.0
+  ]
+ ],
+ "A_mode_of_payment_accounts": [],
+ "A_item_group_defaults": [
+  [
+   "Consumable",
+   "Item Group",
+   "V19A案一",
+   null,
+   "400101 - 生产成本-基本生产成本 - V19A"
+  ],
+  [
+   "Raw Material",
+   "Item Group",
+   "V19A案一",
+   null,
+   "400101 - 生产成本-基本生产成本 - V19A"
+  ],
+  [
+   "Sub Assemblies",
+   "Item Group",
+   "V19A案一",
+   null,
+   "400101 - 生产成本-基本生产成本 - V19A"
+  ],
+  [
+   "Services",
+   "Item Group",
+   "V19A案一",
+   null,
+   "400102 - 生产成本-辅助生产成本 - V19A"
+  ]
+ ],
+ "BASELINE_accounts": 95,
+ "BASELINE_row": {
+  "default_receivable_account": "应收账款 1 - HDS",
+  "default_payable_account": "应付账款 1 - HDS",
+  "default_inventory_account": "存货 - HDS",
+  "default_bank_account": null,
+  "default_income_account": "销售 - HDS",
+  "round_off_account": "小数精度尾差 - HDS",
+  "default_cash_account": "现金 - HDS",
+  "default_expense_account": "销货成本 - HDS",
+  "stock_adjustment_account": "库存调整 - HDS",
+  "default_provisional_account": null,
+  "write_off_account": "内部销账 - HDS",
+  "default_discount_account": null,
+  "exchange_gain_loss_account": "汇兑损益 - HDS",
+  "default_operating_cost_account": null,
+  "cost_center": "主 - HDS",
+  "round_off_cost_center": "主 - HDS",
+  "default_finance_book": null
+ },
+ "BASELINE_warehouses": 6,
+ "BASELINE_cost_centers": 2,
+ "BASELINE_departments": 13,
+ "BASELINE_gl_entries": 22,
+ "BASELINE_sles": 12
+}

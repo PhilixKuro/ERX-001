@@ -1,0 +1,174 @@
+{
+ "segment": "0 baseline before app install",
+ "installed_apps": [
+  "frappe",
+  "erpnext"
+ ],
+ "hook_doc_events_Company": "ABSENT",
+ "hook_override_whitelisted_methods": {
+  "frappe.utils.file_manager.download_file": [
+   "download_file"
+  ],
+  "frappe.core.doctype.file.file.download_file": [
+   "download_file"
+  ],
+  "frappe.core.doctype.file.file.unzip_file": [
+   "frappe.core.api.file.unzip_file"
+  ],
+  "frappe.core.doctype.file.file.get_attached_images": [
+   "frappe.core.api.file.get_attached_images"
+  ],
+  "frappe.core.doctype.file.file.get_files_in_folder": [
+   "frappe.core.api.file.get_files_in_folder"
+  ],
+  "frappe.core.doctype.file.file.get_files_by_search_text": [
+   "frappe.core.api.file.get_files_by_search_text"
+  ],
+  "frappe.core.doctype.file.file.get_max_file_size": [
+   "frappe.core.api.file.get_max_file_size"
+  ],
+  "frappe.core.doctype.file.file.create_new_folder": [
+   "frappe.core.api.file.create_new_folder"
+  ],
+  "frappe.core.doctype.file.file.move_file": [
+   "frappe.core.api.file.move_file"
+  ],
+  "frappe.core.doctype.file.file.zip_files": [
+   "frappe.core.api.file.zip_files"
+  ],
+  "frappe.www.login.login_via_google": [
+   "frappe.integrations.oauth2_logins.login_via_google"
+  ],
+  "frappe.www.login.login_via_github": [
+   "frappe.integrations.oauth2_logins.login_via_github"
+  ],
+  "frappe.www.login.login_via_facebook": [
+   "frappe.integrations.oauth2_logins.login_via_facebook"
+  ],
+  "frappe.www.login.login_via_frappe": [
+   "frappe.integrations.oauth2_logins.login_via_frappe"
+  ],
+  "frappe.www.login.login_via_office365": [
+   "frappe.integrations.oauth2_logins.login_via_office365"
+  ],
+  "frappe.www.login.login_via_salesforce": [
+   "frappe.integrations.oauth2_logins.login_via_salesforce"
+  ],
+  "frappe.www.login.login_via_fairlogin": [
+   "frappe.integrations.oauth2_logins.login_via_fairlogin"
+  ],
+  "frappe.www.contact.send_message": [
+   "erpnext.templates.utils.send_message"
+  ]
+ },
+ "count_Account": 95,
+ "count_Company": 1,
+ "count_Error Log": 1,
+ "count_Tax Category": 0,
+ "count_Financial Report Template": 6,
+ "count_Item Tax Template": 1,
+ "count_Sales Taxes and Charges Template": 1,
+ "count_Purchase Taxes and Charges Template": 1,
+ "count_Tax Rule": 0,
+ "count_Cost Center": 2,
+ "count_Warehouse": 6,
+ "count_Department": 15,
+ "count_GL Entry": 22,
+ "count_Stock Ledger Entry": 12,
+ "count_BOM": 1,
+ "count_Work Order": 3,
+ "count_Sales Order": 2,
+ "count_Item": 2,
+ "companies": [
+  {
+   "name": "华东弹簧",
+   "abbr": "HDS",
+   "country": "China",
+   "chart_of_accounts": "Standard"
+  }
+ ],
+ "financial_report_templates": [
+  {
+   "name": "Financial Ratios Analysis",
+   "module": "Accounts",
+   "report_type": "Custom Financial Statement"
+  },
+  {
+   "name": "Horizontal Balance Sheet (Columnar)",
+   "module": "Accounts",
+   "report_type": "Balance Sheet"
+  },
+  {
+   "name": "Horizontal Profit and Loss (Columnar)",
+   "module": "Accounts",
+   "report_type": "Profit and Loss Statement"
+  },
+  {
+   "name": "Standard Balance Sheet (IFRS)",
+   "module": "Accounts",
+   "report_type": "Balance Sheet"
+  },
+  {
+   "name": "Standard Cash Flow Statement (IFRS)",
+   "module": "Accounts",
+   "report_type": "Cash Flow"
+  },
+  {
+   "name": "Standard Profit and Loss (IFRS)",
+   "module": "Accounts",
+   "report_type": "Profit and Loss Statement"
+  }
+ ],
+ "tax_categories": [],
+ "error_logs": [
+  {
+   "name": "ukksv2d6f5",
+   "method": "Report execution failed for: Stock and Account Value Comparison",
+   "creation": "2026-09-21 04:17:57.241493"
+  }
+ ],
+ "BASELINE_accounts": 95,
+ "BASELINE_gl_entries": 22,
+ "BASELINE_stock_ledger_entries": 12,
+ "BASELINE_boms": 1,
+ "BASELINE_work_orders": 3,
+ "BASELINE_sales_orders": 2,
+ "BASELINE_items": 2,
+ "BASELINE_warehouses": 6,
+ "BASELINE_cost_centers": 2,
+ "BASELINE_departments": 13,
+ "BASELINE_company_row": {
+  "abbr": "HDS",
+  "country": "China",
+  "default_currency": "CNY",
+  "chart_of_accounts": "Standard",
+  "default_receivable_account": "应收账款 1 - HDS",
+  "default_payable_account": "应付账款 1 - HDS",
+  "default_cash_account": "现金 - HDS",
+  "default_bank_account": null,
+  "default_inventory_account": "存货 - HDS",
+  "default_income_account": "销售 - HDS",
+  "round_off_account": "小数精度尾差 - HDS"
+ },
+ "BASELINE_sales_templates": [
+  {
+   "name": "China Tax - HDS",
+   "title": "China Tax"
+  }
+ ],
+ "BASELINE_VAT_account": {
+  "name": "VAT - HDS",
+  "account_number": null,
+  "parent_account": "关税与税项 - HDS",
+  "account_type": "Tax",
+  "root_type": "Liability"
+ },
+ "default_company_global": "华东弹簧",
+ "global_defaults_default_company": "华东弹簧",
+ "global_defaults_demo_company": "",
+ "nsm_bad_account_rows": [
+  [
+   0
+  ]
+ ]
+}

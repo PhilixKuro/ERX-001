@@ -1,0 +1,152 @@
+{
+ "segment": "6 final verify after uninstall",
+ "installed_apps": [
+  "frappe",
+  "erpnext"
+ ],
+ "app_still_installed": false,
+ "hook_doc_events_Company": "ABSENT",
+ "hook_override_whitelisted_methods": {
+  "frappe.utils.file_manager.download_file": [
+   "download_file"
+  ],
+  "frappe.core.doctype.file.file.download_file": [
+   "download_file"
+  ],
+  "frappe.core.doctype.file.file.unzip_file": [
+   "frappe.core.api.file.unzip_file"
+  ],
+  "frappe.core.doctype.file.file.get_attached_images": [
+   "frappe.core.api.file.get_attached_images"
+  ],
+  "frappe.core.doctype.file.file.get_files_in_folder": [
+   "frappe.core.api.file.get_files_in_folder"
+  ],
+  "frappe.core.doctype.file.file.get_files_by_search_text": [
+   "frappe.core.api.file.get_files_by_search_text"
+  ],
+  "frappe.core.doctype.file.file.get_max_file_size": [
+   "frappe.core.api.file.get_max_file_size"
+  ],
+  "frappe.core.doctype.file.file.create_new_folder": [
+   "frappe.core.api.file.create_new_folder"
+  ],
+  "frappe.core.doctype.file.file.move_file": [
+   "frappe.core.api.file.move_file"
+  ],
+  "frappe.core.doctype.file.file.zip_files": [
+   "frappe.core.api.file.zip_files"
+  ],
+  "frappe.www.login.login_via_google": [
+   "frappe.integrations.oauth2_logins.login_via_google"
+  ],
+  "frappe.www.login.login_via_github": [
+   "frappe.integrations.oauth2_logins.login_via_github"
+  ],
+  "frappe.www.login.login_via_facebook": [
+   "frappe.integrations.oauth2_logins.login_via_facebook"
+  ],
+  "frappe.www.login.login_via_frappe": [
+   "frappe.integrations.oauth2_logins.login_via_frappe"
+  ],
+  "frappe.www.login.login_via_office365": [
+   "frappe.integrations.oauth2_logins.login_via_office365"
+  ],
+  "frappe.www.login.login_via_salesforce": [
+   "frappe.integrations.oauth2_logins.login_via_salesforce"
+  ],
+  "frappe.www.login.login_via_fairlogin": [
+   "frappe.integrations.oauth2_logins.login_via_fairlogin"
+  ],
+  "frappe.www.contact.send_message": [
+   "erpnext.templates.utils.send_message"
+  ]
+ },
+ "module_def_rows": [],
+ "doctype_rows_erx": [],
+ "installed_application_rows": [
+  [
+   "frappe"
+  ],
+  [
+   "erpnext"
+  ]
+ ],
+ "defaultvalue_rows_erx": [],
+ "names_like_V19": {
+  "Company": [],
+  "Account": [],
+  "Cost Center": [],
+  "Warehouse": [],
+  "Department": [],
+  "Sales Taxes and Charges Template": [],
+  "Purchase Taxes and Charges Template": [],
+  "Item Tax Template": [],
+  "Tax Category": [],
+  "Tax Rule": []
+ },
+ "account_count_total": 95,
+ "companies": [
+  {
+   "name": "华东弹簧",
+   "abbr": "HDS",
+   "lft": 1,
+   "rgt": 2
+  }
+ ],
+ "tax_category_count": 0,
+ "tax_rule_count": 0,
+ "financial_report_template_count": 6,
+ "error_log_count": 1,
+ "nsm_bad_account_rows": 0,
+ "nsm_bad_company_rows": 0,
+ "orphan_Sales_Taxes_and_Charges": 0,
+ "orphan_Purchase_Taxes_and_Charges": 0,
+ "orphan_Item_Tax_Template_Detail": 0,
+ "BASELINE": {
+  "accounts": 95,
+  "gl_entries": 22,
+  "stock_ledger_entries": 12,
+  "boms": 1,
+  "work_orders": 3,
+  "sales_orders": 2,
+  "items": 2,
+  "warehouses": 6,
+  "cost_centers": 2,
+  "departments": 13,
+  "company_row": {
+   "abbr": "HDS",
+   "country": "China",
+   "default_currency": "CNY",
+   "chart_of_accounts": "Standard",
+   "default_receivable_account": "应收账款 1 - HDS",
+   "default_payable_account": "应付账款 1 - HDS",
+   "default_cash_account": "现金 - HDS",
+   "default_bank_account": null,
+   "default_inventory_account": "存货 - HDS",
+   "default_income_account": "销售 - HDS",
+   "round_off_account": "小数精度尾差 - HDS"
+  },
+  "sales_templates": [
+   {
+    "name": "China Tax - HDS",
+    "title": "China Tax"
+   }
+  ],
+  "item_tax_templates": [
+   {
+    "name": "China Tax - HDS",
+    "company": "华东弹簧"
+   }
+  ],
+  "VAT_account": {
+   "name": "VAT - HDS",
+   "account_number": null,
+   "parent_account": "关税与税项 - HDS",
+   "account_type": "Tax",
+   "root_type": "Liability"
+  }
+ },
+ "default_company_global": "华东弹簧",
+ "global_defaults_default_company": "华东弹簧"
+}

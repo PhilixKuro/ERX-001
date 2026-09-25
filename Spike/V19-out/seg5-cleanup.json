@@ -1,0 +1,310 @@
+{
+ "segment": "5 cleanup and verification",
+ "safety_gates": {
+  "V19A案一": {
+   "gl_entries": 0,
+   "stock_ledger_entries": 0,
+   "is_group": 0,
+   "parent_company": null,
+   "is_global_default_company": false,
+   "is_demo_company": false,
+   "child_companies": []
+  },
+  "V19A案二": {
+   "gl_entries": 0,
+   "stock_ledger_entries": 0,
+   "is_group": 0,
+   "parent_company": null,
+   "is_global_default_company": false,
+   "is_demo_company": false,
+   "child_companies": []
+  },
+  "V19A案三": {
+   "gl_entries": 0,
+   "stock_ledger_entries": 0,
+   "is_group": 0,
+   "parent_company": null,
+   "is_global_default_company": false,
+   "is_demo_company": false,
+   "child_companies": []
+  }
+ },
+ "blocked_companies": [],
+ "accounts_total_before_delete": 722,
+ "BASELINE_accounts_before_delete": 95,
+ "probe_tax_rules_found": [
+  "ACC-TAX-RULE-2026-00001",
+  "ACC-TAX-RULE-2026-00002",
+  "ACC-TAX-RULE-2026-00003",
+  "ACC-TAX-RULE-2026-00004",
+  "ACC-TAX-RULE-2026-00005",
+  "ACC-TAX-RULE-2026-00006",
+  "ACC-TAX-RULE-2026-00007",
+  "ACC-TAX-RULE-2026-00008",
+  "ACC-TAX-RULE-2026-00009",
+  "ACC-TAX-RULE-2026-00010",
+  "ACC-TAX-RULE-2026-00011",
+  "ACC-TAX-RULE-2026-00012",
+  "ACC-TAX-RULE-2026-00013",
+  "ACC-TAX-RULE-2026-00014",
+  "ACC-TAX-RULE-2026-00015",
+  "ACC-TAX-RULE-2026-00016",
+  "ACC-TAX-RULE-2026-00017",
+  "ACC-TAX-RULE-2026-00018",
+  "ACC-TAX-RULE-2026-00019",
+  "ACC-TAX-RULE-2026-00020",
+  "ACC-TAX-RULE-2026-00021",
+  "ACC-TAX-RULE-2026-00022"
+ ],
+ "tax_rules_after": 0,
+ "delete_V19A案一": "OK",
+ "delete_V19A案二": "OK",
+ "delete_V19A案三": "OK",
+ "companies_after_delete": [
+  {
+   "name": "华东弹簧",
+   "abbr": "HDS",
+   "lft": 1,
+   "rgt": 2
+  }
+ ],
+ "residue_after_company_delete": {
+  "V19A": {
+   "company_exists": false,
+   "accounts_by_company": 0,
+   "accounts_by_abbr": 0,
+   "cost_centers": [],
+   "warehouses": [],
+   "departments": [],
+   "sales_templates": [],
+   "purchase_templates": [],
+   "item_tax_templates": [],
+   "item_defaults": [],
+   "mode_of_payment_accounts": []
+  },
+  "V19B": {
+   "company_exists": false,
+   "accounts_by_company": 0,
+   "accounts_by_abbr": 0,
+   "cost_centers": [],
+   "warehouses": [],
+   "departments": [],
+   "sales_templates": [],
+   "purchase_templates": [],
+   "item_tax_templates": [],
+   "item_defaults": [],
+   "mode_of_payment_accounts": []
+  },
+  "V19C": {
+   "company_exists": false,
+   "accounts_by_company": 0,
+   "accounts_by_abbr": 0,
+   "cost_centers": [],
+   "warehouses": [],
+   "departments": [],
+   "sales_templates": [],
+   "purchase_templates": [],
+   "item_tax_templates": [],
+   "item_defaults": [],
+   "mode_of_payment_accounts": []
+  }
+ },
+ "leftover_Sales_Taxes_and_Charges_Template": [],
+ "leftover_Purchase_Taxes_and_Charges_Template": [],
+ "leftover_Item_Tax_Template": [],
+ "orphan_Sales_Taxes_and_Charges": [
+  [
+   "1hssavtvpn",
+   "China Tax - V19C"
+  ],
+  [
+   "qi52o0hvi4",
+   "P3专票未税 - V19A"
+  ],
+  [
+   "qi55b4sk66",
+   "P0无税 - V19A"
+  ],
+  [
+   "qi5d6kih8g",
+   "P13专票未税 - V19A"
+  ],
+  [
+   "qi5ljcpc7e",
+   "P3专票含税 - V19A"
+  ],
+  [
+   "qi5ujosd71",
+   "P13专票含税 - V19A"
+  ],
+  [
+   "v7e2f4mer5",
+   "P3专票含税 - V19B"
+  ],
+  [
+   "v7edph8imb",
+   "P3专票未税 - V19B"
+  ],
+  [
+   "v7edt65gqc",
+   "P13专票含税 - V19B"
+  ],
+  [
+   "v7eql7lpn8",
+   "P0无税 - V19B"
+  ],
+  [
+   "v7eul0n91c",
+   "P13专票未税 - V19B"
+  ]
+ ],
+ "orphan_Sales_Taxes_and_Charges_deleted": 11,
+ "orphan_Sales_Taxes_and_Charges_after": 0,
+ "orphan_Purchase_Taxes_and_Charges": [
+  [
+   "1htvgk1dc6",
+   "China Tax - V19C"
+  ],
+  [
+   "qi60cj9b34",
+   "P13专票含税 - V19A"
+  ],
+  [
+   "qi6prmik9r",
+   "P3专票含税 - V19A"
+  ],
+  [
+   "qi6uu1q1ie",
+   "P0无税 - V19A"
+  ],
+  [
+   "qi6v817s38",
+   "P13专票未税 - V19A"
+  ],
+  [
+   "qi6vd5nfc8",
+   "P1专票含税 - V19A"
+  ],
+  [
+   "v7f1gh4koh",
+   "P0无税 - V19B"
+  ],
+  [
+   "v7f27eujl4",
+   "P1专票含税 - V19B"
+  ],
+  [
+   "v7fd7uuu2s",
+   "P3专票含税 - V19B"
+  ],
+  [
+   "v7fjvragbn",
+   "P13专票未税 - V19B"
+  ],
+  [
+   "v7fumie9bb",
+   "P13专票含税 - V19B"
+  ]
+ ],
+ "orphan_Purchase_Taxes_and_Charges_deleted": 11,
+ "orphan_Purchase_Taxes_and_Charges_after": 0,
+ "orphan_Item_Tax_Template_Detail": [
+  [
+   "014umbl7u9",
+   "China Tax - V18B"
+  ],
+  [
+   "1hu59g9tf0",
+   "China Tax - V19C"
+  ],
+  [
+   "e3703nm188",
+   "China Tax - ERX"
+  ],
+  [
+   "e9vmt459sv",
+   "China Tax - ERXD"
+  ]
+ ],
+ "orphan_Item_Tax_Template_Detail_deleted": 4,
+ "orphan_Item_Tax_Template_Detail_after": 0,
+ "tax_categories_after": [],
+ "tax_category_count_after": 0,
+ "item_tax_templates_all_after": [
+  {
+   "name": "China Tax - HDS",
+   "company": "华东弹簧"
+  }
+ ],
+ "names_like_V19": {
+  "Company": [],
+  "Account": [],
+  "Cost Center": [],
+  "Warehouse": [],
+  "Department": [],
+  "Sales Taxes and Charges Template": [],
+  "Purchase Taxes and Charges Template": [],
+  "Item Tax Template": [],
+  "Tax Category": []
+ },
+ "BASELINE_accounts": 95,
+ "BASELINE_gl_entries": 22,
+ "BASELINE_stock_ledger_entries": 12,
+ "BASELINE_boms": 1,
+ "BASELINE_work_orders": 3,
+ "BASELINE_sales_orders": 2,
+ "BASELINE_items": 2,
+ "BASELINE_warehouses": 6,
+ "BASELINE_cost_centers": 2,
+ "BASELINE_departments": 13,
+ "BASELINE_company_row": {
+  "abbr": "HDS",
+  "country": "China",
+  "default_currency": "CNY",
+  "chart_of_accounts": "Standard",
+  "default_receivable_account": "应收账款 1 - HDS",
+  "default_payable_account": "应付账款 1 - HDS",
+  "default_cash_account": "现金 - HDS",
+  "default_bank_account": null,
+  "default_inventory_account": "存货 - HDS",
+  "default_income_account": "销售 - HDS",
+  "round_off_account": "小数精度尾差 - HDS"
+ },
+ "BASELINE_sales_templates": [
+  {
+   "name": "China Tax - HDS",
+   "title": "China Tax"
+  }
+ ],
+ "BASELINE_VAT_account": {
+  "name": "VAT - HDS",
+  "account_number": null,
+  "parent_account": "关税与税项 - HDS",
+  "account_type": "Tax",
+  "root_type": "Liability"
+ },
+ "account_count_total_after": 95,
+ "companies_all_after": [
+  {
+   "name": "华东弹簧",
+   "abbr": "HDS",
+   "lft": 1,
+   "rgt": 2
+  }
+ ],
+ "default_company_global": "华东弹簧",
+ "global_defaults_default_company": "华东弹簧",
+ "global_defaults_demo_company": "",
+ "financial_report_template_count": 6,
+ "error_log_count": 1,
+ "error_logs": [
+  {
+   "name": "ukksv2d6f5",
+   "method": "Report execution failed for: Stock and Account Value Comparison",
+   "creation": "2026-09-21 04:17:57.241493"
+  }
+ ],
+ "nsm_bad_account_rows": 0,
+ "nsm_bad_company_rows": 0,
+ "tax_rule_count_after": 0
+}

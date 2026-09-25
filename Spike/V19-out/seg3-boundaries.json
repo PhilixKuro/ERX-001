@@ -1,0 +1,193 @@
+{
+ "segment": "3 boundaries: repeat on_update / second company / error path",
+ "resave_before": {
+  "accounts_c1": 266,
+  "accounts_total": 361,
+  "warehouses_c1": 5,
+  "cost_centers_c1": 2,
+  "departments_c1": 13,
+  "sales_templates_c1": 5,
+  "purchase_templates_c1": 5,
+  "tax_rules": 11,
+  "tax_categories": 7,
+  "error_logs": 1
+ },
+ "resave_defaults_before": {
+  "default_receivable_account": "1122 - 应收账款 - V19A",
+  "default_payable_account": "2202 - 应付账款 - V19A",
+  "default_income_account": "5001010 - 销售商品收入 - V19A",
+  "default_bank_account": "1002 - 银行存款 - V19A",
+  "default_inventory_account": "1403 - 原材料 - V19A",
+  "round_off_account": null
+ },
+ "resave_has_in_insert_attr": null,
+ "resave_field_exists_in_meta": false,
+ "resave_result": "NO EXCEPTION",
+ "resave_failed": false,
+ "resave_after": {
+  "accounts_c1": 266,
+  "accounts_total": 361,
+  "warehouses_c1": 5,
+  "cost_centers_c1": 2,
+  "departments_c1": 13,
+  "sales_templates_c1": 5,
+  "purchase_templates_c1": 5,
+  "tax_rules": 11,
+  "tax_categories": 7,
+  "error_logs": 1
+ },
+ "resave_delta": {
+  "accounts_c1": 0,
+  "accounts_total": 0,
+  "warehouses_c1": 0,
+  "cost_centers_c1": 0,
+  "departments_c1": 0,
+  "sales_templates_c1": 0,
+  "purchase_templates_c1": 0,
+  "tax_rules": 0,
+  "tax_categories": 0,
+  "error_logs": 0
+ },
+ "resave_defaults_after": {
+  "default_receivable_account": "1122 - 应收账款 - V19A",
+  "default_payable_account": "2202 - 应付账款 - V19A",
+  "default_income_account": "5001010 - 销售商品收入 - V19A",
+  "default_bank_account": "1002 - 银行存款 - V19A",
+  "default_inventory_account": "1403 - 原材料 - V19A",
+  "round_off_account": null
+ },
+ "resave_duplicate_suffix_accounts": [],
+ "resave_nsm_bad_rows": 0,
+ "c2_insert_result": "NO EXCEPTION",
+ "c2_insert_failed": false,
+ "c2_accounts": 266,
+ "c1_accounts_after_c2": 266,
+ "c2_roots": [
+  {
+   "name": "1 - 资产类 - V19B",
+   "account_number": "1",
+   "root_type": "Asset"
+  },
+  {
+   "name": "2 - 负债类 - V19B",
+   "account_number": "2",
+   "root_type": "Liability"
+  },
+  {
+   "name": "3 - 权益类 - V19B",
+   "account_number": "3",
+   "root_type": "Equity"
+  },
+  {
+   "name": "4 - 成本类 - V19B",
+   "account_number": "4",
+   "root_type": "Asset"
+  },
+  {
+   "name": "500 - 收入类 - V19B",
+   "account_number": "500",
+   "root_type": "Income"
+  },
+  {
+   "name": "540 - 费用类 - V19B",
+   "account_number": "540",
+   "root_type": "Expense"
+  }
+ ],
+ "c2_duplicate_suffix_accounts": [],
+ "c2_names_all_carry_abbr": 0,
+ "c1_names_all_carry_abbr": 0,
+ "cross_company_parent_refs_c2": 0,
+ "cross_company_parent_refs_c1": 0,
+ "c2_vs_c1_pair_diff": [],
+ "c2_defaults": {
+  "default_receivable_account": "1122 - 应收账款 - V19B",
+  "default_payable_account": "2202 - 应付账款 - V19B",
+  "default_income_account": "5001010 - 销售商品收入 - V19B",
+  "default_bank_account": "1002 - 银行存款 - V19B",
+  "default_inventory_account": "1403 - 原材料 - V19B",
+  "round_off_account": null
+ },
+ "c2_side_effects": {
+  "warehouses": 5,
+  "cost_centers": 2,
+  "departments": 13,
+  "sales_templates": 5,
+  "purchase_templates": 5
+ },
+ "tax_categories_after_c2": 7,
+ "nsm_bad_rows_after_c2": 0,
+ "error_logs_after_c2": 1,
+ "c3_frt_before": 6,
+ "c3_error_logs_before": 1,
+ "c3_insert_failed": true,
+ "c3_insert_result": "RAISED",
+ "c3_exception_type": "TypeError",
+ "c3_exception": "log_error() got multiple values for argument 'title'",
+ "c3_traceback": "Traceback (most recent call last):\n  File \"/workspace/frappe-bench/apps/erx_v19/erx_v19/chart_of_accounts/custom_accounts/custom_account.py\", line 94, in erpnext_china_create_charts\n    _import_accounts(chart, None, None, root_account=True)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/apps/erx_v19/erx_v19/chart_of_accounts/custom_accounts/custom_account.py\", line 90, in _import_accounts\n    _import_accounts(child, account.name, root_type)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/apps/erx_v19/erx_v19/chart_of_accounts/custom_accounts/custom_account.py\", line 90, in _import_accounts\n    _import_accounts(child, account.name, root_type)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/apps/erx_v19/erx_v19/chart_of_accounts/custom_accounts/custom_account.py\", line 90, in _import_accounts\n    _import_accounts(child, account.name, root_type)\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  [Previous line repeated 1 more time]\n  File \"/workspace/frappe-bench/apps/erx_v19/erx_v19/chart_of_accounts/custom_accounts/custom_account.py\", line 52, in _import_accounts\n    account_number = cstr(child.get(\"account_number\")).strip()\n                          ^^^^^^^^^\nAttributeError: 'str' object has no attribute 'get'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/workspace/Spike/V19-seg3-boundaries.py\", line 191, in <module>\n    doc3.insert()\n    ~~~~~~~~~~~^^\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 513, in insert\n    self.run_post_save_methods()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 1454, in run_post_save_methods\n    self.run_method(\"on_update\")\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 1260, in run_method\n    out = Document.hook(fn)(self, *args, **kwargs)\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 1661, in composer\n    return composed(self, method, *args, **kwargs)\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 1643, in runner\n    add_to_return_value(self, f(self, method, *args, **kwargs))\n                              ~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/apps/erx_v19/erx_v19/doc_events.py\", line 31, in company_on_update\n    erpnext_china_create_charts(doc.name, doc.chart_of_accounts, doc.existing_company)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/apps/erx_v19/erx_v19/chart_of_accounts/custom_accounts/custom_account.py\", line 97, in erpnext_china_create_charts\n    frappe.log_error(f\"Error rebuilding tree in create_charts2: {e}\", title=\"Tree Rebuild Error\")\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: log_error() got multiple values for argument 'title'\n",
+ "c3_company_exists": false,
+ "c3_accounts": 0,
+ "c3_chart_field": null,
+ "c3_roots": [],
+ "c3_has_chinese_roots": 0,
+ "c3_sample_accounts": [],
+ "c3_duplicate_suffix_accounts": [],
+ "c3_VAT_account": null,
+ "c3_defaults": null,
+ "c3_side_effects": {
+  "warehouses": 0,
+  "cost_centers": 0,
+  "departments": 0,
+  "sales_templates": 0,
+  "purchase_templates": 0
+ },
+ "c3_frt_after": 6,
+ "c3_frt_delta": 0,
+ "c3_error_logs_after": 1,
+ "c3_error_logs_new": [],
+ "UNTOUCHED_existing_company_path": "not exercised: no company was created with existing_company set",
+ "UNTOUCHED_hrms_same_hook": "hrms not installed; not exercised (LG-101)",
+ "installed_apps": [
+  "frappe",
+  "erpnext",
+  "erx_v19"
+ ],
+ "nsm_bad_rows_site_wide_final": 0,
+ "account_count_total_final": 627,
+ "companies_final": [
+  {
+   "name": "华东弹簧",
+   "abbr": "HDS",
+   "country": "China",
+   "chart_of_accounts": "Standard"
+  },
+  {
+   "name": "V19A案一",
+   "abbr": "V19A",
+   "country": "China",
+   "chart_of_accounts": "小企业会计准则(2024)"
+  },
+  {
+   "name": "V19A案二",
+   "abbr": "V19B",
+   "country": "China",
+   "chart_of_accounts": "小企业会计准则(2024)"
+  }
+ ],
+ "BASELINE_accounts_final": 95,
+ "BASELINE_gl_entries_final": 22,
+ "BASELINE_sles_final": 12,
+ "BASELINE_row_final": {
+  "abbr": "HDS",
+  "country": "China",
+  "default_currency": "CNY",
+  "chart_of_accounts": "Standard",
+  "default_receivable_account": "应收账款 1 - HDS",
+  "default_payable_account": "应付账款 1 - HDS",
+  "default_cash_account": "现金 - HDS",
+  "default_bank_account": null,
+  "default_inventory_account": "存货 - HDS",
+  "default_income_account": "销售 - HDS",
+  "round_off_account": "小数精度尾差 - HDS"
+ }
+}
