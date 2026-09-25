@@ -1,0 +1,201 @@
+{
+ "segment": "5 detail checks on the extra VAT account and default-account picks",
+ "company_creation": "2026-09-25 02:05:23.588571",
+ "newest_3_accounts": [
+  [
+   "VAT - V18B",
+   "2026-09-25 02:05:29.325149"
+  ],
+  [
+   "5801 - 所得税费用 - V18B",
+   "2026-09-25 02:05:27.023517"
+  ],
+  [
+   "5711101 - 自然灾害等不可抗力因素造成的损失 - V18B",
+   "2026-09-25 02:05:27.018613"
+  ]
+ ],
+ "first_account": [
+  "1 - 资产类 - V18B",
+  "2026-09-25 02:05:25.036533"
+ ],
+ "VAT_is_the_last_created": true,
+ "VAT_row": {
+  "account_name": "VAT",
+  "account_number": null,
+  "root_type": "Liability",
+  "account_type": "Tax",
+  "report_type": "Balance Sheet",
+  "parent_account": "2221000 - 应交增值税 - V18B",
+  "is_group": 0,
+  "creation": "2026-09-25 02:05:29.325149"
+ },
+ "erpnext_country_wise_tax_China": {
+  "China Tax": {
+   "account_name": "VAT",
+   "tax_rate": 17.0
+  }
+ },
+ "native_China_Tax_templates_on_test_company": {
+  "sales": [
+   "China Tax - V18B"
+  ],
+  "purchase": [
+   "China Tax - V18B"
+  ]
+ },
+ "VAT_referenced_by": [
+  [
+   "China Tax - V18B",
+   "Sales Taxes and Charges Template",
+   17.0
+  ],
+  [
+   "China Tax - V18B",
+   "Purchase Taxes and Charges Template",
+   17.0
+  ]
+ ],
+ "baseline_has_same_shaped_VAT": {
+  "name": "VAT - HDS",
+  "account_number": null,
+  "parent_account": "关税与税项 - HDS",
+  "account_type": "Tax"
+ },
+ "company_defaults": {
+  "default_receivable_account": "2203 - 预收账款 - V18B",
+  "default_payable_account": "2211010 - 职工工资 - V18B",
+  "default_income_account": null,
+  "default_expense_account": "4403 - 机械作业 - V18B",
+  "default_cash_account": "1001 - 库存现金 - V18B",
+  "default_bank_account": "1012 - 其他货币资金 - V18B",
+  "default_inventory_account": "1421 - 消耗性生物资产 - V18B",
+  "stock_adjustment_account": "400103 - 生产成本-库存调整 - V18B",
+  "round_off_account": null
+ },
+ "all_Receivable_accounts_by_lft": [
+  {
+   "name": "1122 - 应收账款 - V18B",
+   "account_number": "1122",
+   "account_name": "应收账款",
+   "root_type": "Asset",
+   "lft": 21
+  },
+  {
+   "name": "2203 - 预收账款 - V18B",
+   "account_number": "2203",
+   "account_name": "预收账款",
+   "root_type": "Liability",
+   "lft": 137
+  }
+ ],
+ "unordered_get_value_Receivable": "2203 - 预收账款 - V18B",
+ "all_Payable_accounts_by_lft": [
+  {
+   "name": "1123 - 预付账款 - V18B",
+   "account_number": "1123",
+   "account_name": "预付账款",
+   "root_type": "Asset",
+   "lft": 23
+  },
+  {
+   "name": "2202 - 应付账款 - V18B",
+   "account_number": "2202",
+   "account_name": "应付账款",
+   "root_type": "Liability",
+   "lft": 127
+  },
+  {
+   "name": "2211010 - 职工工资 - V18B",
+   "account_number": "2211010",
+   "account_name": "职工工资",
+   "root_type": "Liability",
+   "lft": 140
+  }
+ ],
+ "unordered_get_value_Payable": "2211010 - 职工工资 - V18B",
+ "JSON_accounts_typed_Receivable": [
+  {
+   "account_number": 1122,
+   "account_name": "应收账款",
+   "account_type": "Receivable",
+   "path": "资产类 > 流动资产"
+  },
+  {
+   "account_number": 2203,
+   "account_name": "预收账款",
+   "account_type": "Receivable",
+   "path": "负债类 > 流动负债"
+  }
+ ],
+ "JSON_accounts_typed_Payable": [
+  {
+   "account_number": 1123,
+   "account_name": "预付账款",
+   "account_type": "Payable",
+   "path": "资产类 > 流动资产"
+  },
+  {
+   "account_number": 2202,
+   "account_name": "应付账款",
+   "account_type": "Payable",
+   "path": "负债类 > 流动负债"
+  },
+  {
+   "account_number": 2211010,
+   "account_name": "职工工资",
+   "account_type": "Payable",
+   "path": "负债类 > 流动负债 > 应付职工薪酬"
+  }
+ ],
+ "JSON_account_type_histogram": {
+  "Liability": 3,
+  "Fixed Asset": 15,
+  "Cost of Goods Sold": 8,
+  "Accumulated Depreciation": 9,
+  "Stock": 9,
+  "Service Received But Not Billed": 1,
+  "Expenses Included In Asset Valuation": 1,
+  "Bank": 2,
+  "Indirect Income": 10,
+  "Equity": 3,
+  "Asset Received But Not Billed": 2,
+  "Current Asset": 5,
+  "Depreciation": 2,
+  "Chargeable": 3,
+  "Indirect Expense": 12,
+  "Receivable": 2,
+  "Direct Income": 10,
+  "Tax": 21,
+  "Expenses Included In Valuation": 1,
+  "Stock Adjustment": 1,
+  "Direct Expense": 38,
+  "Capital Work in Progress": 2,
+  "Payable": 3,
+  "Cash": 1,
+  "Temporary": 18,
+  "Stock Received But Not Billed": 1,
+  "Current Liability": 2
+ },
+ "JSON_typed_total": 185,
+ "item_default_rows_for_V18": [],
+ "mode_of_payment_accounts_for_V18": [
+  [
+   "Cash",
+   "V18原生乙",
+   "1001 - 库存现金 - V18B"
+  ]
+ ],
+ "tax_category_count_site_wide": 7,
+ "tax_rule_count": 0,
+ "item_tax_templates": [
+  {
+   "name": "China Tax - V18B",
+   "company": "V18原生乙"
+  },
+  {
+   "name": "China Tax - HDS",
+   "company": "华东弹簧"
+  }
+ ]
+}

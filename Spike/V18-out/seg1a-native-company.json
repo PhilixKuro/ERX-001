@@ -1,0 +1,120 @@
+{
+ "segment": "1a native company creation, option B as stated",
+ "installed_apps": [
+  "frappe",
+  "erpnext",
+  "erx_v18"
+ ],
+ "hook_override_whitelisted_methods": {
+  "frappe.utils.file_manager.download_file": [
+   "download_file"
+  ],
+  "frappe.core.doctype.file.file.download_file": [
+   "download_file"
+  ],
+  "frappe.core.doctype.file.file.unzip_file": [
+   "frappe.core.api.file.unzip_file"
+  ],
+  "frappe.core.doctype.file.file.get_attached_images": [
+   "frappe.core.api.file.get_attached_images"
+  ],
+  "frappe.core.doctype.file.file.get_files_in_folder": [
+   "frappe.core.api.file.get_files_in_folder"
+  ],
+  "frappe.core.doctype.file.file.get_files_by_search_text": [
+   "frappe.core.api.file.get_files_by_search_text"
+  ],
+  "frappe.core.doctype.file.file.get_max_file_size": [
+   "frappe.core.api.file.get_max_file_size"
+  ],
+  "frappe.core.doctype.file.file.create_new_folder": [
+   "frappe.core.api.file.create_new_folder"
+  ],
+  "frappe.core.doctype.file.file.move_file": [
+   "frappe.core.api.file.move_file"
+  ],
+  "frappe.core.doctype.file.file.zip_files": [
+   "frappe.core.api.file.zip_files"
+  ],
+  "frappe.www.login.login_via_google": [
+   "frappe.integrations.oauth2_logins.login_via_google"
+  ],
+  "frappe.www.login.login_via_github": [
+   "frappe.integrations.oauth2_logins.login_via_github"
+  ],
+  "frappe.www.login.login_via_facebook": [
+   "frappe.integrations.oauth2_logins.login_via_facebook"
+  ],
+  "frappe.www.login.login_via_frappe": [
+   "frappe.integrations.oauth2_logins.login_via_frappe"
+  ],
+  "frappe.www.login.login_via_office365": [
+   "frappe.integrations.oauth2_logins.login_via_office365"
+  ],
+  "frappe.www.login.login_via_salesforce": [
+   "frappe.integrations.oauth2_logins.login_via_salesforce"
+  ],
+  "frappe.www.login.login_via_fairlogin": [
+   "frappe.integrations.oauth2_logins.login_via_fairlogin"
+  ],
+  "frappe.www.contact.send_message": [
+   "erpnext.templates.utils.send_message"
+  ],
+  "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_charts_for_country": [
+   "erx_v18.chart_of_accounts.custom_accounts.custom_account.get_charts_for_country"
+  ],
+  "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_chart": [
+   "erx_v18.chart_of_accounts.custom_accounts.custom_account.get_chart"
+  ],
+  "erpnext.accounts.utils.get_coa": [
+   "erx_v18.chart_of_accounts.custom_accounts.custom_account.get_coa"
+  ],
+  "frappe.desk.treeview.get_all_nodes": [
+   "erx_v18.chart_of_accounts.custom_accounts.custom_account.get_all_nodes"
+  ]
+ },
+ "hook_doc_events_Company": "ABSENT",
+ "flag_ignore_chart_of_accounts": "unset",
+ "account_count_before": 95,
+ "error_log_count_before": 1,
+ "baseline_company_untouched_account_count": 95,
+ "override_resolves_get_chart_to": "erx_v18.chart_of_accounts.custom_accounts.custom_account.get_chart",
+ "erpnext_module_get_chart_is": "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_chart",
+ "get_chart_via_override_toplevel_keys": [
+  "资产类",
+  "负债类",
+  "权益类",
+  "成本类",
+  "收入类",
+  "费用类"
+ ],
+ "get_chart_native_type": "NoneType",
+ "get_chart_native_toplevel_keys": "None",
+ "get_charts_for_country_via_override": [
+  "Standard",
+  "Standard with Numbers",
+  "小企业会计准则(2024)"
+ ],
+ "get_charts_for_country_native": [
+  "Standard",
+  "Standard with Numbers"
+ ],
+ "insert_attempt": "starting company.insert()",
+ "insert_failed": true,
+ "insert_result": "RAISED",
+ "exception_type": "AttributeError",
+ "exception_str": "'NoneType' object has no attribute 'get'",
+ "traceback": "Traceback (most recent call last):\n  File \"/workspace/Spike/V18-seg1-native-company.py\", line 121, in <module>\n    doc.insert()\n    ~~~~~~~~~~^^\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 513, in insert\n    self.run_post_save_methods()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 1454, in run_post_save_methods\n    self.run_method(\"on_update\")\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 1260, in run_method\n    out = Document.hook(fn)(self, *args, **kwargs)\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 1661, in composer\n    return composed(self, method, *args, **kwargs)\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 1635, in runner\n    add_to_return_value(self, fn(self, *args, **kwargs))\n                              ~~^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/apps/frappe/frappe/model/document.py\", line 1257, in fn\n    return method_object(*args, **kwargs)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.py\", line 348, in on_update\n    sync_financial_report_templates(self.chart_of_accounts, self.existing_company)\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_template.py\", line 144, in sync_financial_report_templates\n    if coa.get(\"disable_default_financial_report_template\", False):\n       ^^^^^^^\nAttributeError: 'NoneType' object has no attribute 'get'\n",
+ "company_exists_after": false,
+ "account_count_for_test_company": 0,
+ "account_count_total_after": 95,
+ "baseline_company_account_count_after": 95,
+ "error_log_count_after": 1,
+ "error_logs_new": [
+  {
+   "name": "ukksv2d6f5",
+   "method": "Report execution failed for: Stock and Account Value Comparison",
+   "creation": "2026-09-21 04:17:57.241493"
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "segment": "3 HTTP / desk boundary",
+ "login_http_code": "200",
+ "login_body": "{\"message\":\"Logged In\",\"home_page\":\"desk\",\"full_name\":\"Administrator\"}",
+ "A_get_charts_for_country_http_code": "200",
+ "A_get_charts_for_country_body": "{\"message\":[\"Standard\",\"Standard with Numbers\",\"小企业会计准则(2024)\"]}",
+ "A_get_chart_http_code": "200",
+ "A_get_chart_toplevel_keys": "'{\\n    \"country_code\": \"tw\", \\n    \"name\": \"Taiwan - Chart of Accounts\", \\n    \"tree\": {\\n        \"\\\\u6240\\\\u5f97\\\\u7a05\\\\u8cbb\\\\u7528(\\\\u5229\\\\u76ca)\": {\\n            \"account_number\": \"8\", \\n      ",
+ "B_company_existed_before": false,
+ "B_account_count_before": 362,
+ "B_error_log_before": 1,
+ "B_baseline_accounts_before": 95,
+ "B_insert_http_code": "500",
+ "B_insert_body_head": "{\"exception\":\"AttributeError: 'NoneType' object has no attribute 'get'\",\"exc_type\":\"AttributeError\",\"_exc_source\":\"erpnext (app)\",\"exc\":\"[\\\"Traceback (most recent call last):\\\\n  File \\\\\\\"apps/frappe/frappe/app.py\\\\\\\", line 158, in application\\\\n    response = frappe.api.handle(request)\\\\n  File \\\\\\\"apps/frappe/frappe/api/__init__.py\\\\\\\", line 63, in handle\\\\n    data = endpoint(**arguments)\\\\n  File \\\\\\\"apps/frappe/frappe/api/v1.py\\\\\\\", line 47, in create_doc\\\\n    return frappe.new_doc(doctype, **data).insert()\\\\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 513, in insert\\\\n    self.run_post_save_methods()\\\\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 1454, in run_post_save_methods\\\\n    self.run_method(\\\\\\\"on_update\\\\\\\")\\\\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 1260, in run_method\\\\n    out = Document.hook(fn)(self, *args, **kwargs)\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 1661, in composer\\\\n    return composed(self, method, *args, **kwargs)\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 1635, in runner\\\\n    add_to_return_value(self, fn(self, *args, **kwargs))\\\\n                              ~~^^^^^^^^^^^^^^^^^^^^^^^\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 1257, in fn\\\\n    return method_object(*args, **kwargs)\\\\n  File \\\\\\\"apps/erpnext/erpnext/setup/doctype/company/company.py\\\\\\\", line 348, in on_update\\\\n    sync_financial_report_templates(self.chart_of_accounts, self.existing_company)\\\\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\\\n  File \\\\\\\"apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_template.py\\\\\\\", line 144, in sync_financial_report_templates\\\\n    if coa.get(\\\\\\\"disable_default_financial_report_template\\\\\\\", False):\\\\n       ^^^^^^^\\\\nAttributeError: 'NoneType' object has no attribute 'get'\\\\n\\\"]\"}",
+ "B_insert_body_full": "{\"exception\":\"AttributeError: 'NoneType' object has no attribute 'get'\",\"exc_type\":\"AttributeError\",\"_exc_source\":\"erpnext (app)\",\"exc\":\"[\\\"Traceback (most recent call last):\\\\n  File \\\\\\\"apps/frappe/frappe/app.py\\\\\\\", line 158, in application\\\\n    response = frappe.api.handle(request)\\\\n  File \\\\\\\"apps/frappe/frappe/api/__init__.py\\\\\\\", line 63, in handle\\\\n    data = endpoint(**arguments)\\\\n  File \\\\\\\"apps/frappe/frappe/api/v1.py\\\\\\\", line 47, in create_doc\\\\n    return frappe.new_doc(doctype, **data).insert()\\\\n           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 513, in insert\\\\n    self.run_post_save_methods()\\\\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 1454, in run_post_save_methods\\\\n    self.run_method(\\\\\\\"on_update\\\\\\\")\\\\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 1260, in run_method\\\\n    out = Document.hook(fn)(self, *args, **kwargs)\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 1661, in composer\\\\n    return composed(self, method, *args, **kwargs)\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 1635, in runner\\\\n    add_to_return_value(self, fn(self, *args, **kwargs))\\\\n                              ~~^^^^^^^^^^^^^^^^^^^^^^^\\\\n  File \\\\\\\"apps/frappe/frappe/model/document.py\\\\\\\", line 1257, in fn\\\\n    return method_object(*args, **kwargs)\\\\n  File \\\\\\\"apps/erpnext/erpnext/setup/doctype/company/company.py\\\\\\\", line 348, in on_update\\\\n    sync_financial_report_templates(self.chart_of_accounts, self.existing_company)\\\\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\\\\n  File \\\\\\\"apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_template.py\\\\\\\", line 144, in sync_financial_report_templates\\\\n    if coa.get(\\\\\\\"disable_default_financial_report_template\\\\\\\", False):\\\\n       ^^^^^^^\\\\nAttributeError: 'NoneType' object has no attribute 'get'\\\\n\\\"]\"}",
+ "B_company_exists_after": false,
+ "B_account_count_for_company": 0,
+ "B_account_count_total_after": 362,
+ "B_baseline_accounts_after": 95,
+ "B_error_log_after": 1,
+ "B_error_logs_recent": [
+  {
+   "name": "ukksv2d6f5",
+   "method": "Report execution failed for: Stock and Account Value Comparison",
+   "creation": "2026-09-21 04:17:57.241493"
+  }
+ ]
+}

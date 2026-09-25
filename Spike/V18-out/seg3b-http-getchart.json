@@ -1,0 +1,37 @@
+{
+ "segment": "3b whitelisted get_chart over HTTP, name properly encoded",
+ "login_http_code": "200",
+ "post_body_http_code": "200",
+ "post_body_message_type": "dict",
+ "post_body_toplevel_keys": [
+  "资产类",
+  "负债类",
+  "权益类",
+  "成本类",
+  "收入类",
+  "费用类"
+ ],
+ "post_body_root_types": {
+  "资产类": "Asset",
+  "负债类": "Liability",
+  "权益类": "Equity",
+  "成本类": "Asset",
+  "收入类": "Income",
+  "费用类": "Expense"
+ },
+ "percent_encoded_name": "%E5%B0%8F%E4%BC%81%E4%B8%9A%E4%BC%9A%E8%AE%A1%E5%87%86%E5%88%99%282024%29",
+ "qs_http_code": "200",
+ "qs_message_type": "dict",
+ "qs_toplevel_keys": [
+  "资产类",
+  "负债类",
+  "权益类",
+  "成本类",
+  "收入类",
+  "费用类"
+ ],
+ "nomatch_erpnext_native_type": "NoneType",
+ "nomatch_erpnext_native_repr_head": "None",
+ "nomatch_zelin_copy_type": "str",
+ "nomatch_zelin_copy_repr_head": "'{\\n    \"country_code\": \"tw\", \\n    \"name\": \"Taiwan - Chart of Accounts\", \\n    \"tree\": {\\n        \"\\\\u6240\\\\u5f97\\\\u7a05\\\\u8cbb\\\\u7528(\\\\u5229\\\\u76ca)\": {\\n   "
+}

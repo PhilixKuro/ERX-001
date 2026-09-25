@@ -1,0 +1,177 @@
+{
+ "segment": "7 cleanup and verification",
+ "safety_gates": {
+  "gl_entries": 0,
+  "stock_ledger_entries": 0,
+  "is_group": 0,
+  "parent_company": null,
+  "is_global_default_company": false,
+  "is_demo_company": false,
+  "child_companies": []
+ },
+ "accounts_before_delete": 267,
+ "baseline_accounts_before_delete": 95,
+ "delete_company": "OK",
+ "company_exists_after_delete": false,
+ "accounts_left_for_company": 0,
+ "accounts_left_by_abbr_suffix": [
+  [
+   0
+  ]
+ ],
+ "cost_centers_left": [],
+ "warehouses_left": [],
+ "departments_left": [],
+ "sales_templates_left": [],
+ "purchase_templates_left": [],
+ "item_tax_templates_left": [],
+ "mode_of_payment_accounts_left": [],
+ "orphan_Sales_Taxes_and_Charges_rows": [
+  [
+   "012f22av28",
+   "China Tax - V18B",
+   "VAT - V18B"
+  ],
+  [
+   "0uj38cb7u5",
+   "P3专票未税 - V18B",
+   "2221005 - 销项税额 - V18B"
+  ],
+  [
+   "0ujbea2tuj",
+   "P13专票含税 - V18B",
+   "2221005 - 销项税额 - V18B"
+  ],
+  [
+   "0ujdmrflri",
+   "P3专票含税 - V18B",
+   "2221005 - 销项税额 - V18B"
+  ],
+  [
+   "0ujob1d41k",
+   "P0无税 - V18B",
+   "2221005 - 销项税额 - V18B"
+  ],
+  [
+   "0ujtp5b04q",
+   "P13专票未税 - V18B",
+   "2221005 - 销项税额 - V18B"
+  ],
+  [
+   "e367mcc6vj",
+   "China Tax - ERX",
+   "VAT - ERX"
+  ],
+  [
+   "e9unn2f70i",
+   "China Tax - ERXD",
+   "VAT - ERXD"
+  ]
+ ],
+ "orphan_Sales_Taxes_and_Charges_deleted": 8,
+ "orphan_Sales_Taxes_and_Charges_after": [
+  [
+   0
+  ]
+ ],
+ "orphan_Purchase_Taxes_and_Charges_rows": [
+  [
+   "013vc1lafk",
+   "China Tax - V18B",
+   "VAT - V18B"
+  ],
+  [
+   "0ukbbkh7p4",
+   "P0无税 - V18B",
+   "2221001 - 进项税额 - V18B"
+  ],
+  [
+   "0ukh96k77f",
+   "P3专票含税 - V18B",
+   "2221001 - 进项税额 - V18B"
+  ],
+  [
+   "0ukm1mtf1d",
+   "P13专票含税 - V18B",
+   "2221001 - 进项税额 - V18B"
+  ],
+  [
+   "0ukmjhg9d4",
+   "P1专票含税 - V18B",
+   "2221001 - 进项税额 - V18B"
+  ],
+  [
+   "0ukp5067d2",
+   "P13专票未税 - V18B",
+   "2221001 - 进项税额 - V18B"
+  ],
+  [
+   "e377bpkn8f",
+   "China Tax - ERX",
+   "VAT - ERX"
+  ],
+  [
+   "e9udrrf6la",
+   "China Tax - ERXD",
+   "VAT - ERXD"
+  ]
+ ],
+ "orphan_Purchase_Taxes_and_Charges_deleted": 8,
+ "orphan_Purchase_Taxes_and_Charges_after": [
+  [
+   0
+  ]
+ ],
+ "tax_categories_after": [],
+ "tax_category_count_after": 0,
+ "BASELINE_accounts": 95,
+ "BASELINE_gl_entries": 22,
+ "BASELINE_stock_ledger_entries": 12,
+ "BASELINE_bom": 1,
+ "BASELINE_work_orders": 3,
+ "BASELINE_sales_orders": 2,
+ "BASELINE_items": 2,
+ "BASELINE_warehouses": 6,
+ "BASELINE_cost_centers": 2,
+ "BASELINE_departments": 13,
+ "BASELINE_sales_templates": [
+  {
+   "name": "China Tax - HDS",
+   "title": "China Tax"
+  }
+ ],
+ "BASELINE_item_tax_templates": [
+  "China Tax - HDS"
+ ],
+ "BASELINE_company_row": {
+  "abbr": "HDS",
+  "country": "China",
+  "default_currency": "CNY",
+  "chart_of_accounts": "Standard",
+  "default_receivable_account": "应收账款 1 - HDS",
+  "default_payable_account": "应付账款 1 - HDS",
+  "default_cash_account": "现金 - HDS"
+ },
+ "companies_all": [
+  {
+   "name": "华东弹簧",
+   "abbr": "HDS",
+   "lft": 1,
+   "rgt": 2
+  }
+ ],
+ "default_company_global": "华东弹簧",
+ "global_defaults_default_company": "华东弹簧",
+ "financial_report_template_count": 6,
+ "error_log_count": 1,
+ "nsm_bad_company_rows": [
+  [
+   0
+  ]
+ ],
+ "nsm_bad_account_rows": [
+  [
+   0
+  ]
+ ]
+}

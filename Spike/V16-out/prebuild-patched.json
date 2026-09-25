@@ -1,0 +1,228 @@
+{
+  "label": "prebuild-patched",
+  "baseline": false,
+  "started": "2026-09-24T15:39:08.983Z",
+  "chrome": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "console": [
+    "[ERX-V16] run src=http://erx.localhost:8000/assets/erx_spike/js/V16-raw-probe.js",
+    "[ERX-V16] run readyState=loading script_tags=12",
+    "[ERX-V16] run defined_at_parse={\"frappe\":\"object\",\"frappe.boot\":\"object\",\"frappe.ui\":\"object\",\"frappe.ui.Sidebar\":\"function\",\"frappe.ui.SidebarHeader\":\"function\",\"frappe.ui.SidebarHeader.prototype.get_icon_for_menu_item\":\"function\",\"frappe.ui.SidebarHeader.prototype.add_app_item\":\"function\",\"frappe.views\":\"object\",\"frappe.views.ListView\":\"function\",\"frappe.ui.form.Form\":\"function\",\"frappe.utils.desktop_icon\":\"function\",\"frappe.router\":\"object\",\"frappe.app\":\"undefined\",\"frappe.ready\":\"undefined\",\"erpnext\":\"object\"}",
+    "[ERX-V16] patch a installed=true err=null",
+    "[ERX-V16] patch b installed=true err=null",
+    "[ERX-V16] patch c installed=true err=null",
+    "[ERX-V16] probe end for http://erx.localhost:8000/assets/erx_spike/js/V16-raw-probe.js"
+  ],
+  "failed_requests": [
+    {
+      "url": "http://erx.localhost:8000/erx_spike.bundle.js",
+      "status": 404
+    },
+    {
+      "id": "66252.14",
+      "err": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://erx.localhost:8000/socket.io/?EIO=4&transport=polling&t=Q3K4XYH",
+      "status": 404
+    },
+    {
+      "url": "http://erx.localhost:8000/erx_spike.bundle.js",
+      "status": 404
+    },
+    {
+      "id": "66252.140",
+      "err": "net::ERR_ABORTED"
+    },
+    {
+      "url": "http://erx.localhost:8000/socket.io/?EIO=4&transport=polling&t=Q3K4Xqq",
+      "status": 404
+    },
+    {
+      "url": "http://erx.localhost:8000/socket.io/?EIO=4&transport=polling&t=Q3K4YLa",
+      "status": 404
+    }
+  ],
+  "undefined_requests": [
+    "http://erx.localhost:8000/desk/undefined"
+  ],
+  "all_script_requests": [
+    "http://erx.localhost:8000/assets/frappe/dist/js/libs.bundle.MBZRY6HC.js",
+    "http://erx.localhost:8000/assets/frappe/dist/js/billing.bundle.DBDNFU32.js",
+    "http://erx.localhost:8000/assets/frappe/dist/js/desk.bundle.LHZJYI3U.js",
+    "http://erx.localhost:8000/assets/frappe/dist/js/list.bundle.N2HVYS25.js",
+    "http://erx.localhost:8000/assets/frappe/dist/js/form.bundle.OWO5PKBQ.js",
+    "http://erx.localhost:8000/assets/frappe/dist/js/controls.bundle.VFUIIWTB.js",
+    "http://erx.localhost:8000/assets/frappe/dist/js/report.bundle.R5I5XNH3.js",
+    "http://erx.localhost:8000/assets/frappe/dist/js/telemetry.bundle.KKJKIQIU.js",
+    "http://erx.localhost:8000/assets/erpnext/dist/js/erpnext.bundle.MMASIPTP.js",
+    "http://erx.localhost:8000/erx_spike.bundle.js",
+    "http://erx.localhost:8000/assets/erx_spike/js/V16-raw-probe.js",
+    "http://erx.localhost:8000/assets/frappe/dist/js/file_uploader.bundle.EM2AS4ZE.js",
+    "http://erx.localhost:8000/assets/frappe/dist/js/build_events.bundle.HJHYQDCL.js",
+    "http://erx.localhost:8000/erx_spike.bundle.js"
+  ],
+  "probe": {
+    "runs": [
+      {
+        "src": "http://erx.localhost:8000/assets/erx_spike/js/V16-raw-probe.js",
+        "t_parse": 1790264350853,
+        "readyState": "loading",
+        "script_tags_in_dom_at_parse": 12,
+        "script_srcs_at_parse": [
+          "http://erx.localhost:8000/assets/frappe/dist/js/file_uploader.bundle.EM2AS4ZE.js",
+          "/assets/frappe/dist/js/libs.bundle.MBZRY6HC.js",
+          "/assets/frappe/dist/js/billing.bundle.DBDNFU32.js",
+          "/assets/frappe/dist/js/desk.bundle.LHZJYI3U.js",
+          "/assets/frappe/dist/js/list.bundle.N2HVYS25.js",
+          "/assets/frappe/dist/js/form.bundle.OWO5PKBQ.js",
+          "/assets/frappe/dist/js/controls.bundle.VFUIIWTB.js",
+          "/assets/frappe/dist/js/report.bundle.R5I5XNH3.js",
+          "/assets/frappe/dist/js/telemetry.bundle.KKJKIQIU.js",
+          "/assets/erpnext/dist/js/erpnext.bundle.MMASIPTP.js",
+          "/erx_spike.bundle.js",
+          "/assets/erx_spike/js/V16-raw-probe.js"
+        ],
+        "at_parse": {
+          "frappe": "object",
+          "frappe.boot": "object",
+          "frappe.ui": "object",
+          "frappe.ui.Sidebar": "function",
+          "frappe.ui.SidebarHeader": "function",
+          "frappe.ui.SidebarHeader.prototype.get_icon_for_menu_item": "function",
+          "frappe.ui.SidebarHeader.prototype.add_app_item": "function",
+          "frappe.views": "object",
+          "frappe.views.ListView": "function",
+          "frappe.ui.form.Form": "function",
+          "frappe.utils.desktop_icon": "function",
+          "frappe.router": "object",
+          "frappe.app": "undefined",
+          "frappe.ready": "undefined",
+          "erpnext": "object"
+        },
+        "patch_disabled": false,
+        "installed_patches_here": true
+      }
+    ],
+    "marks": [
+      "run src=http://erx.localhost:8000/assets/erx_spike/js/V16-raw-probe.js",
+      "run readyState=loading script_tags=12",
+      "run defined_at_parse={\"frappe\":\"object\",\"frappe.boot\":\"object\",\"frappe.ui\":\"object\",\"frappe.ui.Sidebar\":\"function\",\"frappe.ui.SidebarHeader\":\"function\",\"frappe.ui.SidebarHeader.prototype.get_icon_for_menu_item\":\"function\",\"frappe.ui.SidebarHeader.prototype.add_app_item\":\"function\",\"frappe.views\":\"object\",\"frappe.views.ListView\":\"function\",\"frappe.ui.form.Form\":\"function\",\"frappe.utils.desktop_icon\":\"function\",\"frappe.router\":\"object\",\"frappe.app\":\"undefined\",\"frappe.ready\":\"undefined\",\"erpnext\":\"object\"}",
+      "patch a installed=true err=null",
+      "patch b installed=true err=null",
+      "patch c installed=true err=null",
+      "probe end for http://erx.localhost:8000/assets/erx_spike/js/V16-raw-probe.js"
+    ],
+    "patched_by": "http://erx.localhost:8000/assets/erx_spike/js/V16-raw-probe.js",
+    "a": {
+      "target": "frappe.ui.SidebarHeader.prototype.get_icon_for_menu_item",
+      "installed": true,
+      "calls": 9,
+      "err": null,
+      "orig_src_head": "get_icon_for_menu_item(icon, item) { if (frappe.utils.get_desktop_icon(icon.labe"
+    },
+    "b": {
+      "target": "frappe.utils.desktop_icon",
+      "installed": true,
+      "calls": 1,
+      "err": null
+    },
+    "c": {
+      "target": "frappe.ui.SidebarHeader.prototype.add_app_item",
+      "installed": true,
+      "calls": 13,
+      "err": null,
+      "first_call_dt_ms": 57,
+      "items": [
+        {
+          "label": "桌面",
+          "icon": "home",
+          "icon_html_type": "undefined"
+        },
+        {
+          "label": "Workspaces",
+          "icon": "wallpaper",
+          "icon_html_type": "undefined"
+        },
+        {
+          "label": "网站",
+          "icon": "web",
+          "icon_html_type": "undefined"
+        },
+        {
+          "icon_html_type": "undefined"
+        },
+        {
+          "label": "编辑侧边栏",
+          "icon": "edit",
+          "icon_html_type": "undefined"
+        },
+        {
+          "icon_html_type": "undefined"
+        },
+        {
+          "label": "Display",
+          "icon": "monitor",
+          "icon_html_type": "undefined"
+        },
+        {
+          "label": "Session Defaults",
+          "icon": "sliders-horizontal",
+          "icon_html_type": "undefined"
+        },
+        {
+          "label": "Reload",
+          "icon": "rotate-ccw",
+          "icon_html_type": "undefined"
+        },
+        {
+          "label": "Help",
+          "icon": "info",
+          "icon_html_type": "undefined"
+        },
+        {
+          "icon_html_type": "undefined"
+        },
+        {
+          "label": "Logout",
+          "icon": "logout",
+          "icon_html_type": "undefined"
+        }
+      ]
+    },
+    "ready_fired_dt_ms": null
+  },
+  "errors": [],
+  "chrome_version": "Chrome/153.0.8010.53",
+  "login_status": 200,
+  "sid_found": true,
+  "settle": {
+    "ready": "complete",
+    "has_probe": true,
+    "runs": 1,
+    "app_ready": true,
+    "sidebar_items": 55,
+    "c_calls": 13
+  },
+  "dropdown_action": true,
+  "dom": {
+    "img_undefined": 0,
+    "dropdown_items": 12,
+    "sidebar_icons": 59
+  },
+  "scripts_in_dom": [
+    "http://erx.localhost:8000/assets/frappe/dist/js/file_uploader.bundle.EM2AS4ZE.js",
+    "http://erx.localhost:8000/assets/frappe/dist/js/build_events.bundle.HJHYQDCL.js",
+    "/assets/frappe/dist/js/libs.bundle.MBZRY6HC.js",
+    "/assets/frappe/dist/js/billing.bundle.DBDNFU32.js",
+    "/assets/frappe/dist/js/desk.bundle.LHZJYI3U.js",
+    "/assets/frappe/dist/js/list.bundle.N2HVYS25.js",
+    "/assets/frappe/dist/js/form.bundle.OWO5PKBQ.js",
+    "/assets/frappe/dist/js/controls.bundle.VFUIIWTB.js",
+    "/assets/frappe/dist/js/report.bundle.R5I5XNH3.js",
+    "/assets/frappe/dist/js/telemetry.bundle.KKJKIQIU.js",
+    "/assets/erpnext/dist/js/erpnext.bundle.MMASIPTP.js",
+    "/erx_spike.bundle.js",
+    "/assets/erx_spike/js/V16-raw-probe.js"
+  ],
+  "finished": "2026-09-24T15:39:16.207Z"
+}

@@ -1,0 +1,44 @@
+{
+ "segment": "9 native create_charts when get_chart returns None",
+ "installed_apps": [
+  "frappe",
+  "erpnext"
+ ],
+ "app_uninstalled": true,
+ "native_get_chart_returns": "None",
+ "native_get_charts_for_country_China": [
+  "Standard",
+  "Standard with Numbers"
+ ],
+ "erpnext_verified_json_count": 73,
+ "erpnext_verified_cn_or_China_files": [],
+ "unverified_dir_exists": true,
+ "account_count_before": 95,
+ "create_charts_result": "RETURNED WITHOUT RAISING",
+ "create_charts_return_value": "None",
+ "account_count_after": 95,
+ "accounts_created_by_this_call": 0,
+ "accounts_for_fake_company": 0,
+ "fake_company_exists": false,
+ "baseline_accounts": 95,
+ "sync_financial_report_templates_coa_lines": [
+  "from erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts import get_chart",
+  "coa = get_chart(chart_of_accounts)",
+  "if coa.get(\"disable_default_financial_report_template\", False):"
+ ],
+ "company_on_update_guard_line": [
+  "def on_update(self):",
+  "NestedSet.on_update(self)",
+  "if not frappe.db.sql(",
+  "\"\"\"select name from tabAccount",
+  "where company=%s and docstatus<2 limit 1\"\"\",",
+  "self.name,",
+  "):",
+  "if not frappe.local.flags.ignore_chart_of_accounts:",
+  "frappe.flags.country_change = True",
+  "sync_financial_report_templates(self.chart_of_accounts, self.existing_company)",
+  "self.create_default_accounts()",
+  "self.create_default_warehouses()"
+ ],
+ "rolled_back": true
+}

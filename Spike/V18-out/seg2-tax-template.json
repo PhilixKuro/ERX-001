@@ -1,0 +1,444 @@
+{
+ "segment": "2 tax template with the account-number bug UNFIXED",
+ "company_chart_of_accounts": "小企业会计准则(2024)",
+ "accounts_before": 267,
+ "error_log_count_before": 1,
+ "tax_categories_before": [],
+ "sales_templates_before": [
+  {
+   "name": "China Tax - V18B",
+   "title": "China Tax"
+  }
+ ],
+ "account_number_222105_exists_before": [],
+ "account_number_22210005_exists_before": [],
+ "account_number_2221005_exists_before": [
+  {
+   "name": "2221005 - 销项税额 - V18B",
+   "account_name": "销项税额",
+   "root_type": "Liability"
+  }
+ ],
+ "accounts_named_销项税额_before": [
+  {
+   "name": "2221005 - 销项税额 - V18B",
+   "account_number": "2221005",
+   "root_type": "Liability",
+   "is_group": 0
+  }
+ ],
+ "payload_sales_entries": [
+  {
+   "title": "P13专票含税",
+   "account_number": "222105",
+   "account_name": "销项税额",
+   "tax_rate": 13
+  },
+  {
+   "title": "P3专票含税",
+   "account_number": "2221005",
+   "account_name": "销项税额",
+   "tax_rate": 3
+  },
+  {
+   "title": "P13专票未税",
+   "account_number": "22210005",
+   "account_name": "销项税额",
+   "tax_rate": 13
+  },
+  {
+   "title": "P3专票未税",
+   "account_number": "2221005",
+   "account_name": "销项税额",
+   "tax_rate": 3
+  },
+  {
+   "title": "P0无税",
+   "account_number": "2221005",
+   "account_name": "销项税额",
+   "tax_rate": 0
+  }
+ ],
+ "call": "erx_v18...company_default.utils.setup_tax_template(company)",
+ "call_returned": "no exception propagated (function has a bare except)",
+ "error_log_count_after": 1,
+ "error_logs_matching_setup_tax_template": [],
+ "error_logs_method_matching": [],
+ "error_logs_all_recent": [
+  {
+   "name": "ukksv2d6f5",
+   "method": "Report execution failed for: Stock and Account Value Comparison",
+   "creation": "2026-09-21 04:17:57.241493"
+  }
+ ],
+ "tax_categories_after": [
+  "P0无税",
+  "P1专票未税",
+  "P3专票未税",
+  "P13专票未税",
+  "P1专票含税",
+  "P3专票含税",
+  "P13专票含税"
+ ],
+ "Sales Taxes and Charges Template__rows": [
+  {
+   "template": {
+    "name": "China Tax - V18B",
+    "title": "China Tax",
+    "tax_category": null,
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "VAT - V18B",
+     "rate": 17.0,
+     "included_in_print_rate": 0,
+     "description": "VAT @ 17.0",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  },
+  {
+   "template": {
+    "name": "P0无税 - V18B",
+    "title": "P0无税",
+    "tax_category": "P0无税",
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "2221005 - 销项税额 - V18B",
+     "rate": 0.0,
+     "included_in_print_rate": 0,
+     "description": "销项税额 @ 0",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  },
+  {
+   "template": {
+    "name": "P13专票含税 - V18B",
+    "title": "P13专票含税",
+    "tax_category": "P13专票含税",
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "2221005 - 销项税额 - V18B",
+     "rate": 13.0,
+     "included_in_print_rate": 1,
+     "description": "销项税额 @ 13",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  },
+  {
+   "template": {
+    "name": "P13专票未税 - V18B",
+    "title": "P13专票未税",
+    "tax_category": "P13专票未税",
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "2221005 - 销项税额 - V18B",
+     "rate": 13.0,
+     "included_in_print_rate": 0,
+     "description": "销项税额 @ 13",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  },
+  {
+   "template": {
+    "name": "P3专票含税 - V18B",
+    "title": "P3专票含税",
+    "tax_category": "P3专票含税",
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "2221005 - 销项税额 - V18B",
+     "rate": 3.0,
+     "included_in_print_rate": 1,
+     "description": "销项税额 @ 3",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  },
+  {
+   "template": {
+    "name": "P3专票未税 - V18B",
+    "title": "P3专票未税",
+    "tax_category": "P3专票未税",
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "2221005 - 销项税额 - V18B",
+     "rate": 3.0,
+     "included_in_print_rate": 0,
+     "description": "销项税额 @ 3",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  }
+ ],
+ "Purchase Taxes and Charges Template__rows": [
+  {
+   "template": {
+    "name": "China Tax - V18B",
+    "title": "China Tax",
+    "tax_category": null,
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "VAT - V18B",
+     "rate": 17.0,
+     "included_in_print_rate": 0,
+     "description": "VAT @ 17.0",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  },
+  {
+   "template": {
+    "name": "P0无税 - V18B",
+    "title": "P0无税",
+    "tax_category": "P0无税",
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "2221001 - 进项税额 - V18B",
+     "rate": 0.0,
+     "included_in_print_rate": 0,
+     "description": "进项税额 @ 0",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  },
+  {
+   "template": {
+    "name": "P13专票含税 - V18B",
+    "title": "P13专票含税",
+    "tax_category": "P13专票含税",
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "2221001 - 进项税额 - V18B",
+     "rate": 13.0,
+     "included_in_print_rate": 1,
+     "description": "进项税额 @ 13",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  },
+  {
+   "template": {
+    "name": "P13专票未税 - V18B",
+    "title": "P13专票未税",
+    "tax_category": "P13专票未税",
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "2221001 - 进项税额 - V18B",
+     "rate": 13.0,
+     "included_in_print_rate": 0,
+     "description": "进项税额 @ 13",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  },
+  {
+   "template": {
+    "name": "P1专票含税 - V18B",
+    "title": "P1专票含税",
+    "tax_category": "P1专票含税",
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "2221001 - 进项税额 - V18B",
+     "rate": 1.0,
+     "included_in_print_rate": 1,
+     "description": "进项税额 @ 1",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  },
+  {
+   "template": {
+    "name": "P3专票含税 - V18B",
+    "title": "P3专票含税",
+    "tax_category": "P3专票含税",
+    "is_default": 0
+   },
+   "taxes": [
+    {
+     "idx": 1,
+     "charge_type": "On Net Total",
+     "account_head": "2221001 - 进项税额 - V18B",
+     "rate": 3.0,
+     "included_in_print_rate": 1,
+     "description": "进项税额 @ 3",
+     "cost_center": "Main - V18B"
+    }
+   ]
+  }
+ ],
+ "Q1_template_P13专票含税_exists": true,
+ "Q2_account_head_P13专票含税": [
+  {
+   "account_head": "2221005 - 销项税额 - V18B",
+   "rate": 13.0,
+   "included_in_print_rate": 1,
+   "description": "销项税额 @ 13"
+  }
+ ],
+ "Q2_account_head_P13专票含税_detail": {
+  "name": "2221005 - 销项税额 - V18B",
+  "account_name": "销项税额",
+  "account_number": "2221005",
+  "root_type": "Liability",
+  "account_type": "Tax",
+  "parent_account": "2221000 - 应交增值税 - V18B",
+  "is_group": 0
+ },
+ "Q1_template_P13专票未税_exists": true,
+ "Q2_account_head_P13专票未税": [
+  {
+   "account_head": "2221005 - 销项税额 - V18B",
+   "rate": 13.0,
+   "included_in_print_rate": 0,
+   "description": "销项税额 @ 13"
+  }
+ ],
+ "Q2_account_head_P13专票未税_detail": {
+  "name": "2221005 - 销项税额 - V18B",
+  "account_name": "销项税额",
+  "account_number": "2221005",
+  "root_type": "Liability",
+  "account_type": "Tax",
+  "parent_account": "2221000 - 应交增值税 - V18B",
+  "is_group": 0
+ },
+ "stray_account_number_222105_after": [],
+ "stray_account_number_22210005_after": [],
+ "accounts_named_销项税额_after": [
+  {
+   "name": "2221005 - 销项税额 - V18B",
+   "account_number": "2221005",
+   "root_type": "Liability",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0
+  }
+ ],
+ "accounts_after": 267,
+ "accounts_added_by_segment2": 0,
+ "newest_accounts": [
+  {
+   "name": "VAT - V18B",
+   "account_name": "VAT",
+   "account_number": null,
+   "root_type": "Liability",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "creation": "2026-09-25 02:05:29.325149"
+  },
+  {
+   "name": "5801 - 所得税费用 - V18B",
+   "account_name": "所得税费用",
+   "account_number": "5801",
+   "root_type": "Expense",
+   "parent_account": "540 - 费用类 - V18B",
+   "creation": "2026-09-25 02:05:27.023517"
+  },
+  {
+   "name": "5711101 - 自然灾害等不可抗力因素造成的损失 - V18B",
+   "account_name": "自然灾害等不可抗力因素造成的损失",
+   "account_number": "5711101",
+   "root_type": "Expense",
+   "parent_account": "5711100 - 其他 - V18B",
+   "creation": "2026-09-25 02:05:27.018613"
+  },
+  {
+   "name": "5711100 - 其他 - V18B",
+   "account_name": "其他",
+   "account_number": "5711100",
+   "root_type": "Expense",
+   "parent_account": "5711 - 营业外支出 - V18B",
+   "creation": "2026-09-25 02:05:26.964526"
+  },
+  {
+   "name": "5711092 - 无法收回的长期股权投资损失 - V18B",
+   "account_name": "无法收回的长期股权投资损失",
+   "account_number": "5711092",
+   "root_type": "Expense",
+   "parent_account": "5711090 - 无法收回的债券股权投资损失 - V18B",
+   "creation": "2026-09-25 02:05:26.958756"
+  },
+  {
+   "name": "5711091 - 无法收回的长期债券投资损失 - V18B",
+   "account_name": "无法收回的长期债券投资损失",
+   "account_number": "5711091",
+   "root_type": "Expense",
+   "parent_account": "5711090 - 无法收回的债券股权投资损失 - V18B",
+   "creation": "2026-09-25 02:05:26.954925"
+  },
+  {
+   "name": "5711090 - 无法收回的债券股权投资损失 - V18B",
+   "account_name": "无法收回的债券股权投资损失",
+   "account_number": "5711090",
+   "root_type": "Expense",
+   "parent_account": "5711 - 营业外支出 - V18B",
+   "creation": "2026-09-25 02:05:26.951929"
+  },
+  {
+   "name": "5711080 - 坏账损失 - V18B",
+   "account_name": "坏账损失",
+   "account_number": "5711080",
+   "root_type": "Expense",
+   "parent_account": "5711 - 营业外支出 - V18B",
+   "creation": "2026-09-25 02:05:26.948777"
+  }
+ ],
+ "baseline_company_accounts": 95,
+ "baseline_company_sales_templates": [
+  {
+   "name": "China Tax - HDS",
+   "title": "China Tax"
+  }
+ ],
+ "baseline_included_in_print_rate_rows": [
+  [
+   "China Tax - HDS",
+   "VAT - HDS",
+   0
+  ]
+ ]
+}

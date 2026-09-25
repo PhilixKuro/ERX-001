@@ -1,0 +1,554 @@
+{
+ "segment": "1b content digestibility, delivery force-fed by probe scaffold",
+ "account_count_before": 95,
+ "error_log_count_before": 1,
+ "baseline_company_accounts_before": 95,
+ "sales_templates_before": 1,
+ "scaffold": "coa_mod.get_chart -> erx_v18 app get_chart (probe only)",
+ "chart_toplevel_keys": [
+  "资产类",
+  "负债类",
+  "权益类",
+  "成本类",
+  "收入类",
+  "费用类"
+ ],
+ "chart_toplevel_root_types": {
+  "资产类": "Asset",
+  "负债类": "Liability",
+  "权益类": "Equity",
+  "成本类": "Asset",
+  "收入类": "Income",
+  "费用类": "Expense"
+ },
+ "chart_json_node_count": 266,
+ "flag_ignore_chart_of_accounts_at_insert": "unset",
+ "hook_doc_events_Company": "ABSENT",
+ "insert_result": "NO EXCEPTION",
+ "insert_failed": false,
+ "get_chart_call_count_during_insert": 2,
+ "get_chart_call_args": [
+  [
+   "小企业会计准则(2024)",
+   null
+  ],
+  [
+   "小企业会计准则(2024)",
+   null
+  ]
+ ],
+ "company_exists_after": true,
+ "ACCOUNT_COUNT_for_test_company": 267,
+ "account_count_total_after": 362,
+ "baseline_company_accounts_after": 95,
+ "ROOT_ACCOUNTS": [
+  {
+   "name": "1 - 资产类 - V18B",
+   "account_name": "资产类",
+   "account_number": "1",
+   "root_type": "Asset",
+   "report_type": "Balance Sheet",
+   "is_group": 1
+  },
+  {
+   "name": "2 - 负债类 - V18B",
+   "account_name": "负债类",
+   "account_number": "2",
+   "root_type": "Liability",
+   "report_type": "Balance Sheet",
+   "is_group": 1
+  },
+  {
+   "name": "3 - 权益类 - V18B",
+   "account_name": "权益类",
+   "account_number": "3",
+   "root_type": "Equity",
+   "report_type": "Balance Sheet",
+   "is_group": 1
+  },
+  {
+   "name": "4 - 成本类 - V18B",
+   "account_name": "成本类",
+   "account_number": "4",
+   "root_type": "Asset",
+   "report_type": "Balance Sheet",
+   "is_group": 1
+  },
+  {
+   "name": "500 - 收入类 - V18B",
+   "account_name": "收入类",
+   "account_number": "500",
+   "root_type": "Income",
+   "report_type": "Profit and Loss",
+   "is_group": 1
+  },
+  {
+   "name": "540 - 费用类 - V18B",
+   "account_name": "费用类",
+   "account_number": "540",
+   "root_type": "Expense",
+   "report_type": "Profit and Loss",
+   "is_group": 1
+  }
+ ],
+ "ROOT_TYPE_expected": {
+  "资产类": "Asset",
+  "负债类": "Liability",
+  "权益类": "Equity",
+  "成本类": "Asset",
+  "收入类": "Income",
+  "费用类": "Expense"
+ },
+ "ROOT_TYPE_actual": {
+  "资产类": "Asset",
+  "负债类": "Liability",
+  "权益类": "Equity",
+  "成本类": "Asset",
+  "收入类": "Income",
+  "费用类": "Expense"
+ },
+ "ROOT_TYPE_all_correct": true,
+ "VAT_2221001_to_2221020": {
+  "2221001": {
+   "name": "2221001 - 进项税额 - V18B",
+   "account_name": "进项税额",
+   "account_number": "2221001",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0,
+   "account_type": "Tax",
+   "root_type": "Liability"
+  },
+  "2221002": {
+   "name": "2221002 - 已交税金 - V18B",
+   "account_name": "已交税金",
+   "account_number": "2221002",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221003": {
+   "name": "2221003 - 转出未交增值税 - V18B",
+   "account_name": "转出未交增值税",
+   "account_number": "2221003",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221004": {
+   "name": "2221004 - 减免税款 - V18B",
+   "account_name": "减免税款",
+   "account_number": "2221004",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221005": {
+   "name": "2221005 - 销项税额 - V18B",
+   "account_name": "销项税额",
+   "account_number": "2221005",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0,
+   "account_type": "Tax",
+   "root_type": "Liability"
+  },
+  "2221006": {
+   "name": "2221006 - 出口退税 - V18B",
+   "account_name": "出口退税",
+   "account_number": "2221006",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221007": {
+   "name": "2221007 - 进项税额转出 - V18B",
+   "account_name": "进项税额转出",
+   "account_number": "2221007",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221008": {
+   "name": "2221008 - 出口抵减内销产品应纳税额 - V18B",
+   "account_name": "出口抵减内销产品应纳税额",
+   "account_number": "2221008",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221009": {
+   "name": "2221009 - 转出多交增值税 - V18B",
+   "account_name": "转出多交增值税",
+   "account_number": "2221009",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221010": {
+   "name": "2221010 - 销项税额抵减 - V18B",
+   "account_name": "销项税额抵减",
+   "account_number": "2221010",
+   "parent_account": "2221000 - 应交增值税 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221011": {
+   "name": "2221011 - 预交增值税 - V18B",
+   "account_name": "预交增值税",
+   "account_number": "2221011",
+   "parent_account": "2221 - 应交税费 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221012": {
+   "name": "2221012 - 待抵扣进项税额 - V18B",
+   "account_name": "待抵扣进项税额",
+   "account_number": "2221012",
+   "parent_account": "2221 - 应交税费 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221013": {
+   "name": "2221013 - 待认证进项税额 - V18B",
+   "account_name": "待认证进项税额",
+   "account_number": "2221013",
+   "parent_account": "2221 - 应交税费 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221014": {
+   "name": "2221014 - 待转销项税额 - V18B",
+   "account_name": "待转销项税额",
+   "account_number": "2221014",
+   "parent_account": "2221 - 应交税费 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221015": {
+   "name": "2221015 - 增值税留抵税额 - V18B",
+   "account_name": "增值税留抵税额",
+   "account_number": "2221015",
+   "parent_account": "2221 - 应交税费 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221016": {
+   "name": "2221016 - 转让金融商品应交增值税 - V18B",
+   "account_name": "转让金融商品应交增值税",
+   "account_number": "2221016",
+   "parent_account": "2221 - 应交税费 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221017": {
+   "name": "2221017 - 代扣代交增值税 - V18B",
+   "account_name": "代扣代交增值税",
+   "account_number": "2221017",
+   "parent_account": "2221 - 应交税费 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221018": {
+   "name": "2221018 - 简易计税 - V18B",
+   "account_name": "简易计税",
+   "account_number": "2221018",
+   "parent_account": "2221 - 应交税费 - V18B",
+   "is_group": 0,
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  "2221019": {
+   "name": "2221019 - 应交增值税（小规模） - V18B",
+   "account_name": "应交增值税（小规模）",
+   "account_number": "2221019",
+   "parent_account": "2221 - 应交税费 - V18B",
+   "is_group": 0,
+   "account_type": "Tax",
+   "root_type": "Liability"
+  },
+  "2221020": {
+   "name": "2221020 - 未交增值税 - V18B",
+   "account_name": "未交增值税",
+   "account_number": "2221020",
+   "parent_account": "2221 - 应交税费 - V18B",
+   "is_group": 0,
+   "account_type": "Tax",
+   "root_type": "Liability"
+  }
+ },
+ "VAT_present_count": 20,
+ "VAT_missing": [],
+ "ACCOUNT_2221000": [
+  {
+   "name": "2221000 - 应交增值税 - V18B",
+   "account_name": "应交增值税",
+   "is_group": 1,
+   "root_type": "Liability",
+   "account_type": "Tax",
+   "lft": 162,
+   "rgt": 185
+  }
+ ],
+ "children_of_2221000": [
+  {
+   "account_number": null,
+   "account_name": "VAT",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221001",
+   "account_name": "进项税额",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221002",
+   "account_name": "已交税金",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221003",
+   "account_name": "转出未交增值税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221004",
+   "account_name": "减免税款",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221005",
+   "account_name": "销项税额",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221006",
+   "account_name": "出口退税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221007",
+   "account_name": "进项税额转出",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221008",
+   "account_name": "出口抵减内销产品应纳税额",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221009",
+   "account_name": "转出多交增值税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221010",
+   "account_name": "销项税额抵减",
+   "is_group": 0
+  }
+ ],
+ "children_of_2221000_count": 11,
+ "children_of_2221_count": 25,
+ "children_of_2221": [
+  {
+   "account_number": "2221000",
+   "account_name": "应交增值税",
+   "is_group": 1
+  },
+  {
+   "account_number": "2221011",
+   "account_name": "预交增值税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221012",
+   "account_name": "待抵扣进项税额",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221013",
+   "account_name": "待认证进项税额",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221014",
+   "account_name": "待转销项税额",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221015",
+   "account_name": "增值税留抵税额",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221016",
+   "account_name": "转让金融商品应交增值税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221017",
+   "account_name": "代扣代交增值税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221018",
+   "account_name": "简易计税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221019",
+   "account_name": "应交增值税（小规模）",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221020",
+   "account_name": "未交增值税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221030",
+   "account_name": "应交消费税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221040",
+   "account_name": "应交城市维护建设税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221050",
+   "account_name": "应交企业所得税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221060",
+   "account_name": "应交资源税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221070",
+   "account_name": "应交土地增值税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221080",
+   "account_name": "应交城镇土地使用税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221090",
+   "account_name": "应交房产税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221100",
+   "account_name": "应交车船税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221110",
+   "account_name": "应交教育费附加",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221120",
+   "account_name": "应交矿产资源补偿费",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221130",
+   "account_name": "应交排污费",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221140",
+   "account_name": "代扣代缴的个人所得税",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221150",
+   "account_name": "应交地方教育费附加",
+   "is_group": 0
+  },
+  {
+   "account_number": "2221160",
+   "account_name": "应交印花税",
+   "is_group": 0
+  }
+ ],
+ "root_type_histogram": [
+  [
+   "Asset",
+   72
+  ],
+  [
+   "Equity",
+   15
+  ],
+  [
+   "Expense",
+   85
+  ],
+  [
+   "Income",
+   26
+  ],
+  [
+   "Liability",
+   69
+  ]
+ ],
+ "nsm_broken_lft_rgt": [
+  [
+   0
+  ]
+ ],
+ "orphan_nonroot_accounts": [
+  [
+   0
+  ]
+ ],
+ "duplicate_suffixed_names": [],
+ "sales_templates_after_native": [
+  {
+   "name": "China Tax - V18B",
+   "title": "China Tax"
+  }
+ ],
+ "purchase_templates_after_native": [
+  {
+   "name": "China Tax - V18B",
+   "title": "China Tax"
+  }
+ ],
+ "company_defaults": {
+  "default_receivable_account": "2203 - 预收账款 - V18B",
+  "default_payable_account": "2211010 - 职工工资 - V18B",
+  "default_income_account": null,
+  "default_expense_account": "4403 - 机械作业 - V18B",
+  "cost_center": "Main - V18B",
+  "round_off_account": null
+ },
+ "warehouse_count": 5,
+ "error_log_count_after": 1,
+ "error_logs_recent": [
+  {
+   "name": "ukksv2d6f5",
+   "method": "Report execution failed for: Stock and Account Value Comparison",
+   "creation": "2026-09-21 04:17:57.241493"
+  }
+ ]
+}
