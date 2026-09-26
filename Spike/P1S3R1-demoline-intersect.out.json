@@ -1,0 +1,1978 @@
+{
+ "scope": [
+  "Account",
+  "Accounts Settings",
+  "Advance Taxes and Charges",
+  "Allowed To Transact With",
+  "BOM",
+  "BOM Explosion Item",
+  "BOM Item",
+  "BOM Operation",
+  "BOM Secondary Item",
+  "Bin",
+  "Company",
+  "Competitor Detail",
+  "Cost Center",
+  "Customer",
+  "Customer Credit Limit",
+  "Customer Number At Supplier",
+  "Delivery Note",
+  "Delivery Note Item",
+  "Fiscal Year",
+  "Fiscal Year Company",
+  "GL Entry",
+  "Global Defaults",
+  "Item",
+  "Item Barcode",
+  "Item Customer Detail",
+  "Item Default",
+  "Item Group",
+  "Item Price",
+  "Item Reorder",
+  "Item Supplier",
+  "Item Tax",
+  "Item Variant Attribute",
+  "Item Wise Tax Detail",
+  "Job Card",
+  "Job Card Item",
+  "Job Card Operation",
+  "Job Card Scheduled Time",
+  "Job Card Secondary Item",
+  "Job Card Time Log",
+  "Landed Cost Taxes and Charges",
+  "Manufacturing Settings",
+  "Material Request Plan Item",
+  "Mode of Payment",
+  "Mode of Payment Account",
+  "Operation",
+  "Packed Item",
+  "Party Account",
+  "Payment Entry",
+  "Payment Entry Deduction",
+  "Payment Entry Reference",
+  "Payment Schedule",
+  "Portal User",
+  "Price List",
+  "Price List Country",
+  "Pricing Rule Detail",
+  "Production Plan",
+  "Production Plan Item",
+  "Production Plan Item Reference",
+  "Production Plan Material Request",
+  "Production Plan Material Request Warehouse",
+  "Production Plan Sales Order",
+  "Production Plan Sub Assembly Item",
+  "Purchase Invoice",
+  "Purchase Invoice Advance",
+  "Purchase Invoice Item",
+  "Purchase Order",
+  "Purchase Order Item",
+  "Purchase Order Item Supplied",
+  "Purchase Receipt",
+  "Purchase Receipt Item",
+  "Purchase Receipt Item Supplied",
+  "Purchase Taxes and Charges",
+  "Quotation",
+  "Quotation Item",
+  "Quotation Lost Reason Detail",
+  "Repost Allowed Types",
+  "Sales Invoice",
+  "Sales Invoice Advance",
+  "Sales Invoice Item",
+  "Sales Invoice Payment",
+  "Sales Invoice Timesheet",
+  "Sales Order",
+  "Sales Order Item",
+  "Sales Taxes and Charges",
+  "Sales Team",
+  "Stock Entry",
+  "Stock Entry Detail",
+  "Stock Entry Type",
+  "Stock Ledger Entry",
+  "Stock Settings",
+  "Sub Operation",
+  "Supplier",
+  "Supplier Number At Customer",
+  "Tax Withholding Entry",
+  "Transaction Deletion Record",
+  "Transaction Deletion Record Details",
+  "Transaction Deletion Record Item",
+  "Transaction Deletion Record To Delete",
+  "UOM",
+  "UOM Conversion Detail",
+  "UOM Conversion Factor",
+  "Warehouse",
+  "Work Order",
+  "Work Order Additional Item",
+  "Work Order Item",
+  "Work Order Operation",
+  "Workstation",
+  "Workstation Cost",
+  "Workstation Working Hour"
+ ],
+ "result": {
+  "设置": {
+   "sources": [
+    "ERPNext Settings",
+    "Setting",
+    "Settings",
+    "Setup"
+   ],
+   "clusters": {
+    "erpnext sett": [
+     "ERPNext Settings"
+    ],
+    "sett": [
+     "Setting",
+     "Settings"
+    ],
+    "setup": [
+     "Setup"
+    ]
+   },
+   "visible": {
+    "Settings": [
+     "Customer label:settings_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Supplier label:settings_tab [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Setup": [
+     "Workstation select-option:status [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "仓库": {
+   "sources": [
+    "Accepted Warehouse",
+    "For Warehouse",
+    "Request for",
+    "Requesting Site",
+    "Stores",
+    "Warehouse",
+    "Warehouses"
+   ],
+   "clusters": {
+    "accept warehouse": [
+     "Accepted Warehouse"
+    ],
+    "warehouse": [
+     "For Warehouse",
+     "Warehouse",
+     "Warehouses"
+    ],
+    "request for": [
+     "Request for"
+    ],
+    "request site": [
+     "Requesting Site"
+    ],
+    "store": [
+     "Stores"
+    ]
+   },
+   "visible": {
+    "Accepted Warehouse": [
+     "Purchase Invoice Item label:warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt label:set_warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt Item label:warehouse [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "For Warehouse": [
+     "Material Request Plan Item label:warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan label:for_warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:477 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1451 [BARE - no context possible without upstream patch]"
+    ],
+    "Request for": [
+     "Item Reorder label:warehouse [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Warehouse": [
+     "BOM Operation label:warehouse_section [CTX-OK __(df.label,null,df.parent)]",
+     "Bin label:warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Delivery Note Item label:warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan label:warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Material Request Warehouse label:warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice Item label:warehouse_section [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation Item label:warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice Item label:warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:385 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:493 [BARE - no context possible without upstream patch]",
+     "Stock Ledger Entry label:warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order label:warehouses [CTX-OK __(df.label,null,df.parent)]",
+     "Workstation label:warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:445 [BARE - no context possible without upstream patch]"
+    ],
+    "Warehouses": [
+     "Production Plan label:warehouses [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:532 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "付款": {
+   "sources": [
+    "Outward",
+    "Pay",
+    "Payment",
+    "Payments"
+   ],
+   "clusters": {
+    "outward": [
+     "Outward"
+    ],
+    "pay": [
+     "Pay"
+    ],
+    "payment": [
+     "Payment",
+     "Payments"
+    ]
+   },
+   "visible": {
+    "Pay": [
+     "Payment Entry select-option:payment_type [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Payment": [
+     "Accounts Settings select-option:exchange_gain_loss_posting_date [CTX-OK select.js:172 __(v,null,doctype)]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:124 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice_list.js:55 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:430 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:98 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice_list.js:42 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1176 [BARE - no context possible without upstream patch]"
+    ],
+    "Payments": [
+     "Accounts Settings label:payments_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice label:payments_section [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice label:payments_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:payments_section [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:payments_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Supplier select-option:hold_type [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "付款金额": {
+   "sources": [
+    "Paid Amount",
+    "Payment Amount"
+   ],
+   "clusters": {
+    "paid": [
+     "Paid Amount"
+    ],
+    "payment": [
+     "Payment Amount"
+    ]
+   },
+   "visible": {
+    "Paid Amount": [
+     "Payment Entry label:paid_amount [CTX-OK __(df.label,null,df.parent)]",
+     "Payment Schedule label:paid_amount [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice label:paid_amount [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:paid_amount [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Payment Amount": [
+     "Payment Schedule label:payment_amount [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "会计": {
+   "sources": [
+    "Accountant",
+    "Accounting",
+    "Accounts",
+    "Accounts User"
+   ],
+   "clusters": {
+    "accountant": [
+     "Accountant"
+    ],
+    "account": [
+     "Accounting",
+     "Accounts"
+    ],
+    "account user": [
+     "Accounts User"
+    ]
+   },
+   "visible": {
+    "Accounting": [
+     "Customer label:accounting_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Item label:accounting [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice Item label:accounting [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Entry Detail label:accounting [CTX-OK __(df.label,null,df.parent)]",
+     "Supplier label:accounting_tab [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Accounts": [
+     "Company label:accounts_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Mode of Payment label:accounts [CTX-OK __(df.label,null,df.parent)]",
+     "Payment Entry label:payment_accounts_section [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "会计凭证": {
+   "sources": [
+    "Accounting Ledger",
+    "Ledger"
+   ],
+   "clusters": {
+    "account ledger": [
+     "Accounting Ledger"
+    ],
+    "ledger": [
+     "Ledger"
+    ]
+   },
+   "visible": {
+    "Accounting Ledger": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.js:173 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.js:123 [BARE - no context possible without upstream patch]"
+    ],
+    "Ledger": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:426 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "借方": {
+   "sources": [
+    "Debit",
+    "Debit Amount",
+    "Debits",
+    "Dr"
+   ],
+   "clusters": {
+    "debit": [
+     "Debit",
+     "Debit Amount",
+     "Debits"
+    ],
+    "dr": [
+     "Dr"
+    ]
+   },
+   "visible": {
+    "Debit": [
+     "Account select-option:balance_must_be [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Debit Amount": [
+     "GL Entry label:debit [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Dr": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account_tree.js:63 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "新建": {
+   "sources": [
+    "Create New",
+    "Make",
+    "New",
+    "new"
+   ],
+   "clusters": {
+    "create new": [
+     "Create New"
+    ],
+    "make": [
+     "Make"
+    ],
+    "new": [
+     "New",
+     "new"
+    ]
+   },
+   "visible": {
+    "Make": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:490 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:859 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:893 [BARE - no context possible without upstream patch]"
+    ],
+    "New": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account_tree.js:235 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "单位": {
+   "sources": [
+    "Include UOM",
+    "UOM",
+    "Unit",
+    "Unit Of Measure",
+    "Unit of Measure"
+   ],
+   "clusters": {
+    "uom": [
+     "Include UOM",
+     "UOM"
+    ],
+    "unit": [
+     "Unit"
+    ],
+    "unit of measure": [
+     "Unit Of Measure",
+     "Unit of Measure"
+    ]
+   },
+   "visible": {
+    "UOM": [
+     "BOM Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "BOM Secondary Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Bin label:stock_uom [CTX-OK __(df.label,null,df.parent)]",
+     "Delivery Note Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Item label:uom_tab [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:42 [BARE - no context possible without upstream patch]",
+     "Item Barcode label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Item Price label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Job Card Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Material Request Plan Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Packed Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Item label:stock_uom [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Sub Assembly Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:794 [BARE - no context possible without upstream patch]",
+     "Purchase Order Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1697 [BARE - no context possible without upstream patch]",
+     "Sales Order Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Entry Detail label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "UOM Conversion Detail label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order Additional Item label:uom [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:480 [BARE - no context possible without upstream patch]"
+    ],
+    "Unit Of Measure": [
+     "BOM label:uom [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "单据类型": {
+   "sources": [
+    "Against Doctype",
+    "DocType",
+    "Doctype",
+    "Document Type",
+    "Document Types",
+    "Enter Form Type",
+    "For Document Type",
+    "From Document Type"
+   ],
+   "clusters": {
+    "doctype": [
+     "Against Doctype",
+     "DocType",
+     "Doctype"
+    ],
+    "document type": [
+     "Document Type",
+     "Document Types",
+     "For Document Type",
+     "From Document Type"
+    ],
+    "form type": [
+     "Enter Form Type"
+    ]
+   },
+   "visible": {
+    "Against Doctype": [
+     "Quotation Item label:prevdoc_doctype [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "DocType": [
+     "Transaction Deletion Record Details label:doctype_name [CTX-OK __(df.label,null,df.parent)]",
+     "Transaction Deletion Record Item label:doctype_name [CTX-OK __(df.label,null,df.parent)]",
+     "Transaction Deletion Record To Delete label:doctype_name [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Doctype": [
+     "Repost Allowed Types label:document_type [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "发票": {
+   "sources": [
+    "Billing",
+    "Invoice",
+    "Invoices",
+    "Linked Invoices"
+   ],
+   "clusters": {
+    "bill": [
+     "Billing"
+    ],
+    "invoice": [
+     "Invoice",
+     "Invoices",
+     "Linked Invoices"
+    ]
+   },
+   "visible": {
+    "Invoice": [
+     "Accounts Settings select-option:exchange_gain_loss_posting_date [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Invoices": [
+     "Supplier select-option:hold_type [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "员工": {
+   "sources": [
+    "Employee",
+    "Employee ",
+    "Employees",
+    "From Employee",
+    "Training Event Employee",
+    "Training Result Employee"
+   ],
+   "clusters": {
+    "employee": [
+     "Employee",
+     "Employee ",
+     "Employees",
+     "From Employee"
+    ],
+    "train event employee": [
+     "Training Event Employee"
+    ],
+    "train result employee": [
+     "Training Result Employee"
+    ]
+   },
+   "visible": {
+    "Employee": [
+     "Job Card label:employee [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card_calendar.js:27 [BARE - no context possible without upstream patch]",
+     "Job Card Time Log label:employee [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:328 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:359 [BARE - no context possible without upstream patch]"
+    ],
+    "Employees": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:351 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "进行中": {
+   "sources": [
+    "In Process",
+    "In Progress",
+    "Work In Progress",
+    "Work in Progress"
+   ],
+   "clusters": {
+    "process": [
+     "In Process"
+    ],
+    "progress": [
+     "In Progress"
+    ],
+    "work in progress": [
+     "Work In Progress",
+     "Work in Progress"
+    ]
+   },
+   "visible": {
+    "In Process": [
+     "Production Plan select-option:status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Work Order select-option:status [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Work In Progress": [
+     "Job Card select-option:status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Job Card Operation select-option:status [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Work in Progress": [
+     "Work Order Operation select-option:status [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "车间仓": {
+   "sources": [
+    "WIP Warehouse",
+    "Work-in-Progress Warehouse"
+   ],
+   "clusters": {
+    "wip warehouse": [
+     "WIP Warehouse"
+    ],
+    "work in progress warehouse": [
+     "Work-in-Progress Warehouse"
+    ]
+   },
+   "visible": {
+    "WIP Warehouse": [
+     "BOM Operation label:wip_warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Job Card label:wip_warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order_calendar.js:44 [BARE - no context possible without upstream patch]"
+    ],
+    "Work-in-Progress Warehouse": [
+     "Work Order label:wip_warehouse [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "科目表模板": {
+   "sources": [
+    "Chart Of Accounts Template",
+    "Create Chart Of Accounts Based On"
+   ],
+   "clusters": {
+    "chart of account template": [
+     "Chart Of Accounts Template"
+    ],
+    "create chart of account bas on": [
+     "Create Chart Of Accounts Based On"
+    ]
+   },
+   "visible": {
+    "Chart Of Accounts Template": [
+     "Company label:chart_of_accounts [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Create Chart Of Accounts Based On": [
+     "Company label:create_chart_of_accounts_based_on [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "税费": {
+   "sources": [
+    "Expense Taxes and Charges",
+    "Taxes & Charges",
+    "Taxes and Charges",
+    "Taxes and Charges Added",
+    "Taxes and Charges on Income Tax"
+   ],
+   "clusters": {
+    "expense tax and charge": [
+     "Expense Taxes and Charges"
+    ],
+    "tax charge": [
+     "Taxes & Charges"
+    ],
+    "tax and charge": [
+     "Taxes and Charges"
+    ],
+    "tax and charge add": [
+     "Taxes and Charges Added"
+    ],
+    "tax and charge on income tax": [
+     "Taxes and Charges on Income Tax"
+    ]
+   },
+   "visible": {
+    "Taxes and Charges": [
+     "Delivery Note label:taxes_section [CTX-OK __(df.label,null,df.parent)]",
+     "Payment Entry label:taxes_and_charges_section [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice label:taxes_section [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Order label:taxes_section [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt label:taxes_charges_section [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation label:taxes_section [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:taxes_section [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Taxes and Charges Added": [
+     "Purchase Invoice label:taxes_and_charges_added [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Order label:taxes_and_charges_added [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt label:taxes_and_charges_added [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "完工数量": {
+   "sources": [
+    "Completed Qty",
+    "Manufactured Qty",
+    "Produced",
+    "Produced Qty"
+   ],
+   "clusters": {
+    "complet": [
+     "Completed Qty"
+    ],
+    "manufactur": [
+     "Manufactured Qty"
+    ],
+    "produc": [
+     "Produced",
+     "Produced Qty"
+    ]
+   },
+   "visible": {
+    "Completed Qty": [
+     "Job Card Operation label:completed_qty [CTX-OK __(df.label,null,df.parent)]",
+     "Job Card Time Log label:completed_qty [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order Operation label:completed_qty [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Manufactured Qty": [
+     "Job Card label:manufactured_qty [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order label:produced_qty [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Produced Qty": [
+     "Production Plan Item label:produced_qty [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Sub Assembly Item label:wo_produced_qty [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "完成": {
+   "sources": [
+    "Complete",
+    "Done",
+    "Finish"
+   ],
+   "clusters": {
+    "complete": [
+     "Complete"
+    ],
+    "done": [
+     "Done"
+    ],
+    "finish": [
+     "Finish"
+    ]
+   },
+   "visible": {
+    "Complete": [
+     "Job Card Operation select-option:status [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Done": [
+     "Transaction Deletion Record Details label:done [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Finish": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:904 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:919 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:928 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "工单发料": {
+   "sources": [
+    "Material Transfer for Manufacture",
+    "Material Transferred for Manufacture"
+   ],
+   "clusters": {
+    "material transfer for manufacture": [
+     "Material Transfer for Manufacture"
+    ],
+    "material transferr for manufacture": [
+     "Material Transferred for Manufacture"
+    ]
+   },
+   "visible": {
+    "Material Transfer for Manufacture": [
+     "Stock Entry select-option:purpose [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Stock Entry Type select-option:purpose [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Material Transferred for Manufacture": [
+     "BOM select-option:backflush_based_on [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Manufacturing Settings select-option:backflush_raw_materials_based_on [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "工单数量": {
+   "sources": [
+    "Planned Qty",
+    "Planned Quantity",
+    "Qty To Manufacture",
+    "Work Order Qty"
+   ],
+   "clusters": {
+    "qty": [
+     "Planned Qty"
+    ],
+    "quantity": [
+     "Planned Quantity"
+    ],
+    "qty to manufacture": [
+     "Qty To Manufacture"
+    ],
+    "work order": [
+     "Work Order Qty"
+    ]
+   },
+   "visible": {
+    "Planned Qty": [
+     "Bin label:planned_qty [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Item label:planned_qty [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Planned Quantity": [
+     "Sales Order Item label:planned_qty [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Qty To Manufacture": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:410 [BARE - no context possible without upstream patch]",
+     "Job Card label:for_quantity [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order label:qty [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Work Order Qty": [
+     "Sales Order Item label:work_order_qty [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "工序": {
+   "sources": [
+    "For Operation",
+    "Item operation",
+    "Operation",
+    "Operations"
+   ],
+   "clusters": {
+    "operation": [
+     "For Operation",
+     "Operation",
+     "Operations"
+    ],
+    "item operation": [
+     "Item operation"
+    ]
+   },
+   "visible": {
+    "For Operation": [
+     "Job Card label:for_operation [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:475 [BARE - no context possible without upstream patch]"
+    ],
+    "Item operation": [
+     "BOM Item label:operation [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Operation": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:511 [BARE - no context possible without upstream patch]",
+     "BOM Explosion Item label:operation [CTX-OK __(df.label,null,df.parent)]",
+     "BOM Operation label:operation [CTX-OK __(df.label,null,df.parent)]",
+     "Job Card label:operation [CTX-OK __(df.label,null,df.parent)]",
+     "Job Card Operation label:sub_operation [CTX-OK __(df.label,null,df.parent)]",
+     "Sub Operation label:operation [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:334 [BARE - no context possible without upstream patch]",
+     "Work Order Item label:operation [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order Operation label:operation [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Operations": [
+     "BOM label:operations [CTX-OK __(df.label,null,df.parent)]",
+     "BOM label:operations_section_section [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order label:operations_section [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order label:operations [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:329 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "应付账款": {
+   "sources": [
+    "Accounts Payable",
+    "Creditors",
+    "Payable",
+    "Payables"
+   ],
+   "clusters": {
+    "account payable": [
+     "Accounts Payable"
+    ],
+    "creditor": [
+     "Creditors"
+    ],
+    "payable": [
+     "Payable",
+     "Payables"
+    ]
+   },
+   "visible": {
+    "Accounts Payable": [
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.js:135 [BARE - no context possible without upstream patch]"
+    ],
+    "Payable": [
+     "Account select-option:account_type [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "应收账款": {
+   "sources": [
+    "Accounts Receivable",
+    "Debtors",
+    "Receivable",
+    "Receivable Account",
+    "Receivables"
+   ],
+   "clusters": {
+    "account receivable": [
+     "Accounts Receivable"
+    ],
+    "debtor": [
+     "Debtors"
+    ],
+    "receivable": [
+     "Receivable",
+     "Receivable Account",
+     "Receivables"
+    ]
+   },
+   "visible": {
+    "Accounts Receivable": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.js:162 [BARE - no context possible without upstream patch]"
+    ],
+    "Receivable": [
+     "Account select-option:account_type [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "开始日期": {
+   "sources": [
+    "Date of Commencement",
+    "From Date",
+    "Start Date",
+    "Work From Date"
+   ],
+   "clusters": {
+    "date of commencement": [
+     "Date of Commencement"
+    ],
+    "date": [
+     "From Date"
+    ],
+    "start": [
+     "Start Date"
+    ],
+    "work from": [
+     "Work From Date"
+    ]
+   },
+   "visible": {
+    "Date of Commencement": [
+     "Company label:date_of_commencement [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "From Date": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:894 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:901 [BARE - no context possible without upstream patch]",
+     "Production Plan label:from_date [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice label:from_date [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Order label:from_date [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:from_date [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order label:from_date [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "待处理": {
+   "sources": [
+    "Open",
+    "Pending"
+   ],
+   "clusters": {
+    "open": [
+     "Open"
+    ],
+    "pend": [
+     "Pending"
+    ]
+   },
+   "visible": {
+    "Open": [
+     "Job Card select-option:status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Quotation select-option:status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation_list.js:30 [BARE - no context possible without upstream patch]"
+    ],
+    "Pending": [
+     "Job Card Operation select-option:status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Transaction Deletion Record select-option:delete_bin_data_status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Transaction Deletion Record select-option:delete_leads_and_addresses_status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Transaction Deletion Record select-option:reset_company_default_values_status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Transaction Deletion Record select-option:clear_notifications_status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Transaction Deletion Record select-option:initialize_doctypes_table_status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Transaction Deletion Record select-option:delete_transactions_status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Work Order Operation select-option:status [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "成本价": {
+   "sources": [
+    "Costing Rate",
+    "Incoming Rate (Costing)",
+    "Valuation",
+    "Valuation Rate"
+   ],
+   "clusters": {
+    "cost rate": [
+     "Costing Rate"
+    ],
+    "incom rate cost": [
+     "Incoming Rate (Costing)"
+    ],
+    "valuation": [
+     "Valuation"
+    ],
+    "valuation rate": [
+     "Valuation Rate"
+    ]
+   },
+   "visible": {
+    "Incoming Rate (Costing)": [
+     "Sales Invoice Item label:incoming_rate [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Valuation": [
+     "Purchase Taxes and Charges select-option:category [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Valuation Rate": [
+     "BOM select-option:rm_cost_as_per [CTX-OK select.js:172 __(v,null,doctype)]",
+     "BOM Secondary Item select-option:valuation_type [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Bin label:valuation_rate [CTX-OK __(df.label,null,df.parent)]",
+     "Item label:valuation_rate [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice Item label:valuation_rate [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt Item label:valuation_rate [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation Item label:valuation_rate [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order Item label:valuation_rate [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Entry Detail label:valuation_rate [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Entry Detail select-option:valuation_type [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "收到数量": {
+   "sources": [
+    "In Qty",
+    "Received Qty",
+    "Received Quantity"
+   ],
+   "clusters": {
+    "qty": [
+     "In Qty"
+    ],
+    "receiv": [
+     "Received Qty",
+     "Received Quantity"
+    ]
+   },
+   "visible": {
+    "Received Qty": [
+     "Delivery Note Item label:received_qty [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Sub Assembly Item label:received_qty [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice Item label:received_qty [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Order Item label:received_qty [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Received Quantity": [
+     "Purchase Receipt Item label:received_qty [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "数量": {
+   "sources": [
+    "Batch Quantity",
+    "Qty",
+    "Qty ",
+    "Quantity"
+   ],
+   "clusters": {
+    "batch": [
+     "Batch Quantity"
+    ],
+    "qty": [
+     "Qty",
+     "Qty "
+    ],
+    "quantity": [
+     "Quantity"
+    ]
+   },
+   "visible": {
+    "Qty": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:1160 [BARE - no context possible without upstream patch]",
+     "BOM Item label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "BOM Secondary Item label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "Job Card Item label:qty_section [CTX-OK __(df.label,null,df.parent)]",
+     "Job Card Secondary Item label:stock_qty [CTX-OK __(df.label,null,df.parent)]",
+     "Landed Cost Taxes and Charges label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "Packed Item label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Item Reference label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:398 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:502 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:592 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:639 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1307 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1469 [BARE - no context possible without upstream patch]",
+     "Stock Entry Detail label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order Additional Item label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order Item label:qty_section [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Quantity": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:498 [BARE - no context possible without upstream patch]",
+     "Delivery Note Item label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Sub Assembly Item label:section_break_4rxf [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:787 [BARE - no context possible without upstream patch]",
+     "Purchase Order Item label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation Item label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice Item label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order Item label:qty [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:819 [BARE - no context possible without upstream patch]",
+     "Stock Entry Detail label:quantity_section [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "日期": {
+   "sources": [
+    "As On Date",
+    "Date",
+    "Date ",
+    "Dates",
+    "On Date",
+    "On This Date"
+   ],
+   "clusters": {
+    "as on": [
+     "As On Date"
+    ],
+    "date": [
+     "Date",
+     "Date ",
+     "Dates",
+     "On Date"
+    ],
+    "thi": [
+     "On This Date"
+    ]
+   },
+   "visible": {
+    "Date": [
+     "Delivery Note label:posting_date [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Order label:transaction_date [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt label:posting_date [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation label:transaction_date [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order label:transaction_date [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Dates": [
+     "GL Entry label:dates_section [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "成品": {
+   "sources": [
+    "Final Product",
+    "Finished Good",
+    "Finished Goods",
+    "Item To Manufacture",
+    "Production Item"
+   ],
+   "clusters": {
+    "final product": [
+     "Final Product"
+    ],
+    "finish good": [
+     "Finished Good",
+     "Finished Goods"
+    ],
+    "item to manufacture": [
+     "Item To Manufacture"
+    ],
+    "production item": [
+     "Production Item"
+    ]
+   },
+   "visible": {
+    "Final Product": [
+     "Job Card label:production_item [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Finished Good": [
+     "Production Plan Sub Assembly Item label:parent_item_code [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:204 [BARE - no context possible without upstream patch]",
+     "Purchase Order Item label:fg_item [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:830 [BARE - no context possible without upstream patch]",
+     "Sales Order Item label:fg_item [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Finished Goods": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1438 [BARE - no context possible without upstream patch]"
+    ],
+    "Item To Manufacture": [
+     "Work Order label:production_item [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Production Item": [
+     "BOM label:production_item_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order label:item [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order_calendar.js:38 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "物料": {
+   "sources": [
+    " Item",
+    "For Item",
+    "Item",
+    "Items",
+    "Items Catalogue",
+    "Material"
+   ],
+   "clusters": {
+    "item": [
+     " Item",
+     "For Item",
+     "Item",
+     "Items",
+     "Items Catalogue"
+    ],
+    "material": [
+     "Material"
+    ]
+   },
+   "visible": {
+    "Item": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:1140 [BARE - no context possible without upstream patch]",
+     "Purchase Invoice Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1675 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.js:149 [BARE - no context possible without upstream patch]"
+    ],
+    "Items": [
+     "Delivery Note label:items_section [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:500 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/setup/doctype/item_group/item_group.js:87 [BARE - no context possible without upstream patch]",
+     "Job Card label:items [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice label:sec_warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice label:items [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Order label:items [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt label:sec_warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt label:items [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation label:items [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:items_section [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:items [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order label:sec_warehouse [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order label:items [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1270 [BARE - no context possible without upstream patch]",
+     "Stock Entry label:items [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Entry label:items_section [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "物料清单": {
+   "sources": [
+    " BOM",
+    "BOM",
+    "Bill of Materials"
+   ],
+   "clusters": {
+    "bom": [
+     " BOM",
+     "BOM"
+    ],
+    "bill of material": [
+     "Bill of Materials"
+    ]
+   },
+   "visible": {
+    "BOM": [
+     "BOM select-option:backflush_based_on [CTX-OK select.js:172 __(v,null,doctype)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom_tree.js:8 [BARE - no context possible without upstream patch]",
+     "Manufacturing Settings select-option:backflush_raw_materials_based_on [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Manufacturing Settings label:bom_section [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice Item label:bom [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Order Item label:bom [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt Item label:bom [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1459 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:800 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:213 [BARE - no context possible without upstream patch]",
+     "Work Order Operation label:bom [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Bill of Materials": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:786 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "物料清单号": {
+   "sources": [
+    "BOM Detail No",
+    "BOM No"
+   ],
+   "clusters": {
+    "bom detail": [
+     "BOM Detail No"
+    ],
+    "bom": [
+     "BOM No"
+    ]
+   },
+   "visible": {
+    "BOM Detail No": [
+     "Purchase Order Item Supplied label:bom_detail_no [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt Item Supplied label:bom_detail_no [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "BOM No": [
+     "BOM Item label:bom_no [CTX-OK __(df.label,null,df.parent)]",
+     "BOM Operation label:bom_no [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Item label:bom_no [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Sub Assembly Item label:bom_no [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order Item label:bom_no [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Entry label:bom_no [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Entry Detail label:bom_no [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order label:bom_no [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "物料号": {
+   "sources": [
+    "Item Code",
+    "Item Reference"
+   ],
+   "clusters": {
+    "item code": [
+     "Item Code"
+    ],
+    "item reference": [
+     "Item Reference"
+    ]
+   },
+   "visible": {
+    "Item Code": [
+     "BOM Explosion Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "BOM Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "BOM Secondary Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Bin label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Delivery Note Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Item Price label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Job Card Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Material Request Plan Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Packed Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Pricing Rule Detail label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:773 [BARE - no context possible without upstream patch]",
+     "Purchase Order Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Order Item Supplied label:main_item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt Item Supplied label:main_item_code [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.js:297 [BARE - no context possible without upstream patch]",
+     "Quotation Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:314 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:376 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:484 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1280 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1444 [BARE - no context possible without upstream patch]",
+     "Sales Order Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Entry Detail label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Ledger Entry label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Settings select-option:item_naming_by [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Work Order Additional Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order Item label:item_code [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:471 [BARE - no context possible without upstream patch]"
+    ],
+    "Item Reference": [
+     "Production Plan Item label:item_reference [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Item Reference label:item_reference [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "税": {
+   "sources": [
+    "Tax",
+    "Tax Masters",
+    "Taxes"
+   ],
+   "clusters": {
+    "tax": [
+     "Tax",
+     "Taxes"
+    ],
+    "tax master": [
+     "Tax Masters"
+    ]
+   },
+   "visible": {
+    "Tax": [
+     "Account select-option:account_type [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Customer label:tax_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Item label:item_tax_section_break [CTX-OK __(df.label,null,df.parent)]",
+     "Supplier label:tax_tab [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Taxes": [
+     "Item label:taxes [CTX-OK __(df.label,null,df.parent)]",
+     "Item Group label:taxes [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order label:taxes_section [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "结束时间": {
+   "sources": [
+    "End Time",
+    "Ended At",
+    "Ends on",
+    "To Datetime",
+    "To Time"
+   ],
+   "clusters": {
+    "end": [
+     "End Time"
+    ],
+    "end at": [
+     "Ended At"
+    ],
+    "end on": [
+     "Ends on"
+    ],
+    "datetime": [
+     "To Datetime"
+    ],
+    "time": [
+     "To Time"
+    ]
+   },
+   "visible": {
+    "End Time": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:383 [BARE - no context possible without upstream patch]",
+     "Workstation Working Hour label:end_time [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "To Time": [
+     "Job Card Scheduled Time label:to_time [CTX-OK __(df.label,null,df.parent)]",
+     "Job Card Time Log label:to_time [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice Timesheet label:to_time [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "联系人": {
+   "sources": [
+    "Contact",
+    "Contact Person",
+    "Contacts"
+   ],
+   "clusters": {
+    "contact": [
+     "Contact",
+     "Contacts"
+    ],
+    "contact person": [
+     "Contact Person"
+    ]
+   },
+   "visible": {
+    "Contact": [
+     "Delivery Note label:contact_display [CTX-OK __(df.label,null,df.parent)]",
+     "Payment Entry label:contact_person [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice label:contact_display [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt label:contact_display [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation label:contact_display [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:contact_display [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order label:contact_display [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Contact Person": [
+     "Delivery Note label:contact_person [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice label:contact_person [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt label:contact_person [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation label:contact_person [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:contact_person [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order label:contact_person [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "选物料": {
+   "sources": [
+    "Get Items",
+    "Get Items From"
+   ],
+   "clusters": {
+    "get item": [
+     "Get Items"
+    ],
+    "get item from": [
+     "Get Items From"
+    ]
+   },
+   "visible": {
+    "Get Items": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:488 [BARE - no context possible without upstream patch]",
+     "Stock Entry label:get_items [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Get Items From": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:187 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:239 [BARE - no context possible without upstream patch]",
+     "Production Plan label:get_items_from [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:177 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:202 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:549 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:572 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:144 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:244 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.js:182 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:361 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:396 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:428 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:468 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:211 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1217 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:475 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:522 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:555 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:622 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:790 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "行业": {
+   "sources": [
+    "Domain",
+    "Industry"
+   ],
+   "clusters": {
+    "domain": [
+     "Domain"
+    ],
+    "industry": [
+     "Industry"
+    ]
+   },
+   "visible": {
+    "Domain": [
+     "Company label:domain [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Industry": [
+     "Customer label:industry [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "贷方": {
+   "sources": [
+    "Cr",
+    "Credit",
+    "Credit Amount"
+   ],
+   "clusters": {
+    "cr": [
+     "Cr"
+    ],
+    "credit": [
+     "Credit",
+     "Credit Amount"
+    ]
+   },
+   "visible": {
+    "Cr": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account_tree.js:63 [BARE - no context possible without upstream patch]"
+    ],
+    "Credit": [
+     "Account select-option:balance_must_be [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Credit Amount": [
+     "GL Entry label:credit [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "工费成本": {
+   "sources": [
+    "Operating Components Cost",
+    "Operating Cost",
+    "Operating Costs"
+   ],
+   "clusters": {
+    "operat component cost": [
+     "Operating Components Cost"
+    ],
+    "operat cost": [
+     "Operating Cost",
+     "Operating Costs"
+    ]
+   },
+   "visible": {
+    "Operating Components Cost": [
+     "Workstation label:workstation_costs [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Operating Cost": [
+     "BOM label:operating_cost [CTX-OK __(df.label,null,df.parent)]",
+     "BOM Operation label:operating_cost [CTX-OK __(df.label,null,df.parent)]",
+     "Workstation Cost label:operating_cost [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Operating Costs": [
+     "Workstation label:over_heads [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "采购": {
+   "sources": [
+    "Buy",
+    "Buying",
+    "For Buying",
+    "Procurement",
+    "Purchase",
+    "Purchased",
+    "Purchases",
+    "Purchasing"
+   ],
+   "clusters": {
+    "buy": [
+     "Buy",
+     "Buying",
+     "For Buying"
+    ],
+    "procurement": [
+     "Procurement"
+    ],
+    "purchase": [
+     "Purchase",
+     "Purchases"
+    ],
+    "purchas": [
+     "Purchased",
+     "Purchasing"
+    ]
+   },
+   "visible": {
+    "Buying": [
+     "Item Price label:buying [CTX-OK __(df.label,null,df.parent)]",
+     "Price List label:buying [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Purchase": [
+     "Item select-option:default_material_request_type [CTX-OK select.js:172 __(v,null,doctype)]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:30 [BARE - no context possible without upstream patch]",
+     "Item Reorder select-option:material_request_type [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Material Request Plan Item select-option:material_request_type [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Purchasing": [
+     "Item label:purchasing_tab [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "销售": {
+   "sources": [
+    "For Selling",
+    "Sales",
+    "Sell",
+    "Selling"
+   ],
+   "clusters": {
+    "sell": [
+     "For Selling",
+     "Sell",
+     "Selling"
+    ],
+    "sale": [
+     "Sales"
+    ]
+   },
+   "visible": {
+    "Sales": [
+     "Item label:sales_details [CTX-OK __(df.label,null,df.parent)]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:29 [BARE - no context possible without upstream patch]",
+     "Quotation select-option:order_type [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Sales Order select-option:order_type [CTX-OK select.js:172 __(v,null,doctype)]"
+    ],
+    "Selling": [
+     "Item Price label:selling [CTX-OK __(df.label,null,df.parent)]",
+     "Price List label:selling [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "销售税费模板": {
+   "sources": [
+    "Sales Tax Template",
+    "Sales Taxes and Charges Template"
+   ],
+   "clusters": {
+    "sale tax template": [
+     "Sales Tax Template"
+    ],
+    "sale tax and charge template": [
+     "Sales Taxes and Charges Template"
+    ]
+   },
+   "visible": {
+    "Sales Tax Template": [
+     "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.js:144 [BARE - no context possible without upstream patch]"
+    ],
+    "Sales Taxes and Charges Template": [
+     "Delivery Note label:taxes_and_charges [CTX-OK __(df.label,null,df.parent)]",
+     "Payment Entry label:sales_taxes_and_charges_template [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation label:taxes_and_charges [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:taxes_and_charges [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order label:taxes_and_charges [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "生产数量": {
+   "sources": [
+    "Produce Qty",
+    "Produced Quantity",
+    "Qty to Manufacture",
+    "Quantity to Manufacture"
+   ],
+   "clusters": {
+    "produce": [
+     "Produce Qty"
+    ],
+    "produc": [
+     "Produced Quantity"
+    ],
+    "qty to manufacture": [
+     "Qty to Manufacture"
+    ],
+    "quantity to manufacture": [
+     "Quantity to Manufacture"
+    ]
+   },
+   "visible": {
+    "Produced Quantity": [
+     "Sales Order Item label:produced_qty [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Quantity to Manufacture": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:358 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "更多信息": {
+   "sources": [
+    "More Info",
+    "More Information",
+    "Other Info"
+   ],
+   "clusters": {
+    "more info": [
+     "More Info"
+    ],
+    "more information": [
+     "More Information"
+    ],
+    "other info": [
+     "Other Info"
+    ]
+   },
+   "visible": {
+    "More Info": [
+     "BOM label:more_info_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Customer label:more_info_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Delivery Note label:more_info_tab [CTX-OK __(df.label,null,df.parent)]",
+     "GL Entry label:more_info_section [CTX-OK __(df.label,null,df.parent)]",
+     "Job Card label:more_information [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Invoice label:more_info_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Order label:more_info_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Receipt label:more_info_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Quotation label:more_info_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Invoice label:more_info_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Sales Order label:more_info [CTX-OK __(df.label,null,df.parent)]",
+     "Supplier label:more_info_tab [CTX-OK __(df.label,null,df.parent)]",
+     "Work Order label:more_info [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "More Information": [
+     "BOM Operation label:more_information_section [CTX-OK __(df.label,null,df.parent)]",
+     "Payment Entry label:section_break_12 [CTX-OK __(df.label,null,df.parent)]",
+     "Purchase Order Item label:more_info_section_break [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Entry label:more_info [CTX-OK __(df.label,null,df.parent)]",
+     "Stock Entry Detail label:more_info [CTX-OK __(df.label,null,df.parent)]",
+     "Supplier label:column_break2 [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Other Info": [
+     "Stock Entry label:other_info_tab [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "库存设置": {
+   "sources": [
+    "Inventory Settings",
+    "Stock Settings",
+    "Stock Setup"
+   ],
+   "clusters": {
+    "inventory sett": [
+     "Inventory Settings"
+    ],
+    "stock sett": [
+     "Stock Settings"
+    ],
+    "stock setup": [
+     "Stock Setup"
+    ]
+   },
+   "visible": {
+    "Inventory Settings": [
+     "Item label:inventory_settings_section [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Stock Settings": [
+     "Company label:auto_accounting_for_stock_settings [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "源单": {
+   "sources": [
+    "Adjustment Against",
+    "Return Against"
+   ],
+   "clusters": {
+    "adjustment against": [
+     "Adjustment Against"
+    ],
+    "return against": [
+     "Return Against"
+    ]
+   },
+   "visible": {
+    "Adjustment Against": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:1180 [BARE - no context possible without upstream patch]"
+    ],
+    "Return Against": [
+     "Sales Invoice label:return_against [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  },
+  "重新打开": {
+   "sources": [
+    "Re-open",
+    "Reopen"
+   ],
+   "clusters": {
+    "re open": [
+     "Re-open"
+    ],
+    "reopen": [
+     "Reopen"
+    ]
+   },
+   "visible": {
+    "Re-open": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:124 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:369 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:974 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order_list.js:70 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:783 [BARE - no context possible without upstream patch]"
+    ],
+    "Reopen": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:358 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order_list.js:58 [BARE - no context possible without upstream patch]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:279 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "生产": {
+   "sources": [
+    "For Production",
+    "Manufacturing",
+    "Production",
+    "production"
+   ],
+   "clusters": {
+    "production": [
+     "For Production",
+     "Production",
+     "production"
+    ],
+    "manufactur": [
+     "Manufacturing"
+    ]
+   },
+   "visible": {
+    "Manufacturing": [
+     "Company label:manufacturing_section [CTX-OK __(df.label,null,df.parent)]",
+     "Item label:manufacturing [CTX-OK __(df.label,null,df.parent)]",
+     "Production Plan Sub Assembly Item label:work_order_details_section [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Production": [
+     "Workstation select-option:status [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "库存": {
+   "sources": [
+    "In Stock",
+    "Inventory",
+    "Stock"
+   ],
+   "clusters": {
+    "stock": [
+     "In Stock",
+     "Stock"
+    ],
+    "inventory": [
+     "Inventory"
+    ]
+   },
+   "visible": {
+    "Inventory": [
+     "Item label:inventory_section [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Stock": [
+     "Account select-option:account_type [CTX-OK select.js:172 __(v,null,doctype)]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:21 [BARE - no context possible without upstream patch]"
+    ]
+   }
+  },
+  "未付": {
+   "sources": [
+    "Outstanding",
+    "Unpaid"
+   ],
+   "clusters": {
+    "outstand": [
+     "Outstanding"
+    ],
+    "unpaid": [
+     "Unpaid"
+    ]
+   },
+   "visible": {
+    "Outstanding": [
+     "Payment Entry Reference label:outstanding_amount [CTX-OK __(df.label,null,df.parent)]",
+     "Payment Schedule label:outstanding [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Unpaid": [
+     "Purchase Invoice select-option:status [CTX-OK select.js:172 __(v,null,doctype)]",
+     "Sales Invoice select-option:status [CTX-OK select.js:172 __(v,null,doctype)]"
+    ]
+   }
+  },
+  "付款类型": {
+   "sources": [
+    "Payment Type",
+    "Type of Payment"
+   ],
+   "clusters": {
+    "payment type": [
+     "Payment Type"
+    ],
+    "type of payment": [
+     "Type of Payment"
+    ]
+   },
+   "visible": {
+    "Payment Type": [
+     "Payment Entry label:payment_type [CTX-OK __(df.label,null,df.parent)]",
+     "Payment Entry Reference label:payment_type [CTX-OK __(df.label,null,df.parent)]"
+    ],
+    "Type of Payment": [
+     "Payment Entry label:type_of_payment [CTX-OK __(df.label,null,df.parent)]"
+    ]
+   }
+  }
+ },
+ "single_visible": [
+  "个人",
+  "主生产计划",
+  "付款参考",
+  "付款方式",
+  "价格",
+  "供应商",
+  "供应商名称",
+  "保存",
+  "全部",
+  "创建",
+  "删除",
+  "单价",
+  "发票状态",
+  "合并",
+  "国家",
+  "复制",
+  "天",
+  "失败",
+  "对方科目",
+  "小时",
+  "属性",
+  "已完成",
+  "已提交",
+  "开始计时",
+  "成品数量",
+  "折扣",
+  "损益表",
+  "提交",
+  "收入",
+  "收款",
+  "新增",
+  "是",
+  "更新",
+  "月",
+  "正常",
+  "源单据",
+  "激活",
+  "物料凭证",
+  "物料移动",
+  "状态",
+  "百分比",
+  "目的",
+  "简称",
+  "继续",
+  "编辑",
+  "范围",
+  "计划",
+  "说明",
+  "费用",
+  "车间",
+  "配置",
+  "采购入库",
+  "金额",
+  "销售税费",
+  "问题",
+  "需求日期",
+  "预留",
+  "默认值"
+ ]
+}

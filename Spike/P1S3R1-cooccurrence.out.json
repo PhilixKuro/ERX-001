@@ -1,0 +1,1786 @@
+[
+ {
+  "target": "数量",
+  "sources": [
+   "Batch Quantity",
+   "Qty",
+   "Qty ",
+   "Quantity"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Quotation",
+    [
+     "Qty",
+     "Quantity"
+    ]
+   ],
+   [
+    "Sales Order",
+    [
+     "Qty",
+     "Quantity"
+    ]
+   ],
+   [
+    "Production Plan",
+    [
+     "Qty",
+     "Quantity"
+    ]
+   ],
+   [
+    "Stock Entry",
+    [
+     "Qty",
+     "Quantity"
+    ]
+   ],
+   [
+    "Delivery Note",
+    [
+     "Qty",
+     "Quantity"
+    ]
+   ],
+   [
+    "Sales Invoice",
+    [
+     "Qty",
+     "Quantity"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P3 order-to-produce (14-20)",
+   "P4 deliver-to-cash (21-23)"
+  ],
+  "screens": {
+   "BOM": [
+    "Qty"
+   ],
+   "Purchase Order": [
+    "Quantity"
+   ],
+   "Quotation": [
+    "Qty",
+    "Quantity"
+   ],
+   "Sales Order": [
+    "Qty",
+    "Quantity"
+   ],
+   "Production Plan": [
+    "Qty",
+    "Quantity"
+   ],
+   "Work Order": [
+    "Qty"
+   ],
+   "Job Card": [
+    "Qty"
+   ],
+   "Stock Entry": [
+    "Qty",
+    "Quantity"
+   ],
+   "Delivery Note": [
+    "Qty",
+    "Quantity"
+   ],
+   "Sales Invoice": [
+    "Qty",
+    "Quantity"
+   ]
+  }
+ },
+ {
+  "target": "联系人",
+  "sources": [
+   "Contact",
+   "Contact Person",
+   "Contacts"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Purchase Receipt",
+    [
+     "Contact",
+     "Contact Person"
+    ]
+   ],
+   [
+    "Purchase Invoice",
+    [
+     "Contact",
+     "Contact Person"
+    ]
+   ],
+   [
+    "Quotation",
+    [
+     "Contact",
+     "Contact Person"
+    ]
+   ],
+   [
+    "Sales Order",
+    [
+     "Contact",
+     "Contact Person"
+    ]
+   ],
+   [
+    "Delivery Note",
+    [
+     "Contact",
+     "Contact Person"
+    ]
+   ],
+   [
+    "Sales Invoice",
+    [
+     "Contact",
+     "Contact Person"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P2 procure-to-pay (8-13)",
+   "P3 order-to-produce (14-20)",
+   "P4 deliver-to-cash (21-23)"
+  ],
+  "screens": {
+   "Purchase Receipt": [
+    "Contact",
+    "Contact Person"
+   ],
+   "Purchase Invoice": [
+    "Contact",
+    "Contact Person"
+   ],
+   "Payment Entry": [
+    "Contact"
+   ],
+   "Quotation": [
+    "Contact",
+    "Contact Person"
+   ],
+   "Sales Order": [
+    "Contact",
+    "Contact Person"
+   ],
+   "Delivery Note": [
+    "Contact",
+    "Contact Person"
+   ],
+   "Sales Invoice": [
+    "Contact",
+    "Contact Person"
+   ]
+  }
+ },
+ {
+  "target": "付款金额",
+  "sources": [
+   "Paid Amount",
+   "Payment Amount"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Purchase Order",
+    [
+     "Paid Amount",
+     "Payment Amount"
+    ]
+   ],
+   [
+    "Purchase Invoice",
+    [
+     "Paid Amount",
+     "Payment Amount"
+    ]
+   ],
+   [
+    "Quotation",
+    [
+     "Paid Amount",
+     "Payment Amount"
+    ]
+   ],
+   [
+    "Sales Order",
+    [
+     "Paid Amount",
+     "Payment Amount"
+    ]
+   ],
+   [
+    "Sales Invoice",
+    [
+     "Paid Amount",
+     "Payment Amount"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P2 procure-to-pay (8-13)",
+   "P3 order-to-produce (14-20)",
+   "P4 deliver-to-cash (21-23)"
+  ],
+  "screens": {
+   "Purchase Order": [
+    "Paid Amount",
+    "Payment Amount"
+   ],
+   "Purchase Invoice": [
+    "Paid Amount",
+    "Payment Amount"
+   ],
+   "Payment Entry": [
+    "Paid Amount"
+   ],
+   "Quotation": [
+    "Paid Amount",
+    "Payment Amount"
+   ],
+   "Sales Order": [
+    "Paid Amount",
+    "Payment Amount"
+   ],
+   "Sales Invoice": [
+    "Paid Amount",
+    "Payment Amount"
+   ]
+  }
+ },
+ {
+  "target": "更多信息",
+  "sources": [
+   "More Info",
+   "More Information",
+   "Other Info"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "BOM",
+    [
+     "More Info",
+     "More Information"
+    ]
+   ],
+   [
+    "Supplier",
+    [
+     "More Info",
+     "More Information"
+    ]
+   ],
+   [
+    "Purchase Order",
+    [
+     "More Info",
+     "More Information"
+    ]
+   ],
+   [
+    "Stock Entry",
+    [
+     "More Information",
+     "Other Info"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P1 masters (4-7)",
+   "P2 procure-to-pay (8-13)",
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "BOM": [
+    "More Info",
+    "More Information"
+   ],
+   "Customer": [
+    "More Info"
+   ],
+   "Supplier": [
+    "More Info",
+    "More Information"
+   ],
+   "Purchase Order": [
+    "More Info",
+    "More Information"
+   ],
+   "Purchase Receipt": [
+    "More Info"
+   ],
+   "Purchase Invoice": [
+    "More Info"
+   ],
+   "Payment Entry": [
+    "More Information"
+   ],
+   "GL Entry": [
+    "More Info"
+   ],
+   "Quotation": [
+    "More Info"
+   ],
+   "Sales Order": [
+    "More Info"
+   ],
+   "Work Order": [
+    "More Info"
+   ],
+   "Job Card": [
+    "More Info"
+   ],
+   "Stock Entry": [
+    "More Information",
+    "Other Info"
+   ],
+   "Delivery Note": [
+    "More Info"
+   ],
+   "Sales Invoice": [
+    "More Info"
+   ]
+  }
+ },
+ {
+  "target": "工序",
+  "sources": [
+   "For Operation",
+   "Item operation",
+   "Operation",
+   "Operations"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "BOM",
+    [
+     "Item operation",
+     "Operation",
+     "Operations"
+    ]
+   ],
+   [
+    "Work Order",
+    [
+     "Operation",
+     "Operations"
+    ]
+   ],
+   [
+    "Job Card",
+    [
+     "For Operation",
+     "Operation"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P1 masters (4-7)",
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "Operation": [
+    "Operation"
+   ],
+   "BOM": [
+    "Item operation",
+    "Operation",
+    "Operations"
+   ],
+   "Work Order": [
+    "Operation",
+    "Operations"
+   ],
+   "Job Card": [
+    "For Operation",
+    "Operation"
+   ]
+  }
+ },
+ {
+  "target": "税费",
+  "sources": [
+   "Taxes and Charges",
+   "Taxes and Charges Added"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Purchase Order",
+    [
+     "Taxes and Charges",
+     "Taxes and Charges Added"
+    ]
+   ],
+   [
+    "Purchase Receipt",
+    [
+     "Taxes and Charges",
+     "Taxes and Charges Added"
+    ]
+   ],
+   [
+    "Purchase Invoice",
+    [
+     "Taxes and Charges",
+     "Taxes and Charges Added"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P2 procure-to-pay (8-13)"
+  ],
+  "screens": {
+   "Purchase Order": [
+    "Taxes and Charges",
+    "Taxes and Charges Added"
+   ],
+   "Purchase Receipt": [
+    "Taxes and Charges",
+    "Taxes and Charges Added"
+   ],
+   "Purchase Invoice": [
+    "Taxes and Charges",
+    "Taxes and Charges Added"
+   ],
+   "Payment Entry": [
+    "Taxes and Charges"
+   ],
+   "Quotation": [
+    "Taxes and Charges"
+   ],
+   "Delivery Note": [
+    "Taxes and Charges"
+   ],
+   "Sales Invoice": [
+    "Taxes and Charges"
+   ]
+  }
+ },
+ {
+  "target": "仓库",
+  "sources": [
+   "Accepted Warehouse",
+   "For Warehouse",
+   "Request for",
+   "Requesting Site",
+   "Stores",
+   "Warehouse",
+   "Warehouses"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Purchase Invoice",
+    [
+     "Accepted Warehouse",
+     "Warehouse"
+    ]
+   ],
+   [
+    "Production Plan",
+    [
+     "For Warehouse",
+     "Warehouse",
+     "Warehouses"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P1 masters (4-7)",
+   "P2 procure-to-pay (8-13)",
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "Item": [
+    "Request for"
+   ],
+   "Workstation": [
+    "Warehouse"
+   ],
+   "BOM": [
+    "Warehouse"
+   ],
+   "Purchase Receipt": [
+    "Accepted Warehouse"
+   ],
+   "Purchase Invoice": [
+    "Accepted Warehouse",
+    "Warehouse"
+   ],
+   "Stock Ledger Entry": [
+    "Warehouse"
+   ],
+   "Bin": [
+    "Warehouse"
+   ],
+   "Quotation": [
+    "Warehouse"
+   ],
+   "Production Plan": [
+    "For Warehouse",
+    "Warehouse",
+    "Warehouses"
+   ],
+   "Work Order": [
+    "Warehouse"
+   ],
+   "Delivery Note": [
+    "Warehouse"
+   ],
+   "Sales Invoice": [
+    "Warehouse"
+   ]
+  }
+ },
+ {
+  "target": "完工数量",
+  "sources": [
+   "Completed Qty",
+   "Manufactured Qty",
+   "Produced Qty"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Work Order",
+    [
+     "Completed Qty",
+     "Manufactured Qty"
+    ]
+   ],
+   [
+    "Job Card",
+    [
+     "Completed Qty",
+     "Manufactured Qty"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "Production Plan": [
+    "Produced Qty"
+   ],
+   "Work Order": [
+    "Completed Qty",
+    "Manufactured Qty"
+   ],
+   "Job Card": [
+    "Completed Qty",
+    "Manufactured Qty"
+   ]
+  }
+ },
+ {
+  "target": "成本价",
+  "sources": [
+   "Costing Rate",
+   "Incoming Rate (Costing)",
+   "Valuation",
+   "Valuation Rate"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Purchase Receipt",
+    [
+     "Valuation",
+     "Valuation Rate"
+    ]
+   ],
+   [
+    "Purchase Invoice",
+    [
+     "Valuation",
+     "Valuation Rate"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P2 procure-to-pay (8-13)"
+  ],
+  "screens": {
+   "Item": [
+    "Valuation Rate"
+   ],
+   "BOM": [
+    "Valuation Rate"
+   ],
+   "Purchase Order": [
+    "Valuation"
+   ],
+   "Purchase Receipt": [
+    "Valuation",
+    "Valuation Rate"
+   ],
+   "Purchase Invoice": [
+    "Valuation",
+    "Valuation Rate"
+   ],
+   "Bin": [
+    "Valuation Rate"
+   ],
+   "Quotation": [
+    "Valuation Rate"
+   ],
+   "Sales Order": [
+    "Valuation Rate"
+   ],
+   "Stock Entry": [
+    "Valuation Rate"
+   ],
+   "Sales Invoice": [
+    "Incoming Rate (Costing)"
+   ]
+  }
+ },
+ {
+  "target": "未付",
+  "sources": [
+   "Outstanding",
+   "Unpaid"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Purchase Invoice",
+    [
+     "Outstanding",
+     "Unpaid"
+    ]
+   ],
+   [
+    "Sales Invoice",
+    [
+     "Outstanding",
+     "Unpaid"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P2 procure-to-pay (8-13)",
+   "P4 deliver-to-cash (21-23)"
+  ],
+  "screens": {
+   "Purchase Order": [
+    "Outstanding"
+   ],
+   "Purchase Invoice": [
+    "Outstanding",
+    "Unpaid"
+   ],
+   "Payment Entry": [
+    "Outstanding"
+   ],
+   "Quotation": [
+    "Outstanding"
+   ],
+   "Sales Order": [
+    "Outstanding"
+   ],
+   "Sales Invoice": [
+    "Outstanding",
+    "Unpaid"
+   ]
+  }
+ },
+ {
+  "target": "付款",
+  "sources": [
+   "Outward",
+   "Pay",
+   "Payment",
+   "Payments"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Accounts Settings",
+    [
+     "Payment",
+     "Payments"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P0 setup (0-3)",
+   "P2 procure-to-pay (8-13)"
+  ],
+  "screens": {
+   "Accounts Settings": [
+    "Payment",
+    "Payments"
+   ],
+   "Supplier": [
+    "Payments"
+   ],
+   "Purchase Invoice": [
+    "Payments"
+   ],
+   "Payment Entry": [
+    "Pay"
+   ],
+   "Sales Invoice": [
+    "Payments"
+   ]
+  }
+ },
+ {
+  "target": "付款类型",
+  "sources": [
+   "Payment Type",
+   "Type of Payment"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Payment Entry",
+    [
+     "Payment Type",
+     "Type of Payment"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P2 procure-to-pay (8-13)"
+  ],
+  "screens": {
+   "Payment Entry": [
+    "Payment Type",
+    "Type of Payment"
+   ]
+  }
+ },
+ {
+  "target": "工单数量",
+  "sources": [
+   "Planned Qty",
+   "Planned Quantity",
+   "Qty To Manufacture",
+   "Work Order Qty"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Sales Order",
+    [
+     "Planned Quantity",
+     "Work Order Qty"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "Bin": [
+    "Planned Qty"
+   ],
+   "Sales Order": [
+    "Planned Quantity",
+    "Work Order Qty"
+   ],
+   "Production Plan": [
+    "Planned Qty"
+   ],
+   "Work Order": [
+    "Qty To Manufacture"
+   ],
+   "Job Card": [
+    "Qty To Manufacture"
+   ]
+  }
+ },
+ {
+  "target": "工费成本",
+  "sources": [
+   "Operating Cost",
+   "Operating Costs"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Workstation",
+    [
+     "Operating Cost",
+     "Operating Costs"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P1 masters (4-7)"
+  ],
+  "screens": {
+   "Workstation": [
+    "Operating Cost",
+    "Operating Costs"
+   ],
+   "BOM": [
+    "Operating Cost"
+   ]
+  }
+ },
+ {
+  "target": "待处理",
+  "sources": [
+   "Open",
+   "Pending"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Job Card",
+    [
+     "Open",
+     "Pending"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "Transaction Deletion Record": [
+    "Pending"
+   ],
+   "Quotation": [
+    "Open"
+   ],
+   "Work Order": [
+    "Pending"
+   ],
+   "Job Card": [
+    "Open",
+    "Pending"
+   ]
+  }
+ },
+ {
+  "target": "成品",
+  "sources": [
+   "Final Product",
+   "Finished Good",
+   "Finished Goods",
+   "Item To Manufacture",
+   "Production Item"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Work Order",
+    [
+     "Item To Manufacture",
+     "Production Item"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "BOM": [
+    "Production Item"
+   ],
+   "Purchase Order": [
+    "Finished Good"
+   ],
+   "Sales Order": [
+    "Finished Good"
+   ],
+   "Production Plan": [
+    "Finished Good"
+   ],
+   "Work Order": [
+    "Item To Manufacture",
+    "Production Item"
+   ],
+   "Job Card": [
+    "Final Product"
+   ]
+  }
+ },
+ {
+  "target": "物料号",
+  "sources": [
+   "Item Code",
+   "Item Reference"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Production Plan",
+    [
+     "Item Code",
+     "Item Reference"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "Stock Settings": [
+    "Item Code"
+   ],
+   "Item": [
+    "Item Code"
+   ],
+   "Item Price": [
+    "Item Code"
+   ],
+   "BOM": [
+    "Item Code"
+   ],
+   "Purchase Order": [
+    "Item Code"
+   ],
+   "Purchase Receipt": [
+    "Item Code"
+   ],
+   "Purchase Invoice": [
+    "Item Code"
+   ],
+   "Stock Ledger Entry": [
+    "Item Code"
+   ],
+   "Bin": [
+    "Item Code"
+   ],
+   "Quotation": [
+    "Item Code"
+   ],
+   "Sales Order": [
+    "Item Code"
+   ],
+   "Production Plan": [
+    "Item Code",
+    "Item Reference"
+   ],
+   "Work Order": [
+    "Item Code"
+   ],
+   "Job Card": [
+    "Item Code"
+   ],
+   "Stock Entry": [
+    "Item Code"
+   ],
+   "Delivery Note": [
+    "Item Code"
+   ],
+   "Sales Invoice": [
+    "Item Code"
+   ]
+  }
+ },
+ {
+  "target": "科目表模板",
+  "sources": [
+   "Chart Of Accounts Template",
+   "Create Chart Of Accounts Based On"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Company",
+    [
+     "Chart Of Accounts Template",
+     "Create Chart Of Accounts Based On"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P0 setup (0-3)"
+  ],
+  "screens": {
+   "Company": [
+    "Chart Of Accounts Template",
+    "Create Chart Of Accounts Based On"
+   ]
+  }
+ },
+ {
+  "target": "税",
+  "sources": [
+   "Tax",
+   "Tax Masters",
+   "Taxes"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Item",
+    [
+     "Tax",
+     "Taxes"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P1 masters (4-7)"
+  ],
+  "screens": {
+   "Account": [
+    "Tax"
+   ],
+   "Item": [
+    "Tax",
+    "Taxes"
+   ],
+   "Item Group": [
+    "Taxes"
+   ],
+   "Customer": [
+    "Tax"
+   ],
+   "Supplier": [
+    "Tax"
+   ],
+   "Sales Order": [
+    "Taxes"
+   ]
+  }
+ },
+ {
+  "target": "进行中",
+  "sources": [
+   "In Process",
+   "In Progress",
+   "Ongoing",
+   "Work In Progress",
+   "Work in Progress"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Work Order",
+    [
+     "In Process",
+     "Work in Progress"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "Production Plan": [
+    "In Process"
+   ],
+   "Work Order": [
+    "In Process",
+    "Work in Progress"
+   ],
+   "Job Card": [
+    "Work In Progress"
+   ]
+  }
+ },
+ {
+  "target": "采购",
+  "sources": [
+   "Buy",
+   "Buying",
+   "For Buying",
+   "Procurement",
+   "Purchase",
+   "Purchased",
+   "Purchases",
+   "Purchasing"
+  ],
+  "grade": "SAME-FORM",
+  "same_form": [
+   [
+    "Item",
+    [
+     "Purchase",
+     "Purchasing"
+    ]
+   ]
+  ],
+  "same_flow": [
+   "P1 masters (4-7)"
+  ],
+  "screens": {
+   "Item": [
+    "Purchase",
+    "Purchasing"
+   ],
+   "Item Price": [
+    "Buying"
+   ],
+   "Price List": [
+    "Buying"
+   ],
+   "Production Plan": [
+    "Purchase"
+   ]
+  }
+ },
+ {
+  "target": "会计",
+  "sources": [
+   "Accountant",
+   "Accounting",
+   "Accounts",
+   "Accounts User"
+  ],
+  "grade": "SAME-FLOW",
+  "same_form": [],
+  "same_flow": [
+   "P2 procure-to-pay (8-13)"
+  ],
+  "screens": {
+   "Company": [
+    "Accounts"
+   ],
+   "Item": [
+    "Accounting"
+   ],
+   "Customer": [
+    "Accounting"
+   ],
+   "Supplier": [
+    "Accounting"
+   ],
+   "Purchase Invoice": [
+    "Accounting"
+   ],
+   "Payment Entry": [
+    "Accounts"
+   ],
+   "Mode of Payment": [
+    "Accounts"
+   ],
+   "Stock Entry": [
+    "Accounting"
+   ]
+  }
+ },
+ {
+  "target": "单据类型",
+  "sources": [
+   "Against Doctype",
+   "DocType",
+   "Doctype",
+   "Document Type",
+   "Document Types",
+   "Enter Form Type",
+   "For Document Type",
+   "From Document Type"
+  ],
+  "grade": "SAME-FLOW",
+  "same_form": [],
+  "same_flow": [
+   "P0 setup (0-3)"
+  ],
+  "screens": {
+   "Accounts Settings": [
+    "Doctype"
+   ],
+   "Transaction Deletion Record": [
+    "DocType"
+   ],
+   "Quotation": [
+    "Against Doctype"
+   ]
+  }
+ },
+ {
+  "target": "收到数量",
+  "sources": [
+   "In Qty",
+   "Received Qty",
+   "Received Quantity"
+  ],
+  "grade": "SAME-FLOW",
+  "same_form": [],
+  "same_flow": [
+   "P2 procure-to-pay (8-13)"
+  ],
+  "screens": {
+   "Purchase Order": [
+    "Received Qty"
+   ],
+   "Purchase Receipt": [
+    "Received Quantity"
+   ],
+   "Purchase Invoice": [
+    "Received Qty"
+   ],
+   "Production Plan": [
+    "Received Qty"
+   ],
+   "Delivery Note": [
+    "Received Qty"
+   ]
+  }
+ },
+ {
+  "target": "日期",
+  "sources": [
+   "As On Date",
+   "Date",
+   "Dates",
+   "On This Date"
+  ],
+  "grade": "SAME-FLOW",
+  "same_form": [],
+  "same_flow": [
+   "P2 procure-to-pay (8-13)"
+  ],
+  "screens": {
+   "Purchase Order": [
+    "Date"
+   ],
+   "Purchase Receipt": [
+    "Date"
+   ],
+   "GL Entry": [
+    "Dates"
+   ],
+   "Quotation": [
+    "Date"
+   ],
+   "Sales Order": [
+    "Date"
+   ],
+   "Delivery Note": [
+    "Date"
+   ]
+  }
+ },
+ {
+  "target": "生产",
+  "sources": [
+   "For Production",
+   "Manufacturing",
+   "Production",
+   "production"
+  ],
+  "grade": "SAME-FLOW",
+  "same_form": [],
+  "same_flow": [
+   "P1 masters (4-7)"
+  ],
+  "screens": {
+   "Company": [
+    "Manufacturing"
+   ],
+   "Item": [
+    "Manufacturing"
+   ],
+   "Workstation": [
+    "Production"
+   ],
+   "Production Plan": [
+    "Manufacturing"
+   ]
+  }
+ },
+ {
+  "target": "设置",
+  "sources": [
+   "Set",
+   "Setting",
+   "Settings",
+   "Setup"
+  ],
+  "grade": "SAME-FLOW",
+  "same_form": [],
+  "same_flow": [
+   "P1 masters (4-7)"
+  ],
+  "screens": {
+   "Workstation": [
+    "Setup"
+   ],
+   "Customer": [
+    "Settings"
+   ],
+   "Supplier": [
+    "Settings"
+   ]
+  }
+ },
+ {
+  "target": "车间仓",
+  "sources": [
+   "WIP Warehouse",
+   "Work-in-Progress Warehouse"
+  ],
+  "grade": "SAME-FLOW",
+  "same_form": [],
+  "same_flow": [
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "BOM": [
+    "WIP Warehouse"
+   ],
+   "Work Order": [
+    "Work-in-Progress Warehouse"
+   ],
+   "Job Card": [
+    "WIP Warehouse"
+   ]
+  }
+ },
+ {
+  "target": "选物料",
+  "sources": [
+   "Get Items",
+   "Get Items From"
+  ],
+  "grade": "SAME-FLOW",
+  "same_form": [],
+  "same_flow": [
+   "P3 order-to-produce (14-20)"
+  ],
+  "screens": {
+   "Production Plan": [
+    "Get Items From"
+   ],
+   "Stock Entry": [
+    "Get Items"
+   ]
+  }
+ },
+ {
+  "target": "销售",
+  "sources": [
+   "For Selling",
+   "Sales",
+   "Sell",
+   "Selling"
+  ],
+  "grade": "SAME-FLOW",
+  "same_form": [],
+  "same_flow": [
+   "P1 masters (4-7)"
+  ],
+  "screens": {
+   "Item": [
+    "Sales"
+   ],
+   "Item Price": [
+    "Selling"
+   ],
+   "Price List": [
+    "Selling"
+   ],
+   "Quotation": [
+    "Sales"
+   ],
+   "Sales Order": [
+    "Sales"
+   ]
+  }
+ },
+ {
+  "target": "会计凭证",
+  "sources": [
+   "Accounting Ledger",
+   "Ledger"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {}
+ },
+ {
+  "target": "借方",
+  "sources": [
+   "Debit",
+   "Debit Amount"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Account": [
+    "Debit"
+   ],
+   "GL Entry": [
+    "Debit Amount"
+   ]
+  }
+ },
+ {
+  "target": "发票",
+  "sources": [
+   "Billing",
+   "Invoice",
+   "Invoices",
+   "Linked Invoices"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Accounts Settings": [
+    "Invoice"
+   ],
+   "Supplier": [
+    "Invoices"
+   ]
+  }
+ },
+ {
+  "target": "员工",
+  "sources": [
+   "Employee",
+   "Employees",
+   "From Employee"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Job Card": [
+    "Employee"
+   ]
+  }
+ },
+ {
+  "target": "完成",
+  "sources": [
+   "Complete",
+   "Done",
+   "Finish"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Transaction Deletion Record": [
+    "Done"
+   ],
+   "Job Card": [
+    "Complete"
+   ]
+  }
+ },
+ {
+  "target": "工单发料",
+  "sources": [
+   "Material Transfer for Manufacture",
+   "Material Transferred for Manufacture"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Manufacturing Settings": [
+    "Material Transferred for Manufacture"
+   ],
+   "BOM": [
+    "Material Transferred for Manufacture"
+   ],
+   "Stock Entry": [
+    "Material Transfer for Manufacture"
+   ],
+   "Stock Entry Type": [
+    "Material Transfer for Manufacture"
+   ]
+  }
+ },
+ {
+  "target": "库存",
+  "sources": [
+   "In Stock",
+   "Inventory",
+   "Stock"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Account": [
+    "Stock"
+   ],
+   "Item": [
+    "Inventory"
+   ]
+  }
+ },
+ {
+  "target": "库存设置",
+  "sources": [
+   "Inventory Settings",
+   "Stock Settings"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Company": [
+    "Stock Settings"
+   ],
+   "Item": [
+    "Inventory Settings"
+   ]
+  }
+ },
+ {
+  "target": "应付账款",
+  "sources": [
+   "Accounts Payable",
+   "Creditors",
+   "Payable",
+   "Payables"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Account": [
+    "Payable"
+   ]
+  }
+ },
+ {
+  "target": "应收账款",
+  "sources": [
+   "Accounts Receivable",
+   "Debtors",
+   "Receivable",
+   "Receivable Account",
+   "Receivables"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Account": [
+    "Receivable"
+   ]
+  }
+ },
+ {
+  "target": "开始日期",
+  "sources": [
+   "Date of Commencement",
+   "From Date",
+   "Start Date"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Company": [
+    "Date of Commencement"
+   ],
+   "Purchase Order": [
+    "From Date"
+   ],
+   "Purchase Invoice": [
+    "From Date"
+   ],
+   "Sales Order": [
+    "From Date"
+   ],
+   "Production Plan": [
+    "From Date"
+   ],
+   "Sales Invoice": [
+    "From Date"
+   ]
+  }
+ },
+ {
+  "target": "源单",
+  "sources": [
+   "Adjustment Against",
+   "Return Against"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Sales Invoice": [
+    "Return Against"
+   ]
+  }
+ },
+ {
+  "target": "物料清单",
+  "sources": [
+   " BOM",
+   "BOM",
+   "Bill of Materials"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Manufacturing Settings": [
+    "BOM"
+   ],
+   "BOM": [
+    "BOM"
+   ],
+   "Purchase Order": [
+    "BOM"
+   ],
+   "Purchase Receipt": [
+    "BOM"
+   ],
+   "Purchase Invoice": [
+    "BOM"
+   ],
+   "Work Order": [
+    "BOM"
+   ]
+  }
+ },
+ {
+  "target": "物料清单号",
+  "sources": [
+   "BOM Detail No",
+   "BOM No"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "BOM": [
+    "BOM No"
+   ],
+   "Purchase Order": [
+    "BOM Detail No"
+   ],
+   "Purchase Receipt": [
+    "BOM Detail No"
+   ],
+   "Purchase Invoice": [
+    "BOM Detail No"
+   ],
+   "Sales Order": [
+    "BOM No"
+   ],
+   "Production Plan": [
+    "BOM No"
+   ],
+   "Work Order": [
+    "BOM No"
+   ],
+   "Stock Entry": [
+    "BOM No"
+   ]
+  }
+ },
+ {
+  "target": "结束时间",
+  "sources": [
+   "End Time",
+   "Ended At",
+   "Ends on",
+   "To Datetime",
+   "To Time"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Workstation": [
+    "End Time"
+   ],
+   "Job Card": [
+    "To Time"
+   ],
+   "Sales Invoice": [
+    "To Time"
+   ]
+  }
+ },
+ {
+  "target": "行业",
+  "sources": [
+   "Domain",
+   "Industry"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Company": [
+    "Domain"
+   ],
+   "Customer": [
+    "Industry"
+   ]
+  }
+ },
+ {
+  "target": "贷方",
+  "sources": [
+   "Cr",
+   "Credit",
+   "Credit Amount"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Account": [
+    "Credit"
+   ],
+   "GL Entry": [
+    "Credit Amount"
+   ]
+  }
+ },
+ {
+  "target": "重新打开",
+  "sources": [
+   "Re-open",
+   "Reopen"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {}
+ },
+ {
+  "target": "销售税费模板",
+  "sources": [
+   "Sales Tax Template",
+   "Sales Taxes and Charges Template"
+  ],
+  "grade": "SPLIT",
+  "same_form": [],
+  "same_flow": [],
+  "screens": {
+   "Payment Entry": [
+    "Sales Taxes and Charges Template"
+   ],
+   "Quotation": [
+    "Sales Taxes and Charges Template"
+   ],
+   "Sales Order": [
+    "Sales Taxes and Charges Template"
+   ],
+   "Delivery Note": [
+    "Sales Taxes and Charges Template"
+   ],
+   "Sales Invoice": [
+    "Sales Taxes and Charges Template"
+   ]
+  }
+ }
+]

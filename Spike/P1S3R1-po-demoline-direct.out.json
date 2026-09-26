@@ -1,0 +1,3220 @@
+{
+ "direct": {
+  "科目": {
+   "sources": [
+    "Account",
+    "Account Head",
+    "Applicable On Account"
+   ],
+   "visible": {
+    "Account": [
+     "GL Entry label:account [CTX-OK]",
+     "Payment Entry Deduction label:account [CTX-OK]",
+     "Payment Entry Reference label:account [CTX-OK]",
+     "Sales Invoice Payment label:account [CTX-OK]"
+    ],
+    "Account Head": [
+     "Advance Taxes and Charges label:account_head [CTX-OK]",
+     "Purchase Taxes and Charges label:account_head [CTX-OK]",
+     "Sales Taxes and Charges label:account_head [CTX-OK]"
+    ]
+   }
+  },
+  "会计": {
+   "sources": [
+    "Accountant",
+    "Accounting",
+    "Accounts",
+    "Accounts User"
+   ],
+   "visible": {
+    "Accounting": [
+     "Customer label:accounting_tab [CTX-OK]",
+     "Item label:accounting [CTX-OK]",
+     "Purchase Invoice Item label:accounting [CTX-OK]",
+     "Stock Entry Detail label:accounting [CTX-OK]"
+    ],
+    "Accounts": [
+     "Company label:accounts_tab [CTX-OK]",
+     "Mode of Payment label:accounts [CTX-OK]",
+     "Payment Entry label:payment_accounts_section [CTX-OK]"
+    ]
+   }
+  },
+  "地址和联系方式": {
+   "sources": [
+    "Address and Contact",
+    "Address and Contacts",
+    "Addresses And Contacts"
+   ],
+   "visible": {
+    "Address and Contact": [
+     "Customer label:address_contacts [CTX-OK]",
+     "Warehouse label:address_and_contact [CTX-OK]"
+    ],
+    "Address and Contacts": [
+     "Supplier label:address_contacts [CTX-OK]"
+    ]
+   }
+  },
+  "条码": {
+   "sources": [
+    "Barcode",
+    "Barcodes"
+   ],
+   "visible": {
+    "Barcode": [
+     "Delivery Note Item label:barcode [CTX-OK]",
+     "Item Barcode label:barcode [CTX-OK]",
+     "Job Card label:barcode [CTX-OK]",
+     "Purchase Receipt Item label:barcode [CTX-OK]"
+    ],
+    "Barcodes": [
+     "Item label:sb_barcodes [CTX-OK]",
+     "Item label:barcodes [CTX-OK]"
+    ]
+   }
+  },
+  "发票": {
+   "sources": [
+    "Billing",
+    "Invoice",
+    "Invoices",
+    "Linked Invoices"
+   ],
+   "visible": {
+    "Invoice": [
+     "Accounts Settings option:exchange_gain_loss_posting_date [CTX-OK]"
+    ],
+    "Invoices": [
+     "Supplier option:hold_type [CTX-OK]"
+    ]
+   }
+  },
+  "已取消": {
+   "sources": [
+    "CANCELLED",
+    "Cancelled",
+    "Is Cancelled"
+   ],
+   "visible": {
+    "Cancelled": [
+     "Delivery Note option:status [CTX-OK]",
+     "Job Card option:status [CTX-OK]",
+     "Payment Entry option:status [CTX-OK]",
+     "Production Plan option:status [CTX-OK]"
+    ],
+    "Is Cancelled": [
+     "GL Entry label:is_cancelled [CTX-OK]",
+     "Stock Ledger Entry label:is_cancelled [CTX-OK]"
+    ]
+   }
+  },
+  "找零": {
+   "sources": [
+    "Change Amount",
+    "Changes"
+   ],
+   "visible": {
+    "Change Amount": [
+     "Sales Invoice label:change_amount [CTX-OK]"
+    ],
+    "Changes": [
+     "Sales Invoice label:section_break_88 [CTX-OK]"
+    ]
+   }
+  },
+  "完成": {
+   "sources": [
+    "Complete",
+    "Done",
+    "Finish"
+   ],
+   "visible": {
+    "Complete": [
+     "Job Card Operation option:status [CTX-OK]"
+    ],
+    "Done": [
+     "Transaction Deletion Record Details label:done [CTX-OK]"
+    ],
+    "Finish": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:904 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:919 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:928 [BARE]"
+    ]
+   }
+  },
+  "联系人": {
+   "sources": [
+    "Contact",
+    "Contact Person",
+    "Contacts"
+   ],
+   "visible": {
+    "Contact": [
+     "Delivery Note label:contact_display [CTX-OK]",
+     "Payment Entry label:contact_person [CTX-OK]",
+     "Purchase Invoice label:contact_display [CTX-OK]",
+     "Purchase Receipt label:contact_display [CTX-OK]"
+    ],
+    "Contact Person": [
+     "Delivery Note label:contact_person [CTX-OK]",
+     "Purchase Invoice label:contact_person [CTX-OK]",
+     "Purchase Receipt label:contact_person [CTX-OK]",
+     "Quotation label:contact_person [CTX-OK]"
+    ]
+   }
+  },
+  "日期": {
+   "sources": [
+    "As On Date",
+    "Date",
+    "Dates",
+    "On This Date"
+   ],
+   "visible": {
+    "Date": [
+     "Delivery Note label:posting_date [CTX-OK]",
+     "Purchase Order label:transaction_date [CTX-OK]",
+     "Purchase Receipt label:posting_date [CTX-OK]",
+     "Quotation label:transaction_date [CTX-OK]"
+    ],
+    "Dates": [
+     "GL Entry label:dates_section [CTX-OK]"
+    ]
+   }
+  },
+  "默认": {
+   "sources": [
+    "Default",
+    "Defaults",
+    "Is Default",
+    "default"
+   ],
+   "visible": {
+    "Default": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom_list.js:7 [BARE]",
+     "Sales Invoice Payment label:default [CTX-OK]"
+    ],
+    "Defaults": [
+     "Customer label:section_break_hwkr [CTX-OK]",
+     "Item Group label:defaults [CTX-OK]",
+     "Stock Settings label:defaults_tab [CTX-OK]",
+     "Supplier label:defaults_section [CTX-OK]"
+    ],
+    "Is Default": [
+     "BOM label:is_default [CTX-OK]"
+    ]
+   }
+  },
+  "源单据类型": {
+   "sources": [
+    "Deleted DocType",
+    "From Voucher Type",
+    "Link DocType",
+    "Link Document Type",
+    "Ref DocType",
+    "Reference DocType",
+    "Reference Doctype",
+    "Reference Document Type",
+    "Reference Type",
+    "Source Document Type"
+   ],
+   "visible": {
+    "Reference DocType": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:1727 [BARE]"
+    ],
+    "Reference Type": [
+     "Purchase Invoice Advance label:reference_type [CTX-OK]",
+     "Sales Invoice Advance label:reference_type [CTX-OK]"
+    ]
+   }
+  },
+  "描述": {
+   "sources": [
+    "Description",
+    "description"
+   ],
+   "visible": {
+    "Description": [
+     "Advance Taxes and Charges label:description [CTX-OK]",
+     "BOM Explosion Item label:description [CTX-OK]",
+     "BOM Item label:section_break_5 [CTX-OK]",
+     "BOM Operation label:description [CTX-OK]"
+    ],
+    "description": [
+     "Production Plan Sub Assembly Item label:description [CTX-OK]"
+    ]
+   }
+  },
+  "单据类型": {
+   "sources": [
+    "Against Doctype",
+    "DocType",
+    "Doctype",
+    "Document Type",
+    "Document Types",
+    "Enter Form Type",
+    "For Document Type",
+    "From Document Type"
+   ],
+   "visible": {
+    "Against Doctype": [
+     "Quotation Item label:prevdoc_doctype [CTX-OK]"
+    ],
+    "DocType": [
+     "Transaction Deletion Record Details label:doctype_name [CTX-OK]",
+     "Transaction Deletion Record Item label:doctype_name [CTX-OK]",
+     "Transaction Deletion Record To Delete label:doctype_name [CTX-OK]"
+    ],
+    "Doctype": [
+     "Repost Allowed Types label:document_type [CTX-OK]"
+    ]
+   }
+  },
+  "行业": {
+   "sources": [
+    "Domain",
+    "Industry"
+   ],
+   "visible": {
+    "Domain": [
+     "Company label:domain [CTX-OK]"
+    ],
+    "Industry": [
+     "Customer label:industry [CTX-OK]"
+    ]
+   }
+  },
+  "到期日": {
+   "sources": [
+    "Due Date",
+    "Expires On",
+    "Expiry"
+   ],
+   "visible": {
+    "Due Date": [
+     "GL Entry label:due_date [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:900 [BARE]",
+     "Payment Entry Reference label:due_date [CTX-OK]",
+     "Payment Schedule label:due_date [CTX-OK]"
+    ],
+    "Expiry": [
+     "Stock Settings option:pick_serial_and_batch_based_on [CTX-OK]"
+    ]
+   }
+  },
+  "结束时间": {
+   "sources": [
+    "End Time",
+    "Ended At",
+    "Ends on",
+    "To Datetime",
+    "To Time"
+   ],
+   "visible": {
+    "End Time": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:383 [BARE]",
+     "Workstation Working Hour label:end_time [CTX-OK]"
+    ],
+    "To Time": [
+     "Job Card Scheduled Time label:to_time [CTX-OK]",
+     "Job Card Time Log label:to_time [CTX-OK]",
+     "Sales Invoice Timesheet label:to_time [CTX-OK]"
+    ]
+   }
+  },
+  "开始日期": {
+   "sources": [
+    "Date of Commencement",
+    "From Date",
+    "Start Date"
+   ],
+   "visible": {
+    "Date of Commencement": [
+     "Company label:date_of_commencement [CTX-OK]"
+    ],
+    "From Date": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:894 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:901 [BARE]",
+     "Production Plan label:from_date [CTX-OK]",
+     "Purchase Invoice label:from_date [CTX-OK]"
+    ]
+   }
+  },
+  "选物料": {
+   "sources": [
+    "Get Items",
+    "Get Items From"
+   ],
+   "visible": {
+    "Get Items": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:488 [BARE]",
+     "Stock Entry label:get_items [CTX-OK]"
+    ],
+    "Get Items From": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:187 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:239 [BARE]",
+     "Production Plan label:get_items_from [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:177 [BARE]"
+    ]
+   }
+  },
+  "进行中": {
+   "sources": [
+    "In Process",
+    "In Progress",
+    "Ongoing",
+    "Work In Progress",
+    "Work in Progress"
+   ],
+   "visible": {
+    "In Process": [
+     "Production Plan option:status [CTX-OK]",
+     "Work Order option:status [CTX-OK]"
+    ],
+    "Work In Progress": [
+     "Job Card option:status [CTX-OK]",
+     "Job Card Operation option:status [CTX-OK]"
+    ],
+    "Work in Progress": [
+     "Work Order Operation option:status [CTX-OK]"
+    ]
+   }
+  },
+  "会计凭证": {
+   "sources": [
+    "Accounting Ledger",
+    "Ledger"
+   ],
+   "visible": {
+    "Accounting Ledger": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.js:173 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.js:123 [BARE]"
+    ],
+    "Ledger": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:426 [BARE]"
+    ]
+   }
+  },
+  "更多信息": {
+   "sources": [
+    "More Info",
+    "More Information",
+    "Other Info"
+   ],
+   "visible": {
+    "More Info": [
+     "BOM label:more_info_tab [CTX-OK]",
+     "Customer label:more_info_tab [CTX-OK]",
+     "Delivery Note label:more_info_tab [CTX-OK]",
+     "GL Entry label:more_info_section [CTX-OK]"
+    ],
+    "More Information": [
+     "BOM Operation label:more_information_section [CTX-OK]",
+     "Payment Entry label:section_break_12 [CTX-OK]",
+     "Purchase Order Item label:more_info_section_break [CTX-OK]",
+     "Stock Entry label:more_info [CTX-OK]"
+    ],
+    "Other Info": [
+     "Stock Entry label:other_info_tab [CTX-OK]"
+    ]
+   }
+  },
+  "名称": {
+   "sources": [
+    " Name",
+    "Name",
+    "name"
+   ],
+   "visible": {
+    "Name": [
+     "Payment Entry Reference label:reference_name [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.js:290 [BARE]"
+    ],
+    "name": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:646 [BARE]"
+    ]
+   }
+  },
+  "备注": {
+   "sources": [
+    "Note",
+    "Notes",
+    "Remark",
+    "Remarks"
+   ],
+   "visible": {
+    "Note": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:751 [BARE]",
+     "Item Price label:note [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1634 [BARE]"
+    ],
+    "Remarks": [
+     "GL Entry label:remarks [CTX-OK]",
+     "Job Card label:remarks [CTX-OK]",
+     "Payment Entry label:remarks [CTX-OK]",
+     "Purchase Invoice label:remarks [CTX-OK]"
+    ]
+   }
+  },
+  "临时冻结": {
+   "sources": [
+    "Hold",
+    "On Hold",
+    "Temporarily on Hold"
+   ],
+   "visible": {
+    "Hold": [
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:338 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:995 [BARE]"
+    ],
+    "On Hold": [
+     "Job Card option:status [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice_list.js:27 [BARE]",
+     "Purchase Order option:status [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order_list.js:18 [BARE]"
+    ],
+    "Temporarily on Hold": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice_list.js:29 [BARE]"
+    ]
+   }
+  },
+  "待处理": {
+   "sources": [
+    "Open",
+    "Pending"
+   ],
+   "visible": {
+    "Open": [
+     "Job Card option:status [CTX-OK]",
+     "Quotation option:status [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation_list.js:30 [BARE]"
+    ],
+    "Pending": [
+     "Job Card Operation option:status [CTX-OK]",
+     "Transaction Deletion Record option:delete_bin_data_status [CTX-OK]",
+     "Transaction Deletion Record option:delete_leads_and_addresses_status [CTX-OK]",
+     "Transaction Deletion Record option:reset_company_default_values_status [CTX-OK]"
+    ]
+   }
+  },
+  "工序": {
+   "sources": [
+    "For Operation",
+    "Item operation",
+    "Operation",
+    "Operations"
+   ],
+   "visible": {
+    "For Operation": [
+     "Job Card label:for_operation [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:475 [BARE]"
+    ],
+    "Item operation": [
+     "BOM Item label:operation [CTX-OK]"
+    ],
+    "Operation": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:511 [BARE]",
+     "BOM Explosion Item label:operation [CTX-OK]",
+     "BOM Operation label:operation [CTX-OK]",
+     "Job Card label:operation [CTX-OK]"
+    ],
+    "Operations": [
+     "BOM label:operations [CTX-OK]",
+     "BOM label:operations_section_section [CTX-OK]",
+     "Work Order label:operations_section [CTX-OK]",
+     "Work Order label:operations [CTX-OK]"
+    ]
+   }
+  },
+  "打印设置": {
+   "sources": [
+    "Print Settings",
+    "Printing Details",
+    "Printing Settings"
+   ],
+   "visible": {
+    "Print Settings": [
+     "Accounts Settings label:print_settings [CTX-OK]",
+     "Delivery Note label:printing_details [CTX-OK]",
+     "Purchase Invoice label:printing_settings [CTX-OK]",
+     "Quotation label:print_settings [CTX-OK]"
+    ],
+    "Printing Settings": [
+     "Purchase Order label:column_break5 [CTX-OK]",
+     "Purchase Receipt label:printing_settings [CTX-OK]",
+     "Stock Entry label:printing_settings [CTX-OK]"
+    ]
+   }
+  },
+  "参考": {
+   "sources": [
+    "Reference",
+    "References"
+   ],
+   "visible": {
+    "Reference": [
+     "BOM label:reference_section [CTX-OK]",
+     "Item Price label:reference [CTX-OK]",
+     "Material Request Plan Item label:section_break_8 [CTX-OK]",
+     "Payment Entry label:section_break_14 [CTX-OK]"
+    ],
+    "References": [
+     "Customer label:references_section [CTX-OK]",
+     "Purchase Order Item label:references_section [CTX-OK]",
+     "Sales Invoice Item label:edit_references [CTX-OK]"
+    ]
+   }
+  },
+  "重新打开": {
+   "sources": [
+    "Re-open",
+    "Reopen"
+   ],
+   "visible": {
+    "Re-open": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:124 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:369 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:974 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order_list.js:70 [BARE]"
+    ],
+    "Reopen": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:358 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order_list.js:58 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:279 [BARE]"
+    ]
+   }
+  },
+  "工序顺序号": {
+   "sources": [
+    "Sequence ID",
+    "Sequence Id"
+   ],
+   "visible": {
+    "Sequence ID": [
+     "BOM Operation label:sequence_id [CTX-OK]",
+     "Work Order Operation label:sequence_id [CTX-OK]"
+    ],
+    "Sequence Id": [
+     "Job Card label:sequence_id [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:371 [BARE]"
+    ]
+   }
+  },
+  "设置": {
+   "sources": [
+    "Set",
+    "Setting",
+    "Settings",
+    "Setup"
+   ],
+   "visible": {
+    "Settings": [
+     "Customer label:settings_tab [CTX-OK]",
+     "Supplier label:settings_tab [CTX-OK]"
+    ],
+    "Setup": [
+     "Workstation option:status [CTX-OK]"
+    ]
+   }
+  },
+  "开始时间": {
+   "sources": [
+    "From Datetime",
+    "From Time",
+    "Start Time",
+    "Started At",
+    "Starts on"
+   ],
+   "visible": {
+    "From Time": [
+     "Job Card Scheduled Time label:from_time [CTX-OK]",
+     "Job Card Time Log label:from_time [CTX-OK]",
+     "Sales Invoice Timesheet label:from_time [CTX-OK]"
+    ],
+    "Start Time": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:322 [BARE]",
+     "Workstation Working Hour label:start_time [CTX-OK]"
+    ]
+   }
+  },
+  "总计": {
+   "sources": [
+    "Grand Total",
+    "Total",
+    "Totals"
+   ],
+   "visible": {
+    "Grand Total": [
+     "Delivery Note option:apply_discount_on [CTX-OK]",
+     "Delivery Note label:base_grand_total [CTX-OK]",
+     "Delivery Note label:grand_total [CTX-OK]",
+     "Payment Entry Reference label:total_amount [CTX-OK]"
+    ],
+    "Total": [
+     "Advance Taxes and Charges label:total [CTX-OK]",
+     "Delivery Note label:total [CTX-OK]",
+     "Purchase Invoice label:total [CTX-OK]",
+     "Purchase Order label:total [CTX-OK]"
+    ],
+    "Totals": [
+     "Delivery Note label:totals_section [CTX-OK]",
+     "Purchase Invoice label:totals_section [CTX-OK]",
+     "Purchase Order label:totals_section [CTX-OK]",
+     "Purchase Receipt label:totals_section [CTX-OK]"
+    ]
+   }
+  },
+  "仓库": {
+   "sources": [
+    "Accepted Warehouse",
+    "For Warehouse",
+    "Request for",
+    "Requesting Site",
+    "Stores",
+    "Warehouse",
+    "Warehouses"
+   ],
+   "visible": {
+    "Accepted Warehouse": [
+     "Purchase Invoice Item label:warehouse [CTX-OK]",
+     "Purchase Receipt label:set_warehouse [CTX-OK]",
+     "Purchase Receipt Item label:warehouse [CTX-OK]"
+    ],
+    "For Warehouse": [
+     "Material Request Plan Item label:warehouse [CTX-OK]",
+     "Production Plan label:for_warehouse [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:477 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1451 [BARE]"
+    ],
+    "Request for": [
+     "Item Reorder label:warehouse [CTX-OK]"
+    ],
+    "Warehouse": [
+     "BOM Operation label:warehouse_section [CTX-OK]",
+     "Bin label:warehouse [CTX-OK]",
+     "Delivery Note Item label:warehouse [CTX-OK]",
+     "Production Plan label:warehouse [CTX-OK]"
+    ],
+    "Warehouses": [
+     "Production Plan label:warehouses [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:532 [BARE]"
+    ]
+   }
+  },
+  "物料清单": {
+   "sources": [
+    " BOM",
+    "BOM",
+    "Bill of Materials"
+   ],
+   "visible": {
+    "BOM": [
+     "BOM option:backflush_based_on [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom_tree.js:8 [BARE]",
+     "Manufacturing Settings option:backflush_raw_materials_based_on [CTX-OK]",
+     "Manufacturing Settings label:bom_section [CTX-OK]"
+    ],
+    "Bill of Materials": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:786 [BARE]"
+    ]
+   }
+  },
+  "已开票%": {
+   "sources": [
+    "% Amount Billed",
+    "% Billed"
+   ],
+   "visible": {
+    "% Amount Billed": [
+     "Delivery Note label:per_billed [CTX-OK]",
+     "Purchase Receipt label:per_billed [CTX-OK]",
+     "Sales Order label:per_billed [CTX-OK]"
+    ],
+    "% Billed": [
+     "Purchase Order label:per_billed [CTX-OK]"
+    ]
+   }
+  },
+  "收货数量": {
+   "sources": [
+    "Accepted Qty",
+    "Accepted Quantity",
+    "Arrival Quantity"
+   ],
+   "visible": {
+    "Accepted Qty": [
+     "Purchase Invoice Item label:qty [CTX-OK]"
+    ],
+    "Accepted Quantity": [
+     "Purchase Receipt Item label:qty [CTX-OK]"
+    ]
+   }
+  },
+  "应付账款": {
+   "sources": [
+    "Accounts Payable",
+    "Creditors",
+    "Payable",
+    "Payables"
+   ],
+   "visible": {
+    "Accounts Payable": [
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.js:135 [BARE]"
+    ],
+    "Payable": [
+     "Account option:account_type [CTX-OK]"
+    ]
+   }
+  },
+  "应收账款": {
+   "sources": [
+    "Accounts Receivable",
+    "Debtors",
+    "Receivable",
+    "Receivable Account",
+    "Receivables"
+   ],
+   "visible": {
+    "Accounts Receivable": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.js:162 [BARE]"
+    ],
+    "Receivable": [
+     "Account option:account_type [CTX-OK]"
+    ]
+   }
+  },
+  "额外费用": {
+   "sources": [
+    "Additional Cost",
+    "Additional Costs"
+   ],
+   "visible": {
+    "Additional Cost": [
+     "Stock Entry Detail label:additional_cost [CTX-OK]"
+    ],
+    "Additional Costs": [
+     "Stock Entry label:additional_costs_section [CTX-OK]",
+     "Stock Entry label:additional_costs [CTX-OK]"
+    ]
+   }
+  },
+  "额外物料调拨": {
+   "sources": [
+    "Additional Material Transfer",
+    "Extra Material Transfer"
+   ],
+   "visible": {
+    "Additional Material Transfer": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:838 [BARE]"
+    ],
+    "Extra Material Transfer": [
+     "Manufacturing Settings label:section_break_xhtl [CTX-OK]"
+    ]
+   }
+  },
+  "源单": {
+   "sources": [
+    "Adjustment Against",
+    "Return Against"
+   ],
+   "visible": {
+    "Adjustment Against": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:1180 [BARE]"
+    ],
+    "Return Against": [
+     "Sales Invoice label:return_against [CTX-OK]"
+    ]
+   }
+  },
+  "预付金额": {
+   "sources": [
+    "Advance Amount",
+    "Advance amount"
+   ],
+   "visible": {
+    "Advance Amount": [
+     "Purchase Invoice Advance label:advance_amount [CTX-OK]"
+    ],
+    "Advance amount": [
+     "Sales Invoice Advance label:advance_amount [CTX-OK]"
+    ]
+   }
+  },
+  "预付款": {
+   "sources": [
+    "Advance Paid",
+    "Advance Payment",
+    "Advance Payments"
+   ],
+   "visible": {
+    "Advance Paid": [
+     "Sales Order label:advance_paid [CTX-OK]"
+    ],
+    "Advance Payment": [
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order_list.js:75 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order_list.js:122 [BARE]"
+    ],
+    "Advance Payments": [
+     "Company label:advance_payments_section [CTX-OK]",
+     "Purchase Invoice label:advances_section [CTX-OK]",
+     "Sales Invoice label:advances_section [CTX-OK]"
+    ]
+   }
+  },
+  "框架订单": {
+   "sources": [
+    "Against Blanket Order",
+    "Blanket Order"
+   ],
+   "visible": {
+    "Against Blanket Order": [
+     "Purchase Order Item label:against_blanket_order [CTX-OK]",
+     "Quotation Item label:against_blanket_order [CTX-OK]",
+     "Sales Order Item label:against_blanket_order [CTX-OK]"
+    ],
+    "Blanket Order": [
+     "Purchase Order Item label:blanket_order [CTX-OK]",
+     "Quotation Item label:blanket_order [CTX-OK]",
+     "Sales Order Item label:blanket_order [CTX-OK]"
+    ]
+   }
+  },
+  "销售发票": {
+   "sources": [
+    "Against Sales Invoice",
+    "Sales Invoice"
+   ],
+   "visible": {
+    "Against Sales Invoice": [
+     "Delivery Note Item label:against_sales_invoice [CTX-OK]"
+    ],
+    "Sales Invoice": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.js:63 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:347 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note_list.js:67 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation_list.js:22 [BARE]"
+    ]
+   }
+  },
+  "销售订单": {
+   "sources": [
+    "Against Sales Order",
+    "Sales Order",
+    "Sales Orders"
+   ],
+   "visible": {
+    "Against Sales Order": [
+     "Delivery Note Item label:against_sales_order [CTX-OK]"
+    ],
+    "Sales Order": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:157 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:223 [BARE]",
+     "Material Request Plan Item label:sales_order [CTX-OK]",
+     "Production Plan option:get_items_from [CTX-OK]"
+    ],
+    "Sales Orders": [
+     "Production Plan label:sales_orders_detail [CTX-OK]",
+     "Production Plan label:sales_orders [CTX-OK]"
+    ]
+   }
+  },
+  "销售订单明细": {
+   "sources": [
+    "Against Sales Order Item",
+    "Sales Order Item"
+   ],
+   "visible": {
+    "Against Sales Order Item": [
+     "Delivery Note Item label:so_detail [CTX-OK]"
+    ],
+    "Sales Order Item": [
+     "Production Plan Item label:sales_order_item [CTX-OK]",
+     "Production Plan Item Reference label:sales_order_item [CTX-OK]",
+     "Production Plan Sub Assembly Item label:sales_order_item [CTX-OK]",
+     "Purchase Order Item label:sales_order_item [CTX-OK]"
+    ]
+   }
+  },
+  "金额（本币）": {
+   "sources": [
+    "Amount (Company Currency)",
+    "Base Amount (Company Currency)"
+   ],
+   "visible": {
+    "Amount (Company Currency)": [
+     "Advance Taxes and Charges label:base_tax_amount [CTX-OK]",
+     "BOM Item label:base_amount [CTX-OK]",
+     "Delivery Note Item label:base_amount [CTX-OK]",
+     "Landed Cost Taxes and Charges label:base_amount [CTX-OK]"
+    ],
+    "Base Amount (Company Currency)": [
+     "Sales Invoice Payment label:base_amount [CTX-OK]"
+    ]
+   }
+  },
+  "资产": {
+   "sources": [
+    "Asset",
+    "Assets"
+   ],
+   "visible": {
+    "Asset": [
+     "Account option:root_type [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:192 [BARE]",
+     "Sales Invoice Item label:asset [CTX-OK]"
+    ],
+    "Assets": [
+     "Accounts Settings label:assets_tab [CTX-OK]"
+    ]
+   }
+  },
+  "可用数量": {
+   "sources": [
+    "Available",
+    "Available Qty",
+    "Available Quantity",
+    "Projected Qty",
+    "Projected Quantity",
+    "Stock Projected Qty"
+   ],
+   "visible": {
+    "Available": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:513 [BARE]"
+    ],
+    "Available Qty": [
+     "Delivery Note Item label:available_qty_section [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:505 [BARE]"
+    ],
+    "Available Quantity": [
+     "Quotation Item label:available_quantity_section [CTX-OK]",
+     "Sales Invoice Item label:available_quantity_section [CTX-OK]",
+     "Sales Order Item label:available_quantity_section [CTX-OK]"
+    ],
+    "Projected Qty": [
+     "Bin label:projected_qty [CTX-OK]",
+     "Material Request Plan Item label:projected_qty [CTX-OK]",
+     "Packed Item label:projected_qty [CTX-OK]",
+     "Production Plan Sub Assembly Item label:projected_qty [CTX-OK]"
+    ],
+    "Stock Projected Qty": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:174 [BARE]"
+    ]
+   }
+  },
+  "物料清单号": {
+   "sources": [
+    "BOM Detail No",
+    "BOM No"
+   ],
+   "visible": {
+    "BOM Detail No": [
+     "Purchase Order Item Supplied label:bom_detail_no [CTX-OK]",
+     "Purchase Receipt Item Supplied label:bom_detail_no [CTX-OK]"
+    ],
+    "BOM No": [
+     "BOM Item label:bom_no [CTX-OK]",
+     "BOM Operation label:bom_no [CTX-OK]",
+     "Production Plan Item label:bom_no [CTX-OK]",
+     "Production Plan Sub Assembly Item label:bom_no [CTX-OK]"
+    ]
+   }
+  },
+  "银行": {
+   "sources": [
+    "Bank",
+    "Banking"
+   ],
+   "visible": {
+    "Bank": [
+     "Account option:account_type [CTX-OK]",
+     "Mode of Payment option:type [CTX-OK]",
+     "Payment Entry label:bank [CTX-OK]"
+    ],
+    "Banking": [
+     "Accounts Settings label:banking_section [CTX-OK]"
+    ]
+   }
+  },
+  "单价（本币）": {
+   "sources": [
+    "Basic Rate (Company Currency)",
+    "Rate (Company Currency)"
+   ],
+   "visible": {
+    "Basic Rate (Company Currency)": [
+     "BOM Item label:base_rate [CTX-OK]",
+     "Sales Order Item label:base_rate [CTX-OK]"
+    ],
+    "Rate (Company Currency)": [
+     "Delivery Note Item label:base_rate [CTX-OK]",
+     "Purchase Invoice Item label:base_rate [CTX-OK]",
+     "Purchase Order Item label:base_rate [CTX-OK]",
+     "Purchase Receipt Item label:base_rate [CTX-OK]"
+    ]
+   }
+  },
+  "数量": {
+   "sources": [
+    "Batch Quantity",
+    "Qty",
+    "Qty ",
+    "Quantity"
+   ],
+   "visible": {
+    "Qty": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:1160 [BARE]",
+     "BOM Item label:qty [CTX-OK]",
+     "BOM Secondary Item label:qty [CTX-OK]",
+     "Job Card Item label:qty_section [CTX-OK]"
+    ],
+    "Quantity": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:498 [BARE]",
+     "Delivery Note Item label:qty [CTX-OK]",
+     "Production Plan Sub Assembly Item label:section_break_4rxf [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:787 [BARE]"
+    ]
+   }
+  },
+  "已开票金额": {
+   "sources": [
+    "Billed Amount",
+    "Billed Amt"
+   ],
+   "visible": {
+    "Billed Amount": [
+     "Purchase Order Item label:billed_amt [CTX-OK]"
+    ],
+    "Billed Amt": [
+     "Delivery Note Item label:billed_amt [CTX-OK]",
+     "Purchase Receipt Item label:billed_amt [CTX-OK]",
+     "Sales Order Item label:billed_amt [CTX-OK]"
+    ]
+   }
+  },
+  "发票地址": {
+   "sources": [
+    "Billing Address",
+    "Select Billing Address"
+   ],
+   "visible": {
+    "Billing Address": [
+     "Accounts Settings option:determine_address_tax_category_from [CTX-OK]",
+     "Delivery Note label:contact_info [CTX-OK]",
+     "Delivery Note label:address_display [CTX-OK]",
+     "Purchase Invoice label:billing_address_display [CTX-OK]"
+    ],
+    "Select Billing Address": [
+     "Purchase Invoice label:billing_address [CTX-OK]"
+    ]
+   }
+  },
+  "冻结发票": {
+   "sources": [
+    "Block Invoice",
+    "Hold Invoice"
+   ],
+   "visible": {
+    "Block Invoice": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:109 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:269 [BARE]"
+    ],
+    "Hold Invoice": [
+     "Purchase Invoice label:sb_14 [CTX-OK]",
+     "Purchase Invoice label:on_hold [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:98 [BARE]"
+    ]
+   }
+  },
+  "套件明细": {
+   "sources": [
+    "Bundle Items",
+    "Packed Item",
+    "Packed Items"
+   ],
+   "visible": {
+    "Bundle Items": [
+     "Quotation label:packed_items [CTX-OK]",
+     "Quotation label:bundle_items_section [CTX-OK]"
+    ],
+    "Packed Items": [
+     "Delivery Note label:packed_items [CTX-OK]",
+     "Sales Invoice label:packed_items [CTX-OK]",
+     "Sales Order label:packed_items [CTX-OK]"
+    ]
+   }
+  },
+  "采购": {
+   "sources": [
+    "Buy",
+    "Buying",
+    "For Buying",
+    "Procurement",
+    "Purchase",
+    "Purchased",
+    "Purchases",
+    "Purchasing"
+   ],
+   "visible": {
+    "Buying": [
+     "Item Price label:buying [CTX-OK]",
+     "Price List label:buying [CTX-OK]"
+    ],
+    "Purchase": [
+     "Item option:default_material_request_type [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:30 [BARE]",
+     "Item Reorder option:material_request_type [CTX-OK]",
+     "Material Request Plan Item option:material_request_type [CTX-OK]"
+    ],
+    "Purchasing": [
+     "Item label:purchasing_tab [CTX-OK]"
+    ]
+   }
+  },
+  "科目表模板": {
+   "sources": [
+    "Chart Of Accounts Template",
+    "Create Chart Of Accounts Based On"
+   ],
+   "visible": {
+    "Chart Of Accounts Template": [
+     "Company label:chart_of_accounts [CTX-OK]"
+    ],
+    "Create Chart Of Accounts Based On": [
+     "Company label:create_chart_of_accounts_based_on [CTX-OK]"
+    ]
+   }
+  },
+  "条款和条件": {
+   "sources": [
+    "Clauses and Conditions",
+    "Terms & Conditions",
+    "Terms and Conditions"
+   ],
+   "visible": {
+    "Terms & Conditions": [
+     "Purchase Order label:terms_section_break [CTX-OK]",
+     "Sales Order label:terms_section_break [CTX-OK]"
+    ],
+    "Terms and Conditions": [
+     "Purchase Invoice label:terms_section_break [CTX-OK]",
+     "Purchase Invoice label:terms [CTX-OK]",
+     "Purchase Order label:terms [CTX-OK]",
+     "Purchase Receipt label:terms [CTX-OK]"
+    ]
+   }
+  },
+  "公司": {
+   "sources": [
+    "Companies",
+    "Company",
+    "For Company"
+   ],
+   "visible": {
+    "Companies": [
+     "Fiscal Year label:companies [CTX-OK]"
+    ],
+    "Company": [
+     "Account label:company [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account_tree.js:12 [BARE]",
+     "Allowed To Transact With label:company [CTX-OK]",
+     "BOM label:company [CTX-OK]"
+    ]
+   }
+  },
+  "竞争对手": {
+   "sources": [
+    "Competitor",
+    "Competitors"
+   ],
+   "visible": {
+    "Competitor": [
+     "Competitor Detail label:competitor [CTX-OK]"
+    ],
+    "Competitors": [
+     "Quotation label:competitors [CTX-OK]"
+    ]
+   }
+  },
+  "完工数量": {
+   "sources": [
+    "Completed Qty",
+    "Manufactured Qty",
+    "Produced Qty"
+   ],
+   "visible": {
+    "Completed Qty": [
+     "Job Card Operation label:completed_qty [CTX-OK]",
+     "Job Card Time Log label:completed_qty [CTX-OK]",
+     "Work Order Operation label:completed_qty [CTX-OK]"
+    ],
+    "Manufactured Qty": [
+     "Job Card label:manufactured_qty [CTX-OK]",
+     "Work Order label:produced_qty [CTX-OK]"
+    ],
+    "Produced Qty": [
+     "Production Plan Item label:produced_qty [CTX-OK]",
+     "Production Plan Sub Assembly Item label:wo_produced_qty [CTX-OK]"
+    ]
+   }
+  },
+  "委外原材料": {
+   "sources": [
+    "Consumed Items",
+    "Material to Supplier",
+    "Supplied Item",
+    "Supplied Items"
+   ],
+   "visible": {
+    "Consumed Items": [
+     "Purchase Receipt label:supplied_items [CTX-OK]"
+    ],
+    "Material to Supplier": [
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:394 [BARE]"
+    ],
+    "Supplied Items": [
+     "Purchase Invoice label:supplied_items [CTX-OK]",
+     "Purchase Order label:supplied_items [CTX-OK]"
+    ]
+   }
+  },
+  "成本中心": {
+   "sources": [
+    "Cost Center",
+    "Cost Centers"
+   ],
+   "visible": {
+    "Cost Center": [
+     "Advance Taxes and Charges label:cost_center [CTX-OK]",
+     "Delivery Note label:cost_center [CTX-OK]",
+     "Delivery Note Item label:cost_center [CTX-OK]",
+     "GL Entry label:cost_center [CTX-OK]"
+    ],
+    "Cost Centers": [
+     "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.js:124 [BARE]"
+    ]
+   }
+  },
+  "成本价": {
+   "sources": [
+    "Costing Rate",
+    "Incoming Rate (Costing)",
+    "Valuation",
+    "Valuation Rate"
+   ],
+   "visible": {
+    "Incoming Rate (Costing)": [
+     "Sales Invoice Item label:incoming_rate [CTX-OK]"
+    ],
+    "Valuation": [
+     "Purchase Taxes and Charges option:category [CTX-OK]"
+    ],
+    "Valuation Rate": [
+     "BOM option:rm_cost_as_per [CTX-OK]",
+     "BOM Secondary Item option:valuation_type [CTX-OK]",
+     "Bin label:valuation_rate [CTX-OK]",
+     "Item label:valuation_rate [CTX-OK]"
+    ]
+   }
+  },
+  "贷方": {
+   "sources": [
+    "Cr",
+    "Credit",
+    "Credit Amount"
+   ],
+   "visible": {
+    "Cr": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account_tree.js:63 [BARE]"
+    ],
+    "Credit": [
+     "Account option:balance_must_be [CTX-OK]"
+    ],
+    "Credit Amount": [
+     "GL Entry label:credit [CTX-OK]"
+    ]
+   }
+  },
+  "创建多规格物料": {
+   "sources": [
+    "Create Variant",
+    "Create Variants"
+   ],
+   "visible": {
+    "Create Variant": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:1112 [BARE]"
+    ],
+    "Create Variants": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:924 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:961 [BARE]"
+    ]
+   }
+  },
+  "信用额度": {
+   "sources": [
+    "Credit Limit",
+    "Credit Limits"
+   ],
+   "visible": {
+    "Credit Limit": [
+     "Company label:credit_limit [CTX-OK]",
+     "Customer Credit Limit label:credit_limit [CTX-OK]"
+    ],
+    "Credit Limits": [
+     "Accounts Settings label:invoicing_settings_tab [CTX-OK]"
+    ]
+   }
+  },
+  "退款": {
+   "sources": [
+    "Credit Note",
+    "Issue Credit Note"
+   ],
+   "visible": {
+    "Credit Note": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:89 [BARE]",
+     "Stock Entry label:credit_note [CTX-OK]"
+    ],
+    "Issue Credit Note": [
+     "Delivery Note label:issue_credit_note [CTX-OK]"
+    ]
+   }
+  },
+  "借方": {
+   "sources": [
+    "Debit",
+    "Debit Amount"
+   ],
+   "visible": {
+    "Debit": [
+     "Account option:balance_must_be [CTX-OK]"
+    ],
+    "Debit Amount": [
+     "GL Entry label:debit [CTX-OK]"
+    ]
+   }
+  },
+  "默认科目": {
+   "sources": [
+    "Default Account",
+    "Default Accounts"
+   ],
+   "visible": {
+    "Default Account": [
+     "Mode of Payment Account label:default_account [CTX-OK]",
+     "Party Account label:account [CTX-OK]"
+    ],
+    "Default Accounts": [
+     "Company label:default_settings [CTX-OK]",
+     "Customer label:accounts [CTX-OK]",
+     "Supplier label:default_accounts_section [CTX-OK]"
+    ]
+   }
+  },
+  "由供应商交货（直运）": {
+   "sources": [
+    "Delivered by Supplier (Drop Ship)",
+    "Drop Ship"
+   ],
+   "visible": {
+    "Delivered by Supplier (Drop Ship)": [
+     "Item label:delivered_by_supplier [CTX-OK]"
+    ],
+    "Drop Ship": [
+     "Purchase Order label:drop_ship [CTX-OK]",
+     "Sales Invoice Item label:drop_ship [CTX-OK]",
+     "Sales Order Item label:drop_ship_section [CTX-OK]"
+    ]
+   }
+  },
+  "工单拆解": {
+   "sources": [
+    "Disassemble",
+    "Disassemble Order"
+   ],
+   "visible": {
+    "Disassemble": [
+     "Stock Entry option:purpose [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:406 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:449 [BARE]",
+     "Stock Entry Type option:purpose [CTX-OK]"
+    ],
+    "Disassemble Order": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:229 [BARE]"
+    ]
+   }
+  },
+  "折扣金额": {
+   "sources": [
+    "Discount Amount",
+    "Discounted Amount"
+   ],
+   "visible": {
+    "Discount Amount": [
+     "Delivery Note Item label:discount_amount [CTX-OK]",
+     "Purchase Invoice Item label:discount_amount [CTX-OK]",
+     "Purchase Order Item label:discount_amount [CTX-OK]",
+     "Purchase Receipt Item label:discount_amount [CTX-OK]"
+    ],
+    "Discounted Amount": [
+     "Payment Schedule label:discounted_amount [CTX-OK]"
+    ]
+   }
+  },
+  "员工": {
+   "sources": [
+    "Employee",
+    "Employees",
+    "From Employee"
+   ],
+   "visible": {
+    "Employee": [
+     "Job Card label:employee [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card_calendar.js:27 [BARE]",
+     "Job Card Time Log label:employee [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:328 [BARE]"
+    ],
+    "Employees": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:351 [BARE]"
+    ]
+   }
+  },
+  "失效日期": {
+   "sources": [
+    "End of Life",
+    "Expiry Date",
+    "Valid Till"
+   ],
+   "visible": {
+    "End of Life": [
+     "Item label:end_of_life [CTX-OK]"
+    ],
+    "Valid Till": [
+     "Quotation label:valid_till [CTX-OK]"
+    ]
+   }
+  },
+  "汇兑损益": {
+   "sources": [
+    "Exchange Gain / Loss",
+    "Exchange Gain Or Loss",
+    "Exchange Gain/Loss"
+   ],
+   "visible": {
+    "Exchange Gain / Loss": [
+     "Company label:exchange_gain__loss_section [CTX-OK]"
+    ],
+    "Exchange Gain/Loss": [
+     "Payment Entry Reference label:exchange_gain_loss [CTX-OK]",
+     "Purchase Invoice Advance label:exchange_gain_loss [CTX-OK]",
+     "Sales Invoice Advance label:exchange_gain_loss [CTX-OK]"
+    ]
+   }
+  },
+  "费用科目": {
+   "sources": [
+    "Expense Account",
+    "Expense Head"
+   ],
+   "visible": {
+    "Expense Account": [
+     "Account option:account_type [CTX-OK]",
+     "Delivery Note Item label:expense_account [CTX-OK]",
+     "Landed Cost Taxes and Charges label:expense_account [CTX-OK]",
+     "Purchase Order Item label:expense_account [CTX-OK]"
+    ],
+    "Expense Head": [
+     "Purchase Invoice Item label:expense_account [CTX-OK]"
+    ]
+   }
+  },
+  "选工时单": {
+   "sources": [
+    "Fetch Timesheet",
+    "Get Timesheets"
+   ],
+   "visible": {
+    "Fetch Timesheet": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:305 [BARE]"
+    ],
+    "Get Timesheets": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:357 [BARE]"
+    ]
+   }
+  },
+  "成品": {
+   "sources": [
+    "Final Product",
+    "Finished Good",
+    "Finished Goods",
+    "Item To Manufacture",
+    "Production Item"
+   ],
+   "visible": {
+    "Final Product": [
+     "Job Card label:production_item [CTX-OK]"
+    ],
+    "Finished Good": [
+     "Production Plan Sub Assembly Item label:parent_item_code [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:204 [BARE]",
+     "Purchase Order Item label:fg_item [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:830 [BARE]"
+    ],
+    "Finished Goods": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1438 [BARE]"
+    ],
+    "Item To Manufacture": [
+     "Work Order label:production_item [CTX-OK]"
+    ],
+    "Production Item": [
+     "BOM label:production_item_tab [CTX-OK]",
+     "Work Order label:item [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order_calendar.js:38 [BARE]"
+    ]
+   }
+  },
+  "生产任务单": {
+   "sources": [
+    "For Job Card",
+    "Job Card",
+    "Job Cards"
+   ],
+   "visible": {
+    "For Job Card": [
+     "Job Card label:for_job_card [CTX-OK]"
+    ],
+    "Job Card": [
+     "BOM option:transfer_material_against [CTX-OK]",
+     "Operation label:job_card_section [CTX-OK]",
+     "Purchase Order Item label:job_card [CTX-OK]",
+     "Stock Entry label:job_card [CTX-OK]"
+    ],
+    "Job Cards": [
+     "Workstation label:dashboard_tab [CTX-OK]"
+    ]
+   }
+  },
+  "生产": {
+   "sources": [
+    "For Production",
+    "Manufacturing",
+    "Production",
+    "production"
+   ],
+   "visible": {
+    "Manufacturing": [
+     "Company label:manufacturing_section [CTX-OK]",
+     "Item label:manufacturing [CTX-OK]",
+     "Production Plan Sub Assembly Item label:work_order_details_section [CTX-OK]"
+    ],
+    "Production": [
+     "Workstation option:status [CTX-OK]"
+    ]
+   }
+  },
+  "销售": {
+   "sources": [
+    "For Selling",
+    "Sales",
+    "Sell",
+    "Selling"
+   ],
+   "visible": {
+    "Sales": [
+     "Item label:sales_details [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:29 [BARE]",
+     "Quotation option:order_type [CTX-OK]",
+     "Sales Order option:order_type [CTX-OK]"
+    ],
+    "Selling": [
+     "Item Price label:selling [CTX-OK]",
+     "Price List label:selling [CTX-OK]"
+    ]
+   }
+  },
+  "发料仓": {
+   "sources": [
+    "From Warehouse",
+    "Set From Warehouse",
+    "Set Source Warehouse",
+    "Source Warehouse"
+   ],
+   "visible": {
+    "From Warehouse": [
+     "Material Request Plan Item label:from_warehouse [CTX-OK]",
+     "Packed Item label:warehouse [CTX-OK]",
+     "Purchase Invoice Item label:from_warehouse [CTX-OK]",
+     "Purchase Order Item label:from_warehouse [CTX-OK]"
+    ],
+    "Set From Warehouse": [
+     "Purchase Invoice label:set_from_warehouse [CTX-OK]",
+     "Purchase Order label:set_from_warehouse [CTX-OK]",
+     "Purchase Receipt label:set_from_warehouse [CTX-OK]"
+    ],
+    "Set Source Warehouse": [
+     "Delivery Note label:set_warehouse [CTX-OK]",
+     "Sales Order label:set_warehouse [CTX-OK]"
+    ],
+    "Source Warehouse": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:505 [BARE]",
+     "BOM Explosion Item label:source_warehouse [CTX-OK]",
+     "BOM Item label:source_warehouse [CTX-OK]",
+     "BOM Operation label:source_warehouse [CTX-OK]"
+    ]
+   }
+  },
+  "收到数量": {
+   "sources": [
+    "In Qty",
+    "Received Qty",
+    "Received Quantity"
+   ],
+   "visible": {
+    "Received Qty": [
+     "Delivery Note Item label:received_qty [CTX-OK]",
+     "Production Plan Sub Assembly Item label:received_qty [CTX-OK]",
+     "Purchase Invoice Item label:received_qty [CTX-OK]",
+     "Purchase Order Item label:received_qty [CTX-OK]"
+    ],
+    "Received Quantity": [
+     "Purchase Receipt Item label:received_qty [CTX-OK]"
+    ]
+   }
+  },
+  "库存": {
+   "sources": [
+    "In Stock",
+    "Inventory",
+    "Stock"
+   ],
+   "visible": {
+    "Inventory": [
+     "Item label:inventory_section [CTX-OK]"
+    ],
+    "Stock": [
+     "Account option:account_type [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:21 [BARE]"
+    ]
+   }
+  },
+  "需要检验": {
+   "sources": [
+    "Inspection Required",
+    "Quality Inspection Required"
+   ],
+   "visible": {
+    "Inspection Required": [
+     "Stock Entry label:inspection_required [CTX-OK]"
+    ],
+    "Quality Inspection Required": [
+     "BOM label:inspection_required [CTX-OK]",
+     "BOM Operation label:quality_inspection_required [CTX-OK]",
+     "Work Order Operation label:quality_inspection_required [CTX-OK]"
+    ]
+   }
+  },
+  "库存设置": {
+   "sources": [
+    "Inventory Settings",
+    "Stock Settings"
+   ],
+   "visible": {
+    "Inventory Settings": [
+     "Item label:inventory_settings_section [CTX-OK]"
+    ],
+    "Stock Settings": [
+     "Company label:auto_accounting_for_stock_settings [CTX-OK]"
+    ]
+   }
+  },
+  "已付款": {
+   "sources": [
+    "Is Paid",
+    "Paid"
+   ],
+   "visible": {
+    "Is Paid": [
+     "Purchase Invoice label:is_paid [CTX-OK]"
+    ],
+    "Paid": [
+     "Purchase Invoice option:status [CTX-OK]",
+     "Sales Invoice option:status [CTX-OK]"
+    ]
+   }
+  },
+  "退货": {
+   "sources": [
+    "Is Return",
+    "Return",
+    "Returns"
+   ],
+   "visible": {
+    "Is Return": [
+     "Delivery Note label:is_return [CTX-OK]",
+     "Purchase Receipt label:is_return [CTX-OK]",
+     "Stock Entry label:is_return [CTX-OK]"
+    ],
+    "Return": [
+     "Delivery Note option:status [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note_list.js:16 [BARE]",
+     "Purchase Invoice option:status [CTX-OK]",
+     "Purchase Receipt option:status [CTX-OK]"
+    ]
+   }
+  },
+  "委外": {
+   "sources": [
+    "Is Subcontracted",
+    "Sub-contracting",
+    "Subcontract",
+    "Subcontracting"
+   ],
+   "visible": {
+    "Is Subcontracted": [
+     "BOM Operation label:is_subcontracted [CTX-OK]",
+     "Job Card label:is_subcontracted [CTX-OK]",
+     "Purchase Invoice label:is_subcontracted [CTX-OK]",
+     "Purchase Order label:is_subcontracted [CTX-OK]"
+    ],
+    "Subcontract": [
+     "Production Plan Sub Assembly Item option:type_of_manufacturing [CTX-OK]"
+    ],
+    "Subcontracting": [
+     "Material Request Plan Item option:material_request_type [CTX-OK]",
+     "Production Plan Sub Assembly Item label:subcontracting_section [CTX-OK]"
+    ]
+   }
+  },
+  "物料号": {
+   "sources": [
+    "Item Code",
+    "Item Reference"
+   ],
+   "visible": {
+    "Item Code": [
+     "BOM Explosion Item label:item_code [CTX-OK]",
+     "BOM Item label:item_code [CTX-OK]",
+     "BOM Secondary Item label:item_code [CTX-OK]",
+     "Bin label:item_code [CTX-OK]"
+    ],
+    "Item Reference": [
+     "Production Plan Item label:item_reference [CTX-OK]",
+     "Production Plan Item Reference label:item_reference [CTX-OK]"
+    ]
+   }
+  },
+  "物料名称": {
+   "sources": [
+    "Item Name",
+    "Item name"
+   ],
+   "visible": {
+    "Item Name": [
+     "BOM label:item_name [CTX-OK]",
+     "BOM Explosion Item label:item_name [CTX-OK]",
+     "BOM Item label:item_name [CTX-OK]",
+     "BOM Secondary Item label:item_name [CTX-OK]"
+    ],
+    "Item name": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1682 [BARE]"
+    ]
+   }
+  },
+  "所需物料": {
+   "sources": [
+    "Items Required",
+    "Required Items"
+   ],
+   "visible": {
+    "Items Required": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1720 [BARE]"
+    ],
+    "Required Items": [
+     "Work Order label:section_break_ndpq [CTX-OK]"
+    ]
+   }
+  },
+  "日记账凭证": {
+   "sources": [
+    "Journal Entries",
+    "Journal Entry",
+    "Journals"
+   ],
+   "visible": {
+    "Journal Entry": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.js:58 [BARE]"
+    ],
+    "Journals": [
+     "Accounts Settings label:journals_section [CTX-OK]"
+    ]
+   }
+  },
+  "生成{0}个多规格物料": {
+   "sources": [
+    "Make {0} Variant",
+    "Make {0} Variants"
+   ],
+   "visible": {
+    "Make {0} Variant": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:930 [has args]"
+    ],
+    "Make {0} Variants": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:931 [has args]"
+    ]
+   }
+  },
+  "工单耗用": {
+   "sources": [
+    "Material Consumption",
+    "Material Consumption for Manufacture"
+   ],
+   "visible": {
+    "Material Consumption": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:884 [BARE]"
+    ],
+    "Material Consumption for Manufacture": [
+     "Stock Entry option:purpose [CTX-OK]",
+     "Stock Entry Type option:purpose [CTX-OK]"
+    ]
+   }
+  },
+  "物料需求": {
+   "sources": [
+    "Material Request",
+    "Material Requests"
+   ],
+   "visible": {
+    "Material Request": [
+     "Delivery Note Item label:material_request [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:221 [BARE]",
+     "Production Plan option:get_items_from [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:159 [BARE]"
+    ],
+    "Material Requests": [
+     "Production Plan label:material_requests [CTX-OK]"
+    ]
+   }
+  },
+  "物料需求明细": {
+   "sources": [
+    "Material Request Item",
+    "material_request_item"
+   ],
+   "visible": {
+    "Material Request Item": [
+     "Delivery Note Item label:material_request_item [CTX-OK]",
+     "Purchase Invoice Item label:material_request_item [CTX-OK]",
+     "Purchase Order Item label:material_request_item [CTX-OK]",
+     "Purchase Receipt Item label:material_request_item [CTX-OK]"
+    ],
+    "material_request_item": [
+     "Production Plan Item label:material_request_item [CTX-OK]"
+    ]
+   }
+  },
+  "工单发料": {
+   "sources": [
+    "Material Transfer for Manufacture",
+    "Material Transferred for Manufacture"
+   ],
+   "visible": {
+    "Material Transfer for Manufacture": [
+     "Stock Entry option:purpose [CTX-OK]",
+     "Stock Entry Type option:purpose [CTX-OK]"
+    ],
+    "Material Transferred for Manufacture": [
+     "BOM option:backflush_based_on [CTX-OK]",
+     "Manufacturing Settings option:backflush_raw_materials_based_on [CTX-OK]"
+    ]
+   }
+  },
+  "最小起订量": {
+   "sources": [
+    "Minimum Order Qty",
+    "Minimum Order Quantity"
+   ],
+   "visible": {
+    "Minimum Order Qty": [
+     "Item label:min_order_qty [CTX-OK]"
+    ],
+    "Minimum Order Quantity": [
+     "Material Request Plan Item label:min_order_qty [CTX-OK]"
+    ]
+   }
+  },
+  "工费成本": {
+   "sources": [
+    "Operating Cost",
+    "Operating Costs"
+   ],
+   "visible": {
+    "Operating Cost": [
+     "BOM label:operating_cost [CTX-OK]",
+     "BOM Operation label:operating_cost [CTX-OK]",
+     "Workstation Cost label:operating_cost [CTX-OK]"
+    ],
+    "Operating Costs": [
+     "Workstation label:over_heads [CTX-OK]"
+    ]
+   }
+  },
+  "工费成本（本币）": {
+   "sources": [
+    "Operating Cost (Company Currency)",
+    "Operating Cost(Company Currency)"
+   ],
+   "visible": {
+    "Operating Cost (Company Currency)": [
+     "BOM label:base_operating_cost [CTX-OK]"
+    ],
+    "Operating Cost(Company Currency)": [
+     "BOM Operation label:base_operating_cost [CTX-OK]"
+    ]
+   }
+  },
+  "工序行ID": {
+   "sources": [
+    "Operation Row ID",
+    "Operation Row Id"
+   ],
+   "visible": {
+    "Operation Row ID": [
+     "Job Card label:operation_row_id [CTX-OK]"
+    ],
+    "Operation Row Id": [
+     "Work Order Item label:operation_row_id [CTX-OK]"
+    ]
+   }
+  },
+  "未付": {
+   "sources": [
+    "Outstanding",
+    "Unpaid"
+   ],
+   "visible": {
+    "Outstanding": [
+     "Payment Entry Reference label:outstanding_amount [CTX-OK]",
+     "Payment Schedule label:outstanding [CTX-OK]"
+    ],
+    "Unpaid": [
+     "Purchase Invoice option:status [CTX-OK]",
+     "Sales Invoice option:status [CTX-OK]"
+    ]
+   }
+  },
+  "付款": {
+   "sources": [
+    "Outward",
+    "Pay",
+    "Payment",
+    "Payments"
+   ],
+   "visible": {
+    "Pay": [
+     "Payment Entry option:payment_type [CTX-OK]"
+    ],
+    "Payment": [
+     "Accounts Settings option:exchange_gain_loss_posting_date [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:124 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice_list.js:55 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:430 [BARE]"
+    ],
+    "Payments": [
+     "Accounts Settings label:payments_tab [CTX-OK]",
+     "Purchase Invoice label:payments_section [CTX-OK]",
+     "Purchase Invoice label:payments_tab [CTX-OK]",
+     "Sales Invoice label:payments_section [CTX-OK]"
+    ]
+   }
+  },
+  "付款金额": {
+   "sources": [
+    "Paid Amount",
+    "Payment Amount"
+   ],
+   "visible": {
+    "Paid Amount": [
+     "Payment Entry label:paid_amount [CTX-OK]",
+     "Payment Schedule label:paid_amount [CTX-OK]",
+     "Purchase Invoice label:paid_amount [CTX-OK]",
+     "Sales Invoice label:paid_amount [CTX-OK]"
+    ],
+    "Payment Amount": [
+     "Payment Schedule label:payment_amount [CTX-OK]"
+    ]
+   }
+  },
+  "税后付款金额(本币)": {
+   "sources": [
+    "Paid Amount After Tax",
+    "Paid Amount After Tax (Company Currency)"
+   ],
+   "visible": {
+    "Paid Amount After Tax": [
+     "Payment Entry label:paid_amount_after_tax [CTX-OK]"
+    ],
+    "Paid Amount After Tax (Company Currency)": [
+     "Payment Entry label:base_paid_amount_after_tax [CTX-OK]"
+    ]
+   }
+  },
+  "付款类型": {
+   "sources": [
+    "Payment Type",
+    "Type of Payment"
+   ],
+   "visible": {
+    "Payment Type": [
+     "Payment Entry label:payment_type [CTX-OK]",
+     "Payment Entry Reference label:payment_type [CTX-OK]"
+    ],
+    "Type of Payment": [
+     "Payment Entry label:type_of_payment [CTX-OK]"
+    ]
+   }
+  },
+  "待处理数量": {
+   "sources": [
+    "Pending Qty",
+    "Pending Quantity"
+   ],
+   "visible": {
+    "Pending Qty": [
+     "Job Card label:pending_qty [CTX-OK]",
+     "Production Plan Item label:pending_qty [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1689 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:353 [BARE]"
+    ],
+    "Pending Quantity": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:294 [BARE]"
+    ]
+   }
+  },
+  "工单数量": {
+   "sources": [
+    "Planned Qty",
+    "Planned Quantity",
+    "Qty To Manufacture",
+    "Work Order Qty"
+   ],
+   "visible": {
+    "Planned Qty": [
+     "Bin label:planned_qty [CTX-OK]",
+     "Production Plan Item label:planned_qty [CTX-OK]"
+    ],
+    "Planned Quantity": [
+     "Sales Order Item label:planned_qty [CTX-OK]"
+    ],
+    "Qty To Manufacture": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:410 [BARE]",
+     "Job Card label:for_quantity [CTX-OK]",
+     "Work Order label:qty [CTX-OK]"
+    ],
+    "Work Order Qty": [
+     "Sales Order Item label:work_order_qty [CTX-OK]"
+    ]
+   }
+  },
+  "动态定价规则": {
+   "sources": [
+    "Pricing Rule",
+    "Pricing Rules"
+   ],
+   "visible": {
+    "Pricing Rule": [
+     "Pricing Rule Detail label:pricing_rule [CTX-OK]"
+    ],
+    "Pricing Rules": [
+     "Delivery Note label:pricing_rule_details [CTX-OK]",
+     "Delivery Note Item label:pricing_rules [CTX-OK]",
+     "Purchase Invoice label:pricing_rule_details [CTX-OK]",
+     "Purchase Invoice Item label:pricing_rules [CTX-OK]"
+    ]
+   }
+  },
+  "采购税费模板": {
+   "sources": [
+    "Purchase Tax Template",
+    "Purchase Taxes and Charges Template"
+   ],
+   "visible": {
+    "Purchase Tax Template": [
+     "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.js:156 [BARE]"
+    ],
+    "Purchase Taxes and Charges Template": [
+     "Payment Entry label:purchase_taxes_and_charges_template [CTX-OK]",
+     "Purchase Invoice label:taxes_and_charges [CTX-OK]",
+     "Purchase Order label:taxes_and_charges [CTX-OK]",
+     "Purchase Receipt label:taxes_and_charges [CTX-OK]"
+    ]
+   }
+  },
+  "数量(库存单位)": {
+   "sources": [
+    "Qty as per Stock UOM",
+    "Qty in Stock UOM"
+   ],
+   "visible": {
+    "Qty as per Stock UOM": [
+     "Quotation Item label:stock_qty [CTX-OK]",
+     "Sales Invoice Item label:stock_qty [CTX-OK]",
+     "Sales Order Item label:stock_qty [CTX-OK]",
+     "Stock Entry Detail label:transfer_qty [CTX-OK]"
+    ],
+    "Qty in Stock UOM": [
+     "Delivery Note Item label:stock_qty [CTX-OK]",
+     "Purchase Order Item label:stock_qty [CTX-OK]"
+    ]
+   }
+  },
+  "质检单": {
+   "sources": [
+    "Quality Inspection",
+    "Quality Inspection(s)"
+   ],
+   "visible": {
+    "Quality Inspection": [
+     "BOM label:quality_inspection_section_break [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:277 [BARE]",
+     "Delivery Note Item label:quality_inspection [CTX-OK]",
+     "Job Card label:quality_inspection [CTX-OK]"
+    ],
+    "Quality Inspection(s)": [
+     "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:219 [BARE]"
+    ]
+   }
+  },
+  "临时冻结原因": {
+   "sources": [
+    "Reason For Putting On Hold",
+    "Reason for Hold"
+   ],
+   "visible": {
+    "Reason For Putting On Hold": [
+     "Purchase Invoice label:hold_comment [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:283 [BARE]"
+    ],
+    "Reason for Hold": [
+     "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:696 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1804 [BARE]"
+    ]
+   }
+  },
+  "业务伙伴": {
+   "sources": [
+    "Referral Sales Partner",
+    "Sales Partner"
+   ],
+   "visible": {
+    "Referral Sales Partner": [
+     "Quotation label:referral_sales_partner [CTX-OK]"
+    ],
+    "Sales Partner": [
+     "Customer label:default_sales_partner [CTX-OK]",
+     "Customer label:sales_team_section [CTX-OK]",
+     "Delivery Note label:sales_partner [CTX-OK]",
+     "Sales Invoice label:sales_partner [CTX-OK]"
+    ]
+   }
+  },
+  "拒收数量": {
+   "sources": [
+    "Rejected Qty",
+    "Rejected Quantity"
+   ],
+   "visible": {
+    "Rejected Qty": [
+     "Purchase Invoice Item label:rejected_qty [CTX-OK]"
+    ],
+    "Rejected Quantity": [
+     "Purchase Receipt Item label:rejected_qty [CTX-OK]"
+    ]
+   }
+  },
+  "已预留库存": {
+   "sources": [
+    "Reserved Stock",
+    "Stock Reserved"
+   ],
+   "visible": {
+    "Reserved Stock": [
+     "Bin label:reserved_stock [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:135 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:465 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:961 [BARE]"
+    ],
+    "Stock Reserved": [
+     "Work Order option:status [CTX-OK]"
+    ]
+   }
+  },
+  "RGT": {
+   "sources": [
+    "Rgt",
+    "rgt"
+   ],
+   "visible": {
+    "Rgt": [
+     "Account label:rgt [CTX-OK]",
+     "Company label:rgt [CTX-OK]"
+    ],
+    "rgt": [
+     "Cost Center label:rgt [CTX-OK]",
+     "Item Group label:rgt [CTX-OK]",
+     "Warehouse label:rgt [CTX-OK]"
+    ]
+   }
+  },
+  "销售税费模板": {
+   "sources": [
+    "Sales Tax Template",
+    "Sales Taxes and Charges Template"
+   ],
+   "visible": {
+    "Sales Tax Template": [
+     "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.js:144 [BARE]"
+    ],
+    "Sales Taxes and Charges Template": [
+     "Delivery Note label:taxes_and_charges [CTX-OK]",
+     "Payment Entry label:sales_taxes_and_charges_template [CTX-OK]",
+     "Quotation label:taxes_and_charges [CTX-OK]",
+     "Sales Invoice label:taxes_and_charges [CTX-OK]"
+    ]
+   }
+  },
+  "半成品/产成品": {
+   "sources": [
+    "Semi Finished Good / Finished Good",
+    "Semi Finished Goods / Finished Goods"
+   ],
+   "visible": {
+    "Semi Finished Good / Finished Good": [
+     "Job Card label:semi_finished_good__finished_good_section [CTX-OK]"
+    ],
+    "Semi Finished Goods / Finished Goods": [
+     "Work Order Operation label:finished_good [CTX-OK]"
+    ]
+   }
+  },
+  "序列号与批号": {
+   "sources": [
+    "Serial & Batch Item",
+    "Serial and Batch",
+    "Serial and Batch Bundle",
+    "Serial and Batch No"
+   ],
+   "visible": {
+    "Serial & Batch Item": [
+     "Stock Settings label:serial_and_batch_item_settings_tab [CTX-OK]"
+    ],
+    "Serial and Batch Bundle": [
+     "Delivery Note Item label:serial_and_batch_bundle [CTX-OK]",
+     "Job Card label:serial_and_batch_bundle [CTX-OK]",
+     "Packed Item label:serial_and_batch_bundle [CTX-OK]",
+     "Purchase Invoice Item label:serial_and_batch_bundle [CTX-OK]"
+    ],
+    "Serial and Batch No": [
+     "Delivery Note Item label:section_break_40 [CTX-OK]",
+     "Purchase Receipt Item label:section_break_45 [CTX-OK]"
+    ]
+   }
+  },
+  "收料仓": {
+   "sources": [
+    "Set Target Warehouse",
+    "Target Warehouse",
+    "To Warehouse"
+   ],
+   "visible": {
+    "Set Target Warehouse": [
+     "Delivery Note label:set_target_warehouse [CTX-OK]",
+     "Purchase Order label:set_warehouse [CTX-OK]",
+     "Sales Invoice label:set_target_warehouse [CTX-OK]"
+    ],
+    "Target Warehouse": [
+     "Delivery Note Item label:target_warehouse [CTX-OK]",
+     "Job Card label:target_warehouse [CTX-OK]",
+     "Production Plan Sub Assembly Item label:fg_warehouse [CTX-OK]",
+     "Purchase Order Item label:warehouse [CTX-OK]"
+    ]
+   }
+  },
+  "库存单位": {
+   "sources": [
+    "Stock UOM",
+    "Stock Uom"
+   ],
+   "visible": {
+    "Stock UOM": [
+     "BOM Explosion Item label:stock_uom [CTX-OK]",
+     "BOM Item label:stock_uom [CTX-OK]",
+     "BOM Secondary Item label:stock_uom [CTX-OK]",
+     "Delivery Note Item label:stock_uom [CTX-OK]"
+    ],
+    "Stock Uom": [
+     "Purchase Order Item Supplied label:stock_uom [CTX-OK]",
+     "Purchase Receipt Item Supplied label:stock_uom [CTX-OK]"
+    ]
+   }
+  },
+  "取消预留": {
+   "sources": [
+    "Stock Unreservation",
+    "Unreserve",
+    "Unreserve Stock"
+   ],
+   "visible": {
+    "Stock Unreservation": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:459 [BARE]"
+    ],
+    "Unreserve": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:122 [BARE]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:954 [BARE]"
+    ],
+    "Unreserve Stock": [
+     "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:510 [BARE]"
+    ]
+   }
+  },
+  "子工序": {
+   "sources": [
+    "Sub Operation",
+    "Sub Operations"
+   ],
+   "visible": {
+    "Sub Operation": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:361 [BARE]",
+     "Job Card Time Log label:operation [CTX-OK]"
+    ],
+    "Sub Operations": [
+     "Job Card label:sub_operations [CTX-OK]",
+     "Job Card label:section_break_21 [CTX-OK]",
+     "Operation label:sub_operations_section [CTX-OK]"
+    ]
+   }
+  },
+  "已发料数量": {
+   "sources": [
+    "Supplied Qty",
+    "Transferred Qty"
+   ],
+   "visible": {
+    "Supplied Qty": [
+     "Purchase Order Item Supplied label:supplied_qty [CTX-OK]"
+    ],
+    "Transferred Qty": [
+     "Job Card Item label:transferred_qty [CTX-OK]",
+     "Stock Entry Detail label:transferred_qty [CTX-OK]",
+     "Work Order Item label:transferred_qty [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:497 [BARE]"
+    ]
+   }
+  },
+  "供应商信息": {
+   "sources": [
+    "Supplier Details",
+    "Supplier Info"
+   ],
+   "visible": {
+    "Supplier Details": [
+     "Item label:supplier_details [CTX-OK]",
+     "Stock Entry label:contact_section [CTX-OK]",
+     "Supplier label:supplier_details [CTX-OK]"
+    ],
+    "Supplier Info": [
+     "Stock Entry label:supplier_info_tab [CTX-OK]"
+    ]
+   }
+  },
+  "税": {
+   "sources": [
+    "Tax",
+    "Tax Masters",
+    "Taxes"
+   ],
+   "visible": {
+    "Tax": [
+     "Account option:account_type [CTX-OK]",
+     "Customer label:tax_tab [CTX-OK]",
+     "Item label:item_tax_section_break [CTX-OK]",
+     "Supplier label:tax_tab [CTX-OK]"
+    ],
+    "Taxes": [
+     "Item label:taxes [CTX-OK]",
+     "Item Group label:taxes [CTX-OK]",
+     "Sales Order label:taxes_section [CTX-OK]"
+    ]
+   }
+  },
+  "纳税登记号": {
+   "sources": [
+    "Tax ID",
+    "Tax Id"
+   ],
+   "visible": {
+    "Tax ID": [
+     "Company label:tax_id [CTX-OK]",
+     "Customer label:tax_id [CTX-OK]",
+     "Supplier label:tax_id [CTX-OK]",
+     "Tax Withholding Entry label:tax_id [CTX-OK]"
+    ],
+    "Tax Id": [
+     "Delivery Note label:tax_id [CTX-OK]",
+     "Purchase Invoice label:tax_id [CTX-OK]",
+     "Sales Invoice label:tax_id [CTX-OK]",
+     "Sales Order label:tax_id [CTX-OK]"
+    ]
+   }
+  },
+  "税费": {
+   "sources": [
+    "Taxes and Charges",
+    "Taxes and Charges Added"
+   ],
+   "visible": {
+    "Taxes and Charges": [
+     "Delivery Note label:taxes_section [CTX-OK]",
+     "Payment Entry label:taxes_and_charges_section [CTX-OK]",
+     "Purchase Invoice label:taxes_section [CTX-OK]",
+     "Purchase Order label:taxes_section [CTX-OK]"
+    ],
+    "Taxes and Charges Added": [
+     "Purchase Invoice label:taxes_and_charges_added [CTX-OK]",
+     "Purchase Order label:taxes_and_charges_added [CTX-OK]",
+     "Purchase Receipt label:taxes_and_charges_added [CTX-OK]"
+    ]
+   }
+  },
+  "模板物料": {
+   "sources": [
+    "Template Item",
+    "Variant Of"
+   ],
+   "visible": {
+    "Template Item": [
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:457 [BARE]"
+    ],
+    "Variant Of": [
+     "Item label:variant_of [CTX-OK]",
+     "Item Variant Attribute label:variant_of [CTX-OK]"
+    ]
+   }
+  },
+  "这是不能被编辑的树形结构的根结点。": {
+   "sources": [
+    "This is a root account and cannot be edited.",
+    "This is a root department and cannot be edited.",
+    "This is a root item group and cannot be edited.",
+    "This is a root sales person and cannot be edited.",
+    "This is a root supplier group and cannot be edited.",
+    "This is a root territory and cannot be edited."
+   ],
+   "visible": {
+    "This is a root account and cannot be edited.": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.js:45 [BARE]"
+    ],
+    "This is a root item group and cannot be edited.": [
+     "frappe-bench/apps/erpnext/erpnext/setup/doctype/item_group/item_group.js:98 [BARE]"
+    ]
+   }
+  },
+  "时间(分)": {
+   "sources": [
+    "Time (In Mins)",
+    "Time In Mins"
+   ],
+   "visible": {
+    "Time (In Mins)": [
+     "Job Card Scheduled Time label:time_in_mins [CTX-OK]"
+    ],
+    "Time In Mins": [
+     "Job Card Time Log label:time_in_mins [CTX-OK]"
+    ]
+   }
+  },
+  "工时表": {
+   "sources": [
+    "Time Sheet",
+    "Time Sheets",
+    "Timesheet",
+    "Timesheets"
+   ],
+   "visible": {
+    "Time Sheet": [
+     "Sales Invoice Timesheet label:time_sheet [CTX-OK]"
+    ],
+    "Time Sheets": [
+     "Sales Invoice label:timesheets [CTX-OK]"
+    ],
+    "Timesheet": [
+     "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:302 [BARE]"
+    ]
+   }
+  },
+  "总完工数量": {
+   "sources": [
+    "Total Completed Qty",
+    "Total Produced Qty"
+   ],
+   "visible": {
+    "Total Completed Qty": [
+     "Job Card label:total_completed_qty [CTX-OK]"
+    ],
+    "Total Produced Qty": [
+     "Production Plan label:total_produced_qty [CTX-OK]"
+    ]
+   }
+  },
+  "使用公司默认小数精度尾差成本中心": {
+   "sources": [
+    "Use Company Default Round Off Cost Center",
+    "Use Company default Cost Center for Round off"
+   ],
+   "visible": {
+    "Use Company Default Round Off Cost Center": [
+     "Purchase Invoice label:use_company_roundoff_cost_center [CTX-OK]"
+    ],
+    "Use Company default Cost Center for Round off": [
+     "Sales Invoice label:use_company_roundoff_cost_center [CTX-OK]"
+    ]
+   }
+  },
+  "车间仓": {
+   "sources": [
+    "WIP Warehouse",
+    "Work-in-Progress Warehouse"
+   ],
+   "visible": {
+    "WIP Warehouse": [
+     "BOM Operation label:wip_warehouse [CTX-OK]",
+     "Job Card label:wip_warehouse [CTX-OK]",
+     "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order_calendar.js:44 [BARE]"
+    ],
+    "Work-in-Progress Warehouse": [
+     "Work Order label:wip_warehouse [CTX-OK]"
+    ]
+   }
+  }
+ },
+ "single": {
+  "全部": [
+   "All"
+  ],
+  "操作": [
+   "Actions"
+  ],
+  "激活": [
+   "Active"
+  ],
+  "新增": [
+   "Add Item"
+  ],
+  "地址": [
+   "Address"
+  ],
+  "适用于": [
+   "Applicable For"
+  ],
+  "基于": [
+   "Based On"
+  ],
+  "单据编号模板": [
+   "Naming Series"
+  ],
+  "电话": [
+   "Phone"
+  ],
+  "客户": [
+   "Customer"
+  ],
+  "关闭": [
+   "Close"
+  ],
+  "提交": [
+   "Submit"
+  ],
+  "已提交": [
+   "Submitted"
+  ],
+  "已完成": [
+   "Completed"
+  ],
+  "配置": [
+   "Configuration"
+  ],
+  "继续": [
+   "Continue"
+  ],
+  "国家": [
+   "Country"
+  ],
+  "创建": [
+   "Create"
+  ],
+  "新建": [
+   "New"
+  ],
+  "删除": [
+   "Delete"
+  ],
+  "草稿": [
+   "Draft"
+  ],
+  "数据面板": [
+   "Dashboard"
+  ],
+  "天": [
+   "Days"
+  ],
+  "已逾期": [
+   "Overdue"
+  ],
+  "单据编号": [
+   "Against Docname"
+  ],
+  "复制": [
+   "Duplicate"
+  ],
+  "编辑": [
+   "Edit"
+  ],
+  "电子邮件": [
+   "Email ID"
+  ],
+  "邮箱": [
+   "Email Id"
+  ],
+  "已启用": [
+   "Enabled"
+  ],
+  "结束日期": [
+   "To Date"
+  ],
+  "错误日志": [
+   "Error Log"
+  ],
+  "导出": [
+   "Export"
+  ],
+  "失败": [
+   "Failed"
+  ],
+  "过滤条件": [
+   "Filters"
+  ],
+  "完成时间": [
+   "Completed Time"
+  ],
+  "用户": [
+   "User"
+  ],
+  "频率": [
+   "Frequency"
+  ],
+  "正常": [
+   "General"
+  ],
+  "标题": [
+   "Title"
+  ],
+  "图片": [
+   "Image"
+  ],
+  "导入": [
+   "Import"
+  ],
+  "说明": [
+   "Instructions"
+  ],
+  "是": [
+   "Yes"
+  ],
+  "必填字段": [
+   "Mandatory"
+  ],
+  "已跳过": [
+   "Skipped"
+  ],
+  "项目类型": [
+   "Item Type"
+  ],
+  "物料": [
+   "Items"
+  ],
+  "打印表头": [
+   "Letter Head"
+  ],
+  "注销": [
+   "Writeoff"
+  ],
+  "手机号码": [
+   "Mobile No"
+  ],
+  "月": [
+   "Months"
+  ],
+  "每月": [
+   "Monthly"
+  ],
+  "网址路径": [
+   "Route"
+  ],
+  "百分比": [
+   "Percentage"
+  ],
+  "个人": [
+   "Individual"
+  ],
+  "电话号码": [
+   "Phone No"
+  ],
+  "邮政编码": [
+   "PIN"
+  ],
+  "项目": [
+   "Project"
+  ],
+  "属性": [
+   "Attribute"
+  ],
+  "范围": [
+   "Range"
+  ],
+  "收件人": [
+   "To"
+  ],
+  "恢复": [
+   "Resume"
+  ],
+  "源单据": [
+   "Reference Name"
+  ],
+  "报表": [
+   "Reports"
+  ],
+  "重试": [
+   "Retry"
+  ],
+  "保存": [
+   "Save"
+  ],
+  "服务": [
+   "Service"
+  ],
+  "状态": [
+   "Status"
+  ],
+  "任务": [
+   "Tasks"
+  ],
+  "模板": [
+   "Template"
+  ],
+  "更新": [
+   "Update"
+  ],
+  "警告": [
+   "Warn"
+  ],
+  "每周": [
+   "Weekly"
+  ],
+  "金额": [
+   "Amount"
+  ],
+  "原材料": [
+   "Raw Materials"
+  ],
+  "子装配件": [
+   "Sub Assembly Items"
+  ],
+  "简称": [
+   "Abbr"
+  ],
+  "贷方科目": [
+   "Account Paid From"
+  ],
+  "借方科目": [
+   "Account Paid To"
+  ],
+  "辅助核算": [
+   "Accounting Dimensions"
+  ],
+  "累计折旧": [
+   "Accumulated Depreciation"
+  ],
+  "实际数量": [
+   "Actual Qty"
+  ],
+  "折扣": [
+   "Discount"
+  ],
+  "添加序列号/批号": [
+   "Add Serial / Batch No"
+  ],
+  "附加信息": [
+   "Additional Info"
+  ],
+  "地址及联系方式": [
+   "Address & Contact"
+  ],
+  "对方科目": [
+   "Against"
+  ],
+  "替代物料": [
+   "Alternate Item"
+  ],
+  "假期表": [
+   "Holiday List"
+  ],
+  "账簿": [
+   "Finance Book"
+  ],
+  "基准金额": [
+   "Basic Amount"
+  ],
+  "批号": [
+   "Batch No"
+  ],
+  "发票状态": [
+   "Billing Status"
+  ],
+  "佣金": [
+   "Commission"
+  ],
+  "预算": [
+   "Budget"
+  ],
+  "在建工程科目": [
+   "Capital Work In Progress Account"
+  ],
+  "费用": [
+   "Expense"
+  ],
+  "公司地址": [
+   "Company Address"
+  ],
+  "合并": [
+   "Merge"
+  ],
+  "出库成本价": [
+   "Outgoing Rate"
+  ],
+  "内部转账": [
+   "Internal Transfer"
+  ],
+  "贡献金额": [
+   "Contribution to Net Total"
+  ],
+  "成本": [
+   "Cost"
+  ],
+  "创建采购订单": [
+   "Create Purchase Order"
+  ],
+  "贷方(交易货币)": [
+   "Credit Amount in Transaction Currency"
+  ],
+  "流动资产": [
+   "Current Asset"
+  ],
+  "流动负债": [
+   "Current Liability"
+  ],
+  "客户组": [
+   "Customer Group"
+  ],
+  "客户物料": [
+   "Customer Items"
+  ],
+  "客户采购订单号": [
+   "Customer's Purchase Order No"
+  ],
+  "交易日期": [
+   "Transaction Date"
+  ],
+  "借方(交易货币)": [
+   "Debit Amount in Transaction Currency"
+  ],
+  "扣款": [
+   "Debit Note"
+  ],
+  "默认预付账款科目": [
+   "Default Advance Paid Account"
+  ],
+  "已出货数量": [
+   "Delivered Qty"
+  ],
+  "销售出库": [
+   "Delivery Note"
+  ],
+  "需求数量": [
+   "Required Qty"
+  ],
+  "直接费用": [
+   "Direct Expense"
+  ],
+  "凭证类型": [
+   "Voucher Type"
+  ],
+  "预计结束日期": [
+   "Expected End Date"
+  ],
+  "成品数量": [
+   "Finished Good Qty"
+  ],
+  "固定资产": [
+   "Fixed Asset"
+  ],
+  "车间": [
+   "Plant Floor"
+  ],
+  "价格表": [
+   "Price List"
+  ],
+  "供应商": [
+   "Supplier"
+  ],
+  "源销售出库": [
+   "Return Against Delivery Note"
+  ],
+  "已调拨": [
+   "Goods Transferred"
+  ],
+  "合并相同物料": [
+   "Group same items"
+  ],
+  "小时": [
+   "Hours"
+  ],
+  "单位": [
+   "UOM"
+  ],
+  "收入": [
+   "Income"
+  ],
+  "间接费用": [
+   "Indirect Expense"
+  ],
+  "收款": [
+   "Receive"
+  ],
+  "已合并": [
+   "Is Consolidated"
+  ],
+  "问题": [
+   "Problem"
+  ],
+  "购物车": [
+   "Shopping Cart"
+  ],
+  "物料默认值": [
+   "Item Defaults"
+  ],
+  "物料组": [
+   "Item Group"
+  ],
+  "物料价格": [
+   "Item Prices"
+  ],
+  "多规格物料": [
+   "Variant"
+  ],
+  "线索": [
+   "Lead"
+  ],
+  "交期天数": [
+   "Lead Time"
+  ],
+  "合并科目": [
+   "Merge Account"
+  ],
+  "负债": [
+   "Liability"
+  ],
+  "未成交原因": [
+   "Lost Reasons"
+  ],
+  "积分": [
+   "Loyalty Points"
+  ],
+  "积分兑换": [
+   "Loyalty Points Redemption"
+  ],
+  "主生产计划": [
+   "MPS"
+  ],
+  "委外发料": [
+   "Send to Subcontractor"
+  ],
+  "付款方式": [
+   "Mode of Payment"
+  ],
+  "不适用": [
+   "Not Applicable"
+  ],
+  "单据数量": [
+   "No of Docs"
+  ],
+  "目的": [
+   "Purpose"
+  ],
+  "商机": [
+   "Opportunity"
+  ],
+  "未付金额": [
+   "Outstanding Amount"
+  ],
+  "POS设置": [
+   "POS Profile"
+  ],
+  "收付款凭证": [
+   "Payment Entry"
+  ],
+  "付款参考": [
+   "Payment References"
+  ],
+  "付款计划": [
+   "Payment Schedule"
+  ],
+  "计划": [
+   "Planning"
+  ],
+  "请先选择公司": [
+   "Please select a Company first."
+  ],
+  "请选择客户": [
+   "Please Select a Customer"
+  ],
+  "请选择供应商": [
+   "Please Select a Supplier"
+  ],
+  "门户网站用户": [
+   "Portal Users"
+  ],
+  "不允许创建采购订单": [
+   "Prevent POs"
+  ],
+  "价格": [
+   "Rates"
+  ],
+  "生产数量": [
+   "Quantity to Manufacture"
+  ],
+  "损益表": [
+   "Profit and Loss"
+  ],
+  "采购发票": [
+   "Purchase Invoice"
+  ],
+  "采购订单": [
+   "Purchase Order"
+  ],
+  "采购入库": [
+   "Purchase Receipt"
+  ],
+  "待生产数量": [
+   "Qty to Produce"
+  ],
+  "报价": [
+   "Quotation"
+  ],
+  "报价明细": [
+   "quotation_item"
+  ],
+  "重订货点": [
+   "Re-order Level"
+  ],
+  "重订货订单数量": [
+   "Re-order Qty"
+  ],
+  "兑换积分": [
+   "Redeem Loyalty Points"
+  ],
+  "需求日期": [
+   "Required By"
+  ],
+  "预留": [
+   "Reserve"
+  ],
+  "生产预留数量": [
+   "Reserved Qty for Production"
+  ],
+  "生产计划预留数量": [
+   "Reserved Qty for Production Plan"
+  ],
+  "委外预留数量": [
+   "Reserved Qty for Subcontract"
+  ],
+  "小数精度尾差调整（本币）": [
+   "Rounding Adjustment (Company Currency)"
+  ],
+  "销售订单号": [
+   "Sales Order Reference"
+  ],
+  "计划日期": [
+   "Schedule Date"
+  ],
+  "序列号/批号": [
+   "Serial No / Batch"
+  ],
+  "序列号": [
+   "Serial No"
+  ],
+  "开始计时": [
+   "Start Job"
+  ],
+  "物料移动": [
+   "Stock Entry"
+  ],
+  "物料移动明细": [
+   "Stock Entry Child"
+  ],
+  "物料凭证": [
+   "Stock Ledger"
+  ],
+  "子装配件物料号": [
+   "Sub Assembly Item Code"
+  ],
+  "委外订单": [
+   "Subcontracting Order"
+  ],
+  "订阅": [
+   "Subscription"
+  ],
+  "供应商发票": [
+   "Supplier Invoice"
+  ],
+  "供应商名称": [
+   "Supplier Name"
+  ],
+  "税率": [
+   "Tax Rate"
+  ],
+  "总金额": [
+   "Total Amount"
+  ],
+  "总成本": [
+   "Total Cost"
+  ],
+  "总数量": [
+   "Total Quantity"
+  ],
+  "变体物料": [
+   "Variant Item"
+  ],
+  "凭证号": [
+   "Voucher No"
+  ],
+  "仓库信息": [
+   "Warehouse Settings"
+  ],
+  "创建采购订单时弹出警告信息": [
+   "Warn POs"
+  ],
+  "保修期天数": [
+   "Warranty Period (in days)"
+  ]
+ }
+}

@@ -1,0 +1,6729 @@
+{
+ "benign": {
+  "销售订单": {
+   "sources": [
+    "Against Sales Order",
+    "Sales Order",
+    "Sales Orders"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Sales Order"
+   ],
+   "norm_keys": [
+    "sale order"
+   ],
+   "target_lines": [
+    1185,
+    1189,
+    1227,
+    1249
+   ]
+  },
+  "01": {
+   "sources": [
+    "JAN",
+    "Jan"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "jan"
+   ],
+   "target_lines": [
+    5,
+    12,
+    13,
+    19
+   ]
+  },
+  "RGT": {
+   "sources": [
+    "Rgt",
+    "rgt"
+   ],
+   "why": [
+    "source-in-doc:Rgt|rgt"
+   ],
+   "norm_keys": [
+    "rgt"
+   ],
+   "target_lines": []
+  },
+  "主数据": {
+   "sources": [
+    "Master",
+    "Masters"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "master"
+   ],
+   "target_lines": [
+    3,
+    102,
+    103,
+    213
+   ]
+  },
+  "产品": {
+   "sources": [
+    "Product",
+    "Products"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Products"
+   ],
+   "norm_keys": [
+    "product"
+   ],
+   "target_lines": [
+    25,
+    269,
+    296,
+    660
+   ]
+  },
+  "收付款凭证": {
+   "sources": [
+    "Payment Entries",
+    "Payment Entry"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Payment Entry"
+   ],
+   "norm_keys": [
+    "payment entry"
+   ],
+   "target_lines": [
+    919,
+    1046,
+    1775
+   ]
+  },
+  "价格表": {
+   "sources": [
+    "For Price List",
+    "Price List"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Price List"
+   ],
+   "norm_keys": [
+    "price"
+   ],
+   "target_lines": [
+    551,
+    591,
+    593
+   ]
+  },
+  "公司": {
+   "sources": [
+    "Companies",
+    "Company",
+    "For Company"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Company"
+   ],
+   "norm_keys": [
+    "company"
+   ],
+   "target_lines": [
+    12,
+    13,
+    61,
+    92
+   ]
+  },
+  "优先级": {
+   "sources": [
+    "Priorities",
+    "Priority"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Priority"
+   ],
+   "norm_keys": [
+    "priority"
+   ],
+   "target_lines": [
+    1257,
+    1375,
+    2002
+   ]
+  },
+  "凭证": {
+   "sources": [
+    "Voucher",
+    "Vouchers"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Voucher"
+   ],
+   "norm_keys": [
+    "voucher"
+   ],
+   "target_lines": [
+    149,
+    810,
+    885,
+    919
+   ]
+  },
+  "公开": {
+   "sources": [
+    "Is Public",
+    "Public"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "public"
+   ],
+   "target_lines": [
+    23,
+    32
+   ]
+  },
+  "框架订单": {
+   "sources": [
+    "Against Blanket Order",
+    "Blanket Order",
+    "Blanket Orders"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "blanket order"
+   ],
+   "target_lines": [
+    1374
+   ]
+  },
+  "卡片": {
+   "sources": [
+    "Card",
+    "Cards"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "card"
+   ],
+   "target_lines": [
+    396,
+    398,
+    647
+   ]
+  },
+  "发料仓": {
+   "sources": [
+    "From Warehouse",
+    "Set From Warehouse",
+    "Set Source Warehouse",
+    "Source Warehouse"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Source Warehouse"
+   ],
+   "norm_keys": [
+    "warehouse"
+   ],
+   "target_lines": [
+    13,
+    1196,
+    1200,
+    1206
+   ]
+  },
+  "同步": {
+   "sources": [
+    "Sync",
+    "Syncing"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "sync"
+   ],
+   "target_lines": [
+    191,
+    1318,
+    1880,
+    2026
+   ]
+  },
+  "后台任务": {
+   "sources": [
+    "Background Job",
+    "Background Jobs"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "background job"
+   ],
+   "target_lines": [
+    977,
+    991,
+    1867,
+    1882
+   ]
+  },
+  "处理": {
+   "sources": [
+    "Processing",
+    "process"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "process"
+   ],
+   "target_lines": [
+    368,
+    405,
+    441,
+    468
+   ]
+  },
+  "头": {
+   "sources": [
+    "Header",
+    "Headers"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "header"
+   ],
+   "target_lines": [
+    21,
+    187,
+    195,
+    201
+   ]
+  },
+  "客户": {
+   "sources": [
+    "Customer",
+    "Customer ",
+    "Customers"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Customer"
+   ],
+   "norm_keys": [
+    "customer"
+   ],
+   "target_lines": [
+    23,
+    32,
+    61,
+    247
+   ]
+  },
+  "生产任务单": {
+   "sources": [
+    "For Job Card",
+    "Job Card",
+    "Job Cards"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Job Card"
+   ],
+   "norm_keys": [
+    "job card"
+   ],
+   "target_lines": [
+    1461,
+    1465,
+    1555,
+    1986
+   ]
+  },
+  "工站": {
+   "sources": [
+    "Workstation",
+    "Workstations"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Workstation"
+   ],
+   "norm_keys": [
+    "workstation"
+   ],
+   "target_lines": [
+    39,
+    416,
+    439,
+    457
+   ]
+  },
+  "已付款": {
+   "sources": [
+    "Is Paid",
+    "Paid"
+   ],
+   "why": [
+    "source-in-doc:Paid"
+   ],
+   "norm_keys": [
+    "paid"
+   ],
+   "target_lines": []
+  },
+  "序号": {
+   "sources": [
+    "Sr",
+    "Sr No."
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "sr"
+   ],
+   "target_lines": [
+    172
+   ]
+  },
+  "必填字段": {
+   "sources": [
+    "Is Mandatory Field",
+    "Mandatory",
+    "Mandatory Field"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "mandatory"
+   ],
+   "target_lines": [
+    205,
+    292,
+    402,
+    455
+   ]
+  },
+  "总成本": {
+   "sources": [
+    "Total Cost",
+    "Total Costing Amount"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Total Cost"
+   ],
+   "norm_keys": [
+    "total cost"
+   ],
+   "target_lines": [
+    549,
+    637,
+    1683
+   ]
+  },
+  "成本": {
+   "sources": [
+    "Cost",
+    "Costing Amount"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "cost"
+   ],
+   "target_lines": [
+    21,
+    94,
+    168,
+    169
+   ]
+  },
+  "报表": {
+   "sources": [
+    "Report",
+    "Reports"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Report"
+   ],
+   "norm_keys": [
+    "report"
+   ],
+   "target_lines": [
+    195,
+    264,
+    837,
+    894
+   ]
+  },
+  "操作": {
+   "sources": [
+    "Action",
+    "Actions"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "action"
+   ],
+   "target_lines": [
+    1,
+    3,
+    13,
+    19
+   ]
+  },
+  "收料仓": {
+   "sources": [
+    "Set Target Warehouse",
+    "Target Warehouse",
+    "To Warehouse"
+   ],
+   "why": [
+    "source-in-doc:Target Warehouse"
+   ],
+   "norm_keys": [
+    "warehouse"
+   ],
+   "target_lines": []
+  },
+  "时区": {
+   "sources": [
+    "Time Zone",
+    "Time Zones"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "time zone"
+   ],
+   "target_lines": [
+    132
+   ]
+  },
+  "清除": {
+   "sources": [
+    "Clear",
+    "clear"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "clear"
+   ],
+   "target_lines": [
+    71,
+    102
+   ]
+  },
+  "默认": {
+   "sources": [
+    "Default",
+    "Is Default",
+    "default"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Is Default"
+   ],
+   "norm_keys": [
+    "default"
+   ],
+   "target_lines": [
+    13,
+    131,
+    143,
+    163
+   ]
+  },
+  "条码": {
+   "sources": [
+    "Barcode",
+    "Barcodes"
+   ],
+   "why": [
+    "source-in-doc:Barcodes"
+   ],
+   "norm_keys": [
+    "barcode"
+   ],
+   "target_lines": []
+  },
+  "模块": {
+   "sources": [
+    "Module",
+    "Modules"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "module"
+   ],
+   "target_lines": [
+    534,
+    1375
+   ]
+  },
+  "没有权限": {
+   "sources": [
+    "Not Permitted",
+    "Not permitted"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "not permitt"
+   ],
+   "target_lines": [
+    195
+   ]
+  },
+  "物料名称": {
+   "sources": [
+    "Item Name",
+    "Item name"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Item Name|Item name"
+   ],
+   "norm_keys": [
+    "item"
+   ],
+   "target_lines": [
+    336,
+    375
+   ]
+  },
+  "物料组": {
+   "sources": [
+    "Item Group",
+    "Item Groups"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Item Group"
+   ],
+   "norm_keys": [
+    "item group"
+   ],
+   "target_lines": [
+    329,
+    337,
+    376
+   ]
+  },
+  "物料需求": {
+   "sources": [
+    "Material Request",
+    "Material Requests"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Material Request"
+   ],
+   "norm_keys": [
+    "material request"
+   ],
+   "target_lines": [
+    1281,
+    1282,
+    1567
+   ]
+  },
+  "现在": {
+   "sources": [
+    "Now",
+    "now"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "now"
+   ],
+   "target_lines": [
+    187,
+    965,
+    1181,
+    1259
+   ]
+  },
+  "用户权限限制": {
+   "sources": [
+    "User Permission",
+    "User Permissions"
+   ],
+   "why": [
+    "source-in-doc:User Permission"
+   ],
+   "norm_keys": [
+    "user permission"
+   ],
+   "target_lines": []
+  },
+  "科目": {
+   "sources": [
+    "Account",
+    "Account Head",
+    "Applicable On Account"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Account"
+   ],
+   "norm_keys": [
+    "account"
+   ],
+   "target_lines": [
+    13,
+    39,
+    94,
+    117
+   ]
+  },
+  "线索": {
+   "sources": [
+    "Lead",
+    "Leads"
+   ],
+   "why": [
+    "source-in-doc:Lead"
+   ],
+   "norm_keys": [
+    "lead"
+   ],
+   "target_lines": []
+  },
+  "结果": {
+   "sources": [
+    "Result",
+    "result",
+    "results"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "result"
+   ],
+   "target_lines": [
+    88,
+    368,
+    627,
+    837
+   ]
+  },
+  "草稿": {
+   "sources": [
+    "DRAFT",
+    "Draft"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:DRAFT|Draft"
+   ],
+   "norm_keys": [
+    "draft"
+   ],
+   "target_lines": [
+    1465
+   ]
+  },
+  "费用科目": {
+   "sources": [
+    "Expense Account",
+    "Expense Head"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "expense"
+   ],
+   "target_lines": [
+    13,
+    169,
+    180,
+    1605
+   ]
+  },
+  "采购发票": {
+   "sources": [
+    "Purchase Invoice",
+    "Purchase Invoices"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Purchase Invoice"
+   ],
+   "norm_keys": [
+    "purchase invoice"
+   ],
+   "target_lines": [
+    842,
+    846,
+    919,
+    1045
+   ]
+  },
+  "链接": {
+   "sources": [
+    "Link",
+    "Linked",
+    "Links"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "link"
+   ],
+   "target_lines": [
+    1074,
+    1210
+   ]
+  },
+  "销售出库": {
+   "sources": [
+    "Delivery Note",
+    "Delivery Notes"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Delivery Note"
+   ],
+   "norm_keys": [
+    "delivery note"
+   ],
+   "target_lines": [
+    1091,
+    1714,
+    1718,
+    1763
+   ]
+  },
+  "销售发票": {
+   "sources": [
+    "Against Sales Invoice",
+    "Sales Invoice"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Sales Invoice"
+   ],
+   "norm_keys": [
+    "sale invoice"
+   ],
+   "target_lines": [
+    1759,
+    1763,
+    1773,
+    1775
+   ]
+  },
+  "销售订单明细": {
+   "sources": [
+    "Against Sales Order Item",
+    "Sales Order Item"
+   ],
+   "why": [
+    "source-in-doc:Sales Order Item"
+   ],
+   "norm_keys": [
+    "sale order item"
+   ],
+   "target_lines": []
+  },
+  "项目": {
+   "sources": [
+    "Project",
+    "Projects"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "project"
+   ],
+   "target_lines": [
+    4,
+    495,
+    885,
+    1375
+   ]
+  },
+  "采购订单": {
+   "sources": [
+    "Purchase Order",
+    "Purchase Orders"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Purchase Order"
+   ],
+   "norm_keys": [
+    "purchase order"
+   ],
+   "target_lines": [
+    724,
+    728
+   ]
+  },
+  "脚本": {
+   "sources": [
+    "Script",
+    "Scripting"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "script"
+   ],
+   "target_lines": [
+    71,
+    73,
+    645,
+    981
+   ]
+  },
+  "包": {
+   "sources": [
+    "Package",
+    "Packages"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "package"
+   ],
+   "target_lines": [
+    320,
+    1555
+   ]
+  },
+  "询价": {
+   "sources": [
+    "Request For Quotation",
+    "Request for Quotation"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "request for quotation"
+   ],
+   "target_lines": [
+    321,
+    512,
+    639,
+    1162
+   ]
+  },
+  "银行": {
+   "sources": [
+    "Bank",
+    "Banking"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "bank"
+   ],
+   "target_lines": [
+    921,
+    1777
+   ]
+  },
+  "货币": {
+   "sources": [
+    "Currency",
+    "Currency "
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Currency"
+   ],
+   "norm_keys": [
+    "currency"
+   ],
+   "target_lines": [
+    131,
+    562,
+    757
+   ]
+  },
+  "默认科目": {
+   "sources": [
+    "Default Account",
+    "Default Accounts"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "default"
+   ],
+   "target_lines": [
+    174
+   ]
+  },
+  "权限": {
+   "sources": [
+    "Permission",
+    "Permissions"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "permission"
+   ],
+   "target_lines": [
+    195,
+    645
+   ]
+  },
+  "选择": {
+   "sources": [
+    "select",
+    "to select"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "select"
+   ],
+   "target_lines": [
+    1103
+   ]
+  },
+  "关闭": {
+   "sources": [
+    "Close",
+    "to close"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "close"
+   ],
+   "target_lines": [
+    1276,
+    1731
+   ]
+  },
+  "已启用": {
+   "sources": [
+    "Enabled",
+    "is enabled"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "enabl"
+   ],
+   "target_lines": [
+    90
+   ]
+  },
+  "物料属性": {
+   "sources": [
+    "Item Attribute",
+    "Item Attributes"
+   ],
+   "why": [
+    "source-in-doc:Item Attribute"
+   ],
+   "norm_keys": [
+    "item attribute"
+   ],
+   "target_lines": []
+  },
+  "地址": {
+   "sources": [
+    " Address",
+    "Address",
+    "Addresses"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "address"
+   ],
+   "target_lines": [
+    45,
+    132,
+    233,
+    235
+   ]
+  },
+  "之后": {
+   "sources": [
+    "After",
+    "after"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "after"
+   ],
+   "target_lines": [
+    151,
+    603,
+    873,
+    1169
+   ]
+  },
+  "修订": {
+   "sources": [
+    "Amend",
+    "amend"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Amend|amend"
+   ],
+   "norm_keys": [
+    "amend"
+   ],
+   "target_lines": [
+    687,
+    1208,
+    1210,
+    1732
+   ]
+  },
+  "基于": {
+   "sources": [
+    "Based On",
+    "based on",
+    "based_on"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "bas on"
+   ],
+   "target_lines": [
+    138,
+    550,
+    581,
+    590
+   ]
+  },
+  "蓝色": {
+   "sources": [
+    "Blue",
+    "blue"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "blue"
+   ],
+   "target_lines": [
+    1399
+   ]
+  },
+  "客户端脚本": {
+   "sources": [
+    "Client Script",
+    "Client script"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "client script"
+   ],
+   "target_lines": [
+    645
+   ]
+  },
+  "列": {
+   "sources": [
+    "Column",
+    "Columns"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "column"
+   ],
+   "target_lines": [
+    13,
+    61,
+    71,
+    88
+   ]
+  },
+  "条件": {
+   "sources": [
+    "Condition",
+    "Conditions"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "condition"
+   ],
+   "target_lines": [
+    647,
+    795,
+    993,
+    1419
+   ]
+  },
+  "自定义报表": {
+   "sources": [
+    "Custom Report",
+    "Custom Reports"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "custom report"
+   ],
+   "target_lines": [
+    1181,
+    1890
+   ]
+  },
+  "描述": {
+   "sources": [
+    "Description",
+    "description"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "description"
+   ],
+   "target_lines": [
+    1543
+   ]
+  },
+  "文件": {
+   "sources": [
+    "File",
+    "Files"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "file"
+   ],
+   "target_lines": [
+    6,
+    19,
+    206,
+    309
+   ]
+  },
+  "用户": {
+   "sources": [
+    "For User",
+    "User",
+    "Users"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "user"
+   ],
+   "target_lines": [
+    4,
+    45,
+    141,
+    191
+   ]
+  },
+  "组": {
+   "sources": [
+    "Group",
+    "Groups"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "group"
+   ],
+   "target_lines": [
+    205,
+    206,
+    247,
+    251
+   ]
+  },
+  "名称": {
+   "sources": [
+    " Name",
+    "Name",
+    "name"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "name"
+   ],
+   "target_lines": [
+    129,
+    172,
+    211,
+    247
+   ]
+  },
+  "未找到": {
+   "sources": [
+    "Not Found",
+    "Not found"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "not found"
+   ],
+   "target_lines": [
+    493
+   ]
+  },
+  "选项": {
+   "sources": [
+    "OPTIONS",
+    "Options"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "option"
+   ],
+   "target_lines": [
+    13,
+    134,
+    141,
+    145
+   ]
+  },
+  "或": {
+   "sources": [
+    "OR",
+    "or"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "or"
+   ],
+   "target_lines": [
+    37,
+    45,
+    105,
+    141
+   ]
+  },
+  "通过": {
+   "sources": [
+    "Pass",
+    "Passed"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "pass"
+   ],
+   "target_lines": [
+    713,
+    1076,
+    1316,
+    1603
+   ]
+  },
+  "权限错误": {
+   "sources": [
+    "Permission Error",
+    "Permissions Error"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "permission error"
+   ],
+   "target_lines": [
+    195
+   ]
+  },
+  "响应": {
+   "sources": [
+    "Response",
+    "response"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "response"
+   ],
+   "target_lines": [
+    645
+   ]
+  },
+  "行": {
+   "sources": [
+    "Row",
+    "row",
+    "rows"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "row"
+   ],
+   "target_lines": [
+    4,
+    19,
+    32,
+    43
+   ]
+  },
+  "规则": {
+   "sources": [
+    "Rule",
+    "Rules"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "rule"
+   ],
+   "target_lines": [
+    445,
+    1119
+   ]
+  },
+  "计划任务": {
+   "sources": [
+    "Schedule",
+    "Schedules"
+   ],
+   "why": [
+    "source-in-doc:Schedule"
+   ],
+   "norm_keys": [
+    "schedule"
+   ],
+   "target_lines": []
+  },
+  "服务": {
+   "sources": [
+    "Service",
+    "Services"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "service"
+   ],
+   "target_lines": [
+    105,
+    235,
+    398,
+    461
+   ]
+  },
+  "任务": {
+   "sources": [
+    "Task",
+    "Tasks"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "task"
+   ],
+   "target_lines": [
+    90,
+    679,
+    683,
+    977
+   ]
+  },
+  "模板": {
+   "sources": [
+    "Template",
+    "Templates"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "template"
+   ],
+   "target_lines": [
+    172,
+    206,
+    210,
+    406
+   ]
+  },
+  "交易": {
+   "sources": [
+    "Transaction",
+    "Transactions",
+    "transaction"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "transaction"
+   ],
+   "target_lines": [
+    105,
+    718,
+    719
+   ]
+  },
+  "年": {
+   "sources": [
+    "Year",
+    "years"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Year"
+   ],
+   "norm_keys": [
+    "year"
+   ],
+   "target_lines": [
+    39,
+    199,
+    201,
+    894
+   ]
+  },
+  "空": {
+   "sources": [
+    "Empty",
+    "empty"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "empty"
+   ],
+   "target_lines": [
+    45,
+    105,
+    113,
+    191
+   ]
+  },
+  "原材料": {
+   "sources": [
+    " Raw Material",
+    "Raw Material",
+    "Raw Materials"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Raw Material"
+   ],
+   "norm_keys": [
+    "raw material"
+   ],
+   "target_lines": [
+    210,
+    268,
+    549,
+    635
+   ]
+  },
+  "额外费用": {
+   "sources": [
+    "Additional Cost",
+    "Additional Costs"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "additional cost"
+   ],
+   "target_lines": [
+    13,
+    1605,
+    1609,
+    1616
+   ]
+  },
+  "资产": {
+   "sources": [
+    "Asset",
+    "Assets"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "asset"
+   ],
+   "target_lines": [
+    260,
+    274,
+    954,
+    959
+   ]
+  },
+  "成本中心": {
+   "sources": [
+    "Cost Center",
+    "Cost Centers"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Cost Center"
+   ],
+   "norm_keys": [
+    "cost center"
+   ],
+   "target_lines": [
+    94,
+    168,
+    405
+   ]
+  },
+  "工单": {
+   "sources": [
+    "For Work Order",
+    "Work Orders"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "work order"
+   ],
+   "target_lines": [
+    13,
+    181,
+    493,
+    527
+   ]
+  },
+  "物料价格": {
+   "sources": [
+    "Item Price",
+    "Item Prices"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Item Price"
+   ],
+   "norm_keys": [
+    "item price"
+   ],
+   "target_lines": [
+    390,
+    396
+   ]
+  },
+  "负债": {
+   "sources": [
+    "Liabilities",
+    "Liability"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "liability"
+   ],
+   "target_lines": [
+    260,
+    274,
+    894,
+    959
+   ]
+  },
+  "付款至": {
+   "sources": [
+    "Paid To",
+    "paid to"
+   ],
+   "why": [
+    "source-in-doc:Paid To|paid to"
+   ],
+   "norm_keys": [
+    "paid to"
+   ],
+   "target_lines": []
+  },
+  "报价": {
+   "sources": [
+    "Quotation",
+    "Quotations"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Quotation"
+   ],
+   "norm_keys": [
+    "quotation"
+   ],
+   "target_lines": [
+    639,
+    1146,
+    1150,
+    1154
+   ]
+  },
+  "序列号": {
+   "sources": [
+    "Serial No",
+    "Serial Nos"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "serial"
+   ],
+   "target_lines": [
+    750
+   ]
+  },
+  "子工序": {
+   "sources": [
+    "Sub Operation",
+    "Sub Operations"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "sub operation"
+   ],
+   "target_lines": [
+    1527
+   ]
+  },
+  "税率": {
+   "sources": [
+    "Tax Rate",
+    "Tax Rates"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "tax rate"
+   ],
+   "target_lines": [
+    1809,
+    2010
+   ]
+  }
+ },
+ "genuine": {
+  "04": {
+   "sources": [
+    "Apr",
+    "May"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "apr",
+    "may"
+   ],
+   "target_lines": [
+    5,
+    13,
+    25,
+    39
+   ],
+   "clusters": {
+    "apr": [
+     "Apr"
+    ],
+    "may": [
+     "May"
+    ]
+   }
+  },
+  "倒序": {
+   "sources": [
+    "DESC",
+    "Sort Descending"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "desc",
+    "sort descend"
+   ],
+   "target_lines": [
+    103
+   ],
+   "clusters": {
+    "desc": [
+     "DESC"
+    ],
+    "sort descend": [
+     "Sort Descending"
+    ]
+   }
+  },
+  "设置": {
+   "sources": [
+    "ERPNext Settings",
+    "Setting",
+    "Settings",
+    "Setup"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "erpnext sett",
+    "sett",
+    "setup"
+   ],
+   "target_lines": [
+    145,
+    151,
+    185,
+    275
+   ],
+   "clusters": {
+    "erpnext sett": [
+     "ERPNext Settings"
+    ],
+    "sett": [
+     "Setting",
+     "Settings"
+    ],
+    "setup": [
+     "Setup"
+    ]
+   }
+  },
+  "上": {
+   "sources": [
+    "Up",
+    "on"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "on",
+    "up"
+   ],
+   "target_lines": [
+    13,
+    31,
+    61,
+    86
+   ],
+   "clusters": {
+    "up": [
+     "Up"
+    ],
+    "on": [
+     "on"
+    ]
+   }
+  },
+  "仓库": {
+   "sources": [
+    "Accepted Warehouse",
+    "For Warehouse",
+    "Request for",
+    "Requesting Site",
+    "Stores",
+    "Warehouse",
+    "Warehouses"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Warehouse"
+   ],
+   "norm_keys": [
+    "accept warehouse",
+    "request for",
+    "request site",
+    "store",
+    "warehouse"
+   ],
+   "target_lines": [
+    13,
+    39,
+    94,
+    130
+   ],
+   "clusters": {
+    "accept warehouse": [
+     "Accepted Warehouse"
+    ],
+    "warehouse": [
+     "For Warehouse",
+     "Warehouse",
+     "Warehouses"
+    ],
+    "request for": [
+     "Request for"
+    ],
+    "request site": [
+     "Requesting Site"
+    ],
+    "store": [
+     "Stores"
+    ]
+   }
+  },
+  "付款": {
+   "sources": [
+    "Outward",
+    "Pay",
+    "Payment",
+    "Payments"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Pay"
+   ],
+   "norm_keys": [
+    "outward",
+    "pay",
+    "payment"
+   ],
+   "target_lines": [
+    759,
+    915,
+    919,
+    921
+   ],
+   "clusters": {
+    "outward": [
+     "Outward"
+    ],
+    "pay": [
+     "Pay"
+    ],
+    "payment": [
+     "Payment",
+     "Payments"
+    ]
+   }
+  },
+  "付款参考": {
+   "sources": [
+    "Payment Entry Reference",
+    "Payment References"
+   ],
+   "why": [
+    "source-in-doc:Payment Entry Reference"
+   ],
+   "norm_keys": [
+    "payment entry reference",
+    "payment reference"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "payment entry reference": [
+     "Payment Entry Reference"
+    ],
+    "payment reference": [
+     "Payment References"
+    ]
+   }
+  },
+  "付款金额": {
+   "sources": [
+    "Paid Amount",
+    "Payment Amount"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Paid Amount"
+   ],
+   "norm_keys": [
+    "paid",
+    "payment"
+   ],
+   "target_lines": [
+    930
+   ],
+   "clusters": {
+    "paid": [
+     "Paid Amount"
+    ],
+    "payment": [
+     "Payment Amount"
+    ]
+   }
+  },
+  "会计": {
+   "sources": [
+    "Accountant",
+    "Accounting",
+    "Accounts",
+    "Accounts User"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Accounts"
+   ],
+   "norm_keys": [
+    "account",
+    "account user",
+    "accountant"
+   ],
+   "target_lines": [
+    21,
+    134,
+    149,
+    155
+   ],
+   "clusters": {
+    "accountant": [
+     "Accountant"
+    ],
+    "account": [
+     "Accounting",
+     "Accounts"
+    ],
+    "account user": [
+     "Accounts User"
+    ]
+   }
+  },
+  "会计凭证": {
+   "sources": [
+    "Accounting Ledger",
+    "Ledger"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Accounting Ledger"
+   ],
+   "norm_keys": [
+    "account ledger",
+    "ledger"
+   ],
+   "target_lines": [
+    149,
+    1031,
+    1052,
+    1444
+   ],
+   "clusters": {
+    "account ledger": [
+     "Accounting Ledger"
+    ],
+    "ledger": [
+     "Ledger"
+    ]
+   }
+  },
+  "国家": {
+   "sources": [
+    "Country",
+    "Your Country"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Country"
+   ],
+   "norm_keys": [
+    "country",
+    "your country"
+   ],
+   "target_lines": [
+    132
+   ],
+   "clusters": {
+    "country": [
+     "Country"
+    ],
+    "your country": [
+     "Your Country"
+    ]
+   }
+  },
+  "语言": {
+   "sources": [
+    "Language",
+    "Your Language"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "language",
+    "your language"
+   ],
+   "target_lines": [
+    37,
+    39,
+    208
+   ],
+   "clusters": {
+    "language": [
+     "Language"
+    ],
+    "your language": [
+     "Your Language"
+    ]
+   }
+  },
+  "供应商": {
+   "sources": [
+    "For Supplier",
+    "Provider",
+    "Supplier",
+    "Supplier(s)",
+    "Suppliers"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Supplier"
+   ],
+   "norm_keys": [
+    "provider",
+    "supplier",
+    "supplier s"
+   ],
+   "target_lines": [
+    691,
+    695,
+    699,
+    700
+   ],
+   "clusters": {
+    "supplier": [
+     "For Supplier",
+     "Supplier",
+     "Suppliers"
+    ],
+    "provider": [
+     "Provider"
+    ],
+    "supplier s": [
+     "Supplier(s)"
+    ]
+   }
+  },
+  "保存": {
+   "sources": [
+    "Save",
+    "Saving"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "sav",
+    "save"
+   ],
+   "target_lines": [
+    123,
+    143,
+    145,
+    151
+   ],
+   "clusters": {
+    "save": [
+     "Save"
+    ],
+    "sav": [
+     "Saving"
+    ]
+   }
+  },
+  "借方": {
+   "sources": [
+    "Debit",
+    "Debit Amount",
+    "Debits",
+    "Dr"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "debit",
+    "dr"
+   ],
+   "target_lines": [
+    1003,
+    1119
+   ],
+   "clusters": {
+    "debit": [
+     "Debit",
+     "Debit Amount",
+     "Debits"
+    ],
+    "dr": [
+     "Dr"
+    ]
+   }
+  },
+  "全部": {
+   "sources": [
+    "ALL",
+    "All",
+    "Catch All"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "all",
+    "catch all"
+   ],
+   "target_lines": [
+    257,
+    296,
+    549,
+    713
+   ],
+   "clusters": {
+    "all": [
+     "ALL",
+     "All"
+    ],
+    "catch all": [
+     "Catch All"
+    ]
+   }
+  },
+  "源单据": {
+   "sources": [
+    "Against Document No",
+    "Reference Doc",
+    "Reference DocName",
+    "Reference Document",
+    "Reference Document Name",
+    "Reference Name",
+    "Reference name",
+    "Source Document"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "document",
+    "reference",
+    "reference doc",
+    "reference docname"
+   ],
+   "target_lines": [
+    1042
+   ],
+   "clusters": {
+    "document": [
+     "Against Document No",
+     "Source Document"
+    ],
+    "reference doc": [
+     "Reference Doc"
+    ],
+    "reference docname": [
+     "Reference DocName"
+    ],
+    "reference": [
+     "Reference Document",
+     "Reference Document Name",
+     "Reference Name",
+     "Reference name"
+    ]
+   }
+  },
+  "分钟": {
+   "sources": [
+    "In Minutes",
+    "In mins",
+    "In minutes",
+    "Minute",
+    "Time in mins",
+    "Time in mins."
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "min",
+    "minute",
+    "time in min"
+   ],
+   "target_lines": [
+    467,
+    469,
+    473,
+    491
+   ],
+   "clusters": {
+    "minute": [
+     "In Minutes",
+     "In minutes",
+     "Minute"
+    ],
+    "min": [
+     "In mins"
+    ],
+    "time in min": [
+     "Time in mins",
+     "Time in mins."
+    ]
+   }
+  },
+  "创建": {
+   "sources": [
+    "Create",
+    "Create Reposting Entries",
+    "Created",
+    "create"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Create|Create Reposting Entries|create"
+   ],
+   "norm_keys": [
+    "creat",
+    "create",
+    "create repost entry"
+   ],
+   "target_lines": [
+    768,
+    779,
+    787,
+    791
+   ],
+   "clusters": {
+    "create": [
+     "Create",
+     "create"
+    ],
+    "create repost entry": [
+     "Create Reposting Entries"
+    ],
+    "creat": [
+     "Created"
+    ]
+   }
+  },
+  "新建": {
+   "sources": [
+    "Create New",
+    "Make",
+    "New",
+    "new"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:New|new"
+   ],
+   "norm_keys": [
+    "create new",
+    "make",
+    "new"
+   ],
+   "target_lines": [
+    61,
+    104,
+    121,
+    151
+   ],
+   "clusters": {
+    "create new": [
+     "Create New"
+    ],
+    "make": [
+     "Make"
+    ],
+    "new": [
+     "New",
+     "new"
+    ]
+   }
+  },
+  "刷新": {
+   "sources": [
+    "Refresh",
+    "Refreshing",
+    "Reload"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "refresh",
+    "reload"
+   ],
+   "target_lines": [
+    525,
+    643,
+    647,
+    1877
+   ],
+   "clusters": {
+    "refresh": [
+     "Refresh",
+     "Refreshing"
+    ],
+    "reload": [
+     "Reload"
+    ]
+   }
+  },
+  "包括": {
+   "sources": [
+    "In",
+    "Include"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "in",
+    "include"
+   ],
+   "target_lines": [
+    320
+   ],
+   "clusters": {
+    "in": [
+     "In"
+    ],
+    "include": [
+     "Include"
+    ]
+   }
+  },
+  "升": {
+   "sources": [
+    "L",
+    "Litre"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "l",
+    "litre"
+   ],
+   "target_lines": [
+    1701,
+    1845
+   ],
+   "clusters": {
+    "l": [
+     "L"
+    ],
+    "litre": [
+     "Litre"
+    ]
+   }
+  },
+  "单位": {
+   "sources": [
+    "Include UOM",
+    "UOM",
+    "Unit",
+    "Unit Of Measure",
+    "Unit of Measure"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:UOM"
+   ],
+   "norm_keys": [
+    "unit",
+    "unit of measure",
+    "uom"
+   ],
+   "target_lines": [
+    280,
+    286,
+    292,
+    305
+   ],
+   "clusters": {
+    "uom": [
+     "Include UOM",
+     "UOM"
+    ],
+    "unit": [
+     "Unit"
+    ],
+    "unit of measure": [
+     "Unit Of Measure",
+     "Unit of Measure"
+    ]
+   }
+  },
+  "单据": {
+   "sources": [
+    "Document",
+    "Documents",
+    "Export From"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "document",
+    "export from"
+   ],
+   "target_lines": [
+    94,
+    96,
+    98,
+    102
+   ],
+   "clusters": {
+    "document": [
+     "Document",
+     "Documents"
+    ],
+    "export from": [
+     "Export From"
+    ]
+   }
+  },
+  "单据状态": {
+   "sources": [
+    "Doc Status",
+    "Document States",
+    "Document Status"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "doc statu",
+    "document state",
+    "document statu"
+   ],
+   "target_lines": [
+    758,
+    834
+   ],
+   "clusters": {
+    "doc statu": [
+     "Doc Status"
+    ],
+    "document state": [
+     "Document States"
+    ],
+    "document statu": [
+     "Document Status"
+    ]
+   }
+  },
+  "单据类型": {
+   "sources": [
+    "Against Doctype",
+    "DocType",
+    "Doctype",
+    "Document Type",
+    "Document Types",
+    "Enter Form Type",
+    "For Document Type",
+    "From Document Type"
+   ],
+   "why": [
+    "source-in-doc:DocType|Doctype"
+   ],
+   "norm_keys": [
+    "doctype",
+    "document type",
+    "form type"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "doctype": [
+     "Against Doctype",
+     "DocType",
+     "Doctype"
+    ],
+    "document type": [
+     "Document Type",
+     "Document Types",
+     "For Document Type",
+     "From Document Type"
+    ],
+    "form type": [
+     "Enter Form Type"
+    ]
+   }
+  },
+  "发票": {
+   "sources": [
+    "Billing",
+    "Invoice",
+    "Invoices",
+    "Linked Invoices"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "bill",
+    "invoice"
+   ],
+   "target_lines": [
+    759,
+    842,
+    846,
+    854
+   ],
+   "clusters": {
+    "bill": [
+     "Billing"
+    ],
+    "invoice": [
+     "Invoice",
+     "Invoices",
+     "Linked Invoices"
+    ]
+   }
+  },
+  "发票号": {
+   "sources": [
+    "Bill No",
+    "Invoice Ref"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "bill",
+    "invoice ref"
+   ],
+   "target_lines": [
+    1805
+   ],
+   "clusters": {
+    "bill": [
+     "Bill No"
+    ],
+    "invoice ref": [
+     "Invoice Ref"
+    ]
+   }
+  },
+  "员工": {
+   "sources": [
+    "Employee",
+    "Employee ",
+    "Employees",
+    "From Employee",
+    "Training Event Employee",
+    "Training Result Employee"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Employee"
+   ],
+   "norm_keys": [
+    "employee",
+    "train event employee",
+    "train result employee"
+   ],
+   "target_lines": [
+    1467,
+    1476,
+    1575,
+    2024
+   ],
+   "clusters": {
+    "employee": [
+     "Employee",
+     "Employee ",
+     "Employees",
+     "From Employee"
+    ],
+    "train event employee": [
+     "Training Event Employee"
+    ],
+    "train result employee": [
+     "Training Result Employee"
+    ]
+   }
+  },
+  "进行中": {
+   "sources": [
+    "In Process",
+    "In Progress",
+    "Work In Progress",
+    "Work in Progress"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:In Process"
+   ],
+   "norm_keys": [
+    "process",
+    "progress",
+    "work in progress"
+   ],
+   "target_lines": [
+    181,
+    226,
+    244,
+    269
+   ],
+   "clusters": {
+    "process": [
+     "In Process"
+    ],
+    "progress": [
+     "In Progress"
+    ],
+    "work in progress": [
+     "Work In Progress",
+     "Work in Progress"
+    ]
+   }
+  },
+  "车间仓": {
+   "sources": [
+    "WIP Warehouse",
+    "Work-in-Progress Warehouse"
+   ],
+   "why": [
+    "source-in-doc:Work-in-Progress Warehouse"
+   ],
+   "norm_keys": [
+    "wip warehouse",
+    "work in progress warehouse"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "wip warehouse": [
+     "WIP Warehouse"
+    ],
+    "work in progress warehouse": [
+     "Work-in-Progress Warehouse"
+    ]
+   }
+  },
+  "培训": {
+   "sources": [
+    "Training",
+    "Training Event",
+    "Training Events"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "train",
+    "train event"
+   ],
+   "target_lines": [
+    1581
+   ],
+   "clusters": {
+    "train": [
+     "Training"
+    ],
+    "train event": [
+     "Training Event",
+     "Training Events"
+    ]
+   }
+  },
+  "科目表模板": {
+   "sources": [
+    "Chart Of Accounts Template",
+    "Create Chart Of Accounts Based On"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Create Chart Of Accounts Based On"
+   ],
+   "norm_keys": [
+    "chart of account template",
+    "create chart of account bas on"
+   ],
+   "target_lines": [
+    210
+   ],
+   "clusters": {
+    "chart of account template": [
+     "Chart Of Accounts Template"
+    ],
+    "create chart of account bas on": [
+     "Create Chart Of Accounts Based On"
+    ]
+   }
+  },
+  "税费": {
+   "sources": [
+    "Expense Taxes and Charges",
+    "Taxes & Charges",
+    "Taxes and Charges",
+    "Taxes and Charges Added",
+    "Taxes and Charges on Income Tax"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "expense tax and charge",
+    "tax and charge",
+    "tax and charge add",
+    "tax and charge on income tax",
+    "tax charge"
+   ],
+   "target_lines": [
+    1802
+   ],
+   "clusters": {
+    "expense tax and charge": [
+     "Expense Taxes and Charges"
+    ],
+    "tax charge": [
+     "Taxes & Charges"
+    ],
+    "tax and charge": [
+     "Taxes and Charges"
+    ],
+    "tax and charge add": [
+     "Taxes and Charges Added"
+    ],
+    "tax and charge on income tax": [
+     "Taxes and Charges on Income Tax"
+    ]
+   }
+  },
+  "完工数量": {
+   "sources": [
+    "Completed Qty",
+    "Manufactured Qty",
+    "Produced",
+    "Produced Qty"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Manufactured Qty"
+   ],
+   "norm_keys": [
+    "complet",
+    "manufactur",
+    "produc"
+   ],
+   "target_lines": [
+    1478,
+    1529,
+    1646
+   ],
+   "clusters": {
+    "complet": [
+     "Completed Qty"
+    ],
+    "manufactur": [
+     "Manufactured Qty"
+    ],
+    "produc": [
+     "Produced",
+     "Produced Qty"
+    ]
+   }
+  },
+  "完成": {
+   "sources": [
+    "Complete",
+    "Done",
+    "Finish"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "complete",
+    "done",
+    "finish"
+   ],
+   "target_lines": [
+    1478,
+    1527,
+    1529,
+    1531
+   ],
+   "clusters": {
+    "complete": [
+     "Complete"
+    ],
+    "done": [
+     "Done"
+    ],
+    "finish": [
+     "Finish"
+    ]
+   }
+  },
+  "工单发料": {
+   "sources": [
+    "Material Transfer for Manufacture",
+    "Material Transferred for Manufacture"
+   ],
+   "why": [
+    "source-in-doc:Material Transfer for Manufacture|Material Transferred for Manufacture"
+   ],
+   "norm_keys": [
+    "material transfer for manufacture",
+    "material transferr for manufacture"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "material transfer for manufacture": [
+     "Material Transfer for Manufacture"
+    ],
+    "material transferr for manufacture": [
+     "Material Transferred for Manufacture"
+    ]
+   }
+  },
+  "工单数量": {
+   "sources": [
+    "Planned Qty",
+    "Planned Quantity",
+    "Qty To Manufacture",
+    "Work Order Qty"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "qty",
+    "qty to manufacture",
+    "quantity",
+    "work order"
+   ],
+   "target_lines": [
+    1276,
+    1738
+   ],
+   "clusters": {
+    "qty": [
+     "Planned Qty"
+    ],
+    "quantity": [
+     "Planned Quantity"
+    ],
+    "qty to manufacture": [
+     "Qty To Manufacture"
+    ],
+    "work order": [
+     "Work Order Qty"
+    ]
+   }
+  },
+  "工序": {
+   "sources": [
+    "For Operation",
+    "Item operation",
+    "Operation",
+    "Operations"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Operation|Operations"
+   ],
+   "norm_keys": [
+    "item operation",
+    "operation"
+   ],
+   "target_lines": [
+    180,
+    412,
+    445,
+    447
+   ],
+   "clusters": {
+    "operation": [
+     "For Operation",
+     "Operation",
+     "Operations"
+    ],
+    "item operation": [
+     "Item operation"
+    ]
+   }
+  },
+  "差异": {
+   "sources": [
+    "Diff",
+    "Difference",
+    "Variance",
+    "variance"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "diff",
+    "difference",
+    "variance"
+   ],
+   "target_lines": [
+    25,
+    443,
+    673,
+    989
+   ],
+   "clusters": {
+    "diff": [
+     "Diff"
+    ],
+    "difference": [
+     "Difference"
+    ],
+    "variance": [
+     "Variance",
+     "variance"
+    ]
+   }
+  },
+  "应付账款": {
+   "sources": [
+    "Accounts Payable",
+    "Creditors",
+    "Payable",
+    "Payables"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "account payable",
+    "creditor",
+    "payable"
+   ],
+   "target_lines": [
+    166,
+    879,
+    899,
+    904
+   ],
+   "clusters": {
+    "account payable": [
+     "Accounts Payable"
+    ],
+    "creditor": [
+     "Creditors"
+    ],
+    "payable": [
+     "Payable",
+     "Payables"
+    ]
+   }
+  },
+  "应收账款": {
+   "sources": [
+    "Accounts Receivable",
+    "Debtors",
+    "Receivable",
+    "Receivable Account",
+    "Receivables"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "account receivable",
+    "debtor",
+    "receivable"
+   ],
+   "target_lines": [
+    167,
+    937,
+    1117,
+    1783
+   ],
+   "clusters": {
+    "account receivable": [
+     "Accounts Receivable"
+    ],
+    "debtor": [
+     "Debtors"
+    ],
+    "receivable": [
+     "Receivable",
+     "Receivable Account",
+     "Receivables"
+    ]
+   }
+  },
+  "开始日期": {
+   "sources": [
+    "Date of Commencement",
+    "From Date",
+    "Start Date",
+    "Work From Date"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "date",
+    "date of commencement",
+    "start",
+    "work from"
+   ],
+   "target_lines": [
+    1299,
+    1374
+   ],
+   "clusters": {
+    "date of commencement": [
+     "Date of Commencement"
+    ],
+    "date": [
+     "From Date"
+    ],
+    "start": [
+     "Start Date"
+    ],
+    "work from": [
+     "Work From Date"
+    ]
+   }
+  },
+  "开始计时": {
+   "sources": [
+    "Start Job",
+    "Start Timer"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Start Job"
+   ],
+   "norm_keys": [
+    "start job",
+    "start timer"
+   ],
+   "target_lines": [
+    1467,
+    1476,
+    1515
+   ],
+   "clusters": {
+    "start job": [
+     "Start Job"
+    ],
+    "start timer": [
+     "Start Timer"
+    ]
+   }
+  },
+  "待处理": {
+   "sources": [
+    "Open",
+    "Pending"
+   ],
+   "why": [
+    "source-in-doc:Open"
+   ],
+   "norm_keys": [
+    "open",
+    "pend"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "open": [
+     "Open"
+    ],
+    "pend": [
+     "Pending"
+    ]
+   }
+  },
+  "成本价": {
+   "sources": [
+    "Costing Rate",
+    "Incoming Rate (Costing)",
+    "Valuation",
+    "Valuation Rate"
+   ],
+   "why": [
+    "source-in-doc:Valuation Rate"
+   ],
+   "norm_keys": [
+    "cost rate",
+    "incom rate cost",
+    "valuation",
+    "valuation rate"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "cost rate": [
+     "Costing Rate"
+    ],
+    "incom rate cost": [
+     "Incoming Rate (Costing)"
+    ],
+    "valuation": [
+     "Valuation"
+    ],
+    "valuation rate": [
+     "Valuation Rate"
+    ]
+   }
+  },
+  "折扣": {
+   "sources": [
+    "Add Discount",
+    "Apply Discount On",
+    "Discount",
+    "Discounts"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "add discount",
+    "apply discount on",
+    "discount"
+   ],
+   "target_lines": [
+    1105
+   ],
+   "clusters": {
+    "add discount": [
+     "Add Discount"
+    ],
+    "apply discount on": [
+     "Apply Discount On"
+    ],
+    "discount": [
+     "Discount",
+     "Discounts"
+    ]
+   }
+  },
+  "按凭证分组": {
+   "sources": [
+    "Categorize by Voucher",
+    "Group by Voucher"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "categorize by voucher",
+    "group by voucher"
+   ],
+   "target_lines": [
+    1040
+   ],
+   "clusters": {
+    "categorize by voucher": [
+     "Categorize by Voucher"
+    ],
+    "group by voucher": [
+     "Group by Voucher"
+    ]
+   }
+  },
+  "损益表": {
+   "sources": [
+    "Profit & Loss",
+    "Profit and Loss",
+    "Profit and Loss Statement"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "profit and loss",
+    "profit and loss statement",
+    "profit loss"
+   ],
+   "target_lines": [
+    21,
+    989,
+    1629,
+    1813
+   ],
+   "clusters": {
+    "profit loss": [
+     "Profit & Loss"
+    ],
+    "profit and loss": [
+     "Profit and Loss"
+    ],
+    "profit and loss statement": [
+     "Profit and Loss Statement"
+    ]
+   }
+  },
+  "收入": {
+   "sources": [
+    "Income",
+    "Revenue"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Income"
+   ],
+   "norm_keys": [
+    "income",
+    "revenue"
+   ],
+   "target_lines": [
+    170,
+    1110,
+    1117,
+    1743
+   ],
+   "clusters": {
+    "income": [
+     "Income"
+    ],
+    "revenue": [
+     "Revenue"
+    ]
+   }
+  },
+  "收到数量": {
+   "sources": [
+    "In Qty",
+    "Received Qty",
+    "Received Quantity"
+   ],
+   "why": [
+    "source-in-doc:Received Qty"
+   ],
+   "norm_keys": [
+    "qty",
+    "receiv"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "qty": [
+     "In Qty"
+    ],
+    "receiv": [
+     "Received Qty",
+     "Received Quantity"
+    ]
+   }
+  },
+  "收款": {
+   "sources": [
+    "Incoming Payment",
+    "Inward",
+    "Receive"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Receive"
+   ],
+   "norm_keys": [
+    "incom payment",
+    "inward",
+    "receive"
+   ],
+   "target_lines": [
+    3,
+    925,
+    927,
+    930
+   ],
+   "clusters": {
+    "incom payment": [
+     "Incoming Payment"
+    ],
+    "inward": [
+     "Inward"
+    ],
+    "receive": [
+     "Receive"
+    ]
+   }
+  },
+  "数量": {
+   "sources": [
+    "Batch Quantity",
+    "Qty",
+    "Qty ",
+    "Quantity"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Qty|Quantity"
+   ],
+   "norm_keys": [
+    "batch",
+    "qty",
+    "quantity"
+   ],
+   "target_lines": [
+    212,
+    309,
+    317,
+    407
+   ],
+   "clusters": {
+    "batch": [
+     "Batch Quantity"
+    ],
+    "qty": [
+     "Qty",
+     "Qty "
+    ],
+    "quantity": [
+     "Quantity"
+    ]
+   }
+  },
+  "日期": {
+   "sources": [
+    "As On Date",
+    "Date",
+    "Date ",
+    "Dates",
+    "On Date",
+    "On This Date"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Date"
+   ],
+   "norm_keys": [
+    "as on",
+    "date",
+    "thi"
+   ],
+   "target_lines": [
+    10,
+    733,
+    734,
+    1040
+   ],
+   "clusters": {
+    "as on": [
+     "As On Date"
+    ],
+    "date": [
+     "Date",
+     "Date ",
+     "Dates",
+     "On Date"
+    ],
+    "thi": [
+     "On This Date"
+    ]
+   }
+  },
+  "是子表": {
+   "sources": [
+    "Is Child Table",
+    "Is Table"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "child table",
+    "table"
+   ],
+   "target_lines": [
+    1575
+   ],
+   "clusters": {
+    "child table": [
+     "Is Child Table"
+    ],
+    "table": [
+     "Is Table"
+    ]
+   }
+  },
+  "更新": {
+   "sources": [
+    "Update",
+    "Updating"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "updat",
+    "update"
+   ],
+   "target_lines": [
+    525,
+    603,
+    682,
+    758
+   ],
+   "clusters": {
+    "update": [
+     "Update"
+    ],
+    "updat": [
+     "Updating"
+    ]
+   }
+  },
+  "正常": {
+   "sources": [
+    "General",
+    "On Track"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "general",
+    "track"
+   ],
+   "target_lines": [
+    235,
+    398,
+    750,
+    894
+   ],
+   "clusters": {
+    "general": [
+     "General"
+    ],
+    "track": [
+     "On Track"
+    ]
+   }
+  },
+  "段": {
+   "sources": [
+    "Section",
+    "Section Break"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "section",
+    "section break"
+   ],
+   "target_lines": [
+    13,
+    19,
+    21,
+    45
+   ],
+   "clusters": {
+    "section": [
+     "Section"
+    ],
+    "section break": [
+     "Section Break"
+    ]
+   }
+  },
+  "激活": {
+   "sources": [
+    "Activate",
+    "Active"
+   ],
+   "why": [
+    "source-in-doc:Active"
+   ],
+   "norm_keys": [
+    "activate",
+    "active"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "activate": [
+     "Activate"
+    ],
+    "active": [
+     "Active"
+    ]
+   }
+  },
+  "成品": {
+   "sources": [
+    "Final Product",
+    "Finished Good",
+    "Finished Goods",
+    "Item To Manufacture",
+    "Production Item"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Production Item"
+   ],
+   "norm_keys": [
+    "final product",
+    "finish good",
+    "item to manufacture",
+    "production item"
+   ],
+   "target_lines": [
+    51,
+    182,
+    227,
+    245
+   ],
+   "clusters": {
+    "final product": [
+     "Final Product"
+    ],
+    "finish good": [
+     "Finished Good",
+     "Finished Goods"
+    ],
+    "item to manufacture": [
+     "Item To Manufacture"
+    ],
+    "production item": [
+     "Production Item"
+    ]
+   }
+  },
+  "物料": {
+   "sources": [
+    " Item",
+    "For Item",
+    "Item",
+    "Items",
+    "Items Catalogue",
+    "Material"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Item|Items"
+   ],
+   "norm_keys": [
+    "item",
+    "material"
+   ],
+   "target_lines": [
+    149,
+    228,
+    275,
+    325
+   ],
+   "clusters": {
+    "item": [
+     " Item",
+     "For Item",
+     "Item",
+     "Items",
+     "Items Catalogue"
+    ],
+    "material": [
+     "Material"
+    ]
+   }
+  },
+  "物料清单": {
+   "sources": [
+    " BOM",
+    "BOM",
+    "Bill of Materials"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:BOM"
+   ],
+   "norm_keys": [
+    "bill of material",
+    "bom"
+   ],
+   "target_lines": [
+    538
+   ],
+   "clusters": {
+    "bom": [
+     " BOM",
+     "BOM"
+    ],
+    "bill of material": [
+     "Bill of Materials"
+    ]
+   }
+  },
+  "物料清单号": {
+   "sources": [
+    "BOM Detail No",
+    "BOM No"
+   ],
+   "why": [
+    "source-in-doc:BOM No"
+   ],
+   "norm_keys": [
+    "bom",
+    "bom detail"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "bom detail": [
+     "BOM Detail No"
+    ],
+    "bom": [
+     "BOM No"
+    ]
+   }
+  },
+  "物料移动": {
+   "sources": [
+    "Stock Entry",
+    "Stock Movement"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Stock Entry"
+   ],
+   "norm_keys": [
+    "stock entry",
+    "stock movement"
+   ],
+   "target_lines": [
+    149,
+    1385,
+    1399,
+    1405
+   ],
+   "clusters": {
+    "stock entry": [
+     "Stock Entry"
+    ],
+    "stock movement": [
+     "Stock Movement"
+    ]
+   }
+  },
+  "物料凭证": {
+   "sources": [
+    "Stock Ledger",
+    "Stock Ledger Entry"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Stock Ledger|Stock Ledger Entry"
+   ],
+   "norm_keys": [
+    "stock ledger",
+    "stock ledger entry"
+   ],
+   "target_lines": [
+    810,
+    989,
+    993,
+    995
+   ],
+   "clusters": {
+    "stock ledger": [
+     "Stock Ledger"
+    ],
+    "stock ledger entry": [
+     "Stock Ledger Entry"
+    ]
+   }
+  },
+  "物料号": {
+   "sources": [
+    "Item Code",
+    "Item Reference"
+   ],
+   "why": [
+    "source-in-doc:Item Code"
+   ],
+   "norm_keys": [
+    "item code",
+    "item reference"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "item code": [
+     "Item Code"
+    ],
+    "item reference": [
+     "Item Reference"
+    ]
+   }
+  },
+  "状态": {
+   "sources": [
+    "State",
+    "States",
+    "Status"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Status"
+   ],
+   "norm_keys": [
+    "state",
+    "statu"
+   ],
+   "target_lines": [
+    6,
+    645,
+    758,
+    789
+   ],
+   "clusters": {
+    "state": [
+     "State",
+     "States"
+    ],
+    "statu": [
+     "Status"
+    ]
+   }
+  },
+  "百分比": {
+   "sources": [
+    "In Percentage",
+    "Percent",
+    "Percentage"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "percent",
+    "percentage"
+   ],
+   "target_lines": [
+    627,
+    802,
+    1755
+   ],
+   "clusters": {
+    "percentage": [
+     "In Percentage",
+     "Percentage"
+    ],
+    "percent": [
+     "Percent"
+    ]
+   }
+  },
+  "目标": {
+   "sources": [
+    "For",
+    "Goal",
+    "Objectives",
+    "Target",
+    "Targets"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "for",
+    "goal",
+    "objective",
+    "target"
+   ],
+   "target_lines": [
+    744,
+    1251,
+    1301,
+    1598
+   ],
+   "clusters": {
+    "for": [
+     "For"
+    ],
+    "goal": [
+     "Goal"
+    ],
+    "objective": [
+     "Objectives"
+    ],
+    "target": [
+     "Target",
+     "Targets"
+    ]
+   }
+  },
+  "目的": {
+   "sources": [
+    "Objective",
+    "Purpose",
+    "Purposes"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Purpose"
+   ],
+   "norm_keys": [
+    "objective",
+    "purpose"
+   ],
+   "target_lines": [
+    260,
+    894,
+    950,
+    1103
+   ],
+   "clusters": {
+    "objective": [
+     "Objective"
+    ],
+    "purpose": [
+     "Purpose",
+     "Purposes"
+    ]
+   }
+  },
+  "确认": {
+   "sources": [
+    "Confirm",
+    "Confirmed",
+    "Verify"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "confirm",
+    "verify"
+   ],
+   "target_lines": [
+    71,
+    73,
+    90,
+    145
+   ],
+   "clusters": {
+    "confirm": [
+     "Confirm",
+     "Confirmed"
+    ],
+    "verify": [
+     "Verify"
+    ]
+   }
+  },
+  "对方科目": {
+   "sources": [
+    "Against",
+    "Against Account"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "account",
+    "against"
+   ],
+   "target_lines": [
+    1080
+   ],
+   "clusters": {
+    "against": [
+     "Against"
+    ],
+    "account": [
+     "Against Account"
+    ]
+   }
+  },
+  "秒": {
+   "sources": [
+    "In seconds",
+    "Second",
+    "Seconds",
+    "s"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "s",
+    "second"
+   ],
+   "target_lines": [
+    143,
+    1163,
+    1489,
+    1491
+   ],
+   "clusters": {
+    "second": [
+     "In seconds",
+     "Second",
+     "Seconds"
+    ],
+    "s": [
+     "s"
+    ]
+   }
+  },
+  "移动": {
+   "sources": [
+    "Move",
+    "Movement"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "move",
+    "movement"
+   ],
+   "target_lines": [
+    149,
+    212,
+    1385,
+    1399
+   ],
+   "clusters": {
+    "move": [
+     "Move"
+    ],
+    "movement": [
+     "Movement"
+    ]
+   }
+  },
+  "税": {
+   "sources": [
+    "Tax",
+    "Tax Masters",
+    "Taxes"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Taxes"
+   ],
+   "norm_keys": [
+    "tax",
+    "tax master"
+   ],
+   "target_lines": [
+    132,
+    210,
+    718,
+    720
+   ],
+   "clusters": {
+    "tax": [
+     "Tax",
+     "Taxes"
+    ],
+    "tax master": [
+     "Tax Masters"
+    ]
+   }
+  },
+  "结束时间": {
+   "sources": [
+    "End Time",
+    "Ended At",
+    "Ends on",
+    "To Datetime",
+    "To Time"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "datetime",
+    "end",
+    "end at",
+    "end on",
+    "time"
+   ],
+   "target_lines": [
+    1330
+   ],
+   "clusters": {
+    "end": [
+     "End Time"
+    ],
+    "end at": [
+     "Ended At"
+    ],
+    "end on": [
+     "Ends on"
+    ],
+    "datetime": [
+     "To Datetime"
+    ],
+    "time": [
+     "To Time"
+    ]
+   }
+  },
+  "角色": {
+   "sources": [
+    "Maintenance Role",
+    "Role",
+    "Roles",
+    "by Role"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "maintenance role",
+    "role"
+   ],
+   "target_lines": [
+    871
+   ],
+   "clusters": {
+    "maintenance role": [
+     "Maintenance Role"
+    ],
+    "role": [
+     "Role",
+     "Roles",
+     "by Role"
+    ]
+   }
+  },
+  "编号": {
+   "sources": [
+    "ID",
+    "Id",
+    "No."
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "id",
+    "no"
+   ],
+   "target_lines": [
+    210,
+    2019,
+    2021
+   ],
+   "clusters": {
+    "id": [
+     "ID",
+     "Id"
+    ],
+    "no": [
+     "No."
+    ]
+   }
+  },
+  "简称": {
+   "sources": [
+    "Abbr",
+    "Abbreviation",
+    "Short Name"
+   ],
+   "why": [
+    "source-in-doc:Abbr"
+   ],
+   "norm_keys": [
+    "abbr",
+    "abbreviation",
+    "short"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "abbr": [
+     "Abbr"
+    ],
+    "abbreviation": [
+     "Abbreviation"
+    ],
+    "short": [
+     "Short Name"
+    ]
+   }
+  },
+  "翻译": {
+   "sources": [
+    "Translation",
+    "Translations",
+    "Translator"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Translation"
+   ],
+   "norm_keys": [
+    "translation",
+    "translator"
+   ],
+   "target_lines": [
+    37,
+    39,
+    331,
+    441
+   ],
+   "clusters": {
+    "translation": [
+     "Translation",
+     "Translations"
+    ],
+    "translator": [
+     "Translator"
+    ]
+   }
+  },
+  "考勤": {
+   "sources": [
+    "Attendance",
+    "Mark Attendance"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "attendance",
+    "mark attendance"
+   ],
+   "target_lines": [
+    1471
+   ],
+   "clusters": {
+    "attendance": [
+     "Attendance"
+    ],
+    "mark attendance": [
+     "Mark Attendance"
+    ]
+   }
+  },
+  "联系人": {
+   "sources": [
+    "Contact",
+    "Contact Person",
+    "Contacts"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "contact",
+    "contact person"
+   ],
+   "target_lines": [
+    719
+   ],
+   "clusters": {
+    "contact": [
+     "Contact",
+     "Contacts"
+    ],
+    "contact person": [
+     "Contact Person"
+    ]
+   }
+  },
+  "范围": {
+   "sources": [
+    "Range",
+    "Scopes"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "range",
+    "scope"
+   ],
+   "target_lines": [
+    257,
+    493,
+    1040,
+    1419
+   ],
+   "clusters": {
+    "range": [
+     "Range"
+    ],
+    "scope": [
+     "Scopes"
+    ]
+   }
+  },
+  "选物料": {
+   "sources": [
+    "Get Items",
+    "Get Items From"
+   ],
+   "why": [
+    "source-in-doc:Get Items From"
+   ],
+   "norm_keys": [
+    "get item",
+    "get item from"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "get item": [
+     "Get Items"
+    ],
+    "get item from": [
+     "Get Items From"
+    ]
+   }
+  },
+  "行业": {
+   "sources": [
+    "Domain",
+    "Industry"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "domain",
+    "industry"
+   ],
+   "target_lines": [
+    32,
+    495,
+    1272,
+    1551
+   ],
+   "clusters": {
+    "domain": [
+     "Domain"
+    ],
+    "industry": [
+     "Industry"
+    ]
+   }
+  },
+  "计划": {
+   "sources": [
+    "Plan",
+    "Planned",
+    "Planning",
+    "Plans"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "plan",
+    "plann"
+   ],
+   "target_lines": [
+    1217,
+    1231,
+    1237,
+    1241
+   ],
+   "clusters": {
+    "plan": [
+     "Plan",
+     "Plans"
+    ],
+    "plann": [
+     "Planned",
+     "Planning"
+    ]
+   }
+  },
+  "计量单位": {
+   "sources": [
+    "Batch UOM",
+    "Unit of Measure (UOM)"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "batch uom",
+    "unit of measure uom"
+   ],
+   "target_lines": [
+    280,
+    286,
+    292,
+    309
+   ],
+   "clusters": {
+    "batch uom": [
+     "Batch UOM"
+    ],
+    "unit of measure uom": [
+     "Unit of Measure (UOM)"
+    ]
+   }
+  },
+  "发票状态": {
+   "sources": [
+    "Billing Status",
+    "Invoice Status"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "bill statu",
+    "invoice statu"
+   ],
+   "target_lines": [
+    935,
+    1800
+   ],
+   "clusters": {
+    "bill statu": [
+     "Billing Status"
+    ],
+    "invoice statu": [
+     "Invoice Status"
+    ]
+   }
+  },
+  "运费": {
+   "sources": [
+    "Freight and Forwarding Charges",
+    "Shipping Amount"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "freight and forward charge",
+    "shipp"
+   ],
+   "target_lines": [
+    1105
+   ],
+   "clusters": {
+    "freight and forward charge": [
+     "Freight and Forwarding Charges"
+    ],
+    "shipp": [
+     "Shipping Amount"
+    ]
+   }
+  },
+  "贷方": {
+   "sources": [
+    "Cr",
+    "Credit",
+    "Credit Amount"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "cr",
+    "credit"
+   ],
+   "target_lines": [
+    1006,
+    1119
+   ],
+   "clusters": {
+    "cr": [
+     "Cr"
+    ],
+    "credit": [
+     "Credit",
+     "Credit Amount"
+    ]
+   }
+  },
+  "费用": {
+   "sources": [
+    "Charges Incurred",
+    "Expense",
+    "Expenses"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Expenses"
+   ],
+   "norm_keys": [
+    "charge incurr",
+    "expense"
+   ],
+   "target_lines": [
+    13,
+    169,
+    180,
+    1117
+   ],
+   "clusters": {
+    "charge incurr": [
+     "Charges Incurred"
+    ],
+    "expense": [
+     "Expense",
+     "Expenses"
+    ]
+   }
+  },
+  "工费成本": {
+   "sources": [
+    "Operating Components Cost",
+    "Operating Cost",
+    "Operating Costs"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Operating Components Cost|Operating Cost"
+   ],
+   "norm_keys": [
+    "operat component cost",
+    "operat cost"
+   ],
+   "target_lines": [
+    549,
+    636
+   ],
+   "clusters": {
+    "operat component cost": [
+     "Operating Components Cost"
+    ],
+    "operat cost": [
+     "Operating Cost",
+     "Operating Costs"
+    ]
+   }
+  },
+  "配置": {
+   "sources": [
+    "Config",
+    "Configuration",
+    "Configure"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "config",
+    "configuration",
+    "configure"
+   ],
+   "target_lines": [
+    206,
+    210,
+    235,
+    550
+   ],
+   "clusters": {
+    "config": [
+     "Config"
+    ],
+    "configuration": [
+     "Configuration"
+    ],
+    "configure": [
+     "Configure"
+    ]
+   }
+  },
+  "采购": {
+   "sources": [
+    "Buy",
+    "Buying",
+    "For Buying",
+    "Procurement",
+    "Purchase",
+    "Purchased",
+    "Purchases",
+    "Purchasing"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "buy",
+    "procurement",
+    "purchas",
+    "purchase"
+   ],
+   "target_lines": [
+    53,
+    390,
+    392,
+    394
+   ],
+   "clusters": {
+    "buy": [
+     "Buy",
+     "Buying",
+     "For Buying"
+    ],
+    "procurement": [
+     "Procurement"
+    ],
+    "purchase": [
+     "Purchase",
+     "Purchases"
+    ],
+    "purchas": [
+     "Purchased",
+     "Purchasing"
+    ]
+   }
+  },
+  "采购入库": {
+   "sources": [
+    "Purchase Receipt",
+    "Receipt"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Purchase Receipt"
+   ],
+   "norm_keys": [
+    "purchase receipt",
+    "receipt"
+   ],
+   "target_lines": [
+    603,
+    768,
+    846,
+    854
+   ],
+   "clusters": {
+    "purchase receipt": [
+     "Purchase Receipt"
+    ],
+    "receipt": [
+     "Receipt"
+    ]
+   }
+  },
+  "重复": {
+   "sources": [
+    "Is Recurring",
+    "Repeat",
+    "Repeat On"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "recurr",
+    "repeat",
+    "repeat on"
+   ],
+   "target_lines": [
+    197,
+    1506,
+    1629,
+    2019
+   ],
+   "clusters": {
+    "recurr": [
+     "Is Recurring"
+    ],
+    "repeat": [
+     "Repeat"
+    ],
+    "repeat on": [
+     "Repeat On"
+    ]
+   }
+  },
+  "重置": {
+   "sources": [
+    "Reset",
+    "Reset Layout"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "reset",
+    "reset layout"
+   ],
+   "target_lines": [
+    113,
+    750
+   ],
+   "clusters": {
+    "reset": [
+     "Reset"
+    ],
+    "reset layout": [
+     "Reset Layout"
+    ]
+   }
+  },
+  "销售": {
+   "sources": [
+    "For Selling",
+    "Sales",
+    "Sell",
+    "Selling"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Sales"
+   ],
+   "norm_keys": [
+    "sale",
+    "sell"
+   ],
+   "target_lines": [
+    170,
+    396,
+    935,
+    1091
+   ],
+   "clusters": {
+    "sell": [
+     "For Selling",
+     "Sell",
+     "Selling"
+    ],
+    "sale": [
+     "Sales"
+    ]
+   }
+  },
+  "销售税费模板": {
+   "sources": [
+    "Sales Tax Template",
+    "Sales Taxes and Charges Template"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Sales Taxes and Charges Template"
+   ],
+   "norm_keys": [
+    "sale tax and charge template",
+    "sale tax template"
+   ],
+   "target_lines": [
+    1802
+   ],
+   "clusters": {
+    "sale tax template": [
+     "Sales Tax Template"
+    ],
+    "sale tax and charge template": [
+     "Sales Taxes and Charges Template"
+    ]
+   }
+  },
+  "隐藏": {
+   "sources": [
+    "Hidden",
+    "Hide",
+    "Is Hidden"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "hidden",
+    "hide"
+   ],
+   "target_lines": [
+    854,
+    1425
+   ],
+   "clusters": {
+    "hidden": [
+     "Hidden",
+     "Is Hidden"
+    ],
+    "hide": [
+     "Hide"
+    ]
+   }
+  },
+  "需求日期": {
+   "sources": [
+    "Reqd By Date",
+    "Reqd by date",
+    "Required By",
+    "Required Date"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Required By"
+   ],
+   "norm_keys": [
+    "by",
+    "date"
+   ],
+   "target_lines": [
+    734
+   ],
+   "clusters": {
+    "date": [
+     "Reqd By Date",
+     "Reqd by date",
+     "Required Date"
+    ],
+    "by": [
+     "Required By"
+    ]
+   }
+  },
+  "预留": {
+   "sources": [
+    "Reserve",
+    "Reserved"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "reserv",
+    "reserve"
+   ],
+   "target_lines": [
+    1210,
+    1218,
+    1222,
+    1227
+   ],
+   "clusters": {
+    "reserve": [
+     "Reserve"
+    ],
+    "reserv": [
+     "Reserved"
+    ]
+   }
+  },
+  "验证": {
+   "sources": [
+    "Verification",
+    "Verified"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "verifi",
+    "verification"
+   ],
+   "target_lines": [
+    33,
+    193,
+    197,
+    406
+   ],
+   "clusters": {
+    "verification": [
+     "Verification"
+    ],
+    "verifi": [
+     "Verified"
+    ]
+   }
+  },
+  "生产数量": {
+   "sources": [
+    "Produce Qty",
+    "Produced Quantity",
+    "Qty to Manufacture",
+    "Quantity to Manufacture"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "produc",
+    "produce",
+    "qty to manufacture",
+    "quantity to manufacture"
+   ],
+   "target_lines": [
+    1553
+   ],
+   "clusters": {
+    "produce": [
+     "Produce Qty"
+    ],
+    "produc": [
+     "Produced Quantity"
+    ],
+    "qty to manufacture": [
+     "Qty to Manufacture"
+    ],
+    "quantity to manufacture": [
+     "Quantity to Manufacture"
+    ]
+   }
+  },
+  "人力资源": {
+   "sources": [
+    "Frappe HR",
+    "HR",
+    "Human Resources"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "frappe hr",
+    "hr",
+    "human resource"
+   ],
+   "target_lines": [
+    1471
+   ],
+   "clusters": {
+    "frappe hr": [
+     "Frappe HR"
+    ],
+    "hr": [
+     "HR"
+    ],
+    "human resource": [
+     "Human Resources"
+    ]
+   }
+  },
+  "已完成": {
+   "sources": [
+    "Completed",
+    "Finished",
+    "Is Complete",
+    "completed",
+    "finished"
+   ],
+   "why": [
+    "source-in-doc:Completed|completed"
+   ],
+   "norm_keys": [
+    "complet",
+    "complete",
+    "finish"
+   ],
+   "target_lines": [],
+   "clusters": {
+    "complet": [
+     "Completed",
+     "completed"
+    ],
+    "finish": [
+     "Finished",
+     "finished"
+    ],
+    "complete": [
+     "Is Complete"
+    ]
+   }
+  },
+  "月": {
+   "sources": [
+    "Month",
+    "Months",
+    "m"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "m",
+    "month"
+   ],
+   "target_lines": [
+    894,
+    907,
+    942,
+    1132
+   ],
+   "clusters": {
+    "month": [
+     "Month",
+     "Months"
+    ],
+    "m": [
+     "m"
+    ]
+   }
+  },
+  "数值": {
+   "sources": [
+    "Number",
+    "Numeric"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "number",
+    "numeric"
+   ],
+   "target_lines": [
+    13,
+    23,
+    406,
+    1487
+   ],
+   "clusters": {
+    "number": [
+     "Number"
+    ],
+    "numeric": [
+     "Numeric"
+    ]
+   }
+  },
+  "新增": {
+   "sources": [
+    "Add Item",
+    "after_insert"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "add item",
+    "after insert"
+   ],
+   "target_lines": [
+    13,
+    174,
+    1988
+   ],
+   "clusters": {
+    "add item": [
+     "Add Item"
+    ],
+    "after insert": [
+     "after_insert"
+    ]
+   }
+  },
+  "提交": {
+   "sources": [
+    "Commit",
+    "Submit",
+    "on_submit",
+    "submit"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Submit|on_submit|submit"
+   ],
+   "norm_keys": [
+    "commit",
+    "submit"
+   ],
+   "target_lines": [
+    523,
+    641,
+    643,
+    645
+   ],
+   "clusters": {
+    "commit": [
+     "Commit"
+    ],
+    "submit": [
+     "Submit",
+     "on_submit",
+     "submit"
+    ]
+   }
+  },
+  "取消": {
+   "sources": [
+    "Cancel",
+    "cancel",
+    "canceled",
+    "cancellation",
+    "on_cancel"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "cancel",
+    "cancellation"
+   ],
+   "target_lines": [
+    609,
+    627,
+    687,
+    1208
+   ],
+   "clusters": {
+    "cancel": [
+     "Cancel",
+     "cancel",
+     "canceled",
+     "on_cancel"
+    ],
+    "cancellation": [
+     "cancellation"
+    ]
+   }
+  },
+  "删除": {
+   "sources": [
+    "DELETE",
+    "Delete",
+    "delete",
+    "on_trash"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:DELETE|Delete|delete"
+   ],
+   "norm_keys": [
+    "delete",
+    "trash"
+   ],
+   "target_lines": [
+    71,
+    90,
+    92,
+    981
+   ],
+   "clusters": {
+    "delete": [
+     "DELETE",
+     "Delete",
+     "delete"
+    ],
+    "trash": [
+     "on_trash"
+    ]
+   }
+  },
+  "字段": {
+   "sources": [
+    "By fieldname",
+    "Field",
+    "Fields"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "field",
+    "fieldname"
+   ],
+   "target_lines": [
+    13,
+    19,
+    61,
+    127
+   ],
+   "clusters": {
+    "fieldname": [
+     "By fieldname"
+    ],
+    "field": [
+     "Field",
+     "Fields"
+    ]
+   }
+  },
+  "公式": {
+   "sources": [
+    "Expression",
+    "Formula"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "expression",
+    "formula"
+   ],
+   "target_lines": [
+    321,
+    343
+   ],
+   "clusters": {
+    "expression": [
+     "Expression"
+    ],
+    "formula": [
+     "Formula"
+    ]
+   }
+  },
+  "更多信息": {
+   "sources": [
+    "More Info",
+    "More Information",
+    "Other Info"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "more info",
+    "more information",
+    "other info"
+   ],
+   "target_lines": [
+    550,
+    551,
+    586
+   ],
+   "clusters": {
+    "more info": [
+     "More Info"
+    ],
+    "more information": [
+     "More Information"
+    ],
+    "other info": [
+     "Other Info"
+    ]
+   }
+  },
+  "库存设置": {
+   "sources": [
+    "Inventory Settings",
+    "Stock Settings",
+    "Stock Setup"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Stock Settings"
+   ],
+   "norm_keys": [
+    "inventory sett",
+    "stock sett",
+    "stock setup"
+   ],
+   "target_lines": [
+    145,
+    151,
+    275
+   ],
+   "clusters": {
+    "inventory sett": [
+     "Inventory Settings"
+    ],
+    "stock sett": [
+     "Stock Settings"
+    ],
+    "stock setup": [
+     "Stock Setup"
+    ]
+   }
+  },
+  "源单": {
+   "sources": [
+    "Adjustment Against",
+    "Return Against"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "adjustment against",
+    "return against"
+   ],
+   "target_lines": [
+    1042
+   ],
+   "clusters": {
+    "adjustment against": [
+     "Adjustment Against"
+    ],
+    "return against": [
+     "Return Against"
+    ]
+   }
+  },
+  "成品数量": {
+   "sources": [
+    "Finished Good Qty",
+    "Finished Good Quantity ",
+    "Qty of Finished Goods Item"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "finish good",
+    "qty of finish good item"
+   ],
+   "target_lines": [
+    1481,
+    1599,
+    1601,
+    1683
+   ],
+   "clusters": {
+    "finish good": [
+     "Finished Good Qty",
+     "Finished Good Quantity "
+    ],
+    "qty of finish good item": [
+     "Qty of Finished Goods Item"
+    ]
+   }
+  },
+  "自动": {
+   "sources": [
+    "Auto",
+    "Automatic"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "auto",
+    "automatic"
+   ],
+   "target_lines": [
+    43,
+    155,
+    159,
+    172
+   ],
+   "clusters": {
+    "auto": [
+     "Auto"
+    ],
+    "automatic": [
+     "Automatic"
+    ]
+   }
+  },
+  "车间": {
+   "sources": [
+    "Floor",
+    "Plant Floor"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "floor",
+    "plant floor"
+   ],
+   "target_lines": [
+    244,
+    262,
+    368,
+    1233
+   ],
+   "clusters": {
+    "floor": [
+     "Floor"
+    ],
+    "plant floor": [
+     "Plant Floor"
+    ]
+   }
+  },
+  "编辑": {
+   "sources": [
+    "Edit",
+    "Edit Existing"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "edit",
+    "edit exist"
+   ],
+   "target_lines": [
+    249,
+    1517
+   ],
+   "clusters": {
+    "edit": [
+     "Edit"
+    ],
+    "edit exist": [
+     "Edit Existing"
+    ]
+   }
+  },
+  "入职日期": {
+   "sources": [
+    "Date of Joining",
+    "Onboarding Begins On"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "date of join",
+    "onboard begin on"
+   ],
+   "target_lines": [
+    1469
+   ],
+   "clusters": {
+    "date of join": [
+     "Date of Joining"
+    ],
+    "onboard begin on": [
+     "Onboarding Begins On"
+    ]
+   }
+  },
+  "销售税费": {
+   "sources": [
+    "Sales Taxes",
+    "Sales Taxes and Charges"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "sale tax",
+    "sale tax and charge"
+   ],
+   "target_lines": [
+    1802
+   ],
+   "clusters": {
+    "sale tax": [
+     "Sales Taxes"
+    ],
+    "sale tax and charge": [
+     "Sales Taxes and Charges"
+    ]
+   }
+  },
+  "财务报表": {
+   "sources": [
+    "Financial Reports",
+    "Financial Statements",
+    "STATEMENT OF ACCOUNTS"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "financial report",
+    "financial statement",
+    "statement of"
+   ],
+   "target_lines": [
+    1053,
+    1455
+   ],
+   "clusters": {
+    "financial report": [
+     "Financial Reports"
+    ],
+    "financial statement": [
+     "Financial Statements"
+    ],
+    "statement of": [
+     "STATEMENT OF ACCOUNTS"
+    ]
+   }
+  },
+  "登录": {
+   "sources": [
+    "Login",
+    "Sign In"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "login",
+    "sign in"
+   ],
+   "target_lines": [
+    37
+   ],
+   "clusters": {
+    "login": [
+     "Login"
+    ],
+    "sign in": [
+     "Sign In"
+    ]
+   }
+  },
+  "提交后": {
+   "sources": [
+    "After Submission",
+    "After Submit"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "after submission",
+    "after submit"
+   ],
+   "target_lines": [
+    687,
+    806,
+    909,
+    1169
+   ],
+   "clusters": {
+    "after submission": [
+     "After Submission"
+    ],
+    "after submit": [
+     "After Submit"
+    ]
+   }
+  },
+  "参数": {
+   "sources": [
+    "Arguments",
+    "Parameter",
+    "Parameters"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "argument",
+    "parameter"
+   ],
+   "target_lines": [
+    1785
+   ],
+   "clusters": {
+    "argument": [
+     "Arguments"
+    ],
+    "parameter": [
+     "Parameter",
+     "Parameters"
+    ]
+   }
+  },
+  "返回": {
+   "sources": [
+    "Back",
+    "Go Back",
+    "Go back"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "back",
+    "go back"
+   ],
+   "target_lines": [
+    45,
+    90,
+    201
+   ],
+   "clusters": {
+    "back": [
+     "Back"
+    ],
+    "go back": [
+     "Go Back",
+     "Go back"
+    ]
+   }
+  },
+  "出生日期": {
+   "sources": [
+    "Birth Date",
+    "Date of Birth"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "birth",
+    "date of birth"
+   ],
+   "target_lines": [
+    1469
+   ],
+   "clusters": {
+    "birth": [
+     "Birth Date"
+    ],
+    "date of birth": [
+     "Date of Birth"
+    ]
+   }
+  },
+  "已提交": {
+   "sources": [
+    "Committed",
+    "Submitted",
+    "submitted"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "committ",
+    "submitt"
+   ],
+   "target_lines": [
+    523
+   ],
+   "clusters": {
+    "committ": [
+     "Committed"
+    ],
+    "submitt": [
+     "Submitted",
+     "submitted"
+    ]
+   }
+  },
+  "继续": {
+   "sources": [
+    "Continue",
+    "Proceed"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "continue",
+    "proce"
+   ],
+   "target_lines": [
+    98,
+    1525,
+    1574
+   ],
+   "clusters": {
+    "continue": [
+     "Continue"
+    ],
+    "proce": [
+     "Proceed"
+    ]
+   }
+  },
+  "天": {
+   "sources": [
+    "Day",
+    "Days",
+    "d"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "d",
+    "day"
+   ],
+   "target_lines": [
+    733,
+    935,
+    1040,
+    1082
+   ],
+   "clusters": {
+    "day": [
+     "Day",
+     "Days"
+    ],
+    "d": [
+     "d"
+    ]
+   }
+  },
+  "默认值": {
+   "sources": [
+    "Default Value",
+    "DefaultValue",
+    "Defaults"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "default",
+    "default value",
+    "defaultvalue"
+   ],
+   "target_lines": [
+    189,
+    402,
+    405,
+    455
+   ],
+   "clusters": {
+    "default value": [
+     "Default Value"
+    ],
+    "defaultvalue": [
+     "DefaultValue"
+    ],
+    "default": [
+     "Defaults"
+    ]
+   }
+  },
+  "显示": {
+   "sources": [
+    "Display",
+    "Show"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "display",
+    "show"
+   ],
+   "target_lines": [
+    151,
+    260,
+    274,
+    398
+   ],
+   "clusters": {
+    "display": [
+     "Display"
+    ],
+    "show": [
+     "Show"
+    ]
+   }
+  },
+  "复制": {
+   "sources": [
+    "Duplicate",
+    "Replicate"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "duplicate",
+    "replicate"
+   ],
+   "target_lines": [
+    528
+   ],
+   "clusters": {
+    "duplicate": [
+     "Duplicate"
+    ],
+    "replicate": [
+     "Replicate"
+    ]
+   }
+  },
+  "执行": {
+   "sources": [
+    "Execute",
+    "Execution"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "execute",
+    "execution"
+   ],
+   "target_lines": [
+    4,
+    90,
+    1882,
+    2002
+   ],
+   "clusters": {
+    "execute": [
+     "Execute"
+    ],
+    "execution": [
+     "Execution"
+    ]
+   }
+  },
+  "失败": {
+   "sources": [
+    "FAILURE",
+    "Fail",
+    "Failed",
+    "failed"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "fail",
+    "failure"
+   ],
+   "target_lines": [
+    757,
+    1020
+   ],
+   "clusters": {
+    "failure": [
+     "FAILURE"
+    ],
+    "fail": [
+     "Fail",
+     "Failed",
+     "failed"
+    ]
+   }
+  },
+  "主页": {
+   "sources": [
+    "Home",
+    "Home Page"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "home",
+    "home page"
+   ],
+   "target_lines": [
+    396,
+    398
+   ],
+   "clusters": {
+    "home": [
+     "Home"
+    ],
+    "home page": [
+     "Home Page"
+    ]
+   }
+  },
+  "小时": {
+   "sources": [
+    "Hour",
+    "Hours",
+    "h",
+    "hours"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "h",
+    "hour"
+   ],
+   "target_lines": [
+    428,
+    430,
+    437,
+    439
+   ],
+   "clusters": {
+    "hour": [
+     "Hour",
+     "Hours",
+     "hours"
+    ],
+    "h": [
+     "h"
+    ]
+   }
+  },
+  "信息": {
+   "sources": [
+    "Info",
+    "Message"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "info",
+    "message"
+   ],
+   "target_lines": [
+    37,
+    534,
+    550,
+    551
+   ],
+   "clusters": {
+    "info": [
+     "Info"
+    ],
+    "message": [
+     "Message"
+    ]
+   }
+  },
+  "说明": {
+   "sources": [
+    "Explanation",
+    "Instruction",
+    "Instructions"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "explanation",
+    "instruction"
+   ],
+   "target_lines": [
+    88,
+    98,
+    123,
+    127
+   ],
+   "clusters": {
+    "explanation": [
+     "Explanation"
+    ],
+    "instruction": [
+     "Instruction",
+     "Instructions"
+    ]
+   }
+  },
+  "是": {
+   "sources": [
+    "Is",
+    "Yes"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "is",
+    "ye"
+   ],
+   "target_lines": [
+    3,
+    6,
+    19,
+    21
+   ],
+   "clusters": {
+    "is": [
+     "Is"
+    ],
+    "ye": [
+     "Yes"
+    ]
+   }
+  },
+  "标签": {
+   "sources": [
+    "Label",
+    "Tag",
+    "Tags",
+    "label"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "label",
+    "tag"
+   ],
+   "target_lines": [
+    249,
+    276,
+    441,
+    489
+   ],
+   "clusters": {
+    "label": [
+     "Label",
+     "label"
+    ],
+    "tag": [
+     "Tag",
+     "Tags"
+    ]
+   }
+  },
+  "个人": {
+   "sources": [
+    "Individual",
+    "Personal"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "individual",
+    "personal"
+   ],
+   "target_lines": [
+    1578
+   ],
+   "clusters": {
+    "individual": [
+     "Individual"
+    ],
+    "personal": [
+     "Personal"
+    ]
+   }
+  },
+  "纯文本": {
+   "sources": [
+    "Plain Text",
+    "plain"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "plain",
+    "plain text"
+   ],
+   "target_lines": [
+    1635
+   ],
+   "clusters": {
+    "plain text": [
+     "Plain Text"
+    ],
+    "plain": [
+     "plain"
+    ]
+   }
+  },
+  "属性": {
+   "sources": [
+    "Attribute",
+    "Attributes",
+    "Property"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Attributes"
+   ],
+   "norm_keys": [
+    "attribute",
+    "property"
+   ],
+   "target_lines": [
+    296,
+    307,
+    403,
+    406
+   ],
+   "clusters": {
+    "attribute": [
+     "Attribute",
+     "Attributes"
+    ],
+    "property": [
+     "Property"
+    ]
+   }
+  },
+  "队列": {
+   "sources": [
+    "Queue",
+    "Queue(s)"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "queue",
+    "queue s"
+   ],
+   "target_lines": [
+    71,
+    88,
+    90,
+    824
+   ],
+   "clusters": {
+    "queue": [
+     "Queue"
+    ],
+    "queue s": [
+     "Queue(s)"
+    ]
+   }
+  },
+  "重新打开": {
+   "sources": [
+    "Re-open",
+    "Reopen"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "re open",
+    "reopen"
+   ],
+   "target_lines": [
+    193
+   ],
+   "clusters": {
+    "re open": [
+     "Re-open"
+    ],
+    "reopen": [
+     "Reopen"
+    ]
+   }
+  },
+  "成功": {
+   "sources": [
+    "SUCCESS",
+    "Succeeded",
+    "Success",
+    "Successful"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "succeed",
+    "success",
+    "successful"
+   ],
+   "target_lines": [
+    71,
+    631,
+    981,
+    985
+   ],
+   "clusters": {
+    "success": [
+     "SUCCESS",
+     "Success"
+    ],
+    "succeed": [
+     "Succeeded"
+    ],
+    "successful": [
+     "Successful"
+    ]
+   }
+  },
+  "标准": {
+   "sources": [
+    "Criteria",
+    "Standard"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Standard"
+   ],
+   "norm_keys": [
+    "criteria",
+    "standard"
+   ],
+   "target_lines": [
+    329,
+    459,
+    495,
+    608
+   ],
+   "clusters": {
+    "criteria": [
+     "Criteria"
+    ],
+    "standard": [
+     "Standard"
+    ]
+   }
+  },
+  "金额": {
+   "sources": [
+    " Amount",
+    "Amount",
+    "Amt",
+    "In Value"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "amount",
+    "amt",
+    "value"
+   ],
+   "target_lines": [
+    212,
+    260,
+    813,
+    893
+   ],
+   "clusters": {
+    "amount": [
+     " Amount",
+     "Amount"
+    ],
+    "amt": [
+     "Amt"
+    ],
+    "value": [
+     "In Value"
+    ]
+   }
+  },
+  "分配": {
+   "sources": [
+    "Allocate",
+    "Allocation"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "allocate",
+    "allocation"
+   ],
+   "target_lines": [
+    1956
+   ],
+   "clusters": {
+    "allocate": [
+     "Allocate"
+    ],
+    "allocation": [
+     "Allocation"
+    ]
+   }
+  },
+  "余额": {
+   "sources": [
+    "Balance",
+    "Remaining Balance"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "balance",
+    "remain balance"
+   ],
+   "target_lines": [
+    820,
+    837,
+    894,
+    969
+   ],
+   "clusters": {
+    "balance": [
+     "Balance"
+    ],
+    "remain balance": [
+     "Remaining Balance"
+    ]
+   }
+  },
+  "合并": {
+   "sources": [
+    "Consolidated",
+    "Merge"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "consolidat",
+    "merge"
+   ],
+   "target_lines": [
+    493,
+    679,
+    759,
+    911
+   ],
+   "clusters": {
+    "consolidat": [
+     "Consolidated"
+    ],
+    "merge": [
+     "Merge"
+    ]
+   }
+  },
+  "需求": {
+   "sources": [
+    "Demand",
+    "Requirement"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "demand",
+    "requirement"
+   ],
+   "target_lines": [
+    31,
+    39,
+    734,
+    1281
+   ],
+   "clusters": {
+    "demand": [
+     "Demand"
+    ],
+    "requirement": [
+     "Requirement"
+    ]
+   }
+  },
+  "生产": {
+   "sources": [
+    "For Production",
+    "Manufacturing",
+    "Production",
+    "production"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Manufacturing"
+   ],
+   "norm_keys": [
+    "manufactur",
+    "production"
+   ],
+   "target_lines": [
+    145,
+    157,
+    176,
+    181
+   ],
+   "clusters": {
+    "production": [
+     "For Production",
+     "Production",
+     "production"
+    ],
+    "manufactur": [
+     "Manufacturing"
+    ]
+   }
+  },
+  "毛利率": {
+   "sources": [
+    "Gross Profit Percent",
+    "Gross Profit Ratio"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "gross profit percent",
+    "gross profit ratio"
+   ],
+   "target_lines": [
+    639,
+    1496,
+    1703,
+    1826
+   ],
+   "clusters": {
+    "gross profit percent": [
+     "Gross Profit Percent"
+    ],
+    "gross profit ratio": [
+     "Gross Profit Ratio"
+    ]
+   }
+  },
+  "库存": {
+   "sources": [
+    "In Stock",
+    "Inventory",
+    "Stock"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "inventory",
+    "stock"
+   ],
+   "target_lines": [
+    21,
+    145,
+    151,
+    155
+   ],
+   "clusters": {
+    "stock": [
+     "In Stock",
+     "Stock"
+    ],
+    "inventory": [
+     "Inventory"
+    ]
+   }
+  },
+  "问题": {
+   "sources": [
+    "Issue",
+    "Issues",
+    "Problem"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "issue",
+    "problem"
+   ],
+   "target_lines": [
+    31,
+    235,
+    439,
+    477
+   ],
+   "clusters": {
+    "issue": [
+     "Issue",
+     "Issues"
+    ],
+    "problem": [
+     "Problem"
+    ]
+   }
+  },
+  "主生产计划": {
+   "sources": [
+    "MPS",
+    "Master Production Schedule"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Master Production Schedule"
+   ],
+   "norm_keys": [
+    "master production schedule",
+    "mp"
+   ],
+   "target_lines": [
+    1284
+   ],
+   "clusters": {
+    "mp": [
+     "MPS"
+    ],
+    "master production schedule": [
+     "Master Production Schedule"
+    ]
+   }
+  },
+  "付款方式": {
+   "sources": [
+    "Mode Of Payment",
+    "Mode of Payment",
+    "Mode of Payments",
+    "Modes of Payment",
+    "Payment Method",
+    "Payment Methods",
+    "Payment Mode"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Mode Of Payment|Mode of Payment"
+   ],
+   "norm_keys": [
+    "mode of payment",
+    "payment method",
+    "payment mode"
+   ],
+   "target_lines": [
+    931
+   ],
+   "clusters": {
+    "mode of payment": [
+     "Mode Of Payment",
+     "Mode of Payment",
+     "Mode of Payments",
+     "Modes of Payment"
+    ],
+    "payment method": [
+     "Payment Method",
+     "Payment Methods"
+    ],
+    "payment mode": [
+     "Payment Mode"
+    ]
+   }
+  },
+  "未付": {
+   "sources": [
+    "Outstanding",
+    "Unpaid"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Unpaid"
+   ],
+   "norm_keys": [
+    "outstand",
+    "unpaid"
+   ],
+   "target_lines": [
+    935,
+    1781
+   ],
+   "clusters": {
+    "outstand": [
+     "Outstanding"
+    ],
+    "unpaid": [
+     "Unpaid"
+    ]
+   }
+  },
+  "付款类型": {
+   "sources": [
+    "Payment Type",
+    "Type of Payment"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Payment Type"
+   ],
+   "norm_keys": [
+    "payment type",
+    "type of payment"
+   ],
+   "target_lines": [
+    929
+   ],
+   "clusters": {
+    "payment type": [
+     "Payment Type"
+    ],
+    "type of payment": [
+     "Type of Payment"
+    ]
+   }
+  },
+  "过账日期": {
+   "sources": [
+    "Posted On",
+    "Posting date"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Posting date"
+   ],
+   "norm_keys": [
+    "post",
+    "post on"
+   ],
+   "target_lines": [
+    1246
+   ],
+   "clusters": {
+    "post on": [
+     "Posted On"
+    ],
+    "post": [
+     "Posting date"
+    ]
+   }
+  },
+  "价格": {
+   "sources": [
+    "Price",
+    "Rates"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "price",
+    "rate"
+   ],
+   "target_lines": [
+    390,
+    396,
+    398,
+    551
+   ],
+   "clusters": {
+    "price": [
+     "Price"
+    ],
+    "rate": [
+     "Rates"
+    ]
+   }
+  },
+  "单价": {
+   "sources": [
+    "Rate",
+    "Unit Price"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Rate"
+   ],
+   "norm_keys": [
+    "rate",
+    "unit price"
+   ],
+   "target_lines": [
+    394,
+    550,
+    575,
+    581
+   ],
+   "clusters": {
+    "rate": [
+     "Rate"
+    ],
+    "unit price": [
+     "Unit Price"
+    ]
+   }
+  },
+  "工资": {
+   "sources": [
+    "Salary",
+    "Wages"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Wages"
+   ],
+   "norm_keys": [
+    "salary",
+    "wage"
+   ],
+   "target_lines": [
+    432,
+    1117,
+    1684,
+    2024
+   ],
+   "clusters": {
+    "salary": [
+     "Salary"
+    ],
+    "wage": [
+     "Wages"
+    ]
+   }
+  },
+  "建议": {
+   "sources": [
+    "Suggested",
+    "Suggestions"
+   ],
+   "why": [
+    "target-in-doc"
+   ],
+   "norm_keys": [
+    "suggest",
+    "suggestion"
+   ],
+   "target_lines": [
+    6,
+    461,
+    493,
+    685
+   ],
+   "clusters": {
+    "suggest": [
+     "Suggested"
+    ],
+    "suggestion": [
+     "Suggestions"
+    ]
+   }
+  },
+  "供应商名称": {
+   "sources": [
+    "Supplier Name",
+    "Vendor Name"
+   ],
+   "why": [
+    "target-in-doc",
+    "source-in-doc:Supplier Name"
+   ],
+   "norm_keys": [
+    "supplier",
+    "vendor"
+   ],
+   "target_lines": [
+    699
+   ],
+   "clusters": {
+    "supplier": [
+     "Supplier Name"
+    ],
+    "vendor": [
+     "Vendor Name"
+    ]
+   }
+  }
+ }
+}
