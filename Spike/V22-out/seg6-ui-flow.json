@@ -1,0 +1,167 @@
+{
+  "segment": "6 replay the shipped UI Map Columns flow, no patching",
+  "bt_before": 6,
+  "wrote_xlsx": "/workspace/Spike/V22-sample-statement-uiflow.xlsx",
+  "headers": [
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种"
+  ],
+  "step1_template_options": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\"}}",
+  "step2_template_options": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\"}}",
+  "step2_columns_mapped": [
+    [
+      "Sr. No",
+      null
+    ],
+    [
+      "交易日期",
+      null
+    ],
+    [
+      "摘要",
+      null
+    ],
+    [
+      "借方发生额",
+      null
+    ],
+    [
+      "贷方发生额",
+      null
+    ],
+    [
+      "余额",
+      null
+    ],
+    [
+      "对方户名",
+      null
+    ],
+    [
+      "交易流水号",
+      null
+    ],
+    [
+      "币种",
+      null
+    ]
+  ],
+  "step3_template_options_AFTER_SAVE": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\", \"0\": \"date\", \"1\": \"description\", \"2\": \"withdrawal\", \"3\": \"deposit\", \"4\": \"bank_account\", \"5\": \"bank_party_name\", \"6\": \"reference_number\", \"7\": \"currency\"}}",
+  "step3_index_keys_SURVIVED_validate": true,
+  "step3_fields_mapped_count": 8,
+  "step3_columns_mapped": [
+    [
+      "Sr. No",
+      null
+    ],
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "余额",
+      "bank_account"
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ]
+  ],
+  "step3_gate_BankAccount_present": true,
+  "step4_start_import_returned": "bank_statement_import::Bank Statement Import on 2026-09-26 22:14:35.813836",
+  "step4_threw": false,
+  "step4_seconds": 0.31,
+  "step4_bsi_status": "Pending",
+  "bt_after": 6,
+  "new_bank_transactions": [],
+  "step4_import_logs": [],
+  "bank_mapping_after_this_import": [
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ],
+    [
+      "0",
+      "date"
+    ],
+    [
+      "1",
+      "description"
+    ],
+    [
+      "2",
+      "withdrawal"
+    ],
+    [
+      "3",
+      "deposit"
+    ],
+    [
+      "4",
+      "bank_account"
+    ],
+    [
+      "5",
+      "bank_party_name"
+    ],
+    [
+      "6",
+      "reference_number"
+    ],
+    [
+      "7",
+      "currency"
+    ]
+  ],
+  "VERDICT": "shipped UI flow still fails"
+}

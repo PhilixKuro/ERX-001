@@ -1,0 +1,397 @@
+{
+  "segment": "12 gbk storage check + cleanup inventory",
+  "gbk_rows_as_stored": [
+    {
+      "name": "ACC-BTN-2026-00011",
+      "date": "2026-09-29",
+      "status": "Unreconciled",
+      "deposit": 3333.0,
+      "withdrawal": 0.0,
+      "currency": "CNY",
+      "description": "»őżîĘŐČë",
+      "reference_number": "V22REF20260929001",
+      "bank_party_name": "˝­ÄĎ»úĐµ",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "company": "华东弹簧",
+      "unallocated_amount": 3333.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00012",
+      "date": "2026-09-29",
+      "status": "Unreconciled",
+      "deposit": 0.0,
+      "withdrawal": 8.0,
+      "currency": "CNY",
+      "description": "ĘÖĐř·Ń",
+      "reference_number": "V22REF20260929002",
+      "bank_party_name": null,
+      "bank_account": "V22测试账户 - V22测试银行",
+      "company": "华东弹簧",
+      "unallocated_amount": 8.0,
+      "docstatus": 1
+    }
+  ],
+  "gbk_bank_account_is_null": [
+    [
+      "ACC-BTN-2026-00011",
+      "V22测试账户 - V22测试银行"
+    ],
+    [
+      "ACC-BTN-2026-00012",
+      "V22测试账户 - V22测试银行"
+    ]
+  ],
+  "gbk_description_mojibake": [
+    [
+      "ACC-BTN-2026-00011",
+      "»őżîĘŐČë"
+    ],
+    [
+      "ACC-BTN-2026-00012",
+      "ĘÖĐř·Ń"
+    ]
+  ],
+  "GBK_VERDICT": "Bank Statement Import reported Success and created rows from the GBK file, but the Chinese text is mojibake AND bank_account came out empty, so the rows are invisible to get_bank_transactions(bank_account=...) and can never be reconciled. A blocking Link warning WAS raised at preview time yet the import proceeded anyway.",
+  "NOTE_why_not_blocked": "start_import (bank_statement_import.py:291) builds its own ImportFile WITHOUT template_options, then write_files (:300) rewrites the file, and Importer (:303) re-reads template_options from the doc. The warning seen in the preview is computed on a DIFFERENT object than the one import_data() checks, so a preview-blocking warning does not necessarily block the import.",
+  "ALL_bank_transactions": [
+    {
+      "name": "ACC-BTN-2026-00001",
+      "date": "2026-09-22",
+      "status": "Reconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260922001",
+      "allocated_amount": 1045.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00002",
+      "date": "2026-09-22",
+      "status": "Unreconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260922002",
+      "allocated_amount": 0.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00003",
+      "date": "2026-09-23",
+      "status": "Unreconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260923001",
+      "allocated_amount": 0.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00004",
+      "date": "2026-09-23",
+      "status": "Unreconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260923002",
+      "allocated_amount": 0.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00005",
+      "date": "2026-09-24",
+      "status": "Unreconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260924001",
+      "allocated_amount": 0.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00006",
+      "date": "2026-09-24",
+      "status": "Unreconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260924002",
+      "allocated_amount": 0.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00007",
+      "date": "2026-09-28",
+      "status": "Reconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260928001",
+      "allocated_amount": 8888.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00008",
+      "date": "2026-09-28",
+      "status": "Unreconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260928002",
+      "allocated_amount": 0.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00009",
+      "date": "2026-09-29",
+      "status": "Reconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260929001",
+      "allocated_amount": 3333.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00010",
+      "date": "2026-09-29",
+      "status": "Unreconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260929002",
+      "allocated_amount": 0.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00011",
+      "date": "2026-09-29",
+      "status": "Unreconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260929001",
+      "allocated_amount": 0.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00012",
+      "date": "2026-09-29",
+      "status": "Unreconciled",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "reference_number": "V22REF20260929002",
+      "allocated_amount": 0.0,
+      "docstatus": 1
+    }
+  ],
+  "ALL_bank_transaction_payments": [
+    {
+      "name": "roojsn8408",
+      "parent": "ACC-BTN-2026-00009",
+      "payment_document": "Payment Entry",
+      "payment_entry": "ACC-PAY-2026-00010",
+      "allocated_amount": 3333.0
+    },
+    {
+      "name": "qbdqvc1f2i",
+      "parent": "ACC-BTN-2026-00007",
+      "payment_document": "Payment Entry",
+      "payment_entry": "ACC-PAY-2026-00009",
+      "allocated_amount": 8888.0
+    },
+    {
+      "name": "a8oqeknk50",
+      "parent": "ACC-BTN-2026-00001",
+      "payment_document": "Payment Entry",
+      "payment_entry": "ACC-PAY-2026-00008",
+      "allocated_amount": 1045.0
+    }
+  ],
+  "ALL_payment_entries": [
+    {
+      "name": "ACC-PAY-2026-00006",
+      "reference_no": null,
+      "paid_amount": 750.0,
+      "clearance_date": null,
+      "paid_to": "应付账款 1 - HDS",
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00007",
+      "reference_no": null,
+      "paid_amount": 1045.0,
+      "clearance_date": null,
+      "paid_to": "现金 - HDS",
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00008",
+      "reference_no": "V22REF20260922001",
+      "paid_amount": 1045.0,
+      "clearance_date": "2026-09-22",
+      "paid_to": "V22测试银行存款 - HDS",
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00009",
+      "reference_no": "V22REF20260928001",
+      "paid_amount": 8888.0,
+      "clearance_date": "2026-09-28",
+      "paid_to": "V22测试银行存款 - HDS",
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00010",
+      "reference_no": "V22REF20260929001",
+      "paid_amount": 3333.0,
+      "clearance_date": "2026-09-29",
+      "paid_to": "V22测试银行存款 - HDS",
+      "docstatus": 1
+    }
+  ],
+  "V22_payment_entries": [
+    {
+      "name": "ACC-PAY-2026-00010",
+      "reference_no": "V22REF20260929001",
+      "paid_amount": 3333.0,
+      "clearance_date": "2026-09-29",
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00009",
+      "reference_no": "V22REF20260928001",
+      "paid_amount": 8888.0,
+      "clearance_date": "2026-09-28",
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00008",
+      "reference_no": "V22REF20260922001",
+      "paid_amount": 1045.0,
+      "clearance_date": "2026-09-22",
+      "docstatus": 1
+    }
+  ],
+  "ALL_bank_statement_imports": [
+    {
+      "name": "Bank Statement Import on 2026-09-26 21:50:39.854371",
+      "status": "Pending",
+      "import_file": "/private/files/V22-sample-statement92d7ed.xlsx"
+    },
+    {
+      "name": "Bank Statement Import on 2026-09-26 22:04:21.977773",
+      "status": "Success",
+      "import_file": "/private/files/V22-sample-statement-gated920a30.xlsx"
+    },
+    {
+      "name": "Bank Statement Import on 2026-09-26 22:14:35.813836",
+      "status": "Pending",
+      "import_file": "/private/files/V22-sample-statement-uiflow748ad4.xlsx"
+    },
+    {
+      "name": "Bank Statement Import on 2026-09-26 22:28:54.745223",
+      "status": "Pending",
+      "import_file": "/private/files/V22-sample-statement-shipped902c2d.xlsx"
+    },
+    {
+      "name": "Bank Statement Import on 2026-09-26 22:31:51.101357",
+      "status": "Success",
+      "import_file": "/private/files/V22-sample-statement-clean7ea9be.xlsx"
+    },
+    {
+      "name": "Bank Statement Import on 2026-09-26 22:34:16.092433",
+      "status": "Success",
+      "import_file": "/private/files/V22-sample-statement1c8c47.csv"
+    },
+    {
+      "name": "Bank Statement Import on 2026-09-26 22:34:16.502182",
+      "status": "Success",
+      "import_file": "/private/files/V22-sample-statement-gbk0db299.csv"
+    }
+  ],
+  "ALL_data_import_logs_count": 12,
+  "ALL_banks": [
+    {
+      "name": "V22测试银行"
+    }
+  ],
+  "ALL_bank_accounts": [
+    {
+      "name": "V22测试账户 - V22测试银行",
+      "account": "V22测试银行存款 - HDS"
+    }
+  ],
+  "V22_accounts": [
+    {
+      "name": "V22测试银行存款 - HDS",
+      "account_name": "V22测试银行存款"
+    }
+  ],
+  "V22_files": [
+    {
+      "name": "e7e1bdce72",
+      "file_name": "V22-sample-statement-gbk0db299.csv",
+      "file_url": "/private/files/V22-sample-statement-gbk0db299.csv",
+      "attached_to_doctype": "Bank Statement Import",
+      "attached_to_name": "Bank Statement Import on 2026-09-26 22:34:16.502182"
+    },
+    {
+      "name": "b08584a579",
+      "file_name": "V22-sample-statement1c8c47.csv",
+      "file_url": "/private/files/V22-sample-statement1c8c47.csv",
+      "attached_to_doctype": "Bank Statement Import",
+      "attached_to_name": "Bank Statement Import on 2026-09-26 22:34:16.092433"
+    },
+    {
+      "name": "6e120df529",
+      "file_name": "V22-sample-statement-clean7ea9be.xlsx",
+      "file_url": "/private/files/V22-sample-statement-clean7ea9be.xlsx",
+      "attached_to_doctype": "Bank Statement Import",
+      "attached_to_name": "Bank Statement Import on 2026-09-26 22:31:51.101357"
+    },
+    {
+      "name": "78db18107d",
+      "file_name": "V22-sample-statement-shipped902c2d.xlsx",
+      "file_url": "/private/files/V22-sample-statement-shipped902c2d.xlsx",
+      "attached_to_doctype": "Bank Statement Import",
+      "attached_to_name": "Bank Statement Import on 2026-09-26 22:28:54.745223"
+    },
+    {
+      "name": "86f49c38ee",
+      "file_name": "V22-sample-statement-uiflow748ad4.xlsx",
+      "file_url": "/private/files/V22-sample-statement-uiflow748ad4.xlsx",
+      "attached_to_doctype": "Bank Statement Import",
+      "attached_to_name": "Bank Statement Import on 2026-09-26 22:14:35.813836"
+    },
+    {
+      "name": "47a4fccbeb",
+      "file_name": "V22-sample-statement-gated920a30.xlsx",
+      "file_url": "/private/files/V22-sample-statement-gated920a30.xlsx",
+      "attached_to_doctype": "Bank Statement Import",
+      "attached_to_name": "Bank Statement Import on 2026-09-26 22:04:21.977773"
+    },
+    {
+      "name": "3c39417192",
+      "file_name": "V22-sample-statement92d7ed.xlsx",
+      "file_url": "/private/files/V22-sample-statement92d7ed.xlsx",
+      "attached_to_doctype": "Bank Statement Import",
+      "attached_to_name": "Bank Statement Import on 2026-09-26 21:50:39.854371"
+    }
+  ],
+  "ALL_files_count": 9,
+  "ALL_gl_entries_on_test_account": [
+    {
+      "name": "5d109f73ac",
+      "voucher_type": "Payment Entry",
+      "voucher_no": "ACC-PAY-2026-00010",
+      "debit": 3333.0,
+      "credit": 0.0,
+      "is_cancelled": 0
+    },
+    {
+      "name": "40681f6c8b",
+      "voucher_type": "Payment Entry",
+      "voucher_no": "ACC-PAY-2026-00009",
+      "debit": 8888.0,
+      "credit": 0.0,
+      "is_cancelled": 0
+    },
+    {
+      "name": "647eba71ad",
+      "voucher_type": "Payment Entry",
+      "voucher_no": "ACC-PAY-2026-00008",
+      "debit": 1045.0,
+      "credit": 0.0,
+      "is_cancelled": 0
+    }
+  ],
+  "count_Bank Transaction": 12,
+  "count_Payment Entry": 5,
+  "count_Bank Account": 1,
+  "count_Bank": 1,
+  "count_Error Log": 1,
+  "count_Bank Statement Import": 7,
+  "count_Data Import Log": 12,
+  "count_File": 9,
+  "count_GL Entry": 28
+}

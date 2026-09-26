@@ -1,0 +1,143 @@
+{
+  "segment": "5 mapping-table corruption + gate workaround",
+  "F1_bank_mapping_rows_NOW": [
+    [
+      "0",
+      "date"
+    ],
+    [
+      "1",
+      "description"
+    ],
+    [
+      "2",
+      "withdrawal"
+    ],
+    [
+      "3",
+      "deposit"
+    ],
+    [
+      "5",
+      "bank_party_name"
+    ],
+    [
+      "6",
+      "reference_number"
+    ],
+    [
+      "7",
+      "currency"
+    ]
+  ],
+  "F1_file_field_values_NOW": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "5",
+    "6",
+    "7"
+  ],
+  "F1_chinese_file_fields_still_present": [],
+  "F1_VERDICT": "CORRUPTED: the 7 Chinese file_field values were replaced by numeric strings",
+  "F2_mapping_restored": [
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ]
+  ],
+  "F2_using_file": "/private/files/V22-sample-statement92d7ed.xlsx",
+  "F2_map_used": {
+    "0": "date",
+    "1": "description",
+    "2": "withdrawal",
+    "3": "deposit",
+    "5": "bank_party_name",
+    "6": "reference_number",
+    "7": "currency",
+    "4": "bank_account"
+  },
+  "F2_preview_columns": [
+    {
+      "col_no": null,
+      "header": "Sr. No",
+      "df_label": null,
+      "df_fieldname": null
+    },
+    {
+      "col_no": 1,
+      "header": "交易日期",
+      "df_label": "Date",
+      "df_fieldname": "date"
+    },
+    {
+      "col_no": 2,
+      "header": "摘要",
+      "df_label": "Description",
+      "df_fieldname": "description"
+    },
+    {
+      "col_no": 3,
+      "header": "借方发生额",
+      "df_label": "Withdrawal",
+      "df_fieldname": "withdrawal"
+    },
+    {
+      "col_no": 4,
+      "header": "贷方发生额",
+      "df_label": "Deposit",
+      "df_fieldname": "deposit"
+    },
+    {
+      "col_no": 5,
+      "header": "余额",
+      "df_label": "Bank Account",
+      "df_fieldname": "bank_account"
+    },
+    {
+      "col_no": 6,
+      "header": "对方户名",
+      "df_label": "Party Name/Account Holder (Bank Statement)",
+      "df_fieldname": "bank_party_name"
+    },
+    {
+      "col_no": 7,
+      "header": "交易流水号",
+      "df_label": "Reference Number",
+      "df_fieldname": "reference_number"
+    },
+    {
+      "col_no": 8,
+      "header": "币种",
+      "df_label": "Currency",
+      "df_fieldname": "currency"
+    }
+  ],
+  "F2_gate_passes_without_editing_file": true,
+  "F2_VERDICT": "gate satisfiable by MAPPING alone (df.label 'Bank Account' lands in the preview JSON), so the statement file itself need not be rewritten -- but a real column must be sacrificed to carry the bank account, and add_bank_account() at :327-341 then overwrites that column's values"
+}

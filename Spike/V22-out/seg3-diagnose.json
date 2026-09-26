@@ -1,0 +1,230 @@
+{
+  "segment": "3 isolate the mapping failure",
+  "map_keyed_by_header": {
+    "交易日期": "date",
+    "摘要": "description",
+    "贷方发生额": "deposit",
+    "借方发生额": "withdrawal",
+    "对方户名": "bank_party_name",
+    "交易流水号": "reference_number",
+    "币种": "currency"
+  },
+  "map_keyed_by_index": {
+    "0": "date",
+    "1": "description",
+    "2": "withdrawal",
+    "3": "deposit",
+    "5": "bank_party_name",
+    "6": "reference_number",
+    "7": "currency"
+  },
+  "reused_file_url": "/private/files/V22-sample-statement92d7ed.xlsx",
+  "A_keyed_by_header_AS_SHIPPED_columns": [
+    {
+      "col_no": 1,
+      "header": "交易日期",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 2,
+      "header": "摘要",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 3,
+      "header": "借方发生额",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 4,
+      "header": "贷方发生额",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 5,
+      "header": "余额",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 6,
+      "header": "对方户名",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 7,
+      "header": "交易流水号",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 8,
+      "header": "币种",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    }
+  ],
+  "A_keyed_by_header_AS_SHIPPED_mapped_fieldnames": [],
+  "A_keyed_by_header_AS_SHIPPED_n_mapped": 0,
+  "B_keyed_by_index_HYPOTHESIS_columns": [
+    {
+      "col_no": 1,
+      "header": "交易日期",
+      "map_to_field": "date",
+      "df_fieldname": "date",
+      "skip_import": false
+    },
+    {
+      "col_no": 2,
+      "header": "摘要",
+      "map_to_field": "description",
+      "df_fieldname": "description",
+      "skip_import": false
+    },
+    {
+      "col_no": 3,
+      "header": "借方发生额",
+      "map_to_field": "withdrawal",
+      "df_fieldname": "withdrawal",
+      "skip_import": false
+    },
+    {
+      "col_no": 4,
+      "header": "贷方发生额",
+      "map_to_field": "deposit",
+      "df_fieldname": "deposit",
+      "skip_import": false
+    },
+    {
+      "col_no": 5,
+      "header": "余额",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 6,
+      "header": "对方户名",
+      "map_to_field": "bank_party_name",
+      "df_fieldname": "bank_party_name",
+      "skip_import": false
+    },
+    {
+      "col_no": 7,
+      "header": "交易流水号",
+      "map_to_field": "reference_number",
+      "df_fieldname": "reference_number",
+      "skip_import": false
+    },
+    {
+      "col_no": 8,
+      "header": "币种",
+      "map_to_field": "currency",
+      "df_fieldname": "currency",
+      "skip_import": false
+    }
+  ],
+  "B_keyed_by_index_HYPOTHESIS_mapped_fieldnames": [
+    "date",
+    "description",
+    "withdrawal",
+    "deposit",
+    "bank_party_name",
+    "reference_number",
+    "currency"
+  ],
+  "B_keyed_by_index_HYPOTHESIS_n_mapped": 7,
+  "C_no_map_at_all_columns": [
+    {
+      "col_no": 1,
+      "header": "交易日期",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 2,
+      "header": "摘要",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 3,
+      "header": "借方发生额",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 4,
+      "header": "贷方发生额",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 5,
+      "header": "余额",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 6,
+      "header": "对方户名",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 7,
+      "header": "交易流水号",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 8,
+      "header": "币种",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "skip_import": true
+    }
+  ],
+  "C_no_map_at_all_mapped_fieldnames": [],
+  "C_no_map_at_all_n_mapped": 0,
+  "zh_label_for_date": [
+    "日期",
+    "日期 (date)"
+  ],
+  "zh_label_for_deposit": [
+    "存款",
+    "存款 (deposit)"
+  ],
+  "chinese_bank_headers_recognised_natively": {
+    "交易日期": null,
+    "摘要": null,
+    "借方发生额": null,
+    "贷方发生额": null,
+    "余额": null,
+    "对方户名": null,
+    "交易流水号": null,
+    "币种": null
+  },
+  "S2_gate_BankAccount_in_preview_columns": false,
+  "S2_gate_verdict": "gate at bank_statement_import.py:84 needs the literal string 'Bank Account' in the preview columns; add_bank_account() at :327 only runs later inside start_import, so the FILE must already carry a 'Bank Account' header column"
+}

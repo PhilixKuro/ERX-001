@@ -1,0 +1,143 @@
+{
+  "segment": "13 cleanup",
+  "protected_before": [
+    {
+      "name": "ACC-PAY-2026-00007",
+      "clearance_date": null,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00006",
+      "clearance_date": null,
+      "docstatus": 1
+    }
+  ],
+  "bts_to_remove": [
+    {
+      "name": "ACC-BTN-2026-00001",
+      "docstatus": 1,
+      "status": "Reconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00002",
+      "docstatus": 1,
+      "status": "Unreconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00003",
+      "docstatus": 1,
+      "status": "Unreconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00004",
+      "docstatus": 1,
+      "status": "Unreconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00005",
+      "docstatus": 1,
+      "status": "Unreconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00006",
+      "docstatus": 1,
+      "status": "Unreconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00007",
+      "docstatus": 1,
+      "status": "Reconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00008",
+      "docstatus": 1,
+      "status": "Unreconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00009",
+      "docstatus": 1,
+      "status": "Reconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00010",
+      "docstatus": 1,
+      "status": "Unreconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00011",
+      "docstatus": 1,
+      "status": "Unreconciled"
+    },
+    {
+      "name": "ACC-BTN-2026-00012",
+      "docstatus": 1,
+      "status": "Unreconciled"
+    }
+  ],
+  "pes_to_remove": [
+    {
+      "name": "ACC-PAY-2026-00010",
+      "docstatus": 1,
+      "clearance_date": null
+    },
+    {
+      "name": "ACC-PAY-2026-00009",
+      "docstatus": 1,
+      "clearance_date": null
+    },
+    {
+      "name": "ACC-PAY-2026-00008",
+      "docstatus": 1,
+      "clearance_date": null
+    }
+  ],
+  "actions": [
+    "cancelled ACC-BTN-2026-00001",
+    "cancelled ACC-BTN-2026-00002",
+    "cancelled ACC-BTN-2026-00003",
+    "cancelled ACC-BTN-2026-00004",
+    "cancelled ACC-BTN-2026-00005",
+    "cancelled ACC-BTN-2026-00006",
+    "cancelled ACC-BTN-2026-00007",
+    "cancelled ACC-BTN-2026-00008",
+    "cancelled ACC-BTN-2026-00009",
+    "cancelled ACC-BTN-2026-00010",
+    "cancelled ACC-BTN-2026-00011",
+    "cancelled ACC-BTN-2026-00012",
+    "deleted ACC-BTN-2026-00001",
+    "deleted ACC-BTN-2026-00002",
+    "deleted ACC-BTN-2026-00003",
+    "deleted ACC-BTN-2026-00004",
+    "deleted ACC-BTN-2026-00005",
+    "deleted ACC-BTN-2026-00006",
+    "deleted ACC-BTN-2026-00007",
+    "deleted ACC-BTN-2026-00008",
+    "deleted ACC-BTN-2026-00009",
+    "deleted ACC-BTN-2026-00010",
+    "deleted ACC-BTN-2026-00011",
+    "deleted ACC-BTN-2026-00012",
+    "deleted File e7e1bdce72",
+    "deleted BSI Bank Statement Import on 2026-09-26 22:34:16.502182",
+    "deleted File b08584a579",
+    "deleted BSI Bank Statement Import on 2026-09-26 22:34:16.092433",
+    "deleted File 6e120df529",
+    "deleted BSI Bank Statement Import on 2026-09-26 22:31:51.101357",
+    "deleted File 78db18107d",
+    "deleted BSI Bank Statement Import on 2026-09-26 22:28:54.745223",
+    "deleted File 86f49c38ee",
+    "deleted BSI Bank Statement Import on 2026-09-26 22:14:35.813836",
+    "deleted File 47a4fccbeb",
+    "deleted BSI Bank Statement Import on 2026-09-26 22:04:21.977773",
+    "deleted File 3c39417192",
+    "deleted BSI Bank Statement Import on 2026-09-26 21:50:39.854371",
+    "cancelled ACC-PAY-2026-00010",
+    "deleted ACC-PAY-2026-00010",
+    "cancelled ACC-PAY-2026-00009",
+    "deleted ACC-PAY-2026-00009",
+    "cancelled ACC-PAY-2026-00008",
+    "deleted ACC-PAY-2026-00008",
+    "deleted Bank Account V22测试账户 - V22测试银行",
+    "deleted Bank V22测试银行",
+    "Account DELETE FAILED V22测试银行存款 - HDS:    \tallow_dangerous_html=allow_dangerous_html,\n     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"apps/frappe/frappe/utils/messages.py\", line 118, in msgprint\n    _raise_exception()\n    ~~~~~~~~~~~~~~~~^^\n  File \"apps/frappe/frappe/utils/messages.py\", line 59, in _raise_exception\n    raise exc\nfrappe.exceptions.ValidationError: Account with existing transaction can not be deleted\n"
+  ]
+}

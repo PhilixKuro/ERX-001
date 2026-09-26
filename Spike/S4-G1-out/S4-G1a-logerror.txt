@@ -1,0 +1,22 @@
+=== REAL v16 frappe.utils.error.log_error header ===
+def log_error(
+	title=None,
+	message=None,
+	reference_doctype=None,
+	reference_name=None,
+	*,
+	defer_insert=False,
+)
+
+=== stub signature (must equal real) ===
+(title=None, message=None, reference_doctype=None, reference_name=None, *, defer_insert=False)
+
+=== replay ===
+  OK        A. positional-only  (utils.py:38,59,84,103,178 / install.py:75,115 / doc_events.py:32) -> {'title': 'china_company_default.utils.set_default_accounts', 'message': None}
+  TypeError B. positional + title= kwarg  (custom_account.py:86,173,189,208,227,245) -> log_error() got multiple values for argument 'title'
+  OK        C. what zelin probably MEANT (message= + title=)                         -> {'title': 'Tree Rebuild Error', 'message': 'Error rebuilding tree: boom'}
+
+=== consequence of case A: title carries the message, message stays None ===
+    log_error body (error.py:62-68): `if message:` is False  =>
+      traceback = frappe.get_traceback(...)   # real traceback still captured
+      title     = the string zelin passed     # so A is SLOPPY BUT FUNCTIONAL

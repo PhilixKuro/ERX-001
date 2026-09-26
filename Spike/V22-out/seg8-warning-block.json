@@ -1,0 +1,196 @@
+{
+  "segment": "8 the warning that silently blocked the import",
+  "files": [
+    {
+      "name": "86f49c38ee",
+      "file_name": "V22-sample-statement-uiflow748ad4.xlsx",
+      "file_url": "/private/files/V22-sample-statement-uiflow748ad4.xlsx"
+    },
+    {
+      "name": "47a4fccbeb",
+      "file_name": "V22-sample-statement-gated920a30.xlsx",
+      "file_url": "/private/files/V22-sample-statement-gated920a30.xlsx"
+    },
+    {
+      "name": "3c39417192",
+      "file_name": "V22-sample-statement92d7ed.xlsx",
+      "file_url": "/private/files/V22-sample-statement92d7ed.xlsx"
+    }
+  ],
+  "uiflow_header_row": [
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种",
+    "Bank Account"
+  ],
+  "uiflow_n_header_cols": 9,
+  "uiflow_n_data_cols_row1": 9,
+  "uiflow_all_warnings": [
+    {
+      "message": "Mapping column <strong>交易日期</strong> to field <strong>Date</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>摘要</strong> to field <strong>Description</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>借方发生额</strong> to field <strong>Withdrawal</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>贷方发生额</strong> to field <strong>Deposit</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>余额</strong> to field <strong>Bank Account</strong>",
+      "type": "info"
+    },
+    {
+      "col": 5,
+      "message": "The following values do not exist for Bank Account: 6806.18, 6506.18",
+      "type": "warning"
+    },
+    {
+      "message": "Mapping column <strong>对方户名</strong> to field <strong>Party Name/Account Holder (Bank Statement)</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>交易流水号</strong> to field <strong>Reference Number</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>币种</strong> to field <strong>Currency</strong>",
+      "type": "info"
+    }
+  ],
+  "uiflow_BLOCKING_warnings": [
+    {
+      "col": 5,
+      "message": "The following values do not exist for Bank Account: 6806.18, 6506.18",
+      "type": "warning"
+    }
+  ],
+  "uiflow_would_silently_return": true,
+  "gated_header_row": [
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种",
+    "Bank Account"
+  ],
+  "gated_n_header_cols": 9,
+  "gated_n_data_cols_row1": 9,
+  "gated_all_warnings": [
+    {
+      "message": "Mapping column <strong>交易日期</strong> to field <strong>Date</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>摘要</strong> to field <strong>Description</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>借方发生额</strong> to field <strong>Withdrawal</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>贷方发生额</strong> to field <strong>Deposit</strong>",
+      "type": "info"
+    },
+    {
+      "col": "5",
+      "message": "Cannot match column <strong>余额</strong> with any field",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>对方户名</strong> to field <strong>Party Name/Account Holder (Bank Statement)</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>交易流水号</strong> to field <strong>Reference Number</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>币种</strong> to field <strong>Currency</strong>",
+      "type": "info"
+    }
+  ],
+  "gated_BLOCKING_warnings": [],
+  "gated_would_silently_return": false,
+  "plain_header_row": [
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种"
+  ],
+  "plain_n_header_cols": 8,
+  "plain_n_data_cols_row1": 8,
+  "plain_all_warnings": [
+    {
+      "message": "Mapping column <strong>交易日期</strong> to field <strong>Date</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>摘要</strong> to field <strong>Description</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>借方发生额</strong> to field <strong>Withdrawal</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>贷方发生额</strong> to field <strong>Deposit</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>余额</strong> to field <strong>Bank Account</strong>",
+      "type": "info"
+    },
+    {
+      "col": 5,
+      "message": "The following values do not exist for Bank Account: 286.18, 295.00, 282.50, 2286.18, 1806.18, 1045.00",
+      "type": "warning"
+    },
+    {
+      "message": "Mapping column <strong>对方户名</strong> to field <strong>Party Name/Account Holder (Bank Statement)</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>交易流水号</strong> to field <strong>Reference Number</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>币种</strong> to field <strong>Currency</strong>",
+      "type": "info"
+    }
+  ],
+  "plain_BLOCKING_warnings": [
+    {
+      "col": 5,
+      "message": "The following values do not exist for Bank Account: 286.18, 295.00, 282.50, 2286.18, 1806.18, 1045.00",
+      "type": "warning"
+    }
+  ],
+  "plain_would_silently_return": true,
+  "MECHANISM": "after add_bank_account() appends a literal 'Bank Account' header the header row has 9 entries while every data row still has 8, so Row.__init__ (importer.py:648-662) emits a warning with NO 'type' key; import_data (:85-92) treats any warning whose type != 'info' as blocking and returns WITHOUT importing, without raising, leaving Bank Statement Import.status = Pending and zero Data Import Log rows",
+  "bsi_22:14:35.813836_status": "Pending",
+  "bsi_22:14:35.813836_template_warnings": "[{\"col\": 5, \"message\": \"The following values do not exist for Bank Account: 6806.18, 6506.18\", \"type\": \"warning\"}, {\"row\": 2, \"field\": {\"fieldname\": \"bank_account\", \"fieldtype\": \"Link\", \"label\": \"Bank Account\", \"options\": \"Bank Account\", \"parent\": \"Bank Transaction\", \"default\": null}, \"message\": \"<strong>Bank Account</strong>\\u7f3a\\u5c11\\u503c<strong>6806.18</strong>\"}, {\"row\": 3, \"field\": {\"fieldname\": \"bank_account\", \"fieldtype\": \"Link\", \"label\": \"Bank Account\", \"options\": \"Bank Account\", \"parent\": \"Bank Transaction\", \"default\": null}, \"message\": \"<strong>Bank Account</strong>\\u7f3a\\u5c11\\u503c<strong>6506.18</strong>\"}]",
+  "bsi_22:04:21.977773_status": "Success",
+  "bsi_22:04:21.977773_template_warnings": "",
+  "bsi_21:50:39.854371_status": "Pending",
+  "bsi_21:50:39.854371_template_warnings": ""
+}

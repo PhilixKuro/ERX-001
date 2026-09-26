@@ -1,0 +1,575 @@
+{
+  "cn_smes_chart_of_accounts2024.json": {
+    "file": "cn_smes_chart_of_accounts2024.json",
+    "path": "D:\\ERX-001\\Reference\\zelin-tech-erpnext_china\\erpnext_china\\chart_of_accounts\\custom_accounts\\chart_of_accounts\\cn_smes_chart_of_accounts2024.json",
+    "chart_name": "小企业会计准则(2024)",
+    "country_code": "cn",
+    "stats": {
+      "count": 266,
+      "groups": 41,
+      "leaves": 225
+    },
+    "hits": [
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 非流动资产 > 生产性生物资产 > 生产性生物资产",
+        "parent": {
+          "account_name": "生产性生物资产",
+          "account_number": 1620,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "生产性生物资产",
+          "account_number": 1621,
+          "is_group": 0,
+          "account_type": "Fixed Asset",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 2,
+        "sibling_names": [
+          "生产性生物资产",
+          "生产性生物资产累计折旧"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 非流动资产 > 无形资产 > 无形资产",
+        "parent": {
+          "account_name": "无形资产",
+          "account_number": 1700,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "无形资产",
+          "account_number": 1701,
+          "is_group": 0,
+          "account_type": "Fixed Asset",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 2,
+        "sibling_names": [
+          "无形资产",
+          "累计摊销"
+        ],
+        "child_has_own_children": 0
+      }
+    ],
+    "meta_keys": [
+      "account_number",
+      "account_type",
+      "is_group",
+      "root_type",
+      "tax_rate"
+    ],
+    "root_names": [
+      "资产类",
+      "负债类",
+      "权益类",
+      "成本类",
+      "收入类",
+      "费用类"
+    ]
+  },
+  "cn_norm_chart_of_accounts2024.json": {
+    "file": "cn_norm_chart_of_accounts2024.json",
+    "path": "D:\\ERX-001\\Reference\\zelin-tech-erpnext_china\\erpnext_china\\chart_of_accounts\\custom_accounts\\chart_of_accounts\\cn_norm_chart_of_accounts2024.json",
+    "chart_name": "一般企业会计准则(2024)",
+    "country_code": "cn",
+    "stats": {
+      "count": 353,
+      "groups": 55,
+      "leaves": 298
+    },
+    "hits": [
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 流动资产 > 应收票据 > 应收票据",
+        "parent": {
+          "account_name": "应收票据",
+          "account_number": 11210,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "应收票据",
+          "account_number": 11211,
+          "is_group": 0,
+          "account_type": "Receivable",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 2,
+        "sibling_names": [
+          "应收票据",
+          "坏账准备_应收票据"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 流动资产 > 应收账款 > 应收账款",
+        "parent": {
+          "account_name": "应收账款",
+          "account_number": 11220,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "应收账款",
+          "account_number": 11221,
+          "is_group": 0,
+          "account_type": "Receivable",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 2,
+        "sibling_names": [
+          "应收账款",
+          "坏账准备_应收账款"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 流动资产 > 其他应收款 > 其他应收款",
+        "parent": {
+          "account_name": "其他应收款",
+          "account_number": 11300,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "其他应收款",
+          "account_number": 12210,
+          "is_group": 0,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 4,
+        "sibling_names": [
+          "应收股利",
+          "应收利息",
+          "其他应收款",
+          "坏账准备_其他应收款"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 非流动资产 > 债权投资 > 债权投资",
+        "parent": {
+          "account_name": "债权投资",
+          "account_number": 15000,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "债权投资",
+          "account_number": 15010,
+          "is_group": 0,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 2,
+        "sibling_names": [
+          "债权投资",
+          "债权投资减值准备"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 非流动资产 > 长期应收款 > 长期应收款",
+        "parent": {
+          "account_name": "长期应收款",
+          "account_number": 15300,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "长期应收款",
+          "account_number": 15310,
+          "is_group": 0,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 3,
+        "sibling_names": [
+          "长期应收款",
+          "未实现融资收益",
+          "坏账准备_长期应收款"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 非流动资产 > 长期股权投资 > 长期股权投资",
+        "parent": {
+          "account_name": "长期股权投资",
+          "account_number": 15100,
+          "is_group": 0,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "长期股权投资",
+          "account_number": 15110,
+          "is_group": 0,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 2,
+        "sibling_names": [
+          "长期股权投资",
+          "长期股权投资减值准备"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 非流动资产 > 固定资产 > 固定资产",
+        "parent": {
+          "account_name": "固定资产",
+          "account_number": 16000,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "固定资产",
+          "account_number": 16010,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 4,
+        "sibling_names": [
+          "固定资产",
+          "累计折旧",
+          "固定资产减值准备",
+          "固定资产清理"
+        ],
+        "child_has_own_children": 7
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 非流动资产 > 在建工程 > 在建工程",
+        "parent": {
+          "account_name": "在建工程",
+          "account_number": 16040,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "在建工程",
+          "account_number": 16041,
+          "is_group": 0,
+          "account_type": "Capital Work in Progress",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 2,
+        "sibling_names": [
+          "在建工程",
+          "工程物资"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 非流动资产 > 生产性生物资产 > 生产性生物资产",
+        "parent": {
+          "account_name": "生产性生物资产",
+          "account_number": 16200,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "生产性生物资产",
+          "account_number": 16210,
+          "is_group": 0,
+          "account_type": "Fixed Asset",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 3,
+        "sibling_names": [
+          "生产性生物资产",
+          "生产性生物资产累计折旧",
+          "公益性生物资产"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 非流动资产 > 油气资产 > 油气资产",
+        "parent": {
+          "account_name": "油气资产",
+          "account_number": 16300,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "油气资产",
+          "account_number": 16310,
+          "is_group": 0,
+          "account_type": "Fixed Asset",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 2,
+        "sibling_names": [
+          "油气资产",
+          "累计折耗"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产类 > 非流动资产 > 无形资产 > 无形资产",
+        "parent": {
+          "account_name": "无形资产",
+          "account_number": 17000,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "无形资产",
+          "account_number": 17010,
+          "is_group": 0,
+          "account_type": "Fixed Asset",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 3,
+        "sibling_names": [
+          "无形资产",
+          "累计摊销",
+          "无形资产减值准备"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "负债类 > 流动负债 > 其他应付款 > 其他应付款",
+        "parent": {
+          "account_name": "其他应付款",
+          "account_number": 22300,
+          "is_group": 0,
+          "account_type": "",
+          "root_type": "Liability"
+        },
+        "child": {
+          "account_name": "其他应付款",
+          "account_number": 22410,
+          "is_group": 0,
+          "account_type": "",
+          "root_type": "Liability"
+        },
+        "parent_child_count": 3,
+        "sibling_names": [
+          "应付利息",
+          "应付股利",
+          "其他应付款"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "负债类 > 非流动负债 > 长期应付款 > 长期应付款",
+        "parent": {
+          "account_name": "长期应付款",
+          "account_number": 27000,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Liability"
+        },
+        "child": {
+          "account_name": "长期应付款",
+          "account_number": 27010,
+          "is_group": 0,
+          "account_type": "Asset Received But Not Billed",
+          "root_type": "Liability"
+        },
+        "parent_child_count": 3,
+        "sibling_names": [
+          "长期应付款",
+          "未确认融资费用",
+          "专项应付款"
+        ],
+        "child_has_own_children": 0
+      }
+    ],
+    "meta_keys": [
+      "account_number",
+      "account_type",
+      "is_group",
+      "root_type",
+      "tax_rate"
+    ],
+    "root_names": [
+      "资产类",
+      "负债类",
+      "权益类",
+      "成本类",
+      "共同类",
+      "收入",
+      "费用"
+    ]
+  },
+  "cn_cnpo_chart_of_accounts2025.json": {
+    "file": "cn_cnpo_chart_of_accounts2025.json",
+    "path": "D:\\ERX-001\\Reference\\zelin-tech-erpnext_china\\erpnext_china\\chart_of_accounts\\custom_accounts\\chart_of_accounts\\cn_cnpo_chart_of_accounts2025.json",
+    "chart_name": "民间非营利组织会计制度(2025)",
+    "country_code": "cn",
+    "stats": {
+      "count": 217,
+      "groups": 47,
+      "leaves": 170
+    },
+    "hits": [
+      {
+        "depth": 2,
+        "ancestry": "资产总计 > 流动资产合计 > 短期投资 > 短期投资",
+        "parent": {
+          "account_name": "短期投资",
+          "account_number": 1100,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "短期投资",
+          "account_number": 1101,
+          "is_group": "",
+          "account_type": "Current Asset",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 2,
+        "sibling_names": [
+          "短期投资",
+          "短期投资跌价准备"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 2,
+        "ancestry": "资产总计 > 流动资产合计 > 存货 > 存货",
+        "parent": {
+          "account_name": "存货",
+          "account_number": 1200,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "存货",
+          "account_number": 1201,
+          "is_group": "",
+          "account_type": "Stock",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 2,
+        "sibling_names": [
+          "存货",
+          "存货跌价准备"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 1,
+        "ancestry": "资产总计 > 受托代理资产 > 受托代理资产",
+        "parent": {
+          "account_name": "受托代理资产",
+          "account_number": 180,
+          "is_group": "1",
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "child": {
+          "account_name": "受托代理资产",
+          "account_number": 1801,
+          "is_group": "",
+          "account_type": "",
+          "root_type": "Asset"
+        },
+        "parent_child_count": 1,
+        "sibling_names": [
+          "受托代理资产"
+        ],
+        "child_has_own_children": 0
+      },
+      {
+        "depth": 1,
+        "ancestry": "负债合计 > 受托代理负债 > 受托代理负债",
+        "parent": {
+          "account_name": "受托代理负债",
+          "account_number": 260,
+          "is_group": 1,
+          "account_type": "",
+          "root_type": "Liability"
+        },
+        "child": {
+          "account_name": "受托代理负债",
+          "account_number": 2601,
+          "is_group": "",
+          "account_type": "",
+          "root_type": "Liability"
+        },
+        "parent_child_count": 1,
+        "sibling_names": [
+          "受托代理负债"
+        ],
+        "child_has_own_children": 0
+      }
+    ],
+    "meta_keys": [
+      "account_number",
+      "account_type",
+      "is_group",
+      "root_type"
+    ],
+    "root_names": [
+      "资产总计",
+      "负债合计",
+      "净资产合计",
+      "收入合计",
+      "费用合计"
+    ]
+  },
+  "cn_sme_coa.json": {
+    "file": "cn_sme_coa.json",
+    "path": "D:\\ERX-001\\Reference\\zelin-tech-erpnext_china\\erpnext_china\\chart_of_accounts\\custom_accounts\\chart_of_accounts\\cn_sme_coa.json",
+    "chart_name": "小企业会计准则",
+    "country_code": "cn",
+    "stats": {
+      "count": 190,
+      "groups": 20,
+      "leaves": 170
+    },
+    "hits": [],
+    "meta_keys": [
+      "account_number",
+      "account_type",
+      "is_group",
+      "root_type",
+      "tax_rate"
+    ],
+    "root_names": [
+      "资产",
+      "负债",
+      "权益",
+      "成本",
+      "收入",
+      "费用"
+    ]
+  }
+}

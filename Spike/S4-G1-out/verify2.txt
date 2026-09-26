@@ -1,0 +1,50 @@
+===== CLAIM 1: does any chart JSON carry account_category? =====
+  cn_cnpo_chart_of_accounts2025.json         account_category occurrences=0
+       top-level json keys: ['country_code', 'name', 'tree']
+       keys NOT in zelin 7-key list (would be treated as child accts): sample ['一年内到期的长期投资', '一年内到期的长期负债', '业务活动成本', '业务活动成本（限定性费用）', '业务活动成本（非限定性费用）', '代扣代交增值税']
+  cn_norm_chart_of_accounts2024.json         account_category occurrences=0
+       top-level json keys: ['country_code', 'name', 'tree']
+       keys NOT in zelin 7-key list (would be treated as child accts): sample ['一年内到期的非流动负债', '一年内到期的非流动资产', '专项储备', '专项应付款', '个税扣缴手续费', '临时开账科目']
+  cn_sme_coa.json                            account_category occurrences=0
+       top-level json keys: ['country_code', 'name', 'tree']
+       keys NOT in zelin 7-key list (would be treated as child accts): sample ['临时开账科目', '主营业务成本', '主营业务收入', '其他业务成本', '其他业务收入', '其他应付款']
+  cn_smes_chart_of_accounts2024.json         account_category occurrences=0
+       top-level json keys: ['country_code', 'name', 'tree']
+       keys NOT in zelin 7-key list (would be treated as child accts): sample ['一年内到期的非流动负债', '临时开账科目', '主营业务成本', '主营业务收入', '代扣代交增值税', '代扣代缴的个人所得税']
+
+===== CLAIM 3 (corrected): tax_template.json structure =====
+  top keys: ['tax_categories', 'chart_of_accounts']
+  chart_of_accounts sub-keys (准则 names): ['小企业会计准则', '小企业会计准则(2024)', '一般企业会计准则(2024)']
+  tax_categories: ['P13专票含税', 'P3专票含税', 'P1专票含税', 'P13专票未税', 'P3专票未税', 'P1专票未税', 'P0无税']
+  SME chart: 266 numbered accounts, 256 names, 219 leaves
+  account refs under SME: 10
+    /sales_tax_templates[0]/taxes[0]/account_head  num=222105      inChart=False name=销项税额         inChart=True  NUM_NOT_IN_CHART (OR-filter rescues via account_name)
+    /sales_tax_templates[1]/taxes[0]/account_head  num=2221005     inChart=True  name=销项税额         inChart=True  ok
+    /sales_tax_templates[2]/taxes[0]/account_head  num=22210005    inChart=False name=销项税额         inChart=True  NUM_NOT_IN_CHART (OR-filter rescues via account_name)
+    urchase_tax_templates[0]/taxes[0]/account_head num=2221001     inChart=True  name=进项税额         inChart=True  ok
+
+===== CLAIM 4 (refined): distinct company fields left UNSET =====
+  total rows=35 ; rows whose account is NOT a leaf in SME chart=14
+  distinct company fields=27
+  fields with NO candidate resolvable (=> stay unset): 6
+      round_off_account                        candidates=['财务费用-圆整差异']
+      write_off_account                        candidates=['营业外支出-坏账损失']
+      unrealized_exchange_gain_loss_account    candidates=['财务费用-汇兑损益']
+      default_discount_account                 candidates=['财务费用-现金折扣']
+      accumulated_depreciation_account         candidates=['累计折旧']
+      depreciation_expense_account             candidates=['管理费用-折旧费']
+  --- rows not matching a leaf (detail) ---
+      default_payable_account                  应付账款-供应商款                inChartAtAll=False (group or absent)
+      default_payable_account                  应付账款-结算                  inChartAtAll=False (group or absent)
+      default_payroll_payable_account          应付职工薪酬-职工工资              inChartAtAll=False (group or absent)
+      round_off_account                        财务费用-圆整差异                inChartAtAll=False (group or absent)
+      write_off_account                        营业外支出-坏账损失               inChartAtAll=False (group or absent)
+      exchange_gain_loss_account               财务费用-汇兑损益                inChartAtAll=False (group or absent)
+      unrealized_exchange_gain_loss_account    财务费用-汇兑损益                inChartAtAll=False (group or absent)
+      default_income_account                   主营业务收入                   inChartAtAll=True (group or absent)
+      default_expense_account                  主营业务成本                   inChartAtAll=True (group or absent)
+      default_discount_account                 财务费用-现金折扣                inChartAtAll=False (group or absent)
+      stock_adjustment_account                 制造企业成本-库存调整              inChartAtAll=False (group or absent)
+      expenses_included_in_valuation           制造企业成本-结转库存              inChartAtAll=False (group or absent)
+      accumulated_depreciation_account         累计折旧                     inChartAtAll=True (group or absent)
+      depreciation_expense_account             管理费用-折旧费                 inChartAtAll=False (group or absent)

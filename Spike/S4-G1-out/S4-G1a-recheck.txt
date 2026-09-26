@@ -1,0 +1,121 @@
+===== R1. chart files inventory =====
+  cn_cnpo_chart_of_accounts2025.json         name=民间非营利组织会计制度(2025)          cc=cn     disabled=None  nodes=217  leaves=170  groups=47   acct_cat_keys=0
+       top-level json keys: ['country_code', 'name', 'tree']
+  cn_norm_chart_of_accounts2024.json         name=一般企业会计准则(2024)             cc=cn     disabled=None  nodes=353  leaves=298  groups=55   acct_cat_keys=0
+       top-level json keys: ['country_code', 'name', 'tree']
+  cn_sme_coa.json                            name=小企业会计准则                    cc=cn     disabled=None  nodes=190  leaves=170  groups=20   acct_cat_keys=0
+       top-level json keys: ['country_code', 'name', 'tree']
+  cn_smes_chart_of_accounts2024.json         name=小企业会计准则(2024)              cc=cn     disabled=None  nodes=266  leaves=225  groups=41   acct_cat_keys=0
+       top-level json keys: ['country_code', 'name', 'tree']
+
+===== R2. SME(2024) structure =====
+  total nodes = 266   (claim was 266)
+  root_type distribution:
+     Asset        72
+     Equity       15
+     Expense      85
+     Income       26
+     Liability    68
+  nodes whose effective root_type is None: 0
+  max depth = 4
+  distinct names = 256 ; names appearing more than once = 5
+     其他                     x7 : [('2211100', 'leaf', 'Indirect Expense', '应付职工薪酬'), ('5001050', 'leaf', 'Direct Income', '主营业务收入'), ('5051050', 'leaf', 'Direct Income', '其他业务收入'), ('5301100', 'leaf', 'Indirect Income', '营业外收入'), ('5401050', 'leaf', 'Direct Expense', '主营业务成本'), ('5402050', 'leaf', 'Direct Expense', '其他业务成本'), ('5711100', 'grp', '', '营业外支出')]
+     应付利润                   x2 : [('2232', 'leaf', 'Equity', '流动负债'), ('3104080', 'leaf', '', '利润分配')]
+     无形资产                   x2 : [('1700', 'grp', '', '非流动资产'), ('1701', 'leaf', 'Fixed Asset', '无形资产')]
+     未分配利润                  x2 : [('3102', 'grp', '', '权益类'), ('3104090', 'leaf', '', '利润分配')]
+     生产性生物资产                x2 : [('1620', 'grp', '', '非流动资产'), ('1621', 'leaf', 'Fixed Asset', '生产性生物资产')]
+  --- same-name PARENT/CHILD pairs ---
+     child name=生产性生物资产              num=1621       is_group=0 acct_type=Fixed Asset
+     child name=无形资产                 num=1701       is_group=0 acct_type=Fixed Asset
+  same-name parent/child pair count = 2
+  numbered nodes = 266 ; unique numbers = 266
+
+===== R3. tax_template.json =====
+  top keys: ['tax_categories', 'chart_of_accounts']
+  tax_categories: ['P13专票含税', 'P3专票含税', 'P1专票含税', 'P13专票未税', 'P3专票未税', 'P1专票未税', 'P0无税']
+  chart_of_accounts keys: ['小企业会计准则', '小企业会计准则(2024)', '一般企业会计准则(2024)']
+  -- [小企业会计准则] sections=['sales_tax_templates', 'purchase_tax_templates'] counts={'sales_tax_templates': 5, 'purchase_tax_templates': 5}
+  -- [小企业会计准则(2024)] sections=['sales_tax_templates', 'purchase_tax_templates'] counts={'sales_tax_templates': 5, 'purchase_tax_templates': 5}
+  -- [一般企业会计准则(2024)] sections=['sales_tax_templates', 'purchase_tax_templates'] counts={'sales_tax_templates': 5, 'purchase_tax_templates': 5}
+  ## sales_tax_templates (5)
+     [0] title=P13专票含税            tax_category=P13专票含税         
+         num=222105     NUM_MISSING name=销项税额       nameInChart=True  nameIsLeaf=True  rate=None root_type=None
+     [1] title=P3专票含税             tax_category=P3专票含税          
+         num=2221005    NUM_OK      name=销项税额       nameInChart=True  nameIsLeaf=True  rate=None root_type=None
+     [2] title=P13专票未税            tax_category=P13专票未税         
+         num=22210005   NUM_MISSING name=销项税额       nameInChart=True  nameIsLeaf=True  rate=None root_type=None
+     [3] title=P3专票未税             tax_category=P3专票未税          
+         num=2221005    NUM_OK      name=销项税额       nameInChart=True  nameIsLeaf=True  rate=None root_type=None
+     [4] title=P0无税               tax_category=P0无税            
+         num=2221005    NUM_OK      name=销项税额       nameInChart=True  nameIsLeaf=True  rate=None root_type=None
+  ## purchase_tax_templates (5)
+     [0] title=P1专票含税             tax_category=P1专票含税          
+         num=2221001    NUM_OK      name=进项税额       nameInChart=True  nameIsLeaf=True  rate=None root_type=None
+     [1] title=P3专票含税             tax_category=P3专票含税          
+         num=2221001    NUM_OK      name=进项税额       nameInChart=True  nameIsLeaf=True  rate=None root_type=None
+     [2] title=P13专票含税            tax_category=P13专票含税         
+         num=2221001    NUM_OK      name=进项税额       nameInChart=True  nameIsLeaf=True  rate=None root_type=None
+     [3] title=P13专票未税            tax_category=P13专票未税         
+         num=2221001    NUM_OK      name=进项税额       nameInChart=True  nameIsLeaf=True  rate=None root_type=None
+     [4] title=P0无税               tax_category=P0无税            
+         num=2221001    NUM_OK      name=进项税额       nameInChart=True  nameIsLeaf=True  rate=None root_type=None
+  --- VAT-related nodes in SME chart ---
+     应交税费         num=2221       is_group=1 root_type=Liability  acct_type=Tax        parent=流动负债
+     应交增值税        num=2221000    is_group=1 root_type=Liability  acct_type=Tax        parent=应交税费
+     进项税额         num=2221001    is_group=0 root_type=Liability  acct_type=Tax        parent=应交增值税
+     销项税额         num=2221005    is_group=0 root_type=Liability  acct_type=Tax        parent=应交增值税
+  2221005 present=True node={'name': '销项税额', 'num': '2221005', 'is_group': 0, 'root_type': 'Liability', 'acct_type': 'Tax', 'depth': 4, 'parent': '应交增值税', 'nkids': 0, 'has_cat': False}
+  222105    present=False
+  22210005  present=False
+
+===== R4. default_accounts.csv =====
+  raw rows = 35 ; first row = ['default_bank_account', '银行存款']
+  usable data rows = 35
+  ABSENT from chart entirely : 11
+     line 4   default_payable_account                    应付账款-供应商款
+     line 5   default_payable_account                    应付账款-结算
+     line 6   default_payroll_payable_account            应付职工薪酬-职工工资
+     line 9   round_off_account                          财务费用-圆整差异
+     line 10  write_off_account                          营业外支出-坏账损失
+     line 11  exchange_gain_loss_account                 财务费用-汇兑损益
+     line 13  unrealized_exchange_gain_loss_account      财务费用-汇兑损益
+     line 19  default_discount_account                   财务费用-现金折扣
+     line 22  stock_adjustment_account                   制造企业成本-库存调整
+     line 27  expenses_included_in_valuation             制造企业成本-结转库存
+     line 29  depreciation_expense_account               管理费用-折旧费
+  NOT a leaf (is_group=0 filter in utils.py:25 makes these fail) : 14
+     line 4   default_payable_account                    应付账款-供应商款              existsAsGroup=False
+     line 5   default_payable_account                    应付账款-结算                existsAsGroup=False
+     line 6   default_payroll_payable_account            应付职工薪酬-职工工资            existsAsGroup=False
+     line 9   round_off_account                          财务费用-圆整差异              existsAsGroup=False
+     line 10  write_off_account                          营业外支出-坏账损失             existsAsGroup=False
+     line 11  exchange_gain_loss_account                 财务费用-汇兑损益              existsAsGroup=False
+     line 13  unrealized_exchange_gain_loss_account      财务费用-汇兑损益              existsAsGroup=False
+     line 14  default_income_account                     主营业务收入                 existsAsGroup=True
+     line 16  default_expense_account                    主营业务成本                 existsAsGroup=True
+     line 19  default_discount_account                   财务费用-现金折扣              existsAsGroup=False
+     line 22  stock_adjustment_account                   制造企业成本-库存调整            existsAsGroup=False
+     line 27  expenses_included_in_valuation             制造企业成本-结转库存            existsAsGroup=False
+     line 28  accumulated_depreciation_account           累计折旧                   existsAsGroup=True
+     line 29  depreciation_expense_account               管理费用-折旧费               existsAsGroup=False
+  distinct company fields = 27 ; fields with NO resolvable leaf = 6
+     round_off_account                          candidates=['财务费用-圆整差异']
+     write_off_account                          candidates=['营业外支出-坏账损失']
+     unrealized_exchange_gain_loss_account      candidates=['财务费用-汇兑损益']
+     default_discount_account                   candidates=['财务费用-现金折扣']
+     accumulated_depreciation_account           candidates=['累计折旧']
+     depreciation_expense_account               candidates=['管理费用-折旧费']
+  --- fields with >1 resolvable candidate (dict comprehension => LAST wins) ---
+
+===== R5. tax_rule.csv cross-check =====
+  rows=12 header=['tax_category', 'tax_type', 'customer_group', 'item_group', 'billing_country', 'shipping_country', 'priority', 'tax_template']
+  titles under [小企业会计准则]: ['P0无税', 'P13专票含税', 'P13专票未税', 'P1专票含税', 'P3专票含税', 'P3专票未税']
+       tax_rule refs missing here: []
+  titles under [小企业会计准则(2024)]: ['P0无税', 'P13专票含税', 'P13专票未税', 'P1专票含税', 'P3专票含税', 'P3专票未税']
+       tax_rule refs missing here: []
+  titles under [一般企业会计准则(2024)]: ['P0无税', 'P13专票含税', 'P13专票未税', 'P1专票含税', 'P3专票含税', 'P3专票未税']
+       tax_rule refs missing here: []
+  tax_rule referenced templates: ['P0无税', 'P13专票含税', 'P13专票未税', 'P1专票含税', 'P3专票含税', 'P3专票未税']
+  tax_category used by tax_rule: ['P0无税', 'P13专票含税', 'P13专票未税', 'P1专票含税', 'P3专票含税', 'P3专票未税']
+  used but NOT declared in tax_categories: []
+  declared but never used by tax_rule: ['P1专票未税']

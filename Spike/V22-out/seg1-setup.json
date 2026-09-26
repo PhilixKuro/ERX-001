@@ -1,0 +1,78 @@
+{
+  "segment": "1 setup fixtures + chinese sample files",
+  "account_created": "V22测试银行存款 - HDS",
+  "bank_created": "V22测试银行",
+  "bank_mapping_rows": [
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ]
+  ],
+  "bank_mapping_count": 7,
+  "bank_account_created": "V22测试账户 - V22测试银行",
+  "bank_account_row": {
+    "name": "V22测试账户 - V22测试银行",
+    "account": "V22测试银行存款 - HDS",
+    "company": "华东弹簧",
+    "is_company_account": 1
+  },
+  "payment_entry_created": "ACC-PAY-2026-00008",
+  "test_payment_entries": [
+    {
+      "name": "ACC-PAY-2026-00008",
+      "payment_type": "Receive",
+      "party": "江南机械",
+      "paid_amount": 1045.0,
+      "received_amount": 1045.0,
+      "received_amount_after_tax": 1045.0,
+      "paid_to": "V22测试银行存款 - HDS",
+      "paid_from": "应收账款 1 - HDS",
+      "posting_date": "2026-09-22",
+      "reference_no": "V22REF20260922001",
+      "clearance_date": null,
+      "docstatus": 1
+    }
+  ],
+  "sample_headers": [
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种"
+  ],
+  "sample_row_count": 6,
+  "wrote_xlsx": "/workspace/Spike/V22-sample-statement.xlsx",
+  "wrote_csv": "/workspace/Spike/V22-sample-statement.csv",
+  "count_after_setup_Bank Transaction": 0,
+  "count_after_setup_Payment Entry": 3,
+  "count_after_setup_Bank Account": 1,
+  "count_after_setup_Bank": 1,
+  "count_after_setup_Error Log": 1
+}

@@ -1,0 +1,28 @@
+=== extracted function, 3210 chars ===
+
+input            sign?    cncurrency(value)
+0.00             OK       零元
+1.23             OK       壹元贰角叁分
+-1.23            OK       负壹元贰角叁分
+-100.00          OK       负壹佰元整
+10000.05         OK       壹万元零伍分
+100000000.00     OK       壹亿元整
+0.05             OK       伍分
+0.50             OK       伍角整
+1234567.89       OK       壹佰贰拾叁万肆仟伍佰陆拾柒元捌角玖分
+-0.01            OK       负壹分
+
+=== classical/capital combos for 1.00 ===
+  capital=True  classical=None  -> 壹元整
+  capital=True  classical=True  -> 壹元整
+  capital=True  classical=False -> EXC sequence item 2: expected str instance, NoneType found
+  capital=False classical=None  -> EXC sequence item 2: expected str instance, NoneType found
+  capital=False classical=True  -> 一元整
+  capital=False classical=False -> EXC sequence item 2: expected str instance, NoneType found
+
+=== prefix= arg: is it honored? (signature says prefix=False means no 人民币 prefix) ===
+  prefix=True  -> 壹元整
+  prefix=False -> 壹元整
+
+  NOTE print_utils.py:109 does `prefix = ''` unconditionally,
+       which discards BOTH the caller's prefix arg AND the later 负 concat at :127-129.

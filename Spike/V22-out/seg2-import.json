@@ -1,0 +1,168 @@
+{
+  "segment": "2 native Bank Statement Import with chinese headers",
+  "errorlog_before": 1,
+  "bt_before": 0,
+  "xlsx_bytes": 5361,
+  "bsi_created": "Bank Statement Import on 2026-09-26 21:50:39.854371",
+  "template_options_after_insert": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\"}}",
+  "template_options_keys": [
+    "交易日期",
+    "摘要",
+    "贷方发生额",
+    "借方发生额",
+    "对方户名",
+    "交易流水号",
+    "币种"
+  ],
+  "file_url": "/private/files/V22-sample-statement92d7ed.xlsx",
+  "bsi_saved_with_file": true,
+  "template_options_after_file": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\"}}",
+  "payload_count": null,
+  "preview_columns": [
+    {
+      "col_no": null,
+      "header_title": "Sr. No",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "df_label": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 1,
+      "header_title": "交易日期",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "df_label": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 2,
+      "header_title": "摘要",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "df_label": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 3,
+      "header_title": "借方发生额",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "df_label": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 4,
+      "header_title": "贷方发生额",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "df_label": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 5,
+      "header_title": "余额",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "df_label": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 6,
+      "header_title": "对方户名",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "df_label": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 7,
+      "header_title": "交易流水号",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "df_label": null,
+      "skip_import": true
+    },
+    {
+      "col_no": 8,
+      "header_title": "币种",
+      "map_to_field": null,
+      "df_fieldname": null,
+      "df_label": null,
+      "skip_import": true
+    }
+  ],
+  "preview_columns_mapped": [],
+  "preview_columns_skipped": [
+    "Sr. No",
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种"
+  ],
+  "preview_row_count": 6,
+  "preview_warnings": [
+    {
+      "col": "1",
+      "message": "Cannot match column <strong>交易日期</strong> with any field",
+      "type": "info"
+    },
+    {
+      "col": "2",
+      "message": "Cannot match column <strong>摘要</strong> with any field",
+      "type": "info"
+    },
+    {
+      "col": "3",
+      "message": "Cannot match column <strong>借方发生额</strong> with any field",
+      "type": "info"
+    },
+    {
+      "col": "4",
+      "message": "Cannot match column <strong>贷方发生额</strong> with any field",
+      "type": "info"
+    },
+    {
+      "col": "5",
+      "message": "Cannot match column <strong>余额</strong> with any field",
+      "type": "info"
+    },
+    {
+      "col": "6",
+      "message": "Cannot match column <strong>对方户名</strong> with any field",
+      "type": "info"
+    },
+    {
+      "col": "7",
+      "message": "Cannot match column <strong>交易流水号</strong> with any field",
+      "type": "info"
+    },
+    {
+      "col": "8",
+      "message": "Cannot match column <strong>币种</strong> with any field",
+      "type": "info"
+    }
+  ],
+  "gate_BankAccount_in_columns": false,
+  "scheduler_inactive": true,
+  "developer_mode": 1,
+  "start_import_threw": true,
+  "start_import_TRACEBACK": "Traceback (most recent call last):\n  File \"/workspace/Spike/V22-seg2-import.py\", line 128, in <module>\n    job_id = bsi.start_import()\n  File \"apps/erpnext/erpnext/accounts/doctype/bank_statement_import/bank_statement_import.py\", line 85, in start_import\n    frappe.throw(_(\"Please add the Bank Account column\"))\n    ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"apps/frappe/frappe/utils/messages.py\", line 159, in throw\n    msgprint(\n    ~~~~~~~~^\n    \tmsg,\n     ^^^^\n    ...<7 lines>...\n    \tallow_dangerous_html=allow_dangerous_html,\n     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"apps/frappe/frappe/utils/messages.py\", line 118, in msgprint\n    _raise_exception()\n    ~~~~~~~~~~~~~~~~^^\n  File \"apps/frappe/frappe/utils/messages.py\", line 59, in _raise_exception\n    raise exc\nfrappe.exceptions.ValidationError: Please add the Bank Account column\n",
+  "start_import_seconds": 0.08,
+  "bsi_status": "Pending",
+  "bt_after": 0,
+  "bank_transactions": [],
+  "data_import_logs": [],
+  "errorlog_after": 1,
+  "new_error_logs": [
+    {
+      "name": "ukksv2d6f5",
+      "method": "Report execution failed for: Stock and Account Value Comparison",
+      "error": "Traceback with variables (most recent call last):\n  File \"apps/frappe/frappe/desk/query_report.py\", line 315, in _run\n    result = generate_report_result(report, filters, user, custom_columns, is_tree, parent_field)\n      report_name = 'Stock and Account Value Comparison'\n      filters = '{\"company\":\"华东弹簧\",\"account\":\"存货(资产) - HDS\",\"as_on_date\":\"2026-09-20\"}'\n      user = 'Administrator'\n      ignore_prepared_report = False\n      custom_columns = None\n      is_tree = False\n      parent_field = None\n      are_default_filters = False\n      js_filters = '[{\"fieldname\":\"company\",\"fieldtype\":\"Link\",\"options\":\"Company\"},{\"fieldname\":\"account\",\"fieldtype\":\"Link\",\"options\":\"Account\"}]'\n      report = Report (Stock and Account Value Comparison)\n      result = None\n      is_prepared_report = 0\n  File \"apps/frappe/frappe/__init__.py\", line 508, in wrapper_fn\n    retval = fn(*args, **get_newargs(fn, kwargs))\n      args = (Report (Stock and Account Value Comparison), '{\"company\":\"华东弹簧\",\"account\":\"存货(资产) - HDS\",\"as_on_date\":\"2026-09-20\"}', 'Administrator', None, False, None)\n      kwargs = {}\n      switched_connection = False\n      fn = <function generate_report_result at 0x7401b9d91430>\n  File \"apps/frappe/frappe/desk/query_report.py\", line 118, in generate_report_result\n    res = get_report_result(report, filters) or []\n      report = Report (Stock and Account Value Comparison)\n      filters = {'company': '华东弹簧', 'account': '存货(资产) - HDS', 'as_on_date': '2026-09-20'}\n      user = 'Administrator'\n      custom_columns = None\n      is_tree = False\n      parent_field = None\n  File \"apps/frappe/frappe/desk/query_report.py\", line 94, in get_report_result\n    res = report.execute_script_report(filters)\n      report = Report (Stock and Account Value Comparison)\n      filters = {'company': '华东弹簧', 'account': '存货(资产) - HDS', 'as_on_date': '2026-09-20'}\n      res = None\n  File \"apps/frappe/frappe/core/doctype/report/report.py\", line 206, in execute_script_report\n    res = self.execute_module(filters)\n      self = Report (Stock and Account Value Comparison)\n      filters = {'company': '华东弹簧', 'account': '存货(资产) - HDS', 'as_on_date': '2026-09-20'}\n      threshold = 15\n      start_time = 2026-09-20 20:17:56.429745\n      prepared_report_watcher = <Timer(Thread-6474, stopped daemon 127550017742528)>\n  File \"apps/frappe/frappe/core/doctype/report/report.py\", line 228, in execute_module\n    return self.get_module_method(\"execute\")(frappe._dict(filters))\n      self = Report (Stock and Account Value Comparison)\n      filters = {'company': '华东弹簧', 'account': '存货(资产) - HDS', 'as_on_date': '2026-09-20'}\n  File \"apps/erpnext/erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.py\", line 21, in execute\n    data = get_data(filters)\n      filters = {'company': '华东弹簧', 'account': '存货(资产) - HDS', 'as_on_date': '2026-09-20'}\n  File \"apps/erpnext/erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.py\", line 42, in get_data\n    stock_ledger_entries = get_stock_ledger_data(report_filters, filters)\n      report_filters = {'company': '华东弹簧', 'account': '存货(资产) - HDS', 'as_on_date': '2026-09-20'}\n      data = []\n      filters = {'is_cancelled': 0, 'company': '华东弹簧', 'posting_date': ('<=', '2026-09-20')}\n  File \"apps/erpnext/erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.py\", line 86, in get_stock_ledger_data\n    warehouses = get_warehouses_based_on_account(report_filters.account, report_filters.company)\n      report_filters = {'company': '华东弹簧', 'account': '存货(资产) - HDS', 'as_on_date': '2026-09-20'}\n      filters = {'is_cancelled': 0, 'company': '华东弹簧', 'posting_date': ('<=', '2026-09-20')}\n  File \"apps/erpnext/erpnext/stock/doctype/warehouse/warehouse.py\", line 261, in get_warehouses_based_on_account\n    frappe.throw(_(\"Warehouse not found against the account {0}\").format(account))\n      account = '存货(资产) - HDS'\n      company = '华东弹簧'\n      warehouses = []\n      warehouse_account_map = None\n  File \"apps/frappe/frappe/utils/messages.py\", line 159, in throw\n    msgprint(\n      msg = '账户存货(资产) - HDS未关联仓库'\n      exc = frappe.exceptions.ValidationError\n      title = None\n      is_minimizable = False\n      wide = False\n      as_list = False\n      primary_action = None\n      allow_dangerous_html = False\n  File \"apps/frappe/frappe/utils/messages.py\", line 118, in msgprint\n    _raise_exception()\n      msg = '账户存货(资产) - HDS未关联仓库'\n      title = None\n      raise_exception = frappe.exceptions.ValidationError\n      as_table = False\n      as_list = False\n      indicator = 'red'\n      alert = False\n      primary_action = None\n      is_minimizable = False\n      wide = False\n      realtime = False\n      allow_dangerous_html = False\n      clean_html = <function clean_html at 0x7401c73a1220>\n      _raise_exception = <function msgprint.<locals>._raise_exception at 0x74019c350670>\n      inspect = <module 'inspect' from '/home/frappe/.pyenv/versions/3.14.7/lib/python3.14/inspect.py'>\n      out = {'message': '账户存货(资产) - HDS未关联仓库', 'as_table': False, 'title': '信息', 'indicator': 'red', 'raise_exception': 1, '__frappe_exc_id': '6808cc9645b83c1bca45f548b67b6d0e224fc84c848da797f4e0e7f0'}\n  File \"apps/frappe/frappe/utils/messages.py\", line 59, in _raise_exception\n    raise exc\n      exc = 账户存货(资产) - HDS未关联仓库\n      inspect = <module 'inspect' from '/home/frappe/.pyenv/versions/3.14.7/lib/python3.14/inspect.py'>\n      msg = '账户存货(资产) - HDS未关联仓库'\n      out = {'message': '账户存货(资产) - HDS未关联仓库', 'as_table': False, 'title': '信息', 'indicator': 'red', 'raise_exception': 1, '__frappe_exc_id': '6808cc9645b83c1bca45f548b67b6d0e224fc84c848da797f4e0e7f0'}\n      raise_exception = frappe.exceptions.ValidationError\nfrappe.exceptions.ValidationError: 账户存货(资产) - HDS未关联仓库"
+    }
+  ]
+}

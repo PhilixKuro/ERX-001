@@ -1,0 +1,200 @@
+{
+  "segment": "9 shipped flow, no patch, file carries a real Bank Account column",
+  "bt_before": 6,
+  "errorlog_before": 1,
+  "wrote_xlsx": "/workspace/Spike/V22-sample-statement-shipped.xlsx",
+  "headers": [
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种",
+    "Bank Account"
+  ],
+  "chinese_headers": [
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种"
+  ],
+  "shipped_map_from_Bank_Transaction_Mapping": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\", \"0\": \"date\", \"1\": \"description\", \"2\": \"withdrawal\", \"3\": \"deposit\", \"4\": \"bank_account\", \"5\": \"bank_party_name\", \"6\": \"reference_number\", \"7\": \"currency\"}}",
+  "mapping_setup_seconds": 1.75,
+  "fields_mapped_via_dialog": 8,
+  "template_options_after_save": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\", \"0\": \"date\", \"1\": \"description\", \"2\": \"withdrawal\", \"3\": \"deposit\", \"4\": \"bank_account\", \"5\": \"bank_party_name\", \"6\": \"reference_number\", \"7\": \"currency\", \"8\": \"bank_account\"}}",
+  "preview_mapped": [
+    [
+      "Sr. No",
+      null
+    ],
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "余额",
+      "bank_account"
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ],
+    [
+      "Bank Account",
+      "bank_account"
+    ]
+  ],
+  "preview_warnings": [
+    {
+      "message": "Mapping column <strong>交易日期</strong> to field <strong>Date</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>摘要</strong> to field <strong>Description</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>借方发生额</strong> to field <strong>Withdrawal</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>贷方发生额</strong> to field <strong>Deposit</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>余额</strong> to field <strong>Bank Account</strong>",
+      "type": "info"
+    },
+    {
+      "col": 5,
+      "message": "The following values do not exist for Bank Account: 10694.18, 10689.18",
+      "type": "warning"
+    },
+    {
+      "message": "Mapping column <strong>对方户名</strong> to field <strong>Party Name/Account Holder (Bank Statement)</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>交易流水号</strong> to field <strong>Reference Number</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>币种</strong> to field <strong>Currency</strong>",
+      "type": "info"
+    },
+    {
+      "message": "Mapping column <strong>Bank Account</strong> to field <strong>Bank Account</strong>",
+      "type": "info"
+    }
+  ],
+  "BLOCKING_warnings": [
+    {
+      "col": 5,
+      "message": "The following values do not exist for Bank Account: 10694.18, 10689.18",
+      "type": "warning"
+    }
+  ],
+  "gate_present": true,
+  "start_import_returned": "bank_statement_import::Bank Statement Import on 2026-09-26 22:28:54.745223",
+  "threw": false,
+  "import_seconds": 0.38,
+  "bsi_status": "Pending",
+  "bsi_template_warnings": "[{\"col\": 5, \"message\": \"The following values do not exist for Bank Account: 10694.18, 10689.18\", \"type\": \"warning\"}, {\"row\": 2, \"field\": {\"fieldname\": \"bank_account\", \"fieldtype\": \"Link\", \"label\": \"Bank Account\", \"options\": \"Bank Account\", \"parent\": \"Bank Transaction\", \"default\": null}, \"message\": \"<strong>Bank Account</strong>\\u7f3a\\u5c11\\u503c<strong>10694.18</strong>\"}, {\"row\": 3, \"field\": {\"fieldname\": \"bank_account\", \"fieldtype\": \"Link\", \"label\": \"Bank Account\", \"options\": \"Bank Account\", \"parent\": \"Bank Transaction\", \"default\": null}, \"message\": \"<strong>Bank Account</strong>\\u7f3a\\u5c11\\u503c<strong>10689.18</strong>\"}]",
+  "bt_after": 6,
+  "new_rows": [],
+  "import_logs": [],
+  "errorlog_after": 1,
+  "bank_mapping_after": [
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ],
+    [
+      "0",
+      "date"
+    ],
+    [
+      "1",
+      "description"
+    ],
+    [
+      "2",
+      "withdrawal"
+    ],
+    [
+      "3",
+      "deposit"
+    ],
+    [
+      "4",
+      "bank_account"
+    ],
+    [
+      "5",
+      "bank_party_name"
+    ],
+    [
+      "6",
+      "reference_number"
+    ],
+    [
+      "7",
+      "currency"
+    ],
+    [
+      "8",
+      "bank_account"
+    ]
+  ],
+  "VERDICT_a_shipped": "still fails"
+}

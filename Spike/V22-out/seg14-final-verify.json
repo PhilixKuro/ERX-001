@@ -1,0 +1,135 @@
+{
+  "segment": "14 final cleanup + verification vs baseline",
+  "gl_entries_on_V22_account": [
+    {
+      "name": "62479151b5",
+      "voucher_type": "Payment Entry",
+      "voucher_no": "ACC-PAY-2026-00008",
+      "debit": 0.0,
+      "credit": 1045.0,
+      "is_cancelled": 1
+    },
+    {
+      "name": "32d3c69e1a",
+      "voucher_type": "Payment Entry",
+      "voucher_no": "ACC-PAY-2026-00009",
+      "debit": 0.0,
+      "credit": 8888.0,
+      "is_cancelled": 1
+    },
+    {
+      "name": "09e476a222",
+      "voucher_type": "Payment Entry",
+      "voucher_no": "ACC-PAY-2026-00010",
+      "debit": 0.0,
+      "credit": 3333.0,
+      "is_cancelled": 1
+    },
+    {
+      "name": "5d109f73ac",
+      "voucher_type": "Payment Entry",
+      "voucher_no": "ACC-PAY-2026-00010",
+      "debit": 3333.0,
+      "credit": 0.0,
+      "is_cancelled": 1
+    },
+    {
+      "name": "40681f6c8b",
+      "voucher_type": "Payment Entry",
+      "voucher_no": "ACC-PAY-2026-00009",
+      "debit": 8888.0,
+      "credit": 0.0,
+      "is_cancelled": 1
+    },
+    {
+      "name": "647eba71ad",
+      "voucher_type": "Payment Entry",
+      "voucher_no": "ACC-PAY-2026-00008",
+      "debit": 1045.0,
+      "credit": 0.0,
+      "is_cancelled": 1
+    }
+  ],
+  "their_vouchers_still_exist": {
+    "ACC-PAY-2026-00008": false,
+    "ACC-PAY-2026-00009": false,
+    "ACC-PAY-2026-00010": false
+  },
+  "gl_entries_on_V22_account_after": 0,
+  "V22_accounts_left": [],
+  "V22_files_left": [],
+  "V22_payment_entries_left": [],
+  "banks_left": [],
+  "bank_accounts_left": [],
+  "bank_transaction_mapping_rows_left": 0,
+  "bank_transaction_payments_left": 0,
+  "counts_now": {
+    "Bank Transaction": 0,
+    "Payment Entry": 2,
+    "Bank Account": 0,
+    "Bank": 0,
+    "Error Log": 1,
+    "Bank Statement Import": 0,
+    "Data Import Log": 0,
+    "File": 2,
+    "GL Entry": 28
+  },
+  "delta_vs_baseline": {
+    "Bank Transaction": 0,
+    "Payment Entry": 0,
+    "Bank Account": 0,
+    "Bank": 0,
+    "Error Log": 0,
+    "Bank Statement Import": 0,
+    "Data Import Log": 0,
+    "File": 0,
+    "GL Entry": 6
+  },
+  "RESIDUE": {
+    "GL Entry": 6
+  },
+  "demo_payment_entries_final": [
+    {
+      "name": "ACC-PAY-2026-00006",
+      "payment_type": "Pay",
+      "party": "宝钢弹簧钢丝",
+      "paid_amount": 750.0,
+      "posting_date": "2026-09-20",
+      "clearance_date": null,
+      "docstatus": 1,
+      "paid_from": "现金 - HDS",
+      "paid_to": "应付账款 1 - HDS"
+    },
+    {
+      "name": "ACC-PAY-2026-00007",
+      "payment_type": "Receive",
+      "party": "江南机械",
+      "paid_amount": 1045.0,
+      "posting_date": "2026-09-21",
+      "clearance_date": null,
+      "docstatus": 1,
+      "paid_from": "应收账款 1 - HDS",
+      "paid_to": "现金 - HDS"
+    }
+  ],
+  "demo_untouched": true,
+  "demo_gl_entry_count": 14,
+  "demo_sle_count": 12,
+  "demo_accounts_count": 95,
+  "demo_sales_orders": 2,
+  "demo_boms": 1,
+  "demo_warehouses": 6,
+  "companies": [
+    {
+      "name": "华东弹簧",
+      "abbr": "HDS"
+    }
+  ],
+  "error_logs_final": [
+    {
+      "name": "ukksv2d6f5",
+      "method": "Report execution failed for: Stock and Account Value Comparison",
+      "creation": "2026-09-21 04:17:57.241493"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "probe": "V-21 get_region exact-match check",
+  "site": "erx.localhost",
+  "target": "China",
+  "erpnext_module_file": "/workspace/frappe-bench/apps/erpnext/erpnext/__init__.py",
+  "get_region_defined_at": "/workspace/frappe-bench/apps/erpnext/erpnext/__init__.py:120",
+  "installed_apps": [
+    "frappe",
+    "erpnext"
+  ],
+  "companies": [
+    {
+      "name": "华东弹簧",
+      "abbr": "HDS",
+      "country": "China",
+      "default_currency": "CNY"
+    }
+  ],
+  "company_target_exists": true,
+  "country_db_forensic": {
+    "label": "frappe.db.get_value(Company,country)",
+    "is_str": true,
+    "repr": "'China'",
+    "len": 5,
+    "eq_target_exact": true,
+    "codepoints": [
+      "0x43",
+      "0x68",
+      "0x69",
+      "0x6e",
+      "0x61"
+    ],
+    "utf8_bytes_hex": "4368696e61",
+    "utf8_len": 5,
+    "is_ascii": true,
+    "has_lead_trail_ws": false,
+    "casefold_eq_target": true
+  },
+  "country_cached_forensic": {
+    "label": "frappe.get_cached_value(Company,country)",
+    "is_str": true,
+    "repr": "'China'",
+    "len": 5,
+    "eq_target_exact": true,
+    "codepoints": [
+      "0x43",
+      "0x68",
+      "0x69",
+      "0x6e",
+      "0x61"
+    ],
+    "utf8_bytes_hex": "4368696e61",
+    "utf8_len": 5,
+    "is_ascii": true,
+    "has_lead_trail_ws": false,
+    "casefold_eq_target": true
+  },
+  "country_db": "China",
+  "country_cached": "China",
+  "country_db_eq_cached": true,
+  "get_region_with_company": {
+    "label": "get_region(COMPANY)",
+    "is_str": true,
+    "repr": "'China'",
+    "len": 5,
+    "eq_target_exact": true,
+    "codepoints": [
+      "0x43",
+      "0x68",
+      "0x69",
+      "0x6e",
+      "0x61"
+    ],
+    "utf8_bytes_hex": "4368696e61",
+    "utf8_len": 5,
+    "is_ascii": true,
+    "has_lead_trail_ws": false,
+    "casefold_eq_target": true
+  },
+  "get_region_with_company_value": "China",
+  "flags_company_before": null,
+  "flags_country_before": null,
+  "get_region_no_arg": {
+    "label": "get_region() [flags.company unset]",
+    "is_str": true,
+    "repr": "'China'",
+    "len": 5,
+    "eq_target_exact": true,
+    "codepoints": [
+      "0x43",
+      "0x68",
+      "0x69",
+      "0x6e",
+      "0x61"
+    ],
+    "utf8_bytes_hex": "4368696e61",
+    "utf8_len": 5,
+    "is_ascii": true,
+    "has_lead_trail_ws": false,
+    "casefold_eq_target": true
+  },
+  "get_region_no_arg_value": "China",
+  "get_region_no_arg_with_flag": {
+    "label": "get_region() [flags.company=COMPANY]",
+    "is_str": true,
+    "repr": "'China'",
+    "len": 5,
+    "eq_target_exact": true,
+    "codepoints": [
+      "0x43",
+      "0x68",
+      "0x69",
+      "0x6e",
+      "0x61"
+    ],
+    "utf8_bytes_hex": "4368696e61",
+    "utf8_len": 5,
+    "is_ascii": true,
+    "has_lead_trail_ws": false,
+    "casefold_eq_target": true
+  },
+  "get_region_no_arg_with_flag_value": "China",
+  "system_settings_country": "China",
+  "default_company": "华东弹簧",
+  "default_country": null,
+  "country_doctype_cn_rows": [
+    {
+      "name": "China",
+      "code": "cn"
+    }
+  ],
+  "country_doctype_like_hina": [
+    {
+      "name": "China",
+      "code": "cn"
+    }
+  ],
+  "company_country_fieldtype": "Link",
+  "company_country_link_options": "Country",
+  "regional_override_keys": [
+    "France",
+    "United Arab Emirates",
+    "Saudi Arabia",
+    "Italy"
+  ],
+  "China_key_in_regional_overrides": false,
+  "dispatch_lookup_hit": "NO-MATCH -> falls back to base function",
+  "verdict": {
+    "get_region_with_company_is_exactly_China": true,
+    "note": "hooks key presence is a SEPARATE fact, not part of this proposition",
+    "China_key_in_hooks": false
+  },
+  "VERDICT": {
+    "get_region_with_company_is_exactly_China": true,
+    "note": "hooks key presence is a SEPARATE fact, not part of this proposition",
+    "China_key_in_hooks": false
+  }
+}

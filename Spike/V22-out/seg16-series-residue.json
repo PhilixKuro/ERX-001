@@ -1,0 +1,95 @@
+{
+  "segment": "16 naming series residue",
+  "series_rows": [
+    [
+      "ACC-BTN-2026-",
+      11
+    ],
+    [
+      "ACC-PAY-2026-",
+      7
+    ],
+    [
+      "ACC-PINV-2026-",
+      8
+    ],
+    [
+      "ACC-SINV-2026-",
+      6
+    ],
+    [
+      "ACC-TAX-RULE-2026-",
+      21
+    ],
+    [
+      "HR-EMP-",
+      1
+    ],
+    [
+      "MAT-DN-2026-",
+      1
+    ],
+    [
+      "MAT-MR-2026-",
+      1
+    ],
+    [
+      "MAT-PRE-2026-",
+      2
+    ],
+    [
+      "MAT-STE-2026-",
+      3
+    ],
+    [
+      "MAT-UOM-CNV-",
+      235
+    ],
+    [
+      "MFG-PP-2026-",
+      1
+    ],
+    [
+      "MFG-WO-2026-",
+      3
+    ],
+    [
+      "MPS26-",
+      0
+    ],
+    [
+      "PO-JOB",
+      3
+    ],
+    [
+      "PUR-ORD-2026-",
+      13
+    ],
+    [
+      "SAL-ORD-2026-",
+      6
+    ],
+    [
+      "SAL-QTN-2026-",
+      1
+    ],
+    [
+      "STO-PICK-2026-",
+      3
+    ],
+    [
+      "TDL",
+      1
+    ]
+  ],
+  "payment_entries_live": [
+    {
+      "name": "ACC-PAY-2026-00006"
+    },
+    {
+      "name": "ACC-PAY-2026-00007"
+    }
+  ],
+  "bank_transactions_live": 0,
+  "RESIDUE_NOTE": "ACC-BTN-2026- was created by this probe and its counter sits at 12; ACC-PAY-2026- was advanced from 7 to 10. The documents are all deleted, but the counters keep their high-water mark, so the next Bank Transaction starts at 13 and the next Payment Entry at 11. This is the only residue left. It is cosmetic (a gap in numbering) and was NOT rewound on purpose: editing tabSeries downward risks a future name collision."
+}

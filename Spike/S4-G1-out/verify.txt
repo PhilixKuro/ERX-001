@@ -1,0 +1,73 @@
+===== CHART FILES =====
+  name=民间非营利组织会计制度(2025) | file=cn_cnpo_chart_of_accounts2025.json | country=None | disabled=None | accounts(num)=217 | names=213
+  name=一般企业会计准则(2024) | file=cn_norm_chart_of_accounts2024.json | country=None | disabled=None | accounts(num)=353 | names=331
+  name=小企业会计准则 | file=cn_sme_coa.json | country=None | disabled=None | accounts(num)=190 | names=190
+  name=小企业会计准则(2024) | file=cn_smes_chart_of_accounts2024.json | country=None | disabled=None | accounts(num)=266 | names=256
+
+===== CLAIM 3: tax_template.json account numbers under SME key =====
+  top-level keys: ['tax_categories', 'chart_of_accounts']
+  SME block sections: []
+
+===== CLAIM 4: default_accounts.csv rows vs SME chart =====
+  total data rows: 35
+   1 default_bank_account                       银行存款                       inChart=True  isLeaf=True
+   2 default_cash_account                       库存现金                       inChart=True  isLeaf=True
+   3 default_payable_account                    应付账款                       inChart=True  isLeaf=True
+   4 default_payable_account                    应付账款-供应商款                  inChart=False isLeaf=False
+   5 default_payable_account                    应付账款-结算                    inChart=False isLeaf=False
+   6 default_payroll_payable_account            应付职工薪酬-职工工资                inChart=False isLeaf=False
+   7 default_payroll_payable_account            职工工资                       inChart=True  isLeaf=True
+   8 default_receivable_account                 应收账款                       inChart=True  isLeaf=True
+   9 round_off_account                          财务费用-圆整差异                  inChart=False isLeaf=False
+  10 write_off_account                          营业外支出-坏账损失                 inChart=False isLeaf=False
+  11 exchange_gain_loss_account                 财务费用-汇兑损益                  inChart=False isLeaf=False
+  12 exchange_gain_loss_account                 财务费用_汇兑差额                  inChart=True  isLeaf=True
+  13 unrealized_exchange_gain_loss_account      财务费用-汇兑损益                  inChart=False isLeaf=False
+  14 default_income_account                     主营业务收入                     inChart=True  isLeaf=False
+  15 default_income_account                     销售商品收入                     inChart=True  isLeaf=True
+  16 default_expense_account                    主营业务成本                     inChart=True  isLeaf=False
+  17 default_expense_account                    销售商品成本                     inChart=True  isLeaf=True
+  18 default_expense_claim_payable_account      其他应付款                      inChart=True  isLeaf=True
+  19 default_discount_account                   财务费用-现金折扣                  inChart=False isLeaf=False
+  20 default_inventory_account                  原材料                        inChart=True  isLeaf=True
+  21 stock_adjustment_account                   生产成本-库存调整                  inChart=True  isLeaf=True
+  22 stock_adjustment_account                   制造企业成本-库存调整                inChart=False isLeaf=False
+  23 stock_received_but_not_billed              应付账款-暂估库存                  inChart=True  isLeaf=True
+  24 default_provisional_account                应付账款-暂估服务                  inChart=True  isLeaf=True
+  25 service_received_but_not_billed            应付账款-暂估服务                  inChart=True  isLeaf=True
+  26 expenses_included_in_valuation             制造费用-结转库存                  inChart=True  isLeaf=True
+  27 expenses_included_in_valuation             制造企业成本-结转库存                inChart=False isLeaf=False
+  28 accumulated_depreciation_account           累计折旧                       inChart=True  isLeaf=False
+  29 depreciation_expense_account               管理费用-折旧费                   inChart=False isLeaf=False
+  30 disposal_account                           固定资产清理                     inChart=True  isLeaf=True
+  31 asset_received_but_not_billed              应付账款-暂估资产                  inChart=True  isLeaf=True
+  32 capital_work_in_progress_account           在建工程                       inChart=True  isLeaf=True
+  33 expenses_included_in_asset_valuation       制造费用-结转资产                  inChart=True  isLeaf=True
+  34 default_advance_received_account           预收账款                       inChart=True  isLeaf=True
+  35 default_advance_paid_account               预付账款                       inChart=True  isLeaf=True
+  --> NOT FOUND in SME chart: 11 rows
+      line 4: default_payable_account -> 应付账款-供应商款
+      line 5: default_payable_account -> 应付账款-结算
+      line 6: default_payroll_payable_account -> 应付职工薪酬-职工工资
+      line 9: round_off_account -> 财务费用-圆整差异
+      line 10: write_off_account -> 营业外支出-坏账损失
+      line 11: exchange_gain_loss_account -> 财务费用-汇兑损益
+      line 13: unrealized_exchange_gain_loss_account -> 财务费用-汇兑损益
+      line 19: default_discount_account -> 财务费用-现金折扣
+      line 22: stock_adjustment_account -> 制造企业成本-库存调整
+      line 27: expenses_included_in_valuation -> 制造企业成本-结转库存
+      line 29: depreciation_expense_account -> 管理费用-折旧费
+
+===== tax_rule.csv =====
+  1 ['tax_category', 'tax_type', 'customer_group', 'item_group', 'billing_country', 'shipping_country', 'priority', 'tax_template']
+  2 ['P13专票含税', 'Sales', '', '', '', '', '1', 'P13专票含税']
+  3 ['P3专票含税', 'Sales', '', '', '', '', '1', 'P3专票含税']
+  4 ['P13专票未税', 'Sales', '', '', '', '', '1', 'P13专票未税']
+  5 ['P3专票未税', 'Sales', '', '', '', '', '1', 'P3专票未税']
+  6 ['P13专票含税', 'Purchase', '', '', '', '', '1', 'P13专票含税']
+  7 ['P3专票含税', 'Purchase', '', '', '', '', '1', 'P3专票含税']
+  8 ['P1专票含税', 'Purchase', '', '', '', '', '1', 'P1专票含税']
+  9 ['P13专票未税', 'Purchase', '', '', '', '', '1', 'P13专票未税']
+  10 ['P0无税', 'Purchase', '', '', '', '', '1', 'P0无税']
+  11 ['', 'Sales', '', '', 'China', 'China', '99', 'P13专票含税']
+  12 ['', 'Purchase', '', '', 'China', 'China', '99', 'P13专票含税']

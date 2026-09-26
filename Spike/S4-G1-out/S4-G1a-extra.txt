@@ -1,0 +1,89 @@
+===== E1. do any chart json carry account_currency / tax_rate / account_category ? =====
+  cn_cnpo_chart_of_accounts2025.json         account_currency=0   tax_rate=0   account_category=0   is_group=217  account_type=217 
+  cn_norm_chart_of_accounts2024.json         account_currency=0   tax_rate=1   account_category=0   is_group=353  account_type=353 
+  cn_sme_coa.json                            account_currency=0   tax_rate=104 account_category=0   is_group=190  account_type=190 
+  cn_smes_chart_of_accounts2024.json         account_currency=0   tax_rate=1   account_category=0   is_group=266  account_type=266 
+
+===== E2. item_group / warehouse account names referenced by utils.py vs each chart =====
+  --- chart [民间非营利组织会计制度(2025)] ---
+     set_warehouse_account                  库存商品                     leaf=False anyNode=False
+     set_warehouse_account                  在产品                      leaf=False anyNode=False
+     item_group[小企业会计准则]                    生产成本-基本生产成本              leaf=False anyNode=False
+     item_group[小企业会计准则]                    生产成本-辅助生产成本              leaf=False anyNode=False
+     item_group[小企业会计准则]                    主营业务成本                   leaf=False anyNode=False
+     item_group[一般企业会计准则(2024)]             制造企业成本-直接材料              leaf=False anyNode=False
+     item_group[一般企业会计准则(2024)]             销售商品成本                   leaf=False anyNode=False
+  --- chart [一般企业会计准则(2024)] ---
+     set_warehouse_account                  库存商品                     leaf=True  anyNode=True
+     set_warehouse_account                  在产品                      leaf=True  anyNode=True
+     item_group[小企业会计准则]                    生产成本-基本生产成本              leaf=False anyNode=False
+     item_group[小企业会计准则]                    生产成本-辅助生产成本              leaf=False anyNode=False
+     item_group[小企业会计准则]                    主营业务成本                   leaf=False anyNode=True
+     item_group[一般企业会计准则(2024)]             制造企业成本-直接材料              leaf=True  anyNode=True
+     item_group[一般企业会计准则(2024)]             销售商品成本                   leaf=True  anyNode=True
+  --- chart [小企业会计准则] ---
+     set_warehouse_account                  库存商品                     leaf=True  anyNode=True
+     set_warehouse_account                  在产品                      leaf=True  anyNode=True
+     item_group[小企业会计准则]                    生产成本-基本生产成本              leaf=True  anyNode=True
+     item_group[小企业会计准则]                    生产成本-辅助生产成本              leaf=True  anyNode=True
+     item_group[小企业会计准则]                    主营业务成本                   leaf=True  anyNode=True
+     item_group[一般企业会计准则(2024)]             制造企业成本-直接材料              leaf=False anyNode=False
+     item_group[一般企业会计准则(2024)]             销售商品成本                   leaf=False anyNode=False
+  --- chart [小企业会计准则(2024)] ---
+     set_warehouse_account                  库存商品                     leaf=True  anyNode=True
+     set_warehouse_account                  在产品                      leaf=True  anyNode=True
+     item_group[小企业会计准则]                    生产成本-基本生产成本              leaf=True  anyNode=True
+     item_group[小企业会计准则]                    生产成本-辅助生产成本              leaf=True  anyNode=True
+     item_group[小企业会计准则]                    主营业务成本                   leaf=False anyNode=True
+     item_group[一般企业会计准则(2024)]             制造企业成本-直接材料              leaf=False anyNode=False
+     item_group[一般企业会计准则(2024)]             销售商品成本                   leaf=True  anyNode=True
+
+===== E3. the KEY TRAP in set_item_group_account (utils.py:108-134) =====
+  chart_of_accounts_config has ONLY these keys: ['小企业会计准则', '一般企业会计准则(2024)']
+  utils.py:130-131 fallback: if chart_of_accounts not in config -> use 小企业会计准则
+     company chart=民间非营利组织会计制度(2025)          inConfig=False -> config used=小企业会计准则
+     company chart=一般企业会计准则(2024)             inConfig=True  -> config used=一般企业会计准则(2024)
+     company chart=小企业会计准则                    inConfig=True  -> config used=小企业会计准则
+     company chart=小企业会计准则(2024)              inConfig=False -> config used=小企业会计准则
+
+  ==> for 小企业会计准则(2024) it falls back to the 小企业会计准则 (non-2024) mapping.
+      Are those account names present in the 2024 chart?
+        生产成本-基本生产成本                leafIn2024=True  anyNodeIn2024=True
+        生产成本-辅助生产成本                leafIn2024=True  anyNodeIn2024=True
+        主营业务成本                     leafIn2024=False anyNodeIn2024=True
+
+===== E4. tax_template.json : compare the three COA blocks =====
+  [小企业会计准则               ] sha1=d65bfb6246b6 len=2097
+       sales_tax_templates    ['22210108/应交税费-应交增值税-销项税额', '22210108/应交税费-应交增值税-销项税额', '22210108/应交税费-应交增值税-销项税额', '22210108/应交税费-应交增值税-销项税额', '22210108/应交税费-应交增值税-销项税额']
+       purchase_tax_templates ['22210101/应交税费-应交增值税-进项税额', '22210101/应交税费-应交增值税-进项税额', '22210101/应交税费-应交增值税-进项税额', '22210101/应交税费-应交增值税-进项税额', '22210101/应交税费-应交增值税-进项税额']
+  [小企业会计准则(2024)         ] sha1=d4ae507aa12e len=1977
+       sales_tax_templates    ['222105/销项税额', '2221005/销项税额', '22210005/销项税额', '2221005/销项税额', '2221005/销项税额']
+       purchase_tax_templates ['2221001/进项税额', '2221001/进项税额', '2221001/进项税额', '2221001/进项税额', '2221001/进项税额']
+  [一般企业会计准则(2024)        ] sha1=d38ea4cdaca7 len=2012
+       sales_tax_templates    ['22210210/待转销项税额', '22210210/待转销项税额', '22210210/待转销项税额', '22210210/待转销项税额', '22210210/待转销项税额']
+       purchase_tax_templates ['22210190/待抵扣进项税额', '22210190/待抵扣进项税额', '22210190/待抵扣进项税额', '22210190/待抵扣进项税额', '22210190/待抵扣进项税额']
+
+  --- are 小企业会计准则 and 小企业会计准则(2024) blocks identical? ---
+     identical=False
+
+===== E5. one full tax template item verbatim (to see all fields from_detailed_data consumes) =====
+{
+  "title": "P13专票含税",
+  "tax_category": "P13专票含税",
+  "is_default": 0,
+  "taxes": [
+    {
+      "account_head": {
+        "account_name": "销项税额",
+        "account_number": "222105",
+        "included_in_print_rate": 1,
+        "tax_rate": 13
+      }
+    }
+  ]
+}
+
+===== E6. UOM disable blast radius (install.py:69) =====
+  install.py:69 -> frappe.db.set_value("UOM", {"name": ("not in", uom_list)}, "enabled", 0)
+  uom_list length = 45
+  uom_list = ['个', '支', '台', '只', '批', '次', '件', '张', '套', '卷', '片', '条', '打', '箱', '包', '千米', '米', '分米', '厘米', '毫米', '毫克', '克', '千克', '吨', '立方厘米', '立方分米', '立方米', '平方米', '平方厘米', '平方分米', '平方毫米', '升', '毫升', '年', '月', '周', '日', '小时', '分钟', '秒', '两', '斤', '公斤', '摄氏度', '华氏度']

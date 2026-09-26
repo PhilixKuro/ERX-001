@@ -1,0 +1,440 @@
+{
+  "segment": "10 clean shipped flow + sticky corruption proof",
+  "bt_before": 6,
+  "pe_before": 3,
+  "errorlog_before": 1,
+  "mapping_BEFORE_scrub": [
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ],
+    [
+      "0",
+      "date"
+    ],
+    [
+      "1",
+      "description"
+    ],
+    [
+      "2",
+      "withdrawal"
+    ],
+    [
+      "3",
+      "deposit"
+    ],
+    [
+      "4",
+      "bank_account"
+    ],
+    [
+      "5",
+      "bank_party_name"
+    ],
+    [
+      "6",
+      "reference_number"
+    ],
+    [
+      "7",
+      "currency"
+    ],
+    [
+      "8",
+      "bank_account"
+    ]
+  ],
+  "numeric_file_fields_present": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+  "mapping_AFTER_scrub": [
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ]
+  ],
+  "pe_created": "ACC-PAY-2026-00009",
+  "pe_row": {
+    "name": "ACC-PAY-2026-00009",
+    "payment_type": "Receive",
+    "received_amount_after_tax": 8888.0,
+    "paid_to": "V22测试银行存款 - HDS",
+    "posting_date": "2026-09-28",
+    "reference_no": "V22REF20260928001",
+    "clearance_date": null,
+    "docstatus": 1
+  },
+  "wrote_xlsx": "/workspace/Spike/V22-sample-statement-clean.xlsx",
+  "headers": [
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种",
+    "Bank Account"
+  ],
+  "template_options_from_Bank_mapping": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\"}}",
+  "mapping_setup_seconds": 0.45,
+  "fields_mapped_count": 8,
+  "template_options_final": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\", \"0\": \"date\", \"1\": \"description\", \"2\": \"withdrawal\", \"3\": \"deposit\", \"5\": \"bank_party_name\", \"6\": \"reference_number\", \"7\": \"currency\", \"8\": \"bank_account\"}}",
+  "preview_mapped": [
+    [
+      "Sr. No",
+      null
+    ],
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "余额",
+      null
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ],
+    [
+      "Bank Account",
+      "bank_account"
+    ]
+  ],
+  "BLOCKING_warnings": [],
+  "gate_present": true,
+  "start_import_returned": "bank_statement_import::Bank Statement Import on 2026-09-26 22:31:51.101357",
+  "threw": false,
+  "import_seconds": 0.37,
+  "bsi_status": "Success",
+  "bsi_template_warnings": "",
+  "bt_after_import": 8,
+  "new_rows": [
+    {
+      "name": "ACC-BTN-2026-00007",
+      "date": "2026-09-28",
+      "status": "Unreconciled",
+      "deposit": 8888.0,
+      "withdrawal": 0.0,
+      "currency": "CNY",
+      "description": "货款收入",
+      "reference_number": "V22REF20260928001",
+      "bank_party_name": "江南机械",
+      "bank_account": "V22测试账户 - V22测试银行",
+      "unallocated_amount": 8888.0,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-BTN-2026-00008",
+      "date": "2026-09-28",
+      "status": "Unreconciled",
+      "deposit": 0.0,
+      "withdrawal": 5.0,
+      "currency": "CNY",
+      "description": "手续费",
+      "reference_number": "V22REF20260928002",
+      "bank_party_name": null,
+      "bank_account": "V22测试账户 - V22测试银行",
+      "unallocated_amount": 5.0,
+      "docstatus": 1
+    }
+  ],
+  "import_logs": [
+    {
+      "success": 1,
+      "docname": "ACC-BTN-2026-00007",
+      "exception": null
+    },
+    {
+      "success": 1,
+      "docname": "ACC-BTN-2026-00008",
+      "exception": null
+    }
+  ],
+  "auto_reconcile_threw": false,
+  "auto_reconcile_seconds": 0.06,
+  "auto_reconcile_messages": [
+    "{'message': '1笔交易已对账<br>', 'as_table': False, 'title': '自动核销', 'indicator': 'green'}"
+  ],
+  "all_bank_transactions_final": [
+    {
+      "name": "ACC-BTN-2026-00001",
+      "date": "2026-09-22",
+      "status": "Reconciled",
+      "deposit": 1045.0,
+      "withdrawal": 0.0,
+      "reference_number": "V22REF20260922001",
+      "allocated_amount": 1045.0,
+      "unallocated_amount": 0.0
+    },
+    {
+      "name": "ACC-BTN-2026-00002",
+      "date": "2026-09-22",
+      "status": "Unreconciled",
+      "deposit": 0.0,
+      "withdrawal": 750.0,
+      "reference_number": "V22REF20260922002",
+      "allocated_amount": 0.0,
+      "unallocated_amount": 750.0
+    },
+    {
+      "name": "ACC-BTN-2026-00003",
+      "date": "2026-09-23",
+      "status": "Unreconciled",
+      "deposit": 0.0,
+      "withdrawal": 12.5,
+      "reference_number": "V22REF20260923001",
+      "allocated_amount": 0.0,
+      "unallocated_amount": 12.5
+    },
+    {
+      "name": "ACC-BTN-2026-00004",
+      "date": "2026-09-23",
+      "status": "Unreconciled",
+      "deposit": 3.68,
+      "withdrawal": 0.0,
+      "reference_number": "V22REF20260923002",
+      "allocated_amount": 0.0,
+      "unallocated_amount": 3.68
+    },
+    {
+      "name": "ACC-BTN-2026-00005",
+      "date": "2026-09-24",
+      "status": "Unreconciled",
+      "deposit": 2000.0,
+      "withdrawal": 0.0,
+      "reference_number": "V22REF20260924001",
+      "allocated_amount": 0.0,
+      "unallocated_amount": 2000.0
+    },
+    {
+      "name": "ACC-BTN-2026-00006",
+      "date": "2026-09-24",
+      "status": "Unreconciled",
+      "deposit": 0.0,
+      "withdrawal": 480.0,
+      "reference_number": "V22REF20260924002",
+      "allocated_amount": 0.0,
+      "unallocated_amount": 480.0
+    },
+    {
+      "name": "ACC-BTN-2026-00007",
+      "date": "2026-09-28",
+      "status": "Reconciled",
+      "deposit": 8888.0,
+      "withdrawal": 0.0,
+      "reference_number": "V22REF20260928001",
+      "allocated_amount": 8888.0,
+      "unallocated_amount": 0.0
+    },
+    {
+      "name": "ACC-BTN-2026-00008",
+      "date": "2026-09-28",
+      "status": "Unreconciled",
+      "deposit": 0.0,
+      "withdrawal": 5.0,
+      "reference_number": "V22REF20260928002",
+      "allocated_amount": 0.0,
+      "unallocated_amount": 5.0
+    }
+  ],
+  "status_counts_final": [
+    [
+      "Reconciled",
+      2
+    ],
+    [
+      "Unreconciled",
+      6
+    ]
+  ],
+  "bt_payments_rows": [
+    {
+      "parent": "ACC-BTN-2026-00007",
+      "payment_document": "Payment Entry",
+      "payment_entry": "ACC-PAY-2026-00009",
+      "allocated_amount": 8888.0
+    },
+    {
+      "parent": "ACC-BTN-2026-00001",
+      "payment_document": "Payment Entry",
+      "payment_entry": "ACC-PAY-2026-00008",
+      "allocated_amount": 1045.0
+    }
+  ],
+  "ALL_pe_clearance": [
+    {
+      "name": "ACC-PAY-2026-00006",
+      "payment_type": "Pay",
+      "reference_no": null,
+      "paid_amount": 750.0,
+      "clearance_date": null,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00007",
+      "payment_type": "Receive",
+      "reference_no": null,
+      "paid_amount": 1045.0,
+      "clearance_date": null,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00008",
+      "payment_type": "Receive",
+      "reference_no": "V22REF20260922001",
+      "paid_amount": 1045.0,
+      "clearance_date": "2026-09-22",
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00009",
+      "payment_type": "Receive",
+      "reference_no": "V22REF20260928001",
+      "paid_amount": 8888.0,
+      "clearance_date": "2026-09-28",
+      "docstatus": 1
+    }
+  ],
+  "errorlog_after": 1,
+  "mapping_after_this_import": [
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ],
+    [
+      "0",
+      "date"
+    ],
+    [
+      "1",
+      "description"
+    ],
+    [
+      "2",
+      "withdrawal"
+    ],
+    [
+      "3",
+      "deposit"
+    ],
+    [
+      "5",
+      "bank_party_name"
+    ],
+    [
+      "6",
+      "reference_number"
+    ],
+    [
+      "7",
+      "currency"
+    ],
+    [
+      "8",
+      "bank_account"
+    ]
+  ]
+}

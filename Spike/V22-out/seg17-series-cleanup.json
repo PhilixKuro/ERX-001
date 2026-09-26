@@ -1,0 +1,229 @@
+{
+  "segment": "17 drop the unused ACC-BTN series row",
+  "series_before": [
+    [
+      "ACC-BTN-2026-",
+      11
+    ],
+    [
+      "ACC-PAY-2026-",
+      7
+    ],
+    [
+      "ACC-PINV-2026-",
+      8
+    ],
+    [
+      "ACC-SINV-2026-",
+      6
+    ],
+    [
+      "ACC-TAX-RULE-2026-",
+      21
+    ],
+    [
+      "HR-EMP-",
+      1
+    ],
+    [
+      "MAT-DN-2026-",
+      1
+    ],
+    [
+      "MAT-MR-2026-",
+      1
+    ],
+    [
+      "MAT-PRE-2026-",
+      2
+    ],
+    [
+      "MAT-STE-2026-",
+      3
+    ],
+    [
+      "MAT-UOM-CNV-",
+      235
+    ],
+    [
+      "MFG-PP-2026-",
+      1
+    ],
+    [
+      "MFG-WO-2026-",
+      3
+    ],
+    [
+      "MPS26-",
+      0
+    ],
+    [
+      "PO-JOB",
+      3
+    ],
+    [
+      "PUR-ORD-2026-",
+      13
+    ],
+    [
+      "SAL-ORD-2026-",
+      6
+    ],
+    [
+      "SAL-QTN-2026-",
+      1
+    ],
+    [
+      "STO-PICK-2026-",
+      3
+    ],
+    [
+      "TDL",
+      1
+    ]
+  ],
+  "bank_transaction_count": 0,
+  "dropped_ACC_BTN_series": true,
+  "series_after": [
+    [
+      "ACC-PAY-2026-",
+      7
+    ],
+    [
+      "ACC-PINV-2026-",
+      8
+    ],
+    [
+      "ACC-SINV-2026-",
+      6
+    ],
+    [
+      "ACC-TAX-RULE-2026-",
+      21
+    ],
+    [
+      "HR-EMP-",
+      1
+    ],
+    [
+      "MAT-DN-2026-",
+      1
+    ],
+    [
+      "MAT-MR-2026-",
+      1
+    ],
+    [
+      "MAT-PRE-2026-",
+      2
+    ],
+    [
+      "MAT-STE-2026-",
+      3
+    ],
+    [
+      "MAT-UOM-CNV-",
+      235
+    ],
+    [
+      "MFG-PP-2026-",
+      1
+    ],
+    [
+      "MFG-WO-2026-",
+      3
+    ],
+    [
+      "MPS26-",
+      0
+    ],
+    [
+      "PO-JOB",
+      3
+    ],
+    [
+      "PUR-ORD-2026-",
+      13
+    ],
+    [
+      "SAL-ORD-2026-",
+      6
+    ],
+    [
+      "SAL-QTN-2026-",
+      1
+    ],
+    [
+      "STO-PICK-2026-",
+      3
+    ],
+    [
+      "TDL",
+      1
+    ]
+  ],
+  "ACC_PAY_counter": [
+    [
+      7
+    ]
+  ],
+  "ACC_BTN_row_exists": false,
+  "FINAL_counts": {
+    "Bank Transaction": 0,
+    "Payment Entry": 2,
+    "Bank Account": 0,
+    "Bank": 0,
+    "Error Log": 1,
+    "Bank Statement Import": 0,
+    "Data Import Log": 0,
+    "File": 2,
+    "GL Entry": 22,
+    "Bank Transaction Mapping": 0,
+    "Bank Transaction Payments": 0,
+    "Account": 95,
+    "Stock Ledger Entry": 12,
+    "Sales Order": 2,
+    "BOM": 1,
+    "Company": 1,
+    "Sales Invoice": 1
+  },
+  "delta_vs_baseline": {
+    "Bank Transaction": 0,
+    "Payment Entry": 0,
+    "Bank Account": 0,
+    "Bank": 0,
+    "Error Log": 0,
+    "Bank Statement Import": 0,
+    "Data Import Log": 0,
+    "File": 0,
+    "GL Entry": 0,
+    "Bank Transaction Mapping": 0,
+    "Bank Transaction Payments": 0,
+    "Account": 0,
+    "Stock Ledger Entry": 0,
+    "Sales Order": 0,
+    "BOM": 0,
+    "Company": 0,
+    "Sales Invoice": 0
+  },
+  "RESIDUE_FINAL": "NONE -- every tracked count identical to the segment-0 baseline",
+  "demo_payment_entries": [
+    {
+      "name": "ACC-PAY-2026-00006",
+      "payment_type": "Pay",
+      "party": "宝钢弹簧钢丝",
+      "paid_amount": 750.0,
+      "clearance_date": null,
+      "docstatus": 1
+    },
+    {
+      "name": "ACC-PAY-2026-00007",
+      "payment_type": "Receive",
+      "party": "江南机械",
+      "paid_amount": 1045.0,
+      "clearance_date": null,
+      "docstatus": 1
+    }
+  ],
+  "demo_untouched_clearance_still_null": true
+}

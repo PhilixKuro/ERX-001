@@ -1,0 +1,1004 @@
+{
+ "proposition": "V-23 saoxia 是否实现增值税期末结转",
+ "repo": "D:/ERX-001/Reference/saoxia-erpnext_china",
+ "inventory": {
+  "modules_txt": [
+   "ERPNext China",
+   "HRMS China"
+  ],
+  "patches_txt": [
+   "[pre_model_sync]",
+   "[post_model_sync]"
+  ],
+  "erpnext_china_doctypes": [
+   "__init__.py",
+   "auto_allocation_config_item",
+   "auto_allocation_log",
+   "auto_allocation_rule",
+   "auto_allocation_time",
+   "auto_allocation_time_rule",
+   "auto_allocation_time_rule_link",
+   "button_permission",
+   "button_permission_check_doctype",
+   "customer_payment_confirmation",
+   "lead_domain_for_baidu",
+   "lead_domain_for_douyin",
+   "lead_quantity_config",
+   "original_leads",
+   "product_category",
+   "readd_contact_log",
+   "wecom_message",
+   "wecom_msgapi_setting"
+  ],
+  "erpnext_china_reports": [
+   "__init__.py",
+   "stock_balance_china",
+   "stock_ledger_china"
+  ],
+  "erpnext_china_subdirs": [
+   "__init__.py",
+   "custom",
+   "custom_form_script",
+   "custom_permission",
+   "doctype",
+   "number_card",
+   "overrides",
+   "report"
+  ],
+  "hrms_china_doctypes": [
+   "__init__.py",
+   "attendance_shift_type",
+   "employee_checkin_log",
+   "employee_contract",
+   "employee_salary_component",
+   "employee_type",
+   "leave_request",
+   "leave_request_files",
+   "position_level",
+   "salary_component",
+   "salary_component_account",
+   "salary_detail",
+   "salary_slip",
+   "wecom_setting"
+  ],
+  "hrms_china_reports": [
+   "<目录不存在>"
+  ],
+  "hrms_china_subdirs": [
+   "__init__.py",
+   "custom",
+   "custom_form_script",
+   "dashboard_chart",
+   "dashboard_chart_source",
+   "doctype",
+   "number_card",
+   "workspace"
+  ],
+  "fixtures_dir": [
+   "custom_field.json",
+   "property_setter.json"
+  ],
+  "setup_tree": [
+   "erpnext_china/setup/__init__.py",
+   "erpnext_china/setup/after_install/__init__.py",
+   "erpnext_china/setup/after_install/data/__init__.py",
+   "erpnext_china/setup/after_install/data/territory.csv",
+   "erpnext_china/setup/after_install/operations/__init__.py",
+   "erpnext_china/setup/after_install/operations/install_fixtures.py"
+  ],
+  "utils_tree": [
+   "erpnext_china/utils/__init__.py",
+   "erpnext_china/utils/lead_tools.py",
+   "erpnext_china/utils/oauth2_logins.py",
+   "erpnext_china/utils/old_system_data.py",
+   "erpnext_china/utils/timed_tasks.py",
+   "erpnext_china/utils/wechat/WXBizMsgCrypt3.py",
+   "erpnext_china/utils/wechat/api.py",
+   "erpnext_china/utils/wechat/example.py",
+   "erpnext_china/utils/wechat/ierror.py"
+  ],
+  "doctype_json_flags": [
+   {
+    "file": "erpnext_china/erpnext_china/doctype/auto_allocation_config_item/auto_allocation_config_item.json",
+    "name": "Auto Allocation Config Item",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 1,
+    "field_count": 12
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/auto_allocation_log/auto_allocation_log.json",
+    "name": "Auto Allocation Log",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 4
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/auto_allocation_rule/auto_allocation_rule.json",
+    "name": "Auto Allocation Rule",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 10
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/auto_allocation_time/auto_allocation_time.json",
+    "name": "Auto Allocation Time",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 1,
+    "field_count": 3
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/auto_allocation_time_rule/auto_allocation_time_rule.json",
+    "name": "Auto Allocation Time Rule",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 23
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/auto_allocation_time_rule_link/auto_allocation_time_rule_link.json",
+    "name": "Auto Allocation Time Rule Link",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 1,
+    "field_count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/button_permission/button_permission.json",
+    "name": "Button Permission",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 3
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/button_permission_check_doctype/button_permission_check_doctype.json",
+    "name": "Button Permission Check Doctype",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 1,
+    "field_count": 19
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/customer_payment_confirmation/customer_payment_confirmation.json",
+    "name": "Customer Payment Confirmation",
+    "module": "ERPNext China",
+    "is_submittable": 1,
+    "istable": 0,
+    "field_count": 28
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/lead_domain_for_baidu/lead_domain_for_baidu.json",
+    "name": "Lead Domain for Baidu",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 7
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/lead_domain_for_douyin/lead_domain_for_douyin.json",
+    "name": "Lead Domain for Douyin",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 8
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/lead_quantity_config/lead_quantity_config.json",
+    "name": "Lead Quantity Config",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 2
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/original_leads/original_leads.json",
+    "name": "Original Leads",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 122
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/product_category/product_category.json",
+    "name": "Product Category",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 2
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/readd_contact_log/readd_contact_log.json",
+    "name": "Readd Contact Log",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 6
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/wecom_message/wecom_message.json",
+    "name": "WeCom Message",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 9
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/wecom_msgapi_setting/wecom_msgapi_setting.json",
+    "name": "WeCom MsgApi Setting",
+    "module": "ERPNext China",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 2
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/attendance_shift_type/attendance_shift_type.json",
+    "name": "Attendance Shift Type",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 13
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/employee_checkin_log/employee_checkin_log.json",
+    "name": "Employee Checkin Log",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 13
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/employee_contract/employee_contract.json",
+    "name": "Employee Contract",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 1,
+    "field_count": 5
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/employee_salary_component/employee_salary_component.json",
+    "name": "Employee Salary Component",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 1,
+    "field_count": 2
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/employee_type/employee_type.json",
+    "name": "Employee Type",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/leave_request/leave_request.json",
+    "name": "Leave Request",
+    "module": "hrms_china",
+    "is_submittable": 1,
+    "istable": 0,
+    "field_count": 16
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/leave_request_files/leave_request_files.json",
+    "name": "Leave Request Files",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 1,
+    "field_count": 2
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/position_level/position_level.json",
+    "name": "Position Level",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/salary_component/salary_component.json",
+    "name": "Salary Component",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 7
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/salary_component_account/salary_component_account.json",
+    "name": "Salary Component Account",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 1,
+    "field_count": 2
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/salary_detail/salary_detail.json",
+    "name": "Salary Detail",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 1,
+    "field_count": 2
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/salary_slip/salary_slip.json",
+    "name": "Salary Slip",
+    "module": "hrms_china",
+    "is_submittable": 1,
+    "istable": 0,
+    "field_count": 18
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/wecom_setting/wecom_setting.json",
+    "name": "WeCom Setting",
+    "module": "hrms_china",
+    "is_submittable": 0,
+    "istable": 0,
+    "field_count": 6
+   }
+  ]
+ },
+ "keyword_hits": {
+  "E_hosting_forms:scheduler_events": [
+   {
+    "file": "erpnext_china/hooks.py",
+    "count": 1
+   }
+  ],
+  "E_hosting_forms:get_data": [
+   {
+    "file": "erpnext_china/hooks.py",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/config/desktop.py",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/sales_order/sales_order_dashboard.py",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/sales_order_item/sales_order_item.py",
+    "count": 2
+   },
+   {
+    "file": "erpnext_china/hrms_china/dashboard_chart_source/hiring_vs_attrition_count/hiring_vs_attrition_count.js",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/dashboard_chart_source/hiring_vs_attrition_count/hiring_vs_attrition_count.py",
+    "count": 1
+   }
+  ],
+  "E_hosting_forms:on_submit": [
+   {
+    "file": "erpnext_china/hooks.py",
+    "count": 2
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/batch.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/contact.json",
+    "count": 3
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/crm_note.json",
+    "count": 4
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/lead.json",
+    "count": 24
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/lead_source.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/opportunity.json",
+    "count": 2
+   },
+   {
+    "file": "erpnext_china/fixtures/custom_field.json",
+    "count": 6
+   },
+   {
+    "file": "erpnext_china/hrms_china/custom/employee.json",
+    "count": 27
+   },
+   {
+    "file": "erpnext_china/hrms_china/custom/employee_education.json",
+    "count": 2
+   },
+   {
+    "file": "erpnext_china/hrms_china/custom/social_login_key.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "count": 3
+   }
+  ],
+  "E_hosting_forms:docstatus": [
+   {
+    "file": "erpnext_china/erpnext_china/custom/batch.json",
+    "count": 5
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/contact.json",
+    "count": 9
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/crm_note.json",
+    "count": 5
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/lead.json",
+    "count": 78
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/lead_source.json",
+    "count": 4
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/opportunity.json",
+    "count": 23
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/quotation.json",
+    "count": 10
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom/webhook_request_log.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/sales_order/sales_order.js",
+    "count": 6
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/sales_order/sales_order.py",
+    "count": 5
+   },
+   {
+    "file": "erpnext_china/erpnext_china/number_card/allocated_lead_total/allocated_lead_total.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/number_card/private_not_converted_lead_total/private_not_converted_lead_total.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/number_card/private_open_lead_total/private_open_lead_total.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/number_card/public_lead_total/public_lead_total.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/report/stock_balance_china/stock_balance_china.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/report/stock_ledger_china/stock_ledger_china.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/fixtures/custom_field.json",
+    "count": 6
+   },
+   {
+    "file": "erpnext_china/fixtures/property_setter.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/custom/employee.json",
+    "count": 82
+   },
+   {
+    "file": "erpnext_china/hrms_china/custom/employee_education.json",
+    "count": 9
+   },
+   {
+    "file": "erpnext_china/hrms_china/custom/social_login_key.json",
+    "count": 3
+   },
+   {
+    "file": "erpnext_china/hrms_china/custom/user.json",
+    "count": 9
+   },
+   {
+    "file": "erpnext_china/hrms_china/dashboard_chart/hiring_vs_attrition_count/hiring_vs_attrition_count.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/dashboard_chart_source/hiring_vs_attrition_count/hiring_vs_attrition_count.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/number_card/active_employees/active_employees.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/number_card/employee_exits_(this_month)/employee_exits_(this_month).json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/number_card/new_hires_(this_month)/new_hires_(this_month).json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/workspace/hrms/hrms.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "count": 2
+   }
+  ],
+  "D_en_generic:closing": [
+   {
+    "file": "erpnext_china/erpnext_china/custom/opportunity.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "count": 2
+   }
+  ],
+  "D_en_generic:vat": [
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/lead/auto_allocation.py",
+    "count": 5
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/lead/lead.py",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/sales_order/sales_order_dashboard.py",
+    "count": 2
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/auto_allocation_config_item/auto_allocation_config_item.json",
+    "count": 3
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/lead_domain_for_douyin/lead_domain_for_douyin.json",
+    "count": 3
+   },
+   {
+    "file": "erpnext_china/erpnext_china/number_card/private_not_converted_lead_total/private_not_converted_lead_total.json",
+    "count": 2
+   },
+   {
+    "file": "erpnext_china/erpnext_china/number_card/private_open_lead_total/private_open_lead_total.json",
+    "count": 2
+   },
+   {
+    "file": "erpnext_china/public/js/templates/crm_notes.html",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "count": 23
+   }
+  ],
+  "E_hosting_forms:frappe.throw": [
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/lead/auto_allocation.py",
+    "count": 2
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/lead/lead.js",
+    "count": 2
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/lead/lead.py",
+    "count": 4
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/sales_order/sales_order.py",
+    "count": 9
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/auto_allocation_time_rule/auto_allocation_time_rule.py",
+    "count": 3
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/customer_payment_confirmation/customer_payment_confirmation.js",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/erpnext_china/doctype/customer_payment_confirmation/customer_payment_confirmation.py",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/custom_form_script/employee/employee.py",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/custom_form_script/social_login_key/social_login_key.py",
+    "count": 6
+   },
+   {
+    "file": "erpnext_china/utils/lead_tools.py",
+    "count": 2
+   },
+   {
+    "file": "erpnext_china/utils/wechat/api.py",
+    "count": 3
+   }
+  ],
+  "D_en_generic:Sales Taxes": [
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/sales_order/sales_order.py",
+    "count": 1
+   }
+  ],
+  "C_erpnext_je_api:Journal Entry": [
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/sales_order/sales_order_dashboard.py",
+    "line": 9,
+    "text": "\"Journal Entry\": \"reference_name\","
+   },
+   {
+    "file": "erpnext_china/erpnext_china/custom_form_script/sales_order/sales_order_dashboard.py",
+    "line": 30,
+    "text": "{\"label\": _(\"Payment\"), \"items\": [\"Payment Entry\", \"Payment Request\", \"Journal Entry\", \"Customer Payment Confirmation\"]},"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 4,
+    "text": "Accrual Journal Entry for salaries from {0} to {1},从{0}到{1}的薪金的应计手工凭证,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 202,
+    "text": "This will submit Salary Slips and create accrual Journal Entry. Do you want to proceed?,这将提交工资单，并创建权责发生制日记账分录。你想继续吗？,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 291,
+    "text": "Default Bank / Cash account will be automatically updated in Salary Journal Entry when this mode is selected.,选择此模式时默认银行/现金科目会自动在工资日记条目更新。,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 780,
+    "text": "Submitting Salary Slips and creating Journal Entry...,提交工资单并创建日记帐分录...,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 1379,
+    "text": "Accrual Journal Entry for salaries from {0} to {1},从{0}到{1}的薪资预提日记账凭证,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 1930,
+    "text": "Make Inter Company Journal Entry,创建公司间业务日记账凭证,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 4438,
+    "text": "No repayments selected for Journal Entry,没有为日记账凭证选择还款,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 4451,
+    "text": "No repayments available for Journal Entry,没有可用于日记账凭证的还款,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 4954,
+    "text": "\"Row #{0}: Reference Document Type must be one of Sales Order, Sales Invoice or Journal Entry\",第{0}行的源单据类型必须是销售订单或销售对账单或日记账凭证,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 5871,
+    "text": "This will submit Salary Slips and create accrual Journal Entry. Do you want to proceed?,将提交工资单，并创建预提日记账凭证。你想继续吗？,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 6348,
+    "text": "Default Bank / Cash account will be automatically updated in Salary Journal Entry when this mode is selected.,，选择此模式可以在工资日记账凭证自动带出默认银行/现金科目。,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 7094,
+    "text": "Please create adjustment Journal Entry for amount {0},请创建金额为{0}的调账日记账凭证,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 7385,
+    "text": "Please create an adjustment Journal Entry for amount {0} on {1},请创建一笔记账日{1}金额为{0}的日记账凭证,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 7865,
+    "text": "This filter will be applied to Journal Entry.,过滤条件仅限日记账凭证,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8374,
+    "text": "New Journal Entry will be posted for the difference amount,会为差异金额生成日记帐凭证,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8960,
+    "text": "Inter Company Journal Entry,关联公司凭证,"
+   }
+  ],
+  "E_hosting_forms:is_submittable": [
+   {
+    "file": "erpnext_china/erpnext_china/doctype/customer_payment_confirmation/customer_payment_confirmation.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/leave_request/leave_request.json",
+    "count": 1
+   },
+   {
+    "file": "erpnext_china/hrms_china/doctype/salary_slip/salary_slip.json",
+    "count": 1
+   }
+  ],
+  "A_vat_cn_accounts:销项税额": [
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 7838,
+    "text": "22210102 - 销项税额 @ 13.0 Rate,税率,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 7839,
+    "text": "22210102 - 销项税额 @ 13.0 Amount,税额,"
+   }
+  ],
+  "A_vat_cn_accounts:进项税额": [
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 7840,
+    "text": "22210101 - 进项税额 @ 13.0 Rate,税率,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 7841,
+    "text": "22210101 - 进项税额 @ 13.0 Amount,税额,"
+   }
+  ],
+  "B_cn_closing_terms:结转": [
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 107,
+    "text": "\"Leave cannot be allocated before {0}, as leave balance has already been carry-forwarded in the future leave allocation record {1}\",假，不是之前分配{0}，因为休假余额已经结转转发在未来的假期分配记录{1},"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 108,
+    "text": "\"Leave cannot be applied/cancelled before {0}, as leave balance has already been carry-forwarded in the future leave allocation record {1}\",在{0}之前，休假不能新建或取消，因为休假天数已经被结转到未来的休假分配中{1},"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 507,
+    "text": "Add unused leaves from previous allocations,结转之前已分配未使用的休假,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 542,
+    "text": "Please select Carry Forward if you also want to include previous fiscal year's balance leaves to this fiscal year,请选择结转，如果你还需要包括上一会计年度的资产负债叶本财年,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 549,
+    "text": "Is Carry Forward,是结转？,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 1454,
+    "text": "\"Leave cannot be allocated before {0}, as leave balance has already been carry-forwarded in the future leave allocation record {1}\",休假不能在之前{0}分配，因为休假余额已经结转到未来的假期分配记录{1},"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 1475,
+    "text": "Leave Type {0} cannot be carry-forwarded,休假类型{0}不支持结转,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 2508,
+    "text": "\"Leave cannot be applied/cancelled before {0}, as leave balance has already been carry-forwarded in the future leave allocation record {1}\",在{0}之前，休假不能创建或取消，因为休假天数已经被结转到未来的休假分配中{1},"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 2736,
+    "text": "Please select Carry Forward if you also want to include previous fiscal year's balance leaves to this fiscal year,如须包括上年结余假期，请选择结转,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 3974,
+    "text": "Is Carry Forward,是结转？,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 5054,
+    "text": "Carry Forward,结转,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 5055,
+    "text": "Add unused leaves from previous allocations,结转之前结余休假,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8317,
+    "text": "Target Asset,结转的资产号,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8318,
+    "text": "Target Item Code,结转的物料号,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8876,
+    "text": "Included Expense,已结转库存费用,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8882,
+    "text": "Expenses Included in Valuation in comany master missing,请先在公司主数据中维护结转库存的费用科目,"
+   }
+  ],
+  "B_cn_closing_terms:期末": [
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 7547,
+    "text": "Period Closing Settings,期末结账设置,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8499,
+    "text": "Ignore Closing Balance,忽略期末库存余额,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8500,
+    "text": "Regenerate Closing Stock Balance,重新生成期末库存全额,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8501,
+    "text": "Closing Stock Balance,期末库存余额,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8520,
+    "text": "Financial reports will be generated using GL Entry doctypes (should be enabled if Period Closing Voucher is not posted for all years sequentially or missing) ,如果之前年度未按顺序或没做过期末结账凭证，请勾选，这样财务报表数据源就是总帐明细而不是上年余额加本年明细,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8828,
+    "text": "Show net values in opening and closing columns,在期初和期末列中显示净值,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8829,
+    "text": "With Period Closing Entry For Opening Balances,包含期初余额的期末分录,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8830,
+    "text": "Period Closing Entry For Current Period,本期期末分录,"
+   }
+  ],
+  "B_cn_closing_terms:年结": [
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 2736,
+    "text": "Please select Carry Forward if you also want to include previous fiscal year's balance leaves to this fiscal year,如须包括上年结余假期，请选择结转,"
+   }
+  ],
+  "B_cn_closing_terms:科目余额": [
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8350,
+    "text": "Account Balance (From),源科目余额,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8351,
+    "text": "Account Balance (To),目标科目余额,"
+   }
+  ],
+  "C_erpnext_je_api:Period Closing Voucher": [
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8520,
+    "text": "Financial reports will be generated using GL Entry doctypes (should be enabled if Period Closing Voucher is not posted for all years sequentially or missing) ,如果之前年度未按顺序或没做过期末结账凭证，请勾选，这样财务报表数据源就是总帐明细而不是上年余额加本年明细,"
+   }
+  ],
+  "C_erpnext_je_api:GL Entry": [
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8333,
+    "text": "GL Entry Processing Status,会计凭证生成状态,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8334,
+    "text": "GL Entry Processing Status,生成会计凭证状态,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8520,
+    "text": "Financial reports will be generated using GL Entry doctypes (should be enabled if Period Closing Voucher is not posted for all years sequentially or missing) ,如果之前年度未按顺序或没做过期末结账凭证，请勾选，这样财务报表数据源就是总帐明细而不是上年余额加本年明细,"
+   },
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "line": 8871,
+    "text": "GL Entry {0} total amount {1} does not match amount {2} in general ledger,被拆分凭证 {0} 汇总金额 {1} 与会计总账金额 {2} 不一致,"
+   }
+  ],
+  "D_en_generic:Account Head": [
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "count": 3
+   }
+  ],
+  "D_en_generic:Fiscal Year": [
+   {
+    "file": "erpnext_china/translations/zh.csv",
+    "count": 8
+   }
+  ]
+ },
+ "keyword_zero": [
+  "A_vat_cn_accounts:转出未交增值税",
+  "A_vat_cn_accounts:未交增值税",
+  "A_vat_cn_accounts:进项税额转出",
+  "A_vat_cn_accounts:应交增值税",
+  "A_vat_cn_accounts:2221003",
+  "A_vat_cn_accounts:2221007",
+  "A_vat_cn_accounts:2221020",
+  "A_vat_cn_accounts:2221001",
+  "A_vat_cn_accounts:2221002",
+  "B_cn_closing_terms:月末",
+  "B_cn_closing_terms:月结",
+  "B_cn_closing_terms:本月应交",
+  "B_cn_closing_terms:损益结转",
+  "B_cn_closing_terms:余额表",
+  "C_erpnext_je_api:journal_entry",
+  "C_erpnext_je_api:JournalEntry",
+  "C_erpnext_je_api:period_closing_voucher",
+  "C_erpnext_je_api:closing_account_head",
+  "C_erpnext_je_api:make_gl_entries",
+  "C_erpnext_je_api:gl_entry",
+  "D_en_generic:carry_forward",
+  "D_en_generic:carryforward",
+  "D_en_generic:period_end",
+  "D_en_generic:month_end",
+  "D_en_generic:monthend",
+  "D_en_generic:periodend",
+  "D_en_generic:VAT",
+  "D_en_generic:tax_withholding",
+  "D_en_generic:Purchase Taxes",
+  "D_en_generic:account_head",
+  "D_en_generic:fiscal_year",
+  "E_hosting_forms:enqueue",
+  "E_hosting_forms:background_jobs",
+  "E_hosting_forms:execute(",
+  "E_hosting_forms:get_columns"
+ ],
+ "privacy_files": [
+  {
+   "path": "erpnext_china/utils/old_system_data.py",
+   "phone_like_count": 34305
+  }
+ ],
+ "file_count": 242,
+ "scanned_bytes": 1536121
+}

@@ -1,0 +1,219 @@
+{
+  "segment": "11 csv path, utf-8 and gbk",
+  "bt_before": 8,
+  "wrote_csv_utf8": "/workspace/Spike/V22-sample-statement.csv",
+  "wrote_csv_gbk": "/workspace/Spike/V22-sample-statement-gbk.csv",
+  "gbk_first_bytes": "bdbbd2d7c8d5c6da2cd5aad2aa2cbde8b7bdb7a2c9fab6ee2cb4fbb7bdb7a2c9fab6ee2cd3e0b6ee",
+  "pe_created": "ACC-PAY-2026-00010",
+  "csv_utf8_save_ok": true,
+  "csv_utf8_header_read_back": [
+    "Sr. No",
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种",
+    "Bank Account"
+  ],
+  "csv_utf8_mapped": [
+    [
+      "Sr. No",
+      null
+    ],
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "余额",
+      null
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ],
+    [
+      "Bank Account",
+      "bank_account"
+    ]
+  ],
+  "csv_utf8_blocking_warnings": [],
+  "csv_utf8_import_threw": false,
+  "csv_utf8_seconds": 0.29,
+  "csv_utf8_status": "Success",
+  "csv_utf8_template_warnings": "",
+  "csv_utf8_logs": [
+    {
+      "success": 1,
+      "docname": "ACC-BTN-2026-00010",
+      "exception": null
+    },
+    {
+      "success": 1,
+      "docname": "ACC-BTN-2026-00009",
+      "exception": null
+    }
+  ],
+  "csv_utf8_bsi": "Bank Statement Import on 2026-09-26 22:34:16.092433",
+  "bt_after_utf8": 10,
+  "utf8_rows": [
+    {
+      "name": "ACC-BTN-2026-00009",
+      "date": "2026-09-29",
+      "status": "Unreconciled",
+      "deposit": 3333.0,
+      "withdrawal": 0.0,
+      "description": "货款收入",
+      "reference_number": "V22REF20260929001",
+      "bank_party_name": "江南机械",
+      "currency": "CNY"
+    },
+    {
+      "name": "ACC-BTN-2026-00010",
+      "date": "2026-09-29",
+      "status": "Unreconciled",
+      "deposit": 0.0,
+      "withdrawal": 8.0,
+      "description": "手续费",
+      "reference_number": "V22REF20260929002",
+      "bank_party_name": null,
+      "currency": "CNY"
+    }
+  ],
+  "csv_gbk_save_ok": true,
+  "csv_gbk_header_read_back": [
+    "Sr. No",
+    "˝»Ň×ČŐĆÚ",
+    "ŐŞŇŞ",
+    "˝č·˝·˘Éú¶î",
+    "´ű·˝·˘Éú¶î",
+    "Óŕ¶î",
+    "¶Ô·˝»§Ăű",
+    "˝»Ň×Á÷Ë®şĹ",
+    "±ŇÖÖ",
+    "Bank Account"
+  ],
+  "csv_gbk_mapped": [
+    [
+      "Sr. No",
+      null
+    ],
+    [
+      "˝»Ň×ČŐĆÚ",
+      "date"
+    ],
+    [
+      "ŐŞŇŞ",
+      "description"
+    ],
+    [
+      "˝č·˝·˘Éú¶î",
+      "withdrawal"
+    ],
+    [
+      "´ű·˝·˘Éú¶î",
+      "deposit"
+    ],
+    [
+      "Óŕ¶î",
+      null
+    ],
+    [
+      "¶Ô·˝»§Ăű",
+      "bank_party_name"
+    ],
+    [
+      "˝»Ň×Á÷Ë®şĹ",
+      "reference_number"
+    ],
+    [
+      "±ŇÖÖ",
+      "currency"
+    ],
+    [
+      "Bank Account",
+      "bank_account"
+    ]
+  ],
+  "csv_gbk_blocking_warnings": [
+    {
+      "col": 9,
+      "message": "Bank Account字段不存在以下值：V22˛âĘÔŐË»§ - V22˛âĘÔŇřĐĐ",
+      "type": "warning"
+    }
+  ],
+  "csv_gbk_import_threw": false,
+  "csv_gbk_seconds": 0.13,
+  "csv_gbk_status": "Success",
+  "csv_gbk_template_warnings": "",
+  "csv_gbk_logs": [
+    {
+      "success": 1,
+      "docname": "ACC-BTN-2026-00012",
+      "exception": null
+    },
+    {
+      "success": 1,
+      "docname": "ACC-BTN-2026-00011",
+      "exception": null
+    }
+  ],
+  "csv_gbk_bsi": "Bank Statement Import on 2026-09-26 22:34:16.502182",
+  "bt_after_gbk": 12,
+  "auto_reconcile_threw": false,
+  "auto_reconcile_messages": [
+    "{'message': '1笔交易已对账<br>', 'as_table': False, 'title': '自动核销', 'indicator': 'green'}"
+  ],
+  "csv_row_status_after_reconcile": [
+    {
+      "name": "ACC-BTN-2026-00009",
+      "status": "Reconciled",
+      "allocated_amount": 3333.0,
+      "unallocated_amount": 0.0
+    },
+    {
+      "name": "ACC-BTN-2026-00011",
+      "status": "Unreconciled",
+      "allocated_amount": 0.0,
+      "unallocated_amount": 3333.0
+    }
+  ],
+  "csv_pe_clearance": {
+    "name": "ACC-PAY-2026-00010",
+    "clearance_date": "2026-09-29"
+  },
+  "status_counts": [
+    [
+      "Reconciled",
+      3
+    ],
+    [
+      "Unreconciled",
+      9
+    ]
+  ],
+  "errorlog_now": 1
+}

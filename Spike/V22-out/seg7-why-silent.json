@@ -1,0 +1,201 @@
+{
+  "segment": "7 find the silent failure in the UI flow",
+  "errorlog_count": 1,
+  "recent_error_logs": [
+    {
+      "name": "ukksv2d6f5",
+      "method": "Report execution failed for: Stock and Account Value Comparison",
+      "creation": "2026-09-21 04:17:57.241493"
+    }
+  ],
+  "all_bsi": [
+    {
+      "name": "Bank Statement Import on 2026-09-26 22:14:35.813836",
+      "status": "Pending",
+      "import_file": "/private/files/V22-sample-statement-uiflow748ad4.xlsx",
+      "template_options": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\", \"0\": \"date\", \"1\": \"description\", \"2\": \"withdrawal\", \"3\": \"deposit\", \"4\": \"bank_account\", \"5\": \"bank_party_name\", \"6\": \"reference_number\", \"7\": \"currency\"}}"
+    },
+    {
+      "name": "Bank Statement Import on 2026-09-26 22:04:21.977773",
+      "status": "Success",
+      "import_file": "/private/files/V22-sample-statement-gated920a30.xlsx",
+      "template_options": "{\"column_to_field_map\": {\"0\": \"date\", \"1\": \"description\", \"2\": \"withdrawal\", \"3\": \"deposit\", \"5\": \"bank_party_name\", \"6\": \"reference_number\", \"7\": \"currency\"}}"
+    },
+    {
+      "name": "Bank Statement Import on 2026-09-26 21:50:39.854371",
+      "status": "Pending",
+      "import_file": "/private/files/V22-sample-statement92d7ed.xlsx",
+      "template_options": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\"}}"
+    }
+  ],
+  "uiflow_bsi": {
+    "name": "Bank Statement Import on 2026-09-26 22:14:35.813836",
+    "status": "Pending",
+    "import_file": "/private/files/V22-sample-statement-uiflow748ad4.xlsx",
+    "template_options": "{\"column_to_field_map\": {\"\\u4ea4\\u6613\\u65e5\\u671f\": \"date\", \"\\u6458\\u8981\": \"description\", \"\\u8d37\\u65b9\\u53d1\\u751f\\u989d\": \"deposit\", \"\\u501f\\u65b9\\u53d1\\u751f\\u989d\": \"withdrawal\", \"\\u5bf9\\u65b9\\u6237\\u540d\": \"bank_party_name\", \"\\u4ea4\\u6613\\u6d41\\u6c34\\u53f7\": \"reference_number\", \"\\u5e01\\u79cd\": \"currency\", \"0\": \"date\", \"1\": \"description\", \"2\": \"withdrawal\", \"3\": \"deposit\", \"4\": \"bank_account\", \"5\": \"bank_party_name\", \"6\": \"reference_number\", \"7\": \"currency\"}}"
+  },
+  "enqueue_now_branch": [
+    "now: bool = False,",
+    ":param now: if now=True, the method is executed via frappe.call()",
+    "\"unknown\", \"v17\", \"Using enqueue with `job_name` is deprecated, use `job_id` instead.\"",
+    "\"unknown\",",
+    "\"Using enqueue with is_async=False outside of tests is not recommended, use now=True instead.\",",
+    "call_directly = now or (not is_async and not frappe.in_test)",
+    "return frappe.call(method, **kwargs)",
+    "return frappe.call(method, **kwargs)",
+    "\"frappe.utils.background_jobs.execute_job\","
+  ],
+  "step_update_mapping_db": "ok",
+  "mapping_rows_now": [
+    [
+      "交易日期",
+      "date"
+    ],
+    [
+      "摘要",
+      "description"
+    ],
+    [
+      "贷方发生额",
+      "deposit"
+    ],
+    [
+      "借方发生额",
+      "withdrawal"
+    ],
+    [
+      "对方户名",
+      "bank_party_name"
+    ],
+    [
+      "交易流水号",
+      "reference_number"
+    ],
+    [
+      "币种",
+      "currency"
+    ],
+    [
+      "0",
+      "date"
+    ],
+    [
+      "1",
+      "description"
+    ],
+    [
+      "2",
+      "withdrawal"
+    ],
+    [
+      "3",
+      "deposit"
+    ],
+    [
+      "4",
+      "bank_account"
+    ],
+    [
+      "5",
+      "bank_party_name"
+    ],
+    [
+      "6",
+      "reference_number"
+    ],
+    [
+      "7",
+      "currency"
+    ]
+  ],
+  "step_ImportFile": "ok",
+  "raw_data_header": [
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种",
+    "Bank Account"
+  ],
+  "raw_data_rows": 3,
+  "NOTE_line291_no_template_options": "bank_statement_import.py:291 calls ImportFile(... file=file, import_type=...) with NO template_options argument, so column_to_field_map is empty in this object",
+  "step_parse_data_from_template": "ok, 3 rows incl header",
+  "step_add_bank_account_header_after": [
+    "交易日期",
+    "摘要",
+    "借方发生额",
+    "贷方发生额",
+    "余额",
+    "对方户名",
+    "交易流水号",
+    "币种",
+    "Bank Account"
+  ],
+  "step_add_bank_account_row1_after": [
+    "2026-09-25",
+    "货款收入",
+    null,
+    "5000.00",
+    "6806.18",
+    "江南机械",
+    "V22REF20260925001",
+    "CNY",
+    "V22测试账户 - V22测试银行"
+  ],
+  "step_write_files": "ok",
+  "importer_columns_resolved": [
+    [
+      "交易日期",
+      "date",
+      false
+    ],
+    [
+      "摘要",
+      "description",
+      false
+    ],
+    [
+      "借方发生额",
+      "withdrawal",
+      false
+    ],
+    [
+      "贷方发生额",
+      "deposit",
+      false
+    ],
+    [
+      "余额",
+      "bank_account",
+      false
+    ],
+    [
+      "对方户名",
+      "bank_party_name",
+      false
+    ],
+    [
+      "交易流水号",
+      "reference_number",
+      false
+    ],
+    [
+      "币种",
+      "currency",
+      false
+    ],
+    [
+      "Bank Account",
+      "bank_account",
+      false
+    ]
+  ],
+  "step_Importer.import_data": "ok",
+  "bt_count_now": 6,
+  "bt_uiflow_rows": [],
+  "import_logs": [],
+  "errorlog_count_end": 1
+}
