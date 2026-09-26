@@ -56,9 +56,9 @@
 | # | 源词 | context 值 | 目标词 | 落在哪些 DocType.字段 | 依据 |
 |---|---|---|---|---|---|
 | 1 | `Unpaid` | `Purchase Invoice` | **未付款** | `Purchase Invoice.status` 选项 | `erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:1277-1285`（Select，**无 read_only**）[A] |
-| 1 | `Unpaid` | 无（平条目兜底） | 见 §1.2 末 | `Sales Invoice.status` 及一切裸渲染点 | `sales_invoice.json:1650-1661`（Select，**`read_only` = 1**）[A] |
+| 1 | `Unpaid` | 无（平条目兜底） | **未付款**（不动官方原译，DEC-080） | `Sales Invoice.status` 及一切裸渲染点 | `sales_invoice.json:1650-1661`（Select，**`read_only` = 1**）[A] |
 | 2 | `Paid` | `Purchase Invoice` | **已付款** | `Purchase Invoice.status` 选项 | 同上 [A] |
-| 2 | `Paid` | 无（兜底） | 见 §1.2 末 | `Sales Invoice.status` | 同上 [A] |
+| 2 | `Paid` | 无（兜底） | **已付款**（不动官方原译，DEC-080） | `Sales Invoice.status` | 同上 [A] |
 | 2b | `Is Paid` | — | **是否已付**（FREE） | `Purchase Invoice.is_paid` | `purchase_invoice.json:269` [A]。**必须一并改**：现译「已付款」（`erpnext:26545`）与 `Paid` 同词，两者同在 PI 一张表 |
 | 3 | `Paid Amount` | `Purchase Invoice` | **付款金额** | `Purchase Invoice.paid_amount` | `purchase_invoice.json`（Currency）[A] |
 | 3 | `Paid Amount` | `Sales Invoice` | **收款金额** | `Sales Invoice.paid_amount` | `sales_invoice.json`（Currency）[A]。该词现被 `Received Amount` 占，须同时办 3c |
@@ -82,13 +82,21 @@
 | 3 | **标准筛选器（`in_standard_filter`）的选项值** | 标签是 `__(df.label, null, df.parent)`（`base_list.js:1145` 起的 `make_standard_filters` [A]），但控件经 `frappe/public/js/frappe/ui/page.js:843` 的 `add_field` 构造时**不传 doctype**，`select.js:82` 的三级回退全 undefined [A] | 筛选下拉里的 `Unpaid`/`Paid` 吃平条目 | 用 Property Setter 给该字段设 `df.context`（`select.js:82` 的逃生口）[A] |
 | 4 | **共享子表 `Payment Schedule` / `Sales Invoice Payment` / `Overdue Payment` / `Payment Entry Reference`** | 都是 `istable` = 1 的共享子表（`payment_schedule.json:221`、`payment_entry_reference.json:177` [A]），父单可以是 SO / SI / PO / PI / Quotation / POS Invoice。渲染时 `df.parent` = **子表名**，一个 context 值分不出销/采 | 「收款金额 / 付款金额」在这些格子里**无法二分** | 只能给中性词（已按此办，见 3d / 3e） |
 
-**由此定出「平条目（无 context）取哪个词」——这是落地成败的关键，且用户裁决未覆盖：**
+**「平条目（无 context）取哪个词」——已裁：不动官方原译（DEC-080）：**
 
-裸渲染点（列表徽标、SI 表单只读 status、筛选下拉）一律吃平条目。
+裸渲染点（列表徽标、SI 表单只读 status、筛选下拉）一律吃平条目。三条候选各自的代价是：
 
 - 若平条目取采购侧词（即保持现状「未付」），销售侧 3 个渲染面全错（客户欠我的钱写成「未付」）。
 - 若取销售侧词「未收款」，采购侧只剩列表徽标与筛选 2 个面错（表单靠 context 正确）。
-- **[C] 我的建议**：平条目取**方向中性**词，两个方向词全靠 context 上——`Unpaid` 平条目 → **未结**（查实 FREE [A]）；`Paid` 平条目 → **已付讫**（查实 FREE [A]；不能用「已结清」，被 `Settled` 占，`erpnext:50658`）。这样裸渲染点的词**不精确但不会方向错**。此条属推断，记入 §四-1 供裁。
+- 起草时曾建议取方向中性词（`Unpaid` → 未结、`Paid` → 已付讫），**该建议未被采纳**——两词系起草时所造，无先例证明中国会计接受它们作发票状态值。**⚠ 但 LG-112 并不因此闭合**：LG-112 覆盖的是全部 73 个造词（「批量发料仓」「超领调拨」「派生自」等），本次只有**「已付讫」一词彻底退出**；**「未结」仍被采用**——§1.3 的 `Outstanding Amount` → 未结金额 与 §2.3.2 的 `Outstanding` → 未结 两行照旧。故 LG-112 整体仍未解，待现场问客户会计或 S6 落地前找懂行的人过一遍。
+
+**裁决（DEC-080，用户第 5 步）**：**兜底不动官方原译**——`Unpaid` → **未付款**、`Paid` → **已付款** 照旧。故：
+
+1. **本 Stage 的术语标准表在上表四处不提出任何改动**，零改动风险。
+2. **三条出路推 S6**，按 LG-120 登记为延迟需求：① 给两张发票补 `states` 数组（救列表徽标）；② Property Setter 塞 `df.context`（救标准筛选下拉）；③ 改上游源码补 context 参数（救 SI 只读 `status`）。**四张共享子表物理上销采共用，三条出路都救不了，无解。**
+3. **已知代价**：演示时销售发票的列表徽标与只读 `status` 会显示「未付款」（客户欠我方的钱写成「付」），**这是用户已知代价下的选择，不是遗漏**。该代价系读源码推出（`sales_invoice_list.js:30` 裸 `__()`），**未在运行站点目视确认**（LG-113 同源）。
+4. **DEC-064 仍然有效**，只作用于**传 context 的那批渲染点**（字段标签、可编辑下拉）——即 §1.1 表里带 context 值的各行照原样落地。
+5. **失效条件**：S6 落了三条出路中任一条后，对应渲染点即可吃 context，DEC-080 对该渲染点失效。
 
 ### 1.3 连带必须改的（否则改完会新生撞名）
 
@@ -208,7 +216,7 @@ Stage 概况（S2 移交资产表）定「演示线的边界即由最小闭环�
 | 目标词 | 撞它的源词（po 行号） | 处置 | 环节 |
 |---|---|---|---|
 | **借方** | `Debit` `erpnext:15676`／`Debit Amount` `:15701` | `Debit` **保留 借方**（`Account.balance_must_be` 的选项，指"该科目余额方向必须是借"）；`Debit Amount` → **借方金额**（FREE，`GL Entry.debit` 是金额字段）。一个是方向、一个是钱数 [A] | 1·13 |
-| **贷方** | `Cr` `:13473`／`Credit` `:14086`／`Credit Amount` `:14112` | `Cr` 与 `Credit` **同义保留 贷方**（前者是科目树上的余额方向标记 `account_tree.js:63`，后者是 `Account.balance_must_be` 选项）；`Credit Amount` → **贷方金额**（FREE，`GL Entry.credit`）[A]。**另见表后「`Dr` → 博士」一条，那是同一处渲染点上的独立缺陷** | 1·13 |
+| **贷方** | `Cr` `:13473`／`Credit` `:14086`／`Credit Amount` `:14112` | `Cr` 与 `Credit` **同义保留 贷方**（前者是科目树上的余额方向标记 `account_tree.js:63`，后者是 `Account.balance_must_be` 选项）；`Credit Amount` → **贷方金额**（FREE，`GL Entry.credit`）[A]。**另见表后「`Dr` → 借方」一条，那是同一处渲染点上的独立缺陷，已裁本 Stage 落地（DEC-081）** | 1·13 |
 | **完成** | `Complete` `frappe:5562`／`Done` `frappe:8723`／`Finish` `erpnext:20933` | `Complete` **保留 完成**（`Job Card Operation.status` 的状态值）；`Done` → **已处理**（FREE，`Transaction Deletion Record Details.done` 是个 Check，指该表清完了）；`Finish` → **完工**（FREE，`work_order.js:904/919/928` 的按钮，制造语境标准说法就是"完工"，且它触发的是生成完工入库的 Stock Entry）[A] | 0·19·20 |
 | **工单发料** | `Material Transfer for Manufacture` `:30944`／`Material Transferred for Manufacture` `:30959` | `Material Transfer for Manufacture` **保留 工单发料**（`Stock Entry.purpose`／`Stock Entry Type.purpose`，它是**单据用途**）；`Material Transferred for Manufacture` → **已发工单料**（FREE，`BOM.backflush_based_on`／`Manufacturing Settings.backflush_raw_materials_based_on` 的选项，意思是"倒冲按已发的工单料算"，是**倒冲依据**不是单据用途）[A]。两者只差一个 `-ed`，官方本身就容易混 | 3·6·18 |
 | **库存设置** | `Inventory Settings` `:25987`／`Stock Settings` `:52629` | `Stock Settings` **保留 库存设置**（既是全局设置 DocType，又是 `Company.auto_accounting_for_stock_settings` 分节）；`Inventory Settings` → **库存参数**（FREE，`Item.inventory_settings_section`，是**单个物料**的库存参数分节，不是全局设置）[A] | 3·4 |
@@ -229,7 +237,12 @@ Stage 概况（S2 移交资产表）定「演示线的边界即由最小闭环�
 
 **表后三条附注（都是这一节查出来的独立缺陷，不属撞名但同屏可见）**：
 
-1. **`Dr` → 博士**（`frappe/locale/zh.po:8794`）。这条不是撞名（「博士」只有它一个源词），但它与本节 `Cr` → 贷方 **在同一个渲染点**：`account_tree.js:63` 的 `balance > 0 ? __("Dr") : __("Cr")`，即**科目表树上每个科目右侧的余额方向标记** [A]。现状是余额为正显示「博士」、为负显示「贷方」。官方之所以这样译，是因为这条 msgid 的注释指向 `install_fixtures.py:46` 的称谓表（Mr／Ms／Mx／**Dr**／Mrs），即**官方把"博士"这个称谓和"借方"缩写当成同一个 msgid** ——这是典型的"同一源词多义"，**正是 `context` 该上场的形态**（与撞名相反）。建议：`Dr` 配 context 分两路（称谓保「博士」，会计场景取「借」），或至少让科目树那处不走裸 `__()`。**演示环节 1 建科目表时一眼可见。**
+1. **`Dr` → 借方**（**已裁本 Stage 落地**，DEC-081；形态按 DEC-079）。现状：`frappe/locale/zh.po:8794` 把 `Dr` 译成「博士」。这条不是撞名（「博士」只有它一个源词），但它与本节 `Cr` → 贷方 **在同一个渲染点**：`account_tree.js:63` 的 `balance > 0 ? __("Dr") : __("Cr")`，即**科目表树上每个科目右侧的余额方向标记** [A]。现状是余额为正显示「博士」、为负显示「贷方」。**演示环节 1 建科目表时一眼可见。**
+   - **根因不是"同一源词多义需 context"**（起草时如此判，已被实核推翻，NV-066）：**两侧调用点皆裸调用**——称谓侧 `_("Dr")`（`install_fixtures.py:46`）、会计侧 `__("Dr")`（`account_tree.js:63`），都不传 context；而 `__()` 无 context 时只查裸 key（`translate.py:196-217`，key 形式 `源词 + ":" + context`）。**故 context 上不了场**，此路机制上不通。真正的根因是**上游漏译**：`Cr` 在 erpnext 侧已有对称条目（`:13470-13474`）而 `Dr` 零条目，于是会计侧回落到 frappe 的称谓译文。
+   - **落地形态（DEC-079）**：**给 `erpnext/locale/zh.po` 补一条裸 `msgid "Dr"` → 借方**（与 `Cr` 已有条目对称），**不改 frappe 侧、不用 context**。覆盖成立的依据是 `translate.py:172-187` 逐 app `update`、`apps.txt` 里 erpnext 在 frappe 之后。**本条交 S6 执行**（写进术语标准表，本 Stage 不改文件）。
+   - **一并修好的三处会计调用点**：`account_tree.js:63`／`bank_reconciliation_grid.html:16`／`bank_clearance.py:84`。
+   - **残留风险**：**LG-118**——称谓侧代价只经源码判定（`autoname: field:salutation` ＋ `unique: 1`，`salutation.json:4,14-18`），**本站点 `tabSalutation` 的实际记录名未查**，S6 落地前须跑一次 `frappe.get_all("Salutation")` 确认；**LG-119**——「将来全新装站会把称谓建成『借方』」系读 `update_salutations()` 推出，**未实测**。
+   - **失效条件**：装 `hrms` 或其它在 erpnext 之后加载且带 `Dr` 条目的 app。
 2. **同义组不改，但要报上游**：` BOM`（前导空格）、`Re-open`／`Reopen`（拼法）、`WIP Warehouse`／`Work-in-Progress Warehouse`／`WIP WH`（三种写法两个译名）、`Qty`／`Qty `（尾空格）、`DocType`／`Doctype`／`Document Type`（大小写）——都是官方**源串**层面的不统一，不是译文问题。
 3. **计数核对**。SAME-FORM 21 组**全部**至少改一个源词；SAME-FLOW 9 组里 8 组改、`车间仓` 1 组不改；SPLIT 19 组里 14 组改、**5 组不改**（物料清单／结束时间／销售税费模板／重新打开／员工）。合计 **43 组改、6 组不改 = 49**。
 
@@ -284,7 +297,7 @@ Stage 概况（S2 移交资产表）定「演示线的边界即由最小闭环�
 | **取消预留** | `Stock Unreservation`／`Unreserve`／`Unreserve Stock` | `Unreserve` 保留（按钮）；`Unreserve Stock` **→ 取消库存预留**；`Stock Unreservation` **→ 解除预留** | 三处一按钮、一动作名、一记录类型。演示若开库存预留会同屏出现 | 环节 15、21（若开预留） |
 | **套件明细** | `Bundle Items` 报价单／`Packed Item`／`Packed Items` 送货单+销售发票+销售订单 | `Packed Items` 保留；`Packed Item` 与之同义**保留**；`Bundle Items` **→ 组合套件明细** | **报价单上两个都在**（`Bundle Items` 与 `Packed Items` 同屏）。`Bundle` 指产品组合的定义，`Packed` 指实发的拆解行 | 环节 14、21、23 |
 | **委外** | `Is Subcontracted`／`Sub-contracting`／`Subcontract`／`Subcontracting` | `Subcontracting` 保留；`Subcontract`+`Sub-contracting` 同义**保留**；`Is Subcontracted` **→ 是否委外** | 只需把勾选框让开（采购订单上勾选框与分节标题同屏）。三个名词形态属同义写法差 | 环节 8（若演委外） |
-| **工时表** | `Time Sheet`／`Time Sheets`／`Timesheet`／`Timesheets`（4 个，**销售发票上有两个**） | `Timesheet` 保留 **工时单**（改词见理由）；其余三个 → **工时单**／**工时单列表** 按单复数分 | 官方源串四种写法译出两个中文。**更要紧的是「工时表」这个译名本身偏"报表"**，而 `Timesheet` 在 ERPNext 里是一张**单据**（工时卡汇总成的计费单）。全族统一为「工时单」，与 `Job Card` → 生产任务单 同系 | 环节 19、23 |
+| **工时表** | `Time Sheet`／`Time Sheets`／`Timesheet`／`Timesheets`（4 个，**销售发票上有两个**） | **⚠ 本组不进本 Stage，全族推 S6 的 CR-002**（DEC-081）。起草建议：`Timesheet` 改 **工时单**，其余三个 → **工时单**／**工时单列表** 按单复数分——**该建议连同其语感依据一并留给 S6 走全量译名时再判**，本 Stage 不落地 | 官方源串四种写法译出两个中文。**更要紧的是「工时表」这个译名本身偏"报表"**，而 `Timesheet` 在 ERPNext 里是一张**单据**（工时卡汇总成的计费单）。全族统一为「工时单」与 `Job Card` → 生产任务单 成系这一点属语感、无依据（§四 #7），故推 S6 | 环节 19、23 |
 | **选工时单** | `Fetch Timesheet` si.js:305／`Get Timesheets` si.js:357 — **同一张销售发票上两个按钮** | `Get Timesheets` 保留；`Fetch Timesheet` **→ 取工时单** | 同屏两个按钮中文完全一样，用户不知道该按哪个。`Fetch` 是取单行、`Get` 是批量拉 | 环节 23 |
 | **日记账凭证** | `Journal Entries`／`Journal Entry` accounts_settings.js:58／`Journals` 会计设置.journals_section | `Journal Entry`+`Journal Entries` **保留 日记账凭证**（单复数同义）；`Journals` **→ 日记账** | 会计设置一屏上分节标题与按钮同名。分节标题指的是"日记账这一类"，不是某张凭证 | 环节 11、12 |
 | **模板物料** | `Template Item` bom.js:457／`Variant Of` 物料.variant_of | `Template Item` 保留；`Variant Of` **→ 派生自** | `Variant Of` 是**指向父模板的 Link**，语义是"这件是谁的变体"，译「模板物料」把方向说反了 | 环节 5（若演多规格） |
@@ -298,7 +311,7 @@ Stage 概况（S2 移交资产表）定「演示线的边界即由最小闭环�
 **表后三点：**
 
 1. **本节 36 组里实际要改源词的是 30 组**，另 6 组（`参考`／`这是不能被编辑的树形结构的根结点。`／`使用公司默认小数精度尾差成本中心`／`员工`类的单复数同义，即表中标「均保留」的行）判为不改。
-2. **`工时表` → `工时单` 这一条不是撞名修复，是纠译名**。它顺带解决了四写法撞一词的问题，但主因是 `Timesheet` 是单据不是报表。归在此表是因为撞名扫描把它捞出来了，**落地时要与 §2.3.3 附注 1 的 `Dr` 一样，单列为"顺带发现的译名缺陷"**。
+2. **`工时表` → `工时单` 这一条不是撞名修复，是纠译名，且已裁不进本 Stage**（DEC-081，全族推 S6 的 CR-002）。它顺带解决了四写法撞一词的问题，但主因是 `Timesheet` 是单据不是报表。归在此表是因为撞名扫描把它捞出来了。**与 §2.3.3 附注 1 的 `Dr` 同为"顺带发现的译名缺陷"，但两条去向相反**——`Dr` 已裁本 Stage 落地（根因查实为上游漏译、改法是加法、不动已有数据），`Timesheet` 的「成系」依据半属语感，宜随全量译名一并判。
 3. **全 Stage 计数合并**：初扫 49 组里 **43 改／6 不改**；补扫 94 组里 **30 改／64 不改**（36 组异义中 30 改 6 不改，加 58 组同义全不改）。**演示线上 143 组，合计 73 组要改源词用词、70 组不改。**
 
 ### 2.4 落在演示线外、本 Stage 不处理的（只给计数与抽样，不逐组列）
@@ -368,11 +381,11 @@ Stage 概况（S2 移交资产表）定「演示线的边界即由最小闭环�
 | 1 | **「哪个源词保留、哪个换掉」的每一次取舍** | §2.3.1–2.3.4 全部 73 组的处置列 | 没有任何客观判据说"应该 `Debit` 留、`Debit Amount` 改"。我的取法是：**渲染面窄的那个改，宽的那个留**（改动面小），以及**语义更泛的那个留**。这条取法本身也是我定的 |
 | 2 | **每个新词的具体用字** | 所有 **→ X** 的 X | 「批量发料仓」「超领调拨」「派生自」这些是我造的词。我只证了**没被别的 msgid 占**（脚本查官方 po 反向索引），**没证它们符合中国制造业习惯说法**。这是最该找懂行的人过一遍的 |
 | 3 | **异义 vs 同义的分类** | §2.3.3 的 14 改/5 不改、§2.3.4 的 36 异义/58 同义 | 判"`Qty` 与 `Quantity` 是同义、`Debit` 与 `Debit Amount` 是异义"靠的是我读源码后的理解。**94 组里 36/58 这个切分尤其软**——我是逐组看源词拼写和渲染点判的，没有第二个人复核 |
-| 4 | **平条目兜底词 未结 / 已付讫** | §1.2 末（`Unpaid`/`Paid` 在四处无法按 context 二分的渲染点） | 「未结」「已付讫」是我为"既不能说收、也不能说付"的场合造的中性词。**核实过没被占**，但没有任何先例证明中国会计能接受它们作发票状态值 |
+| 4 | ~~**平条目兜底词 未结 / 已付讫**~~ **（已裁：DEC-080 兜底不动官方原译，两词均未作兜底词采用）** | §1.2 末（`Unpaid`/`Paid` 在四处无法按 context 二分的渲染点） | 「未结」「已付讫」是我为"既不能说收、也不能说付"的场合造的中性词。**核实过没被占**，但没有任何先例证明中国会计能接受它们作发票状态值。**结论：不作兜底词采用**，四处裸渲染点一律保留官方原译「未付款／已付款」。**⚠ 注意 LG-112 不随之闭合**：「已付讫」彻底退出，但「未结」仍被 §1.3／§2.3.2 的 `Outstanding` 一族采用，其余 71 个造词也不受影响 |
 | 5 | **环节归属是约数** | 所有表最后一列的「环节 N」 | 我按 `最小闭环操作稿.md` 的 23 环节标题+步骤推的哪一屏会开哪个 DocType，**没在跑起来的实例上逐屏确认**。带"若演委外""若演退货"字样的行，取决于演示脚本最终演不演那段 |
 | 6 | **危害分级的 SAME-FORM 判据** | §2.3.1 的 21 组定为最高危 | 判据是"两个源词都在同一 DocType 或其子表的渲染面上"（`Spike/P1S3R1-cooccurrence.py:104-116`）。**但"在同一 DocType 上"不等于"同时可见"**——字段可能在不同页签、或被 `depends_on` 隐藏。我没逐个查 `depends_on`，故 SAME-FORM 这 21 组里可能有几组实际不同屏 |
-| 7 | **`Timesheet` 全族改「工时单」** | §2.3.4 `工时表` 行 | 「工时表」偏报表、`Timesheet` 是单据——这个判断我有信心；但**统一用「工时单」是否与 `Job Card` → 生产任务单 真的成系**，是我的语感，没有依据 |
-| 8 | **`工时表`／`Dr` 两条归类为"顺带发现的译名缺陷"** | §2.3.3 附注 1、§2.3.4 附注 2 | 它们不是撞名（`Dr` 只有一个源词），严格说**超出 CR-001 被图谱限死的范围**（执行边界 §1）。我判"既然查到了就该报"，但**要不要在本 Stage 落地，是用户裁决**，不是我能定的 |
+| 7 | **`Timesheet` 全族改「工时单」** **（已裁：不进本 Stage，全族推 S6 的 CR-002，DEC-081）** | §2.3.4 `工时表` 行 | 「工时表」偏报表、`Timesheet` 是单据——这个判断我有信心；但**统一用「工时单」是否与 `Job Card` → 生产任务单 真的成系**，是我的语感，没有依据。**正因这半属语感，用户裁为推 S6 连同语感依据一并再判** |
+| 8 | **`工时表`／`Dr` 两条归类为"顺带发现的译名缺陷"** **（已裁：DEC-081 分开处置——`Dr` 本 Stage 落地、`Timesheet` 推 S6）** | §2.3.3 附注 1、§2.3.4 附注 2 | 它们不是撞名（`Dr` 只有一个源词），严格说**超出 CR-001 被图谱限死的范围**（执行边界 §1）。我判"既然查到了就该报"，而**要不要在本 Stage 落地是用户裁决**——已裁：`Dr` 落（根因查实为上游漏译、改法是加法、不动已有数据、演示环节 1 一眼可见），`Timesheet` 推 S6。**另须注意本行原表述里「`Dr` 正是 context 该上场的场合」已被推翻**（NV-066，见 §2.3.3 附注 1） |
 
 ## 五、复核建议
 
@@ -382,9 +395,9 @@ Stage 概况（S2 移交资产表）定「演示线的边界即由最小闭环�
 |---|---|---|
 | 1 | **我自己的方法失误：49 → 143** | `Spike/P1S3R1-official-po-collisions.py:111-121` 把「在演示线上」错判成「在 zelin 撞名组的源词里」，漏了 94 组。**已用 `P1S3R1-po-demoline-direct.py` 补扫更正**，但这说明我的筛法链条上曾有一环靠不住。**若还有第三种漏法，143 也可能偏小**——建议独立重算一次 |
 | 2 | **`Unpaid`／`Paid` 有四处落不了地** | §1.2 列的四处（列表徽标裸 `__(doc.status)`；销售发票 `status` 因 `read_only`=1 走裸 formatter，而采购发票不是——**销采不对称**；标准筛选器不传 doctype；四张共享子表 `df.parent` = 子表名）。这意味着**方案丙在演示的某些屏上必然露中性词**。要用户确认能不能接受，或愿不愿改上游 |
-| 3 | **平条目兜底词 未结／已付讫** | 上一条的直接后果。这两个词是我造的（§四 #4），**中国会计认不认，我不知道** |
+| 3 | ~~**平条目兜底词 未结／已付讫**~~ **（已裁，DEC-080：兜底不动官方原译，两词均未作兜底词采用）** | 上一条的直接后果。这两个词是我造的（§四 #4），**中国会计认不认，我不知道**——故裁为不作兜底词采用，四处裸渲染点保留官方原译「未付款／已付款」，三条出路推 S6（LG-120）。**⚠ 但 LG-112 仍未闭合**：「未结」仍被 `Outstanding`／`Outstanding Amount` 两行采用，另 71 个造词的地道性依旧无来源可证，**本条（用字是否行业习惯说法）仍是最需复核项之一，见下 #4** |
 | 4 | **73 个新词的用字** | §四 #2。全部只证了"没被占"，**没证"是行业习惯说法"** |
-| 5 | **`Dr` → 博士** | `frappe/locale/zh.po:8794`。**科目表树上余额为正的科目现在显示「博士」**（`account_tree.js:63` 的 `balance > 0 ? __("Dr") : __("Cr")`）。演示环节 1 一眼可见。这是"同源词多义"，`context` 正好能解，与撞名相反 |
+| 5 | **`Dr` → 博士** **（已裁本 Stage 落地：改 借方，DEC-081／形态 DEC-079）** | `frappe/locale/zh.po:8794`。**科目表树上余额为正的科目现在显示「博士」**（`account_tree.js:63` 的 `balance > 0 ? __("Dr") : __("Cr")`）。演示环节 1 一眼可见。**⚠ 原表述「这是"同源词多义"，`context` 正好能解」已被实核推翻**（NV-066：称谓侧 `_("Dr")` 与会计侧 `__("Dr")` **皆裸调用**，不传 context，而 `__()` 无 context 时只查裸 key，`translate.py:196-217`）。真正根因是**上游漏译**（`Cr` 在 erpnext 侧已有对称条目 `:13470-13474`，`Dr` 零条目）。落地形态见 §2.3.3 附注 1：给 `erpnext/locale/zh.po` 补一条裸 `msgid "Dr"` → 借方。**待复核的是残留两项**：LG-118（`tabSalutation` 实际记录名未查）／LG-119（全新装站未实测） |
 | 6 | **要报上游的源串不统一** | ` BOM`（前导空格）／`Qty `（尾空格）／`Re-open`·`Reopen`／`DocType`·`Doctype`·`Document Type`／`Use Company Default Round Off Cost Center` 与 `Use Company default Cost Center for Round off`／`material_request_item`（fieldname 被收成可译串）。**这些改译文治不好，得改官方源串** |
 
 ### 5.2 拿不准的
