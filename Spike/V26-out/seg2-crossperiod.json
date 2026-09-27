@@ -1,0 +1,166 @@
+{
+  "probe": "V-26 seg2: does Closing Balance carry prior-period amounts on P&L accounts",
+  "period_closing_vouchers": [],
+  "accounts_settings_flags": {
+    "ignore_account_closing_balance": 0,
+    "ignore_is_opening_check_for_reporting": 0
+  },
+  "account_closing_balance_rows": 0,
+  "get_opening_balances_source": "\tdef _get_opening_balances(self, accounts: list[str]) -> dict[str, dict[str, dict[str, float]]]:\n\t\t\"\"\"\n\t\tReturn opening balances for *all accounts* defaulting to zero.\n\t\t\"\"\"\n\t\tself.ignore_opening_entries = False\n\n\t\tif frappe.get_single_value(\"Accounts Settings\", \"ignore_account_closing_balance\"):\n\t\t\treturn self._get_opening_balances_from_gl(accounts)\n\n\t\tfirst_period_start = getdate(self.periods[0][\"from_date\"])\n\t\tlast_closing_voucher = frappe.db.get_all(\n\t\t\t\"Period Closing Voucher\",\n\t\t\tfilters={\n\t\t\t\t\"docstatus\": 1,\n\t\t\t\t\"company\": self.company,\n\t\t\t\t\"period_end_date\": (\"<\", first_period_start),\n\t\t\t},\n\t\t\tfields=[\"period_end_date\", \"name\"],\n\t\t\torder_by=\"period_end_date desc\",\n\t\t\tlimit=1,\n\t\t)\n\n\t\tif last_closing_voucher:\n\t\t\tclosing_voucher = last_closing_voucher[0]\n\t\t\tclosing_data = self._get_closing_balances(accounts, closing_voucher.name)\n\t\t\tself.ignore_opening_entries = True  # Else it will double count\n\n\t\t\treturn self._rebase_closing_balances(closing_data, closing_voucher.period_end_date)\n\n\t\treturn self._get_opening_balances_from_gl(accounts)\n",
+  "get_opening_balances_from_gl_source": "\tdef _get_opening_balances_from_gl(self, accounts: list[str]) -> dict:\n\t\t# Simulate zero closing balances\n\t\tzero_closing_balances = {account: 0.0 for account in accounts}\n\n\t\t# Use a very early date\n\t\tearliest_date = \"1900-01-01\"\n\n\t\treturn self._rebase_closing_balances(zero_closing_balances, earliest_date)\n",
+  "rebase_closing_balances_source": "\tdef _rebase_closing_balances(\n\t\tself, closing_data: dict[str, float], closing_date: str\n\t) -> dict[str, dict[str, dict[str, float]]]:\n\t\tbalances_data = {}\n\n\t\tfirst_period_key = self.periods[0][\"key\"]\n\t\treport_start = getdate(self.periods[0][\"from_date\"])\n\t\tclosing_end = getdate(closing_date)\n\n\t\thas_gap = date_diff(report_start, closing_end) > 1\n\n\t\tgap_movements = {}\n\t\tif has_gap:\n\t\t\tgap_movements = self._get_gap_movements(list(closing_data.keys()), closing_date, report_start)\n\n\t\tfor account, closing_balance in closing_data.items():\n\t\t\tgap_movement = gap_movements.get(account, 0.0)\n\t\t\topening_balance = closing_balance + gap_movement\n\n\t\t\taccount_data = AccountData(account=account, **self._get_account_meta(account))\n\n\t\t\taccount_data.add_period(PeriodValue(first_period_key, opening_balance, 0, 0))\n\t\t\tbalances_data[account] = account_data\n\n\t\treturn balances_data\n",
+  "raw_pl_gl_entries": [
+    {
+      "account": "结转库存的费用 - HDS",
+      "posting_date": "2026-09-21",
+      "debit": 0.0,
+      "credit": 0.27,
+      "is_opening": "No",
+      "voucher_type": "Stock Entry"
+    },
+    {
+      "account": "销货成本 - HDS",
+      "posting_date": "2026-09-21",
+      "debit": 325.77,
+      "credit": 0.0,
+      "is_opening": "No",
+      "voucher_type": "Delivery Note"
+    },
+    {
+      "account": "销售 - HDS",
+      "posting_date": "2026-09-21",
+      "debit": 0.0,
+      "credit": 1045.0,
+      "is_opening": "No",
+      "voucher_type": "Sales Invoice"
+    }
+  ],
+  "raw_pl_net": -719.5,
+  "template_inserted": {
+    "name": "ZZ-PROBE-V26B-CrossPeriod",
+    "module": null
+  },
+  "run_range_Q4_after_all_GL": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZ-PROBE-V26B-CrossPeriod",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Date Range",
+      "period_start_date": "2026-10-01",
+      "period_end_date": "2026-12-31",
+      "periodicity": "Monthly"
+    },
+    "seg_0_period_fields": [
+      "seg_0_oct_2026",
+      "seg_0_nov_2026",
+      "seg_0_dec_2026"
+    ],
+    "rows": [
+      {
+        "closing_name": "Income CLOSING",
+        "movement_name": "Income MOVEMENT",
+        "CLOSING_oct_2026": 1045.0,
+        "MOVEMENT_oct_2026": 0.0,
+        "CLOSING_nov_2026": 1045.0,
+        "MOVEMENT_nov_2026": 0.0,
+        "CLOSING_dec_2026": 1045.0,
+        "MOVEMENT_dec_2026": 0.0
+      },
+      {
+        "closing_name": "Expense CLOSING",
+        "movement_name": "Expense MOVEMENT",
+        "CLOSING_oct_2026": 325.5,
+        "MOVEMENT_oct_2026": 0.0,
+        "CLOSING_nov_2026": 325.5,
+        "MOVEMENT_nov_2026": 0.0,
+        "CLOSING_dec_2026": 325.5,
+        "MOVEMENT_dec_2026": 0.0
+      }
+    ]
+  },
+  "run_range_Sep_to_Dec_contains_GL": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZ-PROBE-V26B-CrossPeriod",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Date Range",
+      "period_start_date": "2026-09-01",
+      "period_end_date": "2026-12-31",
+      "periodicity": "Monthly"
+    },
+    "seg_0_period_fields": [
+      "seg_0_sep_2026",
+      "seg_0_oct_2026",
+      "seg_0_nov_2026",
+      "seg_0_dec_2026"
+    ],
+    "rows": [
+      {
+        "closing_name": "Income CLOSING",
+        "movement_name": "Income MOVEMENT",
+        "CLOSING_sep_2026": 1045.0,
+        "MOVEMENT_sep_2026": 1045.0,
+        "CLOSING_oct_2026": 1045.0,
+        "MOVEMENT_oct_2026": 0.0,
+        "CLOSING_nov_2026": 1045.0,
+        "MOVEMENT_nov_2026": 0.0,
+        "CLOSING_dec_2026": 1045.0,
+        "MOVEMENT_dec_2026": 0.0
+      },
+      {
+        "closing_name": "Expense CLOSING",
+        "movement_name": "Expense MOVEMENT",
+        "CLOSING_sep_2026": 325.5,
+        "MOVEMENT_sep_2026": 325.5,
+        "CLOSING_oct_2026": 325.5,
+        "MOVEMENT_oct_2026": 0.0,
+        "CLOSING_nov_2026": 325.5,
+        "MOVEMENT_nov_2026": 0.0,
+        "CLOSING_dec_2026": 325.5,
+        "MOVEMENT_dec_2026": 0.0
+      }
+    ]
+  },
+  "run_fiscal_2026_yearly": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZ-PROBE-V26B-CrossPeriod",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Fiscal Year",
+      "from_fiscal_year": "2026",
+      "to_fiscal_year": "2026",
+      "periodicity": "Yearly"
+    },
+    "seg_0_period_fields": [
+      "seg_0_dec_2026"
+    ],
+    "rows": [
+      {
+        "closing_name": "Income CLOSING",
+        "movement_name": "Income MOVEMENT",
+        "CLOSING_dec_2026": 1045.0,
+        "MOVEMENT_dec_2026": 1045.0
+      },
+      {
+        "closing_name": "Expense CLOSING",
+        "movement_name": "Expense MOVEMENT",
+        "CLOSING_dec_2026": 325.5,
+        "MOVEMENT_dec_2026": 325.5
+      }
+    ]
+  },
+  "yearly_column_count_per_segment": 1,
+  "DECISIVE_seg2": {
+    "income_CLOSING_in_Oct_when_period_starts_Oct": 1045.0,
+    "income_MOVEMENT_in_Oct_when_period_starts_Oct": 0.0,
+    "closing_carries_prior_period_amounts": true,
+    "movement_is_period_scoped": true,
+    "implication": "if closing_carries_prior_period_amounts is true, Closing Balance is a running balance from the beginning of time, NOT a fiscal-year-to-date figure -- so it only equals 本年累计金额 while no prior year has P&L activity, or while a Period Closing Voucher zeroes it at year end"
+  },
+  "template_exists_after_rollback": false,
+  "frt_count_final": 6,
+  "gl_count_final": 22
+}

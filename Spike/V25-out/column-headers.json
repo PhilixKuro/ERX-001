@@ -1,0 +1,1044 @@
+{
+  "probe": "V-25 columnar BS column headers across two fiscal years",
+  "fiscal_years_before": [
+    {
+      "name": "2026",
+      "year_start_date": "2026-01-01",
+      "year_end_date": "2026-12-31",
+      "disabled": 0
+    }
+  ],
+  "period_labels_Yearly_unaccumulated": [
+    {
+      "key": "dec_2025",
+      "label": "2025"
+    },
+    {
+      "key": "dec_2026",
+      "label": "2026"
+    }
+  ],
+  "period_labels_Yearly_accumulated": [
+    {
+      "key": "dec_2025",
+      "label": "-2025"
+    },
+    {
+      "key": "dec_2026",
+      "label": "-2026"
+    }
+  ],
+  "get_columns_Yearly": [
+    {
+      "fieldname": "account",
+      "label": "Account",
+      "hidden": 0
+    },
+    {
+      "fieldname": "acc_name",
+      "label": "Account Name",
+      "hidden": 1
+    },
+    {
+      "fieldname": "acc_number",
+      "label": "Account Number",
+      "hidden": 1
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "hidden": 1
+    },
+    {
+      "fieldname": "dec_2025",
+      "label": "-2025",
+      "hidden": 0
+    },
+    {
+      "fieldname": "dec_2026",
+      "label": "-2026",
+      "hidden": 0
+    }
+  ],
+  "period_labels_Monthly_unaccumulated": [
+    {
+      "key": "jan_2025",
+      "label": "Jan 2025"
+    },
+    {
+      "key": "feb_2025",
+      "label": "Feb 2025"
+    },
+    {
+      "key": "mar_2025",
+      "label": "Mar 2025"
+    },
+    {
+      "key": "apr_2025",
+      "label": "Apr 2025"
+    },
+    {
+      "key": "may_2025",
+      "label": "May 2025"
+    },
+    {
+      "key": "jun_2025",
+      "label": "Jun 2025"
+    },
+    {
+      "key": "jul_2025",
+      "label": "Jul 2025"
+    },
+    {
+      "key": "aug_2025",
+      "label": "Aug 2025"
+    },
+    {
+      "key": "sep_2025",
+      "label": "Sep 2025"
+    },
+    {
+      "key": "oct_2025",
+      "label": "Oct 2025"
+    },
+    {
+      "key": "nov_2025",
+      "label": "Nov 2025"
+    },
+    {
+      "key": "dec_2025",
+      "label": "Dec 2025"
+    },
+    {
+      "key": "jan_2026",
+      "label": "Jan 2026"
+    },
+    {
+      "key": "feb_2026",
+      "label": "Feb 2026"
+    },
+    {
+      "key": "mar_2026",
+      "label": "Mar 2026"
+    },
+    {
+      "key": "apr_2026",
+      "label": "Apr 2026"
+    },
+    {
+      "key": "may_2026",
+      "label": "May 2026"
+    },
+    {
+      "key": "jun_2026",
+      "label": "Jun 2026"
+    },
+    {
+      "key": "jul_2026",
+      "label": "Jul 2026"
+    },
+    {
+      "key": "aug_2026",
+      "label": "Aug 2026"
+    },
+    {
+      "key": "sep_2026",
+      "label": "Sep 2026"
+    },
+    {
+      "key": "oct_2026",
+      "label": "Oct 2026"
+    },
+    {
+      "key": "nov_2026",
+      "label": "Nov 2026"
+    },
+    {
+      "key": "dec_2026",
+      "label": "Dec 2026"
+    }
+  ],
+  "period_labels_Monthly_accumulated": [
+    {
+      "key": "jan_2025",
+      "label": "-Jan 25"
+    },
+    {
+      "key": "feb_2025",
+      "label": "-Feb 25"
+    },
+    {
+      "key": "mar_2025",
+      "label": "-Mar 25"
+    },
+    {
+      "key": "apr_2025",
+      "label": "-Apr 25"
+    },
+    {
+      "key": "may_2025",
+      "label": "-May 25"
+    },
+    {
+      "key": "jun_2025",
+      "label": "-Jun 25"
+    },
+    {
+      "key": "jul_2025",
+      "label": "-Jul 25"
+    },
+    {
+      "key": "aug_2025",
+      "label": "-Aug 25"
+    },
+    {
+      "key": "sep_2025",
+      "label": "-Sep 25"
+    },
+    {
+      "key": "oct_2025",
+      "label": "-Oct 25"
+    },
+    {
+      "key": "nov_2025",
+      "label": "-Nov 25"
+    },
+    {
+      "key": "dec_2025",
+      "label": "-Dec 25"
+    },
+    {
+      "key": "jan_2026",
+      "label": "-Jan 26"
+    },
+    {
+      "key": "feb_2026",
+      "label": "-Feb 26"
+    },
+    {
+      "key": "mar_2026",
+      "label": "-Mar 26"
+    },
+    {
+      "key": "apr_2026",
+      "label": "-Apr 26"
+    },
+    {
+      "key": "may_2026",
+      "label": "-May 26"
+    },
+    {
+      "key": "jun_2026",
+      "label": "-Jun 26"
+    },
+    {
+      "key": "jul_2026",
+      "label": "-Jul 26"
+    },
+    {
+      "key": "aug_2026",
+      "label": "-Aug 26"
+    },
+    {
+      "key": "sep_2026",
+      "label": "-Sep 26"
+    },
+    {
+      "key": "oct_2026",
+      "label": "-Oct 26"
+    },
+    {
+      "key": "nov_2026",
+      "label": "-Nov 26"
+    },
+    {
+      "key": "dec_2026",
+      "label": "-Dec 26"
+    }
+  ],
+  "get_columns_Monthly": [
+    {
+      "fieldname": "account",
+      "label": "Account",
+      "hidden": 0
+    },
+    {
+      "fieldname": "acc_name",
+      "label": "Account Name",
+      "hidden": 1
+    },
+    {
+      "fieldname": "acc_number",
+      "label": "Account Number",
+      "hidden": 1
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "hidden": 1
+    },
+    {
+      "fieldname": "jan_2025",
+      "label": "-Jan 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "feb_2025",
+      "label": "-Feb 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "mar_2025",
+      "label": "-Mar 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "apr_2025",
+      "label": "-Apr 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "may_2025",
+      "label": "-May 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "jun_2025",
+      "label": "-Jun 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "jul_2025",
+      "label": "-Jul 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "aug_2025",
+      "label": "-Aug 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "sep_2025",
+      "label": "-Sep 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "oct_2025",
+      "label": "-Oct 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "nov_2025",
+      "label": "-Nov 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "dec_2025",
+      "label": "-Dec 25",
+      "hidden": 0
+    },
+    {
+      "fieldname": "jan_2026",
+      "label": "-Jan 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "feb_2026",
+      "label": "-Feb 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "mar_2026",
+      "label": "-Mar 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "apr_2026",
+      "label": "-Apr 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "may_2026",
+      "label": "-May 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "jun_2026",
+      "label": "-Jun 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "jul_2026",
+      "label": "-Jul 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "aug_2026",
+      "label": "-Aug 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "sep_2026",
+      "label": "-Sep 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "oct_2026",
+      "label": "-Oct 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "nov_2026",
+      "label": "-Nov 26",
+      "hidden": 0
+    },
+    {
+      "fieldname": "dec_2026",
+      "label": "-Dec 26",
+      "hidden": 0
+    }
+  ],
+  "created_fiscal_year": {
+    "name": "2025",
+    "note": "inside txn, rolled back at end"
+  },
+  "template_shape": {
+    "name": "Horizontal Balance Sheet (Columnar)",
+    "report_type": "Balance Sheet",
+    "rows": 64,
+    "column_breaks": [
+      {
+        "idx": 2,
+        "display_name": "Equity & Liabilities"
+      },
+      {
+        "idx": 27,
+        "display_name": "Assets"
+      },
+      {
+        "idx": 49,
+        "display_name": null
+      }
+    ],
+    "section_breaks": [
+      {
+        "idx": 1,
+        "display_name": ""
+      },
+      {
+        "idx": 45,
+        "display_name": null
+      },
+      {
+        "idx": 53,
+        "display_name": null
+      }
+    ],
+    "distinct_balance_types": [
+      "",
+      "Closing Balance",
+      "Period Movement (Debits - Credits)"
+    ]
+  },
+  "engine_columns_two_FY_yearly": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "Equity & Liabilities",
+      "fieldtype": "Link",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "Equity & Liabilities - 2025",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "Equity & Liabilities - 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "Assets",
+      "fieldtype": "Link",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "Assets - 2025",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "Assets - 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    }
+  ],
+  "engine_rowcount_two_FY_yearly": 34,
+  "engine_first_rows_two_FY_yearly": [
+    {
+      "seg_0_account": "Capital & Reserves",
+      "seg_0_account_name": "Capital & Reserves",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 0,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_dec_2025": "",
+      "seg_0_dec_2026": "",
+      "seg_1_account": "Non-Current Assets",
+      "seg_1_account_name": "Non-Current Assets",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 0,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_dec_2025": "",
+      "seg_1_dec_2026": ""
+    },
+    {
+      "seg_0_account": "Share Capital",
+      "seg_0_account_name": "Share Capital",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [
+        "股本 - HDS"
+      ],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 1,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_dec_2025": 0.0,
+      "seg_0_dec_2026": 0.0,
+      "seg_1_account": "Property, Plant & Equipment",
+      "seg_1_account_name": "Property, Plant & Equipment",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [
+        "办公设备 - HDS",
+        "在建工程科目 - HDS",
+        "家具及固定装置 - HDS",
+        "房屋 - HDS",
+        "植物和机械设备 - HDS",
+        "电子设备 - HDS",
+        "资本设备 - HDS"
+      ],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 1,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_dec_2025": 0.0,
+      "seg_1_dec_2026": 0.0
+    },
+    {
+      "seg_0_account": "Reserves & Surplus",
+      "seg_0_account_name": "Reserves & Surplus",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [
+        "所有者权益期初余额 - HDS",
+        "留存收益 - HDS",
+        "股利支付 - HDS",
+        "重估盈余 - HDS"
+      ],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 1,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_dec_2025": 0.0,
+      "seg_0_dec_2026": 0.0,
+      "seg_1_account": "Less: Accumulated Depreciation",
+      "seg_1_account_name": "Less: Accumulated Depreciation",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [
+        "累计折旧 - HDS"
+      ],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 2,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_dec_2025": 0.0,
+      "seg_1_dec_2026": 0.0
+    }
+  ],
+  "engine_columns_one_FY_monthly": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "Equity & Liabilities",
+      "fieldtype": "Link",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_jan_2026",
+      "label": "Equity & Liabilities - Jan 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_feb_2026",
+      "label": "Equity & Liabilities - Feb 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_mar_2026",
+      "label": "Equity & Liabilities - Mar 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_apr_2026",
+      "label": "Equity & Liabilities - Apr 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_may_2026",
+      "label": "Equity & Liabilities - May 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_jun_2026",
+      "label": "Equity & Liabilities - Jun 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_jul_2026",
+      "label": "Equity & Liabilities - Jul 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_aug_2026",
+      "label": "Equity & Liabilities - Aug 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_sep_2026",
+      "label": "Equity & Liabilities - Sep 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_oct_2026",
+      "label": "Equity & Liabilities - Oct 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_nov_2026",
+      "label": "Equity & Liabilities - Nov 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "Equity & Liabilities - Dec 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "Assets",
+      "fieldtype": "Link",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_jan_2026",
+      "label": "Assets - Jan 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_feb_2026",
+      "label": "Assets - Feb 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_mar_2026",
+      "label": "Assets - Mar 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_apr_2026",
+      "label": "Assets - Apr 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_may_2026",
+      "label": "Assets - May 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_jun_2026",
+      "label": "Assets - Jun 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_jul_2026",
+      "label": "Assets - Jul 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_aug_2026",
+      "label": "Assets - Aug 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_sep_2026",
+      "label": "Assets - Sep 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_oct_2026",
+      "label": "Assets - Oct 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_nov_2026",
+      "label": "Assets - Nov 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "Assets - Dec 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    }
+  ],
+  "engine_rowcount_one_FY_monthly": 35,
+  "engine_first_rows_one_FY_monthly": [
+    {
+      "seg_0_account": "Capital & Reserves",
+      "seg_0_account_name": "Capital & Reserves",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 0,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_jan_2026": "",
+      "seg_0_feb_2026": "",
+      "seg_0_mar_2026": "",
+      "seg_0_apr_2026": "",
+      "seg_0_may_2026": "",
+      "seg_0_jun_2026": "",
+      "seg_0_jul_2026": "",
+      "seg_0_aug_2026": "",
+      "seg_0_sep_2026": "",
+      "seg_0_oct_2026": "",
+      "seg_0_nov_2026": "",
+      "seg_0_dec_2026": "",
+      "seg_1_account": "Non-Current Assets",
+      "seg_1_account_name": "Non-Current Assets",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 0,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_jan_2026": "",
+      "seg_1_feb_2026": "",
+      "seg_1_mar_2026": "",
+      "seg_1_apr_2026": "",
+      "seg_1_may_2026": "",
+      "seg_1_jun_2026": "",
+      "seg_1_jul_2026": "",
+      "seg_1_aug_2026": "",
+      "seg_1_sep_2026": "",
+      "seg_1_oct_2026": "",
+      "seg_1_nov_2026": "",
+      "seg_1_dec_2026": ""
+    },
+    {
+      "seg_0_account": "Share Capital",
+      "seg_0_account_name": "Share Capital",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [
+        "股本 - HDS"
+      ],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 1,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_jan_2026": 0.0,
+      "seg_0_feb_2026": 0.0,
+      "seg_0_mar_2026": 0.0,
+      "seg_0_apr_2026": 0.0,
+      "seg_0_may_2026": 0.0,
+      "seg_0_jun_2026": 0.0,
+      "seg_0_jul_2026": 0.0,
+      "seg_0_aug_2026": 0.0,
+      "seg_0_sep_2026": 0.0,
+      "seg_0_oct_2026": 0.0,
+      "seg_0_nov_2026": 0.0,
+      "seg_0_dec_2026": 0.0,
+      "seg_1_account": "Property, Plant & Equipment",
+      "seg_1_account_name": "Property, Plant & Equipment",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [
+        "办公设备 - HDS",
+        "在建工程科目 - HDS",
+        "家具及固定装置 - HDS",
+        "房屋 - HDS",
+        "植物和机械设备 - HDS",
+        "电子设备 - HDS",
+        "资本设备 - HDS"
+      ],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 1,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_jan_2026": 0.0,
+      "seg_1_feb_2026": 0.0,
+      "seg_1_mar_2026": 0.0,
+      "seg_1_apr_2026": 0.0,
+      "seg_1_may_2026": 0.0,
+      "seg_1_jun_2026": 0.0,
+      "seg_1_jul_2026": 0.0,
+      "seg_1_aug_2026": 0.0,
+      "seg_1_sep_2026": 0.0,
+      "seg_1_oct_2026": 0.0,
+      "seg_1_nov_2026": 0.0,
+      "seg_1_dec_2026": 0.0
+    },
+    {
+      "seg_0_account": "Reserves & Surplus",
+      "seg_0_account_name": "Reserves & Surplus",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [
+        "所有者权益期初余额 - HDS",
+        "留存收益 - HDS",
+        "股利支付 - HDS",
+        "重估盈余 - HDS"
+      ],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 1,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_jan_2026": 0.0,
+      "seg_0_feb_2026": 0.0,
+      "seg_0_mar_2026": 0.0,
+      "seg_0_apr_2026": 0.0,
+      "seg_0_may_2026": 0.0,
+      "seg_0_jun_2026": 0.0,
+      "seg_0_jul_2026": 0.0,
+      "seg_0_aug_2026": 0.0,
+      "seg_0_sep_2026": 0.0,
+      "seg_0_oct_2026": 0.0,
+      "seg_0_nov_2026": 0.0,
+      "seg_0_dec_2026": 0.0,
+      "seg_1_account": "Less: Accumulated Depreciation",
+      "seg_1_account_name": "Less: Accumulated Depreciation",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [
+        "累计折旧 - HDS"
+      ],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 2,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_jan_2026": 0.0,
+      "seg_1_feb_2026": 0.0,
+      "seg_1_mar_2026": 0.0,
+      "seg_1_apr_2026": 0.0,
+      "seg_1_may_2026": 0.0,
+      "seg_1_jun_2026": 0.0,
+      "seg_1_jul_2026": 0.0,
+      "seg_1_aug_2026": 0.0,
+      "seg_1_sep_2026": 0.0,
+      "seg_1_oct_2026": 0.0,
+      "seg_1_nov_2026": 0.0,
+      "seg_1_dec_2026": 0.0
+    }
+  ],
+  "label_assignment_sites": {
+    "engine_label_lines": [
+      "label: str = \"\"",
+      "label: str = \"\"",
+      "filter_labels = {",
+      "section_label = \"\"",
+      "section_segments = self._organize_into_segments(current_section_rows, section_label)",
+      "SectionData(segments=section_segments, label=section_label, index=section_index)",
+      "section_label = getattr(row_data.row, \"display_name\", \"\") or \"\"",
+      "section_segments = self._organize_into_segments(current_section_rows, section_label)",
+      "sections.append(SectionData(segments=section_segments, label=section_label, index=section_index))",
+      "segment_label = \"\"",
+      "segments.append(SegmentData(rows=current_rows, label=segment_label, index=segment_index))",
+      "segment_label = getattr(row_data.row, \"display_name\", \"\") or \"\"",
+      "segments.append(SegmentData(rows=current_rows, label=segment_label, index=segment_index))",
+      "new_col[\"label\"] = segment.label or f\"Account (Segment {segment.index + 1})\"",
+      "new_col[\"label\"] = f\"{segment.label} - {col['label']}\"",
+      "labels = [p.get(\"label\") for p in self.period_list]",
+      "if not self.filters.get(\"accumulated_values\") or len(labels) <= 1:"
+    ],
+    "financial_statements_label_lines": [
+      "label = formatdate(opts[\"to_date\"], \"MMM YYYY\")",
+      "label = get_label(periodicity, opts[\"from_date\"], opts[\"to_date\"])",
+      "label = get_label(periodicity, opts.from_date_fiscal_year_start_date, opts[\"to_date\"])",
+      "label = get_label(periodicity, period_list[0].from_date, opts[\"to_date\"])",
+      "label = formatdate(from_date, \"YYYY\")",
+      "label = formatdate(from_date, \"YYYY\") + \"-\" + formatdate(to_date, \"YYYY\")",
+      "label = formatdate(from_date, \"MMM YY\") + \"-\" + formatdate(to_date, \"MMM YY\")"
+    ]
+  },
+  "row_doctype_fields": [
+    "reference_code",
+    "display_name",
+    "indentation_level",
+    "data_source",
+    "balance_type",
+    "column_break_hxqu",
+    "fieldtype",
+    "color",
+    "bold_text",
+    "italic_text",
+    "hidden_calculation",
+    "hide_when_empty",
+    "reverse_sign",
+    "include_in_charts",
+    "section_break_ornw",
+    "column_break_asfe",
+    "advanced_filtering",
+    "filters_editor",
+    "calculation_formula",
+    "section_break_pvro",
+    "formula_description"
+  ],
+  "template_doctype_fields": [
+    "template_name",
+    "report_type",
+    "module",
+    "column_break_lvnq",
+    "disabled",
+    "section_break_fvlw",
+    "rows"
+  ],
+  "any_column_label_field": {
+    "row_label_or_header_fields": [],
+    "template_label_or_header_fields": []
+  },
+  "custom_api_contract": {
+    "call_site": "financial_report_engine.py:1185",
+    "source_lines": [
+      "values = frappe.call(method, filters=self.context.filters, periods=self.period_list, row=row)"
+    ],
+    "note": "return value is bound to `values`, a flat list of one number per period"
+  },
+  "fiscal_years_after_rollback": [
+    "2026"
+  ],
+  "rollback_clean": true
+}

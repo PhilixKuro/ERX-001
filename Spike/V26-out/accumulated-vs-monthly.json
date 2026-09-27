@@ -1,0 +1,255 @@
+{
+  "probe": "V-26 accumulated column + single-month column in one report",
+  "accumulated_values_filter_occurrences": {
+    "custom_financial_statement.js": 0,
+    "financial_statements.js (shared base)": 0,
+    "balance_sheet.js (legacy report)": 1
+  },
+  "handle_balance_accumulation_source": "\tdef _handle_balance_accumulation(self, balances_data):\n\t\tfor account_data in balances_data.values():\n\t\t\taccount_data: AccountData\n\n\t\t\taccumulated_values = self.filters.get(\"accumulated_values\")\n\n\t\t\tif accumulated_values is None:\n\t\t\t\t# respect user setting if not in filters\n\t\t\t\t# closing = accumulated\n\t\t\t\t# movement = unaccumulated\n\t\t\t\tcontinue\n\n\t\t\t# for legacy reports\n\t\t\telif accumulated_values:\n\t\t\t\taccount_data.accumulate_values()\n\t\t\telse:\n\t\t\t\taccount_data.unaccumulate_values()\n",
+  "accumulate_values_source": "\tdef accumulate_values(self) -> None:\n\t\tfor period_value in self.period_values.values():\n\t\t\tperiod_value.movement += period_value.opening\n\t\t\t# closing is accumulated by default\n",
+  "unaccumulate_values_source": "\tdef unaccumulate_values(self) -> None:\n\t\tfor period_value in self.period_values.values():\n\t\t\tperiod_value.closing -= period_value.opening\n\t\t\t# movement is unaccumulated by default\n",
+  "period_value_get_value_source": "\tdef get_value(self, balance_type: str) -> float:\n\t\tif balance_type == \"Opening Balance\":\n\t\t\treturn self.opening\n\t\telif balance_type == \"Closing Balance\":\n\t\t\treturn self.closing\n\t\telif balance_type == \"Period Movement (Debits - Credits)\":\n\t\t\treturn self.movement\n\t\treturn 0.0\n",
+  "raw_gl_pl_movement_by_month": {
+    "2026-09": -719.5
+  },
+  "raw_gl_pl_total": -719.5,
+  "template_inserted": {
+    "name": "ZZ-PROBE-V26-PL-TwoColumn",
+    "module": null,
+    "rows": 8,
+    "note": "module empty on purpose: avoids on_update writing json into app source tree"
+  },
+  "filters_used": {
+    "company": "华东弹簧",
+    "report_template": "ZZ-PROBE-V26-PL-TwoColumn",
+    "filter_based_on": "Fiscal Year",
+    "from_fiscal_year": "2026",
+    "to_fiscal_year": "2026",
+    "periodicity": "Monthly",
+    "selected_view": "Report",
+    "include_default_book_entries": 1
+  },
+  "accumulated_values_in_filters": false,
+  "engine_columns": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "本年累计金额"
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name"
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number"
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency"
+    },
+    {
+      "fieldname": "seg_0_jan_2026",
+      "label": "本年累计金额 - Jan 2026"
+    },
+    {
+      "fieldname": "seg_0_feb_2026",
+      "label": "本年累计金额 - Feb 2026"
+    },
+    {
+      "fieldname": "seg_0_mar_2026",
+      "label": "本年累计金额 - Mar 2026"
+    },
+    {
+      "fieldname": "seg_0_apr_2026",
+      "label": "本年累计金额 - Apr 2026"
+    },
+    {
+      "fieldname": "seg_0_may_2026",
+      "label": "本年累计金额 - May 2026"
+    },
+    {
+      "fieldname": "seg_0_jun_2026",
+      "label": "本年累计金额 - Jun 2026"
+    },
+    {
+      "fieldname": "seg_0_jul_2026",
+      "label": "本年累计金额 - Jul 2026"
+    },
+    {
+      "fieldname": "seg_0_aug_2026",
+      "label": "本年累计金额 - Aug 2026"
+    },
+    {
+      "fieldname": "seg_0_sep_2026",
+      "label": "本年累计金额 - Sep 2026"
+    },
+    {
+      "fieldname": "seg_0_oct_2026",
+      "label": "本年累计金额 - Oct 2026"
+    },
+    {
+      "fieldname": "seg_0_nov_2026",
+      "label": "本年累计金额 - Nov 2026"
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "本年累计金额 - Dec 2026"
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "本月金额"
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name"
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number"
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency"
+    },
+    {
+      "fieldname": "seg_1_jan_2026",
+      "label": "本月金额 - Jan 2026"
+    },
+    {
+      "fieldname": "seg_1_feb_2026",
+      "label": "本月金额 - Feb 2026"
+    },
+    {
+      "fieldname": "seg_1_mar_2026",
+      "label": "本月金额 - Mar 2026"
+    },
+    {
+      "fieldname": "seg_1_apr_2026",
+      "label": "本月金额 - Apr 2026"
+    },
+    {
+      "fieldname": "seg_1_may_2026",
+      "label": "本月金额 - May 2026"
+    },
+    {
+      "fieldname": "seg_1_jun_2026",
+      "label": "本月金额 - Jun 2026"
+    },
+    {
+      "fieldname": "seg_1_jul_2026",
+      "label": "本月金额 - Jul 2026"
+    },
+    {
+      "fieldname": "seg_1_aug_2026",
+      "label": "本月金额 - Aug 2026"
+    },
+    {
+      "fieldname": "seg_1_sep_2026",
+      "label": "本月金额 - Sep 2026"
+    },
+    {
+      "fieldname": "seg_1_oct_2026",
+      "label": "本月金额 - Oct 2026"
+    },
+    {
+      "fieldname": "seg_1_nov_2026",
+      "label": "本月金额 - Nov 2026"
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "本月金额 - Dec 2026"
+    }
+  ],
+  "engine_rows_watched_months": [
+    {
+      "seg_0_name": "营业收入(累计)",
+      "seg_1_name": "营业收入(本月)",
+      "seg_0_aug_2026": 0.0,
+      "seg_1_aug_2026": 0.0,
+      "seg_0_sep_2026": 1045.0,
+      "seg_1_sep_2026": 1045.0,
+      "seg_0_oct_2026": 1045.0,
+      "seg_1_oct_2026": 0.0,
+      "seg_0_dec_2026": 1045.0,
+      "seg_1_dec_2026": 0.0
+    },
+    {
+      "seg_0_name": "营业成本(累计)",
+      "seg_1_name": "营业成本(本月)",
+      "seg_0_aug_2026": 0.0,
+      "seg_1_aug_2026": 0.0,
+      "seg_0_sep_2026": 325.5,
+      "seg_1_sep_2026": 325.5,
+      "seg_0_oct_2026": 325.5,
+      "seg_1_oct_2026": 0.0,
+      "seg_0_dec_2026": 325.5,
+      "seg_1_dec_2026": 0.0
+    },
+    {
+      "seg_0_name": "净利润(累计)",
+      "seg_1_name": "净利润(本月)",
+      "seg_0_aug_2026": 0.0,
+      "seg_1_aug_2026": 0.0,
+      "seg_0_sep_2026": 719.5,
+      "seg_1_sep_2026": 719.5,
+      "seg_0_oct_2026": 719.5,
+      "seg_1_oct_2026": 0.0,
+      "seg_0_dec_2026": 719.5,
+      "seg_1_dec_2026": 0.0
+    }
+  ],
+  "DECISIVE": {
+    "cumulative_column_by_month": {
+      "aug_2026": 0.0,
+      "sep_2026": 719.5,
+      "oct_2026": 719.5,
+      "dec_2026": 719.5
+    },
+    "monthly_column_by_month": {
+      "aug_2026": 0.0,
+      "sep_2026": 719.5,
+      "oct_2026": 0.0,
+      "dec_2026": 0.0
+    },
+    "cumulative_holds_after_sep": true,
+    "monthly_drops_after_sep": true,
+    "two_columns_differ_in_oct": true,
+    "conclusion_both_accumulations_coexist": true
+  },
+  "column_layout_cost": {
+    "visible_columns": [
+      "本年累计金额",
+      "本年累计金额 - Jan 2026",
+      "本年累计金额 - Feb 2026",
+      "本年累计金额 - Mar 2026",
+      "本年累计金额 - Apr 2026",
+      "本年累计金额 - May 2026",
+      "本年累计金额 - Jun 2026",
+      "本年累计金额 - Jul 2026",
+      "本年累计金额 - Aug 2026",
+      "本年累计金额 - Sep 2026",
+      "本年累计金额 - Oct 2026",
+      "本年累计金额 - Nov 2026",
+      "本年累计金额 - Dec 2026",
+      "本月金额",
+      "本月金额 - Jan 2026",
+      "本月金额 - Feb 2026",
+      "本月金额 - Mar 2026",
+      "本月金额 - Apr 2026",
+      "本月金额 - May 2026",
+      "本月金额 - Jun 2026",
+      "本月金额 - Jul 2026",
+      "本月金额 - Aug 2026",
+      "本月金额 - Sep 2026",
+      "本月金额 - Oct 2026",
+      "本月金额 - Nov 2026",
+      "本月金额 - Dec 2026"
+    ],
+    "note": "a second account/项目 column appears mid-table, one per segment"
+  },
+  "template_exists_after_rollback": false,
+  "stray_exported_files": [],
+  "fiscal_years_final": [
+    "2026"
+  ]
+}
