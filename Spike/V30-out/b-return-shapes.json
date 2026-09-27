@@ -1,0 +1,665 @@
+{
+  "probe": "V-30 (b) non-flat Custom API return shapes",
+  "company_used": "华东弹簧",
+  "error_log_count_before": 0,
+  "error_log_names_before": [],
+  "shape_findings": {
+    "flat": {
+      "outcome": "engine_returned",
+      "error_log_delta": 0,
+      "silent_zero_fired": false,
+      "n_columns_total": 16,
+      "n_period_columns": 12,
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "first_3_cells": {
+        "jan_2026": 100.0,
+        "feb_2026": 101.0,
+        "mar_2026": 102.0
+      },
+      "last_2_cells": {
+        "nov_2026": 110.0,
+        "dec_2026": 111.0
+      },
+      "all_cells": {
+        "jan_2026": 100.0,
+        "feb_2026": 101.0,
+        "mar_2026": 102.0,
+        "apr_2026": 103.0,
+        "may_2026": 104.0,
+        "jun_2026": 105.0,
+        "jul_2026": 106.0,
+        "aug_2026": 107.0,
+        "sep_2026": 108.0,
+        "oct_2026": 109.0,
+        "nov_2026": 110.0,
+        "dec_2026": 111.0
+      }
+    },
+    "dict_keyed_by_period": {
+      "outcome": "RAISED_to_caller",
+      "exc_type": "KeyError",
+      "exc_msg": "0",
+      "tb_tail": "formatter.format_row(section.segments, row_index)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1685, in format_row\n    formatted = self._get_values(row_data)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1659, in _get_values\n    period_value = self._get_period_value(row_data, i)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1673, in _get_period_value\n    return row_data.values[period_index]\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\nKeyError: 0\n"
+    },
+    "dict_arbitrary": {
+      "outcome": "RAISED_to_caller",
+      "exc_type": "KeyError",
+      "exc_msg": "0",
+      "tb_tail": "formatter.format_row(section.segments, row_index)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1685, in format_row\n    formatted = self._get_values(row_data)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1659, in _get_values\n    period_value = self._get_period_value(row_data, i)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1673, in _get_period_value\n    return row_data.values[period_index]\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^\nKeyError: 0\n"
+    },
+    "short_list": {
+      "outcome": "engine_returned",
+      "error_log_delta": 0,
+      "silent_zero_fired": false,
+      "n_columns_total": 16,
+      "n_period_columns": 12,
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "first_3_cells": {
+        "jan_2026": 301.0,
+        "feb_2026": 302.0,
+        "mar_2026": ""
+      },
+      "last_2_cells": {
+        "nov_2026": "",
+        "dec_2026": ""
+      },
+      "all_cells": {
+        "jan_2026": 301.0,
+        "feb_2026": 302.0,
+        "mar_2026": "",
+        "apr_2026": "",
+        "may_2026": "",
+        "jun_2026": "",
+        "jul_2026": "",
+        "aug_2026": "",
+        "sep_2026": "",
+        "oct_2026": "",
+        "nov_2026": "",
+        "dec_2026": ""
+      }
+    },
+    "long_list": {
+      "outcome": "engine_returned",
+      "error_log_delta": 0,
+      "silent_zero_fired": false,
+      "n_columns_total": 16,
+      "n_period_columns": 12,
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "first_3_cells": {
+        "jan_2026": 400.0,
+        "feb_2026": 401.0,
+        "mar_2026": 402.0
+      },
+      "last_2_cells": {
+        "nov_2026": 410.0,
+        "dec_2026": 411.0
+      },
+      "all_cells": {
+        "jan_2026": 400.0,
+        "feb_2026": 401.0,
+        "mar_2026": 402.0,
+        "apr_2026": 403.0,
+        "may_2026": 404.0,
+        "jun_2026": 405.0,
+        "jul_2026": 406.0,
+        "aug_2026": 407.0,
+        "sep_2026": 408.0,
+        "oct_2026": 409.0,
+        "nov_2026": 410.0,
+        "dec_2026": 411.0
+      }
+    },
+    "list_of_strings": {
+      "outcome": "engine_returned",
+      "error_log_delta": 0,
+      "silent_zero_fired": false,
+      "n_columns_total": 16,
+      "n_period_columns": 12,
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "first_3_cells": {
+        "jan_2026": "abc",
+        "feb_2026": "abc",
+        "mar_2026": "abc"
+      },
+      "last_2_cells": {
+        "nov_2026": "abc",
+        "dec_2026": "abc"
+      },
+      "all_cells": {
+        "jan_2026": "abc",
+        "feb_2026": "abc",
+        "mar_2026": "abc",
+        "apr_2026": "abc",
+        "may_2026": "abc",
+        "jun_2026": "abc",
+        "jul_2026": "abc",
+        "aug_2026": "abc",
+        "sep_2026": "abc",
+        "oct_2026": "abc",
+        "nov_2026": "abc",
+        "dec_2026": "abc"
+      }
+    },
+    "list_of_numeric_strings": {
+      "outcome": "engine_returned",
+      "error_log_delta": 0,
+      "silent_zero_fired": false,
+      "n_columns_total": 16,
+      "n_period_columns": 12,
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "first_3_cells": {
+        "jan_2026": "500",
+        "feb_2026": "501",
+        "mar_2026": "502"
+      },
+      "last_2_cells": {
+        "nov_2026": "510",
+        "dec_2026": "511"
+      },
+      "all_cells": {
+        "jan_2026": "500",
+        "feb_2026": "501",
+        "mar_2026": "502",
+        "apr_2026": "503",
+        "may_2026": "504",
+        "jun_2026": "505",
+        "jul_2026": "506",
+        "aug_2026": "507",
+        "sep_2026": "508",
+        "oct_2026": "509",
+        "nov_2026": "510",
+        "dec_2026": "511"
+      }
+    },
+    "empty_list": {
+      "outcome": "engine_returned",
+      "error_log_delta": 0,
+      "silent_zero_fired": false,
+      "n_columns_total": 16,
+      "n_period_columns": 12,
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "first_3_cells": {
+        "jan_2026": "",
+        "feb_2026": "",
+        "mar_2026": ""
+      },
+      "last_2_cells": {
+        "nov_2026": "",
+        "dec_2026": ""
+      },
+      "all_cells": {
+        "jan_2026": "",
+        "feb_2026": "",
+        "mar_2026": "",
+        "apr_2026": "",
+        "may_2026": "",
+        "jun_2026": "",
+        "jul_2026": "",
+        "aug_2026": "",
+        "sep_2026": "",
+        "oct_2026": "",
+        "nov_2026": "",
+        "dec_2026": ""
+      }
+    },
+    "none": {
+      "outcome": "RAISED_to_caller",
+      "exc_type": "TypeError",
+      "exc_msg": "object of type 'NoneType' has no len()",
+      "tb_tail": "index)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1685, in format_row\n    formatted = self._get_values(row_data)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1659, in _get_values\n    period_value = self._get_period_value(row_data, i)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1672, in _get_period_value\n    if period_index < len(row_data.values):\n                      ~~~^^^^^^^^^^^^^^^^^\nTypeError: object of type 'NoneType' has no len()\n"
+    },
+    "scalar": {
+      "outcome": "RAISED_to_caller",
+      "exc_type": "TypeError",
+      "exc_msg": "object of type 'float' has no len()",
+      "tb_tail": "ow_index)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1685, in format_row\n    formatted = self._get_values(row_data)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1659, in _get_values\n    period_value = self._get_period_value(row_data, i)\n  File \"/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py\", line 1672, in _get_period_value\n    if period_index < len(row_data.values):\n                      ~~~^^^^^^^^^^^^^^^^^\nTypeError: object of type 'float' has no len()\n"
+    },
+    "list_of_dicts": {
+      "outcome": "engine_returned",
+      "error_log_delta": 0,
+      "silent_zero_fired": false,
+      "n_columns_total": 16,
+      "n_period_columns": 12,
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "first_3_cells": {
+        "jan_2026": {
+          "value": 600.0,
+          "label": "L0"
+        },
+        "feb_2026": {
+          "value": 601.0,
+          "label": "L1"
+        },
+        "mar_2026": {
+          "value": 602.0,
+          "label": "L2"
+        }
+      },
+      "last_2_cells": {
+        "nov_2026": {
+          "value": 610.0,
+          "label": "L10"
+        },
+        "dec_2026": {
+          "value": 611.0,
+          "label": "L11"
+        }
+      },
+      "all_cells": {
+        "jan_2026": {
+          "value": 600.0,
+          "label": "L0"
+        },
+        "feb_2026": {
+          "value": 601.0,
+          "label": "L1"
+        },
+        "mar_2026": {
+          "value": 602.0,
+          "label": "L2"
+        },
+        "apr_2026": {
+          "value": 603.0,
+          "label": "L3"
+        },
+        "may_2026": {
+          "value": 604.0,
+          "label": "L4"
+        },
+        "jun_2026": {
+          "value": 605.0,
+          "label": "L5"
+        },
+        "jul_2026": {
+          "value": 606.0,
+          "label": "L6"
+        },
+        "aug_2026": {
+          "value": 607.0,
+          "label": "L7"
+        },
+        "sep_2026": {
+          "value": 608.0,
+          "label": "L8"
+        },
+        "oct_2026": {
+          "value": 609.0,
+          "label": "L9"
+        },
+        "nov_2026": {
+          "value": 610.0,
+          "label": "L10"
+        },
+        "dec_2026": {
+          "value": 611.0,
+          "label": "L11"
+        }
+      }
+    },
+    "nested_list": {
+      "outcome": "engine_returned",
+      "error_log_delta": 0,
+      "silent_zero_fired": false,
+      "n_columns_total": 16,
+      "n_period_columns": 12,
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "first_3_cells": {
+        "jan_2026": [
+          700.0
+        ],
+        "feb_2026": [
+          701.0
+        ],
+        "mar_2026": [
+          702.0
+        ]
+      },
+      "last_2_cells": {
+        "nov_2026": [
+          710.0
+        ],
+        "dec_2026": [
+          711.0
+        ]
+      },
+      "all_cells": {
+        "jan_2026": [
+          700.0
+        ],
+        "feb_2026": [
+          701.0
+        ],
+        "mar_2026": [
+          702.0
+        ],
+        "apr_2026": [
+          703.0
+        ],
+        "may_2026": [
+          704.0
+        ],
+        "jun_2026": [
+          705.0
+        ],
+        "jul_2026": [
+          706.0
+        ],
+        "aug_2026": [
+          707.0
+        ],
+        "sep_2026": [
+          708.0
+        ],
+        "oct_2026": [
+          709.0
+        ],
+        "nov_2026": [
+          710.0
+        ],
+        "dec_2026": [
+          711.0
+        ]
+      }
+    },
+    "list_with_none": {
+      "outcome": "engine_returned",
+      "error_log_delta": 0,
+      "silent_zero_fired": false,
+      "n_columns_total": 16,
+      "n_period_columns": 12,
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "first_3_cells": {
+        "jan_2026": null,
+        "feb_2026": null,
+        "mar_2026": null
+      },
+      "last_2_cells": {
+        "nov_2026": null,
+        "dec_2026": null
+      },
+      "all_cells": {
+        "jan_2026": null,
+        "feb_2026": null,
+        "mar_2026": null,
+        "apr_2026": null,
+        "may_2026": null,
+        "jun_2026": null,
+        "jul_2026": null,
+        "aug_2026": null,
+        "sep_2026": null,
+        "oct_2026": null,
+        "nov_2026": null,
+        "dec_2026": null
+      }
+    }
+  },
+  "DECISIVE_b_summary": {
+    "flat": {
+      "outcome": "engine_returned",
+      "silent_zero": false,
+      "n_period_columns": 12,
+      "exc": null
+    },
+    "dict_keyed_by_period": {
+      "outcome": "RAISED_to_caller",
+      "silent_zero": null,
+      "n_period_columns": null,
+      "exc": "KeyError"
+    },
+    "dict_arbitrary": {
+      "outcome": "RAISED_to_caller",
+      "silent_zero": null,
+      "n_period_columns": null,
+      "exc": "KeyError"
+    },
+    "short_list": {
+      "outcome": "engine_returned",
+      "silent_zero": false,
+      "n_period_columns": 12,
+      "exc": null
+    },
+    "long_list": {
+      "outcome": "engine_returned",
+      "silent_zero": false,
+      "n_period_columns": 12,
+      "exc": null
+    },
+    "list_of_strings": {
+      "outcome": "engine_returned",
+      "silent_zero": false,
+      "n_period_columns": 12,
+      "exc": null
+    },
+    "list_of_numeric_strings": {
+      "outcome": "engine_returned",
+      "silent_zero": false,
+      "n_period_columns": 12,
+      "exc": null
+    },
+    "empty_list": {
+      "outcome": "engine_returned",
+      "silent_zero": false,
+      "n_period_columns": 12,
+      "exc": null
+    },
+    "none": {
+      "outcome": "RAISED_to_caller",
+      "silent_zero": null,
+      "n_period_columns": null,
+      "exc": "TypeError"
+    },
+    "scalar": {
+      "outcome": "RAISED_to_caller",
+      "silent_zero": null,
+      "n_period_columns": null,
+      "exc": "TypeError"
+    },
+    "list_of_dicts": {
+      "outcome": "engine_returned",
+      "silent_zero": false,
+      "n_period_columns": 12,
+      "exc": null
+    },
+    "nested_list": {
+      "outcome": "engine_returned",
+      "silent_zero": false,
+      "n_period_columns": 12,
+      "exc": null
+    },
+    "list_with_none": {
+      "outcome": "engine_returned",
+      "silent_zero": false,
+      "n_period_columns": 12,
+      "exc": null
+    }
+  },
+  "shapes_that_changed_columns": {},
+  "any_shape_changed_columns": false,
+  "baseline_flat_column_labels": [
+    "Account",
+    "Account Name",
+    "Account Number",
+    "Currency",
+    "Jan 2026",
+    "Feb 2026",
+    "Mar 2026",
+    "Apr 2026",
+    "May 2026",
+    "Jun 2026",
+    "Jul 2026",
+    "Aug 2026",
+    "Sep 2026",
+    "Oct 2026",
+    "Nov 2026",
+    "Dec 2026"
+  ],
+  "any_probe_template_left": [],
+  "error_log_rows_created_by_this_probe": [],
+  "error_log_rows_remaining_with_my_marker": [],
+  "other_new_error_log_rows_left_untouched": [],
+  "error_log_count_final": 0,
+  "counts_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1
+  },
+  "fiscal_years_after_rollback": [
+    "2026"
+  ]
+}

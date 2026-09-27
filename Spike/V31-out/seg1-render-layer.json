@@ -1,0 +1,2106 @@
+{
+  "probe": "V-31 seg1: is _()/__() applied to column labels, and can it alter Chinese?",
+  "baseline_before": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": [
+      "2026"
+    ],
+    "Error Log": 0,
+    "Translation": 0,
+    "Prepared Report": 0
+  },
+  "prepared_report_commit_neutralized": {
+    "patched": "frappe.core.doctype.report.report.enable_prepared_report",
+    "original_source": "def enable_prepared_report(report: str, site: str):\n\tfrappe.init(site)\n\tfrappe.connect()\n\tfrappe.db.set_value(\"Report\", report, \"prepared_report\", 1)\n\tfrappe.db.commit()\n\tfrappe.destroy()\n",
+    "why": "it does db.set_value + db.commit() on a SEPARATE connection; our rollback could not undo it. Timer at report.py:192 arms for this report (seg0: timer_arms=true).",
+    "report_prepared_report_field_before": 0
+  },
+  "lang_facts": {
+    "process_default_frappe.local.lang": "en",
+    "get_user_lang(Administrator)": "zh",
+    "note": "a python probe's frappe.local.lang defaults to 'en'; a real Desk request resolves it from the session user. The UI language here is zh, so every render-layer test below is run under lang=zh, and lang=en is kept as a contrast cell."
+  },
+  "zh_dict_shape": {
+    "entry_count": 14440,
+    "keys_with_any_cjk": 0,
+    "note": "`_()` looks up all_translations.get(label). A dict whose msgids are all English can never match a Chinese label. This count is the whole reason the NEG cell comes out clean -- it is a property of the DICT, not of the render layer."
+  },
+  "pos_control_candidates": {
+    "tested": [
+      "Assets",
+      "Liabilities",
+      "Equity",
+      "Total",
+      "Account",
+      "Balance Sheet",
+      "Opening",
+      "Closing",
+      "Currency",
+      "Account Name"
+    ],
+    "live_keys_found": [
+      {
+        "key": "Assets",
+        "zh_value": "资产"
+      },
+      {
+        "key": "Liabilities",
+        "zh_value": "负债"
+      },
+      {
+        "key": "Equity",
+        "zh_value": "权益"
+      },
+      {
+        "key": "Total",
+        "zh_value": "总计"
+      },
+      {
+        "key": "Account",
+        "zh_value": "科目"
+      },
+      {
+        "key": "Balance Sheet",
+        "zh_value": "资产负债表"
+      },
+      {
+        "key": "Opening",
+        "zh_value": "期初"
+      },
+      {
+        "key": "Closing",
+        "zh_value": "成交日期"
+      },
+      {
+        "key": "Currency",
+        "zh_value": "货币"
+      },
+      {
+        "key": "Account Name",
+        "zh_value": "科目名称"
+      }
+    ]
+  },
+  "pos_control_chosen": {
+    "segment_0_display_name": "Assets",
+    "segment_0_zh_translation": "资产",
+    "segment_1_display_name": "Liabilities",
+    "segment_1_zh_translation": "负债",
+    "prediction": "the ACCOUNT column label is exactly this key, so `_()` should SUBSTITUTE it; the PERIOD column label is '<key> - 2026', which is NOT a key, so it should pass through. Two different outcomes in one export = the criterion demonstrably discriminates."
+  },
+  "created_fiscal_year": {
+    "name": "2025",
+    "note": "inside txn, rolled back"
+  },
+  "template_built_NEG_statutory_chinese": {
+    "name": "ZZ-PROBE-V31-NEG-StatutoryLiteral",
+    "module": null,
+    "column_breaks": [
+      {
+        "idx": 1,
+        "display_name": "年初余额"
+      },
+      {
+        "idx": 4,
+        "display_name": "期末余额"
+      }
+    ]
+  },
+  "template_built_LONG_realistic_panes": {
+    "name": "ZZ-PROBE-V31-LONG-RealisticPanes",
+    "module": null,
+    "column_breaks": [
+      {
+        "idx": 1,
+        "display_name": "资产"
+      },
+      {
+        "idx": 4,
+        "display_name": "负债和所有者权益"
+      }
+    ]
+  },
+  "template_built_CJK_injected_entry": {
+    "name": "ZZ-PROBE-V31-CJK-InjectedEntry",
+    "module": null,
+    "column_breaks": [
+      {
+        "idx": 1,
+        "display_name": "年初余额"
+      },
+      {
+        "idx": 4,
+        "display_name": "期末余额"
+      }
+    ]
+  },
+  "template_built_POS_translated_key": {
+    "name": "ZZ-PROBE-V31-POS-TranslatedKey",
+    "module": null,
+    "column_breaks": [
+      {
+        "idx": 1,
+        "display_name": "Assets"
+      },
+      {
+        "idx": 4,
+        "display_name": "Liabilities"
+      }
+    ]
+  },
+  "ENGINE_LABELS_NEG_statutory_chinese": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "年初余额",
+      "hidden": 0,
+      "width": 300,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name",
+      "hidden": 1,
+      "width": 250,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number",
+      "hidden": 1,
+      "width": 120,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency",
+      "hidden": 1,
+      "width": null,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "年初余额 - 2025",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "年初余额 - 2026",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "期末余额",
+      "hidden": 0,
+      "width": 300,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name",
+      "hidden": 1,
+      "width": 250,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number",
+      "hidden": 1,
+      "width": 120,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency",
+      "hidden": 1,
+      "width": null,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "期末余额 - 2025",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "期末余额 - 2026",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    }
+  ],
+  "ENGINE_LABELS_LONG_realistic_panes": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "资产",
+      "hidden": 0,
+      "width": 300,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name",
+      "hidden": 1,
+      "width": 250,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number",
+      "hidden": 1,
+      "width": 120,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency",
+      "hidden": 1,
+      "width": null,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "资产 - 2025",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "资产 - 2026",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "负债和所有者权益",
+      "hidden": 0,
+      "width": 300,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name",
+      "hidden": 1,
+      "width": 250,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number",
+      "hidden": 1,
+      "width": 120,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency",
+      "hidden": 1,
+      "width": null,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "负债和所有者权益 - 2025",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "负债和所有者权益 - 2026",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    }
+  ],
+  "ENGINE_LABELS_CJK_injected_entry": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "年初余额",
+      "hidden": 0,
+      "width": 300,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name",
+      "hidden": 1,
+      "width": 250,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number",
+      "hidden": 1,
+      "width": 120,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency",
+      "hidden": 1,
+      "width": null,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "年初余额 - 2025",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "年初余额 - 2026",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "期末余额",
+      "hidden": 0,
+      "width": 300,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name",
+      "hidden": 1,
+      "width": 250,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number",
+      "hidden": 1,
+      "width": 120,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency",
+      "hidden": 1,
+      "width": null,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "期末余额 - 2025",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "期末余额 - 2026",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    }
+  ],
+  "ENGINE_LABELS_POS_translated_key": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "Assets",
+      "hidden": 0,
+      "width": 300,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name",
+      "hidden": 1,
+      "width": 250,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number",
+      "hidden": 1,
+      "width": 120,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency",
+      "hidden": 1,
+      "width": null,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "Assets - 2025",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "Assets - 2026",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "Liabilities",
+      "hidden": 0,
+      "width": 300,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name",
+      "hidden": 1,
+      "width": 250,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number",
+      "hidden": 1,
+      "width": 120,
+      "fieldtype": "Data"
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency",
+      "hidden": 1,
+      "width": null,
+      "fieldtype": "Link"
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "Liabilities - 2025",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "Liabilities - 2026",
+      "hidden": 0,
+      "width": 150,
+      "fieldtype": "Currency"
+    }
+  ],
+  "ENGINE_LABELS_CHARDUMP_NEG": [
+    {
+      "fieldname": "seg_0_account",
+      "label_chars": {
+        "raw": "年初余额",
+        "repr": "'年初余额'",
+        "len": 4,
+        "codepoints": [
+          "U+5E74",
+          "U+521D",
+          "U+4F59",
+          "U+989D"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label_chars": {
+        "raw": "Account Name",
+        "repr": "'Account Name'",
+        "len": 12,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0061",
+          "U+006D",
+          "U+0065"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label_chars": {
+        "raw": "Account Number",
+        "repr": "'Account Number'",
+        "len": 14,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0075",
+          "U+006D",
+          "U+0062",
+          "U+0065",
+          "U+0072"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label_chars": {
+        "raw": "Currency",
+        "repr": "'Currency'",
+        "len": 8,
+        "codepoints": [
+          "U+0043",
+          "U+0075",
+          "U+0072",
+          "U+0072",
+          "U+0065",
+          "U+006E",
+          "U+0063",
+          "U+0079"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label_chars": {
+        "raw": "年初余额 - 2025",
+        "repr": "'年初余额 - 2025'",
+        "len": 11,
+        "codepoints": [
+          "U+5E74",
+          "U+521D",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0035"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label_chars": {
+        "raw": "年初余额 - 2026",
+        "repr": "'年初余额 - 2026'",
+        "len": 11,
+        "codepoints": [
+          "U+5E74",
+          "U+521D",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0036"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label_chars": {
+        "raw": "期末余额",
+        "repr": "'期末余额'",
+        "len": 4,
+        "codepoints": [
+          "U+671F",
+          "U+672B",
+          "U+4F59",
+          "U+989D"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label_chars": {
+        "raw": "Account Name",
+        "repr": "'Account Name'",
+        "len": 12,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0061",
+          "U+006D",
+          "U+0065"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label_chars": {
+        "raw": "Account Number",
+        "repr": "'Account Number'",
+        "len": 14,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0075",
+          "U+006D",
+          "U+0062",
+          "U+0065",
+          "U+0072"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label_chars": {
+        "raw": "Currency",
+        "repr": "'Currency'",
+        "len": 8,
+        "codepoints": [
+          "U+0043",
+          "U+0075",
+          "U+0072",
+          "U+0072",
+          "U+0065",
+          "U+006E",
+          "U+0063",
+          "U+0079"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label_chars": {
+        "raw": "期末余额 - 2025",
+        "repr": "'期末余额 - 2025'",
+        "len": 11,
+        "codepoints": [
+          "U+671F",
+          "U+672B",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0035"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label_chars": {
+        "raw": "期末余额 - 2026",
+        "repr": "'期末余额 - 2026'",
+        "len": 11,
+        "codepoints": [
+          "U+671F",
+          "U+672B",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0036"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    }
+  ],
+  "V29_REPRODUCTION_CHECK": {
+    "expected": [
+      "年初余额",
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额",
+      "期末余额 - 2025",
+      "期末余额 - 2026"
+    ],
+    "observed_visible": [
+      "年初余额",
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额",
+      "期末余额 - 2025",
+      "期末余额 - 2026"
+    ],
+    "matches_V29": true
+  },
+  "xlsx_header_transform_is_literally": [
+    "column_data.append(_(column.get(\"label\")))"
+  ],
+  "UNDERSCORE_ON_LABELS_lang_zh": {
+    "NEG_statutory_chinese": {
+      "columns": [
+        {
+          "fieldname": "seg_0_account",
+          "engine_label": "年初余额",
+          "after_underscore": "年初余额",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "科目名称",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "科目代码",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_currency",
+          "engine_label": "Currency",
+          "after_underscore": "货币",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_dec_2025",
+          "engine_label": "年初余额 - 2025",
+          "after_underscore": "年初余额 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2026",
+          "engine_label": "年初余额 - 2026",
+          "after_underscore": "年初余额 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_account",
+          "engine_label": "期末余额",
+          "after_underscore": "期末余额",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "科目名称",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "科目代码",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_currency",
+          "engine_label": "Currency",
+          "after_underscore": "货币",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_dec_2025",
+          "engine_label": "期末余额 - 2025",
+          "after_underscore": "期末余额 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2026",
+          "engine_label": "期末余额 - 2026",
+          "after_underscore": "期末余额 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        }
+      ],
+      "any_changed": true,
+      "changed_fieldnames": [
+        "seg_0_acc_name",
+        "seg_0_acc_number",
+        "seg_0_currency",
+        "seg_1_acc_name",
+        "seg_1_acc_number",
+        "seg_1_currency"
+      ]
+    },
+    "LONG_realistic_panes": {
+      "columns": [
+        {
+          "fieldname": "seg_0_account",
+          "engine_label": "资产",
+          "after_underscore": "资产",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "科目名称",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "科目代码",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_currency",
+          "engine_label": "Currency",
+          "after_underscore": "货币",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_dec_2025",
+          "engine_label": "资产 - 2025",
+          "after_underscore": "资产 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2026",
+          "engine_label": "资产 - 2026",
+          "after_underscore": "资产 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_account",
+          "engine_label": "负债和所有者权益",
+          "after_underscore": "负债和所有者权益",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "科目名称",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "科目代码",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_currency",
+          "engine_label": "Currency",
+          "after_underscore": "货币",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_dec_2025",
+          "engine_label": "负债和所有者权益 - 2025",
+          "after_underscore": "负债和所有者权益 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2026",
+          "engine_label": "负债和所有者权益 - 2026",
+          "after_underscore": "负债和所有者权益 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        }
+      ],
+      "any_changed": true,
+      "changed_fieldnames": [
+        "seg_0_acc_name",
+        "seg_0_acc_number",
+        "seg_0_currency",
+        "seg_1_acc_name",
+        "seg_1_acc_number",
+        "seg_1_currency"
+      ]
+    },
+    "CJK_injected_entry": {
+      "columns": [
+        {
+          "fieldname": "seg_0_account",
+          "engine_label": "年初余额",
+          "after_underscore": "年初余额",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "科目名称",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "科目代码",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_currency",
+          "engine_label": "Currency",
+          "after_underscore": "货币",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_dec_2025",
+          "engine_label": "年初余额 - 2025",
+          "after_underscore": "年初余额 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2026",
+          "engine_label": "年初余额 - 2026",
+          "after_underscore": "年初余额 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_account",
+          "engine_label": "期末余额",
+          "after_underscore": "期末余额",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "科目名称",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "科目代码",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_currency",
+          "engine_label": "Currency",
+          "after_underscore": "货币",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_dec_2025",
+          "engine_label": "期末余额 - 2025",
+          "after_underscore": "期末余额 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2026",
+          "engine_label": "期末余额 - 2026",
+          "after_underscore": "期末余额 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        }
+      ],
+      "any_changed": true,
+      "changed_fieldnames": [
+        "seg_0_acc_name",
+        "seg_0_acc_number",
+        "seg_0_currency",
+        "seg_1_acc_name",
+        "seg_1_acc_number",
+        "seg_1_currency"
+      ]
+    },
+    "POS_translated_key": {
+      "columns": [
+        {
+          "fieldname": "seg_0_account",
+          "engine_label": "Assets",
+          "after_underscore": "资产",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "科目名称",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "科目代码",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_currency",
+          "engine_label": "Currency",
+          "after_underscore": "货币",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_0_dec_2025",
+          "engine_label": "Assets - 2025",
+          "after_underscore": "Assets - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2026",
+          "engine_label": "Assets - 2026",
+          "after_underscore": "Assets - 2026",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_account",
+          "engine_label": "Liabilities",
+          "after_underscore": "负债",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "科目名称",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "科目代码",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_currency",
+          "engine_label": "Currency",
+          "after_underscore": "货币",
+          "changed": true,
+          "is_dict_key": true
+        },
+        {
+          "fieldname": "seg_1_dec_2025",
+          "engine_label": "Liabilities - 2025",
+          "after_underscore": "Liabilities - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2026",
+          "engine_label": "Liabilities - 2026",
+          "after_underscore": "Liabilities - 2026",
+          "changed": false,
+          "is_dict_key": false
+        }
+      ],
+      "any_changed": true,
+      "changed_fieldnames": [
+        "seg_0_account",
+        "seg_0_acc_name",
+        "seg_0_acc_number",
+        "seg_0_currency",
+        "seg_1_account",
+        "seg_1_acc_name",
+        "seg_1_acc_number",
+        "seg_1_currency"
+      ]
+    }
+  },
+  "UNDERSCORE_ON_LABELS_lang_en": {
+    "NEG_statutory_chinese": {
+      "columns": [
+        {
+          "fieldname": "seg_0_account",
+          "engine_label": "年初余额",
+          "after_underscore": "年初余额",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "Account Name",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "Account Number",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_currency",
+          "engine_label": "Currency",
+          "after_underscore": "Currency",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2025",
+          "engine_label": "年初余额 - 2025",
+          "after_underscore": "年初余额 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2026",
+          "engine_label": "年初余额 - 2026",
+          "after_underscore": "年初余额 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_account",
+          "engine_label": "期末余额",
+          "after_underscore": "期末余额",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "Account Name",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "Account Number",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_currency",
+          "engine_label": "Currency",
+          "after_underscore": "Currency",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2025",
+          "engine_label": "期末余额 - 2025",
+          "after_underscore": "期末余额 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2026",
+          "engine_label": "期末余额 - 2026",
+          "after_underscore": "期末余额 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        }
+      ],
+      "any_changed": false,
+      "changed_fieldnames": []
+    },
+    "LONG_realistic_panes": {
+      "columns": [
+        {
+          "fieldname": "seg_0_account",
+          "engine_label": "资产",
+          "after_underscore": "资产",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "Account Name",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "Account Number",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_currency",
+          "engine_label": "Currency",
+          "after_underscore": "Currency",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2025",
+          "engine_label": "资产 - 2025",
+          "after_underscore": "资产 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2026",
+          "engine_label": "资产 - 2026",
+          "after_underscore": "资产 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_account",
+          "engine_label": "负债和所有者权益",
+          "after_underscore": "负债和所有者权益",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "Account Name",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "Account Number",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_currency",
+          "engine_label": "Currency",
+          "after_underscore": "Currency",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2025",
+          "engine_label": "负债和所有者权益 - 2025",
+          "after_underscore": "负债和所有者权益 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2026",
+          "engine_label": "负债和所有者权益 - 2026",
+          "after_underscore": "负债和所有者权益 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        }
+      ],
+      "any_changed": false,
+      "changed_fieldnames": []
+    },
+    "CJK_injected_entry": {
+      "columns": [
+        {
+          "fieldname": "seg_0_account",
+          "engine_label": "年初余额",
+          "after_underscore": "年初余额",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "Account Name",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "Account Number",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_currency",
+          "engine_label": "Currency",
+          "after_underscore": "Currency",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2025",
+          "engine_label": "年初余额 - 2025",
+          "after_underscore": "年初余额 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2026",
+          "engine_label": "年初余额 - 2026",
+          "after_underscore": "年初余额 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_account",
+          "engine_label": "期末余额",
+          "after_underscore": "期末余额",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "Account Name",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "Account Number",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_currency",
+          "engine_label": "Currency",
+          "after_underscore": "Currency",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2025",
+          "engine_label": "期末余额 - 2025",
+          "after_underscore": "期末余额 - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2026",
+          "engine_label": "期末余额 - 2026",
+          "after_underscore": "期末余额 - 2026",
+          "changed": false,
+          "is_dict_key": false
+        }
+      ],
+      "any_changed": false,
+      "changed_fieldnames": []
+    },
+    "POS_translated_key": {
+      "columns": [
+        {
+          "fieldname": "seg_0_account",
+          "engine_label": "Assets",
+          "after_underscore": "Assets",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "Account Name",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "Account Number",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_currency",
+          "engine_label": "Currency",
+          "after_underscore": "Currency",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2025",
+          "engine_label": "Assets - 2025",
+          "after_underscore": "Assets - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_0_dec_2026",
+          "engine_label": "Assets - 2026",
+          "after_underscore": "Assets - 2026",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_account",
+          "engine_label": "Liabilities",
+          "after_underscore": "Liabilities",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_name",
+          "engine_label": "Account Name",
+          "after_underscore": "Account Name",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_acc_number",
+          "engine_label": "Account Number",
+          "after_underscore": "Account Number",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_currency",
+          "engine_label": "Currency",
+          "after_underscore": "Currency",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2025",
+          "engine_label": "Liabilities - 2025",
+          "after_underscore": "Liabilities - 2025",
+          "changed": false,
+          "is_dict_key": false
+        },
+        {
+          "fieldname": "seg_1_dec_2026",
+          "engine_label": "Liabilities - 2026",
+          "after_underscore": "Liabilities - 2026",
+          "changed": false,
+          "is_dict_key": false
+        }
+      ],
+      "any_changed": false,
+      "changed_fieldnames": []
+    }
+  },
+  "CJK_INJECTION_RESULT": {
+    "injected_entries": {
+      "年初余额": "被翻译层替换了",
+      "期末余额 - 2026": "被翻译层替换了"
+    },
+    "columns": [
+      {
+        "fieldname": "seg_0_account",
+        "engine_label": "年初余额",
+        "after_underscore": "被翻译层替换了",
+        "changed": true
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "engine_label": "Account Name",
+        "after_underscore": "科目名称",
+        "changed": true
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "engine_label": "Account Number",
+        "after_underscore": "科目代码",
+        "changed": true
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "engine_label": "Currency",
+        "after_underscore": "货币",
+        "changed": true
+      },
+      {
+        "fieldname": "seg_0_dec_2025",
+        "engine_label": "年初余额 - 2025",
+        "after_underscore": "年初余额 - 2025",
+        "changed": false
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "engine_label": "年初余额 - 2026",
+        "after_underscore": "年初余额 - 2026",
+        "changed": false
+      },
+      {
+        "fieldname": "seg_1_account",
+        "engine_label": "期末余额",
+        "after_underscore": "期末余额",
+        "changed": false
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "engine_label": "Account Name",
+        "after_underscore": "科目名称",
+        "changed": true
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "engine_label": "Account Number",
+        "after_underscore": "科目代码",
+        "changed": true
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "engine_label": "Currency",
+        "after_underscore": "货币",
+        "changed": true
+      },
+      {
+        "fieldname": "seg_1_dec_2025",
+        "engine_label": "期末余额 - 2025",
+        "after_underscore": "期末余额 - 2025",
+        "changed": false
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "engine_label": "期末余额 - 2026",
+        "after_underscore": "被翻译层替换了",
+        "changed": true
+      }
+    ],
+    "any_changed": true,
+    "conclusion_if_changed": "`_()` will happily replace a Chinese header. The NEG cell's clean result is therefore a fact about the dict's contents, not about label immunity."
+  },
+  "cjk_injection_reverted": {
+    "get_all_translations_restored": true,
+    "reverted_label_check": true
+  },
+  "RUN_PAYLOAD_COLUMNS_NEG_statutory_chinese": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "年初余额",
+      "hidden": 0,
+      "width": 300
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "科目名称",
+      "hidden": 1,
+      "width": 250
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "科目代码",
+      "hidden": 1,
+      "width": 120
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "货币",
+      "hidden": 1,
+      "width": null
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "年初余额 - 2025",
+      "hidden": 0,
+      "width": 150
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "年初余额 - 2026",
+      "hidden": 0,
+      "width": 150
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "期末余额",
+      "hidden": 0,
+      "width": 300
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "科目名称",
+      "hidden": 1,
+      "width": 250
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "科目代码",
+      "hidden": 1,
+      "width": 120
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "货币",
+      "hidden": 1,
+      "width": null
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "期末余额 - 2025",
+      "hidden": 0,
+      "width": 150
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "期末余额 - 2026",
+      "hidden": 0,
+      "width": 150
+    }
+  ],
+  "RUN_PAYLOAD_META_NEG_statutory_chinese": {
+    "add_total_row": 0,
+    "row_count": 2,
+    "skip_total_row": 0,
+    "prepared_report": null,
+    "labels_identical_to_engine": false
+  },
+  "RUN_PAYLOAD_COLUMNS_LONG_realistic_panes": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "资产",
+      "hidden": 0,
+      "width": 300
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "科目名称",
+      "hidden": 1,
+      "width": 250
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "科目代码",
+      "hidden": 1,
+      "width": 120
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "货币",
+      "hidden": 1,
+      "width": null
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "资产 - 2025",
+      "hidden": 0,
+      "width": 150
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "资产 - 2026",
+      "hidden": 0,
+      "width": 150
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "负债和所有者权益",
+      "hidden": 0,
+      "width": 300
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "科目名称",
+      "hidden": 1,
+      "width": 250
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "科目代码",
+      "hidden": 1,
+      "width": 120
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "货币",
+      "hidden": 1,
+      "width": null
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "负债和所有者权益 - 2025",
+      "hidden": 0,
+      "width": 150
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "负债和所有者权益 - 2026",
+      "hidden": 0,
+      "width": 150
+    }
+  ],
+  "RUN_PAYLOAD_META_LONG_realistic_panes": {
+    "add_total_row": 0,
+    "row_count": 2,
+    "skip_total_row": 0,
+    "prepared_report": null,
+    "labels_identical_to_engine": false
+  },
+  "RUN_PAYLOAD_CHARDUMP_NEG": [
+    {
+      "fieldname": "seg_0_account",
+      "label_chars": {
+        "raw": "年初余额",
+        "repr": "'年初余额'",
+        "len": 4,
+        "codepoints": [
+          "U+5E74",
+          "U+521D",
+          "U+4F59",
+          "U+989D"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label_chars": {
+        "raw": "科目名称",
+        "repr": "'科目名称'",
+        "len": 4,
+        "codepoints": [
+          "U+79D1",
+          "U+76EE",
+          "U+540D",
+          "U+79F0"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label_chars": {
+        "raw": "科目代码",
+        "repr": "'科目代码'",
+        "len": 4,
+        "codepoints": [
+          "U+79D1",
+          "U+76EE",
+          "U+4EE3",
+          "U+7801"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label_chars": {
+        "raw": "货币",
+        "repr": "'货币'",
+        "len": 2,
+        "codepoints": [
+          "U+8D27",
+          "U+5E01"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label_chars": {
+        "raw": "年初余额 - 2025",
+        "repr": "'年初余额 - 2025'",
+        "len": 11,
+        "codepoints": [
+          "U+5E74",
+          "U+521D",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0035"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label_chars": {
+        "raw": "年初余额 - 2026",
+        "repr": "'年初余额 - 2026'",
+        "len": 11,
+        "codepoints": [
+          "U+5E74",
+          "U+521D",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0036"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label_chars": {
+        "raw": "期末余额",
+        "repr": "'期末余额'",
+        "len": 4,
+        "codepoints": [
+          "U+671F",
+          "U+672B",
+          "U+4F59",
+          "U+989D"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label_chars": {
+        "raw": "科目名称",
+        "repr": "'科目名称'",
+        "len": 4,
+        "codepoints": [
+          "U+79D1",
+          "U+76EE",
+          "U+540D",
+          "U+79F0"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label_chars": {
+        "raw": "科目代码",
+        "repr": "'科目代码'",
+        "len": 4,
+        "codepoints": [
+          "U+79D1",
+          "U+76EE",
+          "U+4EE3",
+          "U+7801"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label_chars": {
+        "raw": "货币",
+        "repr": "'货币'",
+        "len": 2,
+        "codepoints": [
+          "U+8D27",
+          "U+5E01"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label_chars": {
+        "raw": "期末余额 - 2025",
+        "repr": "'期末余额 - 2025'",
+        "len": 11,
+        "codepoints": [
+          "U+671F",
+          "U+672B",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0035"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label_chars": {
+        "raw": "期末余额 - 2026",
+        "repr": "'期末余额 - 2026'",
+        "len": 11,
+        "codepoints": [
+          "U+671F",
+          "U+672B",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0036"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false
+      }
+    }
+  ],
+  "datatable_label_assignment_js": {
+    "path": "/workspace/frappe-bench/apps/frappe/frappe/public/js/frappe/views/reports/query_report.js",
+    "line_numbers_1based": [
+      1434
+    ],
+    "context": [
+      "1429: id: column.fieldname,",
+      "1430: // The column label should have already been translated in the",
+      "1431: // backend. Translating it again would cause unexpected behaviour.",
+      "1432: ",
+      "1433: // Translating based on condition: when a report is generated through a query, the label is not translated.",
+      "1434: name: is_query_generated_report ? __(column.label) : column.label,",
+      "1435: width: parseInt(column.width) || null,"
+    ]
+  },
+  "is_query_generated_report_guard_js": {
+    "line_numbers_1based": [
+      1380
+    ],
+    "source": [
+      "1380: let is_query_generated_report =",
+      "1381: this.report_doc.query &&",
+      "1382: this.report_doc.query != undefined &&",
+      "1383: this.report_doc.query != \"\";"
+    ],
+    "report_query_field_live_value": null,
+    "therefore_is_query_generated_report": false,
+    "meaning": "false => the datatable column name is `column.label`, the raw server string, with NO __() applied"
+  },
+  "report_js_label_mutation_custom_financial_statement.js": {
+    "path": "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/report/custom_financial_statement/custom_financial_statement.js",
+    "assigns_column_label": false,
+    "has_get_datatable_options": false,
+    "has_get_columns": false,
+    "underscore_on_column_label": false,
+    "occurrences_of_column_label": 0
+  },
+  "report_js_label_mutation_erpnext_financial_statements.js": {
+    "path": "/workspace/frappe-bench/apps/erpnext/erpnext/public/js/financial_statements.js",
+    "assigns_column_label": false,
+    "has_get_datatable_options": false,
+    "has_get_columns": false,
+    "underscore_on_column_label": false,
+    "occurrences_of_column_label": 0
+  },
+  "prepared_report_timer_outcome": {
+    "no_op_was_called": [],
+    "Report.prepared_report_from_db_now": 0,
+    "expect": 0
+  },
+  "patches_reverted": {
+    "enable_prepared_report_restored": true
+  },
+  "baseline_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": [
+      "2026"
+    ],
+    "Error Log": 0,
+    "Translation": 0,
+    "Prepared Report": 0
+  },
+  "templates_exist_after_rollback": {
+    "ZZ-PROBE-V31-NEG-StatutoryLiteral": false,
+    "ZZ-PROBE-V31-LONG-RealisticPanes": false,
+    "ZZ-PROBE-V31-POS-TranslatedKey": false,
+    "ZZ-PROBE-V31-CJK-InjectedEntry": false
+  },
+  "Report_prepared_report_after_rollback": 0,
+  "error_log_rows_now": [],
+  "stray_exported_files": []
+}

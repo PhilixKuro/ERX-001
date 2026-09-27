@@ -1,0 +1,151 @@
+{
+  "probe": "c",
+  "steps": [
+    {
+      "rows": 0,
+      "step": "error_log_baseline"
+    },
+    {
+      "company": "华东弹簧",
+      "country": "China",
+      "region_resolved": "China",
+      "step": "site_country"
+    },
+    {
+      "make_regional_gl_entries": "def make_regional_gl_entries(gl_entries, doc):\n\t\"\"\"Hooked to make_regional_gl_entries in Purchase Invoice.It appends the region specific general ledger entries to the list of GL Entries.\"\"\"\n\tcountry = frappe.get_cached_value(\"Company\", doc.company, \"country\")\n\n\tif country != \"United Arab Emirates\":\n\t\treturn gl_entries\n\n\tif doc.reverse_charge == \"Y\":\n\t\ttax_accounts = get_tax_accounts(doc.company)\n\t\tfor tax in doc.get(\"taxes\"):\n\t\t\tif tax.category not in (\"Total\", \"Valuation and Total\"):\n\t\t\t\tcontinue\n\t\t\tgl_entries = make_gl_entry(tax, gl_entries, doc, tax_accounts)\n\treturn gl_entries\n",
+      "make_gl_entry": "def make_gl_entry(tax, gl_entries, doc, tax_accounts):\n\tdr_or_cr = \"credit\" if tax.add_deduct_tax == \"Add\" else \"debit\"\n\tif flt(tax.base_tax_amount_after_discount_amount) and tax.account_head in tax_accounts:\n\t\taccount_currency = get_account_currency(tax.account_head)\n\n\t\tgl_entries.append(\n\t\t\tdoc.get_gl_dict(\n\t\t\t\t{\n\t\t\t\t\t\"account\": tax.account_head,\n\t\t\t\t\t\"cost_center\": tax.cost_center,\n\t\t\t\t\t\"posting_date\": doc.posting_date,\n\t\t\t\t\t\"against\": doc.supplier,\n\t\t\t\t\tdr_or_cr: tax.base_tax_amount_after_discount_amount,\n\t\t\t\t\tdr_or_cr + \"_in_account_currency\": tax.base_tax_amount_after_discount_amount\n\t\t\t\t\tif account_currency == doc.company_currency\n\t\t\t\t\telse tax.tax_amount_after_discount_amount,\n\t\t\t\t},\n\t\t\t\taccount_currency,\n\t\t\t\titem=tax,\n\t\t\t)\n\t\t)\n\treturn gl_entries\n",
+      "appends_via_list_append": true,
+      "builds_entry_with_get_gl_dict": true,
+      "returns_the_list": true,
+      "evidence_type": "CODE READING",
+      "step": "uae_source_read"
+    },
+    {
+      "purchase_invoice_stub": "@erpnext.allow_regional\ndef make_regional_gl_entries(gl_entries, doc):\n\treturn gl_entries\n",
+      "caller_line": "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:959",
+      "caller_reassigns": "gl_entries = make_regional_gl_entries(gl_entries, self)",
+      "step": "core_stub_is_passthrough"
+    },
+    {
+      "input_len": 1,
+      "output_len": 1,
+      "returned_unchanged": true,
+      "note": "uae/utils.py:148-151 re-checks Company.country itself and early-returns; a China site gets nothing even if the slot were claimed",
+      "evidence_type": "RUN",
+      "step": "uae_impl_on_china_company"
+    },
+    {
+      "impl_ran": true,
+      "input_len": 1,
+      "output_len": 3,
+      "appended": [
+        {
+          "account": "V33-OUTPUT-VAT",
+          "credit": 13,
+          "debit": 0,
+          "v33_vat_side": "OUTPUT",
+          "company": "华东弹簧",
+          "cost_center": "CC1",
+          "voucher_no": "V33"
+        },
+        {
+          "account": "V33-INPUT-VAT",
+          "debit": 13,
+          "credit": 0,
+          "v33_vat_side": "INPUT",
+          "company": "华东弹簧",
+          "cost_center": "CC1",
+          "voucher_no": "V33"
+        }
+      ],
+      "core_entry_preserved": true,
+      "evidence_type": "RUN",
+      "note": "proves GL-append via regional slot works for China",
+      "step": "china_impl_through_real_slot"
+    },
+    {
+      "registered": [
+        "erpnext.v33_cn.impl",
+        "erpnext.v33_cn2.impl"
+      ],
+      "who_ran": [
+        "other-app"
+      ],
+      "only_last_ran": true,
+      "first_app_silently_dropped": true,
+      "resulting_accounts": [
+        "OTHER-APP"
+      ],
+      "mechanism": "erpnext/__init__.py:152 -> overrides[function_path][-1]",
+      "evidence_type": "RUN",
+      "note": "THE L4 COST: slot is exclusive, last installed app wins, no error",
+      "step": "two_apps_claim_same_slot"
+    },
+    {
+      "app_based_registrations_on_site": [],
+      "appears_in_regional_overrides": false,
+      "note": "separate hooks.py key; additive, no slot consumed (see probe a)",
+      "step": "app_based_hook_needs_no_slot"
+    },
+    {
+      "properties": [
+        "account",
+        "cost_center",
+        "party",
+        "party_type",
+        "voucher_detail_no",
+        "against_voucher",
+        "against_voucher_type",
+        "project",
+        "finance_book",
+        "voucher_no",
+        "advance_voucher_type",
+        "advance_voucher_no"
+      ],
+      "includes_custom_vat_key": false,
+      "source": "erpnext/accounts/general_ledger.py:331-348",
+      "step": "merge_properties"
+    },
+    {
+      "input_count": 2,
+      "output_count": 1,
+      "collapsed": true,
+      "surviving": [
+        {
+          "account": "VAT - HDS",
+          "debit": 130.0,
+          "v33_vat_side": "INPUT"
+        }
+      ],
+      "evidence_type": "RUN",
+      "note": "same account + same dimensions -> merged; custom key NOT a merge key, the losing row's marker is discarded with its row",
+      "step": "merge_collapses_custom_marker"
+    },
+    {
+      "other_account": "重估盈余 - HDS",
+      "output_count": 2,
+      "stayed_separate": true,
+      "note": "control: instrument does NOT merge everything; separation by ACCOUNT holds",
+      "step": "merge_positive_control_distinct_accounts"
+    },
+    {
+      "output_count": 2,
+      "stayed_separate": true,
+      "source": "erpnext/accounts/general_ledger.py:281-283",
+      "note": "_skip_merge=1 preserves same-account rows",
+      "step": "skip_merge_escape_hatch"
+    },
+    {
+      "field_count": 47,
+      "has_custom_fields": [],
+      "is_submittable": 0,
+      "allow_custom_field": true,
+      "step": "gl_entry_schema"
+    },
+    {
+      "rows": 0,
+      "delta": 0,
+      "step": "error_log_after"
+    }
+  ]
+}

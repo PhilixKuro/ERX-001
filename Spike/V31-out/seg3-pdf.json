@@ -1,0 +1,697 @@
+{
+  "probe": "V-31 seg3: PDF/print header text transform + glyph coverage",
+  "baseline_before": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": [
+      "2026"
+    ],
+    "Error Log": 0,
+    "Access Log": 0,
+    "Translation": 0,
+    "File": 2
+  },
+  "tmp_jars_before": [],
+  "why_not_report_to_pdf": {
+    "report_to_pdf_source": "@frappe.whitelist()\n@frappe.concurrent_limit()\ndef report_to_pdf(html: str, orientation: str = \"Landscape\"):\n\tmake_access_log(file_type=\"PDF\", method=\"PDF\", page=html)\n\tfrappe.local.response.filename = \"report.pdf\"\n\tfrappe.local.response.filecontent = get_pdf(\n\t\thtml,\n\t\t{\n\t\t\t\"orientation\": orientation,\n\t\t\t\"proxy\": \"http://0.0.0.0:0\",\n\t\t\t\"bypass-proxy-for\": _pdf_bypass_proxy_hosts(),\n\t\t\t\"load-error-handling\": \"ignore\",\n\t\t},\n\t\tsmart_shrinking=True,\n\t)\n\tfrappe.local.response.type = \"pdf\"\n",
+    "side_effect": "make_access_log -> Document.deferred_insert -> frappe.cache.rpush 'insert_queue_for_Access Log'; frappe/deferred_insert.py save_to_db() later inserts AND COMMITS -> outside our transaction, rollback cannot undo it",
+    "what_this_probe_calls_instead": "frappe.utils.pdf.get_pdf (print_format.py:268)",
+    "get_pdf_side_effect_census": {
+      "db.commit": 0,
+      "frappe.enqueue": 0,
+      "save_file": 0,
+      "make_access_log": 0
+    },
+    "has_frappe_local_request": false,
+    "so_cookiejar_written": false
+  },
+  "browser_translation_dict": {
+    "lang": "zh",
+    "source": "frappe/boot.py:234 bootinfo['__messages'] = get_messages_for_boot()",
+    "consumed_by": "request.js:293-294 $.extend(frappe._messages, data.__messages); translate.js frappe._ reads frappe._messages[key] || txt",
+    "entry_count": 14440,
+    "keys_with_cjk": 0,
+    "identical_to_get_all_translations": true
+  },
+  "created_fiscal_year": {
+    "name": "2025",
+    "note": "inside txn, rolled back"
+  },
+  "print_grid_header_line": {
+    "path": "/workspace/frappe-bench/apps/frappe/frappe/public/js/frappe/views/reports/print_grid.html",
+    "lines": [
+      "{% if col.name && col._id !== \"_check\" %}",
+      "{{ __(col.name) }}</th>",
+      "{% if col.name && col._id !== \"_check\" %}"
+    ]
+  },
+  "PRINT_HEADER_TEXT_NEG_statutory_chinese": {
+    "columns": [
+      {
+        "fieldname": "seg_0_account",
+        "engine_label": "年初余额",
+        "datatable_name_no_underscore": "年初余额",
+        "print_grid_after_js_underscore": "年初余额",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "engine_label": "科目名称",
+        "datatable_name_no_underscore": "科目名称",
+        "print_grid_after_js_underscore": "科目名称",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "engine_label": "科目代码",
+        "datatable_name_no_underscore": "科目代码",
+        "print_grid_after_js_underscore": "科目代码",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "engine_label": "货币",
+        "datatable_name_no_underscore": "货币",
+        "print_grid_after_js_underscore": "货币",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_dec_2025",
+        "engine_label": "年初余额 - 2025",
+        "datatable_name_no_underscore": "年初余额 - 2025",
+        "print_grid_after_js_underscore": "年初余额 - 2025",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "engine_label": "年初余额 - 2026",
+        "datatable_name_no_underscore": "年初余额 - 2026",
+        "print_grid_after_js_underscore": "年初余额 - 2026",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_account",
+        "engine_label": "期末余额",
+        "datatable_name_no_underscore": "期末余额",
+        "print_grid_after_js_underscore": "期末余额",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "engine_label": "科目名称",
+        "datatable_name_no_underscore": "科目名称",
+        "print_grid_after_js_underscore": "科目名称",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "engine_label": "科目代码",
+        "datatable_name_no_underscore": "科目代码",
+        "print_grid_after_js_underscore": "科目代码",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "engine_label": "货币",
+        "datatable_name_no_underscore": "货币",
+        "print_grid_after_js_underscore": "货币",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_dec_2025",
+        "engine_label": "期末余额 - 2025",
+        "datatable_name_no_underscore": "期末余额 - 2025",
+        "print_grid_after_js_underscore": "期末余额 - 2025",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "engine_label": "期末余额 - 2026",
+        "datatable_name_no_underscore": "期末余额 - 2026",
+        "print_grid_after_js_underscore": "期末余额 - 2026",
+        "print_differs_from_screen": false
+      }
+    ],
+    "any_changed_by_print_underscore": false,
+    "changed": []
+  },
+  "PRINT_HEADER_TEXT_LONG_realistic_panes": {
+    "columns": [
+      {
+        "fieldname": "seg_0_account",
+        "engine_label": "资产",
+        "datatable_name_no_underscore": "资产",
+        "print_grid_after_js_underscore": "资产",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "engine_label": "科目名称",
+        "datatable_name_no_underscore": "科目名称",
+        "print_grid_after_js_underscore": "科目名称",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "engine_label": "科目代码",
+        "datatable_name_no_underscore": "科目代码",
+        "print_grid_after_js_underscore": "科目代码",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "engine_label": "货币",
+        "datatable_name_no_underscore": "货币",
+        "print_grid_after_js_underscore": "货币",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_dec_2025",
+        "engine_label": "资产 - 2025",
+        "datatable_name_no_underscore": "资产 - 2025",
+        "print_grid_after_js_underscore": "资产 - 2025",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "engine_label": "资产 - 2026",
+        "datatable_name_no_underscore": "资产 - 2026",
+        "print_grid_after_js_underscore": "资产 - 2026",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_account",
+        "engine_label": "负债和所有者权益",
+        "datatable_name_no_underscore": "负债和所有者权益",
+        "print_grid_after_js_underscore": "负债和所有者权益",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "engine_label": "科目名称",
+        "datatable_name_no_underscore": "科目名称",
+        "print_grid_after_js_underscore": "科目名称",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "engine_label": "科目代码",
+        "datatable_name_no_underscore": "科目代码",
+        "print_grid_after_js_underscore": "科目代码",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "engine_label": "货币",
+        "datatable_name_no_underscore": "货币",
+        "print_grid_after_js_underscore": "货币",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_dec_2025",
+        "engine_label": "负债和所有者权益 - 2025",
+        "datatable_name_no_underscore": "负债和所有者权益 - 2025",
+        "print_grid_after_js_underscore": "负债和所有者权益 - 2025",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "engine_label": "负债和所有者权益 - 2026",
+        "datatable_name_no_underscore": "负债和所有者权益 - 2026",
+        "print_grid_after_js_underscore": "负债和所有者权益 - 2026",
+        "print_differs_from_screen": false
+      }
+    ],
+    "any_changed_by_print_underscore": false,
+    "changed": []
+  },
+  "PRINT_HEADER_TEXT_POS_translated_key": {
+    "columns": [
+      {
+        "fieldname": "seg_0_account",
+        "engine_label": "Assets",
+        "datatable_name_no_underscore": "Assets",
+        "print_grid_after_js_underscore": "资产",
+        "print_differs_from_screen": true
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "engine_label": "科目名称",
+        "datatable_name_no_underscore": "科目名称",
+        "print_grid_after_js_underscore": "科目名称",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "engine_label": "科目代码",
+        "datatable_name_no_underscore": "科目代码",
+        "print_grid_after_js_underscore": "科目代码",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "engine_label": "货币",
+        "datatable_name_no_underscore": "货币",
+        "print_grid_after_js_underscore": "货币",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_dec_2025",
+        "engine_label": "Assets - 2025",
+        "datatable_name_no_underscore": "Assets - 2025",
+        "print_grid_after_js_underscore": "Assets - 2025",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "engine_label": "Assets - 2026",
+        "datatable_name_no_underscore": "Assets - 2026",
+        "print_grid_after_js_underscore": "Assets - 2026",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_account",
+        "engine_label": "Liabilities",
+        "datatable_name_no_underscore": "Liabilities",
+        "print_grid_after_js_underscore": "负债",
+        "print_differs_from_screen": true
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "engine_label": "科目名称",
+        "datatable_name_no_underscore": "科目名称",
+        "print_grid_after_js_underscore": "科目名称",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "engine_label": "科目代码",
+        "datatable_name_no_underscore": "科目代码",
+        "print_grid_after_js_underscore": "科目代码",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "engine_label": "货币",
+        "datatable_name_no_underscore": "货币",
+        "print_grid_after_js_underscore": "货币",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_dec_2025",
+        "engine_label": "Liabilities - 2025",
+        "datatable_name_no_underscore": "Liabilities - 2025",
+        "print_grid_after_js_underscore": "Liabilities - 2025",
+        "print_differs_from_screen": false
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "engine_label": "Liabilities - 2026",
+        "datatable_name_no_underscore": "Liabilities - 2026",
+        "print_grid_after_js_underscore": "Liabilities - 2026",
+        "print_differs_from_screen": false
+      }
+    ],
+    "any_changed_by_print_underscore": true,
+    "changed": [
+      "seg_0_account",
+      "seg_1_account"
+    ]
+  },
+  "font_environment": {
+    "fc_list_count": "11",
+    "fc_list": [
+      "Cantarell",
+      "Cantarell,Cantarell Extra Bold",
+      "Cantarell,Cantarell Light",
+      "Cantarell,Cantarell Thin",
+      "DejaVu Sans",
+      "DejaVu Sans Mono",
+      "DejaVu Serif"
+    ],
+    "fc_match_zh_cn": [
+      "DejaVuSans.ttf: \"DejaVu Sans\" \"Book\"",
+      "DejaVuSans-Bold.ttf: \"DejaVu Sans\" \"Bold\"",
+      "DejaVuSansMono.ttf: \"DejaVu Sans Mono\" \"Book\""
+    ],
+    "wkhtmltopdf_version": "wkhtmltopdf 0.12.6.1 (with patched qt)"
+  },
+  "pdf_input_html": {
+    "path": "/workspace/Spike/V31-out/pdf-input.html",
+    "headers_embedded": [
+      "ZZASCIICONTROL",
+      "年初余额",
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额",
+      "期末余额 - 2025",
+      "期末余额 - 2026",
+      "资产",
+      "资产 - 2025",
+      "资产 - 2026",
+      "负债和所有者权益",
+      "负债和所有者权益 - 2025",
+      "负债和所有者权益 - 2026"
+    ]
+  },
+  "PDF_GLYPH_TEST": {
+    "pdf_file": "/workspace/Spike/V31-out/pdf-render.pdf",
+    "pdf_bytes": 16831,
+    "pages": 1,
+    "extracted_text_file": "/workspace/Spike/V31-out/pdf-extracted-text.txt",
+    "extracted_text_len": 222,
+    "extracted_text_verbatim": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 - 2025\u0000\u0000\u0000\u0000 - 2026\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 - 2025\u0000\u0000\u0000\u0000 - 2026\nZZASCIICONTROL\n\u0000\u0000\u0000\n\u0000\n\u0000\u0000\u0000\u0000 -\n2025\n\u0000\u0000\u0000\u0000 -\n2026\n\u0000\u0000\u0000\n\u0000\n\u0000\u0000\u0000\u0000 -\n2025\n\u0000\u0000\u0000\u0000 -\n2026\n\u0000\n\u0000\n\u0000\u0000 -\n2025\n\u0000\u0000 -\n2026\n\u0000\u0000\u0000\u0000\u0000\u0000\u0000\n\u0000\n\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 -\n2025\n\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000 -\n2026\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12",
+    "ascii_control_present": true,
+    "per_header_found": [
+      {
+        "header": "ZZASCIICONTROL",
+        "found_verbatim_in_pdf_text": true,
+        "chars": {
+          "raw": "ZZASCIICONTROL",
+          "repr": "'ZZASCIICONTROL'",
+          "len": 14,
+          "codepoints": [
+            "U+005A",
+            "U+005A",
+            "U+0041",
+            "U+0053",
+            "U+0043",
+            "U+0049",
+            "U+0049",
+            "U+0043",
+            "U+004F",
+            "U+004E",
+            "U+0054",
+            "U+0052",
+            "U+004F",
+            "U+004C"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "年初余额",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "年初余额",
+          "repr": "'年初余额'",
+          "len": 4,
+          "codepoints": [
+            "U+5E74",
+            "U+521D",
+            "U+4F59",
+            "U+989D"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "年初余额 - 2025",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "年初余额 - 2025",
+          "repr": "'年初余额 - 2025'",
+          "len": 11,
+          "codepoints": [
+            "U+5E74",
+            "U+521D",
+            "U+4F59",
+            "U+989D",
+            "U+0020",
+            "U+002D",
+            "U+0020",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0035"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "年初余额 - 2026",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "年初余额 - 2026",
+          "repr": "'年初余额 - 2026'",
+          "len": 11,
+          "codepoints": [
+            "U+5E74",
+            "U+521D",
+            "U+4F59",
+            "U+989D",
+            "U+0020",
+            "U+002D",
+            "U+0020",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "期末余额",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "期末余额",
+          "repr": "'期末余额'",
+          "len": 4,
+          "codepoints": [
+            "U+671F",
+            "U+672B",
+            "U+4F59",
+            "U+989D"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "期末余额 - 2025",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "期末余额 - 2025",
+          "repr": "'期末余额 - 2025'",
+          "len": 11,
+          "codepoints": [
+            "U+671F",
+            "U+672B",
+            "U+4F59",
+            "U+989D",
+            "U+0020",
+            "U+002D",
+            "U+0020",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0035"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "期末余额 - 2026",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "期末余额 - 2026",
+          "repr": "'期末余额 - 2026'",
+          "len": 11,
+          "codepoints": [
+            "U+671F",
+            "U+672B",
+            "U+4F59",
+            "U+989D",
+            "U+0020",
+            "U+002D",
+            "U+0020",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "资产",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "资产",
+          "repr": "'资产'",
+          "len": 2,
+          "codepoints": [
+            "U+8D44",
+            "U+4EA7"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "资产 - 2025",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "资产 - 2025",
+          "repr": "'资产 - 2025'",
+          "len": 9,
+          "codepoints": [
+            "U+8D44",
+            "U+4EA7",
+            "U+0020",
+            "U+002D",
+            "U+0020",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0035"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "资产 - 2026",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "资产 - 2026",
+          "repr": "'资产 - 2026'",
+          "len": 9,
+          "codepoints": [
+            "U+8D44",
+            "U+4EA7",
+            "U+0020",
+            "U+002D",
+            "U+0020",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "负债和所有者权益",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "负债和所有者权益",
+          "repr": "'负债和所有者权益'",
+          "len": 8,
+          "codepoints": [
+            "U+8D1F",
+            "U+503A",
+            "U+548C",
+            "U+6240",
+            "U+6709",
+            "U+8005",
+            "U+6743",
+            "U+76CA"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "负债和所有者权益 - 2025",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "负债和所有者权益 - 2025",
+          "repr": "'负债和所有者权益 - 2025'",
+          "len": 15,
+          "codepoints": [
+            "U+8D1F",
+            "U+503A",
+            "U+548C",
+            "U+6240",
+            "U+6709",
+            "U+8005",
+            "U+6743",
+            "U+76CA",
+            "U+0020",
+            "U+002D",
+            "U+0020",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0035"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "header": "负债和所有者权益 - 2026",
+        "found_verbatim_in_pdf_text": false,
+        "chars": {
+          "raw": "负债和所有者权益 - 2026",
+          "repr": "'负债和所有者权益 - 2026'",
+          "len": 15,
+          "codepoints": [
+            "U+8D1F",
+            "U+503A",
+            "U+548C",
+            "U+6240",
+            "U+6709",
+            "U+8005",
+            "U+6743",
+            "U+76CA",
+            "U+0020",
+            "U+002D",
+            "U+0020",
+            "U+0032",
+            "U+0030",
+            "U+0032",
+            "U+0036"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      }
+    ],
+    "cjk_headers_found": 0,
+    "cjk_headers_total": 12,
+    "reading": "ascii_control_present true + cjk_headers_found 0 => the string reached the renderer but no font could draw it, i.e. a GLYPH failure, not a string transform. Both true => characters survive."
+  },
+  "baseline_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": [
+      "2026"
+    ],
+    "Error Log": 0,
+    "Access Log": 0,
+    "Translation": 0,
+    "File": 2
+  },
+  "templates_exist_after_rollback": {
+    "ZZ-PROBE-V31P-NEG-StatutoryLiteral": false,
+    "ZZ-PROBE-V31P-LONG-RealisticPanes": false,
+    "ZZ-PROBE-V31P-POS-TranslatedKey": false
+  },
+  "error_log_rows_now": [],
+  "tmp_jars_after": {
+    "jars": [],
+    "new_jars": []
+  },
+  "files_this_probe_wrote": [
+    "/workspace/Spike/V31-out/pdf-input.html",
+    "/workspace/Spike/V31-out/pdf-render.pdf",
+    "/workspace/Spike/V31-out/pdf-extracted-text.txt"
+  ],
+  "stray_files_in_site_files_dirs": []
+}

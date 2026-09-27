@@ -1,0 +1,3257 @@
+{
+  "probe": "REV audit part D: adversarial re-run of the real engine",
+  "baseline_before": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0
+  },
+  "fiscal_years_before": [
+    "2026"
+  ],
+  "tpl_pl_inserted": {
+    "name": "ZZREV-PL-ThreeType",
+    "module": null,
+    "rows": 15,
+    "balance_types_stored": [
+      "<none>",
+      "Closing Balance",
+      "Opening Balance",
+      "Period Movement (Debits - Credits)"
+    ]
+  },
+  "tpl_pl_stored_rows": [
+    {
+      "idx": 1,
+      "data_source": "Column Break",
+      "display_name": "CLOSING",
+      "balance_type": "<null>"
+    },
+    {
+      "idx": 2,
+      "data_source": "Account Data",
+      "display_name": "INC CLOSING",
+      "balance_type": "Closing Balance"
+    },
+    {
+      "idx": 3,
+      "data_source": "Account Data",
+      "display_name": "EXP CLOSING",
+      "balance_type": "Closing Balance"
+    },
+    {
+      "idx": 4,
+      "data_source": "Account Data",
+      "display_name": "STOCK CLOSING",
+      "balance_type": "Closing Balance"
+    },
+    {
+      "idx": 5,
+      "data_source": "Calculated Amount",
+      "display_name": "NP CLOSING",
+      "balance_type": "<null>"
+    },
+    {
+      "idx": 6,
+      "data_source": "Column Break",
+      "display_name": "MOVEMENT",
+      "balance_type": "<null>"
+    },
+    {
+      "idx": 7,
+      "data_source": "Account Data",
+      "display_name": "INC MOVEMENT",
+      "balance_type": "Period Movement (Debits - Credits)"
+    },
+    {
+      "idx": 8,
+      "data_source": "Account Data",
+      "display_name": "EXP MOVEMENT",
+      "balance_type": "Period Movement (Debits - Credits)"
+    },
+    {
+      "idx": 9,
+      "data_source": "Account Data",
+      "display_name": "STOCK MOVEMENT",
+      "balance_type": "Period Movement (Debits - Credits)"
+    },
+    {
+      "idx": 10,
+      "data_source": "Calculated Amount",
+      "display_name": "NP MOVEMENT",
+      "balance_type": "<null>"
+    },
+    {
+      "idx": 11,
+      "data_source": "Column Break",
+      "display_name": "OPENING",
+      "balance_type": "<null>"
+    },
+    {
+      "idx": 12,
+      "data_source": "Account Data",
+      "display_name": "INC OPENING",
+      "balance_type": "Opening Balance"
+    },
+    {
+      "idx": 13,
+      "data_source": "Account Data",
+      "display_name": "EXP OPENING",
+      "balance_type": "Opening Balance"
+    },
+    {
+      "idx": 14,
+      "data_source": "Account Data",
+      "display_name": "STOCK OPENING",
+      "balance_type": "Opening Balance"
+    },
+    {
+      "idx": 15,
+      "data_source": "Calculated Amount",
+      "display_name": "NP OPENING",
+      "balance_type": "<null>"
+    }
+  ],
+  "run_A_FY2026_monthly": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZREV-PL-ThreeType",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Fiscal Year",
+      "from_fiscal_year": "2026",
+      "to_fiscal_year": "2026",
+      "periodicity": "Monthly"
+    },
+    "all_column_labels": [
+      {
+        "fieldname": "seg_0_account",
+        "label": "CLOSING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_jan_2026",
+        "label": "CLOSING - Jan 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_feb_2026",
+        "label": "CLOSING - Feb 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_mar_2026",
+        "label": "CLOSING - Mar 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_apr_2026",
+        "label": "CLOSING - Apr 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_may_2026",
+        "label": "CLOSING - May 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_jun_2026",
+        "label": "CLOSING - Jun 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_jul_2026",
+        "label": "CLOSING - Jul 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_aug_2026",
+        "label": "CLOSING - Aug 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_sep_2026",
+        "label": "CLOSING - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_oct_2026",
+        "label": "CLOSING - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_nov_2026",
+        "label": "CLOSING - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "label": "CLOSING - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_account",
+        "label": "MOVEMENT",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_jan_2026",
+        "label": "MOVEMENT - Jan 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_feb_2026",
+        "label": "MOVEMENT - Feb 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_mar_2026",
+        "label": "MOVEMENT - Mar 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_apr_2026",
+        "label": "MOVEMENT - Apr 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_may_2026",
+        "label": "MOVEMENT - May 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_jun_2026",
+        "label": "MOVEMENT - Jun 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_jul_2026",
+        "label": "MOVEMENT - Jul 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_aug_2026",
+        "label": "MOVEMENT - Aug 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_sep_2026",
+        "label": "MOVEMENT - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_oct_2026",
+        "label": "MOVEMENT - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_nov_2026",
+        "label": "MOVEMENT - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "label": "MOVEMENT - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_account",
+        "label": "OPENING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_jan_2026",
+        "label": "OPENING - Jan 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_feb_2026",
+        "label": "OPENING - Feb 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_mar_2026",
+        "label": "OPENING - Mar 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_apr_2026",
+        "label": "OPENING - Apr 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_may_2026",
+        "label": "OPENING - May 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_jun_2026",
+        "label": "OPENING - Jun 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_jul_2026",
+        "label": "OPENING - Jul 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_aug_2026",
+        "label": "OPENING - Aug 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_sep_2026",
+        "label": "OPENING - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_oct_2026",
+        "label": "OPENING - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_nov_2026",
+        "label": "OPENING - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_dec_2026",
+        "label": "OPENING - Dec 2026",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 39,
+    "segment_period_fields": {
+      "seg_0": [
+        "seg_0_jan_2026",
+        "seg_0_feb_2026",
+        "seg_0_mar_2026",
+        "seg_0_apr_2026",
+        "seg_0_may_2026",
+        "seg_0_jun_2026",
+        "seg_0_jul_2026",
+        "seg_0_aug_2026",
+        "seg_0_sep_2026",
+        "seg_0_oct_2026",
+        "seg_0_nov_2026",
+        "seg_0_dec_2026"
+      ],
+      "seg_1": [
+        "seg_1_jan_2026",
+        "seg_1_feb_2026",
+        "seg_1_mar_2026",
+        "seg_1_apr_2026",
+        "seg_1_may_2026",
+        "seg_1_jun_2026",
+        "seg_1_jul_2026",
+        "seg_1_aug_2026",
+        "seg_1_sep_2026",
+        "seg_1_oct_2026",
+        "seg_1_nov_2026",
+        "seg_1_dec_2026"
+      ],
+      "seg_2": [
+        "seg_2_jan_2026",
+        "seg_2_feb_2026",
+        "seg_2_mar_2026",
+        "seg_2_apr_2026",
+        "seg_2_may_2026",
+        "seg_2_jun_2026",
+        "seg_2_jul_2026",
+        "seg_2_aug_2026",
+        "seg_2_sep_2026",
+        "seg_2_oct_2026",
+        "seg_2_nov_2026",
+        "seg_2_dec_2026"
+      ]
+    },
+    "opening_balance_branches": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 34,
+        "first_period_from": "2026-01-01"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2026-01-01",
+        "nonzero": {}
+      }
+    ],
+    "rows": [
+      {
+        "seg_0_account": "INC CLOSING",
+        "seg_0_account_name": "INC CLOSING",
+        "seg_0_total": 0,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 1045.0,
+        "seg_0_oct_2026": 1045.0,
+        "seg_0_nov_2026": 1045.0,
+        "seg_0_dec_2026": 1045.0,
+        "seg_1_account": "INC MOVEMENT",
+        "seg_1_account_name": "INC MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 1045.0,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "INC OPENING",
+        "seg_2_account_name": "INC OPENING",
+        "seg_2_total": 0,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 1045.0,
+        "seg_2_nov_2026": 1045.0,
+        "seg_2_dec_2026": 1045.0
+      },
+      {
+        "seg_0_account": "EXP CLOSING",
+        "seg_0_account_name": "EXP CLOSING",
+        "seg_0_total": 0,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 325.5,
+        "seg_0_oct_2026": 325.5,
+        "seg_0_nov_2026": 325.5,
+        "seg_0_dec_2026": 325.5,
+        "seg_1_account": "EXP MOVEMENT",
+        "seg_1_account_name": "EXP MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 325.5,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "EXP OPENING",
+        "seg_2_account_name": "EXP OPENING",
+        "seg_2_total": 0,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 325.5,
+        "seg_2_nov_2026": 325.5,
+        "seg_2_dec_2026": 325.5
+      },
+      {
+        "seg_0_account": "STOCK CLOSING",
+        "seg_0_account_name": "STOCK CLOSING",
+        "seg_0_total": 0,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 424.5,
+        "seg_0_oct_2026": 424.5,
+        "seg_0_nov_2026": 424.5,
+        "seg_0_dec_2026": 424.5,
+        "seg_1_account": "STOCK MOVEMENT",
+        "seg_1_account_name": "STOCK MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 424.5,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "STOCK OPENING",
+        "seg_2_account_name": "STOCK OPENING",
+        "seg_2_total": 0,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 424.5,
+        "seg_2_nov_2026": 424.5,
+        "seg_2_dec_2026": 424.5
+      },
+      {
+        "seg_0_account": "NP CLOSING",
+        "seg_0_account_name": "NP CLOSING",
+        "seg_0_total": 0,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 719.5,
+        "seg_0_oct_2026": 719.5,
+        "seg_0_nov_2026": 719.5,
+        "seg_0_dec_2026": 719.5,
+        "seg_1_account": "NP MOVEMENT",
+        "seg_1_account_name": "NP MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 719.5,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "NP OPENING",
+        "seg_2_account_name": "NP OPENING",
+        "seg_2_total": 0,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 719.5,
+        "seg_2_nov_2026": 719.5,
+        "seg_2_dec_2026": 719.5
+      }
+    ]
+  },
+  "run_B_daterange_from_0921_monthly": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZREV-PL-ThreeType",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Date Range",
+      "period_start_date": "2026-09-21",
+      "period_end_date": "2026-12-31",
+      "periodicity": "Monthly"
+    },
+    "all_column_labels": [
+      {
+        "fieldname": "seg_0_account",
+        "label": "CLOSING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_sep_2026",
+        "label": "CLOSING - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_oct_2026",
+        "label": "CLOSING - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_nov_2026",
+        "label": "CLOSING - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "label": "CLOSING - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_account",
+        "label": "MOVEMENT",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_sep_2026",
+        "label": "MOVEMENT - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_oct_2026",
+        "label": "MOVEMENT - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_nov_2026",
+        "label": "MOVEMENT - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "label": "MOVEMENT - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_account",
+        "label": "OPENING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_sep_2026",
+        "label": "OPENING - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_oct_2026",
+        "label": "OPENING - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_nov_2026",
+        "label": "OPENING - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_dec_2026",
+        "label": "OPENING - Dec 2026",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 15,
+    "segment_period_fields": {
+      "seg_0": [
+        "seg_0_sep_2026",
+        "seg_0_oct_2026",
+        "seg_0_nov_2026",
+        "seg_0_dec_2026"
+      ],
+      "seg_1": [
+        "seg_1_sep_2026",
+        "seg_1_oct_2026",
+        "seg_1_nov_2026",
+        "seg_1_dec_2026"
+      ],
+      "seg_2": [
+        "seg_2_sep_2026",
+        "seg_2_oct_2026",
+        "seg_2_nov_2026",
+        "seg_2_dec_2026"
+      ]
+    },
+    "opening_balance_branches": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 34,
+        "first_period_from": "2026-09-21"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2026-09-21",
+        "nonzero": {
+          "存货 - HDS": 750.0
+        }
+      }
+    ],
+    "rows": [
+      {
+        "seg_0_account": "INC CLOSING",
+        "seg_0_account_name": "INC CLOSING",
+        "seg_0_total": 0,
+        "seg_0_sep_2026": 1045.0,
+        "seg_0_oct_2026": 1045.0,
+        "seg_0_nov_2026": 1045.0,
+        "seg_0_dec_2026": 1045.0,
+        "seg_1_account": "INC MOVEMENT",
+        "seg_1_account_name": "INC MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_sep_2026": 1045.0,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "INC OPENING",
+        "seg_2_account_name": "INC OPENING",
+        "seg_2_total": 0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 1045.0,
+        "seg_2_nov_2026": 1045.0,
+        "seg_2_dec_2026": 1045.0
+      },
+      {
+        "seg_0_account": "EXP CLOSING",
+        "seg_0_account_name": "EXP CLOSING",
+        "seg_0_total": 0,
+        "seg_0_sep_2026": 325.5,
+        "seg_0_oct_2026": 325.5,
+        "seg_0_nov_2026": 325.5,
+        "seg_0_dec_2026": 325.5,
+        "seg_1_account": "EXP MOVEMENT",
+        "seg_1_account_name": "EXP MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_sep_2026": 325.5,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "EXP OPENING",
+        "seg_2_account_name": "EXP OPENING",
+        "seg_2_total": 0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 325.5,
+        "seg_2_nov_2026": 325.5,
+        "seg_2_dec_2026": 325.5
+      },
+      {
+        "seg_0_account": "STOCK CLOSING",
+        "seg_0_account_name": "STOCK CLOSING",
+        "seg_0_total": 0,
+        "seg_0_sep_2026": 424.5,
+        "seg_0_oct_2026": 424.5,
+        "seg_0_nov_2026": 424.5,
+        "seg_0_dec_2026": 424.5,
+        "seg_1_account": "STOCK MOVEMENT",
+        "seg_1_account_name": "STOCK MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_sep_2026": -325.5,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "STOCK OPENING",
+        "seg_2_account_name": "STOCK OPENING",
+        "seg_2_total": 0,
+        "seg_2_sep_2026": 750.0,
+        "seg_2_oct_2026": 424.5,
+        "seg_2_nov_2026": 424.5,
+        "seg_2_dec_2026": 424.5
+      },
+      {
+        "seg_0_account": "NP CLOSING",
+        "seg_0_account_name": "NP CLOSING",
+        "seg_0_total": 0,
+        "seg_0_sep_2026": 719.5,
+        "seg_0_oct_2026": 719.5,
+        "seg_0_nov_2026": 719.5,
+        "seg_0_dec_2026": 719.5,
+        "seg_1_account": "NP MOVEMENT",
+        "seg_1_account_name": "NP MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_sep_2026": 719.5,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "NP OPENING",
+        "seg_2_account_name": "NP OPENING",
+        "seg_2_total": 0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 719.5,
+        "seg_2_nov_2026": 719.5,
+        "seg_2_dec_2026": 719.5
+      }
+    ]
+  },
+  "run_C_daterange_Q4_after_all_GL": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZREV-PL-ThreeType",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Date Range",
+      "period_start_date": "2026-10-01",
+      "period_end_date": "2026-12-31",
+      "periodicity": "Monthly"
+    },
+    "all_column_labels": [
+      {
+        "fieldname": "seg_0_account",
+        "label": "CLOSING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_oct_2026",
+        "label": "CLOSING - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_nov_2026",
+        "label": "CLOSING - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "label": "CLOSING - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_account",
+        "label": "MOVEMENT",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_oct_2026",
+        "label": "MOVEMENT - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_nov_2026",
+        "label": "MOVEMENT - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "label": "MOVEMENT - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_account",
+        "label": "OPENING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_oct_2026",
+        "label": "OPENING - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_nov_2026",
+        "label": "OPENING - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_dec_2026",
+        "label": "OPENING - Dec 2026",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 12,
+    "segment_period_fields": {
+      "seg_0": [
+        "seg_0_oct_2026",
+        "seg_0_nov_2026",
+        "seg_0_dec_2026"
+      ],
+      "seg_1": [
+        "seg_1_oct_2026",
+        "seg_1_nov_2026",
+        "seg_1_dec_2026"
+      ],
+      "seg_2": [
+        "seg_2_oct_2026",
+        "seg_2_nov_2026",
+        "seg_2_dec_2026"
+      ]
+    },
+    "opening_balance_branches": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 34,
+        "first_period_from": "2026-10-01"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2026-10-01",
+        "nonzero": {
+          "存货 - HDS": 424.5,
+          "结转库存的费用 - HDS": -0.27,
+          "销售 - HDS": -1045.0,
+          "销货成本 - HDS": 325.77
+        }
+      }
+    ],
+    "rows": [
+      {
+        "seg_0_account": "INC CLOSING",
+        "seg_0_account_name": "INC CLOSING",
+        "seg_0_total": 0,
+        "seg_0_oct_2026": 1045.0,
+        "seg_0_nov_2026": 1045.0,
+        "seg_0_dec_2026": 1045.0,
+        "seg_1_account": "INC MOVEMENT",
+        "seg_1_account_name": "INC MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "INC OPENING",
+        "seg_2_account_name": "INC OPENING",
+        "seg_2_total": 0,
+        "seg_2_oct_2026": 1045.0,
+        "seg_2_nov_2026": 1045.0,
+        "seg_2_dec_2026": 1045.0
+      },
+      {
+        "seg_0_account": "EXP CLOSING",
+        "seg_0_account_name": "EXP CLOSING",
+        "seg_0_total": 0,
+        "seg_0_oct_2026": 325.5,
+        "seg_0_nov_2026": 325.5,
+        "seg_0_dec_2026": 325.5,
+        "seg_1_account": "EXP MOVEMENT",
+        "seg_1_account_name": "EXP MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "EXP OPENING",
+        "seg_2_account_name": "EXP OPENING",
+        "seg_2_total": 0,
+        "seg_2_oct_2026": 325.5,
+        "seg_2_nov_2026": 325.5,
+        "seg_2_dec_2026": 325.5
+      },
+      {
+        "seg_0_account": "STOCK CLOSING",
+        "seg_0_account_name": "STOCK CLOSING",
+        "seg_0_total": 0,
+        "seg_0_oct_2026": 424.5,
+        "seg_0_nov_2026": 424.5,
+        "seg_0_dec_2026": 424.5,
+        "seg_1_account": "STOCK MOVEMENT",
+        "seg_1_account_name": "STOCK MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "STOCK OPENING",
+        "seg_2_account_name": "STOCK OPENING",
+        "seg_2_total": 0,
+        "seg_2_oct_2026": 424.5,
+        "seg_2_nov_2026": 424.5,
+        "seg_2_dec_2026": 424.5
+      },
+      {
+        "seg_0_account": "NP CLOSING",
+        "seg_0_account_name": "NP CLOSING",
+        "seg_0_total": 0,
+        "seg_0_oct_2026": 719.5,
+        "seg_0_nov_2026": 719.5,
+        "seg_0_dec_2026": 719.5,
+        "seg_1_account": "NP MOVEMENT",
+        "seg_1_account_name": "NP MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "NP OPENING",
+        "seg_2_account_name": "NP OPENING",
+        "seg_2_total": 0,
+        "seg_2_oct_2026": 719.5,
+        "seg_2_nov_2026": 719.5,
+        "seg_2_dec_2026": 719.5
+      }
+    ]
+  },
+  "run_D_FY2026_yearly": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZREV-PL-ThreeType",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Fiscal Year",
+      "from_fiscal_year": "2026",
+      "to_fiscal_year": "2026",
+      "periodicity": "Yearly"
+    },
+    "all_column_labels": [
+      {
+        "fieldname": "seg_0_account",
+        "label": "CLOSING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "label": "CLOSING - 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_account",
+        "label": "MOVEMENT",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "label": "MOVEMENT - 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_account",
+        "label": "OPENING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_dec_2026",
+        "label": "OPENING - 2026",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 6,
+    "segment_period_fields": {
+      "seg_0": [
+        "seg_0_dec_2026"
+      ],
+      "seg_1": [
+        "seg_1_dec_2026"
+      ],
+      "seg_2": [
+        "seg_2_dec_2026"
+      ]
+    },
+    "opening_balance_branches": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 34,
+        "first_period_from": "2026-01-01"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2026-01-01",
+        "nonzero": {}
+      }
+    ],
+    "rows": [
+      {
+        "seg_0_account": "INC CLOSING",
+        "seg_0_account_name": "INC CLOSING",
+        "seg_0_total": 0,
+        "seg_0_dec_2026": 1045.0,
+        "seg_1_account": "INC MOVEMENT",
+        "seg_1_account_name": "INC MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_dec_2026": 1045.0,
+        "seg_2_account": "INC OPENING",
+        "seg_2_account_name": "INC OPENING",
+        "seg_2_total": 0,
+        "seg_2_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "EXP CLOSING",
+        "seg_0_account_name": "EXP CLOSING",
+        "seg_0_total": 0,
+        "seg_0_dec_2026": 325.5,
+        "seg_1_account": "EXP MOVEMENT",
+        "seg_1_account_name": "EXP MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_dec_2026": 325.5,
+        "seg_2_account": "EXP OPENING",
+        "seg_2_account_name": "EXP OPENING",
+        "seg_2_total": 0,
+        "seg_2_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "STOCK CLOSING",
+        "seg_0_account_name": "STOCK CLOSING",
+        "seg_0_total": 0,
+        "seg_0_dec_2026": 424.5,
+        "seg_1_account": "STOCK MOVEMENT",
+        "seg_1_account_name": "STOCK MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_dec_2026": 424.5,
+        "seg_2_account": "STOCK OPENING",
+        "seg_2_account_name": "STOCK OPENING",
+        "seg_2_total": 0,
+        "seg_2_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "NP CLOSING",
+        "seg_0_account_name": "NP CLOSING",
+        "seg_0_total": 0,
+        "seg_0_dec_2026": 719.5,
+        "seg_1_account": "NP MOVEMENT",
+        "seg_1_account_name": "NP MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_dec_2026": 719.5,
+        "seg_2_account": "NP OPENING",
+        "seg_2_account_name": "NP OPENING",
+        "seg_2_total": 0,
+        "seg_2_dec_2026": 0.0
+      }
+    ]
+  },
+  "DECISIVE_V26_reproduced": {
+    "cumulative_by_month": {
+      "aug_2026": 0.0,
+      "sep_2026": 719.5,
+      "oct_2026": 719.5,
+      "dec_2026": 719.5
+    },
+    "monthly_by_month": {
+      "aug_2026": 0.0,
+      "sep_2026": 719.5,
+      "oct_2026": 0.0,
+      "dec_2026": 0.0
+    },
+    "opening_by_month": {
+      "aug_2026": 0.0,
+      "sep_2026": 0.0,
+      "oct_2026": 719.5,
+      "dec_2026": 719.5
+    },
+    "cumulative_holds_after_sep": true,
+    "monthly_drops_after_sep": true,
+    "two_columns_differ_in_oct": true,
+    "opening_oct_equals_closing_sep": true,
+    "revenue_sep_closing": 1045.0,
+    "cost_sep_closing": 325.5,
+    "revenue_minus_cost": 719.5,
+    "matches_raw_gl_719_5": true
+  },
+  "DISCRIMINATOR_cumulative_not_just_repeat": {
+    "stock_closing_sep": 424.5,
+    "stock_movement_sep": -325.5,
+    "stock_opening_sep": 750.0,
+    "stock_closing_oct": 424.5,
+    "stock_movement_oct": 0.0,
+    "stock_opening_oct": 424.5,
+    "opening_is_nonzero": true,
+    "closing_differs_from_movement_in_first_period": true,
+    "closing_equals_opening_plus_movement": true,
+    "closing_carries_into_next_period": true,
+    "rules_out_repeat_last_value": true,
+    "note": "closing == opening + movement INSIDE one period, with a nonzero opening, proves a running sum rather than a repeated value. Cross-MONTH accumulation with movement in two different months is NOT testable on this site: all GL sits in 2026-09.",
+    "gap_branch_log": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 34,
+        "first_period_from": "2026-09-21"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2026-09-21",
+        "nonzero": {
+          "存货 - HDS": 750.0
+        }
+      }
+    ]
+  },
+  "DECISIVE_seg2_reproduced": {
+    "income_closing_oct_window_starts_oct": 1045.0,
+    "income_movement_oct": 0.0,
+    "income_opening_oct": 1045.0,
+    "closing_carries_prior_period_amounts": true,
+    "branches_taken": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 34,
+        "first_period_from": "2026-10-01"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2026-10-01",
+        "nonzero": {
+          "存货 - HDS": 424.5,
+          "结转库存的费用 - HDS": -0.27,
+          "销售 - HDS": -1045.0,
+          "销货成本 - HDS": 325.77
+        }
+      }
+    ]
+  },
+  "yearly_period_columns_per_segment": {
+    "seg_0": 1,
+    "seg_1": 1,
+    "seg_2": 1
+  },
+  "fy2025_created_in_txn": "2025",
+  "run_E_shipped_columnar_BS_two_FY_yearly": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "Horizontal Balance Sheet (Columnar)",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Fiscal Year",
+      "from_fiscal_year": "2025",
+      "to_fiscal_year": "2026",
+      "periodicity": "Yearly"
+    },
+    "all_column_labels": [
+      {
+        "fieldname": "seg_0_account",
+        "label": "Equity & Liabilities",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_dec_2025",
+        "label": "Equity & Liabilities - 2025",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "label": "Equity & Liabilities - 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_account",
+        "label": "Assets",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_dec_2025",
+        "label": "Assets - 2025",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "label": "Assets - 2026",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 6,
+    "segment_period_fields": {
+      "seg_0": [
+        "seg_0_dec_2025",
+        "seg_0_dec_2026"
+      ],
+      "seg_1": [
+        "seg_1_dec_2025",
+        "seg_1_dec_2026"
+      ]
+    },
+    "opening_balance_branches": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 67,
+        "first_period_from": "2025-01-01"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2025-01-01",
+        "nonzero": {}
+      }
+    ],
+    "rows": [
+      {
+        "seg_0_account": "Capital & Reserves",
+        "seg_0_account_name": "Capital & Reserves",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "seg_1_account": "Non-Current Assets",
+        "seg_1_account_name": "Non-Current Assets",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Share Capital",
+        "seg_0_account_name": "Share Capital",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Property, Plant & Equipment",
+        "seg_1_account_name": "Property, Plant & Equipment",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "Reserves & Surplus",
+        "seg_0_account_name": "Reserves & Surplus",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Less: Accumulated Depreciation",
+        "seg_1_account_name": "Less: Accumulated Depreciation",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "Retained Earnings",
+        "seg_0_account_name": "Retained Earnings",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Net Tangible Assets",
+        "seg_1_account_name": "Net Tangible Assets",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "Total Capital & Reserves",
+        "seg_0_account_name": "Total Capital & Reserves",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Intangible Assets",
+        "seg_1_account_name": "Intangible Assets",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "",
+        "seg_0_account_name": "",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "seg_1_account": "Long-term Investments",
+        "seg_1_account_name": "Long-term Investments",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "Non-Current Liabilities",
+        "seg_0_account_name": "Non-Current Liabilities",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "seg_1_account": "Other Non-current Assets",
+        "seg_1_account_name": "Other Non-current Assets",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "Secured Loans",
+        "seg_0_account_name": "Secured Loans",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Total Non-current Assets",
+        "seg_1_account_name": "Total Non-current Assets",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "Unsecured Loans",
+        "seg_0_account_name": "Unsecured Loans",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "",
+        "seg_1_account_name": "",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Long-term Provisions",
+        "seg_0_account_name": "Long-term Provisions",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Current Assets",
+        "seg_1_account_name": "Current Assets",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Other Non-current Liabilities",
+        "seg_0_account_name": "Other Non-current Liabilities",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Inventories",
+        "seg_1_account_name": "Inventories",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 424.5
+      },
+      {
+        "seg_0_account": "Total Non-current Liabilities",
+        "seg_0_account_name": "Total Non-current Liabilities",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Trade Receivables",
+        "seg_1_account_name": "Trade Receivables",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "",
+        "seg_0_account_name": "",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "seg_1_account": "Other Receivables",
+        "seg_1_account_name": "Other Receivables",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "Current Liabilities",
+        "seg_0_account_name": "Current Liabilities",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "seg_1_account": "Short-term Investments",
+        "seg_1_account_name": "Short-term Investments",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "Short-term Borrowings",
+        "seg_0_account_name": "Short-term Borrowings",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Cash & Bank Balances",
+        "seg_1_account_name": "Cash & Bank Balances",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 295.0
+      },
+      {
+        "seg_0_account": "Trade Payables",
+        "seg_0_account_name": "Trade Payables",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Other Current Assets",
+        "seg_1_account_name": "Other Current Assets",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      },
+      {
+        "seg_0_account": "Other Payables",
+        "seg_0_account_name": "Other Payables",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "Total Current Assets",
+        "seg_1_account_name": "Total Current Assets",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 719.5
+      },
+      {
+        "seg_0_account": "Current Tax Liabilities",
+        "seg_0_account_name": "Current Tax Liabilities",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Short-term Provisions",
+        "seg_0_account_name": "Short-term Provisions",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Other Current Liabilities",
+        "seg_0_account_name": "Other Current Liabilities",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Total Current Liabilities",
+        "seg_0_account_name": "Total Current Liabilities",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "",
+        "seg_0_account_name": "",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Current Year Earnings",
+        "seg_0_account_name": "Current Year Earnings",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Net Profit/(Loss) for the Year",
+        "seg_0_account_name": "Net Profit/(Loss) for the Year",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 719.5,
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "",
+        "seg_0_account_name": "",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "seg_1_account": "",
+        "seg_1_account_name": "",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "TOTAL",
+        "seg_0_account_name": "TOTAL",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 719.5,
+        "seg_1_account": "TOTAL",
+        "seg_1_account_name": "TOTAL",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 719.5
+      },
+      {
+        "seg_0_account": "",
+        "seg_0_account_name": "",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "seg_1_account": "",
+        "seg_1_account_name": "",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "",
+        "seg_0_account_name": "",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "KEY FINANCIAL RATIOS",
+        "seg_0_account_name": "KEY FINANCIAL RATIOS",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": "",
+        "seg_0_dec_2026": "",
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Current Ratio",
+        "seg_0_account_name": "Current Ratio",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Quick Ratio (Acid Test)",
+        "seg_0_account_name": "Quick Ratio (Acid Test)",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Debt to Equity Ratio",
+        "seg_0_account_name": "Debt to Equity Ratio",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Net Working Capital",
+        "seg_0_account_name": "Net Working Capital",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 719.5,
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      },
+      {
+        "seg_0_account": "Equity Ratio %",
+        "seg_0_account_name": "Equity Ratio %",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 100.0,
+        "account_seg_1": "",
+        "seg_1_dec_2025": "",
+        "seg_1_dec_2026": ""
+      }
+    ]
+  },
+  "V25_all_columns_two_FY": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "Equity & Liabilities"
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name"
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number"
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency"
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "Equity & Liabilities - 2025"
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "Equity & Liabilities - 2026"
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "Assets"
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name"
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number"
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency"
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "Assets - 2025"
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "Assets - 2026"
+    }
+  ],
+  "V25_six_labels_char_for_char": {
+    "expected": {
+      "seg_0_account": "Equity & Liabilities",
+      "seg_0_dec_2025": "Equity & Liabilities - 2025",
+      "seg_0_dec_2026": "Equity & Liabilities - 2026",
+      "seg_1_account": "Assets",
+      "seg_1_dec_2025": "Assets - 2025",
+      "seg_1_dec_2026": "Assets - 2026"
+    },
+    "actual": {
+      "seg_0_account": "Equity & Liabilities",
+      "seg_0_dec_2025": "Equity & Liabilities - 2025",
+      "seg_0_dec_2026": "Equity & Liabilities - 2026",
+      "seg_1_account": "Assets",
+      "seg_1_dec_2025": "Assets - 2025",
+      "seg_1_dec_2026": "Assets - 2026"
+    },
+    "all_match": true,
+    "engine_rowcount": 34
+  },
+  "tpl_bs_inserted": {
+    "name": "ZZREV-BS-ChineseSegments",
+    "module": null
+  },
+  "run_F_chinese_segments_two_FY_yearly": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZREV-BS-ChineseSegments",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Fiscal Year",
+      "from_fiscal_year": "2025",
+      "to_fiscal_year": "2026",
+      "periodicity": "Yearly"
+    },
+    "all_column_labels": [
+      {
+        "fieldname": "seg_0_account",
+        "label": "年初余额",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_dec_2025",
+        "label": "年初余额 - 2025",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "label": "年初余额 - 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_account",
+        "label": "期末余额",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_dec_2025",
+        "label": "期末余额 - 2025",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "label": "期末余额 - 2026",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 6,
+    "segment_period_fields": {
+      "seg_0": [
+        "seg_0_dec_2025",
+        "seg_0_dec_2026"
+      ],
+      "seg_1": [
+        "seg_1_dec_2025",
+        "seg_1_dec_2026"
+      ]
+    },
+    "opening_balance_branches": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 30,
+        "first_period_from": "2025-01-01"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2025-01-01",
+        "nonzero": {}
+      }
+    ],
+    "rows": [
+      {
+        "seg_0_account": "资产",
+        "seg_0_account_name": "资产",
+        "seg_0_total": 0,
+        "seg_0_dec_2025": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "负债",
+        "seg_1_account_name": "负债",
+        "seg_1_total": 0,
+        "seg_1_dec_2025": 0.0,
+        "seg_1_dec_2026": 0.0
+      }
+    ]
+  },
+  "V25_chinese_segment_labels": {
+    "visible_labels": [
+      "年初余额",
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额",
+      "期末余额 - 2025",
+      "期末余额 - 2026"
+    ],
+    "any_label_is_exactly_CN_OPENING": true,
+    "any_label_is_exactly_CN_CLOSING": true,
+    "labels_carrying_period_suffix": [
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额 - 2025",
+      "期末余额 - 2026"
+    ],
+    "period_column_labels": [
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额 - 2025",
+      "期末余额 - 2026"
+    ],
+    "conclusion": "the bare segment label survives on the ACCOUNT column, but every PERIOD column gets ' - <period>' appended, so no period column can read exactly the statutory two labels"
+  },
+  "run_G_chinese_segments_one_FY_yearly": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZREV-BS-ChineseSegments",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Fiscal Year",
+      "from_fiscal_year": "2026",
+      "to_fiscal_year": "2026",
+      "periodicity": "Yearly"
+    },
+    "all_column_labels": [
+      {
+        "fieldname": "seg_0_account",
+        "label": "年初余额",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "label": "年初余额 - 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_account",
+        "label": "期末余额",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "label": "期末余额 - 2026",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 4,
+    "segment_period_fields": {
+      "seg_0": [
+        "seg_0_dec_2026"
+      ],
+      "seg_1": [
+        "seg_1_dec_2026"
+      ]
+    },
+    "opening_balance_branches": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 30,
+        "first_period_from": "2026-01-01"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2026-01-01",
+        "nonzero": {}
+      }
+    ],
+    "rows": [
+      {
+        "seg_0_account": "资产",
+        "seg_0_account_name": "资产",
+        "seg_0_total": 0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "负债",
+        "seg_1_account_name": "负债",
+        "seg_1_total": 0,
+        "seg_1_dec_2026": 0.0
+      }
+    ]
+  },
+  "V25_chinese_one_FY_labels": [
+    "年初余额",
+    "年初余额 - 2026",
+    "期末余额",
+    "期末余额 - 2026"
+  ],
+  "run_H_FY2026_monthly_accumulated_values_0": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZREV-PL-ThreeType",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Fiscal Year",
+      "from_fiscal_year": "2026",
+      "to_fiscal_year": "2026",
+      "periodicity": "Monthly",
+      "accumulated_values": 0
+    },
+    "all_column_labels": [
+      {
+        "fieldname": "seg_0_account",
+        "label": "CLOSING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_jan_2026",
+        "label": "CLOSING - Jan 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_feb_2026",
+        "label": "CLOSING - Feb 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_mar_2026",
+        "label": "CLOSING - Mar 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_apr_2026",
+        "label": "CLOSING - Apr 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_may_2026",
+        "label": "CLOSING - May 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_jun_2026",
+        "label": "CLOSING - Jun 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_jul_2026",
+        "label": "CLOSING - Jul 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_aug_2026",
+        "label": "CLOSING - Aug 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_sep_2026",
+        "label": "CLOSING - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_oct_2026",
+        "label": "CLOSING - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_nov_2026",
+        "label": "CLOSING - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "label": "CLOSING - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_total",
+        "label": "Total",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_account",
+        "label": "MOVEMENT",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_jan_2026",
+        "label": "MOVEMENT - Jan 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_feb_2026",
+        "label": "MOVEMENT - Feb 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_mar_2026",
+        "label": "MOVEMENT - Mar 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_apr_2026",
+        "label": "MOVEMENT - Apr 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_may_2026",
+        "label": "MOVEMENT - May 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_jun_2026",
+        "label": "MOVEMENT - Jun 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_jul_2026",
+        "label": "MOVEMENT - Jul 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_aug_2026",
+        "label": "MOVEMENT - Aug 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_sep_2026",
+        "label": "MOVEMENT - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_oct_2026",
+        "label": "MOVEMENT - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_nov_2026",
+        "label": "MOVEMENT - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "label": "MOVEMENT - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_total",
+        "label": "Total",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_account",
+        "label": "OPENING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_jan_2026",
+        "label": "OPENING - Jan 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_feb_2026",
+        "label": "OPENING - Feb 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_mar_2026",
+        "label": "OPENING - Mar 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_apr_2026",
+        "label": "OPENING - Apr 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_may_2026",
+        "label": "OPENING - May 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_jun_2026",
+        "label": "OPENING - Jun 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_jul_2026",
+        "label": "OPENING - Jul 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_aug_2026",
+        "label": "OPENING - Aug 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_sep_2026",
+        "label": "OPENING - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_oct_2026",
+        "label": "OPENING - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_nov_2026",
+        "label": "OPENING - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_dec_2026",
+        "label": "OPENING - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_total",
+        "label": "Total",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 42,
+    "segment_period_fields": {
+      "seg_0": [
+        "seg_0_jan_2026",
+        "seg_0_feb_2026",
+        "seg_0_mar_2026",
+        "seg_0_apr_2026",
+        "seg_0_may_2026",
+        "seg_0_jun_2026",
+        "seg_0_jul_2026",
+        "seg_0_aug_2026",
+        "seg_0_sep_2026",
+        "seg_0_oct_2026",
+        "seg_0_nov_2026",
+        "seg_0_dec_2026",
+        "seg_0_total"
+      ],
+      "seg_1": [
+        "seg_1_jan_2026",
+        "seg_1_feb_2026",
+        "seg_1_mar_2026",
+        "seg_1_apr_2026",
+        "seg_1_may_2026",
+        "seg_1_jun_2026",
+        "seg_1_jul_2026",
+        "seg_1_aug_2026",
+        "seg_1_sep_2026",
+        "seg_1_oct_2026",
+        "seg_1_nov_2026",
+        "seg_1_dec_2026",
+        "seg_1_total"
+      ],
+      "seg_2": [
+        "seg_2_jan_2026",
+        "seg_2_feb_2026",
+        "seg_2_mar_2026",
+        "seg_2_apr_2026",
+        "seg_2_may_2026",
+        "seg_2_jun_2026",
+        "seg_2_jul_2026",
+        "seg_2_aug_2026",
+        "seg_2_sep_2026",
+        "seg_2_oct_2026",
+        "seg_2_nov_2026",
+        "seg_2_dec_2026",
+        "seg_2_total"
+      ]
+    },
+    "opening_balance_branches": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 34,
+        "first_period_from": "2026-01-01"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2026-01-01",
+        "nonzero": {}
+      }
+    ],
+    "rows": [
+      {
+        "seg_0_account": "INC CLOSING",
+        "seg_0_account_name": "INC CLOSING",
+        "seg_0_total": 1045.0,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 1045.0,
+        "seg_0_oct_2026": 0.0,
+        "seg_0_nov_2026": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "INC MOVEMENT",
+        "seg_1_account_name": "INC MOVEMENT",
+        "seg_1_total": 1045.0,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 1045.0,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "INC OPENING",
+        "seg_2_account_name": "INC OPENING",
+        "seg_2_total": 3135.0,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 1045.0,
+        "seg_2_nov_2026": 1045.0,
+        "seg_2_dec_2026": 1045.0
+      },
+      {
+        "seg_0_account": "EXP CLOSING",
+        "seg_0_account_name": "EXP CLOSING",
+        "seg_0_total": 325.5,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 325.5,
+        "seg_0_oct_2026": 0.0,
+        "seg_0_nov_2026": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "EXP MOVEMENT",
+        "seg_1_account_name": "EXP MOVEMENT",
+        "seg_1_total": 325.5,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 325.5,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "EXP OPENING",
+        "seg_2_account_name": "EXP OPENING",
+        "seg_2_total": 976.5,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 325.5,
+        "seg_2_nov_2026": 325.5,
+        "seg_2_dec_2026": 325.5
+      },
+      {
+        "seg_0_account": "STOCK CLOSING",
+        "seg_0_account_name": "STOCK CLOSING",
+        "seg_0_total": 424.5,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 424.5,
+        "seg_0_oct_2026": 0.0,
+        "seg_0_nov_2026": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "STOCK MOVEMENT",
+        "seg_1_account_name": "STOCK MOVEMENT",
+        "seg_1_total": 424.5,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 424.5,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "STOCK OPENING",
+        "seg_2_account_name": "STOCK OPENING",
+        "seg_2_total": 1273.5,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 424.5,
+        "seg_2_nov_2026": 424.5,
+        "seg_2_dec_2026": 424.5
+      },
+      {
+        "seg_0_account": "NP CLOSING",
+        "seg_0_account_name": "NP CLOSING",
+        "seg_0_total": 719.5,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 719.5,
+        "seg_0_oct_2026": 0.0,
+        "seg_0_nov_2026": 0.0,
+        "seg_0_dec_2026": 0.0,
+        "seg_1_account": "NP MOVEMENT",
+        "seg_1_account_name": "NP MOVEMENT",
+        "seg_1_total": 719.5,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 719.5,
+        "seg_1_oct_2026": 0.0,
+        "seg_1_nov_2026": 0.0,
+        "seg_1_dec_2026": 0.0,
+        "seg_2_account": "NP OPENING",
+        "seg_2_account_name": "NP OPENING",
+        "seg_2_total": 2158.5,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 719.5,
+        "seg_2_nov_2026": 719.5,
+        "seg_2_dec_2026": 719.5
+      }
+    ]
+  },
+  "run_H_FY2026_monthly_accumulated_values_1": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZREV-PL-ThreeType",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Fiscal Year",
+      "from_fiscal_year": "2026",
+      "to_fiscal_year": "2026",
+      "periodicity": "Monthly",
+      "accumulated_values": 1
+    },
+    "all_column_labels": [
+      {
+        "fieldname": "seg_0_account",
+        "label": "CLOSING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_0_jan_2026",
+        "label": "CLOSING - Jan 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_feb_2026",
+        "label": "CLOSING - Feb 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_mar_2026",
+        "label": "CLOSING - Mar 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_apr_2026",
+        "label": "CLOSING - Apr 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_may_2026",
+        "label": "CLOSING - May 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_jun_2026",
+        "label": "CLOSING - Jun 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_jul_2026",
+        "label": "CLOSING - Jul 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_aug_2026",
+        "label": "CLOSING - Aug 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_sep_2026",
+        "label": "CLOSING - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_oct_2026",
+        "label": "CLOSING - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_nov_2026",
+        "label": "CLOSING - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "label": "CLOSING - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_account",
+        "label": "MOVEMENT",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_1_jan_2026",
+        "label": "MOVEMENT - Jan 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_feb_2026",
+        "label": "MOVEMENT - Feb 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_mar_2026",
+        "label": "MOVEMENT - Mar 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_apr_2026",
+        "label": "MOVEMENT - Apr 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_may_2026",
+        "label": "MOVEMENT - May 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_jun_2026",
+        "label": "MOVEMENT - Jun 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_jul_2026",
+        "label": "MOVEMENT - Jul 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_aug_2026",
+        "label": "MOVEMENT - Aug 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_sep_2026",
+        "label": "MOVEMENT - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_oct_2026",
+        "label": "MOVEMENT - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_nov_2026",
+        "label": "MOVEMENT - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "label": "MOVEMENT - Dec 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_account",
+        "label": "OPENING",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "seg_2_jan_2026",
+        "label": "OPENING - Jan 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_feb_2026",
+        "label": "OPENING - Feb 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_mar_2026",
+        "label": "OPENING - Mar 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_apr_2026",
+        "label": "OPENING - Apr 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_may_2026",
+        "label": "OPENING - May 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_jun_2026",
+        "label": "OPENING - Jun 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_jul_2026",
+        "label": "OPENING - Jul 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_aug_2026",
+        "label": "OPENING - Aug 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_sep_2026",
+        "label": "OPENING - Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_oct_2026",
+        "label": "OPENING - Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_nov_2026",
+        "label": "OPENING - Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "seg_2_dec_2026",
+        "label": "OPENING - Dec 2026",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 39,
+    "segment_period_fields": {
+      "seg_0": [
+        "seg_0_jan_2026",
+        "seg_0_feb_2026",
+        "seg_0_mar_2026",
+        "seg_0_apr_2026",
+        "seg_0_may_2026",
+        "seg_0_jun_2026",
+        "seg_0_jul_2026",
+        "seg_0_aug_2026",
+        "seg_0_sep_2026",
+        "seg_0_oct_2026",
+        "seg_0_nov_2026",
+        "seg_0_dec_2026"
+      ],
+      "seg_1": [
+        "seg_1_jan_2026",
+        "seg_1_feb_2026",
+        "seg_1_mar_2026",
+        "seg_1_apr_2026",
+        "seg_1_may_2026",
+        "seg_1_jun_2026",
+        "seg_1_jul_2026",
+        "seg_1_aug_2026",
+        "seg_1_sep_2026",
+        "seg_1_oct_2026",
+        "seg_1_nov_2026",
+        "seg_1_dec_2026"
+      ],
+      "seg_2": [
+        "seg_2_jan_2026",
+        "seg_2_feb_2026",
+        "seg_2_mar_2026",
+        "seg_2_apr_2026",
+        "seg_2_may_2026",
+        "seg_2_jun_2026",
+        "seg_2_jul_2026",
+        "seg_2_aug_2026",
+        "seg_2_sep_2026",
+        "seg_2_oct_2026",
+        "seg_2_nov_2026",
+        "seg_2_dec_2026"
+      ]
+    },
+    "opening_balance_branches": [
+      {
+        "branch": "_get_opening_balances_from_gl",
+        "earliest_date_literal": "1900-01-01",
+        "n_accounts": 34,
+        "first_period_from": "2026-01-01"
+      },
+      {
+        "branch": "_get_gap_movements",
+        "from_date": "1900-01-01",
+        "to_date": "2026-01-01",
+        "nonzero": {}
+      }
+    ],
+    "rows": [
+      {
+        "seg_0_account": "INC CLOSING",
+        "seg_0_account_name": "INC CLOSING",
+        "seg_0_total": 0,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 1045.0,
+        "seg_0_oct_2026": 1045.0,
+        "seg_0_nov_2026": 1045.0,
+        "seg_0_dec_2026": 1045.0,
+        "seg_1_account": "INC MOVEMENT",
+        "seg_1_account_name": "INC MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 1045.0,
+        "seg_1_oct_2026": 1045.0,
+        "seg_1_nov_2026": 1045.0,
+        "seg_1_dec_2026": 1045.0,
+        "seg_2_account": "INC OPENING",
+        "seg_2_account_name": "INC OPENING",
+        "seg_2_total": 0,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 1045.0,
+        "seg_2_nov_2026": 1045.0,
+        "seg_2_dec_2026": 1045.0
+      },
+      {
+        "seg_0_account": "EXP CLOSING",
+        "seg_0_account_name": "EXP CLOSING",
+        "seg_0_total": 0,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 325.5,
+        "seg_0_oct_2026": 325.5,
+        "seg_0_nov_2026": 325.5,
+        "seg_0_dec_2026": 325.5,
+        "seg_1_account": "EXP MOVEMENT",
+        "seg_1_account_name": "EXP MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 325.5,
+        "seg_1_oct_2026": 325.5,
+        "seg_1_nov_2026": 325.5,
+        "seg_1_dec_2026": 325.5,
+        "seg_2_account": "EXP OPENING",
+        "seg_2_account_name": "EXP OPENING",
+        "seg_2_total": 0,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 325.5,
+        "seg_2_nov_2026": 325.5,
+        "seg_2_dec_2026": 325.5
+      },
+      {
+        "seg_0_account": "STOCK CLOSING",
+        "seg_0_account_name": "STOCK CLOSING",
+        "seg_0_total": 0,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 424.5,
+        "seg_0_oct_2026": 424.5,
+        "seg_0_nov_2026": 424.5,
+        "seg_0_dec_2026": 424.5,
+        "seg_1_account": "STOCK MOVEMENT",
+        "seg_1_account_name": "STOCK MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 424.5,
+        "seg_1_oct_2026": 424.5,
+        "seg_1_nov_2026": 424.5,
+        "seg_1_dec_2026": 424.5,
+        "seg_2_account": "STOCK OPENING",
+        "seg_2_account_name": "STOCK OPENING",
+        "seg_2_total": 0,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 424.5,
+        "seg_2_nov_2026": 424.5,
+        "seg_2_dec_2026": 424.5
+      },
+      {
+        "seg_0_account": "NP CLOSING",
+        "seg_0_account_name": "NP CLOSING",
+        "seg_0_total": 0,
+        "seg_0_jan_2026": 0.0,
+        "seg_0_feb_2026": 0.0,
+        "seg_0_mar_2026": 0.0,
+        "seg_0_apr_2026": 0.0,
+        "seg_0_may_2026": 0.0,
+        "seg_0_jun_2026": 0.0,
+        "seg_0_jul_2026": 0.0,
+        "seg_0_aug_2026": 0.0,
+        "seg_0_sep_2026": 719.5,
+        "seg_0_oct_2026": 719.5,
+        "seg_0_nov_2026": 719.5,
+        "seg_0_dec_2026": 719.5,
+        "seg_1_account": "NP MOVEMENT",
+        "seg_1_account_name": "NP MOVEMENT",
+        "seg_1_total": 0,
+        "seg_1_jan_2026": 0.0,
+        "seg_1_feb_2026": 0.0,
+        "seg_1_mar_2026": 0.0,
+        "seg_1_apr_2026": 0.0,
+        "seg_1_may_2026": 0.0,
+        "seg_1_jun_2026": 0.0,
+        "seg_1_jul_2026": 0.0,
+        "seg_1_aug_2026": 0.0,
+        "seg_1_sep_2026": 719.5,
+        "seg_1_oct_2026": 719.5,
+        "seg_1_nov_2026": 719.5,
+        "seg_1_dec_2026": 719.5,
+        "seg_2_account": "NP OPENING",
+        "seg_2_account_name": "NP OPENING",
+        "seg_2_total": 0,
+        "seg_2_jan_2026": 0.0,
+        "seg_2_feb_2026": 0.0,
+        "seg_2_mar_2026": 0.0,
+        "seg_2_apr_2026": 0.0,
+        "seg_2_may_2026": 0.0,
+        "seg_2_jun_2026": 0.0,
+        "seg_2_jul_2026": 0.0,
+        "seg_2_aug_2026": 0.0,
+        "seg_2_sep_2026": 0.0,
+        "seg_2_oct_2026": 719.5,
+        "seg_2_nov_2026": 719.5,
+        "seg_2_dec_2026": 719.5
+      }
+    ]
+  },
+  "EXPLICIT_accumulated_values_effect": {
+    "av_0": {
+      "closing_by_month": {
+        "aug_2026": 0.0,
+        "sep_2026": 719.5,
+        "oct_2026": 0.0,
+        "dec_2026": 0.0
+      },
+      "movement_by_month": {
+        "aug_2026": 0.0,
+        "sep_2026": 719.5,
+        "oct_2026": 0.0,
+        "dec_2026": 0.0
+      },
+      "columns_still_differ_in_oct": false
+    },
+    "av_1": {
+      "closing_by_month": {
+        "aug_2026": 0.0,
+        "sep_2026": 719.5,
+        "oct_2026": 719.5,
+        "dec_2026": 719.5
+      },
+      "movement_by_month": {
+        "aug_2026": 0.0,
+        "sep_2026": 719.5,
+        "oct_2026": 719.5,
+        "dec_2026": 719.5
+      },
+      "columns_still_differ_in_oct": false
+    }
+  },
+  "baseline_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0
+  },
+  "baseline_matches_expected": true,
+  "fiscal_years_after_rollback": [
+    "2026"
+  ],
+  "created_docs_still_present": [],
+  "stray_exported_files": []
+}

@@ -1,0 +1,498 @@
+{
+  "probe": "REV audit part E: balance_type row-level vs segment-level",
+  "baseline_before": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0
+  },
+  "shipped_template_types_per_segment": {
+    "segment_1": {
+      "Closing Balance": 13,
+      "Period Movement (Debits - Credits)": 1
+    },
+    "segment_2": {
+      "Closing Balance": 11
+    }
+  },
+  "shipped_segment_0_mixes_types": false,
+  "shipped_segment_0_detail": null,
+  "tpl_inserted": {
+    "name": "ZZREV-SingleSegment-MixedTypes",
+    "module": null,
+    "column_breaks": 0
+  },
+  "tpl_stored_rows": [
+    {
+      "idx": 1,
+      "data_source": "Account Data",
+      "display_name": "INC as CLOSING",
+      "balance_type": "Closing Balance"
+    },
+    {
+      "idx": 2,
+      "data_source": "Account Data",
+      "display_name": "INC as MOVEMENT",
+      "balance_type": "Period Movement (Debits - Credits)"
+    },
+    {
+      "idx": 3,
+      "data_source": "Account Data",
+      "display_name": "INC as OPENING",
+      "balance_type": "Opening Balance"
+    },
+    {
+      "idx": 4,
+      "data_source": "Account Data",
+      "display_name": "STOCK as CLOSING",
+      "balance_type": "Closing Balance"
+    },
+    {
+      "idx": 5,
+      "data_source": "Account Data",
+      "display_name": "STOCK as MOVEMENT",
+      "balance_type": "Period Movement (Debits - Credits)"
+    },
+    {
+      "idx": 6,
+      "data_source": "Account Data",
+      "display_name": "STOCK as OPENING",
+      "balance_type": "Opening Balance"
+    },
+    {
+      "idx": 7,
+      "data_source": "Calculated Amount",
+      "display_name": "CLOSING minus MOVEMENT",
+      "balance_type": "<null>"
+    }
+  ],
+  "run_single_segment_daterange_from_0921": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZREV-SingleSegment-MixedTypes",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Date Range",
+      "period_start_date": "2026-09-21",
+      "period_end_date": "2026-12-31",
+      "periodicity": "Monthly"
+    },
+    "column_labels": [
+      {
+        "fieldname": "account",
+        "label": "Account",
+        "hidden": 0
+      },
+      {
+        "fieldname": "acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "sep_2026",
+        "label": "Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "oct_2026",
+        "label": "Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "nov_2026",
+        "label": "Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "dec_2026",
+        "label": "Dec 2026",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 5,
+    "uses_seg_prefix": false,
+    "rows": [
+      {
+        "account": "INC as CLOSING",
+        "account_name": "INC as CLOSING",
+        "total": 0,
+        "sep_2026": 1045.0,
+        "oct_2026": 1045.0,
+        "nov_2026": 1045.0,
+        "dec_2026": 1045.0,
+        "fieldtype": "Currency",
+        "account_filters": "[\"root_type\", \"=\", \"Income\"]"
+      },
+      {
+        "account": "INC as MOVEMENT",
+        "account_name": "INC as MOVEMENT",
+        "total": 0,
+        "sep_2026": 1045.0,
+        "oct_2026": 0.0,
+        "nov_2026": 0.0,
+        "dec_2026": 0.0,
+        "fieldtype": "Currency",
+        "account_filters": "[\"root_type\", \"=\", \"Income\"]"
+      },
+      {
+        "account": "INC as OPENING",
+        "account_name": "INC as OPENING",
+        "total": 0,
+        "sep_2026": 0.0,
+        "oct_2026": 1045.0,
+        "nov_2026": 1045.0,
+        "dec_2026": 1045.0,
+        "fieldtype": "Currency",
+        "account_filters": "[\"root_type\", \"=\", \"Income\"]"
+      },
+      {
+        "account": "STOCK as CLOSING",
+        "account_name": "STOCK as CLOSING",
+        "total": 0,
+        "sep_2026": 424.5,
+        "oct_2026": 424.5,
+        "nov_2026": 424.5,
+        "dec_2026": 424.5,
+        "fieldtype": "Currency",
+        "account_filters": "[\"account_type\", \"=\", \"Stock\"]"
+      },
+      {
+        "account": "STOCK as MOVEMENT",
+        "account_name": "STOCK as MOVEMENT",
+        "total": 0,
+        "sep_2026": -325.5,
+        "oct_2026": 0.0,
+        "nov_2026": 0.0,
+        "dec_2026": 0.0,
+        "fieldtype": "Currency",
+        "account_filters": "[\"account_type\", \"=\", \"Stock\"]"
+      },
+      {
+        "account": "STOCK as OPENING",
+        "account_name": "STOCK as OPENING",
+        "total": 0,
+        "sep_2026": 750.0,
+        "oct_2026": 424.5,
+        "nov_2026": 424.5,
+        "dec_2026": 424.5,
+        "fieldtype": "Currency",
+        "account_filters": "[\"account_type\", \"=\", \"Stock\"]"
+      },
+      {
+        "account": "CLOSING minus MOVEMENT",
+        "account_name": "CLOSING minus MOVEMENT",
+        "total": 0,
+        "sep_2026": 750.0,
+        "oct_2026": 424.5,
+        "nov_2026": 424.5,
+        "dec_2026": 424.5,
+        "fieldtype": "Currency"
+      }
+    ]
+  },
+  "run_single_segment_FY2026_monthly": {
+    "filters": {
+      "company": "华东弹簧",
+      "report_template": "ZZREV-SingleSegment-MixedTypes",
+      "selected_view": "Report",
+      "include_default_book_entries": 1,
+      "filter_based_on": "Fiscal Year",
+      "from_fiscal_year": "2026",
+      "to_fiscal_year": "2026",
+      "periodicity": "Monthly"
+    },
+    "column_labels": [
+      {
+        "fieldname": "account",
+        "label": "Account",
+        "hidden": 0
+      },
+      {
+        "fieldname": "acc_name",
+        "label": "Account Name",
+        "hidden": 1
+      },
+      {
+        "fieldname": "acc_number",
+        "label": "Account Number",
+        "hidden": 1
+      },
+      {
+        "fieldname": "currency",
+        "label": "Currency",
+        "hidden": 1
+      },
+      {
+        "fieldname": "jan_2026",
+        "label": "Jan 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "feb_2026",
+        "label": "Feb 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "mar_2026",
+        "label": "Mar 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "apr_2026",
+        "label": "Apr 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "may_2026",
+        "label": "May 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "jun_2026",
+        "label": "Jun 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "jul_2026",
+        "label": "Jul 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "aug_2026",
+        "label": "Aug 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "sep_2026",
+        "label": "Sep 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "oct_2026",
+        "label": "Oct 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "nov_2026",
+        "label": "Nov 2026",
+        "hidden": 0
+      },
+      {
+        "fieldname": "dec_2026",
+        "label": "Dec 2026",
+        "hidden": 0
+      }
+    ],
+    "visible_column_count": 13,
+    "uses_seg_prefix": false,
+    "rows": [
+      {
+        "account": "INC as CLOSING",
+        "account_name": "INC as CLOSING",
+        "total": 0,
+        "jan_2026": 0.0,
+        "feb_2026": 0.0,
+        "mar_2026": 0.0,
+        "apr_2026": 0.0,
+        "may_2026": 0.0,
+        "jun_2026": 0.0,
+        "jul_2026": 0.0,
+        "aug_2026": 0.0,
+        "sep_2026": 1045.0,
+        "oct_2026": 1045.0,
+        "nov_2026": 1045.0,
+        "dec_2026": 1045.0,
+        "fieldtype": "Currency",
+        "account_filters": "[\"root_type\", \"=\", \"Income\"]"
+      },
+      {
+        "account": "INC as MOVEMENT",
+        "account_name": "INC as MOVEMENT",
+        "total": 0,
+        "jan_2026": 0.0,
+        "feb_2026": 0.0,
+        "mar_2026": 0.0,
+        "apr_2026": 0.0,
+        "may_2026": 0.0,
+        "jun_2026": 0.0,
+        "jul_2026": 0.0,
+        "aug_2026": 0.0,
+        "sep_2026": 1045.0,
+        "oct_2026": 0.0,
+        "nov_2026": 0.0,
+        "dec_2026": 0.0,
+        "fieldtype": "Currency",
+        "account_filters": "[\"root_type\", \"=\", \"Income\"]"
+      },
+      {
+        "account": "INC as OPENING",
+        "account_name": "INC as OPENING",
+        "total": 0,
+        "jan_2026": 0.0,
+        "feb_2026": 0.0,
+        "mar_2026": 0.0,
+        "apr_2026": 0.0,
+        "may_2026": 0.0,
+        "jun_2026": 0.0,
+        "jul_2026": 0.0,
+        "aug_2026": 0.0,
+        "sep_2026": 0.0,
+        "oct_2026": 1045.0,
+        "nov_2026": 1045.0,
+        "dec_2026": 1045.0,
+        "fieldtype": "Currency",
+        "account_filters": "[\"root_type\", \"=\", \"Income\"]"
+      },
+      {
+        "account": "STOCK as CLOSING",
+        "account_name": "STOCK as CLOSING",
+        "total": 0,
+        "jan_2026": 0.0,
+        "feb_2026": 0.0,
+        "mar_2026": 0.0,
+        "apr_2026": 0.0,
+        "may_2026": 0.0,
+        "jun_2026": 0.0,
+        "jul_2026": 0.0,
+        "aug_2026": 0.0,
+        "sep_2026": 424.5,
+        "oct_2026": 424.5,
+        "nov_2026": 424.5,
+        "dec_2026": 424.5,
+        "fieldtype": "Currency",
+        "account_filters": "[\"account_type\", \"=\", \"Stock\"]"
+      },
+      {
+        "account": "STOCK as MOVEMENT",
+        "account_name": "STOCK as MOVEMENT",
+        "total": 0,
+        "jan_2026": 0.0,
+        "feb_2026": 0.0,
+        "mar_2026": 0.0,
+        "apr_2026": 0.0,
+        "may_2026": 0.0,
+        "jun_2026": 0.0,
+        "jul_2026": 0.0,
+        "aug_2026": 0.0,
+        "sep_2026": 424.5,
+        "oct_2026": 0.0,
+        "nov_2026": 0.0,
+        "dec_2026": 0.0,
+        "fieldtype": "Currency",
+        "account_filters": "[\"account_type\", \"=\", \"Stock\"]"
+      },
+      {
+        "account": "STOCK as OPENING",
+        "account_name": "STOCK as OPENING",
+        "total": 0,
+        "jan_2026": 0.0,
+        "feb_2026": 0.0,
+        "mar_2026": 0.0,
+        "apr_2026": 0.0,
+        "may_2026": 0.0,
+        "jun_2026": 0.0,
+        "jul_2026": 0.0,
+        "aug_2026": 0.0,
+        "sep_2026": 0.0,
+        "oct_2026": 424.5,
+        "nov_2026": 424.5,
+        "dec_2026": 424.5,
+        "fieldtype": "Currency",
+        "account_filters": "[\"account_type\", \"=\", \"Stock\"]"
+      },
+      {
+        "account": "CLOSING minus MOVEMENT",
+        "account_name": "CLOSING minus MOVEMENT",
+        "total": 0,
+        "jan_2026": 0.0,
+        "feb_2026": 0.0,
+        "mar_2026": 0.0,
+        "apr_2026": 0.0,
+        "may_2026": 0.0,
+        "jun_2026": 0.0,
+        "jul_2026": 0.0,
+        "aug_2026": 0.0,
+        "sep_2026": 0.0,
+        "oct_2026": 424.5,
+        "nov_2026": 424.5,
+        "dec_2026": 424.5,
+        "fieldtype": "Currency"
+      }
+    ]
+  },
+  "DECISIVE_row_level": {
+    "rows_present": [
+      "CLOSING minus MOVEMENT",
+      "INC as CLOSING",
+      "INC as MOVEMENT",
+      "INC as OPENING",
+      "STOCK as CLOSING",
+      "STOCK as MOVEMENT",
+      "STOCK as OPENING"
+    ],
+    "STOCK_closing_sep": 424.5,
+    "STOCK_movement_sep": -325.5,
+    "STOCK_opening_sep": 750.0,
+    "INC_closing_sep": 1045.0,
+    "INC_movement_sep": 1045.0,
+    "three_types_differ_in_ONE_segment": true,
+    "closing_equals_opening_plus_movement": true,
+    "so_balance_type_is_row_level": true,
+    "note": "all three values come from rows in the SAME segment of the SAME template in the SAME run, so balance_type cannot be a segment-level or report-level setting"
+  },
+  "single_segment_column_labels": {
+    "labels": [
+      "Account",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 2026",
+      "Dec 2026"
+    ],
+    "any_label_has_dash_period": false,
+    "uses_seg_prefix": false,
+    "note": "no Column Break -> SingleSegmentFormatter -> base get_columns() labels survive untouched, so the ' - <period>' suffix is a MULTI-segment artifact only"
+  },
+  "single_segment_FY_labels": [
+    "Account",
+    "Jan 2026",
+    "Feb 2026",
+    "Mar 2026",
+    "Apr 2026",
+    "May 2026",
+    "Jun 2026",
+    "Jul 2026",
+    "Aug 2026",
+    "Sep 2026",
+    "Oct 2026",
+    "Nov 2026",
+    "Dec 2026"
+  ],
+  "baseline_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0
+  },
+  "baseline_matches_expected": true,
+  "created_docs_still_present": [],
+  "stray_exported_files": [],
+  "fiscal_years_after": [
+    "2026"
+  ]
+}

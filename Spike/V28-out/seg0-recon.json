@@ -1,0 +1,136 @@
+{
+  "probe": "V-28 seg0 recon: existing multi-month GL + safety baseline",
+  "baseline_counts": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Journal Entry": 0,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0
+  },
+  "fiscal_years": [
+    "2026"
+  ],
+  "accounts_settings_flags": {
+    "ignore_account_closing_balance": 0,
+    "ignore_is_opening_check_for_reporting": 0
+  },
+  "gl_entry_rows_total": 14,
+  "gl_row_count_by_month": {
+    "2026-09": 14
+  },
+  "distinct_posting_months": [
+    "2026-09"
+  ],
+  "accounts_with_postings_in_2plus_months": {},
+  "accounts_with_postings_in_2plus_months_count": 0,
+  "accounts_carrying_gl": [
+    {
+      "account": "应收账款 1 - HDS",
+      "root_type": "Asset",
+      "is_group": 0,
+      "months": {
+        "2026-09": 0.0
+      }
+    },
+    {
+      "account": "现金 - HDS",
+      "root_type": "Asset",
+      "is_group": 0,
+      "months": {
+        "2026-09": 295.0
+      }
+    },
+    {
+      "account": "存货 - HDS",
+      "root_type": "Asset",
+      "is_group": 0,
+      "months": {
+        "2026-09": 424.5
+      }
+    },
+    {
+      "account": "销货成本 - HDS",
+      "root_type": "Expense",
+      "is_group": 0,
+      "months": {
+        "2026-09": 325.77
+      }
+    },
+    {
+      "account": "结转库存的费用 - HDS",
+      "root_type": "Expense",
+      "is_group": 0,
+      "months": {
+        "2026-09": -0.27
+      }
+    },
+    {
+      "account": "销售 - HDS",
+      "root_type": "Income",
+      "is_group": 0,
+      "months": {
+        "2026-09": -1045.0
+      }
+    },
+    {
+      "account": "应付账款 1 - HDS",
+      "root_type": "Liability",
+      "is_group": 0,
+      "months": {
+        "2026-09": 0.0
+      }
+    },
+    {
+      "account": "暂估库存(已收货，未开票) - HDS",
+      "root_type": "Liability",
+      "is_group": 0,
+      "months": {
+        "2026-09": 0.0
+      }
+    }
+  ],
+  "raw_movement_by_roottype_by_month": {
+    "Liability": {
+      "2026-09": 0.0
+    },
+    "Asset": {
+      "2026-09": 719.5
+    },
+    "Expense": {
+      "2026-09": 325.5
+    },
+    "Income": {
+      "2026-09": -1045.0
+    }
+  },
+  "gl_by_voucher_type": {
+    "Purchase Invoice": 2,
+    "Purchase Receipt": 2,
+    "Payment Entry": 4,
+    "Stock Entry": 2,
+    "Sales Invoice": 2,
+    "Delivery Note": 2
+  },
+  "financial_report_template_dir_listing": [
+    "__init__.py",
+    "account_categories.json",
+    "financial_ratios_analysis",
+    "horizontal_balance_sheet_(columnar)",
+    "horizontal_profit_and_loss_(columnar)",
+    "standard_balance_sheet_(ifrs)",
+    "standard_cash_flow_statement_(ifrs)",
+    "standard_profit_and_loss_(ifrs)"
+  ],
+  "existing_templates": [
+    "Standard Profit and Loss (IFRS)",
+    "Standard Cash Flow Statement (IFRS)",
+    "Standard Balance Sheet (IFRS)",
+    "Horizontal Profit and Loss (Columnar)",
+    "Horizontal Balance Sheet (Columnar)",
+    "Financial Ratios Analysis"
+  ]
+}

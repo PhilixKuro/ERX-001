@@ -1,0 +1,433 @@
+{
+  "probe": "V-28 multi-month cumulative correctness of Closing Balance column",
+  "baseline_counts_before": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Journal Entry": 0,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0
+  },
+  "fiscal_years_before": [
+    "2026"
+  ],
+  "fiscal_year_2026_range": {
+    "year_start_date": "2026-01-01",
+    "year_end_date": "2026-12-31"
+  },
+  "opening_balance_path_preconditions": {
+    "ignore_account_closing_balance": 0,
+    "submitted_period_closing_vouchers": 0,
+    "account_closing_balance_rows": 0,
+    "note": "0 PCV + 0 ACB -> _get_opening_balances_from_gl() branch, 1900-01-01 start"
+  },
+  "account_currency_used": "CNY",
+  "injected_gl_names": [
+    "ZZPROBE-V28-001",
+    "ZZPROBE-V28-002",
+    "ZZPROBE-V28-003",
+    "ZZPROBE-V28-004",
+    "ZZPROBE-V28-005",
+    "ZZPROBE-V28-006",
+    "ZZPROBE-V28-007",
+    "ZZPROBE-V28-008"
+  ],
+  "counts_after_inject": {
+    "GL Entry": 30,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Journal Entry": 0,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0
+  },
+  "inject_is_balanced_per_month": [
+    {
+      "date": "2026-10-15",
+      "debits": 280.0,
+      "credits": 280.0,
+      "balanced": true
+    },
+    {
+      "date": "2026-11-20",
+      "debits": 530.0,
+      "credits": 530.0,
+      "balanced": true
+    }
+  ],
+  "raw_gl_pl_movement_by_month": {
+    "2026-11": -470.0,
+    "2026-10": -120.0,
+    "2026-09": -719.5
+  },
+  "raw_gl_income_by_month_signreversed": {
+    "2026-11": 500.0,
+    "2026-10": 200.0,
+    "2026-09": 1045.0
+  },
+  "raw_gl_expense_by_month": {
+    "2026-11": 30.0,
+    "2026-10": 80.0,
+    "2026-09": 325.5
+  },
+  "raw_gl_distinct_months": [
+    "2026-09",
+    "2026-10",
+    "2026-11"
+  ],
+  "raw_expected_cumulative_netprofit": {
+    "aug_2026": 0.0,
+    "sep_2026": 719.5,
+    "oct_2026": 839.5,
+    "nov_2026": 1309.5,
+    "dec_2026": 1309.5
+  },
+  "raw_expected_monthly_netprofit": {
+    "aug_2026": 0.0,
+    "sep_2026": 719.5,
+    "oct_2026": 120.0,
+    "nov_2026": 470.0,
+    "dec_2026": 0.0
+  },
+  "template_inserted": {
+    "name": "ZZ-PROBE-V28-PL-MultiMonth",
+    "module": null,
+    "rows": 8
+  },
+  "filters_used": {
+    "company": "华东弹簧",
+    "report_template": "ZZ-PROBE-V28-PL-MultiMonth",
+    "filter_based_on": "Fiscal Year",
+    "from_fiscal_year": "2026",
+    "to_fiscal_year": "2026",
+    "periodicity": "Monthly",
+    "selected_view": "Report",
+    "include_default_book_entries": 1
+  },
+  "accumulated_values_in_filters": false,
+  "engine_visible_column_count": 26,
+  "engine_rows_all_watched_months": [
+    {
+      "seg_0_name": "营业收入(累计)",
+      "seg_1_name": "营业收入(本月)",
+      "cum_aug_2026": 0.0,
+      "mth_aug_2026": 0.0,
+      "cum_sep_2026": 1045.0,
+      "mth_sep_2026": 1045.0,
+      "cum_oct_2026": 1245.0,
+      "mth_oct_2026": 200.0,
+      "cum_nov_2026": 1745.0,
+      "mth_nov_2026": 500.0,
+      "cum_dec_2026": 1745.0,
+      "mth_dec_2026": 0.0
+    },
+    {
+      "seg_0_name": "营业成本(累计)",
+      "seg_1_name": "营业成本(本月)",
+      "cum_aug_2026": 0.0,
+      "mth_aug_2026": 0.0,
+      "cum_sep_2026": 325.5,
+      "mth_sep_2026": 325.5,
+      "cum_oct_2026": 405.5,
+      "mth_oct_2026": 80.0,
+      "cum_nov_2026": 435.5,
+      "mth_nov_2026": 30.0,
+      "cum_dec_2026": 435.5,
+      "mth_dec_2026": 0.0
+    },
+    {
+      "seg_0_name": "净利润(累计)",
+      "seg_1_name": "净利润(本月)",
+      "cum_aug_2026": 0.0,
+      "mth_aug_2026": 0.0,
+      "cum_sep_2026": 719.5,
+      "mth_sep_2026": 719.5,
+      "cum_oct_2026": 839.5,
+      "mth_oct_2026": 120.0,
+      "cum_nov_2026": 1309.5,
+      "mth_nov_2026": 470.0,
+      "cum_dec_2026": 1309.5,
+      "mth_dec_2026": 0.0
+    }
+  ],
+  "engine_netprofit_cumulative_by_month": {
+    "aug_2026": 0.0,
+    "sep_2026": 719.5,
+    "oct_2026": 839.5,
+    "nov_2026": 1309.5,
+    "dec_2026": 1309.5
+  },
+  "engine_netprofit_monthly_by_month": {
+    "aug_2026": 0.0,
+    "sep_2026": 719.5,
+    "oct_2026": 120.0,
+    "nov_2026": 470.0,
+    "dec_2026": 0.0
+  },
+  "engine_income_cumulative_by_month": {
+    "aug_2026": 0.0,
+    "sep_2026": 1045.0,
+    "oct_2026": 1245.0,
+    "nov_2026": 1745.0,
+    "dec_2026": 1745.0
+  },
+  "engine_income_monthly_by_month": {
+    "aug_2026": 0.0,
+    "sep_2026": 1045.0,
+    "oct_2026": 200.0,
+    "nov_2026": 500.0,
+    "dec_2026": 0.0
+  },
+  "engine_expense_cumulative_by_month": {
+    "aug_2026": 0.0,
+    "sep_2026": 325.5,
+    "oct_2026": 405.5,
+    "nov_2026": 435.5,
+    "dec_2026": 435.5
+  },
+  "engine_expense_monthly_by_month": {
+    "aug_2026": 0.0,
+    "sep_2026": 325.5,
+    "oct_2026": 80.0,
+    "nov_2026": 30.0,
+    "dec_2026": 0.0
+  },
+  "chain_identity_cum_prev_plus_monthly": [
+    {
+      "month": "sep_2026",
+      "cum_prev": 0.0,
+      "plus_monthly": 719.5,
+      "expected_cum": 719.5,
+      "actual_cum": 719.5,
+      "holds": true
+    },
+    {
+      "month": "oct_2026",
+      "cum_prev": 719.5,
+      "plus_monthly": 120.0,
+      "expected_cum": 839.5,
+      "actual_cum": 839.5,
+      "holds": true
+    },
+    {
+      "month": "nov_2026",
+      "cum_prev": 839.5,
+      "plus_monthly": 470.0,
+      "expected_cum": 1309.5,
+      "actual_cum": 1309.5,
+      "holds": true
+    },
+    {
+      "month": "dec_2026",
+      "cum_prev": 1309.5,
+      "plus_monthly": 0.0,
+      "expected_cum": 1309.5,
+      "actual_cum": 1309.5,
+      "holds": true
+    }
+  ],
+  "DECISIVE": {
+    "cumulative_matches_independent_raw_every_month": {
+      "aug_2026": {
+        "engine": 0.0,
+        "raw": 0.0,
+        "match": true
+      },
+      "sep_2026": {
+        "engine": 719.5,
+        "raw": 719.5,
+        "match": true
+      },
+      "oct_2026": {
+        "engine": 839.5,
+        "raw": 839.5,
+        "match": true
+      },
+      "nov_2026": {
+        "engine": 1309.5,
+        "raw": 1309.5,
+        "match": true
+      },
+      "dec_2026": {
+        "engine": 1309.5,
+        "raw": 1309.5,
+        "match": true
+      }
+    },
+    "monthly_matches_independent_raw_every_month": {
+      "aug_2026": {
+        "engine": 0.0,
+        "raw": 0.0,
+        "match": true
+      },
+      "sep_2026": {
+        "engine": 719.5,
+        "raw": 719.5,
+        "match": true
+      },
+      "oct_2026": {
+        "engine": 120.0,
+        "raw": 120.0,
+        "match": true
+      },
+      "nov_2026": {
+        "engine": 470.0,
+        "raw": 470.0,
+        "match": true
+      },
+      "dec_2026": {
+        "engine": 0.0,
+        "raw": 0.0,
+        "match": true
+      }
+    },
+    "all_cumulative_match": true,
+    "all_monthly_match": true,
+    "chain_identity_holds_every_month": true,
+    "cumulative_strictly_increases_over_posting_months": true,
+    "REFUTED_column_merely_repeats_last_value": true,
+    "REFUTED_column_is_grand_total_repeated": true,
+    "monthly_column_actually_varies": true,
+    "cumulative_differs_from_monthly": true,
+    "cumulative_holds_after_last_posting_month": true,
+    "monthly_drops_to_zero_after_last_posting_month": true,
+    "distinct_months_with_postings": [
+      "2026-09",
+      "2026-10",
+      "2026-11"
+    ],
+    "CONCLUSION_multimonth_cumulative_arithmetically_correct": true
+  },
+  "component_rows_cross_check": {
+    "income_cumulative": {
+      "aug_2026": {
+        "engine": 0.0,
+        "raw": 0.0,
+        "match": true
+      },
+      "sep_2026": {
+        "engine": 1045.0,
+        "raw": 1045.0,
+        "match": true
+      },
+      "oct_2026": {
+        "engine": 1245.0,
+        "raw": 1245.0,
+        "match": true
+      },
+      "nov_2026": {
+        "engine": 1745.0,
+        "raw": 1745.0,
+        "match": true
+      },
+      "dec_2026": {
+        "engine": 1745.0,
+        "raw": 1745.0,
+        "match": true
+      }
+    },
+    "expense_cumulative": {
+      "aug_2026": {
+        "engine": 0.0,
+        "raw": 0.0,
+        "match": true
+      },
+      "sep_2026": {
+        "engine": 325.5,
+        "raw": 325.5,
+        "match": true
+      },
+      "oct_2026": {
+        "engine": 405.5,
+        "raw": 405.5,
+        "match": true
+      },
+      "nov_2026": {
+        "engine": 435.5,
+        "raw": 435.5,
+        "match": true
+      },
+      "dec_2026": {
+        "engine": 435.5,
+        "raw": 435.5,
+        "match": true
+      }
+    },
+    "income_monthly": {
+      "aug_2026": {
+        "engine": 0.0,
+        "raw": 0.0,
+        "match": true
+      },
+      "sep_2026": {
+        "engine": 1045.0,
+        "raw": 1045.0,
+        "match": true
+      },
+      "oct_2026": {
+        "engine": 200.0,
+        "raw": 200.0,
+        "match": true
+      },
+      "nov_2026": {
+        "engine": 500.0,
+        "raw": 500.0,
+        "match": true
+      },
+      "dec_2026": {
+        "engine": 0.0,
+        "raw": 0.0,
+        "match": true
+      }
+    }
+  },
+  "baseline_counts_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Journal Entry": 0,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0
+  },
+  "expected_baseline": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1
+  },
+  "baseline_restored": {
+    "GL Entry": true,
+    "Stock Ledger Entry": true,
+    "Account": true,
+    "Company": true,
+    "Financial Report Template": true,
+    "Fiscal Year_only_2026": true
+  },
+  "template_exists_after_rollback": false,
+  "injected_gl_exists_after_rollback": 0,
+  "injected_gl_by_name_after_rollback": [],
+  "gl_months_after_rollback": [
+    "2026-09"
+  ],
+  "financial_report_template_dir_listing": [
+    "__init__.py",
+    "account_categories.json",
+    "financial_ratios_analysis",
+    "horizontal_balance_sheet_(columnar)",
+    "horizontal_profit_and_loss_(columnar)",
+    "standard_balance_sheet_(ifrs)",
+    "standard_cash_flow_statement_(ifrs)",
+    "standard_profit_and_loss_(ifrs)"
+  ],
+  "stray_exported_files": []
+}

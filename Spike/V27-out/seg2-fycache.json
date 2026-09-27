@@ -1,0 +1,53 @@
+{
+  "cache_state__0_process_start": {
+    "hget_for_company": null,
+    "hgetall": {},
+    "local_cache_keys_matching_fy": [
+      "b'_2bd5b09209543e8e|fiscal_years'"
+    ],
+    "db_fiscal_years": [
+      "2026"
+    ]
+  },
+  "resolve_2025_06_30__0_process_start": {
+    "ok": false,
+    "value": false
+  },
+  "resolve_before_any_write": false,
+  "fy2025_inserted": {
+    "name": "2025"
+  },
+  "cache_state__1_after_fy_insert": {
+    "hget_for_company": null,
+    "hgetall": {},
+    "local_cache_keys_matching_fy": [
+      "b'_2bd5b09209543e8e|fiscal_years'"
+    ],
+    "db_fiscal_years": [
+      "2026",
+      "2025"
+    ]
+  },
+  "resolve_2025_06_30__1_after_fy_insert": {
+    "ok": true,
+    "value": [
+      "2025",
+      "2025-01-01",
+      "2025-12-31"
+    ]
+  },
+  "fixes_applied": "none needed",
+  "cache_state__2_after_fix": {
+    "hget_for_company": [
+      {
+        "name": "2026",
+        "year_start_date": "2026-01-01",
+        "year_end_date": "2026-12-31"
+      },
+      {
+        "name": "2025",
+        "year_start_date": "2025-01-01",
+        "year_end_date": "2025-12-31"
+      }
+    ],
+    "hgetall": {

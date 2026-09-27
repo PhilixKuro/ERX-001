@@ -1,0 +1,132 @@
+{
+  "probe": "V-27 seg5 is any setting able to yield a correct 本年累计 in year 2+",
+  "BASELINE_counts": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0,
+    "Journal Entry": 0
+  },
+  "ORIGINAL_ignore_account_closing_balance": 0,
+  "journal_entries": {
+    "prior_2025": "ACC-JV-2026-00001",
+    "current_2026_03": "ACC-JV-2026-00002"
+  },
+  "RAW_income_by_month_BEFORE_pcv": [
+    {
+      "ym": "2025-06",
+      "income_credit_net": 5000.0
+    },
+    {
+      "ym": "2026-03",
+      "income_credit_net": 700.0
+    },
+    {
+      "ym": "2026-09",
+      "income_credit_net": 1045.0
+    }
+  ],
+  "EXPECTED_values": {
+    "correct_本年累计_through_sep_2026": 1745.0,
+    "sep_alone_本月": 1045.0,
+    "mar_alone_本月": 700.0,
+    "since_inception_through_sep": 6745.0,
+    "why": "mar and sep now differ, so cumulative vs single-month are distinguishable -- seg4 could not tell them apart"
+  },
+  "pcv_submitted": {
+    "name": "ACC-PCV-2026-00001",
+    "docstatus": 1,
+    "status": "Completed"
+  },
+  "engine_M1M2_monthly_after_pcv": {
+    "cells": {
+      "收入-CB": {
+        "CB_jan_2026": 5000.0,
+        "PM_jan_2026": 0.0,
+        "CB_mar_2026": 5700.0,
+        "PM_mar_2026": 700.0,
+        "CB_sep_2026": 6745.0,
+        "PM_sep_2026": 1045.0,
+        "CB_dec_2026": 6745.0,
+        "PM_dec_2026": 0.0
+      }
+    },
+    "visible_cols": 26
+  },
+  "engine_M3_ytd_range_yearly": {
+    "cells": {
+      "收入-CB": {
+        "CB_sep_2026": 6745.0,
+        "PM_sep_2026": 1745.0
+      }
+    },
+    "visible_cols": 4
+  },
+  "ignore_acb_now": 1,
+  "engine_M4_monthly_ignore_acb_on": {
+    "cells": {
+      "收入-CB": {
+        "CB_jan_2026": 5000.0,
+        "PM_jan_2026": 0.0,
+        "CB_mar_2026": 5700.0,
+        "PM_mar_2026": 700.0,
+        "CB_sep_2026": 6745.0,
+        "PM_sep_2026": 1045.0,
+        "CB_dec_2026": 6745.0,
+        "PM_dec_2026": 0.0
+      }
+    },
+    "visible_cols": 26
+  },
+  "ignore_acb_restored_in_txn": 0,
+  "DECISIVE_seg5": {
+    "M1_monthly_closing_balance": {
+      "jan": 5000.0,
+      "mar": 5700.0,
+      "sep": 6745.0,
+      "dec": 6745.0
+    },
+    "M1_jan_should_be_0_if_pcv_resets": false,
+    "M1_sep_true_ytd_would_be": 1745.0,
+    "M1_sep_since_inception_would_be": 6745.0,
+    "M2_monthly_period_movement": {
+      "mar": 700.0,
+      "sep": 1045.0
+    },
+    "M2_is_true_per_month": true,
+    "M3_ytd_range_period_movement_sep": 1745.0,
+    "M3_equals_true_ytd_1745": true,
+    "M3_equals_sep_alone_1045": false,
+    "M3_closing_balance_sep": 6745.0,
+    "M4_ignore_acb_closing_balance": {
+      "jan": 5000.0,
+      "sep": 6745.0
+    },
+    "M4_changes_year_boundary": false
+  },
+  "AFTER_counts": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0,
+    "Journal Entry": 0
+  },
+  "baseline_restored": true,
+  "count_deltas": "none",
+  "fiscal_years_after": [
+    "2026"
+  ],
+  "ignore_account_closing_balance_after_rollback": 0,
+  "setting_matches_original": true,
+  "template_exists_after": false,
+  "guard_hits": "none",
+  "stray_exported_files": "none"
+}

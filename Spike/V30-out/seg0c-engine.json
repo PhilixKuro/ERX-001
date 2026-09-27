@@ -1,0 +1,70 @@
+{
+  "probe": "V-30 seg0c: storage engine of tabError Log",
+  "table_engines": [
+    {
+      "table_name": "tabAccount",
+      "engine": "InnoDB",
+      "table_rows": 95
+    },
+    {
+      "table_name": "tabActivity Log",
+      "engine": "InnoDB",
+      "table_rows": 20
+    },
+    {
+      "table_name": "tabError Log",
+      "engine": "MyISAM",
+      "table_rows": 4
+    },
+    {
+      "table_name": "tabFinancial Report Template",
+      "engine": "InnoDB",
+      "table_rows": 6
+    },
+    {
+      "table_name": "tabGL Entry",
+      "engine": "InnoDB",
+      "table_rows": 22
+    },
+    {
+      "table_name": "tabVersion",
+      "engine": "InnoDB",
+      "table_rows": 156
+    }
+  ],
+  "tabError_Log_engine": "MyISAM",
+  "is_transactional": false,
+  "doctype_engine_field": "MyISAM",
+  "business_tables_engines": {
+    "tabAccount": "InnoDB",
+    "tabActivity Log": "InnoDB",
+    "tabFinancial Report Template": "InnoDB",
+    "tabGL Entry": "InnoDB",
+    "tabVersion": "InnoDB"
+  },
+  "all_business_tables_innodb": true,
+  "my_marker_rows_found": [
+    {
+      "name": "m5hugjk22g",
+      "method": "V30 seg0b diagnose -- commit patched to no-op"
+    },
+    {
+      "name": "ktd2judh1d",
+      "method": "V30 seg0 rollback probe -- expected to vanish on rollback"
+    }
+  ],
+  "markers_remaining_after_delete": [],
+  "error_log_rows_now": [
+    {
+      "name": "r2pa0hpb8f",
+      "method": "Report execution failed for: VAT Audit Report"
+    },
+    {
+      "name": "ukksv2d6f5",
+      "method": "Report execution failed for: Stock and Account Value Comparison"
+    }
+  ],
+  "error_log_count_now": 2,
+  "error_log_count_after_rollback": 2,
+  "markers_after_rollback": []
+}

@@ -1,0 +1,306 @@
+{
+  "probe": "REV audit part C: accumulated_values injection surface + column-name surface",
+  "report_row": [
+    {
+      "name": "Custom Financial Statement",
+      "report_type": "Script Report",
+      "is_standard": "Yes",
+      "ref_doctype": "GL Entry",
+      "module": "Accounts",
+      "disabled": 0,
+      "json": "",
+      "query": "",
+      "javascript": "",
+      "report_script": "",
+      "prepared_report": 0,
+      "reference_report": null
+    }
+  ],
+  "child_rows_Report_Filter": [],
+  "all_Report_Filter_rows_total": 1,
+  "all_Report_Filter_mentioning_accum": [],
+  "child_rows_Report_Column": [],
+  "all_Report_Column_rows_total": 0,
+  "all_Report_Column_mentioning_accum": [],
+  "reports_mentioning_accumulated_values": [],
+  "report_filters_mentioning_accumulated": [],
+  "custom_reports_referencing_cfs": [],
+  "all_reports_count": 193,
+  "all_custom_reports": [],
+  "scan_Property_Setter": {
+    "rows": 182,
+    "flagged": []
+  },
+  "scan_Client_Script": {
+    "rows": 0,
+    "flagged": []
+  },
+  "scan_Server_Script": {
+    "rows": 0,
+    "flagged": []
+  },
+  "scan_Custom_Field": {
+    "rows": 12,
+    "flagged": []
+  },
+  "scan_DocType_Layout": {
+    "rows": 0,
+    "flagged": []
+  },
+  "scan_missing_Report_View_Settings": true,
+  "scan_List_View_Settings": {
+    "rows": 0,
+    "flagged": []
+  },
+  "scan_Dashboard_Chart": {
+    "rows": 49,
+    "flagged": []
+  },
+  "scan_Number_Card": {
+    "rows": 50,
+    "flagged": []
+  },
+  "scan_Workspace": {
+    "rows": 19,
+    "flagged": []
+  },
+  "installed_apps": [
+    "frappe",
+    "erpnext"
+  ],
+  "scanned_file_count": 7552,
+  "needle_total_files": {
+    "accumulated_values": 11,
+    "accumulated": 131,
+    "cumulative": 43,
+    "year_to_date": 3,
+    "ytd": 0,
+    "running_balance": 5,
+    "accumulate": 145,
+    "balance_type": 15,
+    "report_template": 19
+  },
+  "accumulated_values_every_file": {
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py": 8,
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/test_financial_report_engine.py": 1,
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/report/financial_statements.py": 20,
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/report/balance_sheet/balance_sheet.js": 1,
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/report/balance_sheet/balance_sheet.py": 13,
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/report/cash_flow/cash_flow.py": 13,
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/report/gross_and_net_profit_report/gross_and_net_profit_report.js": 1,
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/report/gross_and_net_profit_report/gross_and_net_profit_report.py": 8,
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/report/profit_and_loss_statement/profit_and_loss_statement.js": 1,
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/report/profit_and_loss_statement/profit_and_loss_statement.py": 14,
+    "/workspace/frappe-bench/apps/erpnext/erpnext/accounts/report/profit_and_loss_statement/test_profit_and_loss_statement.py": 3
+  },
+  "listing_accounts_report_custom_financial_statement": [
+    "__init__.py",
+    "custom_financial_statement.js",
+    "custom_financial_statement.json",
+    "custom_financial_statement.py"
+  ],
+  "listing_public_js": [
+    "address.js",
+    "bank-reconciliation-tool.bundle.js",
+    "bank_reconciliation_tool",
+    "bom_configurator",
+    "bulk_transaction_processing.js",
+    "call_popup",
+    "communication.js",
+    "conf.js",
+    "contact.js",
+    "controllers",
+    "erpnext.bundle.js",
+    "event.js",
+    "financial_statements.js",
+    "help_links.js",
+    "item-dashboard.bundle.js",
+    "newsletter.js",
+    "payment",
+    "plant_floor_visual",
+    "point-of-sale.bundle.js",
+    "print.js",
+    "projects",
+    "purchase_trends_filters.js",
+    "queries.js",
+    "sales_trends_filters.js",
+    "setup_wizard.js",
+    "sms_manager.js",
+    "stock_analytics.js",
+    "stock_grid_report.js",
+    "stock_reservation.js",
+    "telephony.js",
+    "templates",
+    "utils",
+    "utils.js",
+    "website_theme.js"
+  ],
+  "listing_accounts_report_balance_sheet": [
+    "__init__.py",
+    "__pycache__",
+    "balance_sheet.html",
+    "balance_sheet.js",
+    "balance_sheet.json",
+    "balance_sheet.py",
+    "test_balance_sheet.py"
+  ],
+  "listing_accounts_report_profit_and_loss_statement": [
+    "__init__.py",
+    "__pycache__",
+    "profit_and_loss_statement.html",
+    "profit_and_loss_statement.js",
+    "profit_and_loss_statement.json",
+    "profit_and_loss_statement.py",
+    "test_profit_and_loss_statement.py"
+  ],
+  "listing_accounts_doctype_financial_report_template": [
+    "__init__.py",
+    "__pycache__",
+    "financial_report_engine.py",
+    "financial_report_template.js",
+    "financial_report_template.json",
+    "financial_report_template.py",
+    "financial_report_validation.py",
+    "test_financial_report_engine.py",
+    "test_financial_report_template.py"
+  ],
+  "listing_accounts_doctype_financial_report_row": [
+    "__init__.py",
+    "__pycache__",
+    "financial_report_row.json",
+    "financial_report_row.py"
+  ],
+  "hooks_scan": {
+    "frappe": {
+      "financial_report": false,
+      "custom_financial": false,
+      "accumulated": false,
+      "override_whitelisted_methods": true,
+      "doc_events": true
+    },
+    "erpnext": {
+      "financial_report": false,
+      "custom_financial": false,
+      "accumulated": false,
+      "override_whitelisted_methods": true,
+      "doc_events": true
+    }
+  },
+  "non_erpnext_files_mentioning_report_template": {},
+  "fs_label_assignment_lines": {
+    "89": "label = formatdate(opts[\"to_date\"], \"MMM YYYY\")",
+    "92": "label = get_label(periodicity, opts[\"from_date\"], opts[\"to_date\"])",
+    "95": "label = get_label(periodicity, opts.from_date_fiscal_year_start_date, opts[\"to_date\"])",
+    "97": "label = get_label(periodicity, period_list[0].from_date, opts[\"to_date\"])",
+    "152": "label = formatdate(from_date, \"YYYY\")",
+    "154": "label = formatdate(from_date, \"YYYY\") + \"-\" + formatdate(to_date, \"YYYY\")",
+    "156": "label = formatdate(from_date, \"MMM YY\") + \"-\" + formatdate(to_date, \"MMM YY\")"
+  },
+  "fs_label_assignment_count": 7,
+  "engine_label_assignment_lines": {
+    "1511": "section_label = \"\"",
+    "1528": "section_label = getattr(row_data.row, \"display_name\", \"\") or \"\"",
+    "1543": "segment_label = \"\"",
+    "1570": "segment_label = getattr(row_data.row, \"display_name\", \"\") or \"\"",
+    "1724": "new_col[\"label\"] = segment.label or f\"Account (Segment {segment.index + 1})\"",
+    "1728": "new_col[\"label\"] = f\"{segment.label} - {col['label']}\""
+  },
+  "cited_engine_lines": {
+    "60": "\tdef get_value(self, balance_type: str) -> float:",
+    "61": "\t\tif balance_type == \"Opening Balance\":",
+    "62": "\t\t\treturn self.opening",
+    "63": "\t\telif balance_type == \"Closing Balance\":",
+    "64": "\t\t\treturn self.closing",
+    "65": "\t\telif balance_type == \"Period Movement (Debits - Credits)\":",
+    "66": "\t\t\treturn self.movement",
+    "705": "\tdef _handle_balance_accumulation(self, balances_data):",
+    "709": "\t\t\taccumulated_values = self.filters.get(\"accumulated_values\")",
+    "710": "",
+    "711": "\t\t\tif accumulated_values is None:",
+    "712": "\t\t\t\t# respect user setting if not in filters",
+    "713": "\t\t\t\t# closing = accumulated",
+    "714": "\t\t\t\t# movement = unaccumulated",
+    "715": "\t\t\t\tcontinue",
+    "716": "",
+    "717": "\t\t\t# for legacy reports",
+    "718": "\t\t\telif accumulated_values:",
+    "719": "\t\t\t\taccount_data.accumulate_values()",
+    "720": "\t\t\telse:",
+    "1185": "\t\t\tvalues = frappe.call(method, filters=self.context.filters, periods=self.period_list, row=row)",
+    "1417": "\t\t\tself.context.period_list,",
+    "1418": "\t\t\tself.context.filters.get(\"accumulated_values\") in (1, None),",
+    "1712": "",
+    "1723": "\t\t\t\tif col[\"fieldname\"] == \"account\":",
+    "1724": "\t\t\t\t\tnew_col[\"label\"] = segment.label or f\"Account (Segment {segment.index + 1})\"",
+    "1725": "\t\t\t\t\tnew_col[\"align\"] = \"left\"",
+    "1726": "",
+    "1727": "\t\t\t\tif segment.label and col[\"fieldname\"] in [p[\"key\"] for p in self.period_list]:",
+    "1728": "\t\t\t\t\tnew_col[\"label\"] = f\"{segment.label} - {col['label']}\"",
+    "1770": "\t\t\tbalance_type = getattr(parent_row, \"balance_type\", \"Closing Balance\")",
+    "1771": "\t\t\tvalues = account_data.get_values_by_type(balance_type)"
+  },
+  "engine_initialize_context_268_292": {
+    "268": "",
+    "269": "\tdef _initialize_context(self, filters: dict[str, Any]) -> ReportContext:",
+    "270": "\t\ttemplate_name = filters.get(\"report_template\")",
+    "271": "\t\ttemplate = frappe.get_doc(\"Financial Report Template\", template_name)",
+    "272": "",
+    "273": "\t\tif not template:",
+    "274": "\t\t\tfrappe.throw(_(\"Financial Report Template {0} not found\").format(template_name))",
+    "275": "",
+    "276": "\t\tif template.disabled:",
+    "277": "\t\t\tfrappe.throw(_(\"Financial Report Template {0} is disabled\").format(template_name))",
+    "278": "",
+    "279": "\t\t# Generate periods",
+    "280": "\t\tperiod_list = get_period_list(",
+    "281": "\t\t\tfilters.from_fiscal_year,",
+    "282": "\t\t\tfilters.to_fiscal_year,",
+    "283": "\t\t\tfilters.period_start_date,",
+    "284": "\t\t\tfilters.period_end_date,",
+    "285": "\t\t\tfilters.filter_based_on,",
+    "286": "\t\t\tfilters.periodicity,",
+    "287": "\t\t\tcompany=filters.company,",
+    "288": "\t\t)",
+    "289": "",
+    "290": "\t\t# Support both old and new field names for backward compatibility",
+    "291": "\t\tshow_detailed = filters.get(\"show_account_details\") == \"Account Breakdown\"",
+    "292": ""
+  },
+  "fs_get_period_list_84_100": {
+    "84": "",
+    "85": "\t# common processing",
+    "86": "\tfor opts in period_list:",
+    "87": "\t\tkey = opts[\"to_date\"].strftime(\"%b_%Y\").lower()",
+    "88": "\t\tif periodicity == \"Monthly\" and not accumulated_values:",
+    "89": "\t\t\tlabel = formatdate(opts[\"to_date\"], \"MMM YYYY\")",
+    "90": "\t\telse:",
+    "91": "\t\t\tif not accumulated_values:",
+    "92": "\t\t\t\tlabel = get_label(periodicity, opts[\"from_date\"], opts[\"to_date\"])",
+    "93": "\t\t\telse:",
+    "94": "\t\t\t\tif reset_period_on_fy_change:",
+    "95": "\t\t\t\t\tlabel = get_label(periodicity, opts.from_date_fiscal_year_start_date, opts[\"to_date\"])",
+    "96": "\t\t\t\telse:",
+    "97": "\t\t\t\t\tlabel = get_label(periodicity, period_list[0].from_date, opts[\"to_date\"])",
+    "98": "",
+    "99": "\t\topts.update(",
+    "100": "\t\t\t{"
+  },
+  "fs_lines_279_288_for_contrast": {
+    "279": "\tfor d in accounts:",
+    "280": "\t\t# add to output",
+    "281": "\t\thas_value = False",
+    "282": "\t\ttotal = 0",
+    "283": "\t\trow = frappe._dict(",
+    "284": "\t\t\t{",
+    "285": "\t\t\t\t\"account\": _(d.name),",
+    "286": "\t\t\t\t\"parent_account\": _(d.parent_account) if d.parent_account else \"\",",
+    "287": "\t\t\t\t\"indent\": flt(d.indent),",
+    "288": "\t\t\t\t\"year_start_date\": year_start_date,"
+  },
+  "engine_get_period_list_callsites": {
+    "280": "period_list = get_period_list("
+  },
+  "engine_lines_after_each_get_period_list": {
+    "280": "\t\tperiod_list = get_period_list(\n\t\t\tfilters.from_fiscal_year,\n\t\t\tfilters.to_fiscal_year,\n\t\t\tfilters.period_start_date,\n\t\t\tfilters.period_end_date,\n\t\t\tfilters.filter_based_on,\n\t\t\tfilters.periodicity,\n\t\t\tcompany=filters.company,\n\t\t)\n\n\t\t# Support both old and new field names for backward compatibility\n\t\tshow_detailed = filters.get(\"show_account_details\") == \"Account Breakdown\"\n\n\t\tcontext = ReportContext("
+  }
+}

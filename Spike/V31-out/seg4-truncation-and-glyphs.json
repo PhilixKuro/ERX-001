@@ -1,0 +1,338 @@
+{
+  "probe": "V-31 seg4: PDF glyph coverage confirmation + truncation/width effects",
+  "baseline_before": {
+    "Error Log": 0,
+    "Access Log": 0,
+    "File": 2,
+    "Financial Report Template": 6
+  },
+  "seg3_pdf_embedded_fonts": {
+    "pdf": "/workspace/Spike/V31-out/pdf-render.pdf",
+    "font_count": 2,
+    "fonts": [
+      {
+        "page": 0,
+        "res_key": "/F6",
+        "BaseFont": "/DejaVuSans-Bold",
+        "Subtype": "/Type0",
+        "Encoding": "/Identity-H",
+        "has_ToUnicode": true,
+        "FontFile_embedded": false,
+        "descriptor_flags": "None"
+      },
+      {
+        "page": 0,
+        "res_key": "/F7",
+        "BaseFont": "/DejaVuSans",
+        "Subtype": "/Type0",
+        "Encoding": "/Identity-H",
+        "has_ToUnicode": true,
+        "FontFile_embedded": false,
+        "descriptor_flags": "None"
+      }
+    ],
+    "reading": "if the only embedded faces are DejaVu/Cantarell (no CJK coverage) then there is no font on the page able to draw U+5E74 etc."
+  },
+  "GLYPH_INK_MEASUREMENT": {
+    "cases": {
+      "cjk_plain": {
+        "pdf": "/workspace/Spike/V31-out/glyph-cjk_plain.pdf",
+        "pdf_bytes": 6453,
+        "pngs": [],
+        "pdftoppm_out": "sh: 1: pdftoppm: not found",
+        "dark_pixels": null,
+        "png_size": null
+      },
+      "ascii_plain": {
+        "pdf": "/workspace/Spike/V31-out/glyph-ascii_plain.pdf",
+        "pdf_bytes": 7335,
+        "pngs": [],
+        "pdftoppm_out": "sh: 1: pdftoppm: not found",
+        "dark_pixels": null,
+        "png_size": null
+      },
+      "cjk_fontstack": {
+        "pdf": "/workspace/Spike/V31-out/glyph-cjk_fontstack.pdf",
+        "pdf_bytes": 6453,
+        "pngs": [],
+        "pdftoppm_out": "sh: 1: pdftoppm: not found",
+        "dark_pixels": null,
+        "png_size": null
+      }
+    },
+    "reading": "ascii_plain having many dark pixels while cjk_plain has ~none means the CJK glyphs are NOT painted -- a human sees nothing/boxes where the header should be. cjk_fontstack matching cjk_plain means naming a CJK family does not help because no such family is installed."
+  },
+  "XLSX_WIDTHS_VS_HEADER_STRINGS": {
+    "workbooks": {
+      "xlsx-LONG_realistic_panes_hidden0.xlsx": {
+        "sheet_name": "Custom Financial Statement",
+        "sheet_name_len": 26,
+        "header_row": [
+          "资产",
+          "资产 - 2025",
+          "资产 - 2026",
+          "负债和所有者权益",
+          "负债和所有者权益 - 2025",
+          "负债和所有者权益 - 2026"
+        ],
+        "header_lengths": [
+          2,
+          9,
+          9,
+          8,
+          15,
+          15
+        ],
+        "longest_header": "负债和所有者权益 - 2025",
+        "column_widths": {
+          "A": 30.7109375,
+          "B": 9.140625,
+          "D": 30.7109375,
+          "E": 9.140625
+        },
+        "any_header_shortened": false
+      },
+      "xlsx-LONG_realistic_panes_hidden1.xlsx": {
+        "sheet_name": "Custom Financial Statement",
+        "sheet_name_len": 26,
+        "header_row": [
+          "资产",
+          "科目名称",
+          "科目代码",
+          "货币",
+          "资产 - 2025",
+          "资产 - 2026",
+          "负债和所有者权益",
+          "科目名称",
+          "科目代码",
+          "货币",
+          "负债和所有者权益 - 2025",
+          "负债和所有者权益 - 2026"
+        ],
+        "header_lengths": [
+          2,
+          4,
+          4,
+          2,
+          9,
+          9,
+          8,
+          4,
+          4,
+          2,
+          15,
+          15
+        ],
+        "longest_header": "负债和所有者权益 - 2025",
+        "column_widths": {
+          "A": 30.7109375,
+          "B": 25.7109375,
+          "C": 12.7109375,
+          "E": 9.140625,
+          "G": 30.7109375,
+          "H": 25.7109375,
+          "I": 12.7109375,
+          "K": 9.140625
+        },
+        "any_header_shortened": false
+      },
+      "xlsx-NEG_statutory_chinese_hidden0.xlsx": {
+        "sheet_name": "Custom Financial Statement",
+        "sheet_name_len": 26,
+        "header_row": [
+          "年初余额",
+          "年初余额 - 2025",
+          "年初余额 - 2026",
+          "期末余额",
+          "期末余额 - 2025",
+          "期末余额 - 2026"
+        ],
+        "header_lengths": [
+          4,
+          11,
+          11,
+          4,
+          11,
+          11
+        ],
+        "longest_header": "年初余额 - 2025",
+        "column_widths": {
+          "A": 30.7109375,
+          "B": 9.140625,
+          "D": 30.7109375,
+          "E": 9.140625
+        },
+        "any_header_shortened": false
+      },
+      "xlsx-NEG_statutory_chinese_hidden1.xlsx": {
+        "sheet_name": "Custom Financial Statement",
+        "sheet_name_len": 26,
+        "header_row": [
+          "年初余额",
+          "科目名称",
+          "科目代码",
+          "货币",
+          "年初余额 - 2025",
+          "年初余额 - 2026",
+          "期末余额",
+          "科目名称",
+          "科目代码",
+          "货币",
+          "期末余额 - 2025",
+          "期末余额 - 2026"
+        ],
+        "header_lengths": [
+          4,
+          4,
+          4,
+          2,
+          11,
+          11,
+          4,
+          4,
+          4,
+          2,
+          11,
+          11
+        ],
+        "longest_header": "年初余额 - 2025",
+        "column_widths": {
+          "A": 30.7109375,
+          "B": 25.7109375,
+          "C": 12.7109375,
+          "E": 9.140625,
+          "G": 30.7109375,
+          "H": 25.7109375,
+          "I": 12.7109375,
+          "K": 9.140625
+        },
+        "any_header_shortened": false
+      },
+      "xlsx-POS_translated_key_hidden0.xlsx": {
+        "sheet_name": "Custom Financial Statement",
+        "sheet_name_len": 26,
+        "header_row": [
+          "资产",
+          "Assets - 2025",
+          "Assets - 2026",
+          "负债",
+          "Liabilities - 2025",
+          "Liabilities - 2026"
+        ],
+        "header_lengths": [
+          2,
+          13,
+          13,
+          2,
+          18,
+          18
+        ],
+        "longest_header": "Liabilities - 2025",
+        "column_widths": {
+          "A": 30.7109375,
+          "B": 9.140625,
+          "D": 30.7109375,
+          "E": 9.140625
+        },
+        "any_header_shortened": false
+      },
+      "xlsx-POS_translated_key_hidden1.xlsx": {
+        "sheet_name": "Custom Financial Statement",
+        "sheet_name_len": 26,
+        "header_row": [
+          "资产",
+          "科目名称",
+          "科目代码",
+          "货币",
+          "Assets - 2025",
+          "Assets - 2026",
+          "负债",
+          "科目名称",
+          "科目代码",
+          "货币",
+          "Liabilities - 2025",
+          "Liabilities - 2026"
+        ],
+        "header_lengths": [
+          2,
+          4,
+          4,
+          2,
+          13,
+          13,
+          2,
+          4,
+          4,
+          2,
+          18,
+          18
+        ],
+        "longest_header": "Liabilities - 2025",
+        "column_widths": {
+          "A": 30.7109375,
+          "B": 25.7109375,
+          "C": 12.7109375,
+          "E": 9.140625,
+          "G": 30.7109375,
+          "H": 25.7109375,
+          "I": 12.7109375,
+          "K": 9.140625
+        },
+        "any_header_shortened": false
+      }
+    },
+    "reading": "column_widths are set from the engine's width/10; header strings are full length regardless -- width affects display, not the stored string. any_header_shortened must be false everywhere."
+  },
+  "SHEET_NAME_TRUNCATION": {
+    "MAX_SHEET_NAME_LENGTH": 31,
+    "INVALID_SHEET_NAME_RE": "[\\[\\]:*?/\\\\]",
+    "input": "负债和所有者权益负债和所有者权益负债和所有者权益负债和所有者权益负债和所有者权益",
+    "input_len": 40,
+    "sanitized": "负债和所有者权益负债和所有者权益负债和所有者权益负债和所有者权",
+    "sanitized_len": 31,
+    "truncated": true,
+    "scope": "this is the WORKSHEET TAB name (make_xlsx -> wb.add_worksheet), derived from the report name -- NOT a column header cell. The report name here is 'Custom Financial Statement' (27 chars), under the limit.",
+    "actual_report_name": "Custom Financial Statement",
+    "actual_report_name_len": 26
+  },
+  "DATATABLE_HEADER_CLIPPING_CSS": {
+    "path": "/workspace/frappe-bench/apps/frappe/node_modules/frappe-datatable/src/style.css",
+    "matches": [
+      "31: overflow: hidden;",
+      "36: overflow: auto;",
+      "89: https://stackoverflow.com/a/16337203",
+      "103: text-overflow: ellipsis;",
+      "104: white-space: nowrap;",
+      "105: overflow: hidden;",
+      "292: overflow: visible;"
+    ],
+    "meaning": "`.dt-cell__content` clips overflow and shows an ellipsis. A header longer than its column is VISUALLY cut on screen; the underlying string is untouched (the user can widen the column). This is a CSS fact read from source, not an observed browser render."
+  },
+  "JS_STRING_SHORTENING_GREP": {
+    "command": "grep substring|slice(0|truncate|ellips in datatable src + query_report.js",
+    "output": [],
+    "meaning": "empty => no JS shortens the header STRING itself"
+  },
+  "WIDTH_VS_LABEL_LENGTH": {
+    "account_column_width_px": 300,
+    "period_column_width_px": 150,
+    "source": "erpnext/accounts/report/financial_statements.py:670,687,709 get_columns",
+    "longest_header_observed": "负债和所有者权益 - 2026",
+    "longest_header_chars": 15,
+    "note": "a 15-char CJK header in a 150px column will not fit at typical Desk font sizes, so the datatable will ellipsize it visually. Exact pixel fit was NOT measured in a browser."
+  },
+  "baseline_after": {
+    "Error Log": 0,
+    "Access Log": 0,
+    "File": 2,
+    "Financial Report Template": 6
+  },
+  "error_log_rows_now": [],
+  "files_this_probe_wrote": [
+    "/workspace/Spike/V31-out/glyph-cjk_plain.pdf",
+    "/workspace/Spike/V31-out/glyph-ascii_plain.pdf",
+    "/workspace/Spike/V31-out/glyph-cjk_fontstack.pdf"
+  ],
+  "stray_files_in_site_files_dirs": [],
+  "tmp_jars": []
+}

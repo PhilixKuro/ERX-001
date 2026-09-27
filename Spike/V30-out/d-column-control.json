@@ -1,0 +1,561 @@
+{
+  "probe": "V-30 (d) can Custom API influence column count or labels?",
+  "company_used": "华东弹簧",
+  "error_log_count_at_start": 0,
+  "mode_findings": {
+    "baseline": {
+      "channel": "return-value",
+      "execute_raised": false,
+      "error_log_delta": 0,
+      "n_columns_total": 16,
+      "column_fieldnames": [
+        "account",
+        "acc_name",
+        "acc_number",
+        "currency",
+        "jan_2026",
+        "feb_2026",
+        "mar_2026",
+        "apr_2026",
+        "may_2026",
+        "jun_2026",
+        "jul_2026",
+        "aug_2026",
+        "sep_2026",
+        "oct_2026",
+        "nov_2026",
+        "dec_2026"
+      ],
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "method_side_observations": {},
+      "row_account_name_delivered": "API Row"
+    },
+    "return_dict_with_columns_key": {
+      "channel": "return-value",
+      "execute_raised": true,
+      "exc_type": "KeyError",
+      "exc_msg": "0",
+      "method_side_observations": {}
+    },
+    "return_two_values_for_two_wanted_columns": {
+      "channel": "return-value",
+      "execute_raised": false,
+      "error_log_delta": 0,
+      "n_columns_total": 16,
+      "column_fieldnames": [
+        "account",
+        "acc_name",
+        "acc_number",
+        "currency",
+        "jan_2026",
+        "feb_2026",
+        "mar_2026",
+        "apr_2026",
+        "may_2026",
+        "jun_2026",
+        "jul_2026",
+        "aug_2026",
+        "sep_2026",
+        "oct_2026",
+        "nov_2026",
+        "dec_2026"
+      ],
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "method_side_observations": {},
+      "row_account_name_delivered": "API Row"
+    },
+    "mutate_period_label": {
+      "channel": "mutation",
+      "execute_raised": false,
+      "error_log_delta": 0,
+      "n_columns_total": 16,
+      "column_fieldnames": [
+        "account",
+        "acc_name",
+        "acc_number",
+        "currency",
+        "jan_2026",
+        "feb_2026",
+        "mar_2026",
+        "apr_2026",
+        "may_2026",
+        "jun_2026",
+        "jul_2026",
+        "aug_2026",
+        "sep_2026",
+        "oct_2026",
+        "nov_2026",
+        "dec_2026"
+      ],
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "NIANCHU YUE E",
+        "QIMO YUE E",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "method_side_observations": {
+        "labels_before": [
+          "Jan 2026",
+          "Feb 2026",
+          "Mar 2026",
+          "Apr 2026",
+          "May 2026",
+          "Jun 2026",
+          "Jul 2026",
+          "Aug 2026",
+          "Sep 2026",
+          "Oct 2026",
+          "Nov 2026",
+          "Dec 2026"
+        ],
+        "labels_after": [
+          "NIANCHU YUE E",
+          "QIMO YUE E",
+          "Mar 2026",
+          "Apr 2026",
+          "May 2026",
+          "Jun 2026",
+          "Jul 2026",
+          "Aug 2026",
+          "Sep 2026",
+          "Oct 2026",
+          "Nov 2026",
+          "Dec 2026"
+        ]
+      },
+      "row_account_name_delivered": "API Row"
+    },
+    "mutate_append_period": {
+      "channel": "mutation",
+      "execute_raised": false,
+      "error_log_delta": 0,
+      "n_columns_total": 17,
+      "column_fieldnames": [
+        "account",
+        "acc_name",
+        "acc_number",
+        "currency",
+        "jan_2026",
+        "feb_2026",
+        "mar_2026",
+        "apr_2026",
+        "may_2026",
+        "jun_2026",
+        "jul_2026",
+        "aug_2026",
+        "sep_2026",
+        "oct_2026",
+        "nov_2026",
+        "dec_2026",
+        "zz_extra_col"
+      ],
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026",
+        "EXTRA COLUMN"
+      ],
+      "method_side_observations": {
+        "len_before": 12,
+        "len_after": 13
+      },
+      "row_account_name_delivered": "API Row"
+    },
+    "mutate_truncate_periods": {
+      "channel": "mutation",
+      "execute_raised": false,
+      "error_log_delta": 0,
+      "n_columns_total": 6,
+      "column_fieldnames": [
+        "account",
+        "acc_name",
+        "acc_number",
+        "currency",
+        "jan_2026",
+        "feb_2026"
+      ],
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026"
+      ],
+      "method_side_observations": {
+        "len_before": 12,
+        "len_after": 2
+      },
+      "row_account_name_delivered": "API Row"
+    },
+    "mutate_filters_periodicity": {
+      "channel": "mutation",
+      "execute_raised": false,
+      "error_log_delta": 0,
+      "n_columns_total": 16,
+      "column_fieldnames": [
+        "account",
+        "acc_name",
+        "acc_number",
+        "currency",
+        "jan_2026",
+        "feb_2026",
+        "mar_2026",
+        "apr_2026",
+        "may_2026",
+        "jun_2026",
+        "jul_2026",
+        "aug_2026",
+        "sep_2026",
+        "oct_2026",
+        "nov_2026",
+        "dec_2026"
+      ],
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "method_side_observations": {
+        "periodicity_before": "Monthly",
+        "periodicity_after": "Yearly"
+      },
+      "row_account_name_delivered": "API Row"
+    },
+    "mutate_row_display_name": {
+      "channel": "mutation",
+      "execute_raised": false,
+      "error_log_delta": 0,
+      "n_columns_total": 16,
+      "column_fieldnames": [
+        "account",
+        "acc_name",
+        "acc_number",
+        "currency",
+        "jan_2026",
+        "feb_2026",
+        "mar_2026",
+        "apr_2026",
+        "may_2026",
+        "jun_2026",
+        "jul_2026",
+        "aug_2026",
+        "sep_2026",
+        "oct_2026",
+        "nov_2026",
+        "dec_2026"
+      ],
+      "column_labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "method_side_observations": {}
+    }
+  },
+  "baseline_columns": {
+    "n": 16,
+    "labels": [
+      "Account",
+      "Account Name",
+      "Account Number",
+      "Currency",
+      "Jan 2026",
+      "Feb 2026",
+      "Mar 2026",
+      "Apr 2026",
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 2026",
+      "Dec 2026"
+    ]
+  },
+  "DECISIVE_d_return_value_channel": {
+    "baseline": {
+      "raised": false,
+      "n_columns": 16,
+      "labels_equal_baseline": true,
+      "n_equal_baseline": true
+    },
+    "return_dict_with_columns_key": {
+      "raised": true,
+      "n_columns": null,
+      "labels_equal_baseline": false,
+      "n_equal_baseline": false
+    },
+    "return_two_values_for_two_wanted_columns": {
+      "raised": false,
+      "n_columns": 16,
+      "labels_equal_baseline": true,
+      "n_equal_baseline": true
+    }
+  },
+  "return_value_ever_changed_columns": false,
+  "DECISIVE_d_mutation_channel": {
+    "mutate_period_label": {
+      "raised": false,
+      "n_columns": 16,
+      "n_changed_vs_baseline": false,
+      "labels_changed_vs_baseline": true,
+      "labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "NIANCHU YUE E",
+        "QIMO YUE E",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "method_saw": {
+        "labels_before": [
+          "Jan 2026",
+          "Feb 2026",
+          "Mar 2026",
+          "Apr 2026",
+          "May 2026",
+          "Jun 2026",
+          "Jul 2026",
+          "Aug 2026",
+          "Sep 2026",
+          "Oct 2026",
+          "Nov 2026",
+          "Dec 2026"
+        ],
+        "labels_after": [
+          "NIANCHU YUE E",
+          "QIMO YUE E",
+          "Mar 2026",
+          "Apr 2026",
+          "May 2026",
+          "Jun 2026",
+          "Jul 2026",
+          "Aug 2026",
+          "Sep 2026",
+          "Oct 2026",
+          "Nov 2026",
+          "Dec 2026"
+        ]
+      }
+    },
+    "mutate_append_period": {
+      "raised": false,
+      "n_columns": 17,
+      "n_changed_vs_baseline": true,
+      "labels_changed_vs_baseline": true,
+      "labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026",
+        "EXTRA COLUMN"
+      ],
+      "method_saw": {
+        "len_before": 12,
+        "len_after": 13
+      }
+    },
+    "mutate_truncate_periods": {
+      "raised": false,
+      "n_columns": 6,
+      "n_changed_vs_baseline": true,
+      "labels_changed_vs_baseline": true,
+      "labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026"
+      ],
+      "method_saw": {
+        "len_before": 12,
+        "len_after": 2
+      }
+    },
+    "mutate_filters_periodicity": {
+      "raised": false,
+      "n_columns": 16,
+      "n_changed_vs_baseline": false,
+      "labels_changed_vs_baseline": false,
+      "labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "method_saw": {
+        "periodicity_before": "Monthly",
+        "periodicity_after": "Yearly"
+      }
+    },
+    "mutate_row_display_name": {
+      "raised": false,
+      "n_columns": 16,
+      "n_changed_vs_baseline": false,
+      "labels_changed_vs_baseline": false,
+      "labels": [
+        "Account",
+        "Account Name",
+        "Account Number",
+        "Currency",
+        "Jan 2026",
+        "Feb 2026",
+        "Mar 2026",
+        "Apr 2026",
+        "May 2026",
+        "Jun 2026",
+        "Jul 2026",
+        "Aug 2026",
+        "Sep 2026",
+        "Oct 2026",
+        "Nov 2026",
+        "Dec 2026"
+      ],
+      "method_saw": {}
+    }
+  },
+  "mutation_channel_moved_columns": true,
+  "HARNESS_CALIBRATION": {
+    "harness_can_detect_column_changes": true,
+    "meaning": "if True, then 'return value never changed columns' is a REAL negative about the return-value channel -- the instrument is demonstrably sensitive to column changes, so the null result cannot be blamed on a blind harness",
+    "return_value_channel_result": "no column change in any shape tested",
+    "mutation_channel_result": "columns DID move"
+  },
+  "probe_templates_left": [],
+  "error_log_rows_created_by_this_probe": [],
+  "my_error_log_rows_remaining": [],
+  "error_log_count_final": 0,
+  "counts_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1
+  },
+  "fiscal_years_after_rollback": [
+    "2026"
+  ]
+}

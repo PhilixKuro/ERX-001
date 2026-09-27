@@ -1,0 +1,49 @@
+{
+  "counts": {
+    "GL Entry": {
+      "expected": 22,
+      "actual": 22,
+      "match": true
+    },
+    "Stock Ledger Entry": {
+      "expected": 12,
+      "actual": 12,
+      "match": true
+    },
+    "Account": {
+      "expected": 95,
+      "actual": 95,
+      "match": true
+    },
+    "Company": {
+      "expected": 1,
+      "actual": 1,
+      "match": true
+    },
+    "Financial Report Template": {
+      "expected": 6,
+      "actual": 6,
+      "match": true
+    },
+    "Error Log": {
+      "expected": 0,
+      "actual": 0,
+      "match": true
+    }
+  },
+  "ok": true,
+  "fiscal_years": {
+    "actual": [
+      "2026"
+    ],
+    "expected": [
+      "2026"
+    ],
+    "match": true
+  },
+  "stray_v33_rows": {
+    "gl_entry_v33_voucher": 0,
+    "error_log_v33": 0,
+    "custom_fields_on_gl_entry": 0
+  }
+}

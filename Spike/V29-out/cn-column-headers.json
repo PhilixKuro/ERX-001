@@ -1,0 +1,1842 @@
+{
+  "probe": "V-29 chinese Column Break display_name -> actual column labels, 2 FY x Yearly",
+  "baseline_before": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": [
+      "2026"
+    ]
+  },
+  "existing_templates": [
+    "Financial Ratios Analysis",
+    "Horizontal Balance Sheet (Columnar)",
+    "Horizontal Profit and Loss (Columnar)",
+    "Standard Balance Sheet (IFRS)",
+    "Standard Cash Flow Statement (IFRS)",
+    "Standard Profit and Loss (IFRS)"
+  ],
+  "write_path_commit_enqueue_scan": {
+    "financial_report_engine": {
+      "db.commit": 0,
+      "frappe.enqueue": 0,
+      "enqueue_doc": 0
+    },
+    "financial_report_template": {
+      "db.commit": 0,
+      "frappe.enqueue": 0,
+      "enqueue_doc": 0
+    },
+    "financial_statements": {
+      "db.commit": 0,
+      "frappe.enqueue": 0,
+      "enqueue_doc": 0
+    },
+    "fiscal_year": {
+      "db.commit": 0,
+      "frappe.enqueue": 0,
+      "enqueue_doc": 0
+    }
+  },
+  "export_template_guard": "\tdef _export_template(self):\n\t\tfrom frappe.modules.utils import export_module_json\n\n\t\tif not self.module:\n\t\t\treturn\n\n\t\texport_module_json(self, True, self.module)\n\t\tself._export_account_categories()\n",
+  "created_fiscal_year": {
+    "name": "2025",
+    "note": "inside txn, rolled back at end"
+  },
+  "template_inserted_A_statutory_literal": {
+    "name": "ZZ-PROBE-V29-BS-StatutoryLiteral",
+    "module": null,
+    "report_type": "Balance Sheet",
+    "rows": 6,
+    "column_breaks": [
+      {
+        "idx": 1,
+        "display_name": "年初余额"
+      },
+      {
+        "idx": 4,
+        "display_name": "期末余额"
+      }
+    ]
+  },
+  "column_breaks_readback_A_statutory_literal": [
+    {
+      "idx": 1,
+      "display_name": "年初余额"
+    },
+    {
+      "idx": 4,
+      "display_name": "期末余额"
+    }
+  ],
+  "filters_used_A_statutory_literal": {
+    "company": "华东弹簧",
+    "report_template": "ZZ-PROBE-V29-BS-StatutoryLiteral",
+    "filter_based_on": "Fiscal Year",
+    "from_fiscal_year": "2025",
+    "to_fiscal_year": "2026",
+    "periodicity": "Yearly",
+    "selected_view": "Report",
+    "include_default_book_entries": 1
+  },
+  "engine_column_count_A_statutory_literal": 12,
+  "OBSERVED_LABELS_A_statutory_literal": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "年初余额",
+      "fieldtype": "Link",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "年初余额 - 2025",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "年初余额 - 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "期末余额",
+      "fieldtype": "Link",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "期末余额 - 2025",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "期末余额 - 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    }
+  ],
+  "LABELS_CHAR_DUMP_A_statutory_literal": [
+    {
+      "fieldname": "seg_0_account",
+      "label_chars": {
+        "raw": "年初余额",
+        "repr": "'年初余额'",
+        "len": 4,
+        "codepoints": [
+          "U+5E74",
+          "U+521D",
+          "U+4F59",
+          "U+989D"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label_chars": {
+        "raw": "Account Name",
+        "repr": "'Account Name'",
+        "len": 12,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0061",
+          "U+006D",
+          "U+0065"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label_chars": {
+        "raw": "Account Number",
+        "repr": "'Account Number'",
+        "len": 14,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0075",
+          "U+006D",
+          "U+0062",
+          "U+0065",
+          "U+0072"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label_chars": {
+        "raw": "Currency",
+        "repr": "'Currency'",
+        "len": 8,
+        "codepoints": [
+          "U+0043",
+          "U+0075",
+          "U+0072",
+          "U+0072",
+          "U+0065",
+          "U+006E",
+          "U+0063",
+          "U+0079"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label_chars": {
+        "raw": "年初余额 - 2025",
+        "repr": "'年初余额 - 2025'",
+        "len": 11,
+        "codepoints": [
+          "U+5E74",
+          "U+521D",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0035"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": [
+          {
+            "i": 5,
+            "prev": "' '",
+            "next": "' '"
+          }
+        ]
+      }
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label_chars": {
+        "raw": "年初余额 - 2026",
+        "repr": "'年初余额 - 2026'",
+        "len": 11,
+        "codepoints": [
+          "U+5E74",
+          "U+521D",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0036"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": [
+          {
+            "i": 5,
+            "prev": "' '",
+            "next": "' '"
+          }
+        ]
+      }
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label_chars": {
+        "raw": "期末余额",
+        "repr": "'期末余额'",
+        "len": 4,
+        "codepoints": [
+          "U+671F",
+          "U+672B",
+          "U+4F59",
+          "U+989D"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label_chars": {
+        "raw": "Account Name",
+        "repr": "'Account Name'",
+        "len": 12,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0061",
+          "U+006D",
+          "U+0065"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label_chars": {
+        "raw": "Account Number",
+        "repr": "'Account Number'",
+        "len": 14,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0075",
+          "U+006D",
+          "U+0062",
+          "U+0065",
+          "U+0072"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label_chars": {
+        "raw": "Currency",
+        "repr": "'Currency'",
+        "len": 8,
+        "codepoints": [
+          "U+0043",
+          "U+0075",
+          "U+0072",
+          "U+0072",
+          "U+0065",
+          "U+006E",
+          "U+0063",
+          "U+0079"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label_chars": {
+        "raw": "期末余额 - 2025",
+        "repr": "'期末余额 - 2025'",
+        "len": 11,
+        "codepoints": [
+          "U+671F",
+          "U+672B",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0035"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": [
+          {
+            "i": 5,
+            "prev": "' '",
+            "next": "' '"
+          }
+        ]
+      }
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label_chars": {
+        "raw": "期末余额 - 2026",
+        "repr": "'期末余额 - 2026'",
+        "len": 11,
+        "codepoints": [
+          "U+671F",
+          "U+672B",
+          "U+4F59",
+          "U+989D",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0036"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": [
+          {
+            "i": 5,
+            "prev": "' '",
+            "next": "' '"
+          }
+        ]
+      }
+    }
+  ],
+  "HYPOTHESIS_CHECK_A_statutory_literal": {
+    "per_column": [
+      {
+        "fieldname": "seg_0_account",
+        "observed": "年初余额",
+        "expected_if_seg_space_hyphen_space_period": "年初余额",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_0_dec_2025",
+        "observed": "年初余额 - 2025",
+        "expected_if_seg_space_hyphen_space_period": "年初余额 - 2025",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "observed": "年初余额 - 2026",
+        "expected_if_seg_space_hyphen_space_period": "年初余额 - 2026",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_1_account",
+        "observed": "期末余额",
+        "expected_if_seg_space_hyphen_space_period": "期末余额",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_1_dec_2025",
+        "observed": "期末余额 - 2025",
+        "expected_if_seg_space_hyphen_space_period": "期末余额 - 2025",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "observed": "期末余额 - 2026",
+        "expected_if_seg_space_hyphen_space_period": "期末余额 - 2026",
+        "exact_match": true
+      }
+    ],
+    "all_exact": true,
+    "checked": 6
+  },
+  "engine_rowcount_A_statutory_literal": 2,
+  "engine_sample_rows_A_statutory_literal": [
+    {
+      "seg_0_account": "资产合计",
+      "seg_0_account_name": "资产合计",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [
+        "Prepaid Expenses - HDS",
+        "Short-term Investments - HDS",
+        "临时开账 - HDS",
+        "保证金 - HDS",
+        "办公设备 - HDS",
+        "员工预支 - HDS",
+        "在建工程科目 - HDS",
+        "存货 - HDS",
+        "家具及固定装置 - HDS",
+        "应收账款 1 - HDS",
+        "房屋 - HDS",
+        "植物和机械设备 - HDS",
+        "现金 - HDS",
+        "电子设备 - HDS",
+        "累计折旧 - HDS",
+        "资本设备 - HDS",
+        "软件 - HDS"
+      ],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 0,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_dec_2025": 0.0,
+      "seg_0_dec_2026": 719.5,
+      "seg_1_account": "所有者权益合计",
+      "seg_1_account_name": "所有者权益合计",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [
+        "所有者权益期初余额 - HDS",
+        "留存收益 - HDS",
+        "股利支付 - HDS",
+        "股本 - HDS",
+        "重估盈余 - HDS"
+      ],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 0,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_dec_2025": 0.0,
+      "seg_1_dec_2026": 0.0
+    },
+    {
+      "seg_0_account": "负债合计",
+      "seg_0_account_name": "负债合计",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [
+        "Accrued Expenses - HDS",
+        "Customer Advances - HDS",
+        "Employee Benefits Obligation - HDS",
+        "Long-term Provisions - HDS",
+        "Short-term Provisions - HDS",
+        "VAT - HDS",
+        "应付职工薪资 - HDS",
+        "应付账款 1 - HDS",
+        "抵押借款 - HDS",
+        "无担保借款 - HDS",
+        "暂估库存(已收货，未开票) - HDS",
+        "暂估资产（已收货，未开票） - HDS",
+        "银行透支账户 - HDS"
+      ],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 0,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_dec_2025": 0.0,
+      "seg_0_dec_2026": 0.0,
+      "seg_1_account": "负债合计(右栏)",
+      "seg_1_account_name": "负债合计(右栏)",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [
+        "Accrued Expenses - HDS",
+        "Customer Advances - HDS",
+        "Employee Benefits Obligation - HDS",
+        "Long-term Provisions - HDS",
+        "Short-term Provisions - HDS",
+        "VAT - HDS",
+        "应付职工薪资 - HDS",
+        "应付账款 1 - HDS",
+        "抵押借款 - HDS",
+        "无担保借款 - HDS",
+        "暂估库存(已收货，未开票) - HDS",
+        "暂估资产（已收货，未开票） - HDS",
+        "银行透支账户 - HDS"
+      ],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 0,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_dec_2025": 0.0,
+      "seg_1_dec_2026": 0.0
+    }
+  ],
+  "nonzero_value_count_per_period_column_A_statutory_literal": {
+    "seg_0_dec_2025": 0,
+    "seg_0_dec_2026": 1,
+    "seg_1_dec_2025": 0,
+    "seg_1_dec_2026": 0
+  },
+  "template_inserted_B_realistic_panes": {
+    "name": "ZZ-PROBE-V29-BS-RealisticPanes",
+    "module": null,
+    "report_type": "Balance Sheet",
+    "rows": 6,
+    "column_breaks": [
+      {
+        "idx": 1,
+        "display_name": "资产"
+      },
+      {
+        "idx": 4,
+        "display_name": "负债和所有者权益"
+      }
+    ]
+  },
+  "column_breaks_readback_B_realistic_panes": [
+    {
+      "idx": 1,
+      "display_name": "资产"
+    },
+    {
+      "idx": 4,
+      "display_name": "负债和所有者权益"
+    }
+  ],
+  "filters_used_B_realistic_panes": {
+    "company": "华东弹簧",
+    "report_template": "ZZ-PROBE-V29-BS-RealisticPanes",
+    "filter_based_on": "Fiscal Year",
+    "from_fiscal_year": "2025",
+    "to_fiscal_year": "2026",
+    "periodicity": "Yearly",
+    "selected_view": "Report",
+    "include_default_book_entries": 1
+  },
+  "engine_column_count_B_realistic_panes": 12,
+  "OBSERVED_LABELS_B_realistic_panes": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "资产",
+      "fieldtype": "Link",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "资产 - 2025",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "资产 - 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "负债和所有者权益",
+      "fieldtype": "Link",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "负债和所有者权益 - 2025",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "负债和所有者权益 - 2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    }
+  ],
+  "LABELS_CHAR_DUMP_B_realistic_panes": [
+    {
+      "fieldname": "seg_0_account",
+      "label_chars": {
+        "raw": "资产",
+        "repr": "'资产'",
+        "len": 2,
+        "codepoints": [
+          "U+8D44",
+          "U+4EA7"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label_chars": {
+        "raw": "Account Name",
+        "repr": "'Account Name'",
+        "len": 12,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0061",
+          "U+006D",
+          "U+0065"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label_chars": {
+        "raw": "Account Number",
+        "repr": "'Account Number'",
+        "len": 14,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0075",
+          "U+006D",
+          "U+0062",
+          "U+0065",
+          "U+0072"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label_chars": {
+        "raw": "Currency",
+        "repr": "'Currency'",
+        "len": 8,
+        "codepoints": [
+          "U+0043",
+          "U+0075",
+          "U+0072",
+          "U+0072",
+          "U+0065",
+          "U+006E",
+          "U+0063",
+          "U+0079"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label_chars": {
+        "raw": "资产 - 2025",
+        "repr": "'资产 - 2025'",
+        "len": 9,
+        "codepoints": [
+          "U+8D44",
+          "U+4EA7",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0035"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": [
+          {
+            "i": 3,
+            "prev": "' '",
+            "next": "' '"
+          }
+        ]
+      }
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label_chars": {
+        "raw": "资产 - 2026",
+        "repr": "'资产 - 2026'",
+        "len": 9,
+        "codepoints": [
+          "U+8D44",
+          "U+4EA7",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0036"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": [
+          {
+            "i": 3,
+            "prev": "' '",
+            "next": "' '"
+          }
+        ]
+      }
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label_chars": {
+        "raw": "负债和所有者权益",
+        "repr": "'负债和所有者权益'",
+        "len": 8,
+        "codepoints": [
+          "U+8D1F",
+          "U+503A",
+          "U+548C",
+          "U+6240",
+          "U+6709",
+          "U+8005",
+          "U+6743",
+          "U+76CA"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label_chars": {
+        "raw": "Account Name",
+        "repr": "'Account Name'",
+        "len": 12,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0061",
+          "U+006D",
+          "U+0065"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label_chars": {
+        "raw": "Account Number",
+        "repr": "'Account Number'",
+        "len": 14,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0075",
+          "U+006D",
+          "U+0062",
+          "U+0065",
+          "U+0072"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label_chars": {
+        "raw": "Currency",
+        "repr": "'Currency'",
+        "len": 8,
+        "codepoints": [
+          "U+0043",
+          "U+0075",
+          "U+0072",
+          "U+0072",
+          "U+0065",
+          "U+006E",
+          "U+0063",
+          "U+0079"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label_chars": {
+        "raw": "负债和所有者权益 - 2025",
+        "repr": "'负债和所有者权益 - 2025'",
+        "len": 15,
+        "codepoints": [
+          "U+8D1F",
+          "U+503A",
+          "U+548C",
+          "U+6240",
+          "U+6709",
+          "U+8005",
+          "U+6743",
+          "U+76CA",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0035"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": [
+          {
+            "i": 9,
+            "prev": "' '",
+            "next": "' '"
+          }
+        ]
+      }
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label_chars": {
+        "raw": "负债和所有者权益 - 2026",
+        "repr": "'负债和所有者权益 - 2026'",
+        "len": 15,
+        "codepoints": [
+          "U+8D1F",
+          "U+503A",
+          "U+548C",
+          "U+6240",
+          "U+6709",
+          "U+8005",
+          "U+6743",
+          "U+76CA",
+          "U+0020",
+          "U+002D",
+          "U+0020",
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0036"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": [
+          {
+            "i": 9,
+            "prev": "' '",
+            "next": "' '"
+          }
+        ]
+      }
+    }
+  ],
+  "HYPOTHESIS_CHECK_B_realistic_panes": {
+    "per_column": [
+      {
+        "fieldname": "seg_0_account",
+        "observed": "资产",
+        "expected_if_seg_space_hyphen_space_period": "资产",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_0_dec_2025",
+        "observed": "资产 - 2025",
+        "expected_if_seg_space_hyphen_space_period": "资产 - 2025",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "observed": "资产 - 2026",
+        "expected_if_seg_space_hyphen_space_period": "资产 - 2026",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_1_account",
+        "observed": "负债和所有者权益",
+        "expected_if_seg_space_hyphen_space_period": "负债和所有者权益",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_1_dec_2025",
+        "observed": "负债和所有者权益 - 2025",
+        "expected_if_seg_space_hyphen_space_period": "负债和所有者权益 - 2025",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "observed": "负债和所有者权益 - 2026",
+        "expected_if_seg_space_hyphen_space_period": "负债和所有者权益 - 2026",
+        "exact_match": true
+      }
+    ],
+    "all_exact": true,
+    "checked": 6
+  },
+  "engine_rowcount_B_realistic_panes": 2,
+  "engine_sample_rows_B_realistic_panes": [
+    {
+      "seg_0_account": "资产合计",
+      "seg_0_account_name": "资产合计",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [
+        "Prepaid Expenses - HDS",
+        "Short-term Investments - HDS",
+        "临时开账 - HDS",
+        "保证金 - HDS",
+        "办公设备 - HDS",
+        "员工预支 - HDS",
+        "在建工程科目 - HDS",
+        "存货 - HDS",
+        "家具及固定装置 - HDS",
+        "应收账款 1 - HDS",
+        "房屋 - HDS",
+        "植物和机械设备 - HDS",
+        "现金 - HDS",
+        "电子设备 - HDS",
+        "累计折旧 - HDS",
+        "资本设备 - HDS",
+        "软件 - HDS"
+      ],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 0,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_dec_2025": 0.0,
+      "seg_0_dec_2026": 719.5,
+      "seg_1_account": "所有者权益合计",
+      "seg_1_account_name": "所有者权益合计",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [
+        "所有者权益期初余额 - HDS",
+        "留存收益 - HDS",
+        "股利支付 - HDS",
+        "股本 - HDS",
+        "重估盈余 - HDS"
+      ],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 0,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_dec_2025": 0.0,
+      "seg_1_dec_2026": 0.0
+    },
+    {
+      "seg_0_account": "负债合计",
+      "seg_0_account_name": "负债合计",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [
+        "Accrued Expenses - HDS",
+        "Customer Advances - HDS",
+        "Employee Benefits Obligation - HDS",
+        "Long-term Provisions - HDS",
+        "Short-term Provisions - HDS",
+        "VAT - HDS",
+        "应付职工薪资 - HDS",
+        "应付账款 1 - HDS",
+        "抵押借款 - HDS",
+        "无担保借款 - HDS",
+        "暂估库存(已收货，未开票) - HDS",
+        "暂估资产（已收货，未开票） - HDS",
+        "银行透支账户 - HDS"
+      ],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 0,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_dec_2025": 0.0,
+      "seg_0_dec_2026": 0.0,
+      "seg_1_account": "负债合计(右栏)",
+      "seg_1_account_name": "负债合计(右栏)",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [
+        "Accrued Expenses - HDS",
+        "Customer Advances - HDS",
+        "Employee Benefits Obligation - HDS",
+        "Long-term Provisions - HDS",
+        "Short-term Provisions - HDS",
+        "VAT - HDS",
+        "应付职工薪资 - HDS",
+        "应付账款 1 - HDS",
+        "抵押借款 - HDS",
+        "无担保借款 - HDS",
+        "暂估库存(已收货，未开票) - HDS",
+        "暂估资产（已收货，未开票） - HDS",
+        "银行透支账户 - HDS"
+      ],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 0,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_dec_2025": 0.0,
+      "seg_1_dec_2026": 0.0
+    }
+  ],
+  "nonzero_value_count_per_period_column_B_realistic_panes": {
+    "seg_0_dec_2025": 0,
+    "seg_0_dec_2026": 1,
+    "seg_1_dec_2025": 0,
+    "seg_1_dec_2026": 0
+  },
+  "template_inserted_C_empty_segment_label": {
+    "name": "ZZ-PROBE-V29-BS-EmptySegmentLabel",
+    "module": null,
+    "report_type": "Balance Sheet",
+    "rows": 6,
+    "column_breaks": [
+      {
+        "idx": 1,
+        "display_name": ""
+      },
+      {
+        "idx": 4,
+        "display_name": ""
+      }
+    ]
+  },
+  "column_breaks_readback_C_empty_segment_label": [
+    {
+      "idx": 1,
+      "display_name": ""
+    },
+    {
+      "idx": 4,
+      "display_name": ""
+    }
+  ],
+  "filters_used_C_empty_segment_label": {
+    "company": "华东弹簧",
+    "report_template": "ZZ-PROBE-V29-BS-EmptySegmentLabel",
+    "filter_based_on": "Fiscal Year",
+    "from_fiscal_year": "2025",
+    "to_fiscal_year": "2026",
+    "periodicity": "Yearly",
+    "selected_view": "Report",
+    "include_default_book_entries": 1
+  },
+  "engine_column_count_C_empty_segment_label": 12,
+  "OBSERVED_LABELS_C_empty_segment_label": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "Account (Segment 1)",
+      "fieldtype": "Link",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "2025",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "Account (Segment 2)",
+      "fieldtype": "Link",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "2025",
+      "fieldtype": "Currency",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "2026",
+      "fieldtype": "Currency",
+      "hidden": 0
+    }
+  ],
+  "LABELS_CHAR_DUMP_C_empty_segment_label": [
+    {
+      "fieldname": "seg_0_account",
+      "label_chars": {
+        "raw": "Account (Segment 1)",
+        "repr": "'Account (Segment 1)'",
+        "len": 19,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+0028",
+          "U+0053",
+          "U+0065",
+          "U+0067",
+          "U+006D",
+          "U+0065",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+0031",
+          "U+0029"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label_chars": {
+        "raw": "Account Name",
+        "repr": "'Account Name'",
+        "len": 12,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0061",
+          "U+006D",
+          "U+0065"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label_chars": {
+        "raw": "Account Number",
+        "repr": "'Account Number'",
+        "len": 14,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0075",
+          "U+006D",
+          "U+0062",
+          "U+0065",
+          "U+0072"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label_chars": {
+        "raw": "Currency",
+        "repr": "'Currency'",
+        "len": 8,
+        "codepoints": [
+          "U+0043",
+          "U+0075",
+          "U+0072",
+          "U+0072",
+          "U+0065",
+          "U+006E",
+          "U+0063",
+          "U+0079"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label_chars": {
+        "raw": "2025",
+        "repr": "'2025'",
+        "len": 4,
+        "codepoints": [
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0035"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label_chars": {
+        "raw": "2026",
+        "repr": "'2026'",
+        "len": 4,
+        "codepoints": [
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0036"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label_chars": {
+        "raw": "Account (Segment 2)",
+        "repr": "'Account (Segment 2)'",
+        "len": 19,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+0028",
+          "U+0053",
+          "U+0065",
+          "U+0067",
+          "U+006D",
+          "U+0065",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+0032",
+          "U+0029"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label_chars": {
+        "raw": "Account Name",
+        "repr": "'Account Name'",
+        "len": 12,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0061",
+          "U+006D",
+          "U+0065"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label_chars": {
+        "raw": "Account Number",
+        "repr": "'Account Number'",
+        "len": 14,
+        "codepoints": [
+          "U+0041",
+          "U+0063",
+          "U+0063",
+          "U+006F",
+          "U+0075",
+          "U+006E",
+          "U+0074",
+          "U+0020",
+          "U+004E",
+          "U+0075",
+          "U+006D",
+          "U+0062",
+          "U+0065",
+          "U+0072"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label_chars": {
+        "raw": "Currency",
+        "repr": "'Currency'",
+        "len": 8,
+        "codepoints": [
+          "U+0043",
+          "U+0075",
+          "U+0072",
+          "U+0072",
+          "U+0065",
+          "U+006E",
+          "U+0063",
+          "U+0079"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label_chars": {
+        "raw": "2025",
+        "repr": "'2025'",
+        "len": 4,
+        "codepoints": [
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0035"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label_chars": {
+        "raw": "2026",
+        "repr": "'2026'",
+        "len": 4,
+        "codepoints": [
+          "U+0032",
+          "U+0030",
+          "U+0032",
+          "U+0036"
+        ],
+        "has_leading_ws": false,
+        "has_trailing_ws": false,
+        "starts_with_hyphen": false,
+        "hyphen_neighbourhood": []
+      }
+    }
+  ],
+  "HYPOTHESIS_CHECK_C_empty_segment_label": {
+    "per_column": [
+      {
+        "fieldname": "seg_0_account",
+        "observed": "Account (Segment 1)",
+        "expected_if_seg_space_hyphen_space_period": "Account (Segment 1)",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_0_dec_2025",
+        "observed": "2025",
+        "expected_if_seg_space_hyphen_space_period": "2025",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_0_dec_2026",
+        "observed": "2026",
+        "expected_if_seg_space_hyphen_space_period": "2026",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_1_account",
+        "observed": "Account (Segment 2)",
+        "expected_if_seg_space_hyphen_space_period": "Account (Segment 2)",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_1_dec_2025",
+        "observed": "2025",
+        "expected_if_seg_space_hyphen_space_period": "2025",
+        "exact_match": true
+      },
+      {
+        "fieldname": "seg_1_dec_2026",
+        "observed": "2026",
+        "expected_if_seg_space_hyphen_space_period": "2026",
+        "exact_match": true
+      }
+    ],
+    "all_exact": true,
+    "checked": 6
+  },
+  "engine_rowcount_C_empty_segment_label": 2,
+  "engine_sample_rows_C_empty_segment_label": [
+    {
+      "seg_0_account": "资产合计",
+      "seg_0_account_name": "资产合计",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [
+        "Prepaid Expenses - HDS",
+        "Short-term Investments - HDS",
+        "临时开账 - HDS",
+        "保证金 - HDS",
+        "办公设备 - HDS",
+        "员工预支 - HDS",
+        "在建工程科目 - HDS",
+        "存货 - HDS",
+        "家具及固定装置 - HDS",
+        "应收账款 1 - HDS",
+        "房屋 - HDS",
+        "植物和机械设备 - HDS",
+        "现金 - HDS",
+        "电子设备 - HDS",
+        "累计折旧 - HDS",
+        "资本设备 - HDS",
+        "软件 - HDS"
+      ],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 0,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_dec_2025": 0.0,
+      "seg_0_dec_2026": 719.5,
+      "seg_1_account": "所有者权益合计",
+      "seg_1_account_name": "所有者权益合计",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [
+        "所有者权益期初余额 - HDS",
+        "留存收益 - HDS",
+        "股利支付 - HDS",
+        "股本 - HDS",
+        "重估盈余 - HDS"
+      ],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 0,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_dec_2025": 0.0,
+      "seg_1_dec_2026": 0.0
+    },
+    {
+      "seg_0_account": "负债合计",
+      "seg_0_account_name": "负债合计",
+      "seg_0_acc_name": "",
+      "seg_0_acc_number": "",
+      "seg_0_child_accounts": [
+        "Accrued Expenses - HDS",
+        "Customer Advances - HDS",
+        "Employee Benefits Obligation - HDS",
+        "Long-term Provisions - HDS",
+        "Short-term Provisions - HDS",
+        "VAT - HDS",
+        "应付职工薪资 - HDS",
+        "应付账款 1 - HDS",
+        "抵押借款 - HDS",
+        "无担保借款 - HDS",
+        "暂估库存(已收货，未开票) - HDS",
+        "暂估资产（已收货，未开票） - HDS",
+        "银行透支账户 - HDS"
+      ],
+      "seg_0_currency": "CNY",
+      "seg_0_indent": 0,
+      "seg_0_period_start_date": "",
+      "seg_0_period_end_date": "",
+      "seg_0_total": 0,
+      "seg_0_dec_2025": 0.0,
+      "seg_0_dec_2026": 0.0,
+      "seg_1_account": "负债合计(右栏)",
+      "seg_1_account_name": "负债合计(右栏)",
+      "seg_1_acc_name": "",
+      "seg_1_acc_number": "",
+      "seg_1_child_accounts": [
+        "Accrued Expenses - HDS",
+        "Customer Advances - HDS",
+        "Employee Benefits Obligation - HDS",
+        "Long-term Provisions - HDS",
+        "Short-term Provisions - HDS",
+        "VAT - HDS",
+        "应付职工薪资 - HDS",
+        "应付账款 1 - HDS",
+        "抵押借款 - HDS",
+        "无担保借款 - HDS",
+        "暂估库存(已收货，未开票) - HDS",
+        "暂估资产（已收货，未开票） - HDS",
+        "银行透支账户 - HDS"
+      ],
+      "seg_1_currency": "CNY",
+      "seg_1_indent": 0,
+      "seg_1_period_start_date": "",
+      "seg_1_period_end_date": "",
+      "seg_1_total": 0,
+      "seg_1_dec_2025": 0.0,
+      "seg_1_dec_2026": 0.0
+    }
+  ],
+  "nonzero_value_count_per_period_column_C_empty_segment_label": {
+    "seg_0_dec_2025": 0,
+    "seg_0_dec_2026": 1,
+    "seg_1_dec_2025": 0,
+    "seg_1_dec_2026": 0
+  },
+  "multisegment_get_columns_source": "\tdef get_columns(self, segments: list[SegmentData], base_columns: list[dict]) -> list[dict]:\n\t\tcolumns = []\n\n\t\t# TODO: Refactor\n\t\tfor segment in segments:\n\t\t\tfor col in base_columns:\n\t\t\t\tnew_col = col.copy()\n\n\t\t\t\tnew_col[\"fieldname\"] = f\"{segment.id}_{col['fieldname']}\"\n\n\t\t\t\tif col[\"fieldname\"] == \"account\":\n\t\t\t\t\tnew_col[\"label\"] = segment.label or f\"Account (Segment {segment.index + 1})\"\n\t\t\t\t\tnew_col[\"align\"] = \"left\"\n\n\t\t\t\tif segment.label and col[\"fieldname\"] in [p[\"key\"] for p in self.period_list]:\n\t\t\t\t\tnew_col[\"label\"] = f\"{segment.label} - {col['label']}\"\n\n\t\t\t\tcolumns.append(new_col)\n\n\t\treturn columns\n",
+  "segment_label_is_translated": {
+    "uses_underscore_call_on_segment_label": false,
+    "note": "if False, the Chinese string is passed through verbatim, no translation layer"
+  },
+  "get_label_source": "def get_label(periodicity, from_date, to_date):\n\tif periodicity == \"Yearly\":\n\t\tif formatdate(from_date, \"YYYY\") == formatdate(to_date, \"YYYY\"):\n\t\t\tlabel = formatdate(from_date, \"YYYY\")\n\t\telse:\n\t\t\tlabel = formatdate(from_date, \"YYYY\") + \"-\" + formatdate(to_date, \"YYYY\")\n\telse:\n\t\tlabel = formatdate(from_date, \"MMM YY\") + \"-\" + formatdate(to_date, \"MMM YY\")\n\n\treturn label\n",
+  "row_doctype_field_count": 21,
+  "row_doctype_fields": [
+    "reference_code",
+    "display_name",
+    "indentation_level",
+    "data_source",
+    "balance_type",
+    "column_break_hxqu",
+    "fieldtype",
+    "color",
+    "bold_text",
+    "italic_text",
+    "hidden_calculation",
+    "hide_when_empty",
+    "reverse_sign",
+    "include_in_charts",
+    "section_break_ornw",
+    "column_break_asfe",
+    "advanced_filtering",
+    "filters_editor",
+    "calculation_formula",
+    "section_break_pvro",
+    "formula_description"
+  ],
+  "template_doctype_fields": [
+    "template_name",
+    "report_type",
+    "module",
+    "column_break_lvnq",
+    "disabled",
+    "section_break_fvlw",
+    "rows"
+  ],
+  "period_label_entry_points_in_template_layer": {
+    "row_fields_matching_label_or_header": [],
+    "template_fields_matching_label_or_header": [],
+    "row_fields_matching_period": []
+  },
+  "baseline_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": [
+      "2026"
+    ]
+  },
+  "templates_exist_after_rollback": {
+    "ZZ-PROBE-V29-BS-StatutoryLiteral": false,
+    "ZZ-PROBE-V29-BS-RealisticPanes": false,
+    "ZZ-PROBE-V29-BS-EmptySegmentLabel": false
+  },
+  "stray_exported_files": [],
+  "exported_template_dir_listing": [
+    "__init__.py",
+    "account_categories.json",
+    "financial_ratios_analysis",
+    "horizontal_balance_sheet_(columnar)",
+    "horizontal_profit_and_loss_(columnar)",
+    "standard_balance_sheet_(ifrs)",
+    "standard_cash_flow_statement_(ifrs)",
+    "standard_profit_and_loss_(ifrs)"
+  ]
+}

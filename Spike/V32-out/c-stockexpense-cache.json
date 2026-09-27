@@ -1,0 +1,155 @@
+{
+ "probe": "V-32 (c) does the book_stock_expense per-doc cache leak across docs?",
+ "error_log_baseline": 0,
+ "phase0_original_setting_value": 0,
+ "phase0_singles_row": [
+  {
+   "value": "0"
+  }
+ ],
+ "phase0_purchase_receipts": [
+  {
+   "name": "MAT-PRE-2026-00002",
+   "docstatus": 2
+  },
+  {
+   "name": "MAT-PRE-2026-00001",
+   "docstatus": 1
+  }
+ ],
+ "phase1_lazy_cache_shape": {
+  "attr_present_on_brand_new_instance": false,
+  "first_call_returns": 0,
+  "attr_present_after_first_call": true,
+  "attr_value_after_first_call": 0
+ },
+ "phase2_L1_same_instance_staleness": {
+  "before_flip": 0,
+  "flipped_setting_to": 1,
+  "db_value_after_flip": 1,
+  "same_instance_after_flip": 0,
+  "L1_same_instance_is_stale": true,
+  "L1_stale_despite_db_changed": true
+ },
+ "phase3_L1_cross_document_leak": {
+  "second_doc_attr_present_before_call": false,
+  "second_doc_value": 1,
+  "first_doc_value": 0,
+  "db_value": 1,
+  "L1_second_doc_sees_current_db_value": true,
+  "L1_leaks_across_documents": false,
+  "saved_doc_used": "MAT-PRE-2026-00002",
+  "saved_doc_attr_present_before_call": false,
+  "saved_doc_value": 1,
+  "saved_doc_sees_current_db_value": true,
+  "class_level_attr_present": false,
+  "instances_are_distinct_objects": true
+ },
+ "phase4_L2_connection_level_value_cache": {
+  "value_cache_key_present_before": true,
+  "value_cache_content_before": {
+   "book_stock_expense_gl_entries": 1
+  },
+  "raw_sql_set_singles_to": 0,
+  "raw_db_read_bypassing_cache": [
+   [
+    "0"
+   ]
+  ],
+  "get_single_value_after_raw_update": 1,
+  "get_single_value_cache_False": 0,
+  "L2_get_single_value_is_stale_after_raw_write": true,
+  "brand_new_instance_value": 1,
+  "L2_leaks_into_brand_new_document": true,
+  "buying_controller_style_direct_read": 1,
+  "L2_affects_uncached_reader_too": true
+ },
+ "phase5_what_invalidates_each_layer": {
+  "after_clear_document_cache": 0,
+  "clear_document_cache_fixes_L2": true,
+  "new_instance_after_cache_clear": 0,
+  "new_instance_now_correct": true,
+  "warm_instance_cached_value": 0,
+  "db_driven_to_opposite_of_warm": 1,
+  "db_value_now": 1,
+  "criterion_is_distinguishing": true,
+  "warm_instance_returns": 0,
+  "L1_survives_L2_invalidation": true,
+  "fresh_instance_returns": 1,
+  "fresh_instance_sees_new_value": true,
+  "warm_instance_after_delattr": 1,
+  "delattr_clears_L1": true
+ },
+ "phase6_L3_redis_document_cache": {
+  "cache_key": "document_cache::Purchase Receipt::MAT-PRE-2026-00002",
+  "attr_on_first_get_cached_doc": false,
+  "attr_after_warming": true,
+  "warm_value": 1,
+  "second_get_cached_doc_is_same_object": true,
+  "attr_present_on_second_get_cached_doc": true,
+  "local_cache_key": "b'_2bd5b09209543e8e|document_cache::Purchase Receipt::MAT-PRE-2026-00002'",
+  "raw_key_was_in_local_cache": false,
+  "made_key_was_in_local_cache": true,
+  "local_cache_entry_dropped": true,
+  "redis_payload_still_present": true,
+  "deserialized_is_distinct_object": true,
+  "attr_present_after_deserialize": false,
+  "attr_value_after_deserialize": "ABSENT",
+  "explicit_recache_attr_value": 1,
+  "revive_local_entry_dropped": true,
+  "revive_redis_payload_present": true,
+  "revived_is_distinct_object": true,
+  "L3_stale_attr_survives_serialized_cache": true,
+  "L3_revived_attr_value": 1
+ },
+ "phase7_reload_and_serialisation": {
+  "attr_before_reload": 1,
+  "attr_after_reload": 1,
+  "reload_clears_the_cache": false,
+  "attr_in_as_dict": false,
+  "attr_in_get_valid_dict": false
+ },
+ "ok": true,
+ "rolled_back": true,
+ "phaseZ_purchase_receipt_doc_caches_evicted": [
+  "MAT-PRE-2026-00002",
+  "MAT-PRE-2026-00001"
+ ],
+ "phaseZ_purchase_receipt_cache_state_after_evict": {
+  "MAT-PRE-2026-00002": {
+   "in_local_cache": false,
+   "in_redis": false
+  },
+  "MAT-PRE-2026-00001": {
+   "in_local_cache": false,
+   "in_redis": false
+  }
+ },
+ "phaseZ_no_stale_pr_cache_left": true,
+ "phaseZ_setting_after_rollback": 0,
+ "phaseZ_setting_restored": true,
+ "phaseZ_singles_row_after": [
+  {
+   "value": "0"
+  }
+ ],
+ "phaseZ_counts": {
+  "GL Entry": 22,
+  "Stock Ledger Entry": 12,
+  "Account": 95,
+  "Company": 1,
+  "Financial Report Template": 6,
+  "Fiscal Year": 1,
+  "Property Setter": 182,
+  "Purchase Receipt": 2,
+  "Repost Item Valuation": 3,
+  "Version": 167
+ },
+ "phaseZ_fiscal_years": [
+  "2026"
+ ],
+ "error_log_rows_matching_my_marker": [],
+ "error_log_rows_i_deleted": [],
+ "error_log_final": 0,
+ "error_log_back_to_baseline": true
+}

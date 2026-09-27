@@ -1,0 +1,168 @@
+{
+  "probe": "V-27 seg3 instrument the opening-balance path",
+  "BASELINE_counts": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0,
+    "Journal Entry": 0,
+    "Error Log": 3
+  },
+  "RAW_pl_by_year_BEFORE_pcv": {
+    "2026": {
+      "Expense": 325.5,
+      "Income": -1045.0
+    },
+    "2025": {
+      "Income": -5000.0
+    }
+  },
+  "raw_prior_year_income_abs_BEFORE_pcv": 5000.0,
+  "raw_current_year_income_abs": 1045.0,
+  "engine_cells_ARM_A_no_pcv": {},
+  "pcv_submitted": {
+    "name": "ACC-PCV-2026-00001",
+    "docstatus": 1,
+    "status": "Completed",
+    "err": null
+  },
+  "acb_rows_for_income": [
+    {
+      "account": "销售 - HDS",
+      "debit": 5000.0,
+      "credit": 0.0,
+      "closing_date": "2025-12-31",
+      "finance_book": "",
+      "cost_center": "主 - HDS",
+      "project": "",
+      "is_period_closing_voucher_entry": 1,
+      "period_closing_voucher": "ACC-PCV-2026-00001"
+    },
+    {
+      "account": "销售 - HDS",
+      "debit": 0.0,
+      "credit": 5000.0,
+      "closing_date": "2025-12-31",
+      "finance_book": "",
+      "cost_center": "主 - HDS",
+      "project": "",
+      "is_period_closing_voucher_entry": 0,
+      "period_closing_voucher": "ACC-PCV-2026-00001"
+    }
+  ],
+  "acb_income_net_sum_debit_minus_credit": [
+    {
+      "net": 0.0
+    }
+  ],
+  "RAW_pl_by_year_AFTER_pcv": {
+    "2026": {
+      "Expense": 325.5,
+      "Income": -1045.0
+    },
+    "2025": {
+      "Income": 0.0
+    }
+  },
+  "engine_cells_ARM_B_with_pcv": {},
+  "INSTRUMENTED_CALLS": [
+    {
+      "fn": "_get_gap_movements",
+      "arm": "ARM_A_no_pcv",
+      "from_date": "1900-01-01",
+      "to_date": "2026-01-01",
+      "income_gap": -5000.0
+    },
+    {
+      "fn": "_rebase_closing_balances",
+      "arm": "ARM_A_no_pcv",
+      "closing_date_arg": "1900-01-01",
+      "income_closing_data_in": 0.0,
+      "income_opening_out": "AccountData(account='销售 - HDS', account_name='销售', account_number='', period_values={'jan_2026': PeriodValue(period_key='jan_2026', opening=-5000.0, closing=0, movement=0)})"
+    },
+    {
+      "fn": "_get_opening_balances",
+      "arm": "ARM_A_no_pcv",
+      "ignore_opening_entries_after": false,
+      "first_period_from": "2026-01-01",
+      "returned_for_income": "AccountData(account='销售 - HDS', account_name='销售', account_number='', period_values={'jan_2026': PeriodValue(period_key='jan_2026', opening=-5000.0, closing=0, movement=0)})"
+    },
+    {
+      "fn": "_get_gl_movements",
+      "arm": "ARM_A_no_pcv",
+      "ignore_opening_entries": false,
+      "income_row": {
+        "account": "销售 - HDS",
+        "jan_2026": 0.0,
+        "sep_2026": -1045.0,
+        "dec_2026": 0.0
+      }
+    },
+    {
+      "fn": "_get_closing_balances",
+      "arm": "ARM_B_with_pcv",
+      "closing_voucher": "ACC-PCV-2026-00001",
+      "income_closing_balance": -5000.0,
+      "note": "this is Sum(debit-credit) over Account Closing Balance for that PCV"
+    },
+    {
+      "fn": "_rebase_closing_balances",
+      "arm": "ARM_B_with_pcv",
+      "closing_date_arg": "2025-12-31",
+      "income_closing_data_in": -5000.0,
+      "income_opening_out": "AccountData(account='销售 - HDS', account_name='销售', account_number='', period_values={'jan_2026': PeriodValue(period_key='jan_2026', opening=-5000.0, closing=0, movement=0)})"
+    },
+    {
+      "fn": "_get_opening_balances",
+      "arm": "ARM_B_with_pcv",
+      "ignore_opening_entries_after": true,
+      "first_period_from": "2026-01-01",
+      "returned_for_income": "AccountData(account='销售 - HDS', account_name='销售', account_number='', period_values={'jan_2026': PeriodValue(period_key='jan_2026', opening=-5000.0, closing=0, movement=0)})"
+    },
+    {
+      "fn": "_get_gl_movements",
+      "arm": "ARM_B_with_pcv",
+      "ignore_opening_entries": true,
+      "income_row": {
+        "account": "销售 - HDS",
+        "jan_2026": 0.0,
+        "sep_2026": -1045.0,
+        "dec_2026": 0.0
+      }
+    }
+  ],
+  "DECISIVE_seg3": {
+    "raw_prior_year_income_BEFORE_pcv": 5000.0,
+    "raw_current_year_income": 1045.0,
+    "ARM_A_income_closing": {},
+    "ARM_B_income_closing": {},
+    "A1_armA_jan_carries_prior_year": false,
+    "A2_armA_dec_is_since_inception": false,
+    "B1_armB_jan_is_zero": false,
+    "B2_armB_dec_equals_current_year_only": false,
+    "B3_arms_differ": false
+  },
+  "AFTER_counts": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0,
+    "Journal Entry": 0,
+    "Error Log": 3
+  },
+  "baseline_restored": true,
+  "count_deltas": "none",
+  "fiscal_years_after": [
+    "2026"
+  ],
+  "guard_hits": "none",
+  "stray_exported_files": "none"
+}

@@ -1,0 +1,276 @@
+{
+  "probe": "V-31 seg0 recon: translation landscape + prepared-report timer safety",
+  "baseline_before": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": [
+      "2026"
+    ],
+    "Error Log": 0,
+    "Translation": 0
+  },
+  "lang_resolution": {
+    "frappe.local.lang": "en",
+    "get_user_lang(Administrator)": "zh",
+    "User.language": "zh",
+    "SystemSettings.language": "zh",
+    "lang_used_below": "en",
+    "note": "_() in frappe/utils/translations.py uses frappe.local.lang when no lang arg"
+  },
+  "translations_en_summary": {
+    "entry_count": 43,
+    "keys_containing_cjk": 0,
+    "sample_cjk_keys": [],
+    "sample_keys": [
+      "Antigua and Barbuda",
+      "Bolivia, Plurinational State of",
+      "Bonaire, Sint Eustatius and Saba",
+      "Bosnia and Herzegovina",
+      "Brunei Darussalam",
+      "Congo",
+      "Congo, The Democratic Republic of the",
+      "Czech Republic"
+    ]
+  },
+  "translations_zh_summary": {
+    "entry_count": 14440,
+    "keys_containing_cjk": 0,
+    "sample_cjk_keys": [],
+    "sample_keys": [
+      " You are impersonating as another user.",
+      "!=",
+      "\"Company History\"",
+      "\"Parent\" signifies the parent table in which this row must be added",
+      "\"Team Members\" or \"Management\"",
+      "\"amended_from\" field must be present to do an amendment.",
+      "\"{0}\" is not a valid Google Sheets URL",
+      "#{0}"
+    ]
+  },
+  "translations_zh-CN_summary": {
+    "entry_count": 14440,
+    "keys_containing_cjk": 0,
+    "sample_cjk_keys": [],
+    "sample_keys": [
+      " You are impersonating as another user.",
+      "!=",
+      "\"Company History\"",
+      "\"Parent\" signifies the parent table in which this row must be added",
+      "\"Team Members\" or \"Management\"",
+      "\"amended_from\" field must be present to do an amendment.",
+      "\"{0}\" is not a valid Google Sheets URL",
+      "#{0}"
+    ]
+  },
+  "candidate_label_translation_hits": {
+    "lang": "en",
+    "hits": {
+      "年初余额": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "期末余额": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "资产": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "负债和所有者权益": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "年初余额 - 2025": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "年初余额 - 2026": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "期末余额 - 2025": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "期末余额 - 2026": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "资产 - 2026": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "负债和所有者权益 - 2026": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "2025": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "2026": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "Account Name": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "Account Number": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "Currency": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "Total": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "Assets": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "Liabilities": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "Equity": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      },
+      "Account (Segment 1)": {
+        "is_key": false,
+        "value_if_key": null,
+        "stripped_is_key": false
+      }
+    }
+  },
+  "report_doc_flags": {
+    "name": "Custom Financial Statement",
+    "report_type": "Script Report",
+    "is_standard": "Yes",
+    "prepared_report": 0,
+    "disable_prepared_report_automation": 0,
+    "add_translate_data": 0,
+    "query": null,
+    "snapshot_report": 0,
+    "add_total_row": 0,
+    "timeout": 0,
+    "letterhead": null
+  },
+  "prepared_report_timer_would_arm": {
+    "guard_source": "if not self.prepared_report and not self.disable_prepared_report_automation",
+    "not_prepared_report": true,
+    "not_disable_automation": true,
+    "timer_arms": true,
+    "consequence_if_arms": "threading.Timer(15s) -> enable_prepared_report() -> frappe.init/connect on a SEPARATE connection -> db.set_value('Report',...,'prepared_report',1) -> db.commit(). frappe.db.rollback() in THIS process cannot undo that.",
+    "mitigation_planned": "patch report_mod.enable_prepared_report to a no-op BEFORE calling run(); the Timer resolves that global name at Timer-construction time, so the patch neutralizes it"
+  },
+  "execute_script_report_source": "\tdef execute_script_report(self, filters):\n\t\t# save the timestamp to automatically set to prepared\n\t\tthreshold = 15\n\n\t\tstart_time = datetime.datetime.now()\n\t\tprepared_report_watcher = None\n\t\tif not self.prepared_report and not self.disable_prepared_report_automation:\n\t\t\tprepared_report_watcher = threading.Timer(\n\t\t\t\tinterval=threshold,\n\t\t\t\tfunction=enable_prepared_report,\n\t\t\t\tkwargs={\"report\": self.name, \"site\": frappe.local.site},\n\t\t\t)\n\t\t\tprepared_report_watcher.start()\n\n\t\t# The JOB\n\t\ttry:\n\t\t\tif self.is_standard == \"Yes\":\n\t\t\t\tif self.snapshot_report:\n\t\t\t\t\tres = self.execute_snapshot_report(filters)\n\t\t\t\telse:\n\t\t\t\t\tres = self.execute_module(filters)\n\t\t\telse:\n\t\t\t\tres = self.execute_script(filters)\n\t\tfinally:\n\t\t\tprepared_report_watcher and prepared_report_watcher.cancel()\n\n\t\texecution_time = (datetime.datetime.now() - start_time).total_seconds()\n\n\t\tfrappe.cache.hset(\"report_execution_time\", self.name, execution_time)\n\n\t\treturn res\n",
+  "enable_prepared_report_source": "def enable_prepared_report(report: str, site: str):\n\tfrappe.init(site)\n\tfrappe.connect()\n\tfrappe.db.set_value(\"Report\", report, \"prepared_report\", 1)\n\tfrappe.db.commit()\n\tfrappe.destroy()\n",
+  "render_path_commit_enqueue_census": {
+    "desk.query_report": {
+      "db.commit": 0,
+      "frappe.enqueue": 1,
+      "enqueue_doc": 0,
+      "threading.Timer": 0,
+      "save_file": 0,
+      "log_error": 2
+    },
+    "utils.xlsxutils": {
+      "db.commit": 0,
+      "frappe.enqueue": 0,
+      "enqueue_doc": 0,
+      "threading.Timer": 0,
+      "save_file": 0,
+      "log_error": 0
+    },
+    "desk.utils": {
+      "db.commit": 0,
+      "frappe.enqueue": 0,
+      "enqueue_doc": 0,
+      "threading.Timer": 0,
+      "save_file": 0,
+      "log_error": 1
+    },
+    "utils.translations": {
+      "db.commit": 0,
+      "frappe.enqueue": 0,
+      "enqueue_doc": 0,
+      "threading.Timer": 0,
+      "save_file": 0,
+      "log_error": 0
+    },
+    "core.doctype.report.report": {
+      "db.commit": 1,
+      "frappe.enqueue": 0,
+      "enqueue_doc": 0,
+      "threading.Timer": 1,
+      "save_file": 0,
+      "log_error": 0
+    }
+  },
+  "build_xlsx_data_label_line": [
+    "column_data.append(_(column.get(\"label\")))"
+  ],
+  "build_xlsx_data_source": "def build_xlsx_data(\n\tdata: frappe._dict,\n\tvisible_idx: list[int] | None = None,\n\tinclude_indentation: bool = False,\n\tinclude_filters: bool = False,\n\tignore_visible_idx: bool = False,\n\tinclude_hidden_columns: bool = False,\n\t*,\n\tbuild_styles: bool = False,\n) -> tuple[list[list[Any]], list[int], dict | None]:\n\t\"\"\"\n\tBuild Excel data structure from report data with proper formatting.\n\n\tArgs:\n\t\tdata: Report data containing columns, result, filters, applied_filters, report_name etc.\n\t\tvisible_idx: Deprecated (v17). Row indices to include.\n\t\tinclude_indentation: Whether to include indentation for tree-like data\n\t\tinclude_filters: Whether to include filter rows at the top of the Excel sheet\n\t\tignore_visible_idx: Deprecated (v17). Skips visible_idx filtering.\n\t\tinclude_hidden_columns: Whether to include columns marked as hidden\n\t\tbuild_styles: Whether to build style metadata for Excel formatting\n\n\tReturns:\n\t\ttuple: A tuple containing:\n\t\t\t- result: List of rows for the Excel sheet\n\t\t\t- column_widths: List of column widths for the Excel sheet\n\t\t\t- styles: Dictionary of styles for Excel formatting (if applicable)\n\t\"\"\"\n\tmetadata = None\n\n\tEXCEL_TYPES = (\n\t\tstr,\n\t\tbool,\n\t\ttype(None),\n\t\tint,\n\t\tfloat,\n\t\tdatetime.datetime,\n\t\tdatetime.date,\n\t\tdatetime.time,\n\t\tdatetime.timedelta,\n\t)\n\tif visible_idx or ignore_visible_idx:\n\t\tfrom frappe.deprecation_dumpster import deprecation_warning\n\n\t\tdeprecation_warning(\n\t\t\t\"2026-04-19\",\n\t\t\t\"v17\",\n\t\t\t\"The 'visible_idx' and 'ignore_visible_idx' parameters of build_xlsx_data are deprecated. \"\n\t\t\t\"Filter data.result before calling build_xlsx_data instead.\",\n\t\t)\n\n\t# NOTE: for backwards compatibility. remove in v17.\n\tif not visible_idx or len(visible_idx) == len(data.result):\n\t\t# It's not possible to have same length and different content.\n\t\tignore_visible_idx = True\n\telse:\n\t\t# Note: converted for faster lookups\n\t\tvisible_idx = set(visible_idx)\n\n\tresult = []\n\tcolumn_data = []\n\tcolumn_widths = []\n\n\texcel_row_idx = 0\n\n\tinclude_filters = cint(include_filters)\n\tinclude_indentation = cint(include_indentation)\n\tinclude_hidden_columns = cint(include_hidden_columns)\n\thas_total_row = sbool(data.get(\"add_total_row\"))\n\n\tif build_styles:\n\t\tmetadata = XLSXMetadata(\n\t\t\treport_name=data.report_name,\n\t\t\tfilters=data.filters,\n\t\t\thas_total_row=has_total_row,\n\t\t\thas_indentation=include_indentation,\n\t\t)\n\n\t# adding applied filter rows\n\tif include_filters and data.applied_filters:\n\t\tfilter_data = []\n\t\tfor filter_name, filter_value in data.applied_filters.items():\n\t\t\tif not filter_value:\n\t\t\t\tcontinue\n\n\t\t\tapplied_filter = [cstr(filter_name), format_filter_value(filter_value)]\n\n\t\t\tif build_styles:\n\t\t\t\tmetadata.applied_filters_map[excel_row_idx] = applied_filter\n\t\t\t\texcel_row_idx += 1\n\n\t\t\tfilter_data.append(applied_filter)\n\n\t\t# empty row after filters\n\t\tfilter_data.append([])\n\t\texcel_row_idx += 1\n\t\tresult += filter_data\n\n\t# adding header row\n\tcolumn_idx = 0\n\tfor column in data.columns:\n\t\tif column.get(\"hidden\") and not include_hidden_columns:\n\t\t\tcontinue\n\n\t\tif build_styles:\n\t\t\tmetadata.column_map[column_idx] = column\n\t\t\tcolumn_idx += 1\n\n\t\tcolumn_data.append(_(column.get(\"label\")))\n\t\tcolumn_width = cint(column.get(\"width\", 0))\n\t\t# to convert into scale accepted by xlsxwriter\n\t\tcolumn_width /= 10\n\t\tcolumn_widths.append(column_width)\n\n\tresult.append(column_data)\n\texcel_row_idx += 1\n\n\t# build table from result\n\thandle_indentation = include_indentation and not build_styles\n\tfor row_idx, row in enumerate(data.result):\n\t\t# NOTE: for backwards compatibility. remove in v17.\n\t\tif not (ignore_visible_idx or row_idx in visible_idx):\n\t\t\tcontinue\n\n\t\trow_data = []\n\t\trow_is_dict = isinstance(row, dict)\n\n\t\tindent = 0\n\t\tif row_is_dict and handle_indentation:\n\t\t\tindent = row.get(\"indent\") or 0\n\t\t\tif indent:\n\t\t\t\tindent = cint(indent)\n\n\t\tif build_styles:\n\t\t\tmetadata.row_map[excel_row_idx] = row\n\t\t\texcel_row_idx += 1\n\n\t\tfor col_idx, column in enumerate(data.columns):\n\t\t\tif column.get(\"hidden\") and not include_hidden_columns:\n\t\t\t\tcontinue\n\n\t\t\tlabel = column.get(\"label\")\n\t\t\tfieldname = column.get(\"fieldname\")\n\t\t\tcell_value = row.get(fieldname, row.get(label, \"\")) if row_is_dict else row[col_idx]\n\n\t\t\tif not isinstance(cell_value, EXCEL_TYPES):\n\t\t\t\tcell_value = cstr(cell_value)\n\n\t\t\tif handle_indentation and indent and col_idx == 0:\n\t\t\t\tcell_value = (\"    \" * indent) + cstr(cell_value)\n\n\t\t\trow_data.append(cell_value)\n\n\t\tresult.append(row_data)\n\n\treturn result, column_widths, get_xlsx_styles(metadata, data.report_name) if build_styles else None\n",
+  "get_column_as_dict_source": "def get_column_as_dict(col):\n\tcol_dict = frappe._dict()\n\n\t# string\n\tif isinstance(col, str):\n\t\tcol = col.split(\":\")\n\t\tif len(col) > 1:\n\t\t\tif \"/\" in col[1]:\n\t\t\t\tcol_dict[\"fieldtype\"], col_dict[\"options\"] = col[1].split(\"/\")\n\t\t\telse:\n\t\t\t\tcol_dict[\"fieldtype\"] = col[1]\n\t\t\tif len(col) == 3:\n\t\t\t\tcol_dict[\"width\"] = col[2]\n\n\t\tcol_dict[\"label\"] = col[0]\n\t\tcol_dict[\"fieldname\"] = frappe.scrub(col[0])\n\n\t# dict\n\telse:\n\t\tcol_dict.update(col)\n\t\tif \"fieldname\" not in col_dict:\n\t\t\tcol_dict[\"fieldname\"] = frappe.scrub(col_dict[\"label\"])\n\n\treturn col_dict\n",
+  "translate_report_data_source": "def translate_report_data(data, total_row: bool):\n\tfor d in data[:-1] if total_row else data:\n\t\tfor field, value in d.items():\n\t\t\tif isinstance(value, str):\n\t\t\t\td[field] = _(value)\n\treturn data\n",
+  "underscore_source": "def _(msg: str, lang: str | None = None, context: str | None = None) -> str:\n\t\"\"\"Return translated string in current lang, if exists.\n\tUsage:\n\t        _('Change')\n\t        _('Change', context='Coins')\n\t\"\"\"\n\tfrom frappe.translate import get_all_translations\n\n\tif not hasattr(frappe.local, \"lang\"):\n\t\tfrappe.local.lang = lang or \"en\"\n\n\tif not lang:\n\t\t# background jobs don't resume a session, so resolve the job user's language on first\n\t\t# use here instead of eagerly in execute_job (keeps the job bootstrap free of DB access)\n\t\tjob = getattr(frappe.local, \"job\", None)\n\t\tif job is not None and not job.lang_resolved:\n\t\t\tset_user_lang(job.user)\n\t\t\tjob.lang_resolved = True\n\n\t\tlang = frappe.local.lang\n\n\tall_translations = get_all_translations(lang)\n\n\tnon_translated_string = msg\n\n\t# msg should always be unicode\n\tmsg = frappe.as_unicode(msg).strip()\n\n\tmsg_with_html = frappe.as_unicode(non_translated_string).strip()\n\tmsg_list = [msg, msg_with_html]\n\n\tfor msg in msg_list:\n\t\ttranslated_string = \"\"\n\n\t\tif context:\n\t\t\tstring_key = f\"{msg}:{context}\"\n\t\t\ttranslated_string = all_translations.get(string_key)\n\n\t\tif not translated_string:\n\t\t\ttranslated_string = all_translations.get(msg)\n\n\t\tif translated_string:\n\t\t\treturn translated_string\n\n\treturn non_translated_string\n",
+  "user_translations_live": {
+    "Translation_row_count": 0,
+    "rows": []
+  },
+  "get_user_translations_live": {
+    "lang": "en",
+    "count": 0,
+    "cjk_keys": []
+  },
+  "print_grid_template": {
+    "path": "/workspace/frappe-bench/apps/frappe/frappe/public/js/frappe/views/reports/print_grid.html",
+    "header_cell_lines": [
+      "<h2 class=\"text-center\">{{ __(title) }}</h2>",
+      "{% if col.name && col._id !== \"_check\" %}",
+      "{{ __(col.name) }}</th>",
+      "{% if col.name && col._id !== \"_check\" %}"
+    ],
+    "applies_underscore_to_header": true
+  },
+  "baseline_after": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": [
+      "2026"
+    ],
+    "Error Log": 0,
+    "Translation": 0
+  }
+}

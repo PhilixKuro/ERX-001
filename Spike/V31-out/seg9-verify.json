@@ -1,0 +1,134 @@
+{
+  "probe": "V-31 seg9 final site-safety verification (read-only)",
+  "BASELINE_VERIFICATION": {
+    "expected": {
+      "GL Entry": 22,
+      "Stock Ledger Entry": 12,
+      "Account": 95,
+      "Company": 1,
+      "Financial Report Template": 6,
+      "Error Log": 0
+    },
+    "actual": {
+      "GL Entry": 22,
+      "Stock Ledger Entry": 12,
+      "Account": 95,
+      "Company": 1,
+      "Financial Report Template": 6,
+      "Error Log": 0
+    },
+    "all_match": true,
+    "per_item": {
+      "GL Entry": {
+        "expected": 22,
+        "actual": 22,
+        "ok": true
+      },
+      "Stock Ledger Entry": {
+        "expected": 12,
+        "actual": 12,
+        "ok": true
+      },
+      "Account": {
+        "expected": 95,
+        "actual": 95,
+        "ok": true
+      },
+      "Company": {
+        "expected": 1,
+        "actual": 1,
+        "ok": true
+      },
+      "Financial Report Template": {
+        "expected": 6,
+        "actual": 6,
+        "ok": true
+      },
+      "Error Log": {
+        "expected": 0,
+        "actual": 0,
+        "ok": true
+      }
+    },
+    "Fiscal Year": {
+      "expected": [
+        "2026"
+      ],
+      "actual": [
+        "2026"
+      ],
+      "ok": true
+    }
+  },
+  "templates_in_db": [
+    "Financial Ratios Analysis",
+    "Horizontal Balance Sheet (Columnar)",
+    "Horizontal Profit and Loss (Columnar)",
+    "Standard Balance Sheet (IFRS)",
+    "Standard Cash Flow Statement (IFRS)",
+    "Standard Profit and Loss (IFRS)"
+  ],
+  "any_probe_template_survived": [],
+  "error_log_rows_verbatim": [],
+  "other_nonInnoDB_tables": {
+    "Data Import Log": 0,
+    "Access Log": 0,
+    "Prepared Report": 0,
+    "Translation": 0,
+    "File": 2
+  },
+  "Report_prepared_report_flag": 0,
+  "stray_exported_template_files": [],
+  "exported_template_dir_listing": [
+    "__init__.py",
+    "account_categories.json",
+    "financial_ratios_analysis",
+    "horizontal_balance_sheet_(columnar)",
+    "horizontal_profit_and_loss_(columnar)",
+    "standard_balance_sheet_(ifrs)",
+    "standard_cash_flow_statement_(ifrs)",
+    "standard_profit_and_loss_(ifrs)"
+  ],
+  "stray_files_in_site_files_dirs": [
+    "./erx.localhost/private/files/V22-sample-statement-clean.xlsx",
+    "./erx.localhost/private/files/V22-sample-statement-gated.xlsx",
+    "./erx.localhost/private/files/V22-sample-statement-gbk.csv",
+    "./erx.localhost/private/files/V22-sample-statement-shipped.xlsx",
+    "./erx.localhost/private/files/V22-sample-statement-uiflow.xlsx",
+    "./erx.localhost/private/files/V22-sample-statement.csv",
+    "./erx.localhost/private/files/V22-sample-statement.xlsx",
+    "./erx.localhost/private/files/V22-sample-statement0901bb.xlsx"
+  ],
+  "tmp_cookie_jars": [],
+  "git_status_frappe": [
+    "(clean)"
+  ],
+  "git_status_erpnext": [
+    "M banking/yarn.lock",
+    " M erpnext/stock/number_card/total_stock_value/total_stock_value.json"
+  ],
+  "files_V31_produced": [
+    "csv-LONG_realistic_panes.csv",
+    "csv-NEG_statutory_chinese.csv",
+    "csv-POS_translated_key.csv",
+    "glyph-ascii_plain.pdf",
+    "glyph-cjk_fontstack.pdf",
+    "glyph-cjk_plain.pdf",
+    "pdf-content-stream.txt",
+    "pdf-extracted-text.txt",
+    "pdf-input.html",
+    "pdf-render.pdf",
+    "seg0-recon.json",
+    "seg1-render-layer.json",
+    "seg2-xlsx.json",
+    "seg3-pdf.json",
+    "seg4-truncation-and-glyphs.json",
+    "seg5-glyph-proof.json",
+    "xlsx-LONG_realistic_panes_hidden0.xlsx",
+    "xlsx-LONG_realistic_panes_hidden1.xlsx",
+    "xlsx-NEG_statutory_chinese_hidden0.xlsx",
+    "xlsx-NEG_statutory_chinese_hidden1.xlsx",
+    "xlsx-POS_translated_key_hidden0.xlsx",
+    "xlsx-POS_translated_key_hidden1.xlsx"
+  ]
+}

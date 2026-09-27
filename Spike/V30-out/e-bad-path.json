@@ -1,0 +1,102 @@
+{
+  "probe": "V-30 (e) bad api_path: loud throw vs silent zero",
+  "company_used": "华东弹簧",
+  "error_log_count_at_start": 0,
+  "findings": {
+    "good_GET": {
+      "api_path": "erpnext.zz_v30_bad_inj.good",
+      "save_blocked": false,
+      "execute_raised": false,
+      "error_log_delta": 0,
+      "cells_sample": {
+        "jan_2026": 7.0,
+        "feb_2026": 7.0,
+        "mar_2026": 7.0
+      },
+      "all_cells_zero": false
+    },
+    "post_only": {
+      "api_path": "erpnext.zz_v30_bad_inj.post_only",
+      "save_blocked": true,
+      "save_exc_type": "ValidationError",
+      "save_exc_msg": "Row 1: [API Method Path] Method 'erpnext.zz_v30_bad_inj.post_only' must be whitelisted and permit GET requests"
+    },
+    "not_whitelisted": {
+      "api_path": "erpnext.zz_v30_bad_inj.not_whitelisted",
+      "save_blocked": true,
+      "save_exc_type": "ValidationError",
+      "save_exc_msg": "Row 1: [API Method Path] Method 'erpnext.zz_v30_bad_inj.not_whitelisted' must be whitelisted and permit GET requests"
+    },
+    "missing_attribute": {
+      "api_path": "erpnext.zz_v30_bad_inj.nope_does_not_exist",
+      "save_blocked": true,
+      "save_exc_type": "ValidationError",
+      "save_exc_msg": "Row 1: Could not validate API Method Path: module 'erpnext.zz_v30_bad_inj' has no attribute 'nope_does_not_exist'"
+    },
+    "uninstalled_app": {
+      "api_path": "no_such_app.mod.meth",
+      "save_blocked": true,
+      "save_exc_type": "ValidationError",
+      "save_exc_msg": "Row 1: Could not validate API Method Path: App no_such_app is not installed"
+    },
+    "no_dot_at_all": {
+      "api_path": "garbage",
+      "save_blocked": true,
+      "save_exc_type": "ValidationError",
+      "save_exc_msg": "Row 1: API Method Path should be in format: app.module.method"
+    }
+  },
+  "DECISIVE_e": {
+    "good_GET": {
+      "save_blocked": false,
+      "execute_raised": false,
+      "exc_type": null,
+      "silently_zeroed": false
+    },
+    "post_only": {
+      "save_blocked": true,
+      "execute_raised": null,
+      "exc_type": "ValidationError",
+      "silently_zeroed": false
+    },
+    "not_whitelisted": {
+      "save_blocked": true,
+      "execute_raised": null,
+      "exc_type": "ValidationError",
+      "silently_zeroed": false
+    },
+    "missing_attribute": {
+      "save_blocked": true,
+      "execute_raised": null,
+      "exc_type": "ValidationError",
+      "silently_zeroed": false
+    },
+    "uninstalled_app": {
+      "save_blocked": true,
+      "execute_raised": null,
+      "exc_type": "ValidationError",
+      "silently_zeroed": false
+    },
+    "no_dot_at_all": {
+      "save_blocked": true,
+      "execute_raised": null,
+      "exc_type": "ValidationError",
+      "silently_zeroed": false
+    }
+  },
+  "interpretation": {
+    "resolution_failures_are_loud_not_silent": true,
+    "reason": "get_valid_api_method runs at engine.py:1181, outside the try at :1183, so a bad PATH cannot reach the silent-zero handler; only an exception raised INSIDE the call can"
+  },
+  "probe_templates_left": [],
+  "error_log_rows_created_by_this_probe": [],
+  "error_log_count_final": 0,
+  "counts_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1
+  }
+}

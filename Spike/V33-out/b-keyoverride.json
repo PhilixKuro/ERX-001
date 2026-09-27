@@ -1,0 +1,237 @@
+{
+  "probe": "b",
+  "steps": [
+    {
+      "rows": 0,
+      "step": "error_log_baseline"
+    },
+    {
+      "load_app_hooks": "def _load_app_hooks(app_name: str | None = None):\n\timport types\n\n\thooks = {}\n\tapps = [app_name] if app_name else get_installed_apps(_ensure_on_bench=True)\n\n\tfor app in apps:\n\t\ttry:\n\t\t\tapp_hooks = get_module(f\"{app}.hooks\")\n\t\texcept ImportError as e:\n\t\t\tif local.flags.in_install_app:\n\t\t\t\t# if app is not installed while restoring\n\t\t\t\t# ignore it\n\t\t\t\tpass\n\t\t\tprint(f'Could not find app \"{app}\": \\n{e}')\n\t\t\traise\n\n\t\tdef _is_valid_hook(obj):\n\t\t\treturn not isinstance(obj, types.ModuleType | types.FunctionType | type)\n\n\t\tfor key, value in inspect.getmembers(app_hooks, predicate=_is_valid_hook):\n\t\t\tif not key.startswith(\"_\"):\n\t\t\t\tappend_hook(hooks, key, value)\n\treturn hooks\n",
+      "append_hook": "def append_hook(target, key, value):\n\t\"\"\"appends a hook to the the target dict.\n\n\tIf the hook key, exists, it will make it a key.\n\n\tIf the hook value is a dict, like doc_events, it will\n\tlistify the values against the key.\n\t\"\"\"\n\tif isinstance(value, dict):\n\t\t# dict? make a list of values against each key\n\t\ttarget.setdefault(key, {})\n\t\tfor inkey in value:\n\t\t\tappend_hook(target[key], inkey, value[inkey])\n\telse:\n\t\t# make a list\n\t\ttarget.setdefault(key, [])\n\t\tif not isinstance(value, list):\n\t\t\tvalue = [value]\n\t\ttarget[key].extend(value)\n",
+      "installed_apps_in_order": [
+        "frappe",
+        "erpnext"
+      ],
+      "note": "append_hook uses list.extend in _load_app_hooks' app loop; so hook list order == get_installed_apps() order",
+      "step": "ordering_rule_source"
+    },
+    {
+      "hooks_registered_by_both_apps": [
+        {
+          "hook": "after_app_install",
+          "value": [
+            "frappe.utils.install.auto_generate_icons_and_sidebar",
+            "erpnext.setup.install.after_app_install"
+          ],
+          "frappe_first": true
+        },
+        {
+          "hook": "after_app_uninstall",
+          "value": [
+            "frappe.utils.install.delete_desktop_icon_and_sidebar",
+            "erpnext.setup.install.after_app_uninstall"
+          ],
+          "frappe_first": true
+        },
+        {
+          "hook": "after_install",
+          "value": [
+            "frappe.utils.install.after_install",
+            "erpnext.setup.install.after_install"
+          ],
+          "frappe_first": true
+        },
+        {
+          "hook": "app_name",
+          "value": [
+            "frappe",
+            "erpnext"
+          ],
+          "frappe_first": true
+        },
+        {
+          "hook": "extend_bootinfo",
+          "value": [
+            "frappe.utils.telemetry.add_bootinfo",
+            "frappe.core.doctype.user_permission.user_permission.send_user_permissions",
+            "erpnext.support.doctype.service_level_agreement.service_level_agreement.add_sla_doctypes",
+            "erpnext.startup.boot.bootinfo"
+          ],
+          "frappe_first": true
+        },
+        {
+          "hook": "notification_config",
+          "value": [
+            "frappe.core.notifications.get_notification_config",
+            "erpnext.startup.notifications.get_notification_config"
+          ],
+          "frappe_first": true
+        },
+        {
+          "hook": "on_session_creation",
+          "value": [
+            "frappe.core.doctype.activity_log.feed.login_feed",
+            "frappe.core.doctype.user.user.notify_admin_access_to_system_manager",
+            "erpnext.portal.utils.create_customer_or_supplier"
+          ],
+          "frappe_first": true
+        }
+      ],
+      "count": 7,
+      "installed_order": [
+        "frappe",
+        "erpnext"
+      ],
+      "step": "ordering_rule_empirical"
+    },
+    {
+      "company": "华东弹簧",
+      "account": "VAT - HDS",
+      "cost_center": "主 - HDS",
+      "currency": "CNY",
+      "step": "fixtures"
+    },
+    {
+      "gl_dict": {
+        "company": "华东弹簧",
+        "posting_date": "2026-06-15",
+        "fiscal_year": "2026",
+        "voucher_type": "Purchase Invoice",
+        "voucher_no": "V33-IN-MEMORY-NOT-SAVED",
+        "remarks": "V33 core remark",
+        "debit": 100,
+        "credit": 0,
+        "debit_in_account_currency": 100,
+        "credit_in_account_currency": 0,
+        "is_opening": "No",
+        "party_type": null,
+        "party": null,
+        "project": null,
+        "post_net_value": null,
+        "voucher_detail_no": null,
+        "voucher_subtype": "Purchase Invoice",
+        "account": "VAT - HDS",
+        "cost_center": "主 - HDS",
+        "account_currency": "CNY"
+      },
+      "keys": [
+        "account",
+        "account_currency",
+        "company",
+        "cost_center",
+        "credit",
+        "credit_in_account_currency",
+        "debit",
+        "debit_in_account_currency",
+        "fiscal_year",
+        "is_opening",
+        "party",
+        "party_type",
+        "post_net_value",
+        "posting_date",
+        "project",
+        "remarks",
+        "voucher_detail_no",
+        "voucher_no",
+        "voucher_subtype",
+        "voucher_type"
+      ],
+      "hooks_ran": [],
+      "step": "baseline_no_hooks"
+    },
+    {
+      "key": "remarks",
+      "core_value_before_hook": "V33 core remark",
+      "value_after": "V33 OVERWRITTEN BY HOOK",
+      "overwrite_succeeded": true,
+      "note": "proves the instrument can SEE an overwrite; negatives below are meaningful",
+      "step": "positive_control_overwrite_core_key"
+    },
+    {
+      "order_c1_then_c2": {
+        "final": "FROM_C2",
+        "both_keys_present": true
+      },
+      "order_c2_then_c1": {
+        "final": "FROM_C1",
+        "second_saw_first_value": "FROM_C2"
+      },
+      "last_writer_wins": true,
+      "raised": false,
+      "silent": true,
+      "note": "no exception, no merge: plain dict assignment, later call overwrites",
+      "step": "two_methods_same_new_key"
+    },
+    {
+      "hook_saw": {
+        "account": null,
+        "debit": 0
+      },
+      "final_account": "VAT - HDS",
+      "final_debit": 100,
+      "hook_write_survived_account": false,
+      "hook_write_survived_debit": false,
+      "mechanism": "gl_dict.update(args) at accounts_controller.py:1461 runs after hook at :1447",
+      "step": "hook_vs_args_keys"
+    },
+    {
+      "results": {
+        "debit_in_account_currency": {
+          "final": 100,
+          "survived": false
+        },
+        "fiscal_year": {
+          "final": "V33-FAKE-FY",
+          "survived": true
+        },
+        "voucher_subtype": {
+          "final": "V33-SUBTYPE",
+          "survived": true
+        },
+        "is_opening": {
+          "final": "V33-OPEN",
+          "survived": true
+        },
+        "project": {
+          "final": "V33-PROJ",
+          "survived": true
+        }
+      },
+      "note": "keys set in the base literal before :1447 survive; keys in args or recomputed later do not",
+      "step": "core_key_overwrite_matrix"
+    },
+    {
+      "new_keys_in_gl_dict": [
+        "v33_custom_vat_side",
+        "v33_unknown_col"
+      ],
+      "gl_entry_has_field_v33_custom_vat_side": false,
+      "gl_entry_field_count": 47,
+      "note": "hook can put ANY key in the dict; persistence needs a real GL Entry custom field",
+      "step": "new_keys_vs_gl_entry_schema"
+    },
+    {
+      "exception": "ValueError: V33 deliberate failure from raiser",
+      "markers_ran": [
+        "ok-before",
+        "raiser"
+      ],
+      "later_hook_skipped": true,
+      "note": "dispatcher has no try/except -> one bad app breaks all GL assembly",
+      "step": "raising_hook_aborts"
+    },
+    {
+      "observed": {
+        "company_flag": null,
+        "region": "China"
+      },
+      "note": "regional twin is wrapped in temporary_flag('company') at :1444-1445; app-based hook at :1447 is OUTSIDE that block",
+      "step": "company_flag_visibility_inside_hook"
+    },
+    {
+      "rows": 0,
+      "delta": 0,
+      "step": "error_log_after"
+    }
+  ]
+}

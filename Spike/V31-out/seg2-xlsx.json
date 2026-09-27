@@ -1,0 +1,1740 @@
+{
+  "probe": "V-31 seg2: XLSX export header cells, read back from the produced file",
+  "baseline_before": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": [
+      "2026"
+    ],
+    "Error Log": 0,
+    "Translation": 0,
+    "Prepared Report": 0,
+    "Access Log": 0,
+    "File": 2
+  },
+  "safety_patches_installed": {
+    "enable_prepared_report": "no-op recorder",
+    "frappe.enqueue": "tripwire that raises",
+    "enqueue_site_on_path": [
+      "export_in_background = int(form_params.export_in_background or 0)",
+      "if export_in_background:"
+    ]
+  },
+  "lang_used_for_export": {
+    "get_user_lang(Administrator)": "zh",
+    "frappe.local.lang_set_to": "zh",
+    "dict_entries": 14440,
+    "note": "a real Desk export runs under the session user's lang; forced here to match"
+  },
+  "pos_control_chosen": {
+    "segment_0": "Assets",
+    "segment_0_zh": "资产",
+    "segment_1": "Liabilities",
+    "segment_1_zh": "负债",
+    "prediction": "account column header == the bare key -> SUBSTITUTED in the file; period column header == '<key> - 2026' -> not a key -> passes through. Both inside one workbook."
+  },
+  "created_fiscal_year": {
+    "name": "2025",
+    "note": "inside txn, rolled back"
+  },
+  "template_built_NEG_statutory_chinese": {
+    "name": "ZZ-PROBE-V31X-NEG-StatutoryLiteral",
+    "module": null
+  },
+  "template_built_LONG_realistic_panes": {
+    "name": "ZZ-PROBE-V31X-LONG-RealisticPanes",
+    "module": null
+  },
+  "template_built_POS_translated_key": {
+    "name": "ZZ-PROBE-V31X-POS-TranslatedKey",
+    "module": null
+  },
+  "ENGINE_LABELS_NEG_statutory_chinese": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "年初余额",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "科目名称",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "科目代码",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "货币",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "年初余额 - 2025",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "年初余额 - 2026",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "期末余额",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "科目名称",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "科目代码",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "货币",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "期末余额 - 2025",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "期末余额 - 2026",
+      "hidden": 0
+    }
+  ],
+  "ENGINE_LABELS_LONG_realistic_panes": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "资产",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "科目名称",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "科目代码",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "货币",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "资产 - 2025",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "资产 - 2026",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "负债和所有者权益",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "科目名称",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "科目代码",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "货币",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "负债和所有者权益 - 2025",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "负债和所有者权益 - 2026",
+      "hidden": 0
+    }
+  ],
+  "ENGINE_LABELS_POS_translated_key": [
+    {
+      "fieldname": "seg_0_account",
+      "label": "Assets",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_acc_name",
+      "label": "科目名称",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_acc_number",
+      "label": "科目代码",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_currency",
+      "label": "货币",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_0_dec_2025",
+      "label": "Assets - 2025",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_0_dec_2026",
+      "label": "Assets - 2026",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_account",
+      "label": "Liabilities",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_acc_name",
+      "label": "科目名称",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_acc_number",
+      "label": "科目代码",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_currency",
+      "label": "货币",
+      "hidden": 1
+    },
+    {
+      "fieldname": "seg_1_dec_2025",
+      "label": "Liabilities - 2025",
+      "hidden": 0
+    },
+    {
+      "fieldname": "seg_1_dec_2026",
+      "label": "Liabilities - 2026",
+      "hidden": 0
+    }
+  ],
+  "XLSX_HEADER_NEG_statutory_chinese_hidden0": {
+    "returned_report_name": "Custom Financial Statement",
+    "file": "/workspace/Spike/V31-out/xlsx-NEG_statutory_chinese_hidden0.xlsx",
+    "bytes": 5427,
+    "sha256": "3e3cbbc35ce2fb2ea7b1e2eb66ee591e",
+    "sheet_names": [
+      "Custom Financial Statement"
+    ],
+    "header_row_verbatim": [
+      "年初余额",
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额",
+      "期末余额 - 2025",
+      "期末余额 - 2026"
+    ],
+    "engine_labels_same_visibility": [
+      "年初余额",
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额",
+      "期末余额 - 2025",
+      "期末余额 - 2026"
+    ],
+    "byte_identical_to_engine": true,
+    "first_data_rows": [
+      [
+        "资产合计",
+        0,
+        719.5,
+        "所有者权益合计",
+        0,
+        0
+      ],
+      [
+        "负债合计",
+        0,
+        0,
+        "负债合计(右栏)",
+        0,
+        0
+      ]
+    ]
+  },
+  "XLSX_HEADER_CHARDUMP_NEG_statutory_chinese_hidden0": [
+    {
+      "raw": "年初余额",
+      "repr": "'年初余额'",
+      "len": 4,
+      "codepoints": [
+        "U+5E74",
+        "U+521D",
+        "U+4F59",
+        "U+989D"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "年初余额 - 2025",
+      "repr": "'年初余额 - 2025'",
+      "len": 11,
+      "codepoints": [
+        "U+5E74",
+        "U+521D",
+        "U+4F59",
+        "U+989D",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "年初余额 - 2026",
+      "repr": "'年初余额 - 2026'",
+      "len": 11,
+      "codepoints": [
+        "U+5E74",
+        "U+521D",
+        "U+4F59",
+        "U+989D",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "期末余额",
+      "repr": "'期末余额'",
+      "len": 4,
+      "codepoints": [
+        "U+671F",
+        "U+672B",
+        "U+4F59",
+        "U+989D"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "期末余额 - 2025",
+      "repr": "'期末余额 - 2025'",
+      "len": 11,
+      "codepoints": [
+        "U+671F",
+        "U+672B",
+        "U+4F59",
+        "U+989D",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "期末余额 - 2026",
+      "repr": "'期末余额 - 2026'",
+      "len": 11,
+      "codepoints": [
+        "U+671F",
+        "U+672B",
+        "U+4F59",
+        "U+989D",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    }
+  ],
+  "XLSX_HEADER_DIFFS_NEG_statutory_chinese_hidden0": {
+    "count": 0,
+    "diffs": [],
+    "discriminates": null
+  },
+  "XLSX_HEADER_NEG_statutory_chinese_hidden1": {
+    "returned_report_name": "Custom Financial Statement",
+    "file": "/workspace/Spike/V31-out/xlsx-NEG_statutory_chinese_hidden1.xlsx",
+    "bytes": 5538,
+    "sha256": "466a1d895d64ac92f54a7de6f466f7e2",
+    "sheet_names": [
+      "Custom Financial Statement"
+    ],
+    "header_row_verbatim": [
+      "年初余额",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "期末余额 - 2025",
+      "期末余额 - 2026"
+    ],
+    "engine_labels_same_visibility": [
+      "年初余额",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "期末余额 - 2025",
+      "期末余额 - 2026"
+    ],
+    "byte_identical_to_engine": true,
+    "first_data_rows": [
+      [
+        "资产合计",
+        null,
+        null,
+        "CNY",
+        0,
+        719.5,
+        "所有者权益合计",
+        null,
+        null,
+        "CNY",
+        0,
+        0
+      ],
+      [
+        "负债合计",
+        null,
+        null,
+        "CNY",
+        0,
+        0,
+        "负债合计(右栏)",
+        null,
+        null,
+        "CNY",
+        0,
+        0
+      ]
+    ]
+  },
+  "XLSX_HEADER_CHARDUMP_NEG_statutory_chinese_hidden1": [
+    {
+      "raw": "年初余额",
+      "repr": "'年初余额'",
+      "len": 4,
+      "codepoints": [
+        "U+5E74",
+        "U+521D",
+        "U+4F59",
+        "U+989D"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目名称",
+      "repr": "'科目名称'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+540D",
+        "U+79F0"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目代码",
+      "repr": "'科目代码'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+4EE3",
+        "U+7801"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "货币",
+      "repr": "'货币'",
+      "len": 2,
+      "codepoints": [
+        "U+8D27",
+        "U+5E01"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "年初余额 - 2025",
+      "repr": "'年初余额 - 2025'",
+      "len": 11,
+      "codepoints": [
+        "U+5E74",
+        "U+521D",
+        "U+4F59",
+        "U+989D",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "年初余额 - 2026",
+      "repr": "'年初余额 - 2026'",
+      "len": 11,
+      "codepoints": [
+        "U+5E74",
+        "U+521D",
+        "U+4F59",
+        "U+989D",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "期末余额",
+      "repr": "'期末余额'",
+      "len": 4,
+      "codepoints": [
+        "U+671F",
+        "U+672B",
+        "U+4F59",
+        "U+989D"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目名称",
+      "repr": "'科目名称'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+540D",
+        "U+79F0"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目代码",
+      "repr": "'科目代码'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+4EE3",
+        "U+7801"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "货币",
+      "repr": "'货币'",
+      "len": 2,
+      "codepoints": [
+        "U+8D27",
+        "U+5E01"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "期末余额 - 2025",
+      "repr": "'期末余额 - 2025'",
+      "len": 11,
+      "codepoints": [
+        "U+671F",
+        "U+672B",
+        "U+4F59",
+        "U+989D",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "期末余额 - 2026",
+      "repr": "'期末余额 - 2026'",
+      "len": 11,
+      "codepoints": [
+        "U+671F",
+        "U+672B",
+        "U+4F59",
+        "U+989D",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    }
+  ],
+  "XLSX_HEADER_DIFFS_NEG_statutory_chinese_hidden1": {
+    "count": 0,
+    "diffs": [],
+    "discriminates": null
+  },
+  "XLSX_HEADER_LONG_realistic_panes_hidden0": {
+    "returned_report_name": "Custom Financial Statement",
+    "file": "/workspace/Spike/V31-out/xlsx-LONG_realistic_panes_hidden0.xlsx",
+    "bytes": 5410,
+    "sha256": "63b430de4525abe7bb4cc3526328b006",
+    "sheet_names": [
+      "Custom Financial Statement"
+    ],
+    "header_row_verbatim": [
+      "资产",
+      "资产 - 2025",
+      "资产 - 2026",
+      "负债和所有者权益",
+      "负债和所有者权益 - 2025",
+      "负债和所有者权益 - 2026"
+    ],
+    "engine_labels_same_visibility": [
+      "资产",
+      "资产 - 2025",
+      "资产 - 2026",
+      "负债和所有者权益",
+      "负债和所有者权益 - 2025",
+      "负债和所有者权益 - 2026"
+    ],
+    "byte_identical_to_engine": true,
+    "first_data_rows": [
+      [
+        "资产合计",
+        0,
+        719.5,
+        "所有者权益合计",
+        0,
+        0
+      ],
+      [
+        "负债合计",
+        0,
+        0,
+        "负债合计(右栏)",
+        0,
+        0
+      ]
+    ]
+  },
+  "XLSX_HEADER_CHARDUMP_LONG_realistic_panes_hidden0": [
+    {
+      "raw": "资产",
+      "repr": "'资产'",
+      "len": 2,
+      "codepoints": [
+        "U+8D44",
+        "U+4EA7"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "资产 - 2025",
+      "repr": "'资产 - 2025'",
+      "len": 9,
+      "codepoints": [
+        "U+8D44",
+        "U+4EA7",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "资产 - 2026",
+      "repr": "'资产 - 2026'",
+      "len": 9,
+      "codepoints": [
+        "U+8D44",
+        "U+4EA7",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "负债和所有者权益",
+      "repr": "'负债和所有者权益'",
+      "len": 8,
+      "codepoints": [
+        "U+8D1F",
+        "U+503A",
+        "U+548C",
+        "U+6240",
+        "U+6709",
+        "U+8005",
+        "U+6743",
+        "U+76CA"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "负债和所有者权益 - 2025",
+      "repr": "'负债和所有者权益 - 2025'",
+      "len": 15,
+      "codepoints": [
+        "U+8D1F",
+        "U+503A",
+        "U+548C",
+        "U+6240",
+        "U+6709",
+        "U+8005",
+        "U+6743",
+        "U+76CA",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "负债和所有者权益 - 2026",
+      "repr": "'负债和所有者权益 - 2026'",
+      "len": 15,
+      "codepoints": [
+        "U+8D1F",
+        "U+503A",
+        "U+548C",
+        "U+6240",
+        "U+6709",
+        "U+8005",
+        "U+6743",
+        "U+76CA",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    }
+  ],
+  "XLSX_HEADER_DIFFS_LONG_realistic_panes_hidden0": {
+    "count": 0,
+    "diffs": [],
+    "discriminates": null
+  },
+  "XLSX_HEADER_LONG_realistic_panes_hidden1": {
+    "returned_report_name": "Custom Financial Statement",
+    "file": "/workspace/Spike/V31-out/xlsx-LONG_realistic_panes_hidden1.xlsx",
+    "bytes": 5521,
+    "sha256": "241f6c7a74603ee60d8b844e04568bcc",
+    "sheet_names": [
+      "Custom Financial Statement"
+    ],
+    "header_row_verbatim": [
+      "资产",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "资产 - 2025",
+      "资产 - 2026",
+      "负债和所有者权益",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "负债和所有者权益 - 2025",
+      "负债和所有者权益 - 2026"
+    ],
+    "engine_labels_same_visibility": [
+      "资产",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "资产 - 2025",
+      "资产 - 2026",
+      "负债和所有者权益",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "负债和所有者权益 - 2025",
+      "负债和所有者权益 - 2026"
+    ],
+    "byte_identical_to_engine": true,
+    "first_data_rows": [
+      [
+        "资产合计",
+        null,
+        null,
+        "CNY",
+        0,
+        719.5,
+        "所有者权益合计",
+        null,
+        null,
+        "CNY",
+        0,
+        0
+      ],
+      [
+        "负债合计",
+        null,
+        null,
+        "CNY",
+        0,
+        0,
+        "负债合计(右栏)",
+        null,
+        null,
+        "CNY",
+        0,
+        0
+      ]
+    ]
+  },
+  "XLSX_HEADER_CHARDUMP_LONG_realistic_panes_hidden1": [
+    {
+      "raw": "资产",
+      "repr": "'资产'",
+      "len": 2,
+      "codepoints": [
+        "U+8D44",
+        "U+4EA7"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目名称",
+      "repr": "'科目名称'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+540D",
+        "U+79F0"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目代码",
+      "repr": "'科目代码'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+4EE3",
+        "U+7801"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "货币",
+      "repr": "'货币'",
+      "len": 2,
+      "codepoints": [
+        "U+8D27",
+        "U+5E01"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "资产 - 2025",
+      "repr": "'资产 - 2025'",
+      "len": 9,
+      "codepoints": [
+        "U+8D44",
+        "U+4EA7",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "资产 - 2026",
+      "repr": "'资产 - 2026'",
+      "len": 9,
+      "codepoints": [
+        "U+8D44",
+        "U+4EA7",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "负债和所有者权益",
+      "repr": "'负债和所有者权益'",
+      "len": 8,
+      "codepoints": [
+        "U+8D1F",
+        "U+503A",
+        "U+548C",
+        "U+6240",
+        "U+6709",
+        "U+8005",
+        "U+6743",
+        "U+76CA"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目名称",
+      "repr": "'科目名称'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+540D",
+        "U+79F0"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目代码",
+      "repr": "'科目代码'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+4EE3",
+        "U+7801"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "货币",
+      "repr": "'货币'",
+      "len": 2,
+      "codepoints": [
+        "U+8D27",
+        "U+5E01"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "负债和所有者权益 - 2025",
+      "repr": "'负债和所有者权益 - 2025'",
+      "len": 15,
+      "codepoints": [
+        "U+8D1F",
+        "U+503A",
+        "U+548C",
+        "U+6240",
+        "U+6709",
+        "U+8005",
+        "U+6743",
+        "U+76CA",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "负债和所有者权益 - 2026",
+      "repr": "'负债和所有者权益 - 2026'",
+      "len": 15,
+      "codepoints": [
+        "U+8D1F",
+        "U+503A",
+        "U+548C",
+        "U+6240",
+        "U+6709",
+        "U+8005",
+        "U+6743",
+        "U+76CA",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    }
+  ],
+  "XLSX_HEADER_DIFFS_LONG_realistic_panes_hidden1": {
+    "count": 0,
+    "diffs": [],
+    "discriminates": null
+  },
+  "XLSX_HEADER_POS_translated_key_hidden0": {
+    "returned_report_name": "Custom Financial Statement",
+    "file": "/workspace/Spike/V31-out/xlsx-POS_translated_key_hidden0.xlsx",
+    "bytes": 5413,
+    "sha256": "242e5beaed694b124b2750fa405e747b",
+    "sheet_names": [
+      "Custom Financial Statement"
+    ],
+    "header_row_verbatim": [
+      "资产",
+      "Assets - 2025",
+      "Assets - 2026",
+      "负债",
+      "Liabilities - 2025",
+      "Liabilities - 2026"
+    ],
+    "engine_labels_same_visibility": [
+      "Assets",
+      "Assets - 2025",
+      "Assets - 2026",
+      "Liabilities",
+      "Liabilities - 2025",
+      "Liabilities - 2026"
+    ],
+    "byte_identical_to_engine": false,
+    "first_data_rows": [
+      [
+        "资产合计",
+        0,
+        719.5,
+        "所有者权益合计",
+        0,
+        0
+      ],
+      [
+        "负债合计",
+        0,
+        0,
+        "负债合计(右栏)",
+        0,
+        0
+      ]
+    ]
+  },
+  "XLSX_HEADER_CHARDUMP_POS_translated_key_hidden0": [
+    {
+      "raw": "资产",
+      "repr": "'资产'",
+      "len": 2,
+      "codepoints": [
+        "U+8D44",
+        "U+4EA7"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "Assets - 2025",
+      "repr": "'Assets - 2025'",
+      "len": 13,
+      "codepoints": [
+        "U+0041",
+        "U+0073",
+        "U+0073",
+        "U+0065",
+        "U+0074",
+        "U+0073",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "Assets - 2026",
+      "repr": "'Assets - 2026'",
+      "len": 13,
+      "codepoints": [
+        "U+0041",
+        "U+0073",
+        "U+0073",
+        "U+0065",
+        "U+0074",
+        "U+0073",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "负债",
+      "repr": "'负债'",
+      "len": 2,
+      "codepoints": [
+        "U+8D1F",
+        "U+503A"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "Liabilities - 2025",
+      "repr": "'Liabilities - 2025'",
+      "len": 18,
+      "codepoints": [
+        "U+004C",
+        "U+0069",
+        "U+0061",
+        "U+0062",
+        "U+0069",
+        "U+006C",
+        "U+0069",
+        "U+0074",
+        "U+0069",
+        "U+0065",
+        "U+0073",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "Liabilities - 2026",
+      "repr": "'Liabilities - 2026'",
+      "len": 18,
+      "codepoints": [
+        "U+004C",
+        "U+0069",
+        "U+0061",
+        "U+0062",
+        "U+0069",
+        "U+006C",
+        "U+0069",
+        "U+0074",
+        "U+0069",
+        "U+0065",
+        "U+0073",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    }
+  ],
+  "XLSX_HEADER_DIFFS_POS_translated_key_hidden0": {
+    "count": 2,
+    "diffs": [
+      {
+        "index": 0,
+        "engine_label": "Assets",
+        "in_xlsx": "资产",
+        "engine_chars": {
+          "raw": "Assets",
+          "repr": "'Assets'",
+          "len": 6,
+          "codepoints": [
+            "U+0041",
+            "U+0073",
+            "U+0073",
+            "U+0065",
+            "U+0074",
+            "U+0073"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        },
+        "xlsx_chars": {
+          "raw": "资产",
+          "repr": "'资产'",
+          "len": 2,
+          "codepoints": [
+            "U+8D44",
+            "U+4EA7"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "index": 3,
+        "engine_label": "Liabilities",
+        "in_xlsx": "负债",
+        "engine_chars": {
+          "raw": "Liabilities",
+          "repr": "'Liabilities'",
+          "len": 11,
+          "codepoints": [
+            "U+004C",
+            "U+0069",
+            "U+0061",
+            "U+0062",
+            "U+0069",
+            "U+006C",
+            "U+0069",
+            "U+0074",
+            "U+0069",
+            "U+0065",
+            "U+0073"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        },
+        "xlsx_chars": {
+          "raw": "负债",
+          "repr": "'负债'",
+          "len": 2,
+          "codepoints": [
+            "U+8D1F",
+            "U+503A"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      }
+    ],
+    "discriminates": true
+  },
+  "XLSX_HEADER_POS_translated_key_hidden1": {
+    "returned_report_name": "Custom Financial Statement",
+    "file": "/workspace/Spike/V31-out/xlsx-POS_translated_key_hidden1.xlsx",
+    "bytes": 5523,
+    "sha256": "eada7a7d6cd0855fbaa69ad1e20c0be1",
+    "sheet_names": [
+      "Custom Financial Statement"
+    ],
+    "header_row_verbatim": [
+      "资产",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "Assets - 2025",
+      "Assets - 2026",
+      "负债",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "Liabilities - 2025",
+      "Liabilities - 2026"
+    ],
+    "engine_labels_same_visibility": [
+      "Assets",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "Assets - 2025",
+      "Assets - 2026",
+      "Liabilities",
+      "科目名称",
+      "科目代码",
+      "货币",
+      "Liabilities - 2025",
+      "Liabilities - 2026"
+    ],
+    "byte_identical_to_engine": false,
+    "first_data_rows": [
+      [
+        "资产合计",
+        null,
+        null,
+        "CNY",
+        0,
+        719.5,
+        "所有者权益合计",
+        null,
+        null,
+        "CNY",
+        0,
+        0
+      ],
+      [
+        "负债合计",
+        null,
+        null,
+        "CNY",
+        0,
+        0,
+        "负债合计(右栏)",
+        null,
+        null,
+        "CNY",
+        0,
+        0
+      ]
+    ]
+  },
+  "XLSX_HEADER_CHARDUMP_POS_translated_key_hidden1": [
+    {
+      "raw": "资产",
+      "repr": "'资产'",
+      "len": 2,
+      "codepoints": [
+        "U+8D44",
+        "U+4EA7"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目名称",
+      "repr": "'科目名称'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+540D",
+        "U+79F0"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目代码",
+      "repr": "'科目代码'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+4EE3",
+        "U+7801"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "货币",
+      "repr": "'货币'",
+      "len": 2,
+      "codepoints": [
+        "U+8D27",
+        "U+5E01"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "Assets - 2025",
+      "repr": "'Assets - 2025'",
+      "len": 13,
+      "codepoints": [
+        "U+0041",
+        "U+0073",
+        "U+0073",
+        "U+0065",
+        "U+0074",
+        "U+0073",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "Assets - 2026",
+      "repr": "'Assets - 2026'",
+      "len": 13,
+      "codepoints": [
+        "U+0041",
+        "U+0073",
+        "U+0073",
+        "U+0065",
+        "U+0074",
+        "U+0073",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "负债",
+      "repr": "'负债'",
+      "len": 2,
+      "codepoints": [
+        "U+8D1F",
+        "U+503A"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目名称",
+      "repr": "'科目名称'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+540D",
+        "U+79F0"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "科目代码",
+      "repr": "'科目代码'",
+      "len": 4,
+      "codepoints": [
+        "U+79D1",
+        "U+76EE",
+        "U+4EE3",
+        "U+7801"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "货币",
+      "repr": "'货币'",
+      "len": 2,
+      "codepoints": [
+        "U+8D27",
+        "U+5E01"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "Liabilities - 2025",
+      "repr": "'Liabilities - 2025'",
+      "len": 18,
+      "codepoints": [
+        "U+004C",
+        "U+0069",
+        "U+0061",
+        "U+0062",
+        "U+0069",
+        "U+006C",
+        "U+0069",
+        "U+0074",
+        "U+0069",
+        "U+0065",
+        "U+0073",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0035"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    },
+    {
+      "raw": "Liabilities - 2026",
+      "repr": "'Liabilities - 2026'",
+      "len": 18,
+      "codepoints": [
+        "U+004C",
+        "U+0069",
+        "U+0061",
+        "U+0062",
+        "U+0069",
+        "U+006C",
+        "U+0069",
+        "U+0074",
+        "U+0069",
+        "U+0065",
+        "U+0073",
+        "U+0020",
+        "U+002D",
+        "U+0020",
+        "U+0032",
+        "U+0030",
+        "U+0032",
+        "U+0036"
+      ],
+      "has_leading_ws": false,
+      "has_trailing_ws": false
+    }
+  ],
+  "XLSX_HEADER_DIFFS_POS_translated_key_hidden1": {
+    "count": 2,
+    "diffs": [
+      {
+        "index": 0,
+        "engine_label": "Assets",
+        "in_xlsx": "资产",
+        "engine_chars": {
+          "raw": "Assets",
+          "repr": "'Assets'",
+          "len": 6,
+          "codepoints": [
+            "U+0041",
+            "U+0073",
+            "U+0073",
+            "U+0065",
+            "U+0074",
+            "U+0073"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        },
+        "xlsx_chars": {
+          "raw": "资产",
+          "repr": "'资产'",
+          "len": 2,
+          "codepoints": [
+            "U+8D44",
+            "U+4EA7"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      },
+      {
+        "index": 6,
+        "engine_label": "Liabilities",
+        "in_xlsx": "负债",
+        "engine_chars": {
+          "raw": "Liabilities",
+          "repr": "'Liabilities'",
+          "len": 11,
+          "codepoints": [
+            "U+004C",
+            "U+0069",
+            "U+0061",
+            "U+0062",
+            "U+0069",
+            "U+006C",
+            "U+0069",
+            "U+0074",
+            "U+0069",
+            "U+0065",
+            "U+0073"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        },
+        "xlsx_chars": {
+          "raw": "负债",
+          "repr": "'负债'",
+          "len": 2,
+          "codepoints": [
+            "U+8D1F",
+            "U+503A"
+          ],
+          "has_leading_ws": false,
+          "has_trailing_ws": false
+        }
+      }
+    ],
+    "discriminates": true
+  },
+  "CSV_HEADER_NEG_statutory_chinese": {
+    "file": "/workspace/Spike/V31-out/csv-NEG_statutory_chinese.csv",
+    "bytes": 232,
+    "header_line_verbatim": "\"年初余额\",\"年初余额 - 2025\",\"年初余额 - 2026\",\"期末余额\",\"期末余额 - 2025\",\"期末余额 - 2026\"",
+    "engine_labels_visible": [
+      "年初余额",
+      "年初余额 - 2025",
+      "年初余额 - 2026",
+      "期末余额",
+      "期末余额 - 2025",
+      "期末余额 - 2026"
+    ],
+    "all_engine_labels_present_verbatim": true,
+    "encoding_note": "decoded as utf-8-sig; BOM presence: 22e5b9"
+  },
+  "CSV_HEADER_LONG_realistic_panes": {
+    "file": "/workspace/Spike/V31-out/csv-LONG_realistic_panes.csv",
+    "bytes": 250,
+    "header_line_verbatim": "\"资产\",\"资产 - 2025\",\"资产 - 2026\",\"负债和所有者权益\",\"负债和所有者权益 - 2025\",\"负债和所有者权益 - 2026\"",
+    "engine_labels_visible": [
+      "资产",
+      "资产 - 2025",
+      "资产 - 2026",
+      "负债和所有者权益",
+      "负债和所有者权益 - 2025",
+      "负债和所有者权益 - 2026"
+    ],
+    "all_engine_labels_present_verbatim": true,
+    "encoding_note": "decoded as utf-8-sig; BOM presence: 22e8b5"
+  },
+  "CSV_HEADER_POS_translated_key": {
+    "file": "/workspace/Spike/V31-out/csv-POS_translated_key.csv",
+    "bytes": 206,
+    "header_line_verbatim": "\"资产\",\"Assets - 2025\",\"Assets - 2026\",\"负债\",\"Liabilities - 2025\",\"Liabilities - 2026\"",
+    "engine_labels_visible": [
+      "Assets",
+      "Assets - 2025",
+      "Assets - 2026",
+      "Liabilities",
+      "Liabilities - 2025",
+      "Liabilities - 2026"
+    ],
+    "all_engine_labels_present_verbatim": true,
+    "encoding_note": "decoded as utf-8-sig; BOM presence: 22e8b5"
+  },
+  "sheet_name_sanitizer": {
+    "MAX_SHEET_NAME_LENGTH": 31,
+    "INVALID_SHEET_NAME_RE": "[\\[\\]:*?/\\\\]",
+    "note": "xlsxutils.get_sanitized_sheet_name truncates the SHEET NAME to 31 chars and strips []:*?/\\ -- it touches the tab name, not the header cells"
+  },
+  "enqueue_tripwire_calls": [],
+  "baseline_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": [
+      "2026"
+    ],
+    "Error Log": 0,
+    "Translation": 0,
+    "Prepared Report": 0,
+    "Access Log": 0,
+    "File": 2
+  },
+  "templates_exist_after_rollback": {
+    "ZZ-PROBE-V31X-NEG-StatutoryLiteral": false,
+    "ZZ-PROBE-V31X-LONG-RealisticPanes": false,
+    "ZZ-PROBE-V31X-POS-TranslatedKey": false
+  },
+  "Report_prepared_report_after_rollback": 0,
+  "error_log_rows_now": [],
+  "access_log_rows_now": 0,
+  "files_this_probe_wrote": [
+    "/workspace/Spike/V31-out/xlsx-NEG_statutory_chinese_hidden0.xlsx",
+    "/workspace/Spike/V31-out/xlsx-NEG_statutory_chinese_hidden1.xlsx",
+    "/workspace/Spike/V31-out/xlsx-LONG_realistic_panes_hidden0.xlsx",
+    "/workspace/Spike/V31-out/xlsx-LONG_realistic_panes_hidden1.xlsx",
+    "/workspace/Spike/V31-out/xlsx-POS_translated_key_hidden0.xlsx",
+    "/workspace/Spike/V31-out/xlsx-POS_translated_key_hidden1.xlsx",
+    "/workspace/Spike/V31-out/csv-NEG_statutory_chinese.csv",
+    "/workspace/Spike/V31-out/csv-LONG_realistic_panes.csv",
+    "/workspace/Spike/V31-out/csv-POS_translated_key.csv"
+  ],
+  "stray_files_in_site_files_dirs": [],
+  "stray_exported_templates": []
+}

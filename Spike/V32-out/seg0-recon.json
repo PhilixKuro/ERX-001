@@ -1,0 +1,232 @@
+{
+ "probe": "V-32 seg0 read-only recon; no writes",
+ "baseline_counts": {
+  "GL Entry": 22,
+  "Stock Ledger Entry": 12,
+  "Account": 95,
+  "Company": 1,
+  "Financial Report Template": 6,
+  "Fiscal Year": 1,
+  "Property Setter": 182,
+  "Error Log": 0,
+  "Sales Taxes and Charges Template": 1,
+  "Sales Taxes and Charges": 1,
+  "Version": 167
+ },
+ "fiscal_years": [
+  "2026"
+ ],
+ "companies": [
+  {
+   "name": "华东弹簧",
+   "abbr": "HDS",
+   "country": "China",
+   "default_currency": "CNY"
+  }
+ ],
+ "table_engines": {
+  "tabProperty Setter": "InnoDB",
+  "tabSales Taxes and Charges Template": "InnoDB",
+  "tabSales Taxes and Charges": "InnoDB",
+  "tabSingles": "InnoDB",
+  "tabVersion": "InnoDB",
+  "tabError Log": "MyISAM",
+  "tabData Import Log": "MyISAM"
+ },
+ "GATE_all_probe_tables_innodb": true,
+ "sqlite_search_classes": [],
+ "GATE_sqlite_search_returns_early": true,
+ "assignment_rules_for_probe_doctypes": [],
+ "assignment_rule_total": 0,
+ "workflows_for_probe_doctypes": [],
+ "workflow_total": 0,
+ "notification_total": 4,
+ "server_script_total": 0,
+ "custom_doc_events_hook": {},
+ "charge_type_options__Sales_Taxes_and_Charges": {
+  "raw": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity",
+  "split": [
+   "",
+   "Actual",
+   "On Net Total",
+   "On Previous Row Amount",
+   "On Previous Row Total",
+   "On Item Quantity"
+  ],
+  "reqd": 1
+ },
+ "charge_type_options__Purchase_Taxes_and_Charges": {
+  "raw": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity",
+  "split": [
+   "",
+   "Actual",
+   "On Net Total",
+   "On Previous Row Amount",
+   "On Previous Row Total",
+   "On Item Quantity"
+  ],
+  "reqd": 1
+ },
+ "existing_property_setters_on_charge_type": [],
+ "candidate_tax_accounts": [
+  {
+   "name": "应收账款 1 - HDS",
+   "account_type": "Receivable",
+   "root_type": "Asset"
+  },
+  {
+   "name": "现金 - HDS",
+   "account_type": "Cash",
+   "root_type": "Asset"
+  },
+  {
+   "name": "员工预支 - HDS",
+   "account_type": "Payable",
+   "root_type": "Asset"
+  },
+  {
+   "name": "保证金 - HDS",
+   "account_type": "",
+   "root_type": "Asset"
+  },
+  {
+   "name": "Prepaid Expenses - HDS",
+   "account_type": "",
+   "root_type": "Asset"
+  },
+  {
+   "name": "Short-term Investments - HDS",
+   "account_type": "",
+   "root_type": "Asset"
+  },
+  {
+   "name": "存货 - HDS",
+   "account_type": "Stock",
+   "root_type": "Asset"
+  },
+  {
+   "name": "资本设备 - HDS",
+   "account_type": "Fixed Asset",
+   "root_type": "Asset"
+  },
+  {
+   "name": "电子设备 - HDS",
+   "account_type": "Fixed Asset",
+   "root_type": "Asset"
+  },
+  {
+   "name": "家具及固定装置 - HDS",
+   "account_type": "Fixed Asset",
+   "root_type": "Asset"
+  },
+  {
+   "name": "办公设备 - HDS",
+   "account_type": "Fixed Asset",
+   "root_type": "Asset"
+  },
+  {
+   "name": "植物和机械设备 - HDS",
+   "account_type": "Fixed Asset",
+   "root_type": "Asset"
+  },
+  {
+   "name": "房屋 - HDS",
+   "account_type": "Fixed Asset",
+   "root_type": "Asset"
+  },
+  {
+   "name": "软件 - HDS",
+   "account_type": "Fixed Asset",
+   "root_type": "Asset"
+  },
+  {
+   "name": "累计折旧 - HDS",
+   "account_type": "Accumulated Depreciation",
+   "root_type": "Asset"
+  },
+  {
+   "name": "在建工程科目 - HDS",
+   "account_type": "Capital Work in Progress",
+   "root_type": "Asset"
+  },
+  {
+   "name": "临时开账 - HDS",
+   "account_type": "Temporary",
+   "root_type": "Asset"
+  },
+  {
+   "name": "应付账款 1 - HDS",
+   "account_type": "Payable",
+   "root_type": "Liability"
+  },
+  {
+   "name": "应付职工薪资 - HDS",
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  {
+   "name": "Accrued Expenses - HDS",
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  {
+   "name": "Customer Advances - HDS",
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  {
+   "name": "暂估库存(已收货，未开票) - HDS",
+   "account_type": "Stock Received But Not Billed",
+   "root_type": "Liability"
+  },
+  {
+   "name": "暂估资产（已收货，未开票） - HDS",
+   "account_type": "Asset Received But Not Billed",
+   "root_type": "Liability"
+  },
+  {
+   "name": "Short-term Provisions - HDS",
+   "account_type": "",
+   "root_type": "Liability"
+  },
+  {
+   "name": "抵押借款 - HDS",
+   "account_type": "",
+   "root_type": "Liability"
+  }
+ ],
+ "cost_centers": [
+  {
+   "name": "主 - HDS",
+   "company": "华东弹簧"
+  }
+ ],
+ "existing_sales_tax_templates": [
+  {
+   "name": "China Tax - HDS",
+   "company": "华东弹簧",
+   "is_default": 0
+  }
+ ],
+ "book_stock_expense_gl_entries_current": 0,
+ "singles_row_for_switch": [
+  {
+   "doctype": "Accounts Settings",
+   "field": "book_stock_expense_gl_entries",
+   "value": "0"
+  }
+ ],
+ "purchase_receipt_count": 2,
+ "purchase_receipts": [
+  {
+   "name": "MAT-PRE-2026-00002",
+   "docstatus": 2
+  },
+  {
+   "name": "MAT-PRE-2026-00001",
+   "docstatus": 1
+  }
+ ],
+ "transaction_writes_at_end": 0,
+ "ok": true
+}

@@ -1,0 +1,164 @@
+{
+  "probe": "V-27 seg4 prove the ACB PCV-entry filter causes the non-reset",
+  "BASELINE_counts": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0,
+    "Journal Entry": 0,
+    "Error Log": 0
+  },
+  "prior_year_je": {
+    "name": "ACC-JV-2026-00001",
+    "amount": 5000.0,
+    "posting_date": "2025-06-30"
+  },
+  "engine_cells_ARM_A_no_pcv": {
+    "营业收入(累计)": {
+      "seg_0_jan_2026": 5000.0,
+      "seg_1_jan_2026": 0.0,
+      "seg_0_sep_2026": 6045.0,
+      "seg_1_sep_2026": 1045.0,
+      "seg_0_oct_2026": 6045.0,
+      "seg_1_oct_2026": 0.0,
+      "seg_0_dec_2026": 6045.0,
+      "seg_1_dec_2026": 0.0
+    },
+    "营业成本(累计)": {
+      "seg_0_jan_2026": 0.0,
+      "seg_1_jan_2026": "",
+      "seg_0_sep_2026": 325.5,
+      "seg_1_sep_2026": "",
+      "seg_0_oct_2026": 325.5,
+      "seg_1_oct_2026": "",
+      "seg_0_dec_2026": 325.5,
+      "seg_1_dec_2026": ""
+    }
+  },
+  "pcv_submitted": {
+    "name": "ACC-PCV-2026-00001",
+    "docstatus": 1,
+    "status": "Completed",
+    "err": null
+  },
+  "engine_cells_ARM_B_with_pcv": {
+    "营业收入(累计)": {
+      "seg_0_jan_2026": 5000.0,
+      "seg_1_jan_2026": 0.0,
+      "seg_0_sep_2026": 6045.0,
+      "seg_1_sep_2026": 1045.0,
+      "seg_0_oct_2026": 6045.0,
+      "seg_1_oct_2026": 0.0,
+      "seg_0_dec_2026": 6045.0,
+      "seg_1_dec_2026": 0.0
+    },
+    "营业成本(累计)": {
+      "seg_0_jan_2026": 0.0,
+      "seg_1_jan_2026": "",
+      "seg_0_sep_2026": 325.5,
+      "seg_1_sep_2026": "",
+      "seg_0_oct_2026": 325.5,
+      "seg_1_oct_2026": "",
+      "seg_0_dec_2026": 325.5,
+      "seg_1_dec_2026": ""
+    }
+  },
+  "MECHANISM_PROOF": {
+    "Q1_income_no_filter": {
+      "net": 0.0,
+      "rows_counted": 2
+    },
+    "Q2_income_engine_filter": {
+      "net": -5000.0,
+      "rows_counted": 1
+    },
+    "Q3_closing_head_engine_filter": {
+      "net": -5000.0,
+      "rows_counted": 1
+    },
+    "acb_rows_income": [
+      {
+        "debit": 5000.0,
+        "credit": 0.0,
+        "is_period_closing_voucher_entry": 1
+      },
+      {
+        "debit": 0.0,
+        "credit": 5000.0,
+        "is_period_closing_voucher_entry": 0
+      }
+    ],
+    "interpretation": "Q1 is the true net the PCV stored; Q2 is what the engine actually aggregates. If Q1=0 and Q2=-5000 the ACB is_period_closing_voucher_entry filter is the sole cause of the prior year surviving into the new year's opening balance."
+  },
+  "engine_cells_YTD_range_jan_to_sep_yearly": {
+    "营业收入(累计)": {
+      "seg_0_sep_2026": 6045.0,
+      "seg_1_sep_2026": 1045.0
+    },
+    "营业成本(累计)": {
+      "seg_0_sep_2026": 325.5,
+      "seg_1_sep_2026": ""
+    }
+  },
+  "DECISIVE_seg4": {
+    "ARM_A_no_pcv_income": {
+      "seg_0_jan_2026": 5000.0,
+      "seg_1_jan_2026": 0.0,
+      "seg_0_sep_2026": 6045.0,
+      "seg_1_sep_2026": 1045.0,
+      "seg_0_oct_2026": 6045.0,
+      "seg_1_oct_2026": 0.0,
+      "seg_0_dec_2026": 6045.0,
+      "seg_1_dec_2026": 0.0
+    },
+    "ARM_B_with_pcv_income": {
+      "seg_0_jan_2026": 5000.0,
+      "seg_1_jan_2026": 0.0,
+      "seg_0_sep_2026": 6045.0,
+      "seg_1_sep_2026": 1045.0,
+      "seg_0_oct_2026": 6045.0,
+      "seg_1_oct_2026": 0.0,
+      "seg_0_dec_2026": 6045.0,
+      "seg_1_dec_2026": 0.0
+    },
+    "raw_prior_year_income": 5000.0,
+    "raw_current_year_income": 1045.0,
+    "arms_identical": true,
+    "armB_jan_is_zero__PROPOSITION": false,
+    "armB_dec_equals_current_year_only": false,
+    "armB_dec_actual": 6045.0,
+    "armB_dec_expected_if_ytd": 1045.0,
+    "armB_dec_expected_if_since_inception": 6045.0,
+    "q1_vs_q2_gap": [
+      0.0,
+      -5000.0
+    ],
+    "VERDICT_pcv_makes_closing_balance_ytd": false
+  },
+  "AFTER_counts": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0,
+    "Journal Entry": 0,
+    "Error Log": 0
+  },
+  "baseline_restored": true,
+  "count_deltas": "none",
+  "fiscal_years_after": [
+    "2026"
+  ],
+  "pcv_count_after": 0,
+  "acb_count_after": 0,
+  "template_exists_after": false,
+  "guard_hits": "none",
+  "stray_exported_files": "none"
+}

@@ -1,0 +1,38 @@
+{
+  "probe": "REV audit part B: fiscal_years cache residue check (read-only)",
+  "fiscal_years_in_db": [
+    {
+      "name": "2026",
+      "year_start_date": "2026-01-01",
+      "year_end_date": "2026-12-31"
+    }
+  ],
+  "cache_hash_fiscal_years": {},
+  "redis_keys_matching_fiscal": [],
+  "_get_fiscal_years_for_company": [
+    {
+      "name": "2026",
+      "year_start_date": "2026-01-01",
+      "year_end_date": "2026-12-31"
+    }
+  ],
+  "_get_fiscal_years_no_company": [
+    {
+      "name": "2026",
+      "year_start_date": "2026-01-01",
+      "year_end_date": "2026-12-31"
+    }
+  ],
+  "get_fiscal_years_labels": [
+    [
+      "name",
+      "year_start_date",
+      "year_end_date"
+    ]
+  ],
+  "fy_names_via_get_all": [
+    "2026"
+  ],
+  "phantom_2025_in_db": false,
+  "doc_cache_2025": null
+}

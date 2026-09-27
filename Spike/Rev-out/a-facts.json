@@ -1,0 +1,1006 @@
+{
+  "probe": "REV audit part A: read-only independent facts",
+  "companies": [
+    {
+      "name": "华东弹簧",
+      "default_currency": "CNY"
+    }
+  ],
+  "baseline_counts": {
+    "GL Entry": 22,
+    "GL Entry not cancelled": 14,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0
+  },
+  "fiscal_years": [
+    {
+      "name": "2026",
+      "year_start_date": "2026-01-01",
+      "year_end_date": "2026-12-31",
+      "disabled": 0
+    }
+  ],
+  "frt_names": [
+    {
+      "name": "Financial Ratios Analysis",
+      "report_type": "Custom Financial Statement",
+      "module": "Accounts",
+      "disabled": 0
+    },
+    {
+      "name": "Horizontal Balance Sheet (Columnar)",
+      "report_type": "Balance Sheet",
+      "module": "Accounts",
+      "disabled": 0
+    },
+    {
+      "name": "Horizontal Profit and Loss (Columnar)",
+      "report_type": "Profit and Loss Statement",
+      "module": "Accounts",
+      "disabled": 0
+    },
+    {
+      "name": "Standard Balance Sheet (IFRS)",
+      "report_type": "Balance Sheet",
+      "module": "Accounts",
+      "disabled": 0
+    },
+    {
+      "name": "Standard Cash Flow Statement (IFRS)",
+      "report_type": "Cash Flow",
+      "module": "Accounts",
+      "disabled": 0
+    },
+    {
+      "name": "Standard Profit and Loss (IFRS)",
+      "report_type": "Profit and Loss Statement",
+      "module": "Accounts",
+      "disabled": 0
+    }
+  ],
+  "pcv_all_docstatus": [],
+  "acb_rows_raw_sql": [
+    {
+      "n": 0
+    }
+  ],
+  "accounts_settings": {
+    "ignore_account_closing_balance": 0,
+    "ignore_is_opening_check_for_reporting": 0,
+    "use_legacy_controller_for_pcv": 1
+  },
+  "all_gl_entries_count": 22,
+  "all_gl_entries": [
+    {
+      "name": "c63261d319",
+      "account": "存货 - HDS",
+      "root_type": "Asset",
+      "account_type": "Stock",
+      "posting_date": "2026-09-20",
+      "debit": 750.0,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Purchase Receipt",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "3adc0ac216",
+      "account": "应付账款 1 - HDS",
+      "root_type": "Liability",
+      "account_type": "Payable",
+      "posting_date": "2026-09-20",
+      "debit": 0.0,
+      "credit": 750.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Purchase Invoice",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "b55e751edf",
+      "account": "应付账款 1 - HDS",
+      "root_type": "Liability",
+      "account_type": "Payable",
+      "posting_date": "2026-09-20",
+      "debit": 750.0,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Payment Entry",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "664343a598",
+      "account": "暂估库存(已收货，未开票) - HDS",
+      "root_type": "Liability",
+      "account_type": "Stock Received But Not Billed",
+      "posting_date": "2026-09-20",
+      "debit": 0.0,
+      "credit": 750.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Purchase Receipt",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "c57ff93ac0",
+      "account": "暂估库存(已收货，未开票) - HDS",
+      "root_type": "Liability",
+      "account_type": "Stock Received But Not Billed",
+      "posting_date": "2026-09-20",
+      "debit": 750.0,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Purchase Invoice",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "b349fb3462",
+      "account": "现金 - HDS",
+      "root_type": "Asset",
+      "account_type": "Cash",
+      "posting_date": "2026-09-20",
+      "debit": 0.0,
+      "credit": 750.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Payment Entry",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "1755d109eb",
+      "account": "存货 - HDS",
+      "root_type": "Asset",
+      "account_type": "Stock",
+      "posting_date": "2026-09-21",
+      "debit": 75.0,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 1,
+      "voucher_type": "Purchase Receipt",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "7962928929",
+      "account": "存货 - HDS",
+      "root_type": "Asset",
+      "account_type": "Stock",
+      "posting_date": "2026-09-21",
+      "debit": 0.0,
+      "credit": 325.77,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Delivery Note",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "d17ff01b3c",
+      "account": "存货 - HDS",
+      "root_type": "Asset",
+      "account_type": "Stock",
+      "posting_date": "2026-09-21",
+      "debit": 0.27,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Stock Entry",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "f04a80d608",
+      "account": "存货 - HDS",
+      "root_type": "Asset",
+      "account_type": "Stock",
+      "posting_date": "2026-09-21",
+      "debit": 0.0,
+      "credit": 75.0,
+      "is_opening": "No",
+      "is_cancelled": 1,
+      "voucher_type": "Purchase Receipt",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "7867b7fd57",
+      "account": "应付账款 1 - HDS",
+      "root_type": "Liability",
+      "account_type": "Payable",
+      "posting_date": "2026-09-21",
+      "debit": 78.0,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 1,
+      "voucher_type": "Purchase Invoice",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "d4361def53",
+      "account": "应付账款 1 - HDS",
+      "root_type": "Liability",
+      "account_type": "Payable",
+      "posting_date": "2026-09-21",
+      "debit": 0.0,
+      "credit": 78.0,
+      "is_opening": "No",
+      "is_cancelled": 1,
+      "voucher_type": "Purchase Invoice",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "248dbb6e0a",
+      "account": "应收账款 1 - HDS",
+      "root_type": "Asset",
+      "account_type": "Receivable",
+      "posting_date": "2026-09-21",
+      "debit": 1045.0,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Sales Invoice",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "7f0d13f6a0",
+      "account": "应收账款 1 - HDS",
+      "root_type": "Asset",
+      "account_type": "Receivable",
+      "posting_date": "2026-09-21",
+      "debit": 0.0,
+      "credit": 1045.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Payment Entry",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "37698532ca",
+      "account": "暂估库存(已收货，未开票) - HDS",
+      "root_type": "Liability",
+      "account_type": "Stock Received But Not Billed",
+      "posting_date": "2026-09-21",
+      "debit": 75.0,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 1,
+      "voucher_type": "Purchase Receipt",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "4c81ecd31b",
+      "account": "暂估库存(已收货，未开票) - HDS",
+      "root_type": "Liability",
+      "account_type": "Stock Received But Not Billed",
+      "posting_date": "2026-09-21",
+      "debit": 0.0,
+      "credit": 75.0,
+      "is_opening": "No",
+      "is_cancelled": 1,
+      "voucher_type": "Purchase Receipt",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "78a5e5058d",
+      "account": "暂估库存(已收货，未开票) - HDS",
+      "root_type": "Liability",
+      "account_type": "Stock Received But Not Billed",
+      "posting_date": "2026-09-21",
+      "debit": 78.0,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 1,
+      "voucher_type": "Purchase Invoice",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "b01bcba419",
+      "account": "暂估库存(已收货，未开票) - HDS",
+      "root_type": "Liability",
+      "account_type": "Stock Received But Not Billed",
+      "posting_date": "2026-09-21",
+      "debit": 0.0,
+      "credit": 78.0,
+      "is_opening": "No",
+      "is_cancelled": 1,
+      "voucher_type": "Purchase Invoice",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "213cc43230",
+      "account": "现金 - HDS",
+      "root_type": "Asset",
+      "account_type": "Cash",
+      "posting_date": "2026-09-21",
+      "debit": 1045.0,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Payment Entry",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "129e5008fe",
+      "account": "结转库存的费用 - HDS",
+      "root_type": "Expense",
+      "account_type": "Expenses Included In Valuation",
+      "posting_date": "2026-09-21",
+      "debit": 0.0,
+      "credit": 0.27,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Stock Entry",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "cae79fd69b",
+      "account": "销售 - HDS",
+      "root_type": "Income",
+      "account_type": "",
+      "posting_date": "2026-09-21",
+      "debit": 0.0,
+      "credit": 1045.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Sales Invoice",
+      "company": "华东弹簧"
+    },
+    {
+      "name": "6d0054347f",
+      "account": "销货成本 - HDS",
+      "root_type": "Expense",
+      "account_type": "Cost of Goods Sold",
+      "posting_date": "2026-09-21",
+      "debit": 325.77,
+      "credit": 0.0,
+      "is_opening": "No",
+      "is_cancelled": 0,
+      "voucher_type": "Delivery Note",
+      "company": "华东弹簧"
+    }
+  ],
+  "gl_month_x_roottype": {
+    "2026-09": {
+      "Asset": {
+        "debit": 2840.27,
+        "credit": 2120.77,
+        "n": 7
+      },
+      "Liability": {
+        "debit": 1500.0,
+        "credit": 1500.0,
+        "n": 4
+      },
+      "Expense": {
+        "debit": 325.77,
+        "credit": 0.27,
+        "n": 2
+      },
+      "Income": {
+        "debit": 0.0,
+        "credit": 1045.0,
+        "n": 1
+      }
+    }
+  },
+  "pl_by_roottype_raw_sql": [
+    {
+      "root_type": "Expense",
+      "dr": 325.77,
+      "cr": 0.27,
+      "net": 325.5,
+      "n": 2
+    },
+    {
+      "root_type": "Income",
+      "dr": 0.0,
+      "cr": 1045.0,
+      "net": -1045.0,
+      "n": 1
+    }
+  ],
+  "independent_triple": {
+    "income_net_debit_minus_credit": -1045.0,
+    "income_reverse_signed": 1045.0,
+    "expense_net_debit_minus_credit": 325.5,
+    "revenue_equals_1045": true,
+    "cost_equals_325_5": true,
+    "difference": 719.5,
+    "difference_equals_719_5": true,
+    "raw_net_equals_minus_719_5": true
+  },
+  "pl_by_account_raw_sql": [
+    {
+      "account": "结转库存的费用 - HDS",
+      "root_type": "Expense",
+      "dr": 0.0,
+      "cr": 0.27,
+      "net": -0.27,
+      "first_date": "2026-09-21",
+      "last_date": "2026-09-21",
+      "n": 1
+    },
+    {
+      "account": "销货成本 - HDS",
+      "root_type": "Expense",
+      "dr": 325.77,
+      "cr": 0.0,
+      "net": 325.77,
+      "first_date": "2026-09-21",
+      "last_date": "2026-09-21",
+      "n": 1
+    },
+    {
+      "account": "销售 - HDS",
+      "root_type": "Income",
+      "dr": 0.0,
+      "cr": 1045.0,
+      "net": -1045.0,
+      "first_date": "2026-09-21",
+      "last_date": "2026-09-21",
+      "n": 1
+    }
+  ],
+  "docfield_balance_type_rows": [
+    {
+      "parent": "Financial Report Row",
+      "fieldname": "balance_type",
+      "fieldtype": "Select",
+      "label": "Balance Type",
+      "options": "\nOpening Balance\nClosing Balance\nPeriod Movement (Debits - Credits)"
+    }
+  ],
+  "doctype_flags": [
+    {
+      "name": "Financial Report Row",
+      "istable": 1,
+      "is_submittable": 0,
+      "module": "Accounts"
+    },
+    {
+      "name": "Financial Report Template",
+      "istable": 0,
+      "is_submittable": 0,
+      "module": "Accounts"
+    }
+  ],
+  "custom_fields_balance_type": [],
+  "meta_Financial_Report_Row": {
+    "field_count": 21,
+    "fieldnames": [
+      "reference_code",
+      "display_name",
+      "indentation_level",
+      "data_source",
+      "balance_type",
+      "column_break_hxqu",
+      "fieldtype",
+      "color",
+      "bold_text",
+      "italic_text",
+      "hidden_calculation",
+      "hide_when_empty",
+      "reverse_sign",
+      "include_in_charts",
+      "section_break_ornw",
+      "column_break_asfe",
+      "advanced_filtering",
+      "filters_editor",
+      "calculation_formula",
+      "section_break_pvro",
+      "formula_description"
+    ],
+    "istable": 1,
+    "label_or_header_fields": [],
+    "column_name_ish": []
+  },
+  "meta_Financial_Report_Template": {
+    "field_count": 7,
+    "fieldnames": [
+      "template_name",
+      "report_type",
+      "module",
+      "column_break_lvnq",
+      "disabled",
+      "section_break_fvlw",
+      "rows"
+    ],
+    "istable": 0,
+    "label_or_header_fields": [],
+    "column_name_ish": []
+  },
+  "shipped_columnar_rows": [
+    {
+      "idx": 1,
+      "data_source": "Section Break",
+      "display_name": "",
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 2,
+      "data_source": "Column Break",
+      "display_name": "Equity & Liabilities",
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 3,
+      "data_source": "Blank Line",
+      "display_name": "Capital & Reserves",
+      "balance_type": null,
+      "reference_code": "CAPITAL_HEADER"
+    },
+    {
+      "idx": 4,
+      "data_source": "Account Data",
+      "display_name": "Share Capital",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_SHARE_CAPITAL"
+    },
+    {
+      "idx": 5,
+      "data_source": "Account Data",
+      "display_name": "Reserves & Surplus",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_RESERVES"
+    },
+    {
+      "idx": 6,
+      "data_source": "Account Data",
+      "display_name": "Retained Earnings",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_RETAINED_EARNINGS"
+    },
+    {
+      "idx": 7,
+      "data_source": "Calculated Amount",
+      "display_name": "Total Capital & Reserves",
+      "balance_type": null,
+      "reference_code": "L_TOTAL_EQUITY"
+    },
+    {
+      "idx": 8,
+      "data_source": "Blank Line",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 9,
+      "data_source": "Blank Line",
+      "display_name": "Non-Current Liabilities",
+      "balance_type": null,
+      "reference_code": "NCL_HEADER"
+    },
+    {
+      "idx": 10,
+      "data_source": "Account Data",
+      "display_name": "Secured Loans",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_SECURED_LOANS"
+    },
+    {
+      "idx": 11,
+      "data_source": "Account Data",
+      "display_name": "Unsecured Loans",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_UNSECURED_LOANS"
+    },
+    {
+      "idx": 12,
+      "data_source": "Account Data",
+      "display_name": "Long-term Provisions",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_LT_PROVISIONS"
+    },
+    {
+      "idx": 13,
+      "data_source": "Account Data",
+      "display_name": "Other Non-current Liabilities",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_OTHER_NCL"
+    },
+    {
+      "idx": 14,
+      "data_source": "Calculated Amount",
+      "display_name": "Total Non-current Liabilities",
+      "balance_type": null,
+      "reference_code": "L_TOTAL_NCL"
+    },
+    {
+      "idx": 15,
+      "data_source": "Blank Line",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 16,
+      "data_source": "Blank Line",
+      "display_name": "Current Liabilities",
+      "balance_type": null,
+      "reference_code": "CL_HEADER"
+    },
+    {
+      "idx": 17,
+      "data_source": "Account Data",
+      "display_name": "Short-term Borrowings",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_ST_BORROWINGS"
+    },
+    {
+      "idx": 18,
+      "data_source": "Account Data",
+      "display_name": "Trade Payables",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_TRADE_PAYABLES"
+    },
+    {
+      "idx": 19,
+      "data_source": "Account Data",
+      "display_name": "Other Payables",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_OTHER_PAYABLES"
+    },
+    {
+      "idx": 20,
+      "data_source": "Account Data",
+      "display_name": "Current Tax Liabilities",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_TAX_LIABILITIES"
+    },
+    {
+      "idx": 21,
+      "data_source": "Account Data",
+      "display_name": "Short-term Provisions",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_PROVISIONS"
+    },
+    {
+      "idx": 22,
+      "data_source": "Account Data",
+      "display_name": "Other Current Liabilities",
+      "balance_type": "Closing Balance",
+      "reference_code": "L_OTHER_CL"
+    },
+    {
+      "idx": 23,
+      "data_source": "Calculated Amount",
+      "display_name": "Total Current Liabilities",
+      "balance_type": null,
+      "reference_code": "L_TOTAL_CL"
+    },
+    {
+      "idx": 24,
+      "data_source": "Blank Line",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 25,
+      "data_source": "Blank Line",
+      "display_name": "Current Year Earnings",
+      "balance_type": null,
+      "reference_code": "PL_HEADER"
+    },
+    {
+      "idx": 26,
+      "data_source": "Account Data",
+      "display_name": "Net Profit/(Loss) for the Year",
+      "balance_type": "Period Movement (Debits - Credits)",
+      "reference_code": "L_CURRENT_PL"
+    },
+    {
+      "idx": 27,
+      "data_source": "Column Break",
+      "display_name": "Assets",
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 28,
+      "data_source": "Blank Line",
+      "display_name": "Non-Current Assets",
+      "balance_type": null,
+      "reference_code": "NCA_HEADER"
+    },
+    {
+      "idx": 29,
+      "data_source": "Account Data",
+      "display_name": "Property, Plant & Equipment",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_TANGIBLE"
+    },
+    {
+      "idx": 30,
+      "data_source": "Account Data",
+      "display_name": "Less: Accumulated Depreciation",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_ACC_DEPRECIATION"
+    },
+    {
+      "idx": 31,
+      "data_source": "Calculated Amount",
+      "display_name": "Net Tangible Assets",
+      "balance_type": null,
+      "reference_code": "A_NET_TANGIBLE"
+    },
+    {
+      "idx": 32,
+      "data_source": "Account Data",
+      "display_name": "Intangible Assets",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_INTANGIBLE"
+    },
+    {
+      "idx": 33,
+      "data_source": "Account Data",
+      "display_name": "Long-term Investments",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_LT_INVESTMENTS"
+    },
+    {
+      "idx": 34,
+      "data_source": "Account Data",
+      "display_name": "Other Non-current Assets",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_OTHER_NCA"
+    },
+    {
+      "idx": 35,
+      "data_source": "Calculated Amount",
+      "display_name": "Total Non-current Assets",
+      "balance_type": null,
+      "reference_code": "A_TOTAL_NCA"
+    },
+    {
+      "idx": 36,
+      "data_source": "Blank Line",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 37,
+      "data_source": "Blank Line",
+      "display_name": "Current Assets",
+      "balance_type": null,
+      "reference_code": "CA_HEADER"
+    },
+    {
+      "idx": 38,
+      "data_source": "Account Data",
+      "display_name": "Inventories",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_STOCK"
+    },
+    {
+      "idx": 39,
+      "data_source": "Account Data",
+      "display_name": "Trade Receivables",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_TRADE_RECEIVABLES"
+    },
+    {
+      "idx": 40,
+      "data_source": "Account Data",
+      "display_name": "Other Receivables",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_OTHER_RECEIVABLES"
+    },
+    {
+      "idx": 41,
+      "data_source": "Account Data",
+      "display_name": "Short-term Investments",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_ST_INVESTMENTS"
+    },
+    {
+      "idx": 42,
+      "data_source": "Account Data",
+      "display_name": "Cash & Bank Balances",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_CASH_BANK"
+    },
+    {
+      "idx": 43,
+      "data_source": "Account Data",
+      "display_name": "Other Current Assets",
+      "balance_type": "Closing Balance",
+      "reference_code": "A_OTHER_CA"
+    },
+    {
+      "idx": 44,
+      "data_source": "Calculated Amount",
+      "display_name": "Total Current Assets",
+      "balance_type": null,
+      "reference_code": "A_TOTAL_CA"
+    },
+    {
+      "idx": 45,
+      "data_source": "Section Break",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 46,
+      "data_source": "Blank Line",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 47,
+      "data_source": "Calculated Amount",
+      "display_name": "TOTAL",
+      "balance_type": null,
+      "reference_code": "L_GRAND_TOTAL"
+    },
+    {
+      "idx": 48,
+      "data_source": "Blank Line",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 49,
+      "data_source": "Column Break",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 50,
+      "data_source": "Blank Line",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 51,
+      "data_source": "Calculated Amount",
+      "display_name": "TOTAL",
+      "balance_type": null,
+      "reference_code": "A_GRAND_TOTAL"
+    },
+    {
+      "idx": 52,
+      "data_source": "Blank Line",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 53,
+      "data_source": "Section Break",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 54,
+      "data_source": "Calculated Amount",
+      "display_name": "Balance Check (should be zero)",
+      "balance_type": null,
+      "reference_code": "BALANCE_CHECK"
+    },
+    {
+      "idx": 55,
+      "data_source": "Calculated Amount",
+      "display_name": "Total Assets",
+      "balance_type": null,
+      "reference_code": "TOTAL_ASSETS"
+    },
+    {
+      "idx": 56,
+      "data_source": "Calculated Amount",
+      "display_name": "Total Liabilities",
+      "balance_type": null,
+      "reference_code": "TOTAL_LIABILITIES"
+    },
+    {
+      "idx": 57,
+      "data_source": "Calculated Amount",
+      "display_name": "Total Equity",
+      "balance_type": null,
+      "reference_code": "TOTAL_EQUITY"
+    },
+    {
+      "idx": 58,
+      "data_source": "Blank Line",
+      "display_name": null,
+      "balance_type": null,
+      "reference_code": null
+    },
+    {
+      "idx": 59,
+      "data_source": "Blank Line",
+      "display_name": "KEY FINANCIAL RATIOS",
+      "balance_type": null,
+      "reference_code": "METRICS_HEADER"
+    },
+    {
+      "idx": 60,
+      "data_source": "Calculated Amount",
+      "display_name": "Current Ratio",
+      "balance_type": null,
+      "reference_code": "CURRENT_RATIO"
+    },
+    {
+      "idx": 61,
+      "data_source": "Calculated Amount",
+      "display_name": "Quick Ratio (Acid Test)",
+      "balance_type": null,
+      "reference_code": "QUICK_RATIO"
+    },
+    {
+      "idx": 62,
+      "data_source": "Calculated Amount",
+      "display_name": "Debt to Equity Ratio",
+      "balance_type": null,
+      "reference_code": "DEBT_EQUITY_RATIO"
+    },
+    {
+      "idx": 63,
+      "data_source": "Calculated Amount",
+      "display_name": "Net Working Capital",
+      "balance_type": null,
+      "reference_code": "WORKING_CAPITAL"
+    },
+    {
+      "idx": 64,
+      "data_source": "Calculated Amount",
+      "display_name": "Equity Ratio %",
+      "balance_type": null,
+      "reference_code": "EQUITY_RATIO"
+    }
+  ],
+  "shipped_columnar_balance_type_histogram": [
+    {
+      "balance_type": null,
+      "n": 39
+    },
+    {
+      "balance_type": "Closing Balance",
+      "n": 24
+    },
+    {
+      "balance_type": "Period Movement (Debits - Credits)",
+      "n": 1
+    }
+  ],
+  "templates_with_mixed_balance_types": [
+    {
+      "parent": "Financial Ratios Analysis",
+      "distinct_types": 2,
+      "types": "Closing Balance,Period Movement (Debits - Credits)"
+    },
+    {
+      "parent": "Horizontal Balance Sheet (Columnar)",
+      "distinct_types": 2,
+      "types": "Closing Balance,Period Movement (Debits - Credits)"
+    },
+    {
+      "parent": "Horizontal Profit and Loss (Columnar)",
+      "distinct_types": 3,
+      "types": "Closing Balance,Opening Balance,Period Movement (Debits - Credits)"
+    },
+    {
+      "parent": "Standard Cash Flow Statement (IFRS)",
+      "distinct_types": 3,
+      "types": "Closing Balance,Opening Balance,Period Movement (Debits - Credits)"
+    }
+  ],
+  "probe_error": {
+    "err": "(1054, \"Unknown column 'filters' in 'SELECT'\")",
+    "tb": "Traceback (most recent call last):\n  File \"/workspace/Spike/Rev-P1S4R2-a-facts.py\", line 191, in <module>\n    rep = frappe.db.sql(\"\"\"\n        select name, report_type, is_standard, ref_doctype, module, disabled,\n               json, filters, columns, prepared_report\n        from tabReport where name = 'Custom Financial Statement'\n    \"\"\", as_dict=True)\n  File \"/workspace/frappe-bench/apps/frappe/frappe/database/database.py\", line 272, in sql\n    self.execute_query(query, values)\n    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/apps/frappe/frappe/database/database.py\", line 372, in execute_query\n    return self._cursor.execute(query, values)\n           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"/workspace/frappe-bench/env/lib/python3.14/site-packages/MySQLdb/cursors.py\", line 179, in execute\n    res = self._query(mogrified_query)\n  File \"/workspace/frappe-bench/env/lib/python3.14/site-packages/MySQLdb/cursors.py\", line 330, in _query\n    db.query(q)\n    ~~~~~~~~^^^\n  File \"/workspace/frappe-bench/env/lib/python3.14/site-packages/MySQLdb/connections.py\", line 280, in query\n    _mysql.connection.query(self, query)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^\nMySQLdb.OperationalError: (1054, \"Unknown column 'filters' in 'SELECT'\")\n"
+  }
+}

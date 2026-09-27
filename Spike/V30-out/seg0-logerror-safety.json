@@ -1,0 +1,36 @@
+{
+  "probe": "V-30 seg0 safety gate: is frappe.log_error rollback-safe here?",
+  "error_log_baseline": 2,
+  "log_types_contains_Error_Log": true,
+  "log_types_sample": [
+    "Access Log",
+    "Activity Log",
+    "Console Log",
+    "DocShare",
+    "Document Follow",
+    "Email Queue",
+    "Energy Point Log",
+    "Error Log",
+    "Event Sync Log",
+    "Event Update Log",
+    "Notification Log",
+    "Scheduled Job Log",
+    "Version",
+    "View Log"
+  ],
+  "workflow_name_for_Error_Log": null,
+  "total_workflows_on_site": 0,
+  "sqlite_search_state": {
+    "n_search_classes": 0
+  },
+  "enable_telemetry": 1,
+  "error_log_after_log_error_call": {
+    "count": 3,
+    "delta_vs_baseline": 1,
+    "note": "delta 1 means log_error really did insert (not deferred)"
+  },
+  "in_transaction_before_rollback": true,
+  "error_log_after_rollback": 3,
+  "GATE_rollback_is_clean": false,
+  "GATE_verdict": "NOT SAFE -- report 无法判定 for (c)"
+}

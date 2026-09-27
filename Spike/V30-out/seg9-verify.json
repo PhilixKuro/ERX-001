@@ -1,0 +1,51 @@
+{
+  "probe": "V-30 seg9 final verification",
+  "counts": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Error Log": 0
+  },
+  "baseline_matches_expected": {
+    "GL Entry": true,
+    "Stock Ledger Entry": true,
+    "Account": true,
+    "Company": true,
+    "Financial Report Template": true
+  },
+  "all_business_baselines_ok": true,
+  "fiscal_years": [
+    "2026"
+  ],
+  "fiscal_year_only_2026": true,
+  "templates_present": [
+    "Standard Profit and Loss (IFRS)",
+    "Standard Cash Flow Statement (IFRS)",
+    "Standard Balance Sheet (IFRS)",
+    "Horizontal Profit and Loss (Columnar)",
+    "Horizontal Balance Sheet (Columnar)",
+    "Financial Ratios Analysis"
+  ],
+  "any_probe_template_left": [],
+  "any_zz_probe_template_left": [],
+  "stray_probe_modules_in_app_trees": [],
+  "no_temp_module_survives": true,
+  "financial_report_template_export_dir_listing": [
+    "__init__.py",
+    "account_categories.json",
+    "financial_ratios_analysis",
+    "horizontal_balance_sheet_(columnar)",
+    "horizontal_profit_and_loss_(columnar)",
+    "standard_balance_sheet_(ifrs)",
+    "standard_cash_flow_statement_(ifrs)",
+    "standard_profit_and_loss_(ifrs)"
+  ],
+  "suspicious_exported_files": [],
+  "error_log_rows": [],
+  "any_probe_authored_error_log": [],
+  "any_v30_marker_error_log": [],
+  "NOTE_error_log_baseline_was_2": "seg2 bug deleted the 2 pre-existing rows; tabError Log is MyISAM so rollback could not restore them. Restore from backup was attempted and DENIED by the permission system. Unresolved, reported to the user."
+}

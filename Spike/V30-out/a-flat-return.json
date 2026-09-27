@@ -1,0 +1,300 @@
+{
+  "probe": "V-30 (a) flat numeric Custom API return + whitelist/GET contract",
+  "temp_module_path": "/workspace/frappe-bench/apps/erpnext/erpnext/zz_v30_probe_tmp.py",
+  "temp_module_existed_before": false,
+  "company_used": "华东弹簧",
+  "company_count": 1,
+  "validation_contract_get_valid_api_method": {
+    "GET_whitelisted (expect ok)": {
+      "ok": true,
+      "resolved": "flat_values",
+      "allowed_http_methods": [
+        "GET"
+      ]
+    },
+    "POST_only_whitelisted (expect throw)": {
+      "ok": false,
+      "exc_type": "PermissionError",
+      "msg": "Method <strong>erpnext.zz_v30_probe_tmp.post_only</strong> must permit GET requests"
+    },
+    "not_whitelisted (expect throw)": {
+      "ok": false,
+      "exc_type": "PermissionError",
+      "msg": "<details><summary>You are not permitted to access this resource. Login to access</summary>Function <strong>erpnext.zz_v30_probe_tmp.plain_not_whitelisted</strong> is not whitelisted.</details>"
+    },
+    "missing_attr (expect throw)": {
+      "ok": false,
+      "exc_type": "AttributeError",
+      "msg": "module 'erpnext.zz_v30_probe_tmp' has no attribute 'does_not_exist'"
+    },
+    "uninstalled_app (expect throw)": {
+      "ok": false,
+      "exc_type": "AppNotInstalledError",
+      "msg": "App some_other_app is not installed"
+    },
+    "sys_modules_injected_GET (expect ok)": {
+      "ok": true,
+      "resolved": "injected_flat",
+      "allowed_http_methods": [
+        "GET"
+      ]
+    }
+  },
+  "injection_resolves_identically": true,
+  "template_inserted": {
+    "name": "ZZ-PROBE-V30-CustomAPI-Flat",
+    "module": null,
+    "rows": 3,
+    "note": "module empty on purpose"
+  },
+  "error_log_delta_during_run": {
+    "before": 2,
+    "after": 2,
+    "delta": 0,
+    "note": "0 delta => no silent-zero fallback fired"
+  },
+  "kwargs_actually_received_by_method": {
+    "calls": 2,
+    "filters_type": "_dict",
+    "filters_is_none": false,
+    "filters_keys": [
+      "company",
+      "filter_based_on",
+      "from_fiscal_year",
+      "include_default_book_entries",
+      "periodicity",
+      "report_template",
+      "selected_view",
+      "to_fiscal_year"
+    ],
+    "filters_company": "华东弹簧",
+    "filters_periodicity": "Monthly",
+    "periods_type": "list",
+    "periods_len": 12,
+    "period_keys": [
+      "jan_2026",
+      "feb_2026",
+      "mar_2026",
+      "apr_2026",
+      "may_2026",
+      "jun_2026",
+      "jul_2026",
+      "aug_2026",
+      "sep_2026",
+      "oct_2026",
+      "nov_2026",
+      "dec_2026"
+    ],
+    "period_labels": [
+      "Jan 2026",
+      "Feb 2026",
+      "Mar 2026",
+      "Apr 2026",
+      "May 2026",
+      "Jun 2026",
+      "Jul 2026",
+      "Aug 2026",
+      "Sep 2026",
+      "Oct 2026",
+      "Nov 2026",
+      "Dec 2026"
+    ],
+    "period_item_type": "_dict",
+    "row_type": "FinancialReportRow",
+    "row_ref": "API_REV",
+    "row_data_source": "Custom API",
+    "row_display_name": "API Flat Reversed",
+    "row_reverse_sign": 1
+  },
+  "engine_columns": [
+    {
+      "fieldname": "account",
+      "label": "Account",
+      "fieldtype": "Link",
+      "hidden": null
+    },
+    {
+      "fieldname": "acc_name",
+      "label": "Account Name",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "acc_number",
+      "label": "Account Number",
+      "fieldtype": "Data",
+      "hidden": 1
+    },
+    {
+      "fieldname": "currency",
+      "label": "Currency",
+      "fieldtype": "Link",
+      "hidden": 1
+    },
+    {
+      "fieldname": "jan_2026",
+      "label": "Jan 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "feb_2026",
+      "label": "Feb 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "mar_2026",
+      "label": "Mar 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "apr_2026",
+      "label": "Apr 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "may_2026",
+      "label": "May 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "jun_2026",
+      "label": "Jun 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "jul_2026",
+      "label": "Jul 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "aug_2026",
+      "label": "Aug 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "sep_2026",
+      "label": "Sep 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "oct_2026",
+      "label": "Oct 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "nov_2026",
+      "label": "Nov 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    },
+    {
+      "fieldname": "dec_2026",
+      "label": "Dec 2026",
+      "fieldtype": "Currency",
+      "hidden": null
+    }
+  ],
+  "period_keys_in_order": [
+    "jan_2026",
+    "feb_2026",
+    "mar_2026",
+    "apr_2026",
+    "may_2026",
+    "jun_2026",
+    "jul_2026",
+    "aug_2026",
+    "sep_2026",
+    "oct_2026",
+    "nov_2026",
+    "dec_2026"
+  ],
+  "delivered_row_values": {
+    "API Flat": {
+      "jan_2026": 1001.0,
+      "feb_2026": 1002.0,
+      "mar_2026": 1003.0,
+      "apr_2026": 1004.0,
+      "may_2026": 1005.0,
+      "jun_2026": 1006.0,
+      "jul_2026": 1007.0,
+      "aug_2026": 1008.0,
+      "sep_2026": 1009.0,
+      "oct_2026": 1010.0,
+      "nov_2026": 1011.0,
+      "dec_2026": 1012.0,
+      "__total__": 0
+    },
+    "API Flat Reversed": {
+      "jan_2026": -1001.0,
+      "feb_2026": -1002.0,
+      "mar_2026": -1003.0,
+      "apr_2026": -1004.0,
+      "may_2026": -1005.0,
+      "jun_2026": -1006.0,
+      "jul_2026": -1007.0,
+      "aug_2026": -1008.0,
+      "sep_2026": -1009.0,
+      "oct_2026": -1010.0,
+      "nov_2026": -1011.0,
+      "dec_2026": -1012.0,
+      "__total__": 0
+    },
+    "API Doubled": {
+      "jan_2026": 2002.0,
+      "feb_2026": 2004.0,
+      "mar_2026": 2006.0,
+      "apr_2026": 2008.0,
+      "may_2026": 2010.0,
+      "jun_2026": 2012.0,
+      "jul_2026": 2014.0,
+      "aug_2026": 2016.0,
+      "sep_2026": 2018.0,
+      "oct_2026": 2020.0,
+      "nov_2026": 2022.0,
+      "dec_2026": 2024.0,
+      "__total__": 0
+    }
+  },
+  "DECISIVE_a": {
+    "n_periods_method_saw": 12,
+    "n_period_columns_in_report": 12,
+    "return_len_equals_period_count": true,
+    "sentinel_to_column_mapping_exact": true,
+    "mismatches": {},
+    "ordering_is_positional_by_period_index": true,
+    "reverse_sign_negates": true,
+    "calculated_amount_can_consume_api_ref": true,
+    "times_method_was_called": 2
+  },
+  "return_value_leaked_into_columns": [],
+  "template_exists_after_rollback": false,
+  "temp_files_removed": [
+    "/workspace/frappe-bench/apps/erpnext/erpnext/zz_v30_probe_tmp.py",
+    "/workspace/frappe-bench/apps/erpnext/erpnext/__pycache__/zz_v30_probe_tmp.cpython-314.pyc"
+  ],
+  "temp_module_gone": true,
+  "temp_pycache_gone": true,
+  "stray_exported_template_files": [],
+  "counts_after_rollback": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Error Log": 2
+  },
+  "fiscal_years_after_rollback": [
+    "2026"
+  ]
+}

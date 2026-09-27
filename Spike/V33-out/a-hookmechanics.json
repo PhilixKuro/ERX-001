@@ -1,0 +1,337 @@
+{
+  "probe": "a",
+  "steps": [
+    {
+      "value": [],
+      "count": 0,
+      "installed_apps": [
+        "frappe",
+        "erpnext"
+      ],
+      "step": "real_registered_methods"
+    },
+    {
+      "source": "def update_gl_dict_with_app_based_fields(doc, gl_dict):\n\tfor method in frappe.get_hooks(\"update_gl_dict_with_app_based_fields\", default=[]):\n\t\tfrappe.get_attr(method)(doc, gl_dict)\n",
+      "has_minus_one": false,
+      "mentions_country": false,
+      "step": "dispatcher_source"
+    },
+    {
+      "has_wrapped_attr": false,
+      "qualname": "update_gl_dict_with_app_based_fields",
+      "module": "erpnext.controllers.accounts_controller",
+      "step": "dispatcher_is_allow_regional_wrapped"
+    },
+    {
+      "has_wrapped_attr": true,
+      "qualname": "update_gl_dict_with_regional_fields",
+      "step": "regional_twin_is_wrapped"
+    },
+    {
+      "countries": [
+        "France",
+        "Italy",
+        "Saudi Arabia",
+        "United Arab Emirates"
+      ],
+      "entry_count": 6,
+      "entries": [
+        {
+          "country": "France",
+          "slot": "erpnext.tests.test_regional.test_method",
+          "impl": [
+            "erpnext.regional.france.utils.test_method"
+          ]
+        },
+        {
+          "country": "United Arab Emirates",
+          "slot": "erpnext.controllers.taxes_and_totals.update_itemised_tax_data",
+          "impl": [
+            "erpnext.regional.united_arab_emirates.utils.update_itemised_tax_data"
+          ]
+        },
+        {
+          "country": "United Arab Emirates",
+          "slot": "erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_regional_gl_entries",
+          "impl": [
+            "erpnext.regional.united_arab_emirates.utils.make_regional_gl_entries"
+          ]
+        },
+        {
+          "country": "Saudi Arabia",
+          "slot": "erpnext.controllers.taxes_and_totals.update_itemised_tax_data",
+          "impl": [
+            "erpnext.regional.united_arab_emirates.utils.update_itemised_tax_data"
+          ]
+        },
+        {
+          "country": "Italy",
+          "slot": "erpnext.controllers.taxes_and_totals.update_itemised_tax_data",
+          "impl": [
+            "erpnext.regional.italy.utils.update_itemised_tax_data"
+          ]
+        },
+        {
+          "country": "Italy",
+          "slot": "erpnext.controllers.accounts_controller.validate_regional",
+          "impl": [
+            "erpnext.regional.italy.utils.sales_invoice_validate"
+          ]
+        }
+      ],
+      "app_based_hook_appears_as_slot": false,
+      "china_present": false,
+      "step": "regional_overrides_table"
+    },
+    {
+      "note": "method string root segment must be an installed app",
+      "installed": [
+        "frappe",
+        "erpnext"
+      ],
+      "using_namespace": "erpnext.*",
+      "step": "get_attr_app_name_gate"
+    },
+    {
+      "registered": [
+        "erpnext.v33_fake_one.hook_one",
+        "erpnext.v33_fake_two.hook_two",
+        "erpnext.v33_fake_three.hook_three"
+      ],
+      "execution_order": [
+        "one",
+        "two",
+        "three"
+      ],
+      "ran_count": 3,
+      "all_three_ran": true,
+      "only_last_ran": false,
+      "gl_dict_after": {
+        "company": "SENTINEL",
+        "debit": 0,
+        "v33_one": 1,
+        "v33_two": 2,
+        "v33_three": 3
+      },
+      "step": "runtime_all_methods_ran"
+    },
+    {
+      "per_region": {
+        "China": {
+          "ran": [
+            "one",
+            "two",
+            "three"
+          ],
+          "gl_keys": [
+            "v33_one",
+            "v33_three",
+            "v33_two"
+          ]
+        },
+        "United Arab Emirates": {
+          "ran": [
+            "one",
+            "two",
+            "three"
+          ],
+          "gl_keys": [
+            "v33_one",
+            "v33_three",
+            "v33_two"
+          ]
+        },
+        "India": {
+          "ran": [
+            "one",
+            "two",
+            "three"
+          ],
+          "gl_keys": [
+            "v33_one",
+            "v33_three",
+            "v33_two"
+          ]
+        },
+        "France": {
+          "ran": [
+            "one",
+            "two",
+            "three"
+          ],
+          "gl_keys": [
+            "v33_one",
+            "v33_three",
+            "v33_two"
+          ]
+        }
+      },
+      "identical_across_regions": true,
+      "step": "runtime_region_gating"
+    },
+    {
+      "registered": [
+        "erpnext.v33_reg_one.impl",
+        "erpnext.v33_reg_two.impl"
+      ],
+      "execution_order": [
+        "reg-two"
+      ],
+      "ran_count": 1,
+      "gl_dict_after": {
+        "v33_reg": "two"
+      },
+      "only_last_ran": true,
+      "step": "regional_slot_takes_last_only"
+    },
+    {
+      "total_decorated": 19,
+      "production_decorated": 18,
+      "test_decorated": 1,
+      "gl_assembly_stage_count": 5,
+      "gl_assembly_stage": [
+        {
+          "file": "erpnext/accounts/doctype/payment_entry/payment_entry.py",
+          "line": 3614,
+          "func": "add_regional_gl_entries",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py",
+          "line": 2093,
+          "func": "make_regional_gl_entries",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/accounts/doctype/sales_invoice/sales_invoice.py",
+          "line": 2655,
+          "func": "make_regional_gl_entries",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/controllers/accounts_controller.py",
+          "line": 4477,
+          "func": "update_gl_dict_with_regional_fields",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/stock/doctype/purchase_receipt/purchase_receipt.py",
+          "line": 1761,
+          "func": "update_regional_gl_entries",
+          "is_test": false
+        }
+      ],
+      "production_list": [
+        {
+          "file": "erpnext/accounts/party.py",
+          "line": 309,
+          "func": "get_regional_address_details",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/accounts/doctype/payment_entry/payment_entry.py",
+          "line": 3614,
+          "func": "add_regional_gl_entries",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.py",
+          "line": 948,
+          "func": "adjust_allocations_for_taxes",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py",
+          "line": 2093,
+          "func": "make_regional_gl_entries",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/accounts/doctype/sales_invoice/sales_invoice.py",
+          "line": 2655,
+          "func": "make_regional_gl_entries",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.py",
+          "line": 253,
+          "func": "get_tax_id_for_party",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/assets/doctype/asset/depreciation.py",
+          "line": 491,
+          "func": "cancel_depreciation_entries",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/assets/doctype/asset_depreciation_schedule/depreciation_methods.py",
+          "line": 79,
+          "func": "get_wdv_or_dd_depr_amount",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/controllers/accounts_controller.py",
+          "line": 3470,
+          "func": "get_advance_payment_entries_for_regional",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/controllers/accounts_controller.py",
+          "line": 4467,
+          "func": "validate_regional",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/controllers/accounts_controller.py",
+          "line": 4472,
+          "func": "validate_einvoice_fields",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/controllers/accounts_controller.py",
+          "line": 4477,
+          "func": "update_gl_dict_with_regional_fields",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/controllers/buying_controller.py",
+          "line": 1337,
+          "func": "update_regional_item_valuation_rate",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/controllers/taxes_and_totals.py",
+          "line": 1281,
+          "func": "get_regional_round_off_accounts",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/controllers/taxes_and_totals.py",
+          "line": 1286,
+          "func": "update_itemised_tax_data",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/controllers/taxes_and_totals.py",
+          "line": 1292,
+          "func": "get_itemised_tax_breakup_header",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/controllers/taxes_and_totals.py",
+          "line": 1297,
+          "func": "get_itemised_tax_breakup_data",
+          "is_test": false
+        },
+        {
+          "file": "erpnext/stock/doctype/purchase_receipt/purchase_receipt.py",
+          "line": 1761,
+          "func": "update_regional_gl_entries",
+          "is_test": false
+        }
+      ],
+      "step": "allow_regional_ast_count"
+    }
+  ]
+}

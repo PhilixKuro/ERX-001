@@ -1,0 +1,163 @@
+{
+ "probe": "V-32 (b) can a direct Property Setter extend Select options?",
+ "error_log_baseline": 0,
+ "property_setter_baseline": 182,
+ "phaseNeg1_safety_gate": {
+  "sla_doctypes_with_active_agreement": [],
+  "GATE_sla_hook_returns_early_for_Sales_Order": true,
+  "GATE_sla_hook_returns_early_for_template": true,
+  "deletion_running_Sales_Order": null,
+  "deletion_running_Sales_Taxes_and_Charges_Template": null,
+  "deletion_running_Property_Setter": null,
+  "accounting_periods": 0
+ },
+ "phase0_BEFORE_options_uncached": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity",
+ "phase0_BEFORE_options_cached": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity",
+ "phase0_BEFORE_options_split": [
+  "",
+  "Actual",
+  "On Net Total",
+  "On Previous Row Amount",
+  "On Previous Row Total",
+  "On Item Quantity"
+ ],
+ "phase0_ALLOWED_OPTIONS_CHANGE": [
+  "Read Only",
+  "HTML",
+  "Data"
+ ],
+ "phase0_Select_in_ALLOWED_OPTIONS_CHANGE": false,
+ "phase0_existing_options_property_setters_sitewide": 0,
+ "phase1_baseline_save_is_rejected": {
+  "raised": true,
+  "exc_class": "ValidationError",
+  "exc_msg": "Row #1: Type cannot be \"On Gross Value\". It should be one of \"\", \"Actual\", \"On Net Total\", \"On Previous Row Amount\", \"On Previous Row Total\", \"On Item Quantity\"",
+  "child_rows_in_db": [],
+  "persisted_verbatim": false
+ },
+ "phase2_customize_form_guard": {
+  "allow_property_change_returned": false,
+  "customize_form_route_permits_options_change": false,
+  "messages": [
+   "{'message': 'Row #1: Type cannot be \"On Gross Value\". It should be one of \"\", \"Actual\", \"On Net Total\", \"On Previous Row Amount\", \"On Previous Row Total\", \"On Item Quantity\"', 'as_table': False, 'title': 'Message', 'indicator': 'red', 'raise_exception': 1, '__frappe_exc_id': 'c46ac50214db3d92ee70572957f44cd3c85bb4e02ca74da7362d26c0'}",
+   "{'message': \"You can't set 'Options' for field Type\", 'as_table': False, 'title': 'Message'}"
+  ]
+ },
+ "phase3_direct_property_setter_insert": {
+  "raised": false,
+  "ps_name": "Sales Taxes and Charges-charge_type-options",
+  "row_exists_in_db": [
+   [
+    "Sales Taxes and Charges-charge_type-options",
+    "options",
+    "Text",
+    "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity\nOn Gross Value"
+   ]
+  ],
+  "property_setter_count_now": 183
+ },
+ "phase4_C1_meta_honours_new_option": {
+  "options_uncached_after": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity\nOn Gross Value",
+  "options_cached_after": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity\nOn Gross Value",
+  "C1_uncached_meta_contains_custom": true,
+  "C1_cached_meta_contains_custom": true,
+  "options_changed_from_original": true,
+  "standard_options_still_present": true
+ },
+ "phase5_C2_save_with_property_setter_active": {
+  "raised": false,
+  "inserted_name": "V32PROBEB-POST - HDS",
+  "child_rows_in_db": [
+   [
+    "On Gross Value"
+   ]
+  ],
+  "persisted_verbatim": true,
+  "orm_reads_back": "On Gross Value"
+ },
+ "phase5b_validate_selects_with_property_setter_active": {
+  "raised": false,
+  "charge_type_after": "On Gross Value"
+ },
+ "phase6_C3_downstream_with_stored_custom_type": {
+  "item_code": "SPR-C-2.0-16-50",
+  "customer": "江南机械",
+  "warehouse": "成品 - HDS",
+  "calc_raised": false,
+  "net_total": 1000.0,
+  "tax_amount": 300.0,
+  "grand_total": 1300.0,
+  "resolver_call_count": 1,
+  "C3_resolver_honoured": true,
+  "so_insert_raised": false,
+  "so_name": "SAL-ORD-2026-00007",
+  "so_charge_type_in_db": [
+   [
+    "On Gross Value",
+    300.0
+   ]
+  ]
+ },
+ "phase7_make_property_setter_helper_route": {
+  "options_after_deleting_first_ps": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity",
+  "custom_gone_after_delete": true,
+  "raised": false,
+  "rows_in_db": [
+   [
+    "Sales Taxes and Charges-charge_type-options",
+    "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity\nOn Gross Value"
+   ]
+  ],
+  "options_after": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity\nOn Gross Value",
+  "helper_route_also_works": true,
+  "save_via_helper_route": {
+   "raised": false,
+   "inserted_name": "V32PROBEB-HELPER - HDS",
+   "child_rows_in_db": [
+    [
+     "On Gross Value"
+    ]
+   ],
+   "persisted_verbatim": true,
+   "orm_reads_back": "On Gross Value"
+  }
+ },
+ "ok": true,
+ "rolled_back": true,
+ "phaseZ_AFTER_options_uncached": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity",
+ "phaseZ_AFTER_options_cached": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity",
+ "phaseZ_options_restored_byte_identical": true,
+ "phaseZ_cached_options_restored": true,
+ "phaseZ_custom_value_gone_from_meta": true,
+ "phaseZ_property_setters_on_charge_type_remaining": [],
+ "phaseZ_counts": {
+  "Property Setter": 182,
+  "Sales Taxes and Charges Template": 1,
+  "Sales Taxes and Charges": 1,
+  "Sales Order": 2,
+  "GL Entry": 22,
+  "Stock Ledger Entry": 12,
+  "Account": 95,
+  "Company": 1,
+  "Financial Report Template": 6,
+  "Fiscal Year": 1,
+  "Version": 167
+ },
+ "phaseZ_property_setter_back_to_baseline": true,
+ "phaseZ_fiscal_years": [
+  "2026"
+ ],
+ "phaseZ_probe_rows_left_behind": [],
+ "phaseZ_negative_control_save_rejected_again": {
+  "raised": true,
+  "exc_class": "ValidationError",
+  "exc_msg": "Row #1: Type cannot be \"On Gross Value\". It should be one of \"\", \"Actual\", \"On Net Total\", \"On Previous Row Amount\", \"On Previous Row Total\", \"On Item Quantity\"",
+  "child_rows_in_db": [],
+  "persisted_verbatim": false
+ },
+ "phaseZ_rolled_back_negative_control": true,
+ "error_log_rows_matching_my_marker": [],
+ "error_log_rows_i_deleted": [],
+ "error_log_final": 0,
+ "error_log_back_to_baseline": true
+}

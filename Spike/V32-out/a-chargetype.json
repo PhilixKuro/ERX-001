@@ -1,0 +1,109 @@
+{
+ "probe": "V-32 (a) can a custom charge_type be saved?",
+ "error_log_baseline": 0,
+ "phase0_meta": {
+  "fieldtype": "Select",
+  "options": [
+   "",
+   "Actual",
+   "On Net Total",
+   "On Previous Row Amount",
+   "On Previous Row Total",
+   "On Item Quantity"
+  ],
+  "reqd": 1
+ },
+ "phase0_custom_value_is_outside_options": true,
+ "phase0_tax_account": "VAT - HDS",
+ "phase0_cost_center": "主 - HDS",
+ "phaseA_orm_insert_custom_charge_type": {
+  "raised": true,
+  "exc_class": "ValidationError",
+  "exc_msg": "Row #1: Type cannot be \"On Gross Value\". It should be one of \"\", \"Actual\", \"On Net Total\", \"On Previous Row Amount\", \"On Previous Row Total\", \"On Item Quantity\"",
+  "row_exists_in_db": false,
+  "child_rows_in_db": [],
+  "verdict": "blocked by validation"
+ },
+ "phaseA_control_standard_charge_type": {
+  "raised": false,
+  "inserted_name": "V32PROBEA-CTL - HDS",
+  "charge_type_read_back": [
+   [
+    "On Net Total"
+   ]
+  ],
+  "control_is_valid": true
+ },
+ "phaseB_orm_insert_under_in_import_flag": {
+  "raised": false,
+  "inserted_name": "V32PROBEA-B - HDS",
+  "charge_type_in_db": [
+   [
+    "On Gross Value"
+   ]
+  ],
+  "persisted_verbatim": true,
+  "orm_reads_back": "On Gross Value"
+ },
+ "phaseC_direct_db_write": {
+  "db_value_after_update": [
+   [
+    "On Gross Value"
+   ]
+  ],
+  "persisted_verbatim": true,
+  "orm_reads_back": "On Gross Value",
+  "orm_matches_db": true
+ },
+ "phaseD_resave_db_planted_value": {
+  "raised": true,
+  "exc_class": "ValidationError",
+  "exc_msg": "Row #1: Type cannot be \"On Gross Value\". It should be one of \"\", \"Actual\", \"On Net Total\", \"On Previous Row Amount\", \"On Previous Row Total\", \"On Item Quantity\"",
+  "charge_type_still_in_db": [
+   [
+    "On Gross Value"
+   ]
+  ]
+ },
+ "phaseE_downstream_calculator": {
+  "item_code": "SPR-C-2.0-16-50",
+  "resolver_path": "erpnext.controllers.taxes_and_totals.v32_probe_resolve_on_gross",
+  "resolver_path_loadable": true,
+  "raised": false,
+  "net_total": 1000.0,
+  "tax_amount": 300.0,
+  "grand_total": 1300.0,
+  "resolver_call_count": 1,
+  "resolver_was_actually_invoked": true,
+  "calculator_honours_custom_type": true,
+  "tax_amount_if_fallback_had_run": 100.0,
+  "no_resolver_raised": false,
+  "no_resolver_tax_amount": 100.0
+ },
+ "phaseF_erpnext_validate_taxes_and_charges": {
+  "raised": false,
+  "rate_after": 10,
+  "note": "erpnext row validator does not object to a custom charge_type"
+ },
+ "phaseG_validate_selects_called_directly": {
+  "raised": true,
+  "exc_class": "ValidationError",
+  "exc_msg": " Type cannot be \"On Gross Value\". It should be one of \"\", \"Actual\", \"On Net Total\", \"On Previous Row Amount\", \"On Previous Row Total\", \"On Item Quantity\""
+ },
+ "ok": true,
+ "rolled_back": true,
+ "post_rollback_probe_templates": [],
+ "post_rollback_probe_child_rows": [],
+ "post_rollback_counts": {
+  "Sales Taxes and Charges Template": 1,
+  "Sales Taxes and Charges": 1,
+  "GL Entry": 22,
+  "Property Setter": 182,
+  "Version": 167
+ },
+ "post_rollback_charge_type_options": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity",
+ "error_log_rows_matching_my_marker": [],
+ "error_log_rows_i_deleted": [],
+ "error_log_final": 0,
+ "error_log_back_to_baseline": true
+}

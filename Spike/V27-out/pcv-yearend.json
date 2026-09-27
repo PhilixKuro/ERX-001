@@ -1,0 +1,295 @@
+{
+  "probe": "V-27 year-end PCV makes Closing Balance restart per year",
+  "guards_installed": {
+    "db.commit": "raises",
+    "frappe.enqueue": "raises",
+    "frappe.enqueue_doc": "raises",
+    "background_jobs.enqueue": "raises",
+    "note": "grep proves what the source says; these prove what the process did"
+  },
+  "frappe_in_test_flag": false,
+  "fy_cache_cleared__process_start": [
+    "hdel(fiscal_years, company)",
+    "delete_key(fiscal_years)",
+    "reset frappe.local.cache"
+  ],
+  "BASELINE_counts": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0,
+    "Journal Entry": 0,
+    "Error Log": 2
+  },
+  "BASELINE_fiscal_years": [
+    "2026"
+  ],
+  "raw_pl_by_year_BEFORE_setup": {
+    "2026": {
+      "income_dr_minus_cr": -1045.0,
+      "expense_dr_minus_cr": 325.5
+    }
+  },
+  "prior_fiscal_year_created": {
+    "name": "2025",
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "fy_cache_cleared__after_prior_fy_insert": [
+    "hdel(fiscal_years, company)",
+    "delete_key(fiscal_years)",
+    "reset frappe.local.cache"
+  ],
+  "prior_fy_resolves_for_je_date": {
+    "date": "2025-06-30",
+    "resolved": [
+      "2025",
+      "2025-01-01",
+      "2025-12-31"
+    ]
+  },
+  "prior_year_je": {
+    "name": "ACC-JV-2026-00001",
+    "docstatus": 1,
+    "posting_date": "2025-06-30",
+    "amount": 5000.0
+  },
+  "raw_pl_by_year_AFTER_je": {
+    "2026": {
+      "income_dr_minus_cr": -1045.0,
+      "expense_dr_minus_cr": 325.5
+    },
+    "2025": {
+      "income_dr_minus_cr": -5000.0,
+      "expense_dr_minus_cr": 0.0
+    }
+  },
+  "template_inserted": {
+    "name": "ZZ-PROBE-V27-PL-YearEnd",
+    "module": null,
+    "rows": 7
+  },
+  "ARM_A_precondition_pcv_count": 0,
+  "engine_ARM_A_no_pcv": {
+    "row_count": 3,
+    "rows": {
+      "营业收入(累计)": {
+        "cum_jan_2026": 5000.0,
+        "mth_jan_2026": 0.0,
+        "cum_sep_2026": 6045.0,
+        "mth_sep_2026": 1045.0,
+        "cum_oct_2026": 6045.0,
+        "mth_oct_2026": 0.0,
+        "cum_dec_2026": 6045.0,
+        "mth_dec_2026": 0.0
+      },
+      "营业成本(累计)": {
+        "cum_jan_2026": 0.0,
+        "mth_jan_2026": 0.0,
+        "cum_sep_2026": 325.5,
+        "mth_sep_2026": 325.5,
+        "cum_oct_2026": 325.5,
+        "mth_oct_2026": 0.0,
+        "cum_dec_2026": 325.5,
+        "mth_dec_2026": 0.0
+      },
+      "净利润(累计)": {
+        "cum_jan_2026": 5000.0,
+        "mth_jan_2026": "",
+        "cum_sep_2026": 5719.5,
+        "mth_sep_2026": "",
+        "cum_oct_2026": 5719.5,
+        "mth_oct_2026": "",
+        "cum_dec_2026": 5719.5,
+        "mth_dec_2026": ""
+      }
+    },
+    "visible_column_count": 26
+  },
+  "pcv_inserted": {
+    "name": "ACC-PCV-2026-00001",
+    "docstatus": 0
+  },
+  "pcv_submitted": {
+    "name": "ACC-PCV-2026-00001",
+    "docstatus": 1,
+    "gle_processing_status": "Completed",
+    "error_message": null
+  },
+  "guard_hits_after_pcv_submit": [],
+  "pcv_gl_entries": [
+    {
+      "account": "留存收益 - HDS",
+      "root_type": "Equity",
+      "debit": 0.0,
+      "credit": 5000.0,
+      "posting_date": "2025-12-31",
+      "is_opening": "No",
+      "fiscal_year": "2025"
+    },
+    {
+      "account": "销售 - HDS",
+      "root_type": "Income",
+      "debit": 5000.0,
+      "credit": 0.0,
+      "posting_date": "2025-12-31",
+      "is_opening": "No",
+      "fiscal_year": "2025"
+    }
+  ],
+  "account_closing_balance_rows_count": 4,
+  "account_closing_balance_rows": [
+    {
+      "account": "现金 - HDS",
+      "root_type": "Asset",
+      "debit": 5000.0,
+      "credit": 0.0,
+      "closing_date": "2025-12-31"
+    },
+    {
+      "account": "留存收益 - HDS",
+      "root_type": "Equity",
+      "debit": 0.0,
+      "credit": 5000.0,
+      "closing_date": "2025-12-31"
+    },
+    {
+      "account": "销售 - HDS",
+      "root_type": "Income",
+      "debit": 0.0,
+      "credit": 5000.0,
+      "closing_date": "2025-12-31"
+    },
+    {
+      "account": "销售 - HDS",
+      "root_type": "Income",
+      "debit": 5000.0,
+      "credit": 0.0,
+      "closing_date": "2025-12-31"
+    }
+  ],
+  "acb_pl_account_net_debit_minus_credit": {
+    "销售 - HDS": 0.0
+  },
+  "engine_ARM_B_with_pcv": {
+    "row_count": 3,
+    "rows": {
+      "营业收入(累计)": {
+        "cum_jan_2026": 5000.0,
+        "mth_jan_2026": 0.0,
+        "cum_sep_2026": 6045.0,
+        "mth_sep_2026": 1045.0,
+        "cum_oct_2026": 6045.0,
+        "mth_oct_2026": 0.0,
+        "cum_dec_2026": 6045.0,
+        "mth_dec_2026": 0.0
+      },
+      "营业成本(累计)": {
+        "cum_jan_2026": 0.0,
+        "mth_jan_2026": 0.0,
+        "cum_sep_2026": 325.5,
+        "mth_sep_2026": 325.5,
+        "cum_oct_2026": 325.5,
+        "mth_oct_2026": 0.0,
+        "cum_dec_2026": 325.5,
+        "mth_dec_2026": 0.0
+      },
+      "净利润(累计)": {
+        "cum_jan_2026": 5000.0,
+        "mth_jan_2026": "",
+        "cum_sep_2026": 5719.5,
+        "mth_sep_2026": "",
+        "cum_oct_2026": 5719.5,
+        "mth_oct_2026": "",
+        "cum_dec_2026": 5719.5,
+        "mth_dec_2026": ""
+      }
+    },
+    "visible_column_count": 26
+  },
+  "engine_took_pcv_branch_probe": {
+    "submitted_pcv_before_2026_01_01": [
+      {
+        "name": "ACC-PCV-2026-00001",
+        "period_end_date": "2025-12-31"
+      }
+    ],
+    "note": "non-empty => _get_opening_balances() takes the closing-balance branch (:557-560) instead of the 1900-01-01 fallback (:562)"
+  },
+  "get_opening_balances_source": "\tdef _get_opening_balances(self, accounts: list[str]) -> dict[str, dict[str, dict[str, float]]]:\n\t\t\"\"\"\n\t\tReturn opening balances for *all accounts* defaulting to zero.\n\t\t\"\"\"\n\t\tself.ignore_opening_entries = False\n\n\t\tif frappe.get_single_value(\"Accounts Settings\", \"ignore_account_closing_balance\"):\n\t\t\treturn self._get_opening_balances_from_gl(accounts)\n\n\t\tfirst_period_start = getdate(self.periods[0][\"from_date\"])\n\t\tlast_closing_voucher = frappe.db.get_all(\n\t\t\t\"Period Closing Voucher\",\n\t\t\tfilters={\n\t\t\t\t\"docstatus\": 1,\n\t\t\t\t\"company\": self.company,\n\t\t\t\t\"period_end_date\": (\"<\", first_period_start),\n\t\t\t},\n\t\t\tfields=[\"period_end_date\", \"name\"],\n\t\t\torder_by=\"period_end_date desc\",\n\t\t\tlimit=1,\n\t\t)\n\n\t\tif last_closing_voucher:\n\t\t\tclosing_voucher = last_closing_voucher[0]\n\t\t\tclosing_data = self._get_closing_balances(accounts, closing_voucher.name)\n\t\t\tself.ignore_opening_entries = True  # Else it will double count\n\n\t\t\treturn self._rebase_closing_balances(closing_data, closing_voucher.period_end_date)\n\n\t\treturn self._get_opening_balances_from_gl(accounts)\n",
+  "DECISIVE": {
+    "raw_gl_independent": {
+      "prior_year_2025_income": 0.0,
+      "current_year_2026_income": 1045.0,
+      "current_year_2026_expense": 325.5,
+      "since_inception_income": 1045.0
+    },
+    "ARM_A_no_pcv_income_closing": {
+      "jan_2026": 5000.0,
+      "sep_2026": 6045.0,
+      "oct_2026": 6045.0,
+      "dec_2026": 6045.0
+    },
+    "ARM_B_with_pcv_income_closing": {
+      "jan_2026": 5000.0,
+      "sep_2026": 6045.0,
+      "oct_2026": 6045.0,
+      "dec_2026": 6045.0
+    },
+    "ARM_A_no_pcv_expense_closing": {
+      "jan_2026": 0.0,
+      "sep_2026": 325.5,
+      "oct_2026": 325.5,
+      "dec_2026": 325.5
+    },
+    "ARM_B_with_pcv_expense_closing": {
+      "jan_2026": 0.0,
+      "sep_2026": 325.5,
+      "oct_2026": 325.5,
+      "dec_2026": 325.5
+    },
+    "A1_setup_effective__armA_jan_carries_prior_year": false,
+    "A2_setup_effective__armA_dec_is_since_inception": false,
+    "B1_pcv_resets_opening__armB_jan_is_zero": false,
+    "B2_pcv_makes_closing_equal_ytd__armB_dec_is_current_year_only": false,
+    "B3_arms_actually_differ": false,
+    "C1_expense_control_unchanged_between_arms": true,
+    "C2_expense_matches_raw_current_year": true,
+    "PROPOSITION_V27_HOLDS": false
+  },
+  "fy_cache_cleared__after_rollback": [
+    "hdel(fiscal_years, company)",
+    "delete_key(fiscal_years)",
+    "reset frappe.local.cache"
+  ],
+  "fiscal_years_cache_cleared": true,
+  "post_rollback_2025_resolves_should_be_false": false,
+  "AFTER_counts": {
+    "GL Entry": 22,
+    "Stock Ledger Entry": 12,
+    "Account": 95,
+    "Company": 1,
+    "Financial Report Template": 6,
+    "Fiscal Year": 1,
+    "Period Closing Voucher": 0,
+    "Account Closing Balance": 0,
+    "Journal Entry": 0,
+    "Error Log": 2
+  },
+  "baseline_restored": true,
+  "count_deltas": "none",
+  "AFTER_fiscal_years": [
+    "2026"
+  ],
+  "template_exists_after_rollback": false,
+  "pcv_exists_after_rollback": 0,
+  "acb_rows_after_rollback": 0,
+  "guard_hits_total": "none -- nothing tried to commit or enqueue",
+  "series_unchanged": true,
+  "series_deltas": "none",
+  "stray_exported_files": "none"
+}

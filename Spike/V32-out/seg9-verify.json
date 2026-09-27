@@ -1,0 +1,95 @@
+{
+ "probe": "V-32 seg9 independent post-run verification; read-only",
+ "expected": {
+  "GL Entry": 22,
+  "Stock Ledger Entry": 12,
+  "Account": 95,
+  "Company": 1,
+  "Financial Report Template": 6,
+  "Fiscal Year": 1,
+  "Property Setter": 182,
+  "Error Log": 0
+ },
+ "actual": {
+  "GL Entry": 22,
+  "Stock Ledger Entry": 12,
+  "Account": 95,
+  "Company": 1,
+  "Financial Report Template": 6,
+  "Fiscal Year": 1,
+  "Property Setter": 182,
+  "Error Log": 0
+ },
+ "mismatches": {},
+ "ALL_BASELINES_MATCH": true,
+ "fiscal_years": [
+  "2026"
+ ],
+ "fiscal_year_only_2026": true,
+ "other_counts": {
+  "Sales Order": 2,
+  "Sales Taxes and Charges Template": 1,
+  "Sales Taxes and Charges": 1,
+  "Purchase Receipt": 2,
+  "Repost Item Valuation": 3,
+  "Version": 167,
+  "Data Import Log": 0
+ },
+ "charge_type_options__Sales_Taxes_and_Charges": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity",
+ "charge_type_options_pristine__Sales_Taxes_and_Charges": true,
+ "charge_type_options__Purchase_Taxes_and_Charges": "\nActual\nOn Net Total\nOn Previous Row Amount\nOn Previous Row Total\nOn Item Quantity",
+ "charge_type_options_pristine__Purchase_Taxes_and_Charges": true,
+ "property_setters_on_charge_type": [],
+ "options_property_setters_sitewide": 0,
+ "book_stock_expense_gl_entries": 0,
+ "book_stock_expense_setting_is_0_as_before": true,
+ "series_rows": [
+  {
+   "name": "MAT-PRE-2026-",
+   "current": 2
+  },
+  {
+   "name": "SAL-ORD-2026-",
+   "current": 6
+  }
+ ],
+ "max_sales_order": [
+  [
+   "SAL-ORD-2026-00006-1"
+  ]
+ ],
+ "probe_leftovers_by_marker": {
+  "V32PROBEA": {
+   "templates": [],
+   "tax_rows": [],
+   "property_setters": [],
+   "error_logs": []
+  },
+  "V32PROBEB": {
+   "templates": [],
+   "tax_rows": [],
+   "property_setters": [],
+   "error_logs": []
+  },
+  "V32PROBEC": {
+   "templates": [],
+   "tax_rows": [],
+   "property_setters": [],
+   "error_logs": []
+  },
+  "V32": {
+   "templates": [],
+   "tax_rows": [],
+   "property_setters": [],
+   "error_logs": []
+  }
+ },
+ "NO_PROBE_LEFTOVERS": true,
+ "distinct_charge_types_in_data": [
+  {
+   "charge_type": "On Net Total"
+  }
+ ],
+ "transaction_writes_at_end": 0,
+ "ok": true
+}
