@@ -1,6 +1,6 @@
 # ADR-0006: 译名全走 csv 单一来源，`Translation` 降为开发期草稿纸
 
-- 状态：accepted
+- 状态：accepted（**2026-09-28 补充两条机制事实**，决策本体不变，见文末「补充」与「修订记录」。文中 `erx_core` 自 [ADR-0013](ADR-0013-自有app按域分为frappe_china与frappe_debug.md) 起读作 **`frappe_china`**）
 - 日期：2026-09-25 / 决策者：**用户推翻 A 案前提** → Claude 改判（C 步第 7 步）
 - 对应决策：DEC-057
 
@@ -47,3 +47,23 @@ Claude 原推 A 案「两档并用」——csv 做批量基线、`Translation` �
 ## 失效条件
 
 若将来需要「客户现场自助改译名」这个能力。
+
+## 补充（2026-09-28）
+
+两条机制事实，出自 P1-S4-R1 A 步第 6 步议题 ③（丁调查，A 步核实）。**不改变决策**，但约束 CR-002 的做法与本决策那条自检纪律的读法。
+
+**① Property Setter 改 `label` 与 csv 译名是叠加，不是旁路。** `meta.py:446-449` 先把 Property Setter 的新 `label` 写进 meta；前端一律 `__(df.label, null, df.parent)` 读改写后的值（`base_input.js:200`、`column.js:33`、`grid_row.js:550` 等），Python 侧 `get_translated_label()` 同理（`meta.py:314-319`）。即**先改源词、再拿改后的源词查 csv**。
+
+- 推论：同一个英文词在不同 DocType 里要译法不同，**用 csv 第三列 `context` 即可**（`translate.py:207-209` 把 3 列行的键拼成 `源词:context`，与读取端 `f"{msg}:{context}"` 严格对应），**不必借 Property Setter 改英文源词**。
+- 判据（DEC-105）：改名是为了让中文说得对 → csv；是为了让这个格子装另一样东西（业务语义变了）→ Property Setter。zelin 那 25 条 `label` 覆盖按此分四批，由 S6 的 CR-002 消费。
+
+**② 「自定义表单」改 DocType 名会隐式写一条 `Translation`。** 管理员在「自定义表单」里给 DocType 改标签时，frappe 不写 Property Setter，而是 `insert` 一条 `Translation` 记录（`customize_form.py:201-209`；`label` 只在 `docfield_properties` 里，`doctype_properties` 无 `label`）。
+
+- 后果：**会触发本决策「演示前与交付前断言 `Translation` 表为空」那条自检**，而改的人不知道自己写了翻译记录。
+- 读法：该自检报出非空时，先查记录的 `source_text` 是否为 DocType 名——若是，来源是「自定义表单」，处置是把该译名移进 csv、删掉记录，**而不是判定有人绕过了单一来源**。自检的报错文案宜点明这一来源（形态留 S6 的开发方案）。
+
+## 修订记录
+
+| 日期 | 改了什么 | 来源 |
+|---|---|---|
+| 2026-09-28 | 头部加 `erx_core` → `frappe_china` 的读法指针；新增「补充」节两条机制事实。决策、后果、备选方案原文不动 | P1-S4-R1 A 步第 6 步 ③（缺口清单 #17）；P1-S4-R6 B 步落成 |

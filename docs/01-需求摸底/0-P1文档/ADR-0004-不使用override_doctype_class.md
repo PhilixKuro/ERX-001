@@ -3,6 +3,7 @@
 - 状态：accepted
 - 日期：2026-09-25 / 决策者：**用户第 17 步补裁**，Claude 提议
 - 对应决策：DEC-055
+- **读法（2026-09-28）**：自 [ADR-0013](ADR-0013-自有app按域分为frappe_china与frappe_debug.md) 起，文中 `erx_core` 读作 **`frappe_china`**；本约束对 **`frappe_debug` 同样适用**（它位于末位，一旦注册类覆盖即赢，见 ADR-0003「守法约束」）。决策本体不变
 
 ## 上下文
 

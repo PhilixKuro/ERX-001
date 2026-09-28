@@ -1,6 +1,6 @@
 # ADR-0001: 自有 app 采用单 app 形态
 
-- 状态：accepted
+- 状态：**superseded by [ADR-0013](ADR-0013-自有app按域分为frappe_china与frappe_debug.md)**（2026-09-28，P1-S4-R6 落成；决策出自 P1-S4-R1 A 步第 8 步）。**以下原文保留不改**，现行形态见 ADR-0013。
 - 日期：2026-09-25 / 决策者：用户裁决（C 步第 5 步①），Claude 提选项
 - 对应决策：DEC-052
 

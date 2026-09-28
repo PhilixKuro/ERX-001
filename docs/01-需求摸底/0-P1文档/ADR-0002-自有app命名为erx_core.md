@@ -1,6 +1,6 @@
 # ADR-0002: 自有 app 命名为 `erx_core`
 
-- 状态：accepted
+- 状态：**superseded by [ADR-0013](ADR-0013-自有app按域分为frappe_china与frappe_debug.md)**（2026-09-28，P1-S4-R6 落成）。单 app 改为两个 app 后，名字改为 `frappe_china`／`frappe_debug`（DEC-092，用户在三个选项中选定）。**以下原文保留不改**；`erx_core` 从未装进站点，「装进站点后即冻结」这条代价未发生。文件名保留原样，以免断开既有记录里的链接。
 - 日期：2026-09-25 / 决策者：**用户第 17 步补裁**，Claude 提议
 - 对应决策：DEC-053
 

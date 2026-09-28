@@ -57,6 +57,8 @@ get_region() = 'China'
 
 ## `@allow_regional` 可覆盖点全清单（20 处）
 
+> **⚠ 更正指针（2026-09-28，P1-S4-R6 加；原文不改）**：**生产代码是 18 处，不是 20**。下表 20 行里 `tests/test_regional.py:9` 是测试样本；另一处命中 `erpnext/__init__.py:139` 落在装饰器自身 docstring 的用法示例里（grep 命中、不是真挂点）。本错数曾被 S4-G3 援引重犯，并扩散进项目概况与 P1-S2 概况（两处已于 R6 改为 18）。**援引本留档时请用 18**。依据：P1-S4 的 LG-130，R3 的 V-33 独立复核。
+
 ```
 accounts/doctype/payment_entry/payment_entry.py:3613        add_regional_gl_entries
 accounts/doctype/payment_reconciliation/...:947             adjust_allocations_for_taxes

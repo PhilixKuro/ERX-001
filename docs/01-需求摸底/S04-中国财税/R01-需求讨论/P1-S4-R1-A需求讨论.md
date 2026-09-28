@@ -1091,6 +1091,8 @@ reference_code: "L_SHARE_CAPITAL"                               ← 给这行起
 | 3 | 说自带横式模板「含 `Column Break` 与右栏 `Equity & Liabilities`」 | **方位说反了**。A 步自查：**第 2 行 Column Break 是 `Equity & Liabilities`（在左）、第 27 行 `Assets`（在右）**⇒ 自带模板左栏负债权益、右栏资产，**与中国表（左资产右负债）左右相反** |
 | 4 | 说 `disable_default_financial_report_template` 可「调用」 | **它不是函数**，是 `sync_financial_report_templates()` 内的局部布尔变量兼 COA 字典顶层键（`:141/:144/:145/:150`）⇒ 要用得**在自有科目表 json 顶层加这个键** |
 
+> **⚠ 更正指针（2026-09-28，P1-S4-R6 B 步加；本步判断本体不改，按 DEC-083 先例）**：上表第 2 行「`Custom API` 恰恰是解决列头合规问题的那个出口」**不成立**——R2 的 V-25 与 R3 的 V-30 实测：它是**行级取数出口**，其**返回值**改不了列（按期间排的扁平数值列表）。⚠ 但不可写成「`Custom API` 无法影响列」：在它的方法里原地改 `periods` 即可改列数与列头（V-30），只是那依赖两个未文档化的实现细节（NV-081）。`data_source` 六取值里 `Custom API` 的定位口径随之改为「行级」。见 [R3 A 需求讨论](../R03-需求讨论/P1-S4-R3-A需求讨论.md) 缺口清单 #1／#3。
+
 ---
 
 **④ ⭐ 引擎的两处真实缺口，以及它们为何决定方案**
@@ -1101,6 +1103,8 @@ reference_code: "L_SHARE_CAPITAL"                               ← 给这行起
 | **利润表「本年累计／本月」做不出** | 同表内无法一列累计一列单月 | `accumulated_values` 是**报表级开关、非列级** |
 
 **⇒ 两处缺口都在「列」上，而模板引擎恰恰只管「行」。** 这一点是下方方案裁决的判据。
+
+> **⚠ 更正指针（2026-09-28，P1-S4-R6 B 步加；本表判断本体不改）**：① 第 1 行「列头是年份（`2025`/`2026`）」**表述不准**——实际是 `段标签 - 期间标签`，段标签那一半由模板的 `Column Break.display_name` 控制（R2 的 V-25）；列头逐字合规做不到这一结论仍成立（V-29：中文与 ` - 期间` 后缀绑死）。② 第 2 行「利润表两列做不出／`accumulated_values` 是报表级开关」**作为判据已被 R2 的 V-26 证伪**——`balance_type` 是行级字段，两列可在同表并存。⚠ 「`accumulated_values` 是报表级开关」这句代码上没错，错的是由它推出「同表做不到两列」，推理跳了一步。③ 故「两处缺口都在列上」这条判据**不再引用**。本步的裁决结论（BS＋PL 自写）经 R3 重判维持，**判据整体换为 R3 的四条实测**（V-27、V-29 两条、V-30），见 `DEC-087` 与 R3 缺口清单 #2／#4。
 
 **另两条须记的引擎事实**：
 
@@ -1137,10 +1141,12 @@ if "GET" not in frappe.allowed_http_methods_for_whitelisted_func.get(method, ())
 
 **⭐ 本步裁定（用户已授权 Claude 决定）：资产负债表与利润表走自写报表，不走「配原生模板 ＋ Custom API」混搭。**
 
+> **⚠ 更正指针（2026-09-28，P1-S4-R6 B 步加；本步判断本体不改）**：本议题把「配原生模板 ＋ Custom API」当作解决列头合规的备选，**前提不成立**——`Custom API` 是**行级取数出口**，其返回值改不了列（R2 的 V-25、R3 的 V-30）；能改列的是在它的方法里原地改 `periods`，那依赖两个未文档化的实现细节，已作 NV-081 否决。上方「`Custom API` 不是侵入式、落 L2」这一判断**仍成立**。见 R3 缺口清单 #1。
+
 **判据是用户那两条合规要求叠加后改变了性价比**：
 
 1. 列头要合规 ⇒ 资产负债表的列**不能用引擎的时间轴**
-2. 利润表「本年累计／本月」要合规 ⇒ 引擎架构上做不到（`accumulated_values` 是报表级开关）
+2. 利润表「本年累计／本月」要合规 ⇒ 引擎架构上做不到（`accumulated_values` 是报表级开关）　**⚠ 本条判据已被 R2 的 V-26 证伪，不得引用；结论经 R3 以另四条判据重判维持，见上方议题 ④ 末尾的更正指针与 `DEC-087`**（2026-09-28，P1-S4-R6 加）
 
 **⇒ 两张表的列都得自己接管。而模板引擎只管行**，此时用它只剩「行怎么排」这点便利，却要额外承担 `reference_code`／拓扑排序／筛选表达式的学习与调试成本，**且它还有静默出 0 的毛病**。
 
@@ -1431,7 +1437,7 @@ FrappeDebug/
 | **LG-125**：**IM-007 的断言按字面写会 `KeyError`** —— 图谱原文用 `get_hooks("regional_overrides")["China"]` 下标取值，而 V-21 实测该键当前不存在（四键：France／UAE／Saudi Arabia／Italy，由 `erx_core` 注册后才有）。故 `erx_core` 未注册或注册失败时，**这条自检自身抛异常而非给出告警**——即在最该报警的场景下坏掉。派发点本身容错（`__init__.py:145` 用 `.get()`、`:148` 判 `not overrides` 走原函数），故只影响自检 | 待处理 | **本 Round 第 2 步议题 ③ 裁决为甲案时**：写进本 Stage 接口契约（自检函数须用 `.get()` 语义、缺键告警不抛异常），实现留 **S8G-S1**。另与 **RL-03** 同源（IM-007 实为两条断言） |
 | **LG-130**：**`Spike/V01-regional-hook-points.md` 里 `@allow_regional` 记 20 个是错的**，正确是 **18**（`tests/test_regional.py:9` 是测试样本、`__init__.py:139` 落在装饰器自身 docstring 的字符串内部）。G3 援引该留档重犯此错 ⇒ **援引既有留档不等于核实**。该错数已扩散进常驻文件（项目概况 `:106`、S2 概况 `:213`） | 待落地 | **B 步**（缺口清单 #11 改常驻文件那两处）＋**在 V-01 留档里加一行更正指针**，否则下一个援引它的 Agent 会第三次犯同一个错 |
 | **LG-131**：**G3 开关全表全文零实测**，其自陈最该先实测三条：① `use_legacy_controller_for_pcv` 置 0 后 `Process Period Closing Voucher` 的真实产出；② `book_stock_expense_gl_entries` 的 per-doc 缓存是否跨单据泄漏；③ **自定义 `charge_type` 落库是否真被拦**（G3 自陈这是本次最像 `Bank Transaction Mapping` 的一条、即最可能判错的）。另一条它点名值得单独实测：**Property Setter 直插能否绕过 `ALLOWED_OPTIONS_CHANGE` 扩 Select options**（直接决定那条「不可行」能否翻案） | 待实测 | **本 Stage 的 C 步定方案前**——若方案要依赖其中任一条，先派探针验掉；不依赖的转登记册 |
-| **LG-132**：**`regional_overrides` 的可用面此前被混为一谈**——NV-038「不能用于建账」成立，但由它衍生的「对中国财税用处有限」这个印象要收窄：18 个挂点里**至少 5 个在 GL 分录组装时点**（`make_regional_gl_entries`／`update_regional_gl_entries`／`add_regional_gl_entries`／`update_gl_dict_with_regional_fields`），且 **UAE 反向征税正是用它往 GL append 分录**（`hooks.py:613` → `regional/united_arab_emirates/utils.py:146-159`）⇒ **CR-006 的进项销项分离有一条 L3 追加式的路**，不必上 L4 覆盖。另 G3 新发现第 19 个接入面 `update_gl_dict_with_app_based_fields`（`accounts_controller.py:4481`）**遍历全部注册方法、不取 `[-1]`**、不按国家隔离、不抢覆盖位 | 待消费 | **本 Stage 的 B／C 步**——CR-006 的实现取向直接建在这条上。⚠ 第 19 个接入面 G3 只读了定义与唯一调用点，**未查内部使用者与 gl_dict 键覆盖关系**，它自陈「正因干净得意外更该实测」 |
+| **LG-132**：**`regional_overrides` 的可用面此前被混为一谈**——NV-038「不能用于建账」成立，但由它衍生的「对中国财税用处有限」这个印象要收窄：18 个挂点里**至少 5 个在 GL 分录组装时点**（`make_regional_gl_entries`／`update_regional_gl_entries`／`add_regional_gl_entries`／`update_gl_dict_with_regional_fields`），且 **UAE 反向征税正是用它往 GL append 分录**（`hooks.py:613` → `regional/united_arab_emirates/utils.py:146-159`）⇒ **CR-006 的进项销项分离有一条 L3 追加式的路**，不必上 L4 覆盖。另 G3 新发现第 19 个接入面 `update_gl_dict_with_app_based_fields`（`accounts_controller.py:4481`）**遍历全部注册方法、不取 `[-1]`**、不按国家隔离、不抢覆盖位 | 待消费 | **本 Stage 的 B／C 步**——CR-006 的实现取向直接建在这条上。⚠ 第 19 个接入面 G3 只读了定义与唯一调用点，**未查内部使用者与 gl_dict 键覆盖关系**，它自陈「正因干净得意外更该实测」。**⚠ 更正指针（2026-09-28，P1-S4-R6 加）**：「CR-006 有一条 L3 追加式的路、不必上 L4」**被 R3 的 V-33 证伪一半**——字段级改写（往 gl_dict 加字段）能做且不占覆盖位；**分录级（新增 GL 分录）做不到不占位**，第 19 个接入面一次只拿到一个 gl_dict、无处 append，仍须走 5 个 `@allow_regional` 点，**仍是 L4**。另漏记 `merge_similar_entries` 硬约束（进项销项须不同科目）。R3 缺口 #10 指向「需求图谱 LG-132 行」，但本条只登记在此处、图谱无此行，故收窄结论并入需求图谱 v1.6 的 CR-006 行 |
 | **LG-127**：**`Bank Transaction Mapping` 是坏的上游机制**——写入端 `bank_statement_import.py:68-70` 以中文表头为键、读取端 `importer.py:879` 以列序号 `str(j)` 取值，故该子表永不被命中。**探针未查 frappe/erpnext issue 确认是否已知或已有补丁** | 待调研 | **本 Stage 的 C 步（开发方案）定前置脚本形态前** —— 若上游已有补丁或将在某版本修掉，前置脚本的「复位映射表」那一项可省。另**换 erpnext 版本须重验**（同 ADR-0007 那类随上游演进的失效条件） |
 | **LG-128**：**GBK csv 静默乱码，且 `use_csv_sniffer` 能否补救未验**——`status=Success`、`success=1`、单也建了，但中文全乱码；成因是 `start_import():291` 另建不带 `template_options` 的 `ImportFile`，故预览告警与实际导入检查不是同一对象。**中国网银导出 GBK/GB18030 极常见** | 待实测 | **本 Stage 的 D 步写前置脚本时** —— 若 `use_csv_sniffer` 可用则此条降级、转码那一项可省；否则前置脚本必须自己转码 |
 | **LG-129**：**自动核销要求凭证 `reference_no` 与流水 `reference_number` 完全相等**（`bank_reconciliation_tool.py:1381-1382` 在 auto 模式下把 `ref_condition` 升为硬 WHERE）。这是**业务流程约束**：本项目收付款凭证须回填银行流水号，否则自动对账形同不存在 | 待落地 | **B 步写需求文档时**（写成显式业务约束）＋**S7 建演示数据时**（CR-011／CR-012 的凭证须带 `reference_no`，否则演示现场自动对账核销 0 笔）。⚠ `get_je_matching_query` 同样强制 `cheque_no` 相等，**探针只读码未实跑** |
