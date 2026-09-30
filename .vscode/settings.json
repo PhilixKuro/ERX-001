@@ -5,7 +5,8 @@
   // 新增自有 app 后在此追加一行。
   "git.scanRepositories": [
     "frappe-bench/apps/frappe",
-    "frappe-bench/apps/erpnext"
+    "frappe-bench/apps/erpnext",
+    "frappe-bench/apps/frappe_china"
   ],
 
   // 只影响资源管理器的显隐，不影响 git 扫描与搜索。
@@ -32,7 +33,8 @@
   // 编辑器识别导入，实际运行在容器中）
   "python.analysis.extraPaths": [
     "frappe-bench/apps/frappe",
-    "frappe-bench/apps/erpnext"
+    "frappe-bench/apps/erpnext",
+    "frappe-bench/apps/frappe_china"
   ],
 
   // 容器内执行的脚本必须是 LF，与 .gitattributes 一致

@@ -6,7 +6,7 @@
 |---|---|
 | Frappe 框架源码 | `frappe-bench/apps/frappe/`（独立 git 仓库，origin 指自有 fork） |
 | ERPNext 业务源码 | `frappe-bench/apps/erpnext/`（同上） |
-| 本项目二次开发内容 | 自有 app（待创建，将落在 `frappe-bench/apps/` 下） |
+| 本项目二次开发内容 | `frappe-bench/apps/frappe_china/`（独立 app；中国财税、译名与导航、上游修复） |
 | 装了哪些 app、锁在哪个版本 | `docker/apps.json` |
 | 开发环境怎么起、怎么换机器 | [../docker/README.md](../docker/README.md) |
 

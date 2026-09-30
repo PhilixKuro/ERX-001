@@ -196,6 +196,12 @@ v16 **强制** Python 3.14，故 `setup.sh` 锁 3.14.7。`bench init` 不读 `PY
 
 另有一条与平台无关但同样会重现：**`bench init` 不读 `PYENV_VERSION`**，不显式传 `--python` 就会自行挑选。v16 强制 Python 3.14，故 `setup.sh` 锁 3.14.7。
 
+### 中文字体
+
+法定财务报表的 PDF 由容器内的 wkhtmltopdf 生成，它依赖 fontconfig 查找中文字形。`docker/scripts/setup.sh` 第 6.5 段会安装 `fonts-noto-cjk` 与 PDF 检查工具 `poppler-utils`；安装失败只告警，不会中断整个开发环境搭建。
+
+字体装在开发容器内，不在项目目录里。容器被 `down.sh` 删除后字体也随之丢失，下次 `docker/up.sh` 会自动补装；离线时先完成其余搭建，联网后重跑 `docker/up.sh` 即可补齐。
+
 ## v16 全新安装需要的额外初始化
 
 v16 把一批初始化搬到了界面上的配置向导里，而 `bench new-site` 会把 `setup_complete` 置 1 使向导不再出现。于是全新安装比 v15 需要更多显式步骤，`seed-demo.sh` 已覆盖：

@@ -239,6 +239,24 @@ for d in apps/*/; do
   fi
 done
 
+# ---------- 6.5 中文字体（PDF 打印用，P1-S4 DEC-095） ----------
+# wkhtmltopdf 靠 fontconfig 找字形；镜像只带 dejavu 等西文字体，汉字会出方块。
+# apt 不走 GIT_PROXY，故有代理时显式传给 apt。离线时只告警，不中断搭建。
+if fc-list :lang=zh family | grep -q . && command -v pdffonts >/dev/null; then
+  ok "中文字体与 PDF 检查工具已安装"
+else
+  log "安装中文字体 fonts-noto-cjk"
+  apt_proxy=()
+  [ -n "${GIT_PROXY:-}" ] && apt_proxy=(-o "Acquire::http::Proxy=$GIT_PROXY" -o "Acquire::https::Proxy=$GIT_PROXY")
+  # poppler-utils 提供 pdftotext／pdffonts，供测试核对 PDF 里的文字与嵌入字体。
+  if sudo apt-get "${apt_proxy[@]}" update -qq && \
+     sudo apt-get "${apt_proxy[@]}" install -y -qq fonts-noto-cjk poppler-utils; then
+    fc-cache -f >/dev/null && ok "中文字体已安装"
+  else
+    echo "  警告：中文字体安装失败（网络不通？）。PDF 里的汉字会显示为方块，联网后重跑 up.sh 即可补装" >&2
+  fi
+fi
+
 # ---------- 7. 开发模式 ----------
 log "开启开发模式"
 bench --site "$SITE_NAME" set-config developer_mode 1
