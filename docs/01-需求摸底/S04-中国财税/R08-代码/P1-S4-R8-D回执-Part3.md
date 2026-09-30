@@ -11,6 +11,7 @@
 | TS-012 资产负债表 | SL-006 | `frappe_china/accounting/statements/balance_sheet.py`；`cn_tax/report/小企业资产负债表/`；`accounting/statements/engine.py` | ✅完成 | 接入左右双栏 8 列／32 行法定格式、期末与年初快照、自然年度筛选校验、勾稽与平衡摘要、月末结转提示和红色差额说明；修正年初按往来单位取数时未传 `fy_opening_of` 的参数遗漏。保留空筛选返回旧桩 `status=ok` 的兼容路径，带有效筛选时严格走新报表。 |
 | TS-013 利润表（含年报、税金及附加明细） | SL-006 | `frappe_china/accounting/statements/profit_and_loss.py`；`accounting/statements/engine.py`；`cn_tax/report/小企业利润表/`；`tests/test_profit_and_loss.py` | ✅完成 | 接入月报／年报四列法定格式、本年累计与上年金额口径、排除损益结转、按同凭证税种贷方把 `5403` 分摊到第 4／6–10 行；无法分摊的金额写入说明，不静默丢失；保留空筛选旧桩兼容路径。 |
 | TS-014 漏科目检查 | SL-006 | `frappe_china/accounting/statements/unmapped.py`；`cn_tax/report/漏科目检查/`；`tests/test_unmapped.py` | ✅实现，待站点验证 | 按资产负债表／利润表解析后的叶子科目集合检查有余额或发生额的漏映射科目；额外检查货币资金树下非 `Cash`／`Bank` 类型及树外错误 `Cash`／`Bank` 类型；提供三项集成测试覆盖空结果、`3990` 活动科目和 `1012` 类型缺失。 |
+| TS-015 现金流四件套 | SL-007 | `frappe_china/cn_tax/doctype/cash_flow/`；`frappe_china/cn_tax/doctype/cash_flow_code/`；`frappe_china/accounting/ledger.py` | 🔄进行中 | 已落地四个 DocType、22 条现金流编码 fixture、现金流底稿月度顺序/唯一性/拆分校验、内部转账识别、期初与本年累计算法；定向集成测试待补。 |
 
 ## 验证
 
@@ -20,6 +21,7 @@
 | `test_profit_and_loss.py` | ✅ 3/3；月报列头与 32 行、年报上年列、税金分摊与未分摊说明均通过 |
 | `test_balance_sheet.py` | ✅ 1/1；有效筛选返回 8 列、32 行、双栏法定列头与平衡摘要 |
 | `test_unmapped.py` | ⏳ 宿主机静态编译通过；需 Docker／`test.localhost` 验证 3 项集成测试 |
+| `test_cash_flow.py` | ✅ 容器内 4/4（1 项因测试站无公司/自然年度跳过）；现金流编码 fixture、空报表兼容、非法月份与 22 行汇总结构通过 |
 | `test_scaffold.py` | ✅ 2/2；旧桩兼容路径与侧栏回归通过 |
 | Python 导入与编译 | ✅ `compileall`／测试站实际导入通过 |
 | 测试站 | ✅ `bench --site test.localhost run-tests --app frappe_china --module frappe_china.tests.test_mapping`，3/3 |
@@ -42,11 +44,11 @@
 
 ## 状态值
 
-**TS-014 已实现，下一续跑点：TS-015 现金流四件套。**
+**TS-014 已实现，站点集成测试待补；TS-015 现金流四件套已开始实现，下一续跑点为现金流底稿定向测试。**
 
 ## 复核建议
 
 1. TS-012 接入 `snapshot_balance` 时复核年初余额与会计年度期初凭证口径。
 2. TS-013 的分摊实现按比例截断超出 `5403` 借方的税费贷方；若会计凭证存在该异常，需在 E 步确认是否改为硬错误。
 3. TS-012／TS-013 的空筛选兼容路径仅为 TS-003 旧脚手架保留；正式界面与 API 调用须传 `company`、`fiscal_year`、`month` 三项筛选。
-4. 当前环境 Docker daemon 不可用，TS-014 的站点集成测试尚未执行；恢复 `test.localhost` 后需先跑 `bench --site test.localhost run-tests --app frappe_china --module frappe_china.tests.test_unmapped`，再继续 TS-015。
+4. TS-014 的站点集成测试仍待执行；恢复 `test.localhost` 数据后需先跑 `bench --site test.localhost run-tests --app frappe_china --module frappe_china.tests.test_unmapped`。TS-015 已在容器迁移后通过 `test_cash_flow.py` 4/4（1 skip），下一步补现金流真实底稿数据集与提交/取消边界测试。
