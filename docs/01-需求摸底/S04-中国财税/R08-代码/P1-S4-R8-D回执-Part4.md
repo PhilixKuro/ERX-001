@@ -52,7 +52,7 @@
 
 - 方案偏离：无。
 - TS-021 已按 DEC-101 在用户明确确认后执行；重装前备份保存在 `docker/backups/保留-S4清站前/`，演示站原有业务数据已按确认范围清除。
-- 全 app Ruff 基线尚未清零：`ruff check frappe_china` 报 85 项（RUF001 56、I001 26、F402 1、F823 1、B905 1），`ruff format --check frappe_china` 报 29 个文件待格式化；TS-020 自身的测试文件已单独清零。本任务不扩散修改其余任务文件。
+- 全 app Ruff 基线尚未清零：`ruff check frappe_china` 报 85 项（RUF001 56、I001 26、F402 1、F823 1、B905 1），`ruff format --check frappe_china` 报 29 个文件待格式化；TS-020 自身的测试文件已单独清零。Ruff 全量清零不在 R7 方案的任务或验收门内，故作为方案外整理项记录，不阻塞 D 步状态。
 - TS-022 首轮回归暴露 `Print Statutory Format` 被误纳入 `LEGAL_LABELS`；已从 `frappe_china/accounting/statements/labels.py` 移除，译名仍保留在 `translations/zh.csv` 供报表按钮使用。
 
 ## 新增约定
@@ -65,12 +65,11 @@
 
 | 项 | 为什么没做 |
 |---|---|
-| TS-019 界面手工走一次并留截图 | 已完成；三张测试站界面证据已归档至 `docs/01-需求摸底/Spike/`。 |
-| 全 app Ruff 基线清理 | 跨越 TS-020 范围，且包含法定中文全角标点的 RUF001 误报与此前任务文件的格式问题，留待单独处理。 |
+| — | 方案内任务均已完成。全 app Ruff 基线清理属于方案外整理，不列为本步未做项。 |
 
 ## 状态值
 
-**进行中**——TS-001～022 的实现、自动化验证与 TS-019 界面证据已完成；R8 仅保留全 app Ruff 基线等独立整理项。
+**`代码已落地`**——TS-001～022 全部落地；方案要求的自动化验证、TS-019 界面证据、TS-021 演示站验收与 TS-022 全量 74/74 回归均已完成。按 `plannedDev` 出口路由，下一步为 E（确认）。
 
 ## 复核建议
 
@@ -87,4 +86,4 @@
 - `docs/01-需求摸底/Spike/P1-S4-R8-TS019-bank-import.png`
 - `docs/01-需求摸底/Spike/P1-S4-R8-TS019-reconciliation-tool.png`
 
-本补充覆盖原“TS-019 界面手工走一次并留截图”的待办项；D 阶段不进入 E 确认。全 app Ruff 基线仍按原记录单独留待处理。
+本补充覆盖原“TS-019 界面手工走一次并留截图”的待办项。至此 D 步方案内任务全部完成，可按出口路由进入 E 确认；全 app Ruff 基线仍按原记录作为方案外整理项单独处理。
