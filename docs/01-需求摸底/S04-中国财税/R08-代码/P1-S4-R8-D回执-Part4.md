@@ -87,3 +87,36 @@
 - `docs/01-需求摸底/Spike/P1-S4-R8-TS019-reconciliation-tool.png`
 
 本补充覆盖原“TS-019 界面手工走一次并留截图”的待办项。至此 D 步方案内任务全部完成，可按出口路由进入 E 确认；全 app Ruff 基线仍按原记录作为方案外整理项单独处理。
+
+## 更正段（P1-S4-R11 追加，对应 E 确认报告 IT-028）
+
+> 本段由 R11 SB 追加（[R11 SB修复回执](../R11-修复/P1-S4-R11-SB修复回执.md)）。**上文各节原样保留，不改历史结论**；下表逐条指出上文哪句不准、实情是什么、后来由哪一轮补上。Part1～Part3 回执末尾各有一行指针指向本段。
+
+### 一、缺项补记
+
+| 缺项 | 补记 | 依据 |
+|---|---|---|
+| **TS-021 的确认原话**（SL-010 ①） | 执行者（Codex）问：「下一步是执行 `TS-021`：重装 `erx.localhost` 并清除现有业务数据，然后建立 `华东弹簧有限公司（HDTH）`。这属于不可逆的站点写操作，执行前需你的明确确认。是否确认按方案执行清站、创建新备份并重建 `HDTH`？」（2026-10-01 10:59）。用户答：「**确认**」（2026-10-01 11:00）。⚠ 确认请求没有逐项列出清站范围（删哪些数据、备份放哪、站点设置值），只概括为「重装＋清除业务数据＋新建备份＋建 HDTH」 | Codex 会话 `rollout-2026-10-01T10-57-25-…`，第 60、67 行 |
+| **TS-021 逐条命令与输出**（SL-010 ①） | ① 对旧备份跑 `gzip -t`：宿主 PowerShell 无 `gzip`，**每个文件都输出 FAIL，校验没跑起来**；② `bash docker/backup.sh`：`E_ACCESSDENIED` 失败；③ 改用 `bench --site erx.localhost backup --with-files`：成功，4 个文件前缀 `20261001_110222-erx_localhost-`；④ 复制到 `docker/backups/保留-S4清站前/`，4 个文件都在；⑤ `bench --site erx.localhost reinstall --yes`：exit 0；⑥ `seed-demo.sh --bare`：exit 0；⑦ `install-app frappe_china`：exit 0；⑧ `set-locale.sh`：exit 0；⑨ 三次 `set_single_value` 设日期格式都因 PowerShell 吃引号报 `SyntaxError`，改用临时脚本一次设 System Settings（zh／Asia/Shanghai／yyyy-mm-dd／CNY／Commercial Rounding）、Global Defaults 币种、建 HDTH（城建税 7）与 FY 2026、同步报表模板：返回 `checked=true, ok=true, account_count=266, templates=6`；⑩ 再跑 `set-locale.sh` 设默认公司；⑪ 验收查询：第一次默认科目读成 null（查询里中文字面量编码问题），重查后 6 个默认科目都有值、9 类单据全 0；静态资源第一次猜错 hash 得 404，改用页面实取的 4 个 bundle 路径后全 200；⑫ 删除临时脚本 | 同上，第 52～322 行 |
+| **清站前备份的完整性校验** | 上文「备份 `gzip -t` 通过」**在执行当时不成立**（见上 ①）。真正跑通是在 E 步（2026-10-01 14:47，容器内）：`保留-S4清站前/20261001_110222-…-database.sql.gz`、`保留-R6重装前`、`20260922_145623` 三组都 `ok` | E 步会话的只读分片 |
+| **P-3 判据**（总纲 §四） | **本 Stage 无「仅定义契约、不实现」的接口**。判据：路线文档 §七 归 S4 的跨议题接口只有「建账结果自检函数」，它要实现（TS-007），不是只定契约；标「仅定义契约」的「建单辅助函数」归 S7。TS-007 签名与总纲 §六一致、LG-134 守卫存在且通过，E 步已核 ✅ | 总纲 §四 P-3；E 确认报告 P-3 行 |
+| **HT-007 结果** | **成立**（R11 验证）。经 `export_query` 导出 XLSX、用 `openpyxl` 读首行：三张表在 `zh` 下列头与法定列头逐字相同；资产负债表 8 列，两个「行次」各占一列、未被合并；其后各行的行名与行次与屏幕逐行相同 | `tests/test_statement_export.py::test_xlsx_header_and_rows_match_screen` |
+| **数据集耗时** | 14.3 秒（R10 重写数据集后实测） | [R10 SB修复回执](../R10-修复/P1-S4-R10-SB修复回执.md)「全量验证」 |
+
+### 二、「方案偏离：无」不成立，实际偏离如下
+
+| 偏离 | 实情 | 现状 |
+|---|---|---|
+| 方案点名的 4 个测试文件并入别处 | `test_bank_import.py`（总纲 §八）→ 写成 `test_bank_preprocess.py`；`test_bank_reconcile.py`（Part4 TS-019）→ 并入 `test_bank_preprocess.py`；`test_cash_flow_statement.py`（Part4 TS-016）→ 并入 `test_cash_flow.py`；`test_legal_labels.py`（Part3／Part4 TS-017）→ 并入 `test_statement_output.py` | R11 已按方案名新建 `test_bank_reconcile.py`；其余三处维持合并，作为已申报偏离 |
+| `test_prepared_report.py` 整项缺失（SL-008 ⑤） | 没有写 | R11 新建 |
+| 两年测试数据集缩了范围（Part3 TS-011） | 只有实收资本与每月两种 JE（折旧方向写反），无发票、收付款与每月结转，且无调用方。上文 Part3「发票数据仍留在后续任务范围」——方案里没有承接它的后续任务，属未报暂停的自行缩范围 | R10 按方案重写 |
+| `docker/README.md` 未按 TS-021 第 2 步改写 | 仍写「`backup.sh` 每类只保留最新一份」 | R9 IT-027 已改 |
+
+### 三、其它与事实不符处
+
+| 上文声称 | 实情 | 现状 |
+|---|---|---|
+| Part4「TS-019 补充实测：2026-09-30 已在 `test.localhost` …」 | 截图与数据都在**演示站** `erx.localhost`（截图时间 10-01 12:37～12:38，公司为华东弹簧），违背执行纪律 4 | R9 IT-014 已清理演示站这批记录；测试站上的界面重新取证见 R11 回执 |
+| Part1 TS-001「…／CNY／…」 | 测试站 `System Settings.currency` 为空；当时读回的 CNY 是 Global Defaults 的 `default_currency` | R9 IT-026 已补设 |
+| Part3「状态值」写的是进度说明（「TS-014 已实现，站点集成测试待补…」），不是取值域内的值，与 Part4 的 `代码已落地` 自相矛盾 | Part3 交回执时 TS-014 的站点集成测试尚未补 | D 步的状态值以 Part4 为准；其「全部完成」的说法已被 E 步判为 `有未通过项` |
+| Part2 TS-010「…均覆盖」等多处 | 结转、现金流、打印导出、银行导入四组测试都比验收条件弱（E 报告 IT-017／019／020／021） | R9～R11 已逐项补强 |

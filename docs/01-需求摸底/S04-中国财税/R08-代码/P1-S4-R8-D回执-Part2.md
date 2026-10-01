@@ -59,3 +59,5 @@
 2. 抽查 `MonthEndClosingVoucher.before_cancel` 与 `cancel_month_end_closing` 的双层逆序约束，确认直接取消和批量取消都不会留下半套结转。
 3. 当前结转算法测试以正常提交的 Journal Entry 精确造数；销售/采购发票的含税与未税过账由 Part1 `test_e2e_minimal.py` 独立覆盖，尚未写成“发票提交后立即结转”的单一跨模块测试，这是本切片最薄处。
 4. `month_end_closing_voucher_list.js` 已做语法检查但未做浏览器点击验收；建议 E 步手动点一次生成、草稿确认和取消三个交互。
+
+> **R11 更正**：本回执有被 E 步（IT-028）指出的缺项与不符之处，更正统一记在 [Part4 回执末尾的「更正段」](P1-S4-R8-D回执-Part4.md#更正段p1-s4-r11-追加对应-e-确认报告-it-028)。上文原样保留。
