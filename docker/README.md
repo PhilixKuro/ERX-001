@@ -11,7 +11,7 @@ Frappe v16 + ERPNext v16 的容器化开发环境（分支与 commit 见 `apps.j
 | 进容器跑 bench 命令 | `docker/shell.sh` |
 | 停容器（数据保留） | `docker/down.sh` |
 | 备份站点数据 | `docker/backup.sh` |
-| 恢复站点数据 | `docker/restore.sh` |
+| 恢复站点数据 | `docker/restore.sh`（最新一套）／`docker/restore.sh <时间戳>`（指定一套，子目录里的也找得到） |
 | 建公司 + 演示数据 | `docker/seed-demo.sh` |
 | 清除演示数据 | `docker/seed-demo.sh --clear` |
 | **只补 v16 初始化，不建公司不导演示数据** | `docker/seed-demo.sh --bare` |
@@ -84,7 +84,7 @@ docker/
 ├── shell.sh            进容器
 ├── down.sh             停容器
 ├── backup.sh           备份到 backups/
-├── restore.sh          从 backups/ 恢复
+├── restore.sh          从 backups/ 恢复（可带时间戳参数）
 ├── seed-demo.sh        建公司 + 导演示数据
 ├── set-locale.sh       设界面语言与默认公司
 ├── lock-apps.sh        把各 app 当前 commit 写进 apps.json
@@ -118,7 +118,24 @@ frappe-bench/apps/<自有app>  ← bench new-app 建的，同样独立
 
 所以改源码、commit、push、合并上游都在那三个目录里各自进行，主仓库的 `git status` 看不到它们。
 
-**版本记录**：`apps.json` 记 url + branch + commit。合并上游或确认版本可用后跑 `docker/lock-apps.sh` 更新它，换机器时 `up.sh` 按它对齐（用 `reset --hard`，仍停在分支上，不进 detached HEAD；有未提交改动时跳过，不会丢代码）。
+**版本记录**：`apps.json` 记 url + branch + commit + `app_name`。合并上游或确认版本可用后跑 `docker/lock-apps.sh` 更新它，换机器时 `up.sh` 按它对齐（用 `reset --hard`，仍停在分支上，不进 detached HEAD；有未提交改动时跳过，不会丢代码）。
+
+`app_name` 是该 app 在 `frappe-bench/apps/` 下的**目录名**，不一定等于仓库名：`bench get-app` 会按 app 的 `pyproject.toml` 把目录改名（仓库 `FrappeChina` → 目录 `frappe_china`）。`setup.sh` 靠它判断 app 是否已经装好；缺了这个字段，重跑 `up.sh` 会再克隆一次并在改名时中止。`lock-apps.sh` 会自动写入它；手工往 `apps.json` 加 app 时也要写上。`apps.json` 的顺序就是安装顺序（`setup.sh` 不让 bench 自己解析依赖），新 app 加在末尾。
+
+### 私有仓库
+
+`frappe_china` 的仓库（`PhilixKuro/FrappeChina`）是私有的。容器里没有你宿主机的 git 凭据，`up.sh` 在新机器上克隆它时会报「容器内访问不了…」并停下。给容器配一次凭据再重跑 `docker/up.sh`：
+
+```bash
+docker/shell.sh
+git config --global credential.helper store
+printf 'https://<GitHub 用户名>:<个人访问令牌>@github.com\n' > ~/.git-credentials
+chmod 600 ~/.git-credentials
+exit
+docker/up.sh
+```
+
+令牌在 GitHub「Settings → Developer settings → Personal access tokens」生成，只需该仓库的 Contents 只读权限。凭据存在容器的家目录里，`down.sh` 删掉容器后会丢失，重建后再配一次即可。**凭据文件不在项目目录内，不会进 git。**
 
 **在 VS Code 里看这三个仓库的改动**：`.vscode/settings.json` 已用 `git.scanRepositories` 显式列出（它们在 gitignore 内，编辑器默认不扫）。源代码管理面板会并列显示主仓库、frappe、erpnext。新增自有 app 后在那里追加一行。
 
@@ -220,7 +237,7 @@ v16 把一批初始化搬到了界面上的配置向导里，而 `bench new-site
 
 ## 重装站点（抹掉全部数据重来）
 
-教学实操、演示前重置这类场合要一个干净站点。**跑之前先 `docker/backup.sh`**，并把那份备份另存一个子目录——`backup.sh` 每次都新增一套带时间戳的文件、不会覆盖旧的，但 `restore.sh` 按修改时间取最新一套，新备份会成为默认恢复对象，故仍要另存一份才稳妥。
+教学实操、演示前重置这类场合要一个干净站点。**跑之前先 `docker/backup.sh`**，并把那份备份另存一个子目录——`backup.sh` 每次都新增一套带时间戳的文件、不会覆盖旧的，但 `restore.sh` 不带参数时按修改时间取根目录最新一套，新备份会成为默认恢复对象，故仍要另存一份才稳妥。要恢复另存的那套，带上它的时间戳：`docker/restore.sh 20261001_110222`（根目录与各子目录都会找；找不到时列出全部可用时间戳）。
 
 ```bash
 docker/backup.sh

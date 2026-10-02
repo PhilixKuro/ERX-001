@@ -114,9 +114,18 @@ fi
 # 逐条读取。用 python 解析而非 jq——镜像里不一定有 jq。
 # commit 字段可选：有则 checkout 到该 commit（精确锁定，保证多机一致），
 # 无则停在分支最新。由 docker/lock-apps.sh 写入。
-while IFS=$'\t' read -r app_url app_branch app_commit; do
+#
+# app_name 字段 = 克隆后 apps/ 下的目录名。不能拿仓库名代替：bench get-app 会按
+# pyproject.toml 的 name 给目录改名（FrappeChina → frappe_china），按仓库名判断
+# 「已存在」永远为假，重跑时会再克隆一次、改名撞上已有目录而中止（R14 FD-009）。
+# 缺省时退回仓库名（frappe、erpnext 两者相同）。
+#
+# 不用 --resolve-deps：apps.json 本身就是按装载顺序排好的完整清单；而依赖解析遇到
+# 已装的依赖（如 erpnext）会用 click.confirm 问要不要删掉重装，无输入时 Abort，
+# 答 y 则把整个依赖目录 rmtree（R14 FD-009）。
+while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
   [ -z "$app_url" ] && continue
-  app_name=$(basename "$app_url" .git)
+  [ -n "$app_name" ] || app_name=$(basename "$app_url" .git)
 
   if [ -d "apps/$app_name" ]; then
     ok "$app_name 已存在"
@@ -124,8 +133,19 @@ while IFS=$'\t' read -r app_url app_branch app_commit; do
     # frappe 由上面的 bench init 装，不能走 get-app
     ok "frappe 由 bench init 装（跳过 get-app）"
   else
+    # 先探一次能否访问：私有仓库在容器里没有凭据时，克隆只报一句 could not read
+    # Username 就中止，看不出原因。这里提前响亮失败，并指明办法。
+    if ! GIT_TERMINAL_PROMPT=0 timeout 25 git ls-remote --heads "$app_url" "$app_branch" >/dev/null 2>&1; then
+      echo "错误：容器内访问不了 $app_url（分支 $app_branch）。" >&2
+      echo "若是私有仓库，先给容器配凭据再重跑 docker/up.sh，办法见 docker/README.md「私有仓库」节。" >&2
+      exit 1
+    fi
     log "获取 $app_name（$app_branch）"
-    bench get-app --branch "$app_branch" --resolve-deps "$app_url"
+    bench get-app --branch "$app_branch" "$app_url"
+    [ -d "apps/$app_name" ] || {
+      echo "get-app 后找不到 apps/$app_name：apps.json 里这一条的 app_name 与该 app 的 pyproject.toml name 不一致？" >&2
+      exit 1
+    }
     ok "$app_name 已获取"
   fi
 
@@ -153,7 +173,7 @@ while IFS=$'\t' read -r app_url app_branch app_commit; do
 done < <("$BENCH_DIR/env/bin/python" - "$APPS_JSON" <<'PY'
 import json, sys
 for a in json.load(open(sys.argv[1], encoding="utf-8")):
-    print(a["url"], a.get("branch", "version-16"), a.get("commit", ""), sep="\t")
+    print(a["url"], a.get("branch", "version-16"), a.get("commit", ""), a.get("app_name", ""), sep="\t")
 PY
 )
 

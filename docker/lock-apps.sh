@@ -49,7 +49,8 @@ for d in sorted((bench / "apps").iterdir()):
     branch = subprocess.run(["git", "-C", str(d), "rev-parse", "--abbrev-ref", "HEAD"],
                             capture_output=True, text=True).stdout.strip()
     entry = existing.get(url, {})
-    entry.update({"url": url, "branch": branch, "commit": sha})
+    # app_name 记 apps/ 下的目录名：setup.sh 据它判断该 app 是否已装（R14 FD-009）
+    entry.update({"url": url, "branch": branch, "commit": sha, "app_name": d.name})
     out.append(entry)
 
 apps_json.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
