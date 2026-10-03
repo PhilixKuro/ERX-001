@@ -26,7 +26,12 @@ for i in $(seq 1 60); do
 done
 
 echo "==> 搭建 bench 与站点（幂等，已存在则跳过）"
+# 宿主 git 的换行转换设置，交给容器照抄到各 app 仓库（R18 FD-081）。
+# Git for Windows 默认 autocrlf=true，工作区是 CRLF；容器里的 git 没有这项设置，
+# 会把每个 CRLF 文件都当成已修改。宿主没设（Linux）则为空，容器不写。
+HOST_GIT_AUTOCRLF=$(git config --get core.autocrlf 2>/dev/null || true)
 docker compose exec -T \
+  -e HOST_GIT_AUTOCRLF="$HOST_GIT_AUTOCRLF" \
   -e SITE_NAME="${SITE_NAME:-erx.localhost}" \
   -e BENCH_NAME="${BENCH_NAME:-frappe-bench}" \
   -e DB_ROOT_PASSWORD="${DB_ROOT_PASSWORD:-123}" \

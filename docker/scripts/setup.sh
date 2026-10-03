@@ -123,6 +123,18 @@ fi
 # 不用 --resolve-deps：apps.json 本身就是按装载顺序排好的完整清单；而依赖解析遇到
 # 已装的依赖（如 erpnext）会用 click.confirm 问要不要删掉重装，无输入时 Abort，
 # 答 y 则把整个依赖目录 rmtree（R14 FD-009）。
+#
+# 先把解析结果存进变量再喂给循环：写成 `done < <(python …)` 时，进程替换的退出码
+# 不受 set -e 约束，apps.json 写坏（语法错、某条缺 url）会让本段被静默跳过或截断（R18 FD-082）。
+# 空字段写成 "-"：tab 属于 IFS 空白字符，read 会把连续两个 tab 合并成一个，
+# 删掉 commit 解锁后 app_name 会被读进 app_commit（R17 FD-049）
+app_entries=$("$BENCH_DIR/env/bin/python" - "$APPS_JSON" <<'PY'
+import json, sys
+for a in json.load(open(sys.argv[1], encoding="utf-8")):
+    print(a["url"], a.get("branch") or "version-16", a.get("commit") or "-", a.get("app_name") or "-", sep="\t")
+PY
+) || { echo "错误：解析 $APPS_JSON 失败（见上方 python 报错）：JSON 语法错，或某条缺 url？" >&2; exit 1; }
+
 while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
   [ -z "$app_url" ] && continue
   [ "$app_commit" = "-" ] && app_commit=""
@@ -149,6 +161,14 @@ while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
       exit 1
     }
     ok "$app_name 已获取"
+  fi
+
+  # 换行转换与宿主一致（R18 FD-081）。Git for Windows 默认 autocrlf=true，工作区是 CRLF；
+  # 容器里的 git 没有这项设置，会把每个 CRLF 文件当成已修改，下面「有未提交改动」的判断
+  # 永远为真，锁定被跳过。须在判断之前设，故放在这里而非第 4 段。值由 up.sh 从宿主读来，
+  # 宿主没设（Linux）则不写——硬写 true 会让 Linux 宿主检出成 CRLF。
+  if [ -n "${HOST_GIT_AUTOCRLF:-}" ] && [ -d "apps/$app_name/.git" ]; then
+    git -C "apps/$app_name" config core.autocrlf "$HOST_GIT_AUTOCRLF"
   fi
 
   # 锁定到指定 commit。已是该 commit 则跳过；有未提交改动时不动，避免丢改动。
@@ -179,14 +199,7 @@ while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
       fi
     fi
   fi
-done < <("$BENCH_DIR/env/bin/python" - "$APPS_JSON" <<'PY'
-import json, sys
-# 空字段写成 "-"：tab 属于 IFS 空白字符，read 会把连续两个 tab 合并成一个，
-# 删掉 commit 解锁后 app_name 会被读进 app_commit（R17 FD-049）
-for a in json.load(open(sys.argv[1], encoding="utf-8")):
-    print(a["url"], a.get("branch") or "version-16", a.get("commit") or "-", a.get("app_name") or "-", sep="\t")
-PY
-)
+done <<<"$app_entries"
 
 # ---------- 4. 各 app 的 remote 命名归位 ----------
 # bench init / get-app 用 `git clone --origin upstream` 建仓库，于是「自有 fork」
