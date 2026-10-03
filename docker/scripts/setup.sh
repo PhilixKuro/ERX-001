@@ -305,14 +305,31 @@ ok "默认站点为 $SITE_NAME（改动后须重启 bench start 才生效）"
 
 # ---------- 9. 校验前端资源 ----------
 # bench init / get-app 会各自构建。这里只校验产物确实在，不重复构建。
-# 判据看 dist/css 下有无实际文件——assets.json 在构建开始时就写好了，不能作准。
+# 判据看 dist 下有无实际文件——assets.json 在构建开始时就写好了，不能作准。
+# 只查有构建源的 app：esbuild 只收 public/**/*.bundle.*，没有这类文件的 app（如只有
+# public/.gitkeep 的 frappe_china）build 后也不会有 dist，不能要求它有（R18 FD-080）。
+# 有样式 bundle 的查 dist/css，只有脚本 bundle 的查 dist/js。
+assets_missing() {
+  local pub="$1/$2/public" kind dir
+  for kind in css js; do
+    if [ "$kind" = css ]; then
+      find "$pub" \( -path "$pub/dist" -o -name node_modules \) -prune -o -type f \
+        \( -name '*.bundle.css' -o -name '*.bundle.scss' -o -name '*.bundle.sass' -o -name '*.bundle.less' \) -print 2>/dev/null | grep -q . || continue
+    else
+      find "$pub" \( -path "$pub/dist" -o -name node_modules \) -prune -o -type f \
+        \( -name '*.bundle.js' -o -name '*.bundle.ts' -o -name '*.bundle.jsx' -o -name '*.bundle.tsx' -o -name '*.bundle.vue' \) -print 2>/dev/null | grep -q . || continue
+    fi
+    dir="$pub/dist/$kind"
+    [ -n "$(ls -A "$dir" 2>/dev/null)" ] || { echo "$kind"; return 0; }
+  done
+  return 1
+}
 log "校验前端资源"
 missing=""
 for d in apps/*/; do
   app_name=$(basename "$d")
-  pub="$d/$app_name/public/dist/css"
   [ -d "$d/$app_name/public" ] || continue
-  [ -n "$(ls -A "$pub" 2>/dev/null)" ] || missing="$missing $app_name"
+  assets_missing "$d" "$app_name" >/dev/null && missing="$missing $app_name"
 done
 if [ -n "$missing" ]; then
   log "以下 app 缺前端产物，重新构建：$missing"
@@ -321,8 +338,9 @@ fi
 for d in apps/*/; do
   app_name=$(basename "$d")
   [ -d "$d/$app_name/public" ] || continue
-  [ -n "$(ls -A "$d/$app_name/public/dist/css" 2>/dev/null)" ] \
-    || { echo "bench build 后 $app_name 仍无 dist/css，中止。" >&2; exit 1; }
+  if kind=$(assets_missing "$d" "$app_name"); then
+    echo "bench build 后 $app_name 仍无 dist/$kind，中止。" >&2; exit 1
+  fi
 done
 ok "前端资源齐备"
 
