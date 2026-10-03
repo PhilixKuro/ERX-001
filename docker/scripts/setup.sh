@@ -125,6 +125,8 @@ fi
 # 答 y 则把整个依赖目录 rmtree（R14 FD-009）。
 while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
   [ -z "$app_url" ] && continue
+  [ "$app_commit" = "-" ] && app_commit=""
+  [ "$app_name" = "-" ] && app_name=""
   [ -n "$app_name" ] || app_name=$(basename "$app_url" .git)
 
   if [ -d "apps/$app_name" ]; then
@@ -158,22 +160,31 @@ while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
       echo "  警告：$app_name 有未提交改动，跳过 checkout 到 ${app_commit:0:12}" >&2
     else
       log "$app_name 对齐到锁定的 ${app_commit:0:12}"
-      # shallow clone 可能不含该 commit，先取回
-      git -C "apps/$app_name" fetch --depth 1 origin "$app_commit" 2>/dev/null \
-        || git -C "apps/$app_name" fetch origin 2>/dev/null || true
+      # 此时 remote 还没归位（第 4 段才做）：bench get-app 克隆出的仓库只有 upstream、没有 origin，
+      # 且是 --depth 1 浅克隆。按实际存在的 remote 取回该 commit（R17 FD-045）
+      remote=$(git -C "apps/$app_name" remote get-url origin >/dev/null 2>&1 && echo origin || echo upstream)
+      git -C "apps/$app_name" cat-file -e "$app_commit^{commit}" 2>/dev/null \
+        || git -C "apps/$app_name" fetch -q --depth 1 "$remote" "$app_commit" 2>/dev/null \
+        || git -C "apps/$app_name" fetch -q --unshallow "$remote" 2>/dev/null \
+        || true
       # 用 reset --hard 而非 checkout <sha>：后者进入 detached HEAD，你之后
       # 改代码无法直接 commit 到分支。这样仍停在 $app_branch 上。
       if git -C "apps/$app_name" reset --hard -q "$app_commit" 2>/dev/null; then
         ok "已对齐到 ${app_commit:0:12}（仍在 $app_branch 分支）"
       else
-        echo "  警告：取不到 commit ${app_commit:0:12}，保持当前 ${current:0:12}" >&2
+        # 不只打警告往下跑：停在分支最新就不是 apps.json 锁定的版本，两台机器会拿到不同代码
+        echo "错误：$app_name 取不到锁定的 commit ${app_commit:0:12}（remote=$remote），当前停在 ${current:0:12}。" >&2
+        echo "检查该 commit 是否已推送到 $app_url；要解除锁定，按 docker/lock-apps.sh 末尾的说明删掉 commit 字段。" >&2
+        exit 1
       fi
     fi
   fi
 done < <("$BENCH_DIR/env/bin/python" - "$APPS_JSON" <<'PY'
 import json, sys
+# 空字段写成 "-"：tab 属于 IFS 空白字符，read 会把连续两个 tab 合并成一个，
+# 删掉 commit 解锁后 app_name 会被读进 app_commit（R17 FD-049）
 for a in json.load(open(sys.argv[1], encoding="utf-8")):
-    print(a["url"], a.get("branch", "version-16"), a.get("commit", ""), a.get("app_name", ""), sep="\t")
+    print(a["url"], a.get("branch") or "version-16", a.get("commit") or "-", a.get("app_name") or "-", sep="\t")
 PY
 )
 
