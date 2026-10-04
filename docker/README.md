@@ -118,7 +118,7 @@ frappe-bench/apps/<自有app>  ← bench new-app 建的，同样独立
 
 所以改源码、commit、push、合并上游都在那三个目录里各自进行，主仓库的 `git status` 看不到它们。
 
-**版本记录**：`apps.json` 记 url + branch + commit + `app_name`。合并上游或确认版本可用后跑 `docker/lock-apps.sh` 更新它，换机器时 `up.sh` 按它对齐（用 `reset --hard`，仍停在分支上，不进 detached HEAD；有未提交改动时跳过，不会丢代码）。
+**版本记录**：`apps.json` 记 url + branch + commit + `app_name`。合并上游或确认版本可用后跑 `docker/lock-apps.sh` 更新它，换机器时 `up.sh` 按它对齐（用 `reset --hard`，仍停在分支上，不进 detached HEAD）。**不会丢代码的两条保护**：有未提交改动时跳过；HEAD 上有锁定值不含的提交（你刚 commit、还没跑 `lock-apps.sh`，或两边分叉）时也跳过，并列出这些提交——是新版本就跑 `lock-apps.sh`，确实要退回就照提示手动 `reset`。只有本次刚克隆的、或 HEAD 只是落后于锁定值时才自动对齐。**锁不上会中止 `up.sh`**：本地没有锁定的 commit 就按 SHA 去远端取（浅克隆只取这一个，完整克隆不会被变成浅克隆），取不到即退出并打出 git 的原话——多半是代理、凭据，或那个 commit 没推送。
 
 `app_name` 是该 app 在 `frappe-bench/apps/` 下的**目录名**，不一定等于仓库名：`bench get-app` 会按 app 的 `pyproject.toml` 把目录改名（仓库 `FrappeChina` → 目录 `frappe_china`）。`setup.sh` 靠它判断 app 是否已经装好；缺了这个字段，重跑 `up.sh` 会再克隆一次并在改名时中止。`lock-apps.sh` 会自动写入它；手工往 `apps.json` 加 app 时也要写上。`apps.json` 的顺序就是安装顺序（`setup.sh` 不让 bench 自己解析依赖），新 app 加在末尾。
 

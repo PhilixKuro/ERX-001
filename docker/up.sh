@@ -29,7 +29,9 @@ echo "==> 搭建 bench 与站点（幂等，已存在则跳过）"
 # 宿主 git 的换行转换设置，交给容器照抄到各 app 仓库（R18 FD-081）。
 # Git for Windows 默认 autocrlf=true，工作区是 CRLF；容器里的 git 没有这项设置，
 # 会把每个 CRLF 文件都当成已修改。宿主没设（Linux）则为空，容器不写。
-HOST_GIT_AUTOCRLF=$(git config --get core.autocrlf 2>/dev/null || true)
+# 在 / 下读：当前目录 docker/ 属主仓库，会把主仓库自己的 local 设置也读进来（R19 FD-108）。
+# 在 WSL 里跑本脚本读到的是 WSL 的 git 配置；工作区若由 Windows 的 git 检出，须在 WSL 里也设成同一值。
+HOST_GIT_AUTOCRLF=$(cd / && git config --get core.autocrlf 2>/dev/null || true)
 docker compose exec -T \
   -e HOST_GIT_AUTOCRLF="$HOST_GIT_AUTOCRLF" \
   -e SITE_NAME="${SITE_NAME:-erx.localhost}" \

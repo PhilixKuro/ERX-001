@@ -66,6 +66,7 @@ fi
 
 # ---------- 1. bench init ----------
 # 判据用 env/bin/python：bench init 最后才建 venv，故它存在即代表 init 跑完了。
+bench_inited=0   # 本次是否新建了 bench（frappe 随之刚克隆），第 3 段锁定时用
 if [ -x "$BENCH_DIR/env/bin/python" ]; then
   ok "bench 已存在，跳过 init"
 else
@@ -91,6 +92,7 @@ else
     --no-backups \
     "$BENCH_DIR"
   [ -x "$BENCH_DIR/env/bin/python" ] || { echo "bench init 未生成 venv，中止。" >&2; exit 1; }
+  bench_inited=1
   ok "bench 初始化完成"
 fi
 
@@ -141,8 +143,11 @@ while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
   [ "$app_name" = "-" ] && app_name=""
   [ -n "$app_name" ] || app_name=$(basename "$app_url" .git)
 
+  # 本次搭建刚克隆的 app：HEAD 就是远端分支最新、其上没有本地提交，锁定时可以直接对齐（R19 FD-098）
+  fresh=0
   if [ -d "apps/$app_name" ]; then
     ok "$app_name 已存在"
+    if [ "$app_name" = "frappe" ] && [ "$bench_inited" = 1 ]; then fresh=1; fi
   elif [ "$app_name" = "frappe" ]; then
     # frappe 由上面的 bench init 装，不能走 get-app
     ok "frappe 由 bench init 装（跳过 get-app）"
@@ -161,6 +166,7 @@ while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
       exit 1
     }
     ok "$app_name 已获取"
+    fresh=1
   fi
 
   # 换行转换与宿主一致（R18 FD-081）。Git for Windows 默认 autocrlf=true，工作区是 CRLF；
@@ -171,31 +177,54 @@ while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
     git -C "apps/$app_name" config core.autocrlf "$HOST_GIT_AUTOCRLF"
   fi
 
-  # 锁定到指定 commit。已是该 commit 则跳过；有未提交改动时不动，避免丢改动。
+  # 锁定到指定 commit。已是该 commit 则跳过；有未提交改动、或 HEAD 上有锁定值不含的提交时不动，避免丢代码。
   if [ -n "$app_commit" ] && [ -d "apps/$app_name/.git" ]; then
-    current=$(git -C "apps/$app_name" rev-parse HEAD)
+    repo="apps/$app_name"
+    current=$(git -C "$repo" rev-parse HEAD)
     if [ "$current" = "$app_commit" ]; then
       ok "$app_name 已在锁定的 commit ${app_commit:0:12}"
-    elif [ -n "$(git -C "apps/$app_name" status --porcelain)" ]; then
+    elif [ -n "$(git -C "$repo" status --porcelain)" ]; then
       echo "  警告：$app_name 有未提交改动，跳过 checkout 到 ${app_commit:0:12}" >&2
     else
-      log "$app_name 对齐到锁定的 ${app_commit:0:12}"
-      # 此时 remote 还没归位（第 4 段才做）：bench get-app 克隆出的仓库只有 upstream、没有 origin，
-      # 且是 --depth 1 浅克隆。按实际存在的 remote 取回该 commit（R17 FD-045）
-      remote=$(git -C "apps/$app_name" remote get-url origin >/dev/null 2>&1 && echo origin || echo upstream)
-      git -C "apps/$app_name" cat-file -e "$app_commit^{commit}" 2>/dev/null \
-        || git -C "apps/$app_name" fetch -q --depth 1 "$remote" "$app_commit" 2>/dev/null \
-        || git -C "apps/$app_name" fetch -q --unshallow "$remote" 2>/dev/null \
-        || true
-      # 用 reset --hard 而非 checkout <sha>：后者进入 detached HEAD，你之后
-      # 改代码无法直接 commit 到分支。这样仍停在 $app_branch 上。
-      if git -C "apps/$app_name" reset --hard -q "$app_commit" 2>/dev/null; then
-        ok "已对齐到 ${app_commit:0:12}（仍在 $app_branch 分支）"
-      else
+      # 此时 remote 还没归位（第 4 段才做）：bench get-app 克隆出的仓库只有 upstream、没有 origin。
+      # 按实际存在的 remote 取回该 commit（R17 FD-045）
+      remote=$(git -C "$repo" remote get-url origin >/dev/null 2>&1 && echo origin || echo upstream)
+      fetch_err=""
+      if ! git -C "$repo" cat-file -e "$app_commit^{commit}" 2>/dev/null; then
+        # 浅克隆按 SHA 只取这一个 commit；完整克隆不加 --depth，否则会把它变成浅克隆（R19 SH-P1S4046）。
+        # 关掉交互提示并限时：代理或凭据有问题时 git 会等输入或卡住；失败时把 git 的原话留着打出来，
+        # 不误报成「commit 未推送」（R19 SH-P1S4047）
+        depth=(); whole=()
+        if [ "$(git -C "$repo" rev-parse --is-shallow-repository)" = true ]; then depth=(--depth 1); whole=(--unshallow); fi
+        if ! fetch_err=$(GIT_TERMINAL_PROMPT=0 timeout 120 git -C "$repo" fetch -q "${depth[@]}" "$remote" "$app_commit" 2>&1); then
+          # 服务器不允许按 SHA 取时，退回整体取
+          fetch_err+=$'\n'$(GIT_TERMINAL_PROMPT=0 timeout 600 git -C "$repo" fetch -q "${whole[@]}" "$remote" 2>&1 || true)
+        fi
+      fi
+      if ! git -C "$repo" cat-file -e "$app_commit^{commit}" 2>/dev/null; then
         # 不只打警告往下跑：停在分支最新就不是 apps.json 锁定的版本，两台机器会拿到不同代码
         echo "错误：$app_name 取不到锁定的 commit ${app_commit:0:12}（remote=$remote），当前停在 ${current:0:12}。" >&2
-        echo "检查该 commit 是否已推送到 $app_url；要解除锁定，按 docker/lock-apps.sh 末尾的说明删掉 commit 字段。" >&2
+        [ -n "$fetch_err" ] && printf 'git 的报错：\n%s\n' "$fetch_err" >&2
+        echo "检查网络与代理（docker/.env 的 GIT_PROXY）、容器内的仓库凭据，以及该 commit 是否已推送到 $app_url；" >&2
+        echo "要解除锁定，按 docker/lock-apps.sh 末尾的说明删掉 commit 字段。" >&2
         exit 1
+      fi
+      # 只在不会丢提交时对齐（R19 FD-098）：本次刚克隆的；HEAD 是锁定值的祖先（只是往前走）；
+      # 或浅克隆里 HEAD 就是从远端取来的那个边界 commit（其上没有本地提交）。
+      # 其余情形（HEAD 比锁定值新，或两边分叉）reset 会把 HEAD 上的提交从分支上拿掉，只剩 reflog 可找。
+      if [ "$fresh" = 1 ] \
+        || git -C "$repo" merge-base --is-ancestor "$current" "$app_commit" 2>/dev/null \
+        || grep -qx "$current" "$(git -C "$repo" rev-parse --absolute-git-dir)/shallow" 2>/dev/null; then
+        log "$app_name 对齐到锁定的 ${app_commit:0:12}"
+        # 用 reset --hard 而非 checkout <sha>：后者进入 detached HEAD，你之后
+        # 改代码无法直接 commit 到分支。这样仍停在 $app_branch 上。
+        git -C "$repo" reset --hard -q "$app_commit"
+        ok "已对齐到 ${app_commit:0:12}（仍在 $app_branch 分支）"
+      else
+        echo "  警告：$app_name 的 HEAD ${current:0:12} 上有锁定值 ${app_commit:0:12} 不含的提交，跳过对齐，以免把它们退回：" >&2
+        git -C "$repo" log --oneline -5 "$app_commit..$current" 2>/dev/null | sed 's/^/    /' >&2 || true
+        echo "  若这是你要的新版本：在宿主跑 docker/lock-apps.sh 更新锁定值；" >&2
+        echo "  若确实要退回锁定值（会把上面这些提交从分支上拿掉）：git -C frappe-bench/$repo reset --hard $app_commit" >&2
       fi
     fi
   fi
@@ -274,7 +303,8 @@ fi
 for d in apps/*/; do
   app_name=$(basename "$d")
   [ "$app_name" = "frappe" ] && continue   # frappe 随建站自动装
-  if bench --site "$SITE_NAME" list-apps 2>/dev/null | grep -qx "$app_name"; then
+  # list-apps 每行是「名称 版本 分支」，只比第一列（R19 FD-109：原先整行比对永不成立，每次都重调 install-app）
+  if bench --site "$SITE_NAME" list-apps 2>/dev/null | awk '{print $1}' | grep -qx "$app_name"; then
     ok "$app_name 已安装在站点上"
   else
     log "在站点上安装 $app_name"
@@ -321,20 +351,22 @@ ok "默认站点为 $SITE_NAME（改动后须重启 bench start 才生效）"
 # 判据看 dist 下有无实际文件——assets.json 在构建开始时就写好了，不能作准。
 # 只查有构建源的 app：esbuild 只收 public/**/*.bundle.*，没有这类文件的 app（如只有
 # public/.gitkeep 的 frappe_china）build 后也不会有 dist，不能要求它有（R18 FD-080）。
-# 有样式 bundle 的查 dist/css，只有脚本 bundle 的查 dist/js。
+# 扩展名与输出目录照 frappe/esbuild/esbuild.js（R19 FD-106）：入口收
+# {js,ts,css,sass,scss,less,styl,jsx}；样式类输出到 dist/css，.js/.ts 输出到 dist/js，
+# .jsx 不加前缀、直接落在 dist/ 下。不进隐藏目录（fast-glob 默认不收）。
+# find 用 -print -quit 找到一个就停：整份输出喂给 grep -q 时，grep 提前退出会让 find 吃 SIGPIPE，
+# pipefail 下整条管道判失败，反而当成「没有 bundle」（R19 FD-107）。
+has_bundle() {   # $1 = public 目录，其余 = 扩展名
+  local pub="$1" ext names=(); shift
+  for ext in "$@"; do names+=(-o -name "*.bundle.$ext"); done
+  [ -n "$(find "$pub" \( -path "$pub/dist" -o -name node_modules -o -name '.*' ! -path "$pub" \) -prune \
+    -o -type f \( "${names[@]:1}" \) -print -quit 2>/dev/null)" ]
+}
 assets_missing() {
-  local pub="$1/$2/public" kind dir
-  for kind in css js; do
-    if [ "$kind" = css ]; then
-      find "$pub" \( -path "$pub/dist" -o -name node_modules \) -prune -o -type f \
-        \( -name '*.bundle.css' -o -name '*.bundle.scss' -o -name '*.bundle.sass' -o -name '*.bundle.less' \) -print 2>/dev/null | grep -q . || continue
-    else
-      find "$pub" \( -path "$pub/dist" -o -name node_modules \) -prune -o -type f \
-        \( -name '*.bundle.js' -o -name '*.bundle.ts' -o -name '*.bundle.jsx' -o -name '*.bundle.tsx' -o -name '*.bundle.vue' \) -print 2>/dev/null | grep -q . || continue
-    fi
-    dir="$pub/dist/$kind"
-    [ -n "$(ls -A "$dir" 2>/dev/null)" ] || { echo "$kind"; return 0; }
-  done
+  local pub="$1/$2/public"
+  if has_bundle "$pub" css sass scss less styl && [ -z "$(ls -A "$pub/dist/css" 2>/dev/null)" ]; then echo "dist/css"; return 0; fi
+  if has_bundle "$pub" js ts && [ -z "$(ls -A "$pub/dist/js" 2>/dev/null)" ]; then echo "dist/js"; return 0; fi
+  if has_bundle "$pub" jsx && [ -z "$(find "$pub/dist" -maxdepth 1 -type f -name '*.js' -print -quit 2>/dev/null)" ]; then echo "dist/ 下的 jsx 产物"; return 0; fi
   return 1
 }
 log "校验前端资源"
@@ -352,7 +384,7 @@ for d in apps/*/; do
   app_name=$(basename "$d")
   [ -d "$d/$app_name/public" ] || continue
   if kind=$(assets_missing "$d" "$app_name"); then
-    echo "bench build 后 $app_name 仍无 dist/$kind，中止。" >&2; exit 1
+    echo "bench build 后 $app_name 仍无 $kind，中止。" >&2; exit 1
   fi
 done
 ok "前端资源齐备"
