@@ -22,7 +22,7 @@
 **现行（2026-09-28 修订）**：装载顺序定为 **`frappe → erpnext → CRM → HRMS → Insights → Raven → frappe_china → frappe_debug`**。四处 `[-1]` **全归 `frappe_china`**。`frappe_debug` 虽在末位，但**不在四处机制里注册任何条目**，故一处也不夺。
 
 - **`frappe_debug` 的守法约束**（由本修订推出）：不注册 `regional_overrides`／`override_whitelisted_methods`／`override_doctype_class`；它若带 `translations/zh.csv`，其中不得有与 `frappe_china` 同键的行。**它一旦注册了其中任何一项，就会因位于末位而赢下那一处。** 具体守法手段（如干脆不带 csv）留 S7 的开发方案。
-- **交接约束**（DEC-113）：S5 新装的四个官方 app 会排到 `frappe_china` 之后。**S5 装完后须让 `frappe_china` 回到全部业务 app 之后，并实测覆盖生效。** ⚠ **「重装」不是一条命令能完成的**：`install-app --force` 对已装的 app 不改位置（`installer.py:319` 放行后仍走 `add_to_installed_apps`，`:381` 的守卫使其不再追加）。**手段留 S5 的 C 步定**：`bench uninstall-app` 会删掉该 app 模块下全部 DocType 并删表（`installer.py:548-553`），并删除挂在该模块下的记录（`:510-516`，凡带 `Module Def` 链接字段的 DocType 都算），现金流单据等数据随之丢失；另一条路是直接改 `installed_apps` 全局值，**未验证**。
+- **交接约束**（DEC-113）：S5 新装的四个官方 app 会排到 `frappe_china` 之后。**S5 装完后须让 `frappe_china` 回到全部业务 app 之后，并实测覆盖生效。** ⚠ **「重装」不是一条命令能完成的**：`install-app --force` 对已装的 app 不改位置（`installer.py:319` 放行后仍走 `add_to_installed_apps`，`:381` 的守卫使其不再追加）。**手段留 S5 的 C 步定**：`bench uninstall-app` 会删掉该 app 模块下全部 DocType 并删表（`installer.py:548-553`），并删除挂在该模块下的记录（`:510-516`，凡带 `Module Def` 链接字段的 DocType 都算），现金流单据等数据随之丢失；另一条路是直接改 `installed_apps` 全局值，**未验证**。**2026-10-05 补（P1-S5 A 步 DEC-003）**：手段已定——用框架自带的 `update_installed_apps_order`（`installed_applications.py:108-136`），它正是「改 `installed_apps` 全局值」的正式入口：只改顺序、拒绝增删、强制 frappe 居首、写 `Version` 留痕。不卸载、不重装，LG-151 由此消解。该入口不清缓存，调序后须清缓存并重启进程（S5 需求文档 §4.2.1）。
 
 **原决策（2026-09-25，已由上文取代，保留备查）**：装载顺序定为 `frappe → erpnext → CRM → HRMS → Insights → Raven → erx_core`，即自有 app 末位。四处 `[-1]` 全归 `erx_core`。
 
@@ -58,4 +58,5 @@
 
 | 日期 | 改了什么 | 来源 |
 |---|---|---|
+| 2026-10-05 | 「决策」节交接约束末加一句：归位手段定为 `update_installed_apps_order`，LG-151 消解。决策本体不变 | P1-S5-R1 A 步第 1／2 步（用户裁决 DEC-003）；P1-S5-R2 B 步落成 |
 | 2026-09-28 | 「决策」节改为两 app 的顺序与 `[-1]` 归属；补 `frappe_debug` 守法约束与 S5 交接约束（含 `--force` 不改位置、卸载即删表两条读码事实，**均未实测**）；「关联」「失效条件」随改。「上下文」「后果」「备选方案」原文不动 | P1-S4-R1 A 步第 8 步 ①②（用户裁决）；P1-S4-R6 B 步落成 |
