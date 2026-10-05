@@ -17,50 +17,97 @@ BENCH="../${BENCH_NAME:-frappe-bench}"
 [ -d "$BENCH/apps" ] || { echo "找不到 $BENCH/apps，先跑 docker/up.sh。" >&2; exit 1; }
 
 echo "==> 各 app 当前版本"
-for d in "$BENCH"/apps/*/; do
-  name=$(basename "$d")
-  [ -d "$d/.git" ] || continue
-  sha=$(git -C "$d" rev-parse HEAD)
-  branch=$(git -C "$d" rev-parse --abbrev-ref HEAD)
-  dirty=$(git -C "$d" status --porcelain | wc -l)
-  printf '    %-12s %s  %s' "$name" "${sha:0:12}" "$branch"
-  [ "$dirty" -gt 0 ] && printf '  \033[33m(有 %s 项未提交改动)\033[0m' "$dirty"
-  echo
-done
+python - "$BENCH" <<'PY'
+import pathlib
+import subprocess
+import sys
+
+bench = pathlib.Path(sys.argv[1])
+entries = __import__("json").loads(pathlib.Path("apps.json").read_text(encoding="utf-8"))
+declared = set()
+for entry in entries:
+    name = entry.get("app_name") or entry["url"].rstrip("/").rsplit("/", 1)[-1].removesuffix(".git")
+    declared.add(name)
+    repo = bench / "apps" / name
+    if not (repo / ".git").exists():
+        print(f"    {name:<12} 未克隆（apps.json 条目保留）")
+        continue
+    sha = subprocess.check_output(["git", "-C", str(repo), "rev-parse", "HEAD"], text=True).strip()
+    ref = f"tag={entry['tag']}" if entry.get("tag") else f"branch={entry.get('branch') or '未记录'}"
+    official = " official" if entry.get("official") else ""
+    dirty = len(subprocess.check_output(["git", "-C", str(repo), "status", "--porcelain"], text=True).splitlines())
+    suffix = f"  (有 {dirty} 项未提交改动)" if dirty else ""
+    print(f"    {name:<12} {sha[:12]}  {ref}{official}{suffix}")
+for repo in sorted((bench / "apps").iterdir()):
+    if (repo / ".git").exists() and repo.name not in declared:
+        print(f"    警告：apps/{repo.name} 未在 apps.json 声明")
+PY
 
 [ "${1:-}" = "--show" ] && exit 0
 
 echo "==> 写入 apps.json"
-python - <<PY
-import json, subprocess, pathlib
+python - "$BENCH" <<'PY'
+import json
+import pathlib
+import subprocess
+import sys
 
-bench = pathlib.Path("$BENCH")
+bench = pathlib.Path(sys.argv[1])
 apps_json = pathlib.Path("apps.json")
-existing = {a["url"]: a for a in json.loads(apps_json.read_text(encoding="utf-8"))}
-
+entries = json.loads(apps_json.read_text(encoding="utf-8"))
 out = []
-for d in sorted((bench / "apps").iterdir()):
-    if not (d / ".git").exists():
+declared = set()
+
+def git(repo, *args):
+    return subprocess.run(
+        ["git", "-C", str(repo), *args], capture_output=True, text=True, check=False
+    ).stdout.strip()
+
+for entry in entries:
+    name = entry.get("app_name") or entry["url"].rstrip("/").rsplit("/", 1)[-1].removesuffix(".git")
+    declared.add(name)
+    repo = bench / "apps" / name
+    if not (repo / ".git").exists():
+        print(f"警告：{name} 未克隆，原样保留 apps.json 条目")
+        out.append(entry)
         continue
-    url = subprocess.run(["git", "-C", str(d), "remote", "get-url", "origin"],
-                         capture_output=True, text=True).stdout.strip()
-    sha = subprocess.run(["git", "-C", str(d), "rev-parse", "HEAD"],
-                         capture_output=True, text=True).stdout.strip()
-    branch = subprocess.run(["git", "-C", str(d), "rev-parse", "--abbrev-ref", "HEAD"],
-                            capture_output=True, text=True).stdout.strip()
-    entry = existing.get(url, {})
-    # app_name 记 apps/ 下的目录名：setup.sh 据它判断该 app 是否已装（R14 FD-009）
-    entry.update({"url": url, "branch": branch, "commit": sha, "app_name": d.name})
+
+    if entry.get("official"):
+        url = entry["url"]
+    else:
+        url = git(repo, "remote", "get-url", "origin") or git(repo, "remote", "get-url", "upstream") or entry["url"]
+
+    entry.update({"url": url, "commit": git(repo, "rev-parse", "HEAD"), "app_name": name})
+    if entry.get("tag"):
+        entry.pop("branch", None)
+    else:
+        branch = git(repo, "symbolic-ref", "-q", "--short", "HEAD")
+        if branch:
+            entry["branch"] = branch
+        else:
+            print(f"警告：{name} HEAD 游离，branch 沿用 apps.json")
+        entry.pop("tag", None)
+    out.append(entry)
+
+for repo in sorted((bench / "apps").iterdir()):
+    if not (repo / ".git").exists() or repo.name in declared:
+        continue
+    print(f"警告：发现新 app {repo.name}，已追加到末尾，请确认装载顺序")
+    url = git(repo, "remote", "get-url", "origin") or git(repo, "remote", "get-url", "upstream")
+    entry = {"url": url, "branch": git(repo, "symbolic-ref", "-q", "--short", "HEAD"), "commit": git(repo, "rev-parse", "HEAD"), "app_name": repo.name}
     out.append(entry)
 
 apps_json.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-for a in out:
-    print(f"    {a['url'].rsplit('/', 1)[-1]:20} {a['commit'][:12]}")
+for entry in out:
+    ref = f"tag={entry['tag']}" if entry.get("tag") else f"branch={entry.get('branch', '未记录')}"
+    official = " official" if entry.get("official") else ""
+    print(f"    {entry['app_name']:<20} {entry['commit'][:12]}  {ref}{official}")
 PY
 
 cat <<EOF
 
-已锁定。apps.json 会随 git 走，换机器时 up.sh 按它 checkout。
+已锁定。apps.json 会随 git 走，换机器时 up.sh 按它 checkout；文件顺序就是装载顺序。
+official=true 表示官方仓库，只保留只读 upstream；tag 与 branch 二选一，tag 优先。
 
 解除锁定：删掉 apps.json 里对应的 commit 字段（保留 branch 即取最新）。
 EOF

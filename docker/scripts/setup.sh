@@ -133,11 +133,19 @@ fi
 app_entries=$("$BENCH_DIR/env/bin/python" - "$APPS_JSON" <<'PY'
 import json, sys
 for a in json.load(open(sys.argv[1], encoding="utf-8")):
-    print(a["url"], a.get("branch") or "version-16", a.get("commit") or "-", a.get("app_name") or "-", sep="\t")
+    ref = a.get("tag") or a.get("branch") or "version-16"
+    print(
+        a["url"],
+        ref,
+        a.get("commit") or "-",
+        a.get("app_name") or "-",
+        "1" if a.get("official") else "0",
+        sep="\t",
+    )
 PY
 ) || { echo "错误：解析 $APPS_JSON 失败（见上方 python 报错）：JSON 语法错，或某条缺 url？" >&2; exit 1; }
 
-while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
+while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official; do
   [ -z "$app_url" ] && continue
   [ "$app_commit" = "-" ] && app_commit=""
   [ "$app_name" = "-" ] && app_name=""
@@ -154,13 +162,14 @@ while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
   else
     # 先探一次能否访问：私有仓库在容器里没有凭据时，克隆只报一句 could not read
     # Username 就中止，看不出原因。这里提前响亮失败，并指明办法。
-    if ! GIT_TERMINAL_PROMPT=0 timeout 25 git ls-remote --heads "$app_url" "$app_branch" >/dev/null 2>&1; then
-      echo "错误：容器内访问不了 $app_url（分支 $app_branch）。" >&2
+    if ! GIT_TERMINAL_PROMPT=0 timeout 25 git ls-remote --exit-code --heads --tags "$app_url" \
+      "refs/heads/$app_ref" "refs/tags/$app_ref" >/dev/null 2>&1; then
+      echo "错误：容器内访问不了 $app_url，或分支/tag $app_ref 不存在。" >&2
       echo "若是私有仓库，先给容器配凭据再重跑 docker/up.sh，办法见 docker/README.md「私有仓库」节。" >&2
       exit 1
     fi
-    log "获取 $app_name（$app_branch）"
-    bench get-app --branch "$app_branch" "$app_url"
+    log "获取 $app_name（ref $app_ref）"
+    bench get-app --branch "$app_ref" "$app_url"
     [ -d "apps/$app_name" ] || {
       echo "get-app 后找不到 apps/$app_name：apps.json 里这一条的 app_name 与该 app 的 pyproject.toml name 不一致？" >&2
       exit 1
@@ -217,9 +226,9 @@ while IFS=$'\t' read -r app_url app_branch app_commit app_name; do
         || grep -qx "$current" "$(git -C "$repo" rev-parse --absolute-git-dir)/shallow" 2>/dev/null; then
         log "$app_name 对齐到锁定的 ${app_commit:0:12}"
         # 用 reset --hard 而非 checkout <sha>：后者进入 detached HEAD，你之后
-        # 改代码无法直接 commit 到分支。这样仍停在 $app_branch 上。
+        # 改代码无法直接 commit 到分支。无论 ref 是 branch 还是 tag，都以锁定 commit 为准。
         git -C "$repo" reset --hard -q "$app_commit"
-        ok "已对齐到 ${app_commit:0:12}（仍在 $app_branch 分支）"
+        ok "已对齐到 ${app_commit:0:12}（ref $app_ref）"
       else
         echo "  警告：$app_name 的 HEAD ${current:0:12} 上有锁定值 ${app_commit:0:12} 不含的提交，跳过对齐，以免把它们退回：" >&2
         git -C "$repo" log --oneline -5 "$app_commit..$current" 2>/dev/null | sed 's/^/    /' >&2 || true
@@ -236,33 +245,41 @@ done <<<"$app_entries"
 # 这里归位成：origin = 自有 fork（推改动），upstream = 官方（只读拉更新，
 # push URL 设为无效值以防误推）。
 log "归位各 app 的 remote 命名"
-for d in apps/*/; do
-  app_name=$(basename "$d")
+while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official; do
+  [ -z "$app_name" ] || [ "$app_name" = "-" ] && continue
+  d="apps/$app_name"
   [ -d "$d/.git" ] || continue
 
-  case "$app_name" in
-    frappe)  official="$FRAPPE_UPSTREAM" ;;
-    erpnext) official="https://github.com/frappe/erpnext.git" ;;
-    *)       official="" ;;   # 自有 app 无上游
-  esac
-
-  # 自有 fork 的 URL：优先取现有 origin，否则取 bench 建的那个 upstream
-  fork=$(git -C "$d" remote get-url origin 2>/dev/null || true)
-  if [ -z "$fork" ]; then
-    fork=$(git -C "$d" remote get-url upstream 2>/dev/null || true)
-    # 若现有 upstream 已是官方地址，说明命名已正确，不是待归位的 fork
-    [ "$fork" = "$official" ] && fork=""
-  fi
-
-  if [ -n "$fork" ]; then
+  if [ "$app_official" = "1" ]; then
+    # 官方 App 只保留官方只读 upstream，删除可能被 bench clone 建出的 origin。
     git -C "$d" remote remove origin 2>/dev/null || true
-    git -C "$d" remote add origin "$fork"
-  fi
-
-  if [ -n "$official" ]; then
     git -C "$d" remote remove upstream 2>/dev/null || true
-    git -C "$d" remote add upstream "$official"
+    git -C "$d" remote add upstream "$app_url"
     git -C "$d" remote set-url --push upstream DISABLED_use_origin_instead
+  else
+    case "$app_name" in
+      frappe)  official="$FRAPPE_UPSTREAM" ;;
+      erpnext) official="https://github.com/frappe/erpnext.git" ;;
+      *)       official="" ;;   # 自有 app 无上游
+    esac
+
+    # 自有 fork 的 URL：优先取现有 origin，否则取 bench 建的那个 upstream
+    fork=$(git -C "$d" remote get-url origin 2>/dev/null || true)
+    if [ -z "$fork" ]; then
+      fork=$(git -C "$d" remote get-url upstream 2>/dev/null || true)
+      [ "$fork" = "$official" ] && fork=""
+    fi
+
+    if [ -n "$fork" ]; then
+      git -C "$d" remote remove origin 2>/dev/null || true
+      git -C "$d" remote add origin "$fork"
+    fi
+
+    if [ -n "$official" ]; then
+      git -C "$d" remote remove upstream 2>/dev/null || true
+      git -C "$d" remote add upstream "$official"
+      git -C "$d" remote set-url --push upstream DISABLED_use_origin_instead
+    fi
   fi
 
   # Windows 文件系统不保存 Unix 执行位，git 会把上游几十个文件报成
@@ -271,7 +288,7 @@ for d in apps/*/; do
   git -C "$d" config core.fileMode false
 
   ok "$app_name  origin=$(git -C "$d" remote get-url origin 2>/dev/null || echo 无)  upstream=$(git -C "$d" remote get-url upstream 2>/dev/null || echo 无)"
-done
+done <<<"$app_entries"
 
 # ---------- 5. 建站点 ----------
 # 判据不能只看目录存在——建站中途失败会留下有 site_config.json 但数据库未建成的
@@ -299,9 +316,9 @@ else
   ok "站点已创建"
 fi
 
-# ---------- 6. 在站点上装 app ----------
-for d in apps/*/; do
-  app_name=$(basename "$d")
+# ---------- 6. 按 apps.json 顺序在站点上装 app ----------
+while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official; do
+  [ -z "$app_name" ] || [ "$app_name" = "-" ] && continue
   [ "$app_name" = "frappe" ] && continue   # frappe 随建站自动装
   # list-apps 每行是「名称 版本 分支」，只比第一列（R19 FD-109：原先整行比对永不成立，每次都重调 install-app）
   if bench --site "$SITE_NAME" list-apps 2>/dev/null | awk '{print $1}' | grep -qx "$app_name"; then
@@ -311,7 +328,27 @@ for d in apps/*/; do
     bench --site "$SITE_NAME" install-app "$app_name"
     ok "$app_name 已安装"
   fi
-done
+done <<<"$app_entries"
+
+# apps/ 下可能留有手工克隆、但未声明在 apps.json 的 app。它们不参与安装，
+# 以免重建时悄悄改变装载顺序（需求 §4.2.1 第 3 条）。
+while IFS= read -r d; do
+  [ -d "$d/.git" ] || continue
+  app_name=$(basename "$d")
+  if ! printf '%s\n' "$app_entries" | awk -F '\t' -v name="$app_name" '$4 == name { found=1 } END { exit !found }'; then
+    echo "  警告：apps/$app_name 未在 apps.json 声明，未安装" >&2
+  fi
+done < <(find apps -mindepth 1 -maxdepth 1 -type d -print)
+
+# ---------- 6.2 归位 frappe_china ----------
+if bench --site "$SITE_NAME" list-apps 2>/dev/null | awk '{print $1}' | grep -qx "frappe_china"; then
+  log "将 frappe_china 归位到业务 app 之后"
+  bench --site "$SITE_NAME" execute frappe_china.install.reorder_installed_apps
+  ok "归位完成"
+else
+  ok "frappe_china 未安装，跳过归位"
+fi
+echo "提示：若 bench start 正在运行，请重启 docker/start.sh 以按新顺序加载 hooks。"
 
 # ---------- 6.5 中文字体（PDF 打印用，P1-S4 DEC-095） ----------
 # wkhtmltopdf 靠 fontconfig 找字形；镜像只带 dejavu 等西文字体，汉字会出方块。
