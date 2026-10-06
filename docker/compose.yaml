@@ -47,13 +47,15 @@ services:
       # 项目根挂进容器：bench、docker 脚本、docs 都在里面
       - ..:/workspace:cached
     ports:
-      # 宿主侧 socketio 用 9100——9000 落在 Windows 保留段（实测 netsh 排除范围含
-      # 8995-9094），宿主绑不上。容器内也监听 9100（由站点配置 socketio_port 决定），
-      # 故两侧同号直通：浏览器按站点配置里的端口去连宿主，同号才连得上。
-      # 改这里必须同步改 sites/common_site_config.json 的 socketio_port，否则
-      # realtime 静默断连（P1-S2-R1 第 15 步实测踩过）。
+      # 实时端口不在这里映射：宿主侧由下方 realtime-proxy 接管，转发到本容器的 9100
+      # （S5 LG-007、需求 §4.8——局域网来源须补站点名请求头才过得了命名空间校验）。
+      # 容器内仍监听 9100（站点配置 socketio_port），浏览器也按该值拼连接地址，
+      # 故 realtime-proxy 发布的宿主端口必须与它同号；改 socketio_port 时两处一起改，
+      # 否则 realtime 静默断连（P1-S2-R1 第 15 步实测踩过）。9000 落在 Windows 保留段
+      # （实测 netsh 排除范围含 8995-9094），宿主绑不上，故用 9100。
       - "${WEB_PORT:-8000}:8000"        # Frappe web
-      - "127.0.0.1:${WATCH_PORT:-6787}:6787" # asset watcher, local only
+      # 资源监视只绑本机：另起测试站服务也用这个端口，不对局域网开放（S5 SL-008 ⑥）
+      - "127.0.0.1:${WATCH_PORT:-6787}:6787"
     depends_on:
       mariadb:
         condition: service_healthy
@@ -63,6 +65,8 @@ services:
         condition: service_started
     restart: unless-stopped
 
+  # 实时端口前的转发层（S5 开发方案 A9）：来源不是本机名时补 X-Frappe-Site-Name，
+  # 不改上游源码。配置见 realtime-proxy/default.conf.template。
   realtime-proxy:
     image: docker.io/nginx:1.30.5-alpine
     ports:

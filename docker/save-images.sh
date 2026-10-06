@@ -9,7 +9,7 @@ export MSYS_NO_PATHCONV=1 MSYS2_ARG_CONV_EXCL='*'
 cd "$(dirname "$0")"
 mkdir -p images
 
-IMAGES=(frappe/bench:latest mariadb:11.8 redis:alpine)
+IMAGES=(frappe/bench:latest mariadb:11.8 redis:alpine nginx:1.30.5-alpine)
 
 echo "==> 检查镜像"
 missing=()

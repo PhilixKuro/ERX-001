@@ -118,7 +118,7 @@ frappe-bench/apps/<自有app>  ← bench new-app 建的，同样独立
 
 所以改源码、commit、push、合并上游都在那三个目录里各自进行，主仓库的 `git status` 看不到它们。
 
-**版本记录**：`apps.json` 记 url + `branch` 或 `tag` + commit + `app_name`；文件顺序就是安装顺序。`official: true` 表示直接使用官方仓库，重建时只保留只读 `upstream`；`tag` 与 `branch` 二选一，`tag` 优先。合并上游或确认版本可用后跑 `docker/lock-apps.sh` 更新它，换机器时 `up.sh` 按它对齐（用 `reset --hard`，仍停在对应 ref，不进 detached HEAD）。**不会丢代码的两条保护**：有未提交改动时跳过；HEAD 上有锁定值不含的提交（你刚 commit、还没跑 `lock-apps.sh`，或两边分叉）时也跳过，并列出这些提交——是新版本就跑 `lock-apps.sh`，确实要退回就照提示手动 `reset`。只有本次刚克隆的、或 HEAD 只是落后于锁定值时才自动对齐。**锁不上会中止 `up.sh`**：本地没有锁定的 commit 就按 SHA 去远端取（浅克隆只取这一个，完整克隆不会被变成浅克隆），取不到即退出并打出 git 的原话——多半是代理、凭据，或那个 commit 没推送。
+**版本记录**：`apps.json` 记 url + `branch` 或 `tag` + commit + `app_name`；文件顺序就是安装顺序。`official: true` 表示直接使用官方仓库，重建时只保留只读 `upstream`；`tag` 与 `branch` 二选一，`tag` 优先。合并上游或确认版本可用后跑 `docker/lock-apps.sh` 更新它，换机器时 `up.sh` 按它对齐（用 `reset --hard`：`branch` 条目仍停在该分支上；`tag` 条目克隆出来就是 detached HEAD，对齐后仍是）。**不会丢代码的两条保护**：有未提交改动时跳过；HEAD 上有锁定值不含的提交（你刚 commit、还没跑 `lock-apps.sh`，或两边分叉）时也跳过，并列出这些提交——是新版本就跑 `lock-apps.sh`，确实要退回就照提示手动 `reset`。只有本次刚克隆的、或 HEAD 只是落后于锁定值时才自动对齐。**锁不上会中止 `up.sh`**：本地没有锁定的 commit 就按 SHA 去远端取（浅克隆只取这一个，完整克隆不会被变成浅克隆），取不到即退出并打出 git 的原话——多半是代理、凭据，或那个 commit 没推送。
 
 `app_name` 是该 app 在 `frappe-bench/apps/` 下的**目录名**，不一定等于仓库名：`bench get-app` 会按 app 的 `pyproject.toml` 把目录改名（仓库 `FrappeChina` → 目录 `frappe_china`）。`setup.sh` 靠它判断 app 是否已经装好；缺了这个字段，重跑 `up.sh` 会再克隆一次并在改名时中止。`lock-apps.sh` 会自动写入它；手工往 `apps.json` 加 app 时也要写上。`apps.json` 的顺序就是安装顺序（`setup.sh` 不让 bench 自己解析依赖），新 app 加在末尾。
 
@@ -143,66 +143,111 @@ docker/up.sh
 
 ## 端口
 
-| 用途 | 宿主机 | 容器内 |
-|---|---|---|
-| Frappe web | 8000 | 8000 |
-| Realtime (socketio) | 9100 | **9100**（两侧同号） |
-| 资源监视 | 6787 | 6787 |
+| 用途 | 宿主机 | 由谁发布 | 容器内 |
+|---|---|---|---|
+| Frappe web | 8000 | `frappe` 服务 | 8000 |
+| Realtime (socketio) | 9100 | **`realtime-proxy` 服务**（nginx，转发到 `frappe:9100`） | **9100**（两侧同号） |
+| 资源监视／另起测试站服务 | 6787，**只绑 `127.0.0.1`** | `frappe` 服务 | 6787 |
 
-### 异地终端访问
+**为什么实时端口前多一层转发**（S5 LG-007、需求 §4.8）：实时服务按请求的来源认站点，本机名（`localhost`、`127.0.0.1`、`*.localhost`）认得出，局域网地址、组网地址认不出，连接会被拒（`Invalid namespace`）。`realtime-proxy` 对非本机名来源补一个 `X-Frappe-Site-Name` 请求头，值取 `.env` 的 `SITE_NAME`；本机来源原样透传。规则不写任何具体地址，局域网与组网走同一条分支。配置在 `realtime-proxy/default.conf.template`，官方镜像启动时用 `envsubst` 渲染。不改上游源码。
 
-局域网内的终端访问 `http://<本机局域网地址>:8000`，登录后打开桌面页面即可。实时端口 `9100` 由 `realtime-proxy` 转发到容器内的 Socket.IO 服务；`6787` 只绑定本机，不对局域网开放。
-
-连通检查在站点上执行：
-
-```bash
-docker compose exec -T -w /workspace/frappe-bench frappe \
-  bench --site erx.localhost execute frappe_china.realtime_check.run \
-  --kwargs '{"user":"Administrator","timeout":10}'
-```
-
-页面打开且实时通道正常时返回 `ok: true`，否则返回超时原因。检查期间目标用户必须保持一个桌面页打开。
-
-外网或组网实测前按此顺序准备：
-
-1. 把 Administrator 口令改成非默认值；新口令只放在 `docker/.env` 的 `ADMIN_PASSWORD`。
-2. 从异地终端确认只有 `8000` 和 `9100` 可达，`6787`、`3306`、`6379` 不可达。
-3. 组网客户端只在演示时段开启；终端页面能打开但实时检查失败时，先检查组网地址回访、容器 DNS 和 Windows 防火墙对两个端口的入站规则。
-
-Windows 上 9000 常落在 Hyper-V 保留端口段（本机实测 8995-9094），故 socketio 两侧都用 9100。查保留段：
+Windows 上 9000 常落在 Hyper-V 保留端口段（本机实测 8995-9094），故 socketio 用 9100。查保留段：
 
 ```bash
 netsh interface ipv4 show excludedportrange protocol=tcp
 ```
 
+### 异地终端访问
+
+#### 局域网
+
+1. 在宿主查本机局域网地址：`ipconfig`（Windows），取当前网卡的 IPv4 地址。
+2. 终端浏览器访问 `http://<本机局域网地址>:8000`，登录后打开任意桌面页面。实时连接由 `realtime-proxy` 转发，不用改配置。
+3. 终端连页面都打不开时，多半是 Windows 防火墙拦了入站。是否为 8000、9100 加入站规则属本机安全设置，自己决定。
+
+#### 组网（外网）
+
+1. 本机与终端各装组网客户端（DEC-021 选的 Tailscale），登录同一网络。
+2. 终端访问 `http://<本机组网地址>:8000`。`realtime-proxy` 的规则对组网地址同样生效，不用改配置。
+3. 外网实测尚未做（延迟需求 `SH-P1S5005`）。实测前先做完下面的「准备清单」。
+
+#### 连通检查
+
+```bash
+docker compose exec -T -w /workspace/frappe-bench frappe \
+  bench --site erx.localhost execute frappe_china.realtime_check.run \
+  --kwargs '{"user":"Administrator","timeout":30}'
+```
+
+本机发一条只供本检查的事件给 `user`，终端页面收到后弹出提示「实时通道检查已收到」，并经页面通路回执。在 `timeout` 秒内收到回执，返回 `ok: true` 并打印「通过」；否则返回 `ok: false` 和原因并打印「失败」。检查只认用户、不认终端地址。
+
+**失败时先查**：终端是否以 `user` 登录，并且正打开着一个桌面页。没有打开的页面同样会报失败，这不代表实时通道不通。
+
+#### 外网实测前的准备清单（按顺序）
+
+1. **改管理员口令**为非缺省值：`docker compose exec -T -w /workspace/frappe-bench frappe bench --site erx.localhost set-admin-password '<新口令>'`。新口令只记在 `docker/.env` 的 `ADMIN_PASSWORD`，不进 git。
+2. **只开两个端口**：从终端探测，`8000`、`9100` 应该通，`6787`、`3306`、`6379` 应该不通。
+3. **组网客户端只在演示时段开**。
+4. **页面能开而连通检查失败**：按下面的「已知待验点」逐条查。
+
+#### 已知待验点（LG-013，外网实测时验）
+
+- **国内能否稳定连上**组网服务。
+- **容器能否以组网地址回访本机页面端口**：实时服务鉴权时，会按请求来源回访页面端口（`realtime/utils.js`）。回访不通时的备用做法：终端改用组网提供的本机主机名访问，再在 `compose.yaml` 的 `frappe` 服务加 `extra_hosts: ["<该主机名>:host-gateway"]`，让容器把这个主机名解析到宿主。
+- **Windows 防火墙**是否对组网网卡放行 8000、9100。
+
 ### ⚠ socketio 端口必须两侧同号，且与站点配置一致
 
-**`socketio_port` 这一个值同时管两头**：容器内 `realtime/index.js` 据它 `listen`，浏览器则经 `boot.py` → `frappe.boot.socketio_port` → `socketio_client.js` 据它拼连接 URL。**浏览器连的是宿主，用的却是站点配置里的端口号**，所以宿主映射必须与该配置同号，否则浏览器连一个没人监听的宿主端口。
+**`socketio_port` 这一个值同时管两头**：容器内 `realtime/index.js` 据它 `listen`；浏览器经 `boot.py` → `frappe.boot.socketio_port` → `socketio_client.js` 据它拼连接 URL。**浏览器连的是宿主，用的却是站点配置里的端口号**，所以 `realtime-proxy` 发布的宿主端口必须与该配置同号，否则浏览器会去连一个没人监听的宿主端口。
 
-**改 socketio 端口要同时改两处**（只改一处会让 realtime 静默断连——不报错、只是界面再也不自动更新）：
+**改 socketio 端口要同时改三处**（只改一处，realtime 会静默断连——不报错，只是界面再也不自动更新）：
 
 ```bash
 # 1. 站点配置（--parse 不可省，否则写成字符串 "9100" 而非整数）
 docker compose exec -T -w /workspace/frappe-bench frappe   bench set-config -g socketio_port 9100 --parse
 
-# 2. compose 映射改成同号，然后重建容器（端口映射变更须重建）
+# 2. compose.yaml 的 realtime-proxy 服务：ports 改成同号
 #    - "${SOCKETIO_PORT:-9100}:9100"
-docker compose up -d
+# 3. realtime-proxy/default.conf.template：listen 与 proxy_pass 的端口一起改
+docker compose up -d     # 端口映射变更须重建容器
+docker/up.sh             # 重建容器后必跑：中文字体与 pdftotext 装在容器里，重建即丢（P1-S5-R5 IT-028）
 ```
 
-**自查是否断连**：浏览器 F12 Console 若反复出现 `socketio_client.js` 的 `ERR_CONNECTION_REFUSED` 与 `xhr poll error`，即端口没对上。
+**自查是否断连**：浏览器按 F12 打开 Console，若反复出现 `socketio_client.js` 的 `ERR_CONNECTION_REFUSED` 与 `xhr poll error`，就是端口没对上。
 
 ```bash
-# 宿主侧该通
-curl -s -o /dev/null -w '%{http_code}
-' "http://localhost:9100/socket.io/?EIO=4&transport=polling"   # 期望 200
+# 宿主侧该通（须先 docker/start.sh；bench start 没跑时 nginx 回 502）
+curl -s -o /dev/null -w '%{http_code}\n' "http://localhost:9100/socket.io/?EIO=4&transport=polling"   # 期望 200
 # 容器内监听端口
 docker compose exec -T frappe bash -c 'netstat -tlnp | grep 9100'
 ```
 
-**最直接的验法**：开两个浏览器标签打开同一张单据，在一个里改字段保存，另一个应自己更新。
+**最直接的验法**：开两个浏览器标签，打开同一张单据。在其中一个里改字段并保存，另一个应自己更新。
 
-**曾经踩过**：环境自 v15 时期起 compose 映射为 `9100:9000` 而站点配置是 `9000`，故 realtime 全程断连、界面从不自动刷新。P1-S1 的全部实操都在这个状态下做的（P1-S2-R1 第 15、16 步查明并修复）。
+**曾经踩过**：环境从 v15 时期起，compose 映射一直是 `9100:9000`，而站点配置是 `9000`，所以 realtime 全程断连、界面从不自动刷新。P1-S1 的全部实操都是在这个状态下做的（P1-S2-R1 第 15、16 步查明并修复）。
+
+## 配置四个 App
+
+`docker/configure-apps.sh` 把 CRM 集成、Raven 连接、演示 bot 和 15 条只读工具配到站点上。各段可重复跑，某个 App 没装时跳过该段。
+
+**何时跑**：站点装完四个 App 之后（新机器 `up.sh` 后、演示站接入后、重建测试站后）。
+
+**先在 `docker/.env` 填三个值**（`.env` 不进 git，`.env.example` 只有键名）：
+
+| 键 | 用途 |
+|---|---|
+| `RAVEN_LLM_URL` | LiteLLM 的 OpenAI 兼容地址，如 `http://host.docker.internal:7999/v1` |
+| `RAVEN_LLM_KEY` | LiteLLM 密钥（不写进任何文档、日志） |
+| `RAVEN_LLM_MODEL` | bot 用的模型别名 |
+
+**当前用法**（脚本在容器内运行，站点名作为第一个参数）：
+
+```bash
+docker compose exec -T -w /workspace/frappe-bench frappe \
+  bash /workspace/docker/configure-apps.sh test.localhost
+```
+
+> 按 S5 开发方案，它要改成宿主侧入口（自动载入 `.env`、带 `--site`／`--company` 参数）加容器内脚本，见 P1-S5-R5 E 确认报告 IT-013。改完后以本节为准同步更新。
 
 ## 版本与解释器
 

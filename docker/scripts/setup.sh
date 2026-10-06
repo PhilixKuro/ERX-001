@@ -228,7 +228,15 @@ while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official; do
         # 用 reset --hard 而非 checkout <sha>：后者进入 detached HEAD，你之后
         # 改代码无法直接 commit 到分支。无论 ref 是 branch 还是 tag，都以锁定 commit 为准。
         git -C "$repo" reset --hard -q "$app_commit"
-        ok "已对齐到 ${app_commit:0:12}（ref $app_ref）"
+        # tag 条目克隆出来就是游离 HEAD，reset 不改变这一点；branch 条目仍停在分支上。
+        cur_branch=$(git -C "$repo" symbolic-ref -q --short HEAD || true)
+        if [ -n "$cur_branch" ]; then
+          ok "已对齐到 ${app_commit:0:12}（仍在 $cur_branch 分支）"
+        elif git -C "$repo" show-ref --verify -q "refs/tags/$app_ref"; then
+          ok "已对齐到 ${app_commit:0:12}（停在 tag $app_ref，HEAD 游离）"
+        else
+          ok "已对齐到 ${app_commit:0:12}（HEAD 游离，ref $app_ref）"
+        fi
       else
         echo "  警告：$app_name 的 HEAD ${current:0:12} 上有锁定值 ${app_commit:0:12} 不含的提交，跳过对齐，以免把它们退回：" >&2
         git -C "$repo" log --oneline -5 "$app_commit..$current" 2>/dev/null | sed 's/^/    /' >&2 || true
@@ -289,6 +297,17 @@ while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official; do
 
   ok "$app_name  origin=$(git -C "$d" remote get-url origin 2>/dev/null || echo 无)  upstream=$(git -C "$d" remote get-url upstream 2>/dev/null || echo 无)"
 done <<<"$app_entries"
+
+# apps/ 下未在 apps.json 声明的仓库（手工克隆的）不归位 remote，但同样要关掉执行位比较，
+# 理由同上（S5 需求 §4.2.1；P1-S5-R5 IT-007）。
+while IFS= read -r d; do
+  [ -d "$d/.git" ] || continue
+  app_name=$(basename "$d")
+  if ! printf '%s\n' "$app_entries" | awk -F '\t' -v name="$app_name" '$4 == name { found=1 } END { exit !found }'; then
+    git -C "$d" config core.fileMode false
+    ok "$app_name  未在 apps.json 声明，只设 core.fileMode false"
+  fi
+done < <(find apps -mindepth 1 -maxdepth 1 -type d -print)
 
 # ---------- 5. 建站点 ----------
 # 判据不能只看目录存在——建站中途失败会留下有 site_config.json 但数据库未建成的
