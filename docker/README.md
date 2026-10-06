@@ -149,6 +149,26 @@ docker/up.sh
 | Realtime (socketio) | 9100 | **9100**（两侧同号） |
 | 资源监视 | 6787 | 6787 |
 
+### 异地终端访问
+
+局域网内的终端访问 `http://<本机局域网地址>:8000`，登录后打开桌面页面即可。实时端口 `9100` 由 `realtime-proxy` 转发到容器内的 Socket.IO 服务；`6787` 只绑定本机，不对局域网开放。
+
+连通检查在站点上执行：
+
+```bash
+docker compose exec -T -w /workspace/frappe-bench frappe \
+  bench --site erx.localhost execute frappe_china.realtime_check.run \
+  --kwargs '{"user":"Administrator","timeout":10}'
+```
+
+页面打开且实时通道正常时返回 `ok: true`，否则返回超时原因。检查期间目标用户必须保持一个桌面页打开。
+
+外网或组网实测前按此顺序准备：
+
+1. 把 Administrator 口令改成非默认值；新口令只放在 `docker/.env` 的 `ADMIN_PASSWORD`。
+2. 从异地终端确认只有 `8000` 和 `9100` 可达，`6787`、`3306`、`6379` 不可达。
+3. 组网客户端只在演示时段开启；终端页面能打开但实时检查失败时，先检查组网地址回访、容器 DNS 和 Windows 防火墙对两个端口的入站规则。
+
 Windows 上 9000 常落在 Hyper-V 保留端口段（本机实测 8995-9094），故 socketio 两侧都用 9100。查保留段：
 
 ```bash

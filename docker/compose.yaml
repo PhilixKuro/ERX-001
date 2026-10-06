@@ -53,14 +53,26 @@ services:
       # 改这里必须同步改 sites/common_site_config.json 的 socketio_port，否则
       # realtime 静默断连（P1-S2-R1 第 15 步实测踩过）。
       - "${WEB_PORT:-8000}:8000"        # Frappe web
-      - "${SOCKETIO_PORT:-9100}:9100"   # realtime
-      - "${WATCH_PORT:-6787}:6787"      # asset watcher
+      - "127.0.0.1:${WATCH_PORT:-6787}:6787" # asset watcher, local only
     depends_on:
       mariadb:
         condition: service_healthy
       redis-cache:
         condition: service_started
       redis-queue:
+        condition: service_started
+    restart: unless-stopped
+
+  realtime-proxy:
+    image: docker.io/nginx:1.30.5-alpine
+    ports:
+      - "${SOCKETIO_PORT:-9100}:9100"
+    environment:
+      SITE_NAME: "${SITE_NAME:-erx.localhost}"
+    volumes:
+      - ./realtime-proxy:/etc/nginx/templates:ro
+    depends_on:
+      frappe:
         condition: service_started
     restart: unless-stopped
 
