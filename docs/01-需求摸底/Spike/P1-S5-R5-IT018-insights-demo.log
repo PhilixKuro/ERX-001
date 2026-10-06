@@ -1,0 +1,43 @@
+
+== 登录 ==
+[通过] 登录：实得 200，应为 200
+
+== SL-006 ② 打开 /insights ==
+[通过] /insights 返回：实得 200，应为 200
+页面标题：Dashboards | Insights
+[通过] 页面标题含 Insights：实得 true，应为 true
+截图：Spike/P1-S5-R5-IT018-insights-home.png
+
+== SL-006 ② 数据源列表有 Site DB ==
+数据源记录：[{"name":"Site DB","title":"Site DB","is_site_db":1,"status":"Active"}]
+[通过] 数据源记录含 Site DB（is_site_db=1、Active）：实得 true，应为 true
+[通过] 数据源列表显示 Site DB 那一行（标为主机名 localhost）：实得 true，应为 true
+截图：Spike/P1-S5-R5-IT018-data-sources.png
+
+== SL-006 ③ 建查询：Site DB · tabCompany · 计数 ==
+[通过] 建工作簿：实得 200，应为 200
+工作簿 2
+[通过] 建查询：实得 200，应为 200
+查询 a8c757afgp
+[通过] 执行查询：实得 200，应为 200
+SQL：SELECT
+  COUNT(`t1`.`name`) AS `count_of_rows`
+FROM (
+  SELECT
+    *
+  FROM `tabCompany` AS `t0`
+) AS `t1`
+列：["count_of_rows"]；行：[{"count_of_rows":1}]
+[通过] tabCompany 行数：实得 1，应为 1
+
+== 在界面打开该查询并截图 ==
+[通过] 查询页显示 tabCompany：实得 true，应为 true
+截图：Spike/P1-S5-R5-IT018-query-tabCompany-count.png
+
+== 删除工作簿（on_trash 连带删查询） ==
+[通过] 删工作簿：实得 200，应为 200
+[通过] 该工作簿下的查询残留：实得 0，应为 0
+[通过] 同名工作簿残留：实得 0，应为 0
+
+结果：失败 0 项
+EXIT=0

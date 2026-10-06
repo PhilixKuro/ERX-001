@@ -1,0 +1,92 @@
+
+== SL-004 ② 四个 App 已装、frappe_china 归位 ==
+installed_apps = ['frappe', 'erpnext', 'crm', 'hrms', 'insights', 'raven', 'frappe_china']
+[通过] crm 已装：实得 True，应为 True
+[通过] hrms 已装：实得 True，应为 True
+[通过] insights 已装：实得 True，应为 True
+[通过] raven 已装：实得 True，应为 True
+
+== SL-004 ③ HDTH 报销科目（保存前） ==
+站上报销类型 5 个：['Calls', 'Food', 'Medical', 'Others', 'Travel']
+    Calls → 5602090 - 管理费用_办公费 - HDTH（科目号 5602090，映射 5602090）
+[通过] Calls 科目号与映射一致：实得 '5602090'，应为 '5602090'
+    Food → 5602040 - 管理费用_业务招待费 - HDTH（科目号 5602040，映射 5602040）
+[通过] Food 科目号与映射一致：实得 '5602040'，应为 '5602040'
+    Medical → 5602010 - 管理费用_职工薪酬 - HDTH（科目号 5602010，映射 5602010）
+[通过] Medical 科目号与映射一致：实得 '5602010'，应为 '5602010'
+    Others → 5602250 - 管理费用_其他 - HDTH（科目号 5602250，映射 5602250）
+[通过] Others 科目号与映射一致：实得 '5602250'，应为 '5602250'
+    Travel → 5602130 - 管理费用_差旅费 - HDTH（科目号 5602130，映射 5602130）
+[通过] Travel 科目号与映射一致：实得 '5602130'，应为 '5602130'
+[通过] HDTH 的 Expense Claim Account 行数：实得 5，应为 5
+[通过] 每个报销类型恰有一行：实得 ['Calls', 'Food', 'Medical', 'Others', 'Travel']，应为 ['Calls', 'Food', 'Medical', 'Others', 'Travel']
+[通过] 保存前：中式公司只有 HDTH：实得 ['华东弹簧有限公司']，应为 ['华东弹簧有限公司']
+    {"company": "华东弹簧有限公司", "checked": true, "ok": true, "is_cn_chart": true, "account_count": 266, "expected_account_count": 266, "missing_from_chart": [], "extra_accounts": [], "root_type_mismatches": [], "missing_defaults": [], "warnings": []}
+[通过] 保存前：科目数：实得 266，应为 266
+[通过] 保存前：自检 ok：实得 True，应为 True
+[通过] 保存前：extra_accounts：实得 []，应为 []
+[通过] 保存前：无 Expense Claims 科目：实得 False，应为 False
+
+== SL-004 ⑥ 空账核对 ==
+[通过] GL Entry 计数：实得 0，应为 0
+[通过] Stock Ledger Entry 计数：实得 0，应为 0
+[通过] Customer 计数：实得 0，应为 0
+[通过] Supplier 计数：实得 0，应为 0
+[通过] Item 计数：实得 0，应为 0
+[通过] Sales Invoice 计数：实得 0，应为 0
+[通过] Purchase Invoice 计数：实得 0，应为 0
+[通过] Journal Entry 计数：实得 0，应为 0
+
+== SL-004 ④ check_app_order（TS-008 第 3 步） ==
+{
+  "ok": true,
+  "order": [
+    "frappe",
+    "erpnext",
+    "crm",
+    "hrms",
+    "insights",
+    "raven",
+    "frappe_china"
+  ],
+  "order_ok": true,
+  "overrides": {
+    "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_charts_for_country": "frappe_china.accounting.chart.get_charts_for_country",
+    "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_chart": "frappe_china.accounting.chart.get_chart",
+    "erpnext.accounts.utils.get_coa": "frappe_china.accounting.chart.get_coa"
+  },
+  "overrides_ok": true,
+  "translation": {
+    "source": "Formula",
+    "expected": "计算方式",
+    "actual": "计算方式",
+    "competitors": {
+      "hrms": "公式"
+    }
+  },
+  "translation_ok": true,
+  "company_checks_ok": true,
+  "problems": []
+}
+[通过] check_app_order ok：实得 True，应为 True
+
+== SL-005 ① CRM 集成字段 ==
+[通过] ERPNext CRM Settings.enabled：实得 1，应为 1
+[通过] ERPNext CRM Settings.is_erpnext_in_different_site：实得 0，应为 0
+[通过] ERPNext CRM Settings.sync_products：实得 1，应为 1
+[通过] ERPNext CRM Settings.create_customer_on_status_change：实得 0，应为 0
+[通过] ERPNext CRM Settings.erpnext_company：实得 '华东弹簧有限公司'，应为 '华东弹簧有限公司'
+[通过] FCRM Settings.currency：实得 'CNY'，应为 'CNY'
+
+== SL-007 ② 演示 bot 与只读工具 ==
+[通过] bot is_ai_bot：实得 1，应为 1
+[通过] bot model_provider：实得 'Local LLM'，应为 'Local LLM'
+[通过] bot allow_bot_to_write_documents：实得 0，应为 0
+bot_functions（15 条）：['list_crm_deals', 'get_crm_deal', 'list_crm_deal_statuses', 'list_purchase_receipts', 'get_purchase_receipt', 'list_suppliers', 'list_items', 'get_item', 'list_sales_orders', 'get_sales_order', 'list_boms', 'get_bom', 'list_customers', 'get_supplier', 'run_report']
+[通过] bot_functions 条数：实得 15，应为 15
+站上 Raven AI Function 15 条，类型分布：['Get Document', 'Get List', 'Get Report Result']
+[通过] 站上无写类工具：实得 []，应为 []
+[通过] _FCT 前缀公司：实得 []，应为 []
+
+结果：全部通过
+EXIT=0
