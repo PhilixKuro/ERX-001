@@ -240,14 +240,20 @@ docker compose exec -T frappe bash -c 'netstat -tlnp | grep 9100'
 | `RAVEN_LLM_KEY` | LiteLLM 密钥（不写进任何文档、日志） |
 | `RAVEN_LLM_MODEL` | bot 用的模型别名 |
 
-**当前用法**（脚本在容器内运行，站点名作为第一个参数）：
+三个值都不填也能跑：CRM、bot 与工具照配，Raven Settings 的连接字段跳过并打一行说明（LiteLLM 实测是延迟需求 SH-P1S5006）。`URL` 与 `KEY` 只填一个时报错退出。
+
+**用法**（宿主上跑，自动载入 `.env`）：
 
 ```bash
-docker compose exec -T -w /workspace/frappe-bench frappe \
-  bash /workspace/docker/configure-apps.sh test.localhost
+docker/configure-apps.sh                                   # 站点取 .env 的 SITE_NAME
+docker/configure-apps.sh --site test.localhost
+docker/configure-apps.sh --site erx.localhost --company HDTH
 ```
 
-> 按 S5 开发方案，它要改成宿主侧入口（自动载入 `.env`、带 `--site`／`--company` 参数）加容器内脚本，见 P1-S5-R5 E 确认报告 IT-013。改完后以本节为准同步更新。
+- `--company` 是 CRM 生成报价单时用的公司。缺省取站上唯一一家「小企业会计准则(2024)」公司；零家或多家时报错，要求显式传。
+- 输出逐字段列出「旧值 → 新值」；密钥只报「已改」，不打印值。第二次跑输出「无改动」。
+- 站上已有本脚本 15 条之外的写数据类 Raven 工具（建、改、删、提交等）时报错退出，不删它，交人处理。
+- 实际逻辑在 `docker/scripts/configure_apps.py`（容器内、`sites/` 目录下运行）。
 
 ## 版本与解释器
 
