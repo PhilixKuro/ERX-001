@@ -1,0 +1,38 @@
+
+== 对照 A：没有打开的桌面页 ==
+    | 实时通道检查：失败（timeout: 页面未在 5 秒内回执——实时通道不通、或目标用户没有打开的桌面页）
+    | {"ok": false, "token": "hwFNqzIHzup0fzZw2lE2WvbL", "reason": "timeout: \u9875\u9762\u672a\u5728 5 \u79d2\u5185\u56de\u6267\u2014\u2014\u5b9e\u65f6\u901a\u9053\u4e0d\u901a\u3001\u6216\u76ee\u6807\u7528\u6237\u6ca1\u6709\u6253\u5f00\u7684\u684c\u9762\u9875"}
+[通过] 无桌面页时 run() 失败：实得 false，应为 false
+
+== 登录并打开桌面页 ==
+[通过] 登录：实得 200，应为 200
+[通过] 桌面页加载且实时 socket 已连：实得 true，应为 true
+realtime_check.js 请求：["http://localhost:8000/assets/frappe_china/js/realtime_check.js"]
+[通过] realtime_check.js 已加载（网络面板）：实得 true，应为 true
+实时连接地址：http://localhost:9100/socket.io/?EIO=4&transport=polling&t=Q4H_1zW
+[通过] 实时连接走宿主 9100（经 realtime-proxy）：实得 true，应为 true
+
+== SL-008 ①：本机桌面页打开时 run() ==
+    | 实时通道检查：通过（575.2 ms，回执用户 Administrator）
+    | {"ok": true, "token": "_EZWDdjR71hHD_xKJVgzmlho", "latency_ms": 575.2, "acked_by": "Administrator", "client": "localhost:8000"}
+[通过] run() 通过：实得 true，应为 true
+页面提示：["实时通道检查已收到：_EZWDdjR71hHD_xKJVgzmlho"]
+[通过] 页面弹出含本次 token 的提示：实得 true，应为 true
+
+== 对照 B：停 realtime-proxy（本机版反证） ==
+Container erx001-realtime-proxy-1 Stopping 
+ Container erx001-realtime-proxy-1 Stopped
+    | 实时通道检查：失败（timeout: 页面未在 5 秒内回执——实时通道不通、或目标用户没有打开的桌面页）
+    | {"ok": false, "token": "LWDnN-QQ26kKoyLOWJ4cTedz", "reason": "timeout: \u9875\u9762\u672a\u5728 5 \u79d2\u5185\u56de\u6267\u2014\u2014\u5b9e\u65f6\u901a\u9053\u4e0d\u901a\u3001\u6216\u76ee\u6807\u7528\u6237\u6ca1\u6709\u6253\u5f00\u7684\u684c\u9762\u9875"}
+[通过] proxy 停止时 run() 失败：实得 false，应为 false
+Container erx001-mariadb-1 Waiting 
+ Container erx001-mariadb-1 Healthy 
+ Container erx001-realtime-proxy-1 Starting 
+ Container erx001-realtime-proxy-1 Started
+proxy 恢复后 15 秒内自动重连：false（停机约 10 秒，超过 3 次重连的窗口时为 false）
+[通过] 刷新后 socket 重连：实得 true，应为 true
+    | 实时通道检查：通过（584.2 ms，回执用户 Administrator）
+    | {"ok": true, "token": "oyuKERWWsdEZICfpr6Nf23XY", "latency_ms": 584.2, "acked_by": "Administrator", "client": "localhost:8000"}
+[通过] proxy 恢复后 run() 通过：实得 true，应为 true
+
+结果：失败 0 项

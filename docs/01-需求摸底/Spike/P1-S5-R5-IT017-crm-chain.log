@@ -1,0 +1,63 @@
+
+== 前置 ==
+erpnext_company='_FCT CRM 验证' enabled=1 sync_products=1
+全局默认币种='CNY'；FCRM Settings.currency='CNY'
+
+== 1 建临时物料与标准售价，核产品同步 ==
+价目表='Standard Selling'；CRM Product={'name': '_FCT CRM 演示簧', 'standard_rate': 2.5}
+[通过] CRM Product 已由同步建出：实得 True，应为 True
+
+== 2 建 Lead → 转 Deal，填金额、概率、预计成交日与产品 ==
+Lead=CRM-LEAD-2026-00001 状态=('Qualified', 1)；Deal=CRM-DEAL-2026-00001 organization='_FCT 客户 CRM' contacts=['_FCT 联系人']
+[通过] Deal.currency（HT-005）：实得 'CNY'，应为 'CNY'
+[通过] Deal.expected_deal_value：实得 100000.0，应为 100000.0
+[通过] Deal.probability：实得 50.0，应为 50.0
+[通过] Deal.status（新建）：实得 'Qualification'，应为 'Qualification'
+
+== 3 推进两档 ==
+status_change_log=[('Qualification', 'Demo/Making'), ('Demo/Making', 'Proposal/Quotation'), ('Proposal/Quotation', '')]
+[通过] Deal.status（推进后）：实得 'Proposal/Quotation'，应为 'Proposal/Quotation'
+[通过] 推进后 probability 未被状态默认值覆盖：实得 50.0，应为 50.0
+
+== 4 Deal 页生成报价单（取界面按钮返回的预填参数） ==
+[通过] 生成报价单入口可见（can_create_quotations）：实得 True，应为 True
+url 路径=/desk/quotation/new；参数={'quotation_to': 'CRM Deal', 'crm_deal': 'CRM-DEAL-2026-00001', 'party_name': 'CRM-DEAL-2026-00001', 'company': '_FCT CRM 验证', 'contact_person': '_FCT 联系人'}
+[通过] 报价单 company 预填：实得 '_FCT CRM 验证'，应为 '_FCT CRM 验证'
+[通过] 报价单 quotation_to 预填：实得 'CRM Deal'，应为 'CRM Deal'
+[通过] 报价单 party_name 预填：实得 'CRM-DEAL-2026-00001'，应为 'CRM-DEAL-2026-00001'
+[通过] 报价单 contact_person 预填：实得 '_FCT 联系人'，应为 '_FCT 联系人'
+明细预填=[{'item_code': '_FCT CRM 演示簧', 'qty': 40000.0, 'price_list_rate': 2.5, 'discount_percentage': 0}]
+[通过] 明细预填物料：实得 ['_FCT CRM 演示簧']，应为 ['_FCT CRM 演示簧']
+Quotation=SAL-QTN-2026-00001 docstatus=1 customer_name='_FCT 客户 CRM' crm_deal='CRM-DEAL-2026-00001' grand_total=100000.0 currency=CNY conversion_rate=1.0
+[通过] 报价单已提交：实得 1，应为 1
+[通过] 报价单 currency：实得 'CNY'，应为 'CNY'
+[通过] 报价单 conversion_rate：实得 1.0，应为 1.0
+[通过] 提交前站上无该 Deal 的客户：实得 None，应为 None
+
+== 5 报价单 → 销售订单，核自动建客户（LG-085） ==
+make_sales_order 返回时 customer=None
+Sales Order=SAL-ORD-2026-00002 customer='_FCT 客户 CRM' currency=CNY conversion_rate=1.0；客户={'name': '_FCT 客户 CRM', 'customer_name': '_FCT 客户 CRM', 'default_currency': 'CNY'}
+[通过] 站上新增客户，crm_deal 指向该 Deal：实得 True，应为 True
+[通过] 销售订单 customer 即该客户：实得 '_FCT 客户 CRM'，应为 '_FCT 客户 CRM'
+[通过] 客户名取组织名：实得 '_FCT 客户 CRM'，应为 '_FCT 客户 CRM'
+[通过] 销售订单 currency：实得 'CNY'，应为 'CNY'
+[通过] 销售订单 conversion_rate：实得 1.0，应为 1.0
+客户联系人=['_FCT 联系人']
+
+== 6 看板：预测收入与转化 ==
+预测收入本月={'month': '2026-10-01', 'forecasted': 50000.0, 'actual': ''}
+[通过] 预测收入本月值（100000×50÷100×1）：实得 50000.0，应为 50000.0
+转化={'Leads': 1, 'Demo/Making': 1, 'Proposal/Quotation': 1}
+[通过] 转化含 Demo/Making：实得 True，应为 True
+[通过] 转化含 Proposal/Quotation：实得 True，应为 True
+
+== 7 异常路径：集成关闭 ==
+[通过] 关闭后生成报价单入口不可见（can_create_quotations）：实得 False，应为 False
+[通过] 关闭后点生成报价单报错：实得 'ERPNext is not integrated with the CRM'，应为 'ERPNext is not integrated with the CRM'
+[通过] 已恢复 enabled：实得 1，应为 1
+
+== 8 清理（逆序） ==
+_FCT 前缀残留=无
+[通过] 清理后无残留：实得 {}，应为 {}
+
+结果：失败 0 项
