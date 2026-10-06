@@ -51,3 +51,13 @@ TS-007 演示站接入暂缓，原因是本轮约束要求演示站必须等测�
 ## 状态
 
 `✅ Part2 已完成（TS-007 按约束暂缓）`
+
+## Supplementary verification (2026-10-06)
+
+| Task | Slice | Result | Evidence |
+|---|---|---|---|
+| TS-009 | SL-005 / SL-007 | Passed | `configure-apps.sh` is idempotent on `test.localhost`; CRM integration validation creates the cross-app fields; ERPNext CRM data synchronization is enabled; Raven keeps 15 read-only tools and the bot; LiteLLM connection remains skipped when `RAVEN_LLM_*` is absent. |
+| TS-010 | SL-005 | Passed | Temporary test data completed Item sync -> CRM Lead -> CRM Deal -> submitted Quotation (`quotation_to=CRM Deal`) -> submitted Sales Order. The Sales Order hook created the Customer from the Deal, both transaction currencies were CNY, the mapped item was present, and the forecast dashboard returned the Deal month. All temporary records were removed. |
+| TS-011 | SL-006 | Passed | `insights.tests.test_basic_workflow.TestBasicWorkflow.test_query_execution`: 1/1 passed against the `Site DB` data source. |
+
+The full `frappe_china` regression remains blocked by pre-existing invalid HRMS `Expense Claim Type` links (`FCT_TEMP`, `_FCT 入口二`, `5602090 - 管理费用_办公费 - FCT2`, `5602090 - 管理费用_办公费 - FCT3`). The test site was not cleaned without an explicit data-cleanup decision. TS-007, external-device checks, and LiteLLM connection/model tests remain deferred.
