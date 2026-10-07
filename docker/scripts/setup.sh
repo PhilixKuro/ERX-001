@@ -104,8 +104,12 @@ bench set-config -g db_host mariadb
 bench set-config -g redis_cache "redis://redis-cache:6379"
 bench set-config -g redis_queue "redis://redis-queue:6379"
 bench set-config -g redis_socketio "redis://redis-queue:6379"
+# 实时端口：bench init 缺省写 9000（Windows 保留段），而 compose 的 realtime-proxy 与
+# realtime-proxy/default.conf.template 都按 9100 写死；三处不同号时 realtime 静默断连。
+# 改端口须三处一起改，见 docker/README.md「端口」节（P1-S5-R9 F 审核 FD-001）
+bench set-config -g socketio_port 9100 --parse
 sed -i '/redis/d' ./Procfile 2>/dev/null || true
-ok "已指向 mariadb / redis-cache / redis-queue"
+ok "已指向 mariadb / redis-cache / redis-queue，实时端口 9100"
 
 # ---------- 3. 按 apps.json 装 app ----------
 log "按 docker/apps.json 安装 app"

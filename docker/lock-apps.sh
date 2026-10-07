@@ -34,6 +34,13 @@ for entry in entries:
         continue
     sha = subprocess.check_output(["git", "-C", str(repo), "rev-parse", "HEAD"], text=True).strip()
     ref = f"tag={entry['tag']}" if entry.get("tag") else f"branch={entry.get('branch') or '未记录'}"
+    # 记录值之外另显示仓库实际所在的 ref，两者不同时一眼可见（P1-S5-R9 F 审核 FD-011）
+    actual = (
+        subprocess.run(["git", "-C", str(repo), "symbolic-ref", "-q", "--short", "HEAD"], capture_output=True, text=True).stdout.strip()
+        or subprocess.run(["git", "-C", str(repo), "describe", "--tags", "--exact-match", "HEAD"], capture_output=True, text=True).stdout.strip()
+        or "游离"
+    )
+    ref = f"{ref}（实际 {actual}）"
     official = " official" if entry.get("official") else ""
     dirty = len(subprocess.check_output(["git", "-C", str(repo), "status", "--porcelain"], text=True).splitlines())
     suffix = f"  (有 {dirty} 项未提交改动)" if dirty else ""
@@ -79,6 +86,10 @@ for entry in entries:
 
     entry.update({"url": url, "commit": git(repo, "rev-parse", "HEAD"), "app_name": name})
     if entry.get("tag"):
+        tag_commit = git(repo, "rev-parse", "-q", "--verify", f"refs/tags/{entry['tag']}^{{commit}}")
+        if tag_commit != entry["commit"]:
+            print(f"警告：{name} HEAD 不在 tag {entry['tag']} 上（tag 指向 {tag_commit[:12] or '不存在'}），"
+                  "写出的条目 tag 与 commit 对不上，请改 tag 或改用 branch（P1-S5-R9 F 审核 FD-011）")
         entry.pop("branch", None)
     else:
         branch = git(repo, "symbolic-ref", "-q", "--short", "HEAD")
@@ -93,8 +104,22 @@ for repo in sorted((bench / "apps").iterdir()):
     if not (repo / ".git").exists() or repo.name in declared:
         continue
     print(f"警告：发现新 app {repo.name}，已追加到末尾，请确认装载顺序")
-    url = git(repo, "remote", "get-url", "origin") or git(repo, "remote", "get-url", "upstream")
-    entry = {"url": url, "branch": git(repo, "symbolic-ref", "-q", "--short", "HEAD"), "commit": git(repo, "rev-parse", "HEAD"), "app_name": repo.name}
+    origin = git(repo, "remote", "get-url", "origin")
+    entry = {"url": origin or git(repo, "remote", "get-url", "upstream")}
+    # 只有 upstream、没有 origin 的是官方仓库：标 official，否则下次 setup.sh 会给它配一个
+    # 指向官方仓库、可推送的 origin（P1-S5-R9 F 审核 FD-010）
+    if not origin:
+        entry["official"] = True
+        print(f"警告：{repo.name} 没有 origin，按官方仓库标 official=true，请确认")
+    branch = git(repo, "symbolic-ref", "-q", "--short", "HEAD")
+    tag = "" if branch else git(repo, "describe", "--tags", "--exact-match", "HEAD")
+    if branch:
+        entry["branch"] = branch
+    elif tag:
+        entry["tag"] = tag
+    else:
+        print(f"警告：{repo.name} HEAD 游离且不在任何 tag 上，未写 branch／tag，请手工补（否则重建时退到缺省分支）")
+    entry.update({"commit": git(repo, "rev-parse", "HEAD"), "app_name": repo.name})
     out.append(entry)
 
 apps_json.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

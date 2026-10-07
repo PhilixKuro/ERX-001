@@ -3,7 +3,7 @@
 #
 #   docker/configure-apps.sh                          站点取 .env 的 SITE_NAME
 #   docker/configure-apps.sh --site test.localhost
-#   docker/configure-apps.sh --site erx.localhost --company HDTH
+#   docker/configure-apps.sh --site erx.localhost --company 华东弹簧有限公司
 #
 # --company 缺省取站上唯一一家「小企业会计准则(2024)」公司；零家或多家时报错要求显式传。
 # 可重复跑：第二次起输出「无改动」。RAVEN_LLM_URL／KEY／MODEL 从 .env 读，密钥不打印。

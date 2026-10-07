@@ -76,7 +76,7 @@ bench 代码、apps、站点文件是 bind mount，本来就在项目文件夹�
 
 ```
 docker/
-├── compose.yaml        服务定义（mariadb / redis×2 / frappe）
+├── compose.yaml        服务定义（mariadb / redis×2 / frappe / realtime-proxy）
 ├── .env                本机配置（端口、密码），不进 git
 ├── .env.example        模板
 ├── up.sh               起容器 + 首次搭建（幂等）
@@ -91,6 +91,8 @@ docker/
 ├── save-images.sh      导出镜像供离线迁移
 ├── load-images.sh      导入镜像
 ├── apps.json           装哪些 app、哪个分支、锁到哪个 commit
+├── configure-apps.sh   配置四个官方 App（CRM 集成、Raven bot 与工具）
+├── realtime-proxy/     实时端口前的转发层配置（nginx 模板）
 ├── scripts/            容器内执行的逻辑（由上面的脚本调用）
 ├── backups/            备份文件，不进 git
 └── images/             导出的镜像，不进 git
@@ -179,14 +181,14 @@ docker compose exec -T -w /workspace/frappe-bench frappe \
   --kwargs '{"user":"Administrator","timeout":30}'
 ```
 
-本机发一条只供本检查的事件给 `user`，终端页面收到后弹出提示「实时通道检查已收到」，并经页面通路回执。在 `timeout` 秒内收到回执，返回 `ok: true` 并打印「通过」；否则返回 `ok: false` 和原因并打印「失败」。检查只认用户、不认终端地址。
+本机发一条只供本检查的事件给 `user`，终端页面收到后弹出提示「实时通道检查已收到」，并经页面通路回执。在 `timeout` 秒内收到回执，返回 `ok: true` 并打印「通过」；否则返回 `ok: false` 和原因并打印「失败」。检查只认用户、不认终端地址：本机若以同一用户开着桌面页，终端不通也会报通过。测终端时本机不要以该用户开桌面页，或看「通过」那行的「回执页面」——本机是 `localhost:8000`，终端是 `<局域网地址>:8000`。
 
 **失败时先查**：终端是否以 `user` 登录，并且正打开着一个桌面页。没有打开的页面同样会报失败，这不代表实时通道不通。
 
 #### 外网实测前的准备清单（按顺序）
 
 1. **改管理员口令**为非缺省值：`docker compose exec -T -w /workspace/frappe-bench frappe bench --site erx.localhost set-admin-password '<新口令>'`。新口令只记在 `docker/.env` 的 `ADMIN_PASSWORD`，不进 git。
-2. **只开两个端口**：从终端探测，`8000`、`9100` 应该通，`6787`、`3306`、`6379` 应该不通。
+2. **只开两个端口**：在宿主 `netstat -ano | findstr LISTENING` 列出全部监听 `0.0.0.0` 的端口逐个判，不只看本项目的——同机的 LiteLLM（`7999`）与它的 postgres（`5432`）也监听 `0.0.0.0`，组网后同样对网内设备可达。再从终端探测：`8000`、`9100` 应该通，`6787`、`3306`、`6379`、`7999`、`5432` 应该不通。
 3. **组网客户端只在演示时段开**。
 4. **页面能开而连通检查失败**：按下面的「已知待验点」逐条查。
 
@@ -247,10 +249,11 @@ docker compose exec -T frappe bash -c 'netstat -tlnp | grep 9100'
 ```bash
 docker/configure-apps.sh                                   # 站点取 .env 的 SITE_NAME
 docker/configure-apps.sh --site test.localhost
-docker/configure-apps.sh --site erx.localhost --company HDTH
+docker/configure-apps.sh --site erx.localhost --company 华东弹簧有限公司
 ```
 
-- `--company` 是 CRM 生成报价单时用的公司。缺省取站上唯一一家「小企业会计准则(2024)」公司；零家或多家时报错，要求显式传。
+- `--company` 是 CRM 生成报价单时用的公司，填公司全名（`HDTH` 是缩写，按缩写查不到）。缺省取站上唯一一家「小企业会计准则(2024)」公司；零家或多家时报错，要求显式传。
+- 除 CRM 集成本身，还会把 `CRM Settings.enable_frappe_crm_data_synchronization` 置 1：不开它，CRM 由 Deal 建客户时报错（`validate_frappe_crm_sync`），销售漏斗那条链走不通。
 - 输出逐字段列出「旧值 → 新值」；密钥只报「已改」，不打印值。第二次跑输出「无改动」。
 - 站上已有本脚本 15 条之外的写数据类 Raven 工具（建、改、删、提交等）时报错退出，不删它，交人处理。
 - 实际逻辑在 `docker/scripts/configure_apps.py`（容器内、`sites/` 目录下运行）。
