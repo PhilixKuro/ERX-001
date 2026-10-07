@@ -5,8 +5,6 @@
     cd /workspace/frappe-bench/sites && /workspace/frappe-bench/env/bin/python /workspace/docker/scripts/configure_apps.py --site <站点> [--company <公司>]
 
 可重复跑：已是目标值的字段不写；整次运行没有改动时只输出「无改动」。
-会报错退出的检查都在写任何东西之前做完（preflight）：CRM 段建自定义字段走 DDL、会隐式提交，
-之后再报错 rollback 撤不回它（P1-S5-R9 F 审核 FD-017）。
 某个 App 没装（对应 DocType 不存在）时跳过该段并打一行说明。
 密钥只报「已改／未改」，不出现在任何输出里。
 """
@@ -142,7 +140,7 @@ def resolve_company(explicit: str | None) -> str:
 	return companies[0]
 
 
-def configure_crm(company: str | None, notes: list[str]) -> dict:
+def configure_crm(company_arg: str | None, notes: list[str]) -> dict:
 	changes = {}
 	if not _has("FCRM Settings") or not _has("ERPNext CRM Settings"):
 		notes.append("CRM 未安装，跳过 CRM 设置")
@@ -155,6 +153,7 @@ def configure_crm(company: str | None, notes: list[str]) -> dict:
 		settings.save(ignore_permissions=True)
 		changes["FCRM Settings"] = changed
 
+	company = resolve_company(company_arg)
 	settings = frappe.get_single("ERPNext CRM Settings")
 	changed = _apply(
 		settings,
@@ -190,7 +189,8 @@ def configure_raven(url: str, key: str, notes: list[str]) -> dict:
 	if not (url or key):
 		notes.append("RAVEN_LLM_URL／RAVEN_LLM_KEY 未设，跳过 Raven Settings 的连接字段（见延迟需求 SH-P1S5006）")
 		return changes
-	# 只设一个的情形已由 preflight 拦下
+	if not (url and key):
+		raise ConfigureError("RAVEN_LLM_URL 与 RAVEN_LLM_KEY 须同时设置")
 
 	settings = frappe.get_single("Raven Settings")
 	changed = _apply(
@@ -240,6 +240,13 @@ def ensure_bot_and_functions(model: str, notes: list[str]) -> dict:
 			changes[f"Raven AI Function {name}"] = changed
 		names.append(name)
 
+	unexpected = sorted(
+		set(frappe.get_all("Raven AI Function", filters={"type": ("in", WRITE_TYPES)}, pluck="name")) - set(names)
+	)
+	if unexpected:
+		# 不删别人的记录，交用户处理
+		raise ConfigureError("站上已有写数据类的 Raven AI Function：" + "、".join(unexpected) + "；请先处理再跑本脚本")
+
 	exists = frappe.db.exists("Raven Bot", BOT_NAME)
 	bot = frappe.get_doc("Raven Bot", BOT_NAME) if exists else frappe.new_doc("Raven Bot")
 	values = {
@@ -268,24 +275,6 @@ def ensure_bot_and_functions(model: str, notes: list[str]) -> dict:
 	return changes
 
 
-def preflight(company_arg: str | None, url: str, key: str) -> str | None:
-	"""只读：把会报错退出的检查全做在写之前，返回 CRM 要用的公司（CRM 没装时为 None）。"""
-	company = None
-	if _has("FCRM Settings") and _has("ERPNext CRM Settings"):
-		company = resolve_company(company_arg)
-	if _has("Raven Settings") and (url or key) and not (url and key):
-		raise ConfigureError("RAVEN_LLM_URL 与 RAVEN_LLM_KEY 须同时设置")
-	if _has("Raven AI Function"):
-		tool_names = {name for name, *_rest in TOOLS}
-		unexpected = sorted(
-			set(frappe.get_all("Raven AI Function", filters={"type": ("in", WRITE_TYPES)}, pluck="name")) - tool_names
-		)
-		if unexpected:
-			# 不删别人的记录，交用户处理
-			raise ConfigureError("站上已有写数据类的 Raven AI Function：" + "、".join(unexpected) + "；请先处理再跑本脚本")
-	return company
-
-
 def _short(value) -> str:
 	text = _norm(value)
 	return text if len(text) <= 40 else text[:40] + "…"
@@ -307,13 +296,10 @@ def main(argv=None) -> int:
 	frappe.init(site=args.site, sites_path=".")
 	frappe.connect()
 	try:
-		url = os.environ.get("RAVEN_LLM_URL", "")
-		key = os.environ.get("RAVEN_LLM_KEY", "")
-		company = preflight(args.company, url, key)
 		notes: list[str] = []
 		changes = {}
-		changes.update(configure_crm(company, notes))
-		changes.update(configure_raven(url, key, notes))
+		changes.update(configure_crm(args.company, notes))
+		changes.update(configure_raven(os.environ.get("RAVEN_LLM_URL", ""), os.environ.get("RAVEN_LLM_KEY", ""), notes))
 		changes.update(ensure_bot_and_functions(os.environ.get("RAVEN_LLM_MODEL", ""), notes))
 		for note in notes:
 			print(f"说明：{note}")
