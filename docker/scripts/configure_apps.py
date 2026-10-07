@@ -263,7 +263,8 @@ def ensure_bot_and_functions(model: str, notes: list[str]) -> dict:
 	if model:
 		values["model"] = model
 	else:
-		notes.append("RAVEN_LLM_MODEL 未设，bot 的 model 不改（新建时留空）")
+		# Raven 的 model 字段带缺省值 gpt-4o（raven_bot.json），新建时由框架填上（R8 E 确认 IT-029）
+		notes.append("RAVEN_LLM_MODEL 未设，bot 的 model 不改（新建时取 Raven 缺省 gpt-4o；接 LiteLLM 时须同时设 RAVEN_LLM_MODEL）")
 	changed = _apply(bot, values)
 	if [row.function for row in bot.get("bot_functions") or []] != names:
 		changed["bot_functions"] = ("…", f"{len(names)} 条只读工具")

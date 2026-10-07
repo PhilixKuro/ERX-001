@@ -238,7 +238,7 @@ docker compose exec -T frappe bash -c 'netstat -tlnp | grep 9100'
 |---|---|
 | `RAVEN_LLM_URL` | LiteLLM 的 OpenAI 兼容地址，如 `http://host.docker.internal:7999/v1` |
 | `RAVEN_LLM_KEY` | LiteLLM 密钥（不写进任何文档、日志） |
-| `RAVEN_LLM_MODEL` | bot 用的模型别名 |
+| `RAVEN_LLM_MODEL` | bot 用的模型别名。不填时 bot 的 `model` 是 Raven 自带缺省 `gpt-4o`，接 LiteLLM 时会拿它去请求，故须与 `URL`／`KEY` 一起填 |
 
 三个值都不填也能跑：CRM、bot 与工具照配，Raven Settings 的连接字段跳过并打一行说明（LiteLLM 实测是延迟需求 SH-P1S5006）。`URL` 与 `KEY` 只填一个时报错退出。
 
