@@ -91,7 +91,7 @@ docker/
 ├── save-images.sh      导出镜像供离线迁移
 ├── load-images.sh      导入镜像
 ├── apps.json           装哪些 app、哪个分支、锁到哪个 commit
-├── configure-apps.sh   配置四个官方 App（CRM 集成、Raven bot 与工具）
+├── configure-apps.sh   配置 CRM 集成与 Raven（连接、bot 与工具）
 ├── realtime-proxy/     实时端口前的转发层配置（nginx 模板）
 ├── scripts/            容器内执行的逻辑（由上面的脚本调用）
 ├── backups/            备份文件，不进 git
@@ -148,12 +148,12 @@ docker/up.sh
 | 用途 | 宿主机 | 由谁发布 | 容器内 |
 |---|---|---|---|
 | Frappe web | 8000 | `frappe` 服务 | 8000 |
-| Realtime (socketio) | 9100 | **`realtime-proxy` 服务**（nginx，转发到 `frappe:9100`） | **9100**（两侧同号） |
+| Realtime (socketio) | `SOCKETIO_PORT`，缺省 9100 | **`realtime-proxy` 服务**（nginx，转发到 `frappe` 的同号端口） | 同号（站点配置 `socketio_port`） |
 | 资源监视／另起测试站服务 | 6787，**只绑 `127.0.0.1`** | `frappe` 服务 | 6787 |
 
 **为什么实时端口前多一层转发**（S5 LG-007、需求 §4.8）：实时服务按请求的来源认站点，本机名（`localhost`、`127.0.0.1`、`*.localhost`）认得出，局域网地址、组网地址认不出，连接会被拒（`Invalid namespace`）。`realtime-proxy` 对非本机名来源补一个 `X-Frappe-Site-Name` 请求头，值取 `.env` 的 `SITE_NAME`；本机来源原样透传。规则不写任何具体地址，局域网与组网走同一条分支。配置在 `realtime-proxy/default.conf.template`，官方镜像启动时用 `envsubst` 渲染。不改上游源码。
 
-Windows 上 9000 常落在 Hyper-V 保留端口段（本机实测 8995-9094），故 socketio 用 9100。查保留段：
+Windows 上 9000 常落在 Hyper-V 保留端口段（本机实测 8995-9094），故 socketio 缺省用 9100。查保留段：
 
 ```bash
 netsh interface ipv4 show excludedportrange protocol=tcp
@@ -181,14 +181,14 @@ docker compose exec -T -w /workspace/frappe-bench frappe \
   --kwargs '{"user":"Administrator","timeout":30}'
 ```
 
-本机发一条只供本检查的事件给 `user`，终端页面收到后弹出提示「实时通道检查已收到」，并经页面通路回执。在 `timeout` 秒内收到回执，返回 `ok: true` 并打印「通过」；否则返回 `ok: false` 和原因并打印「失败」。检查只认用户、不认终端地址：本机若以同一用户开着桌面页，终端不通也会报通过。测终端时本机不要以该用户开桌面页，或看「通过」那行的「回执页面」——本机是 `localhost:8000`，终端是 `<局域网地址>:8000`。
+本机发一条只供本检查的事件给 `user`，终端页面收到后弹出提示「实时通道检查已收到」，并经页面通路回执。在 `timeout` 秒内收到回执，返回 `ok: true` 并打印「通过」；否则返回 `ok: false` 和原因并打印「失败」。检查只认用户、不认终端地址：本机若以同一用户开着桌面页，终端不通也会报通过。「通过」那行打出回执页面的地址，只能单向判读：显示终端地址（`<局域网地址>:8000`）即可判终端通了；显示本机地址（`localhost:8000`）**不能**判终端不通——两个页面都开着时以后到的回执为准。此时关掉本机的桌面页再跑一次。
 
 **失败时先查**：终端是否以 `user` 登录，并且正打开着一个桌面页。没有打开的页面同样会报失败，这不代表实时通道不通。
 
 #### 外网实测前的准备清单（按顺序）
 
 1. **改管理员口令**为非缺省值：`docker compose exec -T -w /workspace/frappe-bench frappe bench --site erx.localhost set-admin-password '<新口令>'`。新口令只记在 `docker/.env` 的 `ADMIN_PASSWORD`，不进 git。
-2. **只开两个端口**：在宿主 `netstat -ano | findstr LISTENING` 列出全部监听 `0.0.0.0` 的端口逐个判，不只看本项目的——同机的 LiteLLM（`7999`）与它的 postgres（`5432`）也监听 `0.0.0.0`，组网后同样对网内设备可达。再从终端探测：`8000`、`9100` 应该通，`6787`、`3306`、`6379`、`7999`、`5432` 应该不通。
+2. **只开两个端口**：判据是「除页面端口（`WEB_PORT`，缺省 8000）与实时端口（`SOCKETIO_PORT`，缺省 9100）外，宿主上凡监听 `0.0.0.0` 或 `[::]` 的端口，从终端都探测不通，或被 Windows 防火墙挡住」。在宿主 `netstat -ano | findstr LISTENING` 列出全部监听逐个判，不只看本项目的——本机实测还有系统服务（如 445、135、49664 起的一段）和别的程序（如同机 LiteLLM 的 `7999`、它的 postgres `5432`），组网后同样对网内设备可达（P1-S5-R10 FD-041）。再从终端探测：页面与实时两个端口应该通，`6787`、`3306`、`6379` 与上面列出的其余端口应该不通。
 3. **组网客户端只在演示时段开**。
 4. **页面能开而连通检查失败**：按下面的「已知待验点」逐条查。
 
@@ -202,26 +202,27 @@ docker compose exec -T -w /workspace/frappe-bench frappe \
 
 **`socketio_port` 这一个值同时管两头**：容器内 `realtime/index.js` 据它 `listen`；浏览器经 `boot.py` → `frappe.boot.socketio_port` → `socketio_client.js` 据它拼连接 URL。**浏览器连的是宿主，用的却是站点配置里的端口号**，所以 `realtime-proxy` 发布的宿主端口必须与该配置同号，否则浏览器会去连一个没人监听的宿主端口。
 
-**改 socketio 端口要同时改三处**（只改一处，realtime 会静默断连——不报错，只是界面再也不自动更新）：
+**三处必须同号，都取 `.env` 的 `SOCKETIO_PORT`**（P1-S5-R10 FD-038）：站点配置 `socketio_port`（`setup.sh` 第 2 段写，`up.sh` 把该值传进容器）、`realtime-proxy` 发布的宿主端口与容器端口（`compose.yaml`）、`realtime-proxy/default.conf.template` 的 `listen` 与 `proxy_pass`（官方镜像启动时用 `envsubst` 渲染）。不同号时 realtime 静默断连——不报错，只是界面再也不自动更新。
+
+**改端口只改 `.env` 一处**，然后：
 
 ```bash
-# 1. 站点配置（--parse 不可省，否则写成字符串 "9100" 而非整数）
-docker compose exec -T -w /workspace/frappe-bench frappe   bench set-config -g socketio_port 9100 --parse
-
-# 2. compose.yaml 的 realtime-proxy 服务：ports 改成同号
-#    - "${SOCKETIO_PORT:-9100}:9100"
-# 3. realtime-proxy/default.conf.template：listen 与 proxy_pass 的端口一起改
-docker compose up -d     # 端口映射变更须重建容器
-docker/up.sh             # 重建容器后必跑：中文字体与 pdftotext 装在容器里，重建即丢（P1-S5-R5 IT-028）
+docker compose up -d     # 端口映射与 proxy 环境变量变了，须重建 realtime-proxy
+docker/up.sh             # 第 2 段把新端口写进站点配置；重建过 frappe 容器时它还会补回中文字体与 pdftotext（P1-S5-R5 IT-028）
+# 停掉 docker/start.sh 再重跑：实时服务只在启动时读端口
 ```
+
+不要手工 `bench set-config -g socketio_port …`：下次 `up.sh` 会按 `.env` 写回去。
 
 **自查是否断连**：浏览器按 F12 打开 Console，若反复出现 `socketio_client.js` 的 `ERR_CONNECTION_REFUSED` 与 `xhr poll error`，就是端口没对上。
 
 ```bash
-# 宿主侧该通（须先 docker/start.sh；bench start 没跑时 nginx 回 502）
+# 宿主侧该通（须先 docker/start.sh；bench start 没跑时 nginx 回 502）。9100 换成 .env 的 SOCKETIO_PORT
 curl -s -o /dev/null -w '%{http_code}\n' "http://localhost:9100/socket.io/?EIO=4&transport=polling"   # 期望 200
 # 容器内监听端口
 docker compose exec -T frappe bash -c 'netstat -tlnp | grep 9100'
+# 站点配置是否与 .env 同号（应为整数，不带引号）
+grep socketio_port frappe-bench/sites/common_site_config.json
 ```
 
 **最直接的验法**：开两个浏览器标签，打开同一张单据。在其中一个里改字段并保存，另一个应自己更新。
@@ -244,6 +245,8 @@ docker compose exec -T frappe bash -c 'netstat -tlnp | grep 9100'
 
 三个值都不填也能跑：CRM、bot 与工具照配，Raven Settings 的连接字段跳过并打一行说明（LiteLLM 实测是延迟需求 SH-P1S5006）。`URL` 与 `KEY` 只填一个时报错退出。
 
+**填了 `URL`／`KEY` 时先看 Raven Settings 的推送服务**：它缺省是 `Raven`，此时 Raven 要求推送服务器地址、API Key、API Secret 三项都填，否则拒绝保存任何字段。两站现在都是缺省值、三项为空，脚本会在写任何东西之前报错退出，并说明原因（P1-S5-R10 FD-037）。先在 Raven Settings 把推送服务改为 `Frappe Cloud`，或填齐那三项，再跑脚本。选哪种留到 SH-P1S5006 唤醒时定。
+
 **用法**（宿主上跑，自动载入 `.env`）：
 
 ```bash
@@ -256,6 +259,7 @@ docker/configure-apps.sh --site erx.localhost --company 华东弹簧有限公司
 - 除 CRM 集成本身，还会把 `CRM Settings.enable_frappe_crm_data_synchronization` 置 1：不开它，CRM 由 Deal 建客户时报错（`validate_frappe_crm_sync`），销售漏斗那条链走不通。
 - 输出逐字段列出「旧值 → 新值」；密钥只报「已改」，不打印值。第二次跑输出「无改动」。
 - 站上已有本脚本 15 条之外的写数据类 Raven 工具（建、改、删、提交等）时报错退出，不删它，交人处理。
+- 本脚本自己的检查（公司、`URL`／`KEY`、推送配置、写类工具）都在写入之前做完，报错时站点没有任何改动。别的上游校验仍可能在写入之后抛错，那时以 traceback 退出、退出码非 0，已写的部分要按输出核对。
 - 实际逻辑在 `docker/scripts/configure_apps.py`（容器内、`sites/` 目录下运行）。
 
 ## 版本与解释器
@@ -281,7 +285,7 @@ v16 **强制** Python 3.14，故 `setup.sh` 锁 3.14.7。`bench init` 不读 `PY
 | `bench init` 报 `Invalid frappe path` | 容器内 `127.0.0.1` 指容器自己；而 `/workspace` 即主仓库根、其仓库级代理配置优先于 global | `setup.sh` 用 `GIT_CONFIG_*` 环境变量注入 `host.docker.internal:7897`（见 `.env` 的 `GIT_PROXY`） |
 | `Cwd must be an absolute path` | Git Bash（MSYS）把 `-w /workspace` 改写成 Windows 路径 | 脚本开头 `export MSYS_NO_PATHCONV=1` |
 | `dubious ownership in repository` | bind mount 进容器的仓库所有者对不上 | `setup.sh` 设 `safe.directory '*'`（容器重建即丢，故每次搭建都设） |
-| 端口绑定被拒 | Hyper-V 保留了 9000（本机为 8995-9094） | socketio 宿主侧用 9100，见「端口」节 |
+| 端口绑定被拒 | Hyper-V 保留了 9000（本机为 8995-9094） | `.env` 的 `SOCKETIO_PORT` 用 9100（缺省值），见「端口」节 |
 | 源代码管理面板一打开就几十个假改动 | Windows 不保存 Unix 执行位，git 报成 mode 变更（内容零改动） | `setup.sh` 给各 app 设 `core.fileMode false` |
 | `.sh` 报 `bad interpreter` | 被 checkout 成 CRLF | `.gitattributes` 强制 `*.sh` 为 `eol=lf` |
 

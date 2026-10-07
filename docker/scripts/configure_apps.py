@@ -1,12 +1,14 @@
-"""配置四个 App：CRM 集成、Raven 连接、演示 bot 与只读工具（P1-S5 开发方案 Part3 TS-009）。
+"""配置 CRM 集成与 Raven（连接、演示 bot 与只读工具）（P1-S5 开发方案 Part3 TS-009）。
 
 容器内运行，由宿主侧 docker/configure-apps.sh 调用：
 
     cd /workspace/frappe-bench/sites && /workspace/frappe-bench/env/bin/python /workspace/docker/scripts/configure_apps.py --site <站点> [--company <公司>]
 
 可重复跑：已是目标值的字段不写；整次运行没有改动时只输出「无改动」。
-会报错退出的检查都在写任何东西之前做完（preflight）：CRM 段建自定义字段走 DDL、会隐式提交，
-之后再报错 rollback 撤不回它（P1-S5-R9 F 审核 FD-017）。
+本脚本自己会报错退出的检查都在写任何东西之前做完（preflight）：CRM 段建自定义字段走 DDL、
+会隐式提交，之后再报错 rollback 撤不回它（P1-S5-R9 F 审核 FD-017）。已知会拒绝保存的上游校验
+也在这里预先查（Raven 推送配置，P1-S5-R10 FD-037）；其余上游 validate 仍可能在写入之后抛错，
+那时以 traceback 退出、退出码非 0（FD-045）。
 某个 App 没装（对应 DocType 不存在）时跳过该段并打一行说明。
 密钥只报「已改／未改」，不出现在任何输出里。
 """
@@ -275,6 +277,27 @@ def preflight(company_arg: str | None, url: str, key: str) -> str | None:
 		company = resolve_company(company_arg)
 	if _has("Raven Settings") and (url or key) and not (url and key):
 		raise ConfigureError("RAVEN_LLM_URL 与 RAVEN_LLM_KEY 须同时设置")
+	if _has("Raven Settings") and url and key:
+		# 上游 RavenSettings.validate：推送服务为 Raven（缺省值）时三项推送配置缺一即拒绝保存。
+		# 那一步排在 CRM 段写入之后，故在这里先拦（P1-S5-R10 F 复核 FD-037）
+		push = {
+			field: frappe.db.get_single_value("Raven Settings", field)
+			for field in (
+				"push_notification_service",
+				"push_notification_server_url",
+				"push_notification_api_key",
+				"push_notification_api_secret",
+			)
+		}
+		if push["push_notification_service"] in (None, "", "Raven") and not all(
+			push[field]
+			for field in ("push_notification_server_url", "push_notification_api_key", "push_notification_api_secret")
+		):
+			raise ConfigureError(
+				"Raven Settings 的推送服务是 Raven，但推送服务器地址、API Key、API Secret 没填齐，"
+				"Raven 会拒绝保存连接字段；先在 Raven Settings 把推送服务改为 Frappe Cloud 或填齐这三项，"
+				"再跑本脚本（见延迟需求 SH-P1S5006 ⑦）"
+			)
 	if _has("Raven AI Function"):
 		tool_names = {name for name, *_rest in TOOLS}
 		unexpected = sorted(
@@ -298,7 +321,7 @@ def _print_changes(changes: dict) -> None:
 
 
 def main(argv=None) -> int:
-	parser = argparse.ArgumentParser(description="配置四个 App（CRM、Raven）")
+	parser = argparse.ArgumentParser(description="配置 CRM 集成与 Raven")
 	parser.add_argument("--site", required=True)
 	parser.add_argument("--company", default=None, help="CRM 生成报价单用的公司；缺省取站上唯一一家中式公司")
 	args = parser.parse_args(argv)

@@ -47,13 +47,13 @@ services:
       # 项目根挂进容器：bench、docker 脚本、docs 都在里面
       - ..:/workspace:cached
     ports:
-      # 实时端口不在这里映射：宿主侧由下方 realtime-proxy 接管，转发到本容器的 9100
+      # 实时端口不在这里映射：宿主侧由下方 realtime-proxy 接管，转发到本容器的实时端口
       # （S5 LG-007、需求 §4.8——局域网来源须补站点名请求头才过得了命名空间校验）。
-      # 容器内仍监听 9100（站点配置 socketio_port），浏览器也按该值拼连接地址，
-      # 故 realtime-proxy 发布的宿主端口必须与它同号；改 socketio_port 时三处一起改
-      # （站点配置、下方 ports、realtime-proxy/default.conf.template，见 README「端口」节），
-      # 否则 realtime 静默断连（P1-S2-R1 第 15 步实测踩过）。9000 落在 Windows 保留段
-      # （实测 netsh 排除范围含 8995-9094），宿主绑不上，故用 9100。
+      # 容器内按站点配置 socketio_port 监听，浏览器也按该值拼连接地址，故 realtime-proxy
+      # 发布的宿主端口必须与它同号，否则 realtime 静默断连（P1-S2-R1 第 15 步实测踩过）。
+      # 三处（站点配置由 setup.sh 写、下方 realtime-proxy 的 ports、realtime-proxy 模板）
+      # 都取 .env 的 SOCKETIO_PORT，改端口只改那一处（P1-S5-R10 FD-038，见 README「端口」节）。
+      # 9000 落在 Windows 保留段（实测 netsh 排除范围含 8995-9094），宿主绑不上，故缺省 9100。
       - "${WEB_PORT:-8000}:8000"        # Frappe web
       # 资源监视只绑本机：另起测试站服务也用这个端口，不对局域网开放（S5 SL-008 ⑥）
       - "127.0.0.1:${WATCH_PORT:-6787}:6787"
@@ -71,9 +71,10 @@ services:
   realtime-proxy:
     image: docker.io/nginx:1.30.5-alpine
     ports:
-      - "${SOCKETIO_PORT:-9100}:9100"
+      - "${SOCKETIO_PORT:-9100}:${SOCKETIO_PORT:-9100}"
     environment:
       SITE_NAME: "${SITE_NAME:-erx.localhost}"
+      SOCKETIO_PORT: "${SOCKETIO_PORT:-9100}"
     volumes:
       - ./realtime-proxy:/etc/nginx/templates:ro
     depends_on:

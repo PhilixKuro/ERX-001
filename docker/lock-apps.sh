@@ -105,12 +105,16 @@ for repo in sorted((bench / "apps").iterdir()):
         continue
     print(f"警告：发现新 app {repo.name}，已追加到末尾，请确认装载顺序")
     origin = git(repo, "remote", "get-url", "origin")
-    entry = {"url": origin or git(repo, "remote", "get-url", "upstream")}
+    upstream = git(repo, "remote", "get-url", "upstream")
+    entry = {"url": origin or upstream}
     # 只有 upstream、没有 origin 的是官方仓库：标 official，否则下次 setup.sh 会给它配一个
-    # 指向官方仓库、可推送的 origin（P1-S5-R9 F 审核 FD-010）
-    if not origin:
+    # 指向官方仓库、可推送的 origin（P1-S5-R9 F 审核 FD-010）。一个 remote 都没有的
+    # （bench new-app 新建的自有 app）不是官方仓库，不标（P1-S5-R10 FD-040）
+    if not origin and upstream:
         entry["official"] = True
-        print(f"警告：{repo.name} 没有 origin，按官方仓库标 official=true，请确认")
+        print(f"警告：{repo.name} 没有 origin、只有 upstream，按官方仓库标 official=true，请确认")
+    elif not origin:
+        print(f"警告：{repo.name} 没有任何 remote，url 为空，须手工补上（否则重建时不会克隆它）")
     branch = git(repo, "symbolic-ref", "-q", "--short", "HEAD")
     tag = "" if branch else git(repo, "describe", "--tags", "--exact-match", "HEAD")
     if branch:

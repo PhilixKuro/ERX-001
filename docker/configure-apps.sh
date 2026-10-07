@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 配置四个 App：CRM 集成、Raven 连接、演示 bot 与 15 条只读工具。宿主侧入口。
+# 配置 CRM 集成与 Raven：Raven 连接、演示 bot 与 15 条只读工具。宿主侧入口。
 #
 #   docker/configure-apps.sh                          站点取 .env 的 SITE_NAME
 #   docker/configure-apps.sh --site test.localhost

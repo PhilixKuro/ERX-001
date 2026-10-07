@@ -14,6 +14,7 @@ SITE_NAME="${SITE_NAME:-erx.localhost}"
 BENCH_NAME="${BENCH_NAME:-frappe-bench}"
 DB_ROOT_PASSWORD="${DB_ROOT_PASSWORD:-123}"
 ADMIN_PASSWORD="${ADMIN_PASSWORD:-admin}"
+SOCKETIO_PORT="${SOCKETIO_PORT:-9100}"
 FRAPPE_REPO="${FRAPPE_REPO:-https://github.com/PhilixKuro/frappe.git}"
 FRAPPE_BRANCH="${FRAPPE_BRANCH:-version-16}"
 FRAPPE_UPSTREAM="${FRAPPE_UPSTREAM:-https://github.com/frappe/frappe.git}"
@@ -104,12 +105,15 @@ bench set-config -g db_host mariadb
 bench set-config -g redis_cache "redis://redis-cache:6379"
 bench set-config -g redis_queue "redis://redis-queue:6379"
 bench set-config -g redis_socketio "redis://redis-queue:6379"
-# 实时端口：bench init 缺省写 9000（Windows 保留段），而 compose 的 realtime-proxy 与
-# realtime-proxy/default.conf.template 都按 9100 写死；三处不同号时 realtime 静默断连。
-# 改端口须三处一起改，见 docker/README.md「端口」节（P1-S5-R9 F 审核 FD-001）
-bench set-config -g socketio_port 9100 --parse
+# 实时端口：bench init 缺省写 9000（Windows 保留段）。站点配置、compose 发布端口、
+# realtime-proxy 模板三处必须同号，否则 realtime 静默断连；三处都取 .env 的 SOCKETIO_PORT，
+# 由 up.sh 传进来（P1-S5-R9 FD-001、R10 FD-038）。改端口只改 .env，见 docker/README.md「端口」节
+case "$SOCKETIO_PORT" in
+  ''|*[!0-9]*) echo "SOCKETIO_PORT 须是端口号，实际为「$SOCKETIO_PORT」" >&2; exit 1 ;;
+esac
+bench set-config -g socketio_port "$SOCKETIO_PORT" --parse
 sed -i '/redis/d' ./Procfile 2>/dev/null || true
-ok "已指向 mariadb / redis-cache / redis-queue，实时端口 9100"
+ok "已指向 mariadb / redis-cache / redis-queue，实时端口 $SOCKETIO_PORT"
 
 # ---------- 3. 按 apps.json 装 app ----------
 log "按 docker/apps.json 安装 app"

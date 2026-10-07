@@ -39,6 +39,7 @@ docker compose exec -T \
   -e DB_ROOT_PASSWORD="${DB_ROOT_PASSWORD:-123}" \
   -e ADMIN_PASSWORD="${ADMIN_PASSWORD:-admin}" \
   -e WEB_PORT="${WEB_PORT:-8000}" \
+  -e SOCKETIO_PORT="${SOCKETIO_PORT:-9100}" \
   -e GIT_PROXY="${GIT_PROXY:-}" \
   -e FRAPPE_REPO="${FRAPPE_REPO:-https://github.com/PhilixKuro/frappe.git}" \
   -e FRAPPE_BRANCH="${FRAPPE_BRANCH:-version-16}" \
