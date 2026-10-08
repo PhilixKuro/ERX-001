@@ -151,8 +151,10 @@ def configure_crm(company: str | None, notes: list[str]) -> dict:
 		return changes
 
 	settings = frappe.get_single("FCRM Settings")
-	# currency 设一次后被 CRM 设成只读（fcrm_settings.py make_currency_read_only），已是 CNY 则不写
-	changed = _apply(settings, {"currency": "CNY"})
+	# currency 设一次后被 CRM 设成只读（fcrm_settings.py make_currency_read_only），已是 CNY 则不写。
+	# enable_forecasting 开着，CRM 才把预期商机价值、预期关闭日期放进商机页并设必填
+	# （fcrm_settings.py setup_forecasting）；不开时界面上填不了，看板「预测收入」取不到现场建的商机（P1-S5-R12）
+	changed = _apply(settings, {"currency": "CNY", "enable_forecasting": 1})
 	if changed:
 		settings.save(ignore_permissions=True)
 		changes["FCRM Settings"] = changed

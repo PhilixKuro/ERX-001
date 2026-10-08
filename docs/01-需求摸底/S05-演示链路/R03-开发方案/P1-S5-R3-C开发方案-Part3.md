@@ -88,7 +88,7 @@ def bom_unit_profit(sales_order: str, item_code: str) -> list[dict]: ...  # 问 
    |---|---|---|---|
    | `FCRM Settings` | `currency` | `CNY` | 设一次后被 CRM 设成只读（`fcrm_settings.py:105-113`），已是 CNY 则不写 |
    | `ERPNext CRM Settings` | `enabled`／`is_erpnext_in_different_site`／`sync_products`／`create_customer_on_status_change`／`erpnext_company` | `1`／`0`／`1`／`0`／`company` | `erpnext_company` 被生成报价单时用作公司（`erpnext_crm_settings.py:459-490`）；启用时 CRM 会建自定义字段与报价单预填脚本（`validate`） |
-   | `FCRM Settings` | `enable_forecasting` | **不改（保持 0）** | 看板的预测收入查询不读它（`dashboard.py:657-730`），开了反而要求每张 Deal 必填金额与日期（`crm_deal.py:255-259`）；前端是否以它门控图表未验证（HT-014） |
+   | `FCRM Settings` | `enable_forecasting` | **不改（保持 0）** | 看板的预测收入查询不读它（`dashboard.py:657-730`），开了反而要求每张 Deal 必填金额与日期（`crm_deal.py:255-259`）；前端是否以它门控图表未验证（HT-014）。**⚠ P1-S5-R12 实机测试更正**：不开它时商机页的侧栏与快速录入里没有预期商机价值、预期关闭日期两字段，界面上填不了，现场建的商机进不了「预测收入」；已按 HT-014 的退路改为开（`enable_forecasting=1`），见 R12 协作记录第 6～8 步 |
 
    **Deal 币种**（LG-004）：先不加任何配置，依 HT-005（新建 Deal 时 `currency` 取全局默认 CNY）。TS-010 第 2 步实测不成立时，在本函数加一条 `Property Setter`：`CRM Deal.currency` 的 `default` 为 `CNY`（L0），重跑。
 
