@@ -165,7 +165,7 @@ netsh interface ipv4 show excludedportrange protocol=tcp
 
 1. 在宿主查本机局域网地址：`ipconfig`（Windows），取当前网卡的 IPv4 地址。
 2. 终端浏览器访问 `http://<本机局域网地址>:8000`，登录后打开任意桌面页面。实时连接由 `realtime-proxy` 转发，不用改配置。
-3. 终端连页面都打不开时，多半是 Windows 防火墙拦了入站。是否为 8000、9100 加入站规则属本机安全设置，自己决定。
+3. 终端连页面都打不开时，多半是 Windows 防火墙拦了入站。是否为页面端口 8000 与实时端口（`SOCKETIO_PORT`，缺省 9100）加入站规则属本机安全设置，自己决定。
 
 #### 组网（外网）
 
@@ -181,14 +181,14 @@ docker compose exec -T -w /workspace/frappe-bench frappe \
   --kwargs '{"user":"Administrator","timeout":30}'
 ```
 
-本机发一条只供本检查的事件给 `user`，终端页面收到后弹出提示「实时通道检查已收到」，并经页面通路回执。在 `timeout` 秒内收到回执，返回 `ok: true` 并打印「通过」；否则返回 `ok: false` 和原因并打印「失败」。检查只认用户、不认终端地址：本机若以同一用户开着桌面页，终端不通也会报通过。「通过」那行打出回执页面的地址，只能单向判读：显示终端地址（`<局域网地址>:8000`）即可判终端通了；显示本机地址（`localhost:8000`）**不能**判终端不通——两个页面都开着时以后到的回执为准。此时关掉本机的桌面页再跑一次。
+本机发一条只供本检查的事件给 `user`，终端页面收到后弹出提示「实时通道检查已收到」，并经页面通路回执。在 `timeout` 秒内收到回执，返回 `ok: true` 并打印「通过」；否则返回 `ok: false` 和原因并打印「失败」。检查只认用户、不认终端地址：本机若以同一用户开着桌面页，终端不通也会报通过。「通过」那行打出回执页面访问用的地址（页面请求的 Host），不是终端的 IP，只能单向判读：显示本机的局域网／组网地址（`<局域网地址>:8000`），且本机只用 `localhost` 打开页面，即可判终端通了；显示 `localhost:8000` **不能**判终端不通——两个页面都开着时，显示的是轮询先读到的那次回执，取决于时刻。此时关掉本机的桌面页再跑一次。
 
 **失败时先查**：终端是否以 `user` 登录，并且正打开着一个桌面页。没有打开的页面同样会报失败，这不代表实时通道不通。
 
 #### 外网实测前的准备清单（按顺序）
 
 1. **改管理员口令**为非缺省值：`docker compose exec -T -w /workspace/frappe-bench frappe bench --site erx.localhost set-admin-password '<新口令>'`。新口令只记在 `docker/.env` 的 `ADMIN_PASSWORD`，不进 git。
-2. **只开两个端口**：判据是「除页面端口（`WEB_PORT`，缺省 8000）与实时端口（`SOCKETIO_PORT`，缺省 9100）外，宿主上凡监听 `0.0.0.0` 或 `[::]` 的端口，从终端都探测不通，或被 Windows 防火墙挡住」。在宿主 `netstat -ano | findstr LISTENING` 列出全部监听逐个判，不只看本项目的——本机实测还有系统服务（如 445、135、49664 起的一段）和别的程序（如同机 LiteLLM 的 `7999`、它的 postgres `5432`），组网后同样对网内设备可达（P1-S5-R10 FD-041）。再从终端探测：页面与实时两个端口应该通，`6787`、`3306`、`6379` 与上面列出的其余端口应该不通。
+2. **只开两个端口**：判据是「除页面端口（`WEB_PORT`，缺省 8000）与实时端口（`SOCKETIO_PORT`，缺省 9100）外，宿主上凡本地地址为 `0.0.0.0`、`[::]` 或组网网卡地址的监听，从终端都探测不通，或被 Windows 防火墙挡住」。**组网客户端连上之后**，在宿主 `netstat -ano | findstr LISTENING` 列出全部监听逐个判，不只看本项目的——本机实测还有系统服务（如 445、135、49664 起的一段）、按网卡地址绑定的服务（如 NetBIOS 的 `139`，组网后会绑到组网地址上）和别的程序（如同机 LiteLLM 的 `7999`、它的 postgres `5432`），组网后同样对网内设备可达（P1-S5-R10 FD-041、R11 FD-057）。再从终端探测：页面与实时两个端口应该通，`6787`、`3306`、`6379` 与上面列出的其余端口应该不通。
 3. **组网客户端只在演示时段开**。
 4. **页面能开而连通检查失败**：按下面的「已知待验点」逐条查。
 
@@ -196,7 +196,7 @@ docker compose exec -T -w /workspace/frappe-bench frappe \
 
 - **国内能否稳定连上**组网服务。
 - **容器能否以组网地址回访本机页面端口**：实时服务鉴权时，会按请求来源回访页面端口（`realtime/utils.js`）。回访不通时的备用做法：终端改用组网提供的本机主机名访问，再在 `compose.yaml` 的 `frappe` 服务加 `extra_hosts: ["<该主机名>:host-gateway"]`，让容器把这个主机名解析到宿主。
-- **Windows 防火墙**是否对组网网卡放行 8000、9100。
+- **Windows 防火墙**是否对组网网卡放行页面端口 8000 与实时端口（`SOCKETIO_PORT`，缺省 9100）。
 
 ### ⚠ socketio 端口必须两侧同号，且与站点配置一致
 
@@ -207,9 +207,10 @@ docker compose exec -T -w /workspace/frappe-bench frappe \
 **改端口只改 `.env` 一处**，然后：
 
 ```bash
-docker compose up -d     # 端口映射与 proxy 环境变量变了，须重建 realtime-proxy
-docker/up.sh             # 第 2 段把新端口写进站点配置；重建过 frappe 容器时它还会补回中文字体与 pdftotext（P1-S5-R5 IT-028）
+# 在仓库根执行
+docker/up.sh     # 它先 docker compose up -d（只重建 realtime-proxy，frappe 容器不动），第 2 段再把新端口写进站点配置
 # 停掉 docker/start.sh 再重跑：实时服务只在启动时读端口
+# 刷新已开着的页面：页面在加载时取端口，不刷新会一直连旧端口
 ```
 
 不要手工 `bench set-config -g socketio_port …`：下次 `up.sh` 会按 `.env` 写回去。
@@ -217,10 +218,11 @@ docker/up.sh             # 第 2 段把新端口写进站点配置；重建过 f
 **自查是否断连**：浏览器按 F12 打开 Console，若反复出现 `socketio_client.js` 的 `ERR_CONNECTION_REFUSED` 与 `xhr poll error`，就是端口没对上。
 
 ```bash
-# 宿主侧该通（须先 docker/start.sh；bench start 没跑时 nginx 回 502）。9100 换成 .env 的 SOCKETIO_PORT
+# 都在仓库根执行；9100 换成 .env 的 SOCKETIO_PORT
+# 宿主侧该通（须先 docker/start.sh；bench start 没跑时 nginx 回 502）
 curl -s -o /dev/null -w '%{http_code}\n' "http://localhost:9100/socket.io/?EIO=4&transport=polling"   # 期望 200
 # 容器内监听端口
-docker compose exec -T frappe bash -c 'netstat -tlnp | grep 9100'
+docker compose -f docker/compose.yaml exec -T frappe bash -c 'netstat -tlnp | grep 9100'
 # 站点配置是否与 .env 同号（应为整数，不带引号）
 grep socketio_port frappe-bench/sites/common_site_config.json
 ```
@@ -259,7 +261,7 @@ docker/configure-apps.sh --site erx.localhost --company 华东弹簧有限公司
 - 除 CRM 集成本身，还会把 `CRM Settings.enable_frappe_crm_data_synchronization` 置 1：不开它，CRM 由 Deal 建客户时报错（`validate_frappe_crm_sync`），销售漏斗那条链走不通。
 - 输出逐字段列出「旧值 → 新值」；密钥只报「已改」，不打印值。第二次跑输出「无改动」。
 - 站上已有本脚本 15 条之外的写数据类 Raven 工具（建、改、删、提交等）时报错退出，不删它，交人处理。
-- 本脚本自己的检查（公司、`URL`／`KEY`、推送配置、写类工具）都在写入之前做完，报错时站点没有任何改动。别的上游校验仍可能在写入之后抛错，那时以 traceback 退出、退出码非 0，已写的部分要按输出核对。
+- 本脚本自己的检查（公司、`URL`／`KEY`、推送配置、写类工具）都在写入之前做完，报错时站点没有任何改动。别的上游校验仍可能在写入之后抛错，那时以 traceback 退出、退出码非 0，且不列出已写字段（「改动」清单只在全部写完后打印）：CRM 段若建过自定义字段，那一步及之前的写入已提交，其余未提交的写入随退出丢弃，须到站上核对 `ERPNext CRM Settings`、`CRM Settings`、`Raven Settings` 等单例（P1-S5-R11 FD-054）。
 - 实际逻辑在 `docker/scripts/configure_apps.py`（容器内、`sites/` 目录下运行）。
 
 ## 版本与解释器

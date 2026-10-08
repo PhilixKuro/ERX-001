@@ -271,7 +271,7 @@ def ensure_bot_and_functions(model: str, notes: list[str]) -> dict:
 
 
 def preflight(company_arg: str | None, url: str, key: str) -> str | None:
-	"""只读：把会报错退出的检查全做在写之前，返回 CRM 要用的公司（CRM 没装时为 None）。"""
+	"""只读：本脚本自己的检查与已知会拒绝保存的上游校验，都在写之前做完；返回 CRM 要用的公司（CRM 没装时为 None）。"""
 	company = None
 	if _has("FCRM Settings") and _has("ERPNext CRM Settings"):
 		company = resolve_company(company_arg)

@@ -137,13 +137,14 @@ fi
 # 先把解析结果存进变量再喂给循环：写成 `done < <(python …)` 时，进程替换的退出码
 # 不受 set -e 约束，apps.json 写坏（语法错、某条缺 url）会让本段被静默跳过或截断（R18 FD-082）。
 # 空字段写成 "-"：tab 属于 IFS 空白字符，read 会把连续两个 tab 合并成一个，
-# 删掉 commit 解锁后 app_name 会被读进 app_commit（R17 FD-049）
+# 删掉 commit 解锁后 app_name 会被读进 app_commit（R17 FD-049）。url 同理：写成空串时
+# 整行左移，url 被读成分支名、本段中止（P1-S5-R11 FD-053），故空 url 也写 "-"、读到即跳过
 app_entries=$("$BENCH_DIR/env/bin/python" - "$APPS_JSON" <<'PY'
 import json, sys
 for a in json.load(open(sys.argv[1], encoding="utf-8")):
     ref = a.get("tag") or a.get("branch") or "version-16"
     print(
-        a["url"],
+        a["url"] or "-",
         ref,
         a.get("commit") or "-",
         a.get("app_name") or "-",
@@ -155,6 +156,10 @@ PY
 
 while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official; do
   [ -z "$app_url" ] && continue
+  if [ "$app_url" = "-" ]; then
+    echo "警告：apps.json 里 ${app_name} 这一条没有 url，跳过（先给该 app 加 origin 并推送，再跑 docker/lock-apps.sh）" >&2
+    continue
+  fi
   [ "$app_commit" = "-" ] && app_commit=""
   [ "$app_name" = "-" ] && app_name=""
   [ -n "$app_name" ] || app_name=$(basename "$app_url" .git)
@@ -346,6 +351,8 @@ fi
 # ---------- 6. 按 apps.json 顺序在站点上装 app ----------
 while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official; do
   [ -z "$app_name" ] || [ "$app_name" = "-" ] && continue
+  # 没有 url 的条目第 3 段已跳过并警告；本机已有该目录时照装，没有时跳过（FD-053）
+  [ "$app_url" = "-" ] && [ ! -d "apps/$app_name" ] && continue
   [ "$app_name" = "frappe" ] && continue   # frappe 随建站自动装
   # list-apps 每行是「名称 版本 分支」，只比第一列（R19 FD-109：原先整行比对永不成立，每次都重调 install-app）
   if bench --site "$SITE_NAME" list-apps 2>/dev/null | awk '{print $1}' | grep -qx "$app_name"; then
