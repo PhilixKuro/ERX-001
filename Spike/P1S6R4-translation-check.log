@@ -1,0 +1,20 @@
+Starting test run with parameters: site=test.localhost, app=frappe_china, module=frappe_china.tests.test_translation_check, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 8 integration tests for frappe_china
+
+frappe_china.tests.test_translation_check.TestTranslationCheck
+   [32m ✔ [0m test_all_languages_and_translation_limit_are_reported
+   [32m ✔ [0m test_assets_mo_file_is_reported
+   [32m ✔ [0m test_clean_site_passes
+   [32m ✔ [0m test_labels_raise_other_errors
+   [32m ✔ [0m test_labels_skip_db_only_when_not_connected
+   [32m ✔ [0m test_legal_label_translation_is_reported
+   [32m ✔ [0m test_mo_and_po_files_are_reported
+   [32m ✔ [0m test_translation_record_is_reported [31m (2.28s)[0m
+
+
+----------------------------------------------------------------------
+Ran 8 tests in 6.987s
+
+OK

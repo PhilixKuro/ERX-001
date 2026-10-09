@@ -1,0 +1,7 @@
+{"expression":"(async()=>{let currency=await frappe.db.get_value('Currency','CNY',['symbol','enabled']);return {currency:currency.message,bootCurrency:frappe.model.get_value(':Currency','CNY','symbol'),hide:frappe.boot.sysdefaults.hide_currency_symbol};})()"}
+{"expression":"frappe.set_route('List','Cash Flow Worksheet'); true;","wait":2000}
+{"expression":"$('#navbar-modal-search').click(); true;","wait":500}
+{"expression":"$('#navbar-search').val('现金流量').trigger('input'); true;","wait":2500}
+{"expression":"document.body.innerText.slice(-1800)","screenshot":"P1S6R4-worksheet-search.png"}
+{"expression":"$('#navbar-search').closest('.modal').modal('hide'); frappe.set_route('query-report','漏科目检查',{company:'_FCT S6 界面验证',fiscal_year:'2025',month:'3'});","wait":3000}
+{"expression":"JSON.stringify({filters:frappe.query_report.get_filter_values(),rows:frappe.query_report.data,columns:frappe.query_report.columns.map(column=>({fieldname:column.fieldname,options:column.options})),text:document.body.innerText.slice(-600)})","screenshot":"P1S6R4-S4fix-unmapped-after.png"}

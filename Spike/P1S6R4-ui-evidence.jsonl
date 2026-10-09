@@ -1,0 +1,26 @@
+{"expression":"frappe.set_route('List','Month End Closing Voucher'); true;","wait":1500}
+{"expression":"frappe.confirm(__('Reverse all Month End Closing Vouchers of month {0}?',[3]),()=>{}); true;","wait":600}
+{"expression":"document.body.innerText.slice(-180)","screenshot":"P1S6R4-S4fix-closing-before-reconstructed.png"}
+{"expression":"cur_dialog.hide(); Array.from(document.querySelectorAll('button')).find(button=>button.innerText==='取消月末结转').click(); true;","wait":700}
+{"expression":"(async()=>{await cur_dialog.set_values({company:'_FCT S6 界面验证',fiscal_year:'2025',month:'3'});cur_dialog.get_primary_btn().click();return true;})()","wait":600}
+{"expression":"document.body.innerText.slice(-180)","screenshot":"P1S6R4-S4fix-closing-after.png"}
+{"expression":"cur_dialog.hide(); frappe.set_route('Form','Cash Flow Worksheet','XJ-S6UI-202501'); true;","wait":1500}
+{"expression":"JSON.stringify({route:frappe.get_route(),status:cur_frm.doc.docstatus,buttonVisible:cur_frm.fields_dict.get_cash_flow_items.$wrapper.is(':visible')})","screenshot":"P1S6R4-S4fix-submitted-after.png"}
+{"expression":"frappe.set_route('Form','Cash Flow Worksheet','XJ-S6UI-202502'); true;","wait":1500}
+{"expression":"JSON.stringify({route:frappe.get_route(),status:cur_frm.doc.docstatus,buttonVisible:cur_frm.fields_dict.get_cash_flow_items.$wrapper.is(':visible')})","screenshot":"P1S6R4-S4fix-cancelled-after.png"}
+{"expression":"frappe.set_route('Form','Cash Flow Worksheet','XJ-S6UI-202503'); true;","wait":1500}
+{"expression":"JSON.stringify({dirty:cur_frm.is_dirty(),buttonVisible:cur_frm.fields_dict.get_cash_flow_items.$wrapper.is(':visible'),items:cur_frm.doc.items.length})","screenshot":"P1S6R4-S4fix-draft-before-fetch.png"}
+{"expression":"cur_frm.fields_dict.get_cash_flow_items.$input.click(); true;","wait":1600}
+{"expression":"JSON.stringify({dirty:cur_frm.is_dirty(),items:cur_frm.doc.items.length,saveLabel:cur_frm.page.btn_primary.text(),saveDisabled:cur_frm.page.btn_primary.prop('disabled')})","screenshot":"P1S6R4-S4fix-draft-after-fetch.png"}
+{"expression":"(async()=>{await cur_frm.save();await cur_frm.set_value('company','');return true;})()","wait":500}
+{"expression":"JSON.stringify({company:cur_frm.doc.company,buttonVisible:cur_frm.fields_dict.get_cash_flow_items.$wrapper.is(':visible')})","screenshot":"P1S6R4-S4fix-company-empty.png"}
+{"expression":"(async()=>{await cur_frm.set_value('company','_FCT S6 界面验证');await cur_frm.set_value('month',0);return true;})()","wait":500}
+{"expression":"JSON.stringify({month:cur_frm.doc.month,buttonVisible:cur_frm.fields_dict.get_cash_flow_items.$wrapper.is(':visible')})","screenshot":"P1S6R4-S4fix-month-empty.png"}
+{"expression":"(async()=>{await cur_frm.reload_doc();await frappe.set_route('List','Cash Flow Worksheet');return true;})()","wait":1500}
+{"expression":"$('#navbar-modal-search').click(); true;","wait":500}
+{"expression":"$('#navbar-search').val('现金流量').trigger('input'); true;","wait":1800}
+{"expression":"document.body.innerText.slice(-800)","screenshot":"P1S6R4-worksheet-search.png"}
+{"expression":"$('#navbar-search').closest('.modal').modal('hide'); frappe.set_route('query-report','漏科目检查',{company:'_FCT S6 界面验证',fiscal_year:'2025',month:'3'}); true;","wait":2400}
+{"expression":"JSON.stringify({filters:frappe.query_report.get_filter_values(),rows:frappe.query_report.data,column:frappe.query_report.columns.find(column=>column.fieldname==='balance_or_movement'),text:document.body.innerText.slice(-500),currencySymbol:frappe.model.get_value(':Currency','CNY','symbol')})","screenshot":"P1S6R4-S4fix-unmapped-currency-fixture.png"}
+{"expression":"(()=>{let column=frappe.query_report.columns.find(column=>column.fieldname==='balance_or_movement');column.options=undefined;frappe.query_report.data.forEach(row=>delete row.currency);frappe.query_report.render_datatable();return true;})()","wait":600}
+{"expression":"document.body.innerText.slice(-500)","screenshot":"P1S6R4-S4fix-unmapped-before-reconstructed.png"}

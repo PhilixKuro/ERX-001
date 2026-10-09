@@ -1,0 +1,37 @@
+Starting test run with parameters: site=test.localhost, app=frappe_china, module=frappe_china.tests.test_s6_closing_separator, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 2 integration tests for frappe_china
+
+frappe_china.tests.test_s6_closing_separator.TestClosingSeparator
+   [32m ✔ [0m test_incomplete_detail_uses_language_specific_separator [31m (2.68s)[0m
+   [31m ✖ [0m test_success_message_uses_language_specific_separator
+
+
+======================================================================
+ FAIL  test_success_message_uses_language_specific_separator (frappe_china.tests.test_s6_closing_separator.TestClosingSeparator.test_success_message_uses_language_specific_separator)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_s6_closing_separator.py", line 49, in test_success_message_uses_language_specific_separator
+    self.assertEqual(result["message"], summary + separator + "note")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    company = {'country': 'China', 'chart_of_accounts': 'probe'}
+    fiscal_year = {'year_start_date': datetime.date(2025, 1, 1)}
+    language = 'en'
+    previous_language = 'zh'
+    result = {'created': ['probe-voucher'], 'drafts': [], 'message': 'Month End Closing completed；note'}
+    self = <frappe_china.tests.test_s6_closing_separator.TestClosingSeparator testMethod=test_success_message_uses_language_specific_separator>
+    separator = '; '
+    summary = 'Month End Closing completed'
+    vat = {'rows': [], 'paid': 1, 'transferred_unpaid': 0, 'transferred_overpaid': 0}
+AssertionError: 'Month End Closing completed；note' != 'Month End Closing completed; note'
+- Month End Closing completed；note
+?                            ^
++ Month End Closing completed; note
+?                            ^^
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.956s
+
+FAILED (failures=1)
