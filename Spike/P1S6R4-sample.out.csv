@@ -1,0 +1,101 @@
+﻿app,源词,出处,译文,判定,不可用原因
+crm,{0}% complete,frappe-bench/apps/crm/frontend/src/components/Questionnaire.vue:92,中文：{0}% complete,不可用,占位译文或原文未译
+crm,Enable Exotel integration to make and receive calls directly from your CRM,frappe-bench/apps/crm/frontend/src/components/Settings/Telephony/ExotelSettings.vue:112,启用 Exotel 集成 至 make 与 接收 calls directly 从 your CRM,不可用,"残留英文词或英文句法：make, calls, directly, your"
+crm,Replacing my current CRM,frappe-bench/apps/crm/frontend/src/pages/PersonaForm.vue:102,Replacing my 当前 CRM,不可用,"残留英文词或英文句法：Replacing, my"
+crm,Create form,frappe-bench/apps/crm/frontend/src/components/Settings/Forms/FormsList.vue:130,创建 form,不可用,残留英文词或英文句法：form
+crm,Login with Different Account,frappe-bench/apps/crm/frontend/src/pages/NotPermitted.vue:21,登录 带 不同 科目,可用,
+crm,Cannot rename: an unrelated {0} '{1}' already exists on the other side. Resolve manually first.,frappe-bench/apps/crm/crm/integrations/erpnext/utils.py:72,不能 rename: an unrelated {0} '{1}' 已存在 存在 on  other side. Resolve manually 第一.,不可用,"残留英文词或英文句法：rename, an, unrelated, on, other"
+crm,Email From Lead,frappe-bench/apps/crm/frontend/src/components/EmailEditor.vue:212,电子邮件 从 Lead,可用,
+crm,{0} isn't a linkable field on a CRM form.,frappe-bench/apps/crm/crm/api/form.py:276,{0} isn't a linkable 字段 on a CRM form.,不可用,"残留英文词或英文句法：isn't, a, linkable, on, a"
+crm,email already exists,frappe-bench/apps/crm/frontend/src/components/Controls/MultiSelectEmailInput.vue:266; frappe-bench/apps/crm/frontend/src/components/Controls/MultiSelectUserInput.vue:241,电子邮件 已存在 存在,可用,
+crm,Setting up Yahoo requires you to enable two factor authentication and app specific passwords. Read more,frappe-bench/apps/crm/frontend/src/components/Settings/emailConfig.js:140,设置 up Yahoo requires 您 至 启用 two factor authentication 与 应用 specific passwords. 读取 更多,不可用,"残留英文词或英文句法：up, requires, two, factor, authentication"
+crm,Expected deal value is required.,frappe-bench/apps/crm/crm/fcrm/doctype/crm_deal/crm_deal.py:257,期望 deal 值 是 必填.,不可用,残留英文词或英文句法：deal
+crm,Choose how you want to use the application by setting your preferences.,frappe-bench/apps/crm/frontend/src/components/Settings/PreferencesSettings.vue:6,Choose how 您 want 至 use  application by 设置 your preferences.,不可用,"残留英文词或英文句法：Choose, how, want, use, application"
+crm,{0} users added to hierarchy,frappe-bench/apps/crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:507,{0} 用户 added 至 hierarchy,不可用,"残留英文词或英文句法：added, hierarchy"
+erpnext,Frappe CRM,frappe-bench/apps/erpnext/erpnext/crm/doctype/crm_settings/crm_settings.json,???Frappe CRM,不可用,占位译文或原文未译
+erpnext,From Fiscal Year cannot be greater than To Fiscal Year,frappe-bench/apps/erpnext/erpnext/accounts/doctype/budget/budget.py:110,起始會計年度不可晚於結束會計年度,可用,
+erpnext,Ledgers Posted,frappe-bench/apps/erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json,已過帳分類帳,可用,
+erpnext,Incoming Payment,frappe-bench/apps/erpnext/erpnext/accounts/workspace/invoicing/invoicing.json,進項付款,可用,
+erpnext,Search company...,frappe-bench/apps/erpnext/banking/src/components/features/BankReconciliation/CompanySelector.tsx:77,搜尋公司…,可用,
+erpnext,Not permitted to update Serial No,frappe-bench/apps/erpnext/erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.py:114,不允許更新序號,可用,
+erpnext,Numbers this customer uses to identify your company in their own system.,frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json,此客戶在其系統中用於識別貴公司的編號。,可用,
+erpnext,Record Payment,frappe-bench/apps/erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:496; frappe-bench/apps/erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:553; frappe-bench/apps/erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModal.tsx:17; frappe-bench/apps/erpnext/banking/src/components/features/Settings/KeyboardShortcuts.tsx:22,記錄付款,可用,
+erpnext,Total Debit Transactions,frappe-bench/apps/erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json,借方交易總數,可用,
+erpnext,Add Phantom Item,frappe-bench/apps/erpnext/erpnext/public/js/bom_configurator/bom_configurator.bundle.js:289; frappe-bench/apps/erpnext/erpnext/public/js/bom_configurator/bom_configurator.bundle.js:424,新增虛擬項目,可用,
+erpnext,Rule updated.,frappe-bench/apps/erpnext/banking/src/components/features/BankReconciliation/Rules/EditRule.tsx:30,規則已更新。,可用,
+erpnext,Rate at which document currency is converted to company currency,frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/blanket_order/blanket_order.json,比率 at which 单据 币种 是 converted 至 公司 币种,不可用,"残留英文词或英文句法：at, which, converted"
+erpnext,PDF Password,frappe-bench/apps/erpnext/banking/src/pages/BankStatementImporter.tsx:127,PDF 密碼,可用,
+erpnext,Dunning Letter for Dunning Type {0} in language '{1}' not found.,frappe-bench/apps/erpnext/erpnext/accounts/doctype/dunning/dunning.py:211,找不到催款類型 {0} 語言「{1}」的催款函。,可用,
+erpnext,Processing Date,frappe-bench/apps/erpnext/erpnext/accounts/doctype/process_period_closing_voucher_detail/process_period_closing_voucher_detail.json,處理日期,可用,
+erpnext,Please enter a valid Write Off Cost Center,frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:732,請輸入有效的沖銷成本中心,可用,
+erpnext,Determines which tax rules apply to this supplier,frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json,決定此供應商適用哪些稅務規則,可用,
+erpnext,Statement Period,frappe-bench/apps/erpnext/erpnext/accounts/report/general_ledger/general_ledger.html:145,對帳單期間,可用,
+erpnext,Row {0}: {1} {2} is linked to company {3}. Please select a document belonging to company {4}.,frappe-bench/apps/erpnext/erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py:135,第 {0} 列：{1} {2} 連結至公司 {3}。請選擇屬於公司 {4} 的文件。,可用,
+erpnext,Hide If Zero,frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_row/financial_report_row.json,為零時隱藏,可用,
+erpnext,Transfer Account,frappe-bench/apps/erpnext/banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:402,轉移科目,可用,
+erpnext,Last Synced Transaction,frappe-bench/apps/erpnext/banking/src/components/features/BankReconciliation/BankPicker.tsx:131,上次同步的交易,可用,
+erpnext,Set valuation rate for rejected Materials,frappe-bench/apps/erpnext/erpnext/buying/doctype/buying_settings/buying_settings.json,為拒收物料設定估值單價,可用,
+erpnext,Quality Inspections,frappe-bench/apps/erpnext/erpnext/quality_management/workspace/quality/quality.json,品質檢驗,可用,
+erpnext,Missing Parameter,frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.py:574,缺少參數,可用,
+erpnext,Line references undefined in {0}: {1},frappe-bench/apps/erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:296,Line 参考 undefined 中 {0}: {1},不可用,"残留英文词或英文句法：Line, undefined"
+erpnext,Detected Tables,frappe-bench/apps/erpnext/banking/src/components/features/BankStatementImporter/PDF/PDFTableEditor.tsx:174,偵測到的表格,可用,
+erpnext,Reposting for Item-Wh Completed {0}%,frappe-bench/apps/erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.js:132,項目-倉庫重新過帳已完成 {0}%,可用,
+erpnext,Partially Reposted,frappe-bench/apps/erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.json,部分轉載,可用,
+erpnext,Batch number will be created based on expiry date. Expiry dates can be set in the Batch master.,frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json,批號將依到期日建立。到期日可於批次主檔中設定。,可用,
+frappe,added {0} row(s) to {1},frappe-bench/apps/frappe/frappe/desk/form/activity.py:609,added {0} 行(s) 至 {1},不可用,"残留英文词或英文句法：added, s"
+frappe,Email is required.,frappe-bench/apps/frappe/frappe/templates/includes/login/login.js:24,电子邮件 是 必填.,可用,
+frappe,Outlook.com,frappe-bench/apps/frappe/frappe/email/doctype/email_account/email_account.json,中文：Outlook.com,不可用,占位译文或原文未译
+frappe,Sendgrid,frappe-bench/apps/frappe/frappe/email/doctype/email_account/email_account.json,中文：Sendgrid,不可用,占位译文或原文未译
+frappe,Sync Timeout (Seconds),frappe-bench/apps/frappe/frappe/core/doctype/system_settings/system_settings.json,Sync 超时 (Seconds),不可用,"残留英文词或英文句法：Sync, Seconds"
+frappe,Verdana,frappe-bench/apps/frappe/frappe/printing/doctype/print_settings/print_settings.json,中文：Verdana,不可用,占位译文或原文未译
+frappe,Invalid action,frappe-bench/apps/frappe/frappe/utils/legacy_gravatar_cleanup.py:82,无效 操作,可用,
+frappe,No pinned document types.,frappe-bench/apps/frappe/frappe/public/js/frappe/ui/toolbar/search.js:718,否 pinned 单据 types.,不可用,"残留英文词或英文句法：pinned, types."
+hrms,Shortlist,frappe-bench/apps/hrms/hrms/hr/doctype/job_applicant/job_applicant.js:56,中文：Shortlist,不可用,占位译文或原文未译
+hrms,Leave Settings,frappe-bench/apps/hrms/hrms/hr/doctype/hr_settings/hr_settings.json,Leave 设置,不可用,残留英文词或英文句法：Leave
+hrms,21:00,frappe-bench/apps/hrms/hrms/hr/doctype/daily_work_summary_group/daily_work_summary_group.json,中文：21:00,不可用,占位译文或原文未译
+hrms,No Bank/Cash Account found for currency {0}. Please create one under company {1}.,frappe-bench/apps/hrms/hrms/hr/doctype/employee_advance/employee_advance.py:356,否 银行/现金 科目 找到 用于 币种 {0}. 请 创建 one under 公司 {1}.,不可用,"残留英文词或英文句法：one, under"
+hrms,Advance Account is mandatory. Please set the {0} in the Company {1} and submit this document.,frappe-bench/apps/hrms/hrms/hr/doctype/employee_advance/employee_advance.py:51,Advance 科目 是 必填. 请 set  {0} 中  公司 {1} 与 提交 此 单据.,不可用,"残留英文词或英文句法：Advance, set"
+insights,Bulk Enqueue Import Job,frappe-bench/apps/insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.js:49,Bulk Enqueue 导入 Job,不可用,"残留英文词或英文句法：Bulk, Enqueue, Job"
+insights,Insights Workbook,frappe-bench/apps/insights/insights/insights/doctype/insights_workbook/insights_workbook.json,中文：Insights Workbook,不可用,占位译文或原文未译
+insights,Refreshing Tables,frappe-bench/apps/insights/frontend/src2/query/components/source_selector/DataSourceTableList.vue:52,Refreshing 表,不可用,残留英文词或英文句法：Refreshing
+insights,Action if table exists,frappe-bench/apps/insights/insights/insights/doctype/insights_table_import/insights_table_import.json,操作 if 表 存在,不可用,残留英文词或英文句法：if
+insights,Insights Table Import,frappe-bench/apps/insights/insights/insights/doctype/insights_table_import/insights_table_import.json,Insights 表 导入,可用,
+insights,Is Native Query,frappe-bench/apps/insights/insights/insights/doctype/insights_query/insights_query.json; frappe-bench/apps/insights/insights/insights/doctype/insights_query_v3/insights_query_v3.json,是 Native 查询,不可用,残留英文词或英文句法：Native
+insights,New Query,frappe-bench/apps/insights/frontend/src2/workbook/WorkbookTabSwitcher.vue:62,新建 查询,可用,
+insights,Select Table,frappe-bench/apps/insights/frontend/src2/query/components/UnionSelectorDialog.vue:126,选择 表,可用,
+insights,New Alert,frappe-bench/apps/insights/frontend/src2/query/components/QueryAlertsDialog.vue:79; frappe-bench/apps/insights/frontend/src2/query/components/QueryAlertsDialog.vue:108,新建 Alert,不可用,残留英文词或英文句法：Alert
+raven,{0} joined.,frappe-bench/apps/raven/apps/web/src/components/features/message/renderers/SystemMessage.tsx:138,中文：{0} joined.,不可用,占位译文或原文未译
+raven,You'll need an invite to rejoin this channel,frappe-bench/apps/raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/LeaveChannelButton.tsx:48,您'll need an invite 至 rejoin 此 频道,不可用,"残留英文词或英文句法：ll, need, an, invite, rejoin"
+raven,Delete Scheduled Message?,frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageEditorView.tsx:19,删除 Scheduled 消息?,不可用,残留英文词或英文句法：Scheduled
+raven,Add a new variable in the function.,frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/Functions/DoctypeVariableBuilder.tsx:156,添加 a 新建 variable 中  函数.,不可用,"残留英文词或英文句法：a, variable"
+raven,Raven Admin,frappe-bench/apps/raven/raven/raven/doctype/raven_settings/raven_settings.json; frappe-bench/apps/raven/raven/raven/doctype/raven_workspace/raven_workspace.json; frappe-bench/apps/raven/raven/raven/doctype/raven_workspace_member/raven_workspace_member.json; frappe-bench/apps/raven/raven/raven_ai/doctype/raven_ai_file_source/raven_ai_file_source.json; frappe-bench/apps/raven/raven/raven_ai/doctype/raven_ai_function/raven_ai_function.json; frappe-bench/apps/raven/raven/raven_ai/doctype/raven_bot_ai_prompt/raven_bot_ai_prompt.json; frappe-bench/apps/raven/raven/raven_ai/doctype/raven_bot_instruction_template/raven_bot_instruction_template.json; frappe-bench/apps/raven/raven/raven_bot/doctype/raven_bot/raven_bot.json; frappe-bench/apps/raven/raven/raven_integrations/doctype/raven_document_notification/raven_document_notification.json; frappe-bench/apps/raven/raven/raven_integrations/doctype/raven_incoming_webhook/raven_incoming_webhook.json; frappe-bench/apps/raven/raven/raven_integrations/doctype/raven_message_action/raven_message_action.json; frappe-bench/apps/raven/raven/raven_messaging/doctype/raven_custom_emoji/raven_custom_emoji.json,Raven 管理员,可用,
+raven,Joining…,frappe-bench/apps/raven/apps/web/src/components/features/ChatInput/composerGate.tsx:128,中文：Joining…,不可用,占位译文或原文未译
+raven,Status set to {0},frappe-bench/apps/raven/apps/web/src/hooks/useSetAvailability.ts:32,状态 set 至 {0},不可用,残留英文词或英文句法：set
+raven,React with {0},frappe-bench/apps/raven/apps/web/src/components/features/message/actions/MessageActionMenu.tsx:748; frappe-bench/apps/raven/apps/web/src/components/features/message/actions/MessageHoverToolbar.tsx:109,React 带 {0},不可用,残留英文词或英文句法：React
+raven,Rows per page,frappe-bench/apps/raven/apps/web/src/components/ui/table-pagination.tsx:49,行 per page,不可用,"残留英文词或英文句法：per, page"
+raven,Log out of your account?,frappe-bench/apps/raven/apps/web/src/pages/profile/Profile.tsx:194,日志 out 的 your 科目?,不可用,"残留英文词或英文句法：out, your"
+raven,Can be HTML/Markdown/Plain Text. Support Jinja tags,frappe-bench/apps/raven/raven/raven_integrations/doctype/raven_document_notification/raven_document_notification.json,Can be HTML/Markdown/Plain 文本. Support Jinja tags,不可用,"残留英文词或英文句法：Can, be, Plain, Support, tags"
+raven,Forwarded,frappe-bench/apps/raven/apps/web/src/components/features/message/renderers/MessageContent.tsx:131,中文：Forwarded,不可用,占位译文或原文未译
+raven,Turning this on will remove any public channels where you have not joined from the sidebar.,frappe-bench/apps/raven/raven/raven/doctype/raven_user/raven_user.json,Turning 此 on will 移除 any 公开 频道 where 您 有 不 joined 从  sidebar.,不可用,"残留英文词或英文句法：Turning, on, will, any, where"
+raven,This channel is no longer available,frappe-bench/apps/raven/apps/web/src/hooks/useRemovedChannelCleanup.ts:83,此 频道 是 否 longer 可用,不可用,残留英文词或英文句法：longer
+raven,{0} votes,frappe-bench/apps/raven/apps/web/src/components/features/message/renderers/PollDrawer.tsx:209; frappe-bench/apps/raven/apps/web/src/components/features/message/renderers/PollMessageContent.tsx:155; frappe-bench/apps/raven/apps/web/src/components/features/message/renderers/SingleChoicePollVoting.tsx:76; frappe-bench/apps/raven/apps/web/src/components/features/message/renderers/polls/PollOptionBar.tsx:66; frappe-bench/apps/raven/apps/web/src/components/features/message/renderers/polls/PollOptionBar.tsx:83,中文：{0} votes,不可用,占位译文或原文未译
+raven,Create and manage document processors for your bots.,frappe-bench/apps/raven/apps/web/src/components/features/settings/SettingsDialog.tsx:232,创建 与 manage 单据 processors 用于 your bots.,不可用,"残留英文词或英文句法：manage, processors, your, bots."
+raven,If you later intend to make this private you will have to manually remove members that should not have access to this channel.,frappe-bench/apps/raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/ChannelTypeSelect.tsx:175,If 您 later intend 至 make 此 私有 您 will 有 至 manually 移除 members that should 不 有 访问 至 此 频道.,不可用,"残留英文词或英文句法：If, later, intend, make, will"
+raven,Read receipts,frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/Preferences.tsx:86,读取 receipts,不可用,残留英文词或英文句法：receipts
+raven,Working Hours Start,frappe-bench/apps/raven/raven/raven/doctype/raven_settings/raven_settings.json,Working 小时 开始,不可用,残留英文词或英文句法：Working
+raven,AI Integration is not enabled,frappe-bench/apps/raven/raven/ai/openai_client.py:14,AI 集成 是 不 已启用,可用,
+raven,1 member selected,frappe-bench/apps/raven/apps/web/src/components/features/channel/CreateChannel/AddMembersStep.tsx:152,1 member 已选择,不可用,残留英文词或英文句法：member
+raven,Meeting links from these sites show a join card in chat.,frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/LinkSettingsAdminSection.tsx:175,Meeting 链接 从 these sites 显示 a join card 中 chat.,不可用,"残留英文词或英文句法：Meeting, these, sites, a, join"
+raven,You may want to try adjusting your filters.,frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/Channels/Channels.tsx:170,您 五月 want 至 try adjusting your filters.,不可用,"残留英文词或英文句法：want, try, adjusting, your, filters."
+raven,Is Archived,frappe-bench/apps/raven/raven/raven_channel_management/doctype/raven_channel/raven_channel.json,是 已归档,可用,
+raven,Raven Push Token,frappe-bench/apps/raven/raven/raven/doctype/raven_push_token/raven_push_token.json,Raven Push 令牌,不可用,残留英文词或英文句法：Push
+raven,There is no one else in this workspace to add.,frappe-bench/apps/raven/apps/web/src/components/features/channel/CreateChannel/AddMembersStep.tsx:291,There 是 否 one else 中 此 工作区 至 添加.,不可用,"残留英文词或英文句法：There, one, else"
+raven,Channel {0} deleted,frappe-bench/apps/raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/DeleteChannelButton.tsx:62,频道 {0} 已删除,可用,
+raven,Delete channel,frappe-bench/apps/raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/DeleteChannelButton.tsx:70,删除 频道,可用,
+raven,Go back to the previous channel or page.,frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/KeyboardShortcuts.tsx:180,Go 返回 至  上一步 频道 或 page.,不可用,"残留英文词或英文句法：Go, page."
+raven,What Enter does can be changed in Preferences.,frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/KeyboardShortcuts.tsx:91,What Enter  can be changed 中 Preferences.,不可用,"残留英文词或英文句法：What, Enter, can, be, changed"
+raven,Sent a photo,frappe-bench/apps/raven/apps/web/src/components/features/reminders/RemindersList.tsx:104; frappe-bench/apps/raven/apps/web/src/components/features/reminders/RemindersList.tsx:115,已发送 a photo,不可用,"残留英文词或英文句法：a, photo"
+raven,Raven HR Company Workspace,frappe-bench/apps/raven/raven/raven_integrations/doctype/raven_hr_company_workspace/raven_hr_company_workspace.json,Raven 人力资源 公司 工作区,可用,
+raven,Cannot send an empty message,frappe-bench/apps/raven/raven/api/raven_message.py:231,不能 发送 an 空 消息,不可用,残留英文词或英文句法：an
+raven,Click to pause,frappe-bench/apps/raven/apps/web/src/components/features/message/renderers/MessageAudio.tsx:85,Click 至 pause,不可用,"残留英文词或英文句法：Click, pause"
+raven,Shown on the message action dialog.,frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionForm.tsx:138,Shown on  消息 操作 dialog.,不可用,"残留英文词或英文句法：Shown, on, dialog."

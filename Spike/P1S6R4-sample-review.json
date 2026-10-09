@@ -1,0 +1,374 @@
+{
+  "rows": 100,
+  "usable": 41,
+  "unusable": 59,
+  "error_types": {
+    "占位/未译": 12,
+    "混合英文": 47
+  },
+  "sample_counts_by_app": {
+    "crm": 13,
+    "erpnext": 30,
+    "frappe": 8,
+    "hrms": 5,
+    "insights": 9,
+    "raven": 35
+  },
+  "unusable_rows": [
+    {
+      "app": "crm",
+      "key": "{0}% complete",
+      "translation": "中文：{0}% complete",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "crm",
+      "key": "Enable Exotel integration to make and receive calls directly from your CRM",
+      "translation": "启用 Exotel 集成 至 make 与 接收 calls directly 从 your CRM",
+      "reason": "残留英文词或英文句法：make, calls, directly, your"
+    },
+    {
+      "app": "crm",
+      "key": "Replacing my current CRM",
+      "translation": "Replacing my 当前 CRM",
+      "reason": "残留英文词或英文句法：Replacing, my"
+    },
+    {
+      "app": "crm",
+      "key": "Create form",
+      "translation": "创建 form",
+      "reason": "残留英文词或英文句法：form"
+    },
+    {
+      "app": "crm",
+      "key": "Cannot rename: an unrelated {0} '{1}' already exists on the other side. Resolve manually first.",
+      "translation": "不能 rename: an unrelated {0} '{1}' 已存在 存在 on  other side. Resolve manually 第一.",
+      "reason": "残留英文词或英文句法：rename, an, unrelated, on, other"
+    },
+    {
+      "app": "crm",
+      "key": "{0} isn't a linkable field on a CRM form.",
+      "translation": "{0} isn't a linkable 字段 on a CRM form.",
+      "reason": "残留英文词或英文句法：isn't, a, linkable, on, a"
+    },
+    {
+      "app": "crm",
+      "key": "Setting up Yahoo requires you to enable two factor authentication and app specific passwords. Read more",
+      "translation": "设置 up Yahoo requires 您 至 启用 two factor authentication 与 应用 specific passwords. 读取 更多",
+      "reason": "残留英文词或英文句法：up, requires, two, factor, authentication"
+    },
+    {
+      "app": "crm",
+      "key": "Expected deal value is required.",
+      "translation": "期望 deal 值 是 必填.",
+      "reason": "残留英文词或英文句法：deal"
+    },
+    {
+      "app": "crm",
+      "key": "Choose how you want to use the application by setting your preferences.",
+      "translation": "Choose how 您 want 至 use  application by 设置 your preferences.",
+      "reason": "残留英文词或英文句法：Choose, how, want, use, application"
+    },
+    {
+      "app": "crm",
+      "key": "{0} users added to hierarchy",
+      "translation": "{0} 用户 added 至 hierarchy",
+      "reason": "残留英文词或英文句法：added, hierarchy"
+    },
+    {
+      "app": "erpnext",
+      "key": "Frappe CRM",
+      "translation": "???Frappe CRM",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "erpnext",
+      "key": "Rate at which document currency is converted to company currency",
+      "translation": "比率 at which 单据 币种 是 converted 至 公司 币种",
+      "reason": "残留英文词或英文句法：at, which, converted"
+    },
+    {
+      "app": "erpnext",
+      "key": "Line references undefined in {0}: {1}",
+      "translation": "Line 参考 undefined 中 {0}: {1}",
+      "reason": "残留英文词或英文句法：Line, undefined"
+    },
+    {
+      "app": "frappe",
+      "key": "added {0} row(s) to {1}",
+      "translation": "added {0} 行(s) 至 {1}",
+      "reason": "残留英文词或英文句法：added, s"
+    },
+    {
+      "app": "frappe",
+      "key": "Outlook.com",
+      "translation": "中文：Outlook.com",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "frappe",
+      "key": "Sendgrid",
+      "translation": "中文：Sendgrid",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "frappe",
+      "key": "Sync Timeout (Seconds)",
+      "translation": "Sync 超时 (Seconds)",
+      "reason": "残留英文词或英文句法：Sync, Seconds"
+    },
+    {
+      "app": "frappe",
+      "key": "Verdana",
+      "translation": "中文：Verdana",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "frappe",
+      "key": "No pinned document types.",
+      "translation": "否 pinned 单据 types.",
+      "reason": "残留英文词或英文句法：pinned, types."
+    },
+    {
+      "app": "hrms",
+      "key": "Shortlist",
+      "translation": "中文：Shortlist",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "hrms",
+      "key": "Leave Settings",
+      "translation": "Leave 设置",
+      "reason": "残留英文词或英文句法：Leave"
+    },
+    {
+      "app": "hrms",
+      "key": "21:00",
+      "translation": "中文：21:00",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "hrms",
+      "key": "No Bank/Cash Account found for currency {0}. Please create one under company {1}.",
+      "translation": "否 银行/现金 科目 找到 用于 币种 {0}. 请 创建 one under 公司 {1}.",
+      "reason": "残留英文词或英文句法：one, under"
+    },
+    {
+      "app": "hrms",
+      "key": "Advance Account is mandatory. Please set the {0} in the Company {1} and submit this document.",
+      "translation": "Advance 科目 是 必填. 请 set  {0} 中  公司 {1} 与 提交 此 单据.",
+      "reason": "残留英文词或英文句法：Advance, set"
+    },
+    {
+      "app": "insights",
+      "key": "Bulk Enqueue Import Job",
+      "translation": "Bulk Enqueue 导入 Job",
+      "reason": "残留英文词或英文句法：Bulk, Enqueue, Job"
+    },
+    {
+      "app": "insights",
+      "key": "Insights Workbook",
+      "translation": "中文：Insights Workbook",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "insights",
+      "key": "Refreshing Tables",
+      "translation": "Refreshing 表",
+      "reason": "残留英文词或英文句法：Refreshing"
+    },
+    {
+      "app": "insights",
+      "key": "Action if table exists",
+      "translation": "操作 if 表 存在",
+      "reason": "残留英文词或英文句法：if"
+    },
+    {
+      "app": "insights",
+      "key": "Is Native Query",
+      "translation": "是 Native 查询",
+      "reason": "残留英文词或英文句法：Native"
+    },
+    {
+      "app": "insights",
+      "key": "New Alert",
+      "translation": "新建 Alert",
+      "reason": "残留英文词或英文句法：Alert"
+    },
+    {
+      "app": "raven",
+      "key": "{0} joined.",
+      "translation": "中文：{0} joined.",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "raven",
+      "key": "You'll need an invite to rejoin this channel",
+      "translation": "您'll need an invite 至 rejoin 此 频道",
+      "reason": "残留英文词或英文句法：ll, need, an, invite, rejoin"
+    },
+    {
+      "app": "raven",
+      "key": "Delete Scheduled Message?",
+      "translation": "删除 Scheduled 消息?",
+      "reason": "残留英文词或英文句法：Scheduled"
+    },
+    {
+      "app": "raven",
+      "key": "Add a new variable in the function.",
+      "translation": "添加 a 新建 variable 中  函数.",
+      "reason": "残留英文词或英文句法：a, variable"
+    },
+    {
+      "app": "raven",
+      "key": "Joining…",
+      "translation": "中文：Joining…",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "raven",
+      "key": "Status set to {0}",
+      "translation": "状态 set 至 {0}",
+      "reason": "残留英文词或英文句法：set"
+    },
+    {
+      "app": "raven",
+      "key": "React with {0}",
+      "translation": "React 带 {0}",
+      "reason": "残留英文词或英文句法：React"
+    },
+    {
+      "app": "raven",
+      "key": "Rows per page",
+      "translation": "行 per page",
+      "reason": "残留英文词或英文句法：per, page"
+    },
+    {
+      "app": "raven",
+      "key": "Log out of your account?",
+      "translation": "日志 out 的 your 科目?",
+      "reason": "残留英文词或英文句法：out, your"
+    },
+    {
+      "app": "raven",
+      "key": "Can be HTML/Markdown/Plain Text. Support Jinja tags",
+      "translation": "Can be HTML/Markdown/Plain 文本. Support Jinja tags",
+      "reason": "残留英文词或英文句法：Can, be, Plain, Support, tags"
+    },
+    {
+      "app": "raven",
+      "key": "Forwarded",
+      "translation": "中文：Forwarded",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "raven",
+      "key": "Turning this on will remove any public channels where you have not joined from the sidebar.",
+      "translation": "Turning 此 on will 移除 any 公开 频道 where 您 有 不 joined 从  sidebar.",
+      "reason": "残留英文词或英文句法：Turning, on, will, any, where"
+    },
+    {
+      "app": "raven",
+      "key": "This channel is no longer available",
+      "translation": "此 频道 是 否 longer 可用",
+      "reason": "残留英文词或英文句法：longer"
+    },
+    {
+      "app": "raven",
+      "key": "{0} votes",
+      "translation": "中文：{0} votes",
+      "reason": "占位译文或原文未译"
+    },
+    {
+      "app": "raven",
+      "key": "Create and manage document processors for your bots.",
+      "translation": "创建 与 manage 单据 processors 用于 your bots.",
+      "reason": "残留英文词或英文句法：manage, processors, your, bots."
+    },
+    {
+      "app": "raven",
+      "key": "If you later intend to make this private you will have to manually remove members that should not have access to this channel.",
+      "translation": "If 您 later intend 至 make 此 私有 您 will 有 至 manually 移除 members that should 不 有 访问 至 此 频道.",
+      "reason": "残留英文词或英文句法：If, later, intend, make, will"
+    },
+    {
+      "app": "raven",
+      "key": "Read receipts",
+      "translation": "读取 receipts",
+      "reason": "残留英文词或英文句法：receipts"
+    },
+    {
+      "app": "raven",
+      "key": "Working Hours Start",
+      "translation": "Working 小时 开始",
+      "reason": "残留英文词或英文句法：Working"
+    },
+    {
+      "app": "raven",
+      "key": "1 member selected",
+      "translation": "1 member 已选择",
+      "reason": "残留英文词或英文句法：member"
+    },
+    {
+      "app": "raven",
+      "key": "Meeting links from these sites show a join card in chat.",
+      "translation": "Meeting 链接 从 these sites 显示 a join card 中 chat.",
+      "reason": "残留英文词或英文句法：Meeting, these, sites, a, join"
+    },
+    {
+      "app": "raven",
+      "key": "You may want to try adjusting your filters.",
+      "translation": "您 五月 want 至 try adjusting your filters.",
+      "reason": "残留英文词或英文句法：want, try, adjusting, your, filters."
+    },
+    {
+      "app": "raven",
+      "key": "Raven Push Token",
+      "translation": "Raven Push 令牌",
+      "reason": "残留英文词或英文句法：Push"
+    },
+    {
+      "app": "raven",
+      "key": "There is no one else in this workspace to add.",
+      "translation": "There 是 否 one else 中 此 工作区 至 添加.",
+      "reason": "残留英文词或英文句法：There, one, else"
+    },
+    {
+      "app": "raven",
+      "key": "Go back to the previous channel or page.",
+      "translation": "Go 返回 至  上一步 频道 或 page.",
+      "reason": "残留英文词或英文句法：Go, page."
+    },
+    {
+      "app": "raven",
+      "key": "What Enter does can be changed in Preferences.",
+      "translation": "What Enter  can be changed 中 Preferences.",
+      "reason": "残留英文词或英文句法：What, Enter, can, be, changed"
+    },
+    {
+      "app": "raven",
+      "key": "Sent a photo",
+      "translation": "已发送 a photo",
+      "reason": "残留英文词或英文句法：a, photo"
+    },
+    {
+      "app": "raven",
+      "key": "Cannot send an empty message",
+      "translation": "不能 发送 an 空 消息",
+      "reason": "残留英文词或英文句法：an"
+    },
+    {
+      "app": "raven",
+      "key": "Click to pause",
+      "translation": "Click 至 pause",
+      "reason": "残留英文词或英文句法：Click, pause"
+    },
+    {
+      "app": "raven",
+      "key": "Shown on the message action dialog.",
+      "translation": "Shown on  消息 操作 dialog.",
+      "reason": "残留英文词或英文句法：Shown, on, dialog."
+    }
+  ],
+  "method_note": "规则辅助初筛；英文词残留统一判不可用，品牌/代码白名单见脚本，需裁决后再修订全批。"
+}
