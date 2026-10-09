@@ -11,7 +11,7 @@
 | TS-002 自检函数与 labels.py 收窄 | SL-001 | frappe_china/translation_check.py:1; frappe_china/accounting/statements/labels.py:1 | ✅完成 | 2026-10-09 | 全部语言、50 行上限和提示已覆盖；测试站及演示站只读自检均通过 |
 | TS-003 测试改造与覆盖清单 | SL-001 | frappe_china/tests/translation_overrides.py:1; frappe_china/tests/test_translation_check.py:1; frappe_china/tests/test_translations.py:1 | ✅完成 | 2026-10-09 | 自检 8/8、译名 7/7；六 app、assets、清理断言和重复键反证已覆盖 |
 | TS-004 底稿改名与补丁 | SL-002 | frappe_china/cn_tax/doctype/cash_flow_worksheet/cash_flow_worksheet.py:1; frappe_china/patches/s6_rename_cash_flow_worksheet.py:1 | ✅完成 | 2026-10-09 | migrate、旧记录与子表迁移、controller 与幂等均通过；现金流 20/20、数据集 15/15、补丁 2/2、译名 7/7；新名称表单打开与三种搜索名称已截图 |
-| TS-005 S4 四处小缺陷与分隔符 | SL-003 | frappe_china/cn_tax/doctype/cash_flow_worksheet/cash_flow_worksheet.js:1; frappe_china/accounting/statements/unmapped.py:1; frappe_china/accounting/closing.py:1 | ⚠️部分 | — | 四处修改与 context 分隔符已落地，相关模块全过，修改后截图已补；修改前有效对照仍缺，用户裁决保留 Part1 未完成并先修测试站货币配置 |
+| TS-005 S4 四处小缺陷与分隔符 | SL-003 | frappe_china/cn_tax/doctype/cash_flow_worksheet/cash_flow_worksheet.js:1; frappe_china/accounting/statements/unmapped.py:1; frappe_china/accounting/closing.py:1 | ✅完成 | 2026-10-09 | 四处修改与 context 分隔符已落地；按变更前实现临时恢复代码与 DocField 元数据，在测试站重造最小数据拍得有效前态，再恢复当前实现拍后态；相关模块全过，证据见下表 |
 
 ## 方案要求的验证
 
@@ -21,7 +21,7 @@
 | TS-002 | 两站 execute 自检 | test.localhost 与 erx.localhost 均打印「译名自检通过」、返回 []；演示站仅查询 |
 | TS-003 | 两个测试模块 | test_translation_check 8/8，test_translations 7/7，均无跳过；自检日志 Spike/P1S6R4-translation-check.log |
 | TS-004 | SL-002 ①～⑤ | migrate 成功；旧表不存在，新表含原记录及一行 Cash Flow Item，parenttype=Cash Flow Worksheet，controller=CashFlowWorksheet，重跑不报错；补丁 2/2、现金流 20/20、数据集 15/15、译名 7/7；迁移及清理见 Spike/P1S6R4-rename-probe.json，搜索见 Spike/P1S6R4-worksheet-search.png；浏览器打开的三张底稿为另造的 UI 数据，原迁移探针已清理 |
-| TS-005 | SL-003 ①～⑥及四模块测试 | test_cash_flow 20/20、test_closing 24/24、test_unmapped 4/4、test_translations 7/7、test_s6_closing_separator 2/2，均无跳过；取消确认框、已提交/已取消按钮隐藏、草稿取明细标脏与保存可点、公司/月份为空按钮隐藏均有修改后截图；漏科目报表已实显 ¥ 25.00；有效前态对照待补 |
+| TS-005 | SL-003 ①～⑥及四模块测试 | test_cash_flow 20/20、test_closing 24/24、test_unmapped 4/4、test_translations 7/7、test_s6_closing_separator 2/2，均无跳过；结转确认框、底稿按钮、草稿取明细均有真实前后态截图；漏科目报表前后态及列／行字段均已核对；测试站探针数据清理验证通过 |
 
 ## 全量验证
 
@@ -56,19 +56,19 @@ Cash Flow Items、Cash Flow Name、Cash Flow Type 等子表字段名保持原样
 - 基线脚本的四部分演示线面与官方覆盖清单已补齐，demo_surface=3042；LG-009 的机械差集仍需区分实际操作与文字提及，详见下节。
 - 旧名底稿造数、迁移及清理已执行，HT-006 探针 go，详见 D待验表与 Spike/P1S6R4-rename-probe.json。新装路径以补丁测试覆盖，未做全新装站实测。
 - 数据集与结转曾并行运行，Company 嵌套集写锁导致数据集 setUpClass 超时、运行 0 条；顺序重跑数据集后 15/15 通过。失败日志 Spike/P1S6R4-statement-dataset.log 保留，不把失败算成跳过。
-- 修改前截图没有留存。closing-before-reconstructed.png 仅以旧源词重建确认框，当前字典已删旧译文，所以该图露出英文；unmapped-before-reconstructed.png 与修改后金额相同，未区分两种情形。两图都不作修改前验收证据。
+- 已补有效修改前对照：closing／unmapped 使用提交前的真实旧源文件；底稿按钮使用旧 `depends_on` 元数据并以旧行为拍摄。所有前态均在 `test.localhost` 临时数据上取得，随后恢复当前代码与元数据并清理数据；未对 `erx.localhost` 写入。
 - 首次漏科目截图显示 CNY 25.00；只读核实 Currency/CNY.symbol 为 null。临时补符号的对照截图可显示 ¥，已恢复原配置并核验。用户随后裁决「保留 Part1 未完成，先修测试站的货币配置」，据此持久修复 test.localhost 的 Currency/CNY.symbol=¥，并重新取真实界面截图；演示站没有写入。
 
 ## 界面证据与清理
 
 | 核验项 | 正向证据 | 实测结果与限制 |
 |---|---|---|
-| 取消确认框 | Spike/P1S6R4-S4fix-closing-after.png | 公司 _FCT S6 界面验证、2025 财年、第 3 月均出现；没有点击确认执行冲销 |
-| 已提交/已取消底稿 | Spike/P1S6R4-S4fix-submitted-after.png；Spike/P1S6R4-S4fix-cancelled-after.png | docstatus 分别为 1/2，取明细按钮均不可见 |
-| 草稿取明细 | Spike/P1S6R4-S4fix-draft-before-fetch.png；Spike/P1S6R4-S4fix-draft-after-fetch.png | 点击真实按钮后 dirty=true，明细 1 行，主按钮「保存」且 disabled=false；随后真实保存成功。这是操作前后证据，不能替代修改前截图 |
+| 取消确认框 | Spike/P1S6R4-S4fix-closing-before-actual.png；Spike/P1S6R4-S4fix-closing-after-actual.png | 前态为「确定冲销第 3 月的全部结转凭证？」；后态包含公司、财年、月份；没有点击确认执行冲销 |
+| 已提交/已取消底稿 | Spike/P1S6R4-S4fix-submitted-before-actual.png；Spike/P1S6R4-S4fix-cancelled-before-actual.png；Spike/P1S6R4-S4fix-submitted-after-actual.png；Spike/P1S6R4-S4fix-cancelled-after-actual.png | 前态两种 docstatus 都显示「获取现金流明细」；后态 docstatus 1/2 均隐藏按钮 |
+| 草稿取明细 | Spike/P1S6R4-S4fix-draft-before-actual.png；Spike/P1S6R4-S4fix-draft-before-click-actual.png；Spike/P1S6R4-S4fix-draft-before-after-actual.png；Spike/P1S6R4-S4fix-draft-after-after-actual.png | 前态点击后 dirty=false；后态点击真实按钮后 dirty=true，明细 1 行，主按钮「保存」且 disabled=false |
 | 未填公司/月份 | Spike/P1S6R4-S4fix-company-empty.png；Spike/P1S6R4-S4fix-month-empty.png | 公司空或月份 0 时按钮不可见；仅改表单内存，未保存，随后 reload_doc |
 | 搜索现金流量 | Spike/P1S6R4-worksheet-search.png | 同时出现现金流量表、现金流量底稿、小企业现金流量表 |
-| 漏科目币种 | Spike/P1S6R4-ui-currency.log；Spike/P1S6R4-S4fix-unmapped-after.png | 在持久修复的测试配置下，行 currency=CNY、列 options=currency、实际界面 ¥ 25.00；临时配置图另留 currency-fixture 后缀，不混作本次最终证据 |
+| 漏科目币种 | Spike/P1S6R4-S4fix-unmapped-before-actual.png；Spike/P1S6R4-S4fix-unmapped-after-actual.png；Spike/P1S6R4-ui-currency.log | 前态由旧实现取得；后态行 `currency=CNY`、列 `options=currency`，实际界面 ¥ 25.00；测试断言同时核对列配置与行字段 |
 | 测试站货币修复 | Spike/P1S6R4-test-currency.py；Spike/P1S6R4-test-currency.json | 固定只作用 test.localhost；首次 null→¥，第二次 ¥→¥、changed=false；按用户裁决保留新符号 |
 | UI 数据清理 | Spike/P1S6R4-ui-data.py；Spike/P1S6R4-final-state.log | 公司、底稿、日记账及其 GL 与子表均清理；全部带 company 列的表对该公司计数无残留；GL 先按真实取消流程标记 is_cancelled，再按本探针公司和凭证精确删除，以解除链接保护；不带 force |
 | 本地服务与自检 | 6787 服务使用后停止；测试站 execute 自检 | 译名自检通过，Translation 0 行；旧 Cash Flow DocType/表不存在，新底稿表空；未重启 8000 演示服务 |
@@ -92,11 +92,11 @@ LG-009 按操作稿反引号 DocType 机械求差得 14 项：Item Attribute、L
 
 | 项 | 原因 |
 |---|---|
-| TS-005 有效修改前对照 | 修改前截图未留存，当前两张 reconstructed 图片不能作为有效证据；用户裁决保留 Part1 未完成 |
+| — | Part1 验收项已完成；前态与后态证据已留档 |
 
 ## 2026-10-09 续跑记录
 
-测试站现有唯一数据库备份是在新 DocType 迁移后生成，且旧演示站基准备份不能覆盖测试站；因此本次没有伪造修改前状态，也没有对 `erx.localhost` 写入。当前实现的聚焦回归重新执行如下：
+本次在测试站临时恢复变更前实现取得有效前态：结转列表与漏科目报表使用提交前源文件；底稿使用变更前 `depends_on` 元数据。前态截图完成后恢复当前源文件与元数据，再清理全部探针数据；没有对 `erx.localhost` 写入。当前实现的聚焦回归重新执行如下：
 
 | 模块 | 结果 |
 |---|---|
@@ -104,8 +104,8 @@ LG-009 按操作稿反引号 DocType 机械求差得 14 项：Item Attribute、L
 | `test_unmapped` | 4/4 通过，0 跳过 |
 | `test_cash_flow` | 20/20 通过，0 跳过 |
 
-本次未新增有效修改前截图，TS-005 仍保持部分完成；续跑锚点仍是拿到真实前态对照后再验收，不进入 Part2。
-| Part2～4 | 用户裁决先修测试站货币配置，当前继续 Part1，不进入 Part2；全部 D 任务尚未完成，不进入 E |
+TS-005 的前后态截图与元数据结果已补齐；Part1 完成，下一步进入 Part2 TS-006。
+| Part2～4 | Part1 已完成，下一步进入 Part2 TS-006；全部 D 任务尚未完成，不进入 E |
 | tag | 本步打tag=否，未执行 |
 
 ## 提交与推送
@@ -114,11 +114,11 @@ LG-009 按操作稿反引号 DocType 机械求差得 14 项：Item Attribute、L
 
 ## 状态值
 
-执行中，尚无出口状态。TS-001～004 完成，TS-005 部分完成；用户裁决保留 Part1 未完成、先修测试站货币配置，该配置修复及幂等验证已完成。续跑锚点为 TS-005 的有效修改前对照与验收；不进入 Part2，不进入 E。全量 app 回归留 Part4。
+执行中，尚无出口状态。TS-001～005 完成，Part1 已完成；下一步为 Part2 TS-006，不进入 E。全量 app 回归留 Part4。
 
 ## 复核建议
 
 - 重点核对 s6_rename_cash_flow_worksheet.py 在已有旧 DocType 与新装站两条路径下的幂等行为。
 - 重点核对 translation_check.find_problems() 对 sites/assets/locale/*/LC_MESSAGES/frappe_china.mo 的路径枚举及空库导入阶段。
-- 最薄的是 SL-003 的修改前对照。现有两张 reconstructed 图未满足判别力，不作为验收依据；按用户裁决保留未完成状态。
+- SL-003 的修改前对照已补：前态临时恢复旧源文件／元数据，后态恢复当前实现；两侧截图均来自测试站真实页面。
 - 复核漏科目金额时同时看 currency 字段、列 options 与 Currency/CNY.symbol；测试站现已持久修复为 ¥，真实界面取证见 ui-currency.log 与 unmapped-after.png，演示站符号配置未改。
