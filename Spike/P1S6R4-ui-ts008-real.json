@@ -1,0 +1,5 @@
+{"expression":"location.href='/app/sales-invoice'","wait":4000}
+{"expression":"({url:location.href,text:document.body.innerText.slice(0,1600),rows:[...document.querySelectorAll('.list-row-container')].map(x=>x.innerText).slice(0,5)})","screenshot":"P1S6R4-ts008-real-sales.png"}
+{"expression":"location.href='/app/purchase-invoice'","wait":4000}
+{"expression":"({url:location.href,text:document.body.innerText.slice(0,1800),rows:[...document.querySelectorAll('.list-row-container')].map(x=>x.innerText).slice(0,8)})","screenshot":"P1S6R4-ts008-real-purchase.png"}
+{"close":true}

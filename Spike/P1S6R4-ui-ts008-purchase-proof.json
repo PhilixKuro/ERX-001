@@ -1,0 +1,3 @@
+{"expression":"location.href='/app/purchase-invoice'","wait":4000}
+{"expression":"({keys:Object.keys(frappe.listview_settings||{}),purchase:frappe.listview_settings['Purchase Invoice']?.get_indicator({status:'Unpaid',outstanding_amount:100,docstatus:1,on_hold:0})?.[0],hold:frappe.listview_settings['Purchase Invoice']?.get_indicator({status:'Unpaid',outstanding_amount:100,docstatus:1,on_hold:1,release_date:null})?.[0],wrapped:!!frappe.listview_settings['Purchase Invoice']?.__frappe_china_wrapped})","screenshot":"P1S6R4-ts008-purchase-proof.png"}
+{"close":true}

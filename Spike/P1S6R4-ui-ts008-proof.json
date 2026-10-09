@@ -1,0 +1,4 @@
+{"expression":"location.href='/app/sales-invoice'","wait":4000}
+{"expression":"({keys:Object.keys(frappe.listview_settings||{}),url:location.href})","screenshot":"P1S6R4-ts008-proof.png"}
+{"expression":"({sales:frappe.listview_settings['Sales Invoice'].get_indicator({status:'Unpaid'})?.[0],plain:__('Unpaid'),wrapped:!!frappe.listview_settings['Sales Invoice'].__frappe_china_wrapped})"}
+{"close":true}

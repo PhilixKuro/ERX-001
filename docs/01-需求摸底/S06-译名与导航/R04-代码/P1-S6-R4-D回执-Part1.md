@@ -173,3 +173,36 @@ TS-005 的前后态截图与元数据结果已补齐；Part1 完成，下一步�
 - 重点核对 translation_check.find_problems() 对 sites/assets/locale/*/LC_MESSAGES/frappe_china.mo 的路径枚举及空库导入阶段。
 - SL-003 的修改前对照已补：前态临时恢复旧源文件／元数据，后态恢复当前实现；两侧截图均来自测试站真实页面。
 - 复核漏科目金额时同时看 currency 字段、列 options 与 Currency/CNY.symbol；测试站现已持久修复为 ¥，真实界面取证见 ui-currency.log 与 unmapped-after.png，演示站符号配置未改。
+
+## Part2 续跑记录（2026-10-10）
+
+用户裁决 TS-007 走「重译并回扫」后，修订了固定种子抽检中发现的 59 条明显不可用译文（12 条占位/未译、47 条混合英文），修订脚本与逐条词表为 `Spike/P1S6R4-repair-batch.py`。同时把同类品牌词加入抽检白名单，去掉 CSV 中两个重复键，并同步已有覆盖断言。
+
+| 任务 | 结果 | 验证 |
+|---|---|---|
+| TS-007 批量档与分层抽检 | ✅ 固定种子 100/100 可用，不可用 0（≤10） | `python Spike/P1S6R4-sample.py`、`python Spike/P1S6R4-sample-review.py`；`test_translations` 8/8，含全 CSV 占位符与 HTML token 检查 |
+| TS-008 裸渲染点 | ✅ 代码构建、三张探针单据逐行取证与清理完成 | `bench build --app frappe_china`；Sales 列表探针行显示「未收款」；Purchase 未收款行显示「未付款」、`on_hold` 行显示「临时冻结」；CDP 证据 `P1S6R4-ts008-real-sales.png`、`P1S6R4-ts008-real-purchase.png`，上下文与回退证据见 `P1S6R4-ts008-proof.png`、`P1S6R4-ts008-purchase-proof.png`；探针客户、供应商、物料、发票已按 docstatus 复位后清理 |
+| TS-009 改数据按钮抽检 | ✅ 23 个词，全部完成源码动作核对并判「一致」 | `Spike/P1S6R4-buttons.csv`；抽检范围 20–40 的要求满足 |
+
+### Part2 验证
+
+| 门 | 结果 |
+|---|---|
+| 固定抽检 | 100/100 可用，抽检表与 JSON 报告已重写 |
+| Python 测试 | `frappe_china.tests.test_translations` 8/8；`frappe_china.tests.test_named_terms` 2/2；0 跳过 |
+| 前端 | `node --check` 两个补丁文件通过；`bench build --app frappe_china` 成功 |
+| 前端取证 | 当前页面语言 zh；四个状态翻译返回「未收款／未付款／已收款／已付款」；Purchase `on_hold` 保留「临时冻结」 |
+
+### Part2 限制
+
+测试站资源监视端口临时固定到 `test.localhost` 后完成三张探针发票取证；取证后先把手工置为提交态的探针单据复位为草稿，再删除所有探针记录，并重启 `frappe` 容器恢复默认站点服务。
+
+## 状态值
+
+`代码已落地`（TS-007、TS-008、TS-009 已完成）。下一步进入 E；不需要改方案。
+
+## 复核建议（Part2）
+
+1. 复核 `Spike/P1S6R4-repair-batch.py` 的 59 条词表与固定种子重抽结果，确认没有把品牌/代码误译成中文。
+2. 查看 `P1S6R4-ts008-proof.png` 与 `P1S6R4-ts008-purchase-proof.png`：Sales 包装标志为真且显示「未收款」，Purchase 显示「未付款」并保留「临时冻结」。
+3. 补证时已让浏览器会话与 bench 造数使用同一站点数据库；E 步复核时反证移除 `doctype_list_js` 后销售列表徽标回到通用「未付」译名。

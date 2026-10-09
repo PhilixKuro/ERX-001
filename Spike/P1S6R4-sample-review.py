@@ -12,6 +12,7 @@ ALLOW = {
     "AI", "API", "BOM", "CRM", "CSV", "ERPNext", "Exotel", "Frappe",
     "HTML", "Insights", "Item", "Jinja", "Lead", "Markdown", "PDF",
     "Raven", "Yahoo", "ZIP",
+    "Outlook.com", "Sendgrid", "Verdana",
 }
 TOKEN = re.compile(r"(?<![A-Za-z])[A-Za-z][A-Za-z0-9_.'-]*(?![A-Za-z])")
 
