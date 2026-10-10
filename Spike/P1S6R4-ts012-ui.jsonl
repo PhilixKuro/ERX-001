@@ -1,0 +1,11 @@
+{"expression":"frappe.set_route('Form','Journal Entry','ACC-JV-2026-00001'); true;","wait":1800}
+{"expression":"JSON.stringify({route:frappe.get_route(),is_opening:cur_frm.doc.is_opening,buttons:Object.keys(cur_frm.custom_buttons||{}),text:document.body.innerText.slice(-1000)})","screenshot":"P1S6R4-ts012-opening-before.png"}
+{"expression":"(()=>{const el=Array.from(document.querySelectorAll('button')).find(e=>e.textContent.includes('查看')); if(!el) throw new Error('View dropdown missing'); el.click(); return true})()","wait":300}
+{"expression":"(()=>{const el=Array.from(document.querySelectorAll('*')).find(e=>e.children.length===0 && e.textContent.trim()==='会计凭证'); if(!el) throw new Error('opening ledger item missing'); el.click(); return true})()","wait":500}
+{"expression":"JSON.stringify({route_options:frappe.route_options,route:frappe.get_route()})"}
+{"expression":"frappe.set_route('Form','Journal Entry','ACC-JV-2026-00002'); true;","wait":1800}
+{"expression":"JSON.stringify({route:frappe.get_route(),is_opening:cur_frm.doc.is_opening,buttons:Object.keys(cur_frm.custom_buttons||{})})","screenshot":"P1S6R4-ts012-normal-before.png"}
+{"expression":"(()=>{const el=Array.from(document.querySelectorAll('button')).find(e=>e.textContent.includes('查看')); if(!el) throw new Error('View dropdown missing'); el.click(); return true})()","wait":300}
+{"expression":"(()=>{const el=Array.from(document.querySelectorAll('*')).find(e=>e.children.length===0 && e.textContent.trim()==='会计凭证'); if(!el) throw new Error('normal ledger item missing'); el.click(); return true})()","wait":500}
+{"expression":"JSON.stringify({route_options:frappe.route_options,route:frappe.get_route()})"}
+{"close":true}

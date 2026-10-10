@@ -1,0 +1,8 @@
+{"expression":"JSON.stringify({sidebar:Object.keys(frappe.boot.workspace_sidebar_item||{}).filter(key=>key==='business flow'),labels:(frappe.boot.workspace_sidebar_item?.['business flow']||[]).map(item=>item.label).slice(0,20)})"}
+{"expression":"frappe.set_route('List','Warehouse'); true;","wait":1800}
+{"expression":"JSON.stringify({route:frappe.get_route(),text:document.body.innerText.slice(-600),tree:!!document.querySelector('.frappe-list, .nested-set-tree, .tree-node')})","screenshot":"P1S6R4-ts013-warehouse.png"}
+{"expression":"frappe.set_route('List','Account'); true;","wait":1800}
+{"expression":"JSON.stringify({route:frappe.get_route(),text:document.body.innerText.slice(-600),tree:!!document.querySelector('.frappe-list, .nested-set-tree, .tree-node')})","screenshot":"P1S6R4-ts013-account.png"}
+{"expression":"window.__s6Calls=[]; const originalCall=frappe.call; frappe.call=function(){window.__s6Calls.push(arguments[0]?.method||arguments[0]); return originalCall.apply(this,arguments)}; frappe.set_route('List','Sales Taxes and Charges Template'); true;","wait":2200}
+{"expression":"JSON.stringify({route:frappe.get_route(),calls:window.__s6Calls.filter(value=>String(value).includes('reportview.get')),text:document.body.innerText.slice(-800),rows:frappe.list_view?.data?.length ?? null})","screenshot":"P1S6R4-ts013-tax-template.png"}
+{"close":true}
