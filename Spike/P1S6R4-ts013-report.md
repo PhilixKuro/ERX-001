@@ -1,31 +1,16 @@
 # P1-S6-R4 TS-013：不刷新六例复现记录
 
-日期：2026-10-10  
-站点：`test.localhost`（浏览器取证）；演示站未写入  
-浏览器：Chrome/154.0.8037.98，界面语言 `zh`  
-实时通道：本轮未把 `realtime_check.run` 作为通过条件写入结论；该命令需要目标用户已有桌面页并收到回执，不能以命令无输出代替“通”。
+日期：2026-10-10。Chrome 154.0.8037.98，界面语言 `zh`。测试站为 `test.localhost:6787`；例6在 `erx.localhost:8000` 只读。例3、4 前各由实际桌面页面收到 `realtime_check.run` 回执（测试站约584.1ms、590.8ms；演示站约597.4ms），没有把“通道不通”混成界面缺陷。
 
-## 结论
-
-| 例 | 现象 | 复现结果 | 处置 |
+| 例 | 操作与环境 | 实测 | 结论与处置 |
 |---|---|---|---|
-| 1 | 仓库列表空白 | **未复现**。直接进入 `Warehouse` 后路由为 `Tree/Warehouse`，页面显示树节点 | 已由自有侧栏/路由行为覆盖；不改上游。证据：`P1S6R4-ts013-warehouse.png` |
-| 2 | 采购工作区侧栏“物料与价格”卡片不显示 | **不属不刷新**。v16 侧栏由 `Workspace Sidebar` 驱动，`add_card()` 无调用者；刷新也不会生成该卡片 | 按 `LG-073` 不修。依据：[V-07 探针](V07-frontend-refresh-paths.md) |
-| 3 | BOM 保存后“提交”按钮不出现 | **未复现**。按方案要求需要至少两个物料、一张含原料和工序的 BOM；测试站 `Item=0`、`BOM=0`，无法合法准备前置数据 | 不硬修；保留可执行复现步骤，待 S7 或演示数据准备时重跑。 |
-| 4 | 生产任务单 `time_logs` 残留空行 | **未复现**。按方案要求需要工单与任务单；测试站 `Job Card=0`、`Work Order=0`，无法准备前置数据 | 不硬修；写入侧仍是上游 `job_card.py:680-685`，若要兜底需另行裁决。 |
-| 5 | 树形 DocType 从侧栏点进空白 | **未复现**。`Account` 直接进入 `Tree/Account`，页面显示科目树节点 | 与例 1 同源，保留当前实现。证据：`P1S6R4-ts013-account.png` |
-| 6 | 会话中首进销售税费模板列表空白，刷新后正常 | **未复现**。新浏览器会话首次进入 `Sales Taxes and Charges Template`，记录到 `frappe.desk.reportview.get`、`get_count`、`get_list`，页面显示 8 条记录 | 不改；证据：`P1S6R4-ts013-tax-template.png`，原始输出由 `P1S6R4-ts013-ui.jsonl` 重跑生成。 |
+| 1 仓库列表空白 | 由 Business Flow 侧栏点 Warehouse | URL 路由为 `Tree/Warehouse`，树节点1个 | 未复现；见 TS-011 的两轮树视图证据 |
+| 2 采购工作区卡片不显示 | 检查 v16 侧栏实现与调用路径 | Workspace Sidebar 取代旧卡片入口，`add_card()` 无调用者；刷新不改变这一点 | 不属于不刷新问题；按 `LG-073` 不修 |
+| 3 BOM 保存后提交按钮不出现 | 测试站建两个 `_FCT S6P3` 物料、一条原料行、一道工序，实际点击保存，不刷新 | 保存后 `__unsaved=0`、`is_dirty=false`、`set_value` 调用已记录；主按钮“提交”存在且未禁用 | 未复现，不改上游；结构化证据 `P1S6R4-refresh-bom.json`，界面 `P1S6R4-refresh-bom-saved.png` |
+| 4 Job Card 时间行残留空记录 | 测试站真实执行开始（选员工）→暂停→继续→完成，每步查询数据库并读取 UI | 开始/暂停/继续/完成四态各有截图；两条时间行 name 均为真实记录，idx 1/2，无空/new 行；最终完成量1、计时按钮消失 | 未复现，不加 `doc_events` 兜底，不改上游；`P1S6R4-refresh-job.json` |
+| 5 树形 DocType 从侧栏点进空白 | 由 Business Flow 点 Account | `Tree/Account`，6个可见节点 | 未复现；并在干净状态和已访问列表状态下，各测 Account/Warehouse/Cost Center/Company/Employee，十项全通过，见 `P1S6R4-tree-rounds.json` 与 `P1S6R4-tree-{clean,after-list}-*.png` |
+| 6 新会话首进销售税模板列表空白 | 演示站新浏览器会话首次打开 `/desk/sales-taxes-and-charges-template`，只读观察 | 页面5条记录；Network 实际出现 `reportview.get`、`get_count`、`get_list` 三条取数请求 | 未复现，不改演示站；`P1S6R4-refresh-tax.json` 与 `P1S6R4-refresh-tax-demo.png` |
 
-## 可复现命令
+可复跑：先按 `docs/.../P1-S6-R3-C开发方案-Part3.md` 建立专用数据，再真实启动测试站 6787 服务并保持 realtime 页面开启，执行 `node Spike/P1S6R4-refresh-check.js bom` 和 `job`；`tax` 只读连接演示站。树视图的两种状态执行 `node Spike/P1S6R4-tree-rounds.js`。本报告与结构化结果均排除在本地 git 状态之外。
 
-测试站临时服务启动后执行：
-
-```powershell
-Get-Content Spike\P1S6R4-ts013-ui.jsonl | node Spike\P1S6R4-ui.cjs
-```
-
-脚本会生成三张截图并记录路由、页面文本和首进税费模板的取数方法。脚本运行后已停止临时 `6787` 服务。
-
-## 边界
-
-例 3、4 的“未复现”不是缺陷已排除，而是当前测试站缺少方案要求的数据前置；两例不满足前置时不应伪造通过或改上游代码。例 1、5、6 已有浏览器正向证据，例 2 有源码与站点结构证据。
+本轮为六例补造的 `_FCT S6 Part3` 公司及其关联数据必须按 `Spike/P1S6R4-part3-data.py cleanup` 精确清理并验证无残留。若重复继续测试，可先运行 `reset-job` 重置自己的草稿任务卡。
