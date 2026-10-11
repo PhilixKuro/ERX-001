@@ -1,0 +1,44 @@
+OVERRIDES 218
+  207	S6 ????????????
+  5	S6 TS-014：正式表单屏整句译名修复
+  2	S6 TS-014：保留官方 CRM 术语
+  1	S6 TS-014：CRM 图表实际值标签，区别预测值
+  1	S6 TS-014：保留官方消息动作译名
+  1	S6 TS-014：保留官方通用值标签
+  1	S6 TS-014：保留官方时长单位
+ours with 中文：/??? 144
+   '!=' -> '中文：!='
+   '#{0}' -> '中文：#{0}'
+   '0-30' -> '???0-30'
+   '0.25' -> '中文：0.25'
+   '0.5' -> '中文：0.5'
+   '00:00' -> '中文：00:00'
+   '01:00' -> '中文：01:00'
+   '02:00' -> '中文：02:00'
+   '03:00' -> '中文：03:00'
+   '04:00' -> '中文：04:00'
+   '05:00' -> '中文：05:00'
+   '06:00' -> '中文：06:00'
+   '07:00' -> '中文：07:00'
+   '08:00' -> '中文：08:00'
+   '09:00' -> '中文：09:00'
+csv∩official 218; missing from OVERRIDES []
+Timesheet: Override(official='工时表', ours='工时单', basis='S6 ????????????')
+Timesheets: Override(official='工时表', ours='工时单', basis='S6 ????????????')
+Dr: Override(official='博士', ours='借方', basis='S6 ????????????')
+Setup: Override(official='设置', ours='基础设置', basis='S6 ????????????')
+Item: None
+Payment References: Override(official='付款参考', ours='核销明细', basis='S6 ????????????')
+Hold: None
+Delivery Note: None
+csv rows with 中文：/??? : 696
+   ['!=', '中文：!=']
+   ['### Access the web and mobile apps\n\n\nRaven is available at <a href="/raven">**/raven**</a> for both web and mobile. On mobile, Raven can be installed as a PWA.', '????### Access the web and mobile apps\n\n\nRaven is available at <a href="/raven">**/raven**</a> for both web and mobile. On mobile, Raven can be installed as a PWA.']
+   ['#{0}', '中文：#{0}']
+   ['%John%', '中文：%John%']
+   ['/', '中文：/']
+   ['0-30', '???0-30']
+   ['0.25', '中文：0.25']
+   ['0.5', '中文：0.5']
+   ['00:00', '中文：00:00']
+   ['01:00', '中文：01:00']

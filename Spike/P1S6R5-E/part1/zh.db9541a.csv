@@ -1,0 +1,154 @@
+Month End Closing Voucher,结转凭证
+Month End Closing Voucher Account,结转凭证明细
+Cash Flow Code,现金流量项目
+Cash Flow Item,现金流水明细
+Cash Flow Subtotal,现金流量小计
+Bank Statement Preprocess,银行流水预处理
+Bank Statement Format,银行流水格式
+VAT Transfer,增值税结转
+Surtax Accrual,附加税计提
+P&L Transfer,损益结转
+Year-end Profit Transfer,本年利润结转
+Print Statutory Format,打印法定格式
+Preprocess and Import,预处理并导入
+Get Cash Flow Items,获取现金流明细
+Generate Month End Closing,生成月末结转
+Cancel Month End Closing,取消月末结转
+Generate,生成
+Draft documents exist: {0}. Continue?,存在草稿单据：{0}。是否继续？
+Month End Closing cancelled,月末结转已取消
+Month End Closing completed,月末结转已完成
+Nothing to transfer for this month,本月无需结转
+Month End Closing for month {0} is already done. Cancel it first.,本月（{0} 月）已结转，请先取消
+Earlier months are not completely closed: {0},以下月份结转不完整，请先处理：{0}
+month {0}: {1},{0} 月：{1}
+"{0}; {1}",{0}；{1},Month End Closing Voucher
+There are draft documents in this month,本月存在草稿单据
+Month must be between 1 and 12,月份须在 1 至 12 之间
+Period Type,期间类型
+Period Type must be Monthly or Annual,期间类型须为月报或年报
+"Company, Fiscal Year and Month are required",公司、会计年度与月份均为必填
+Row {0} does not equal its component rows,第 {0} 行与其分项合计不符
+Statement Format,银行流水格式
+Format Name,格式名称
+Encoding,编码
+Date Header,日期列表头
+Reference Header,流水号列表头
+Description Header,摘要列表头
+Counterparty Header,对方户名列表头
+Deposit Header,存入列表头
+Withdrawal Header,支取列表头
+Amount Header,金额列表头
+Date Formats,日期格式
+Summary Keywords,合计行关键字
+Row Count,行数
+Skipped Count,跳过行数
+Output File,输出文件
+Source File,源文件
+Preprocessing bank statement,正在预处理银行流水
+Prepared,已预处理
+Imported,已导入
+{0} month {1} is not closed,{0} 年 {1} 月尚未结转
+Documents changed after month end closing; cancel and regenerate,结转后该月又有凭证变动（新增或取消），请取消该月结转后重新生成（更晚月份已结转的，须从最晚月份起逐月取消）
+Profit and loss accounts have non-zero month-end balances,损益科目月末余额不为 0
+Year-end profit transfer is missing,尚未做本年利润结转
+Pending property gains and losses (1901) are not cleared at year end,年末待处理财产损溢尚有余额，应在年末结账前处理完毕
+Urban construction tax uses the default urban rate of 7%,城建税按市区 7% 计
+VAT payable {0} = paid {1} + unpaid transferred out {2} - overpaid transferred out {3}; VAT group balance at month end {4},应纳增值税 {0} ＝ 已交 {1} ＋ 转出未交 {2} − 转出多交 {3}；月末应交增值税组余额 {4}
+Surtax on VAT payable {0}: urban construction {1}; education {2}; local education {3}; total {4} (each rounded to the cent),按应纳增值税 {0} 计提：城市维护建设税 {1}；教育费附加 {2}；地方教育附加 {3}；合计 {4}（各项分别舍入到分）
+Profit and loss transfer: net profit {0} credited to Current Year Profit,损益结转：本月净利润 {0} 转入本年利润贷方
+Profit and loss transfer: net loss {0} debited to Current Year Profit,损益结转：本月净亏损 {0} 转入本年利润借方
+Year-end profit transfer: profit for the year {0} transferred to Undistributed Profit,本年利润结转：全年净利润 {0} 转入未分配利润
+Year-end profit transfer: loss for the year {0} transferred to Undistributed Profit,本年利润结转：全年净亏损 {0} 转入未分配利润
+{0} existing rows were skipped,{0} 行已存在，跳过
+"Only CSV, XLSX, and XLS bank statements are supported",只支持 CSV、XLSX、XLS 格式的银行流水
+Unsupported bank statement encoding: {0},不支持的银行流水编码：{0}
+Bank statement cannot be decoded as UTF-8 or GB18030,银行流水无法按 UTF-8 或 GB18030 解码
+Configured headers are missing: {0},文件中缺少格式所定义的表头：{0}
+Could not find bank statement header. Expected: {0},找不到银行流水表头，期望的表头：{0}
+Row {0}: date '{1}' cannot be parsed,第 {0} 行：日期「{1}」无法识别
+Row {0}: invalid amount,第 {0} 行：金额无效
+Row {0}: split deposit and withdrawal cannot be negative,第 {0} 行：存入与支取不能为负数
+Row {0}: deposit and withdrawal are both zero,第 {0} 行：存入与支取都为 0
+Duplicate reference number {0} in Rows {1},流水号 {0} 在第 {1} 行重复
+Rows without a reference number cannot be auto-reconciled or deduplicated,没有流水号的行无法自动对账，也无法查重
+There are no new bank transactions to import,没有可导入的新银行流水
+Expected {0} imported rows but found {1},应导入 {0} 行，实际为 {1} 行
+Import queued. View Bank Statement Import {0} for completion status,已加入后台导入队列，完成情况见银行对账单导入 {0}
+Account number {0} must resolve to exactly one ledger account,科目号 {0} 必须恰好对应一个明细科目
+Company {0} has no default Cost Center,公司 {0} 没有默认成本中心
+Company {0} does not use the China SME chart,公司 {0} 未使用小企业会计准则科目表
+Cancel later Month End Closing Vouchers first: {0},请先取消更晚的结转凭证：{0}
+Closing Type,结转类别
+Fiscal Year does not exist,会计年度不存在
+Fiscal Year must be a calendar year from January 1 to December 31,会计年度必须是 1 月 1 日至 12 月 31 日的自然年
+Month End Closing Vouchers can only be created by Generate Month End Closing,结转凭证只能通过「生成月末结转」创建
+Invalid closing type {0},无效的结转类别 {0}
+Year-end Profit Transfer can only be created for December,本年利润结转只能在 12 月生成
+At least one account row is required,至少需要一行科目明细
+Total Debit must equal Total Credit and be greater than zero,借方合计必须等于贷方合计且大于 0
+Row #{0}: Account must belong to company {1},第 {0} 行：科目必须属于公司 {1}
+Row #{0}: Account must be an enabled ledger account,第 {0} 行：科目必须是已启用的明细科目
+Row #{0}: Enter either Debit or Credit,第 {0} 行：借方与贷方只能填一项
+Row #{0}: Debit and Credit cannot be negative,第 {0} 行：借方与贷方不能为负数
+Row #{0}: Cost Center is required for Profit and Loss accounts,第 {0} 行：损益类科目须填成本中心
+Row #{0}: Cost Center must be an enabled ledger cost center for company {1},第 {0} 行：成本中心必须是公司 {1} 已启用的明细成本中心
+A submitted {0} already exists for this month,本月已有一张已提交的{0}
+Urban Maintenance and Construction Tax Rate (%),城市维护建设税税率（%）
+Chart of accounts {0} is only for companies in China,科目表 {0} 只适用于国家为中国的公司
+Company {0} is missing required accounts: {1},公司 {0} 缺少必需的科目：{1}
+Warehouse {0} does not exist,仓库 {0} 不存在
+Cost Center and Party grouping cannot be used together,不能同时按成本中心与往来单位分组
+Account number {0} does not exist for company {1},公司 {1} 没有科目号 {0}
+A valid company is required,请选择有效的公司
+A fiscal year is required,请选择会计年度
+Fiscal year must be a calendar year,会计年度必须是自然年
+The following account numbers are missing: {0},以下科目号在科目表中不存在：{0}
+Invalid statement formula: {0},报表公式无效：{0}
+Statement formula {0} refers to rows without values: {1},报表公式 {0} 引用了没有数值的行：{1}
+Statement formulas have a cycle or refer to missing rows: {0},报表公式有循环引用或引用了不存在的行：{0}
+Unsupported statutory statement: {0},不支持的法定报表：{0}
+Company {0} tax setup failed: missing accounts {1},公司 {0} 税务设置失败：缺少科目 {1}
+missing default cost center,缺少默认成本中心
+Cash Flow row {0} is missing,现金流量第 {0} 行缺失
+Cash flow check failed: {0} ({1} vs {2}),现金流量勾稽不成立：{0}（{1} 对 {2}）
+Cash Flow Items,现金流水明细
+"Cash Flow Worksheet for {0}, month {1} already exists",{0} 第 {1} 月的现金流量底稿已存在
+Cash flow code is required for rows: {0},以下行缺少现金流量项目代码：第 {0} 行
+Cash flow code {0} does not exist,现金流量项目代码 {0} 不存在
+GL Entry {0} does not exist,总账分录 {0} 不存在
+GL Entry {0} split total does not match the ledger,总账分录 {0} 的拆分合计与原分录不符
+Internal transfer rows of {0} do not balance,{0} 的内部转账行借贷合计不为 0
+Cash Flow Name,项目名称
+Cash Flow Type,项目类别
+Formula,计算方式
+Is Outflow,是否流出
+Report Sequence,报表顺序
+Default Party Type,默认往来类型
+type_subtotal,分类小计
+last_period_balance,期初余额
+above_subtotal,上方合计
+Manual Split,手工拆分
+Monthly Amount,当月金额
+Yearly Amount,年内累计金额
+Configure either Deposit and Withdrawal headers or one signed Amount header,请设置「存入列表头＋支取列表头」，或只设一个带正负号的「金额列表头」
+Both Deposit Header and Withdrawal Header are required,存入列表头与支取列表头须同时设置
+Surtax rounds to zero on VAT payable {0}; no accrual voucher created,按应纳增值税 {0} 计提的附加税各项舍入后均为 0，未生成附加税计提凭证
+There is no Month End Closing to cancel for month {0},第 {0} 月没有可取消的月末结转
+"Reverse all Month End Closing Vouchers of {0}, fiscal year {1}, month {2}?",确定冲销 {0} {1} 财年第 {2} 月的全部结转凭证？
+Balance or Movement,余额或发生额
+"Month End Closing does not support Immutable Ledger. Disable it in Accounts Settings first.",月末结转不支持不可篡改账本，请先在会计设置中关闭「启用不可篡改账本」。
+"Month End Closing does not support Finance Books; entries read by the closing use: {0}",月末结转不支持账簿；结转读取的科目在以下账簿下有分录：{0}
+The following account numbers have no ledger accounts under them: {0},以下科目号下没有任何明细科目：{0}
+Rows {0} use a subtotal or balance line as cash flow code,第 {0} 行选的现金流量项目是小计或余额行，明细行不能选它
+"Rows {0}: debit rows need an inflow cash flow code and credit rows an outflow code",第 {0} 行：借方（流入）行须选流入项目，贷方（流出）行须选流出项目
+Opening Difference,年初差额
+Realtime check received: {0},实时通道检查已收到：{0}
+Cash Flow Worksheet,现金流量底稿
+No submitted Cash Flow Worksheet for this month,该月没有已提交的现金流量底稿
+Submit the Cash Flow Worksheet for month {0} before month {1},请先提交第 {0} 月的现金流量底稿，再提交第 {1} 月
+Submit Cash Flow Worksheet month(s) {0} before month {1},请先提交第 {0} 月的现金流量底稿，再提交第 {1} 月（这些月份有现金流水）
+Cancel later Cash Flow Worksheet months before cancelling month {0},请先取消更晚月份的现金流量底稿，再取消第 {0} 月
+Cash Flow Worksheet ending balance does not match cash accounts: {0} vs {1},期末现金余额与现金类科目余额不符：{0} 对 {1}
+Cash Flow Worksheet year-to-date ending balance does not match cash accounts: {0} vs {1},本年累计期末现金余额与现金类科目余额不符：{0} 对 {1}
+"No cash flow items yet. Click Get Cash Flow Items first, then save.",还没有现金流水明细。请先点「获取现金流明细」，再保存。

@@ -1,0 +1,58 @@
+results 51 pass 51 passed field 51
+sections ['基础资料', '销售', '采购', '库存', '生产', '财务', '报表']
+home first 业务流程 home count 3
+undefined_requests []
+dup labels []
+True | 公司 | /desk/company |  | http://test.localhost:6787/desk/company | ['List', 'Company', 'List'] | 公司 | Business Flow | trees 0 rec 4 {}
+True | 全局默认值 | /desk/global-defaults/Global Defaults |  | http://test.localhost:6787/desk/global-defaults/Global Defaults | ['Form', 'Global Defaults', 'Global Defaults'] | 全局默认值 | Business Flow | trees 0 rec None {}
+True | 财年 | /desk/fiscal-year |  | http://test.localhost:6787/desk/fiscal-year | ['List', 'Fiscal Year', 'List'] | 财年 | Business Flow | trees 0 rec None {}
+True | 科目表 | /desk/account |  | http://test.localhost:6787/desk/account | ['Tree', 'Account'] | 科目表 | Business Flow | trees 6 rec None {}
+True | 成本中心 | /desk/cost-center |  | http://test.localhost:6787/desk/cost-center | ['Tree', 'Cost Center'] | 成本中心 树 | Business Flow | trees 1 rec None {}
+True | 仓库 | /desk/warehouse |  | http://test.localhost:6787/desk/warehouse | ['Tree', 'Warehouse'] | 仓库 树 | Business Flow | trees 1 rec None {}
+True | 计量单位 | /desk/uom |  | http://test.localhost:6787/desk/uom | ['List', 'UOM', 'List'] | 单位 | Business Flow | trees 0 rec None {}
+True | 物料 | /desk/item |  | http://test.localhost:6787/desk/item?disabled=0 | ['List', 'Item', 'List'] | 物料 | Business Flow | trees 0 rec None {}
+True | 物料价格 | /desk/item-price |  | http://test.localhost:6787/desk/item-price | ['List', 'Item Price', 'List'] | 物料价格 | Business Flow | trees 0 rec None {}
+True | 工站 | /desk/workstation |  | http://test.localhost:6787/desk/workstation | ['List', 'Workstation', 'List'] | 工站 | Business Flow | trees 0 rec None {}
+True | 工序 | /desk/operation |  | http://test.localhost:6787/desk/operation | ['List', 'Operation', 'List'] | 工序 | Business Flow | trees 0 rec None {}
+True | 工艺路线 | /desk/routing |  | http://test.localhost:6787/desk/routing | ['List', 'Routing', 'List'] | 工艺路线 | Business Flow | trees 0 rec None {}
+True | 物料清单 | /desk/bom |  | http://test.localhost:6787/desk/bom | ['List', 'BOM', 'List'] | 物料清单 | Business Flow | trees 0 rec None {}
+True | 客户 | /desk/customer |  | http://test.localhost:6787/desk/customer | ['List', 'Customer', 'List'] | 客户 | Business Flow | trees 0 rec None {}
+True | 供应商 | /desk/supplier |  | http://test.localhost:6787/desk/supplier | ['List', 'Supplier', 'List'] | 供应商 | Business Flow | trees 0 rec None {}
+True | 员工 | /desk/employee |  | http://test.localhost:6787/desk/employee?status=Active | ['List', 'Employee', 'List'] | 员工 | Business Flow | trees 0 rec 1 {}
+True | 线索 | /crm/leads | _blank | http://test.localhost:6787/crm/leads/view/list | None | Leads - 列表 | None | trees None rec None {}
+True | 商机 | /crm/deals | _blank | http://test.localhost:6787/crm/deals/view/list | None | Deals - 列表 | None | trees None rec None {}
+True | 数据面板 | /crm/dashboard | _blank | http://test.localhost:6787/crm/dashboard | None | 客户关系管理仪表板 | None | trees None rec None {}
+True | 报价 | /desk/quotation |  | http://test.localhost:6787/desk/quotation | ['List', 'Quotation', 'List'] | 报价 | Business Flow | trees 0 rec None {}
+True | 销售订单 | /desk/sales-order |  | http://test.localhost:6787/desk/sales-order | ['List', 'Sales Order', 'List'] | 销售订单 | Business Flow | trees 0 rec None {}
+True | 销售出库 | /desk/delivery-note |  | http://test.localhost:6787/desk/delivery-note | ['List', 'Delivery Note', 'List'] | 销售出库 | Business Flow | trees 0 rec None {}
+True | 销售发票 | /desk/sales-invoice |  | http://test.localhost:6787/desk/sales-invoice | ['List', 'Sales Invoice', 'List'] | 销售发票 | Business Flow | trees 0 rec None {}
+True | 物料需求 | /desk/material-request |  | http://test.localhost:6787/desk/material-request | ['List', 'Material Request', 'List'] | 物料需求 | Business Flow | trees 0 rec None {}
+True | 供应商报价 | /desk/supplier-quotation |  | http://test.localhost:6787/desk/supplier-quotation | ['List', 'Supplier Quotation', 'List'] | 供应商报价 | Business Flow | trees 0 rec None {}
+True | 采购订单 | /desk/purchase-order |  | http://test.localhost:6787/desk/purchase-order | ['List', 'Purchase Order', 'List'] | 采购订单 | Business Flow | trees 0 rec None {}
+True | 采购入库 | /desk/purchase-receipt |  | http://test.localhost:6787/desk/purchase-receipt | ['List', 'Purchase Receipt', 'List'] | 采购入库 | Business Flow | trees 0 rec None {}
+True | 采购发票 | /desk/purchase-invoice |  | http://test.localhost:6787/desk/purchase-invoice | ['List', 'Purchase Invoice', 'List'] | 采购发票 | Business Flow | trees 0 rec None {}
+True | 库存调账 | /desk/stock-reconciliation |  | http://test.localhost:6787/desk/stock-reconciliation | ['List', 'Stock Reconciliation', 'List'] | 库存调账 | Business Flow | trees 0 rec None {}
+True | 质检单 | /desk/quality-inspection |  | http://test.localhost:6787/desk/quality-inspection | ['List', 'Quality Inspection', 'List'] | 质检单 | Business Flow | trees 0 rec None {}
+True | 生产计划 | /desk/production-plan |  | http://test.localhost:6787/desk/production-plan?status=["!%3D"%2C"Closed"] | ['List', 'Production Plan', 'List'] | 生产计划 | Business Flow | trees 0 rec None {}
+True | 生产工单 | /desk/work-order |  | http://test.localhost:6787/desk/work-order?status=["!%3D"%2C"Stopped"] | ['List', 'Work Order', 'List'] | 生产工单 | Business Flow | trees 0 rec None {}
+True | 物料移动 | /desk/stock-entry |  | http://test.localhost:6787/desk/stock-entry | ['List', 'Stock Entry', 'List'] | 物料移动 | Business Flow | trees 0 rec None {}
+True | 生产任务单 | /desk/job-card |  | http://test.localhost:6787/desk/job-card | ['List', 'Job Card', 'List'] | 生产任务单 | Business Flow | trees 0 rec None {}
+True | 收付款凭证 | /desk/payment-entry |  | http://test.localhost:6787/desk/payment-entry | ['List', 'Payment Entry', 'List'] | 收付款凭证 | Business Flow | trees 0 rec None {}
+True | 日记账凭证 | /desk/journal-entry |  | http://test.localhost:6787/desk/journal-entry | ['List', 'Journal Entry', 'List'] | 日记账凭证 | Business Flow | trees 0 rec None {}
+True | 应收账款 | /desk/query-report/Accounts Receivable |  | http://test.localhost:6787/desk/query-report/Accounts Receivable | ['query-report', 'Accounts Receivable'] | 应收账款 | Business Flow | trees 0 rec None {}
+True | 应付账款 | /desk/query-report/Accounts Payable |  | http://test.localhost:6787/desk/query-report/Accounts Payable | ['query-report', 'Accounts Payable'] | 应付账款 | Business Flow | trees 0 rec None {}
+True | 结转凭证 | /desk/month-end-closing-voucher |  | http://test.localhost:6787/desk/month-end-closing-voucher | ['List', 'Month End Closing Voucher', 'List'] | 结转凭证 | Business Flow | trees 0 rec None {}
+True | 现金流量底稿 | /desk/cash-flow-worksheet |  | http://test.localhost:6787/desk/cash-flow-worksheet | ['List', 'Cash Flow Worksheet', 'List'] | 现金流量底稿 | Business Flow | trees 0 rec None {}
+True | 银行流水预处理 | /desk/bank-statement-preprocess |  | http://test.localhost:6787/desk/bank-statement-preprocess | ['List', 'Bank Statement Preprocess', 'List'] | 银行流水预处理 | Business Flow | trees 0 rec None {}
+True | 小企业资产负债表 | /desk/query-report/小企业资产负债表 |  | http://test.localhost:6787/desk/query-report/小企业资产负债表 | ['query-report', '小企业资产负债表'] | 小企业资产负债表 | Business Flow | trees 0 rec None {}
+True | 小企业利润表 | /desk/query-report/小企业利润表 |  | http://test.localhost:6787/desk/query-report/小企业利润表 | ['query-report', '小企业利润表'] | 小企业利润表 | Business Flow | trees 0 rec None {}
+True | 小企业现金流量表 | /desk/query-report/小企业现金流量表 |  | http://test.localhost:6787/desk/query-report/小企业现金流量表 | ['query-report', '小企业现金流量表'] | 小企业现金流量表 | Business Flow | trees 0 rec None {}
+True | 漏科目检查 | /desk/query-report/漏科目检查 |  | http://test.localhost:6787/desk/query-report/漏科目检查 | ['query-report', '漏科目检查'] | 漏科目检查 | Business Flow | trees 0 rec None {}
+True | 会计总账 | /desk/query-report/General Ledger |  | http://test.localhost:6787/desk/query-report/General Ledger | ['query-report', 'General Ledger'] | 会计总账 | Business Flow | trees 0 rec None {}
+True | 物料凭证 | /desk/query-report/Stock Ledger |  | http://test.localhost:6787/desk/query-report/Stock Ledger | ['query-report', 'Stock Ledger'] | 物料凭证 | Business Flow | trees 0 rec None {}
+True | 库存余额(收发存汇总表) | /desk/query-report/Stock Balance |  | http://test.localhost:6787/desk/query-report/Stock Balance?from_date=2026-09-10&to_date=2026-10-10&valuation_field_type=Currency&include_zero_stock_items=1 | ['query-report', 'Stock Balance'] | 库存余额(收发存汇总表) | Business Flow | trees 0 rec None {}
+True | 库存与会计账金额对账 | /desk/query-report/Stock and Account Value Comparison |  | http://test.localhost:6787/desk/query-report/Stock and Account Value Comparison | ['query-report', 'Stock and Account Value Comparison'] | 库存与会计账金额对账 | Business Flow | trees 0 rec None {}
+True | BOM差异报表 | /desk/query-report/BOM Variance Report |  | http://test.localhost:6787/desk/query-report/BOM Variance Report | ['query-report', 'BOM Variance Report'] | BOM差异报表 | Business Flow | trees 0 rec None {}
+True | AI 分析助手 | /raven | _blank | http://test.localhost:6787/raven/Raven/raven-general | None | general | Raven | None | trees None rec None {}
+keys of one result ['href', 'label', 'page', 'pass', 'target']
+boot keys ['first_icon', 'icons', 'language']

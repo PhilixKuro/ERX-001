@@ -1,0 +1,5029 @@
+{
+ "site": "erx.localhost",
+ "counts": {
+  "Translation": 0,
+  "Cash Flow Worksheet": 0,
+  "GL Entry": 0,
+  "Stock Ledger Entry": 0,
+  "Item": 0,
+  "Customer": 0,
+  "Supplier": 0,
+  "Employee": 0,
+  "BOM": 0,
+  "Sales Order": 0,
+  "Sales Invoice": 0,
+  "Purchase Order": 0,
+  "Purchase Invoice": 0,
+  "Payment Entry": 0,
+  "Journal Entry": 0,
+  "Stock Entry": 0,
+  "Delivery Note": 0,
+  "Work Order": 0,
+  "Job Card": 0,
+  "Production Plan": 0,
+  "Quotation": 0,
+  "CRM Lead": 0,
+  "CRM Deal": 0,
+  "User": 2
+ },
+ "worksheet_table": true,
+ "old_cash_flow_table": false,
+ "hdth_accounts": 266,
+ "companies": [
+  "华东弹簧有限公司"
+ ],
+ "prefixed_records": {
+  "Company": [],
+  "Warehouse": [],
+  "Account": [],
+  "Customer": [],
+  "Supplier": [],
+  "Item": [],
+  "Employee": [],
+  "Operation": [],
+  "Workstation": [],
+  "Routing": [],
+  "User": [],
+  "Item Price": [],
+  "UOM": [],
+  "Cost Center": [],
+  "Contact": [],
+  "Address": [],
+  "CRM Lead": [],
+  "CRM Deal": []
+ },
+ "translation_check": [],
+ "check_app_order": {
+  "ok": true,
+  "order": [
+   "frappe",
+   "erpnext",
+   "crm",
+   "hrms",
+   "insights",
+   "raven",
+   "frappe_china"
+  ],
+  "order_ok": true,
+  "overrides_ok": true,
+  "translation_ok": true,
+  "company_checks_ok": true,
+  "problems": []
+ },
+ "sidebar_section_dupes": {},
+ "account_type_receivable_hits": [
+  [
+   "Receivable",
+   "应收账款"
+  ]
+ ],
+ "account_type_receivable_acct_count": 1,
+ "account_link_search": [
+  [
+   "1121 - 应收票据 - HDTH",
+   "1121"
+  ],
+  [
+   "1122 - 应收账款 - HDTH",
+   "1122"
+  ],
+  [
+   "1131 - 应收股利 - HDTH",
+   "1131"
+  ],
+  [
+   "1132 - 应收利息 - HDTH",
+   "1132"
+  ],
+  [
+   "1221 - 其他应收款 - HDTH",
+   "1221"
+  ]
+ ],
+ "original_entries": {
+  "Desktop Icon": [
+   {
+    "name": "Accounting",
+    "modified": "2026-01-27 17:04:04.351402",
+    "hidden": 0,
+    "idx": 1
+   },
+   {
+    "name": "Accounts Setup",
+    "modified": "2026-01-27 18:34:57.092350",
+    "hidden": 0,
+    "idx": 3
+   },
+   {
+    "name": "Assets",
+    "modified": "2026-01-01 20:07:01.220411",
+    "hidden": 0,
+    "idx": 1
+   },
+   {
+    "name": "Automation",
+    "modified": "2026-01-01 20:07:01.577056",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Banking",
+    "modified": "2026-02-12 12:29:48.687545",
+    "hidden": 0,
+    "idx": 5
+   },
+   {
+    "name": "Budget",
+    "modified": "2026-01-23 14:39:30.839274",
+    "hidden": 0,
+    "idx": 6
+   },
+   {
+    "name": "Build",
+    "modified": "2026-01-01 20:07:01.609927",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Buying",
+    "modified": "2026-01-01 20:07:01.196163",
+    "hidden": 0,
+    "idx": 1
+   },
+   {
+    "name": "CRM",
+    "modified": "2026-01-06 14:54:05.112927",
+    "hidden": 1,
+    "idx": 1
+   },
+   {
+    "name": "Data",
+    "modified": "2026-01-01 20:07:01.385516",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Email",
+    "modified": "2026-01-01 20:07:01.584412",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "ERPNext",
+    "modified": "2025-11-17 16:33:37.520201",
+    "hidden": 1,
+    "idx": 100
+   },
+   {
+    "name": "ERPNext Settings",
+    "modified": "2026-01-09 14:59:56.044037",
+    "hidden": 0,
+    "idx": 10
+   },
+   {
+    "name": "Expenses",
+    "modified": "2026-01-01 20:07:01.300710",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Financial Reports",
+    "modified": "2026-01-23 14:38:46.479759",
+    "hidden": 0,
+    "idx": 2
+   },
+   {
+    "name": "Framework",
+    "modified": "2025-12-12 07:36:09.059666",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.571970",
+    "hidden": 0,
+    "idx": 1
+   },
+   {
+    "name": "Frappe HR",
+    "modified": "2026-01-09 17:29:44.070361",
+    "hidden": 0,
+    "idx": 14
+   },
+   {
+    "name": "Home",
+    "modified": "2026-01-01 20:07:01.174950",
+    "hidden": 1,
+    "idx": 0
+   },
+   {
+    "name": "HR Setup",
+    "modified": "2026-03-11 12:47:56.005334",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Insights",
+    "modified": "2026-10-07 00:42:42.799314",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Integrations",
+    "modified": "2026-01-01 20:07:01.603540",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Invoicing",
+    "modified": "2026-01-23 15:17:23.564795",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Leaves",
+    "modified": "2026-01-01 20:07:01.290307",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Manufacturing",
+    "modified": "2026-01-01 20:07:01.246693",
+    "hidden": 0,
+    "idx": 1
+   },
+   {
+    "name": "My Workspaces",
+    "modified": "2026-01-01 20:07:01.338117",
+    "hidden": 0,
+    "idx": 101
+   },
+   {
+    "name": "Organization",
+    "modified": "2026-02-24 17:59:39.885360",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Payments",
+    "modified": "2026-01-27 18:31:59.617181",
+    "hidden": 0,
+    "idx": 1
+   },
+   {
+    "name": "Payroll",
+    "modified": "2026-01-01 20:07:01.308523",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Performance",
+    "modified": "2026-01-01 20:07:01.295447",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Printing",
+    "modified": "2026-01-01 20:07:01.569646",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Projects",
+    "modified": "2026-01-01 20:07:01.226383",
+    "hidden": 0,
+    "idx": 1
+   },
+   {
+    "name": "Quality",
+    "modified": "2026-01-01 20:07:01.239523",
+    "hidden": 0,
+    "idx": 1
+   },
+   {
+    "name": "Raven",
+    "modified": "2026-10-07 00:43:38.977993",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Recruitment",
+    "modified": "2026-01-01 20:07:01.259701",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Selling",
+    "modified": "2026-01-01 20:07:01.189446",
+    "hidden": 0,
+    "idx": 1
+   },
+   {
+    "name": "Share Management",
+    "modified": "2026-01-23 14:39:34.128991",
+    "hidden": 0,
+    "idx": 7
+   },
+   {
+    "name": "Shift & Attendance",
+    "modified": "2026-01-01 20:07:01.284302",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Stock",
+    "modified": "2026-01-01 20:07:01.212940",
+    "hidden": 0,
+    "idx": 1
+   },
+   {
+    "name": "Subcontracting",
+    "modified": "2026-01-01 20:07:01.323508",
+    "hidden": 0,
+    "idx": 6
+   },
+   {
+    "name": "Subscription",
+    "modified": "2026-01-23 14:39:37.830722",
+    "hidden": 0,
+    "idx": 8
+   },
+   {
+    "name": "Support",
+    "modified": "2026-01-06 14:53:54.100467",
+    "hidden": 1,
+    "idx": 1
+   },
+   {
+    "name": "System",
+    "modified": "2026-01-01 20:07:01.161174",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Tax & Benefits",
+    "modified": "2026-01-01 20:07:01.316510",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Taxes",
+    "modified": "2026-01-23 14:39:25.636166",
+    "hidden": 0,
+    "idx": 4
+   },
+   {
+    "name": "Tenure",
+    "modified": "2026-01-01 20:07:01.267686",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Users",
+    "modified": "2026-01-01 20:07:01.597388",
+    "hidden": 0,
+    "idx": 0
+   },
+   {
+    "name": "Website",
+    "modified": "2026-01-01 20:07:01.591355",
+    "hidden": 0,
+    "idx": 0
+   }
+  ],
+  "Workspace Sidebar": [
+   {
+    "name": "Accounts Setup",
+    "modified": "2026-02-23 22:20:51.043478"
+   },
+   {
+    "name": "Assets",
+    "modified": "2026-02-23 20:57:05.930062"
+   },
+   {
+    "name": "Automation",
+    "modified": "2026-01-08 14:16:38.557529"
+   },
+   {
+    "name": "Banking",
+    "modified": "2026-01-10 00:06:13.017457"
+   },
+   {
+    "name": "Budget",
+    "modified": "2026-01-10 00:06:13.032297"
+   },
+   {
+    "name": "Build",
+    "modified": "2026-01-12 15:48:51.863039"
+   },
+   {
+    "name": "Buying",
+    "modified": "2026-02-20 15:19:47.010810"
+   },
+   {
+    "name": "CRM",
+    "modified": "2026-04-28 14:11:15.910719"
+   },
+   {
+    "name": "Data",
+    "modified": "2026-01-08 14:16:38.613338"
+   },
+   {
+    "name": "Email",
+    "modified": "2026-01-08 14:16:38.914482"
+   },
+   {
+    "name": "ERPNext Settings",
+    "modified": "2026-01-10 00:06:12.956275"
+   },
+   {
+    "name": "Expenses",
+    "modified": "2026-01-08 14:16:38.878865"
+   },
+   {
+    "name": "Financial Reports",
+    "modified": "2026-02-22 18:35:48.416287"
+   },
+   {
+    "name": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.550151"
+   },
+   {
+    "name": "Home",
+    "modified": "2026-01-10 00:06:12.971358"
+   },
+   {
+    "name": "HR Setup",
+    "modified": "2026-03-23 15:16:39.465712"
+   },
+   {
+    "name": "Integrations",
+    "modified": "2026-01-12 15:53:25.420331"
+   },
+   {
+    "name": "Invoicing",
+    "modified": "2026-06-03 19:50:17.815817"
+   },
+   {
+    "name": "Leaves",
+    "modified": "2026-01-12 14:12:08.828397"
+   },
+   {
+    "name": "Manufacturing",
+    "modified": "2026-05-05 11:01:50.260118"
+   },
+   {
+    "name": "My Workspaces",
+    "modified": "2026-01-08 14:16:38.600691"
+   },
+   {
+    "name": "Organization",
+    "modified": "2026-02-24 18:08:00.796746"
+   },
+   {
+    "name": "Payments",
+    "modified": "2026-02-23 16:38:05.061694"
+   },
+   {
+    "name": "Payroll",
+    "modified": "2026-05-14 12:18:07.894971"
+   },
+   {
+    "name": "Performance",
+    "modified": "2026-01-10 15:07:50.379158"
+   },
+   {
+    "name": "Printing",
+    "modified": "2026-01-08 14:16:38.605839"
+   },
+   {
+    "name": "Projects",
+    "modified": "2026-02-23 22:49:54.941187"
+   },
+   {
+    "name": "Quality",
+    "modified": "2026-01-12 12:59:09.607272"
+   },
+   {
+    "name": "Raven",
+    "modified": "2026-10-07 00:43:38.960506"
+   },
+   {
+    "name": "Recruitment",
+    "modified": "2026-06-30 12:36:28.958158"
+   },
+   {
+    "name": "Selling",
+    "modified": "2026-04-28 14:38:37.179705"
+   },
+   {
+    "name": "Share Management",
+    "modified": "2026-01-10 00:06:13.040767"
+   },
+   {
+    "name": "Shift & Attendance",
+    "modified": "2026-01-08 14:16:38.373198"
+   },
+   {
+    "name": "Stock",
+    "modified": "2026-02-20 16:45:15.295668"
+   },
+   {
+    "name": "Subcontracting",
+    "modified": "2026-04-06 20:22:17.130321"
+   },
+   {
+    "name": "Subscription",
+    "modified": "2026-01-10 00:06:13.048591"
+   },
+   {
+    "name": "Support",
+    "modified": "2026-01-10 00:06:13.089991"
+   },
+   {
+    "name": "System",
+    "modified": "2026-01-12 15:59:38.548532"
+   },
+   {
+    "name": "Tax & Benefits",
+    "modified": "2026-02-23 12:00:35.246366"
+   },
+   {
+    "name": "Taxes",
+    "modified": "2026-02-22 18:36:08.105306"
+   },
+   {
+    "name": "Tenure",
+    "modified": "2026-01-08 14:16:38.897628"
+   },
+   {
+    "name": "Users",
+    "modified": "2026-01-12 15:38:11.455368"
+   },
+   {
+    "name": "Website",
+    "modified": "2026-01-12 16:01:47.263270"
+   }
+  ],
+  "Workspace Sidebar Item": [
+   {
+    "name": "1vh121r838",
+    "parent": "Automation",
+    "modified": "2026-10-01 08:33:52.185008",
+    "idx": 3
+   },
+   {
+    "name": "1vh4k5uh46",
+    "parent": "Automation",
+    "modified": "2026-10-01 08:33:52.185008",
+    "idx": 1
+   },
+   {
+    "name": "1vhdtrjj68",
+    "parent": "Automation",
+    "modified": "2026-10-01 08:33:52.185008",
+    "idx": 4
+   },
+   {
+    "name": "1vhi6rdpqa",
+    "parent": "Automation",
+    "modified": "2026-10-01 08:33:52.185008",
+    "idx": 2
+   },
+   {
+    "name": "1vhjn0l77s",
+    "parent": "Automation",
+    "modified": "2026-10-01 08:33:52.185008",
+    "idx": 5
+   },
+   {
+    "name": "1vi0q19q3e",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 3
+   },
+   {
+    "name": "1vi1e9s22m",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 10
+   },
+   {
+    "name": "1vi2d7as6f",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 13
+   },
+   {
+    "name": "1vi2ff34s1",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 6
+   },
+   {
+    "name": "1vi30oeh7g",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 7
+   },
+   {
+    "name": "1vi33lup2s",
+    "parent": "Email",
+    "modified": "2026-10-01 08:33:52.244938",
+    "idx": 4
+   },
+   {
+    "name": "1vi36u8m42",
+    "parent": "Data",
+    "modified": "2026-10-01 08:33:52.227545",
+    "idx": 1
+   },
+   {
+    "name": "1vi3sf7vse",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 1
+   },
+   {
+    "name": "1vi3sqv02g",
+    "parent": "Email",
+    "modified": "2026-10-01 08:33:52.244938",
+    "idx": 1
+   },
+   {
+    "name": "1vi3v9qosp",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 11
+   },
+   {
+    "name": "1vi3vc0iu3",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 6
+   },
+   {
+    "name": "1vi66l3lhm",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 4
+   },
+   {
+    "name": "1vi8hom940",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 3
+   },
+   {
+    "name": "1vi8m2gik5",
+    "parent": "Email",
+    "modified": "2026-10-01 08:33:52.244938",
+    "idx": 3
+   },
+   {
+    "name": "1vi9c9jmi6",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 10
+   },
+   {
+    "name": "1viaaglk7b",
+    "parent": "Email",
+    "modified": "2026-10-01 08:33:52.244938",
+    "idx": 6
+   },
+   {
+    "name": "1viamguts7",
+    "parent": "Data",
+    "modified": "2026-10-01 08:33:52.227545",
+    "idx": 5
+   },
+   {
+    "name": "1viaqrlnfs",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 9
+   },
+   {
+    "name": "1vibq1ahik",
+    "parent": "Data",
+    "modified": "2026-10-01 08:33:52.227545",
+    "idx": 3
+   },
+   {
+    "name": "1vic086vs8",
+    "parent": "Printing",
+    "modified": "2026-10-01 08:33:52.299458",
+    "idx": 3
+   },
+   {
+    "name": "1vicq1q19c",
+    "parent": "Data",
+    "modified": "2026-10-01 08:33:52.227545",
+    "idx": 4
+   },
+   {
+    "name": "1vid5li7gl",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 8
+   },
+   {
+    "name": "1vidc8hc8f",
+    "parent": "Data",
+    "modified": "2026-10-01 08:33:52.227545",
+    "idx": 2
+   },
+   {
+    "name": "1vifhvb28i",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 7
+   },
+   {
+    "name": "1vih24dnqk",
+    "parent": "Printing",
+    "modified": "2026-10-01 08:33:52.299458",
+    "idx": 2
+   },
+   {
+    "name": "1viietq2m2",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 5
+   },
+   {
+    "name": "1vij9bu8bs",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 12
+   },
+   {
+    "name": "1vilbdau9d",
+    "parent": "Email",
+    "modified": "2026-10-01 08:33:52.244938",
+    "idx": 2
+   },
+   {
+    "name": "1vinr4fijv",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 4
+   },
+   {
+    "name": "1viogu6po9",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 1
+   },
+   {
+    "name": "1viqcsasoo",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 8
+   },
+   {
+    "name": "1vir8fse4f",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 11
+   },
+   {
+    "name": "1viradlg20",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 2
+   },
+   {
+    "name": "1virhladql",
+    "parent": "Email",
+    "modified": "2026-10-01 08:33:52.244938",
+    "idx": 5
+   },
+   {
+    "name": "1virv7bqbl",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 9
+   },
+   {
+    "name": "1vitj4s1s5",
+    "parent": "Printing",
+    "modified": "2026-10-01 08:33:52.299458",
+    "idx": 4
+   },
+   {
+    "name": "1vittqog0i",
+    "parent": "Printing",
+    "modified": "2026-10-01 08:33:52.299458",
+    "idx": 1
+   },
+   {
+    "name": "1viu1illuj",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 2
+   },
+   {
+    "name": "1viujjqn2d",
+    "parent": "Build",
+    "modified": "2026-10-01 08:33:52.205827",
+    "idx": 12
+   },
+   {
+    "name": "1vivlp6brv",
+    "parent": "Integrations",
+    "modified": "2026-10-01 08:33:52.264449",
+    "idx": 5
+   },
+   {
+    "name": "1vj032vvf7",
+    "parent": "Website",
+    "modified": "2026-10-01 08:33:52.358103",
+    "idx": 5
+   },
+   {
+    "name": "1vj0vpnkrr",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 11
+   },
+   {
+    "name": "1vj1898nd0",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 15
+   },
+   {
+    "name": "1vj1oh1t4a",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 1
+   },
+   {
+    "name": "1vj2a1gr9h",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 13
+   },
+   {
+    "name": "1vj5nfpe27",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 14
+   },
+   {
+    "name": "1vj69gj1sc",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 3
+   },
+   {
+    "name": "1vj6lijr76",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 2
+   },
+   {
+    "name": "1vj71isbgg",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 2
+   },
+   {
+    "name": "1vj9aioisn",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 1
+   },
+   {
+    "name": "1vjaudi18g",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 7
+   },
+   {
+    "name": "1vjb7v01g0",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 9
+   },
+   {
+    "name": "1vjc4pfniq",
+    "parent": "Website",
+    "modified": "2026-10-01 08:33:52.358103",
+    "idx": 2
+   },
+   {
+    "name": "1vjcovdfjh",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 8
+   },
+   {
+    "name": "1vjcsokmlp",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 5
+   },
+   {
+    "name": "1vjcuga27u",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 4
+   },
+   {
+    "name": "1vjds8mjh8",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 8
+   },
+   {
+    "name": "1vjf2qdnpm",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 16
+   },
+   {
+    "name": "1vjft62fe2",
+    "parent": "Website",
+    "modified": "2026-10-01 08:33:52.358103",
+    "idx": 8
+   },
+   {
+    "name": "1vjh128lb6",
+    "parent": "Website",
+    "modified": "2026-10-01 08:33:52.358103",
+    "idx": 7
+   },
+   {
+    "name": "1vjh3enep4",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 17
+   },
+   {
+    "name": "1vjh9u2tds",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 10
+   },
+   {
+    "name": "1vjhahnkb8",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 18
+   },
+   {
+    "name": "1vjhi73qce",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 9
+   },
+   {
+    "name": "1vji9oml61",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 7
+   },
+   {
+    "name": "1vjjdvtru3",
+    "parent": "Website",
+    "modified": "2026-10-01 08:33:52.358103",
+    "idx": 3
+   },
+   {
+    "name": "1vjjg8loqg",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 5
+   },
+   {
+    "name": "1vjjsnjomc",
+    "parent": "Website",
+    "modified": "2026-10-01 08:33:52.358103",
+    "idx": 1
+   },
+   {
+    "name": "1vjkc5auhb",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 19
+   },
+   {
+    "name": "1vjleggf2t",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 10
+   },
+   {
+    "name": "1vjm2r2b4h",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 11
+   },
+   {
+    "name": "1vjm435rbu",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 6
+   },
+   {
+    "name": "1vjn6h2j4r",
+    "parent": "Users",
+    "modified": "2026-10-01 08:33:52.338797",
+    "idx": 6
+   },
+   {
+    "name": "1vjn868in0",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 12
+   },
+   {
+    "name": "1vjs43o4it",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 3
+   },
+   {
+    "name": "1vju9mugdc",
+    "parent": "Website",
+    "modified": "2026-10-01 08:33:52.358103",
+    "idx": 4
+   },
+   {
+    "name": "1vjuuhfah1",
+    "parent": "System",
+    "modified": "2026-10-01 08:33:52.317564",
+    "idx": 4
+   },
+   {
+    "name": "1vjvqj8glj",
+    "parent": "Website",
+    "modified": "2026-10-01 08:33:52.358103",
+    "idx": 6
+   },
+   {
+    "name": "2mu0ct4b0t",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 5
+   },
+   {
+    "name": "2mu0vrbigk",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 15
+   },
+   {
+    "name": "2mu1e7trqd",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 25
+   },
+   {
+    "name": "2mu1m7p6pp",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 16
+   },
+   {
+    "name": "2mu1sr6bhl",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 1
+   },
+   {
+    "name": "2mu2be7g1f",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 10
+   },
+   {
+    "name": "2mu33h4b03",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 5
+   },
+   {
+    "name": "2mu3hqkvib",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 7
+   },
+   {
+    "name": "2mu3nuurrj",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 10
+   },
+   {
+    "name": "2mu6and0t1",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 7
+   },
+   {
+    "name": "2mu6nfflt5",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 8
+   },
+   {
+    "name": "2mu7lh2v2n",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 19
+   },
+   {
+    "name": "2mu8o9dc63",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 4
+   },
+   {
+    "name": "2mu9dc3n7a",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 6
+   },
+   {
+    "name": "2mu9ga4gfb",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 1
+   },
+   {
+    "name": "2mua4dcp7a",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 2
+   },
+   {
+    "name": "2mua4knmcl",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 23
+   },
+   {
+    "name": "2muasal89f",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 22
+   },
+   {
+    "name": "2mub2kgqar",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 21
+   },
+   {
+    "name": "2mub74i21d",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 6
+   },
+   {
+    "name": "2mucsqjir4",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 20
+   },
+   {
+    "name": "2mucuddsrb",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 23
+   },
+   {
+    "name": "2mud46jikj",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 18
+   },
+   {
+    "name": "2mud68bsr5",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 16
+   },
+   {
+    "name": "2mudu752d1",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 13
+   },
+   {
+    "name": "2mueqtffbv",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 3
+   },
+   {
+    "name": "2mug822u0e",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 11
+   },
+   {
+    "name": "2mugltqki6",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 18
+   },
+   {
+    "name": "2muh5vdp7a",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 24
+   },
+   {
+    "name": "2muhn52i0q",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 19
+   },
+   {
+    "name": "2muia9fu9u",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 17
+   },
+   {
+    "name": "2mujoprmik",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 13
+   },
+   {
+    "name": "2muk68ojkl",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 17
+   },
+   {
+    "name": "2mukb5tpqn",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 9
+   },
+   {
+    "name": "2mukdds06f",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 12
+   },
+   {
+    "name": "2mukleqop8",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 14
+   },
+   {
+    "name": "2mund0on4e",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 20
+   },
+   {
+    "name": "2munqvks3t",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 4
+   },
+   {
+    "name": "2muo59dl98",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 12
+   },
+   {
+    "name": "2muoogdv8o",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 9
+   },
+   {
+    "name": "2mup3olc2h",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 22
+   },
+   {
+    "name": "2muplov82m",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 3
+   },
+   {
+    "name": "2mupmkf7ci",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 15
+   },
+   {
+    "name": "2murdks4vk",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 8
+   },
+   {
+    "name": "2muscg56q0",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 14
+   },
+   {
+    "name": "2musouj2km",
+    "parent": "Assets",
+    "modified": "2026-10-01 08:35:07.079398",
+    "idx": 11
+   },
+   {
+    "name": "2muuuoq0cl",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 21
+   },
+   {
+    "name": "2muv9jdn89",
+    "parent": "Accounts Setup",
+    "modified": "2026-10-01 08:35:07.052946",
+    "idx": 2
+   },
+   {
+    "name": "2mv06sgo7d",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 20
+   },
+   {
+    "name": "2mv0754u3a",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 30
+   },
+   {
+    "name": "2mv0m1rt0c",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 18
+   },
+   {
+    "name": "2mv11ot0a4",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 9
+   },
+   {
+    "name": "2mv134d7n9",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 23
+   },
+   {
+    "name": "2mv1el86of",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 11
+   },
+   {
+    "name": "2mv227rpe4",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 1
+   },
+   {
+    "name": "2mv2ddjbvi",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 25
+   },
+   {
+    "name": "2mv2mu6kjf",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 36
+   },
+   {
+    "name": "2mv39tm8ep",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 9
+   },
+   {
+    "name": "2mv3fn9vqv",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 11
+   },
+   {
+    "name": "2mv3rm19am",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 25
+   },
+   {
+    "name": "2mv3to386h",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 12
+   },
+   {
+    "name": "2mv4mtkeic",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 11
+   },
+   {
+    "name": "2mv52atv41",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 4
+   },
+   {
+    "name": "2mv5a7k430",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 24
+   },
+   {
+    "name": "2mv5bplsd2",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 12
+   },
+   {
+    "name": "2mv5ge5gkp",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 4
+   },
+   {
+    "name": "2mv5s0a3ac",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 3
+   },
+   {
+    "name": "2mv6681gmv",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 6
+   },
+   {
+    "name": "2mv67b1a3b",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 41
+   },
+   {
+    "name": "2mv6841did",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 7
+   },
+   {
+    "name": "2mv6aeuutj",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 40
+   },
+   {
+    "name": "2mv6dg8b9e",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 9
+   },
+   {
+    "name": "2mv6t0m189",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 29
+   },
+   {
+    "name": "2mv80t38a1",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 14
+   },
+   {
+    "name": "2mv822dq8k",
+    "parent": "Budget",
+    "modified": "2026-10-01 08:35:07.129230",
+    "idx": 1
+   },
+   {
+    "name": "2mv8plu2id",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 23
+   },
+   {
+    "name": "2mv8ri0dku",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 39
+   },
+   {
+    "name": "2mv958kepa",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 10
+   },
+   {
+    "name": "2mv9f6gp45",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 38
+   },
+   {
+    "name": "2mv9qsf9vd",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 28
+   },
+   {
+    "name": "2mvahfnusq",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 7
+   },
+   {
+    "name": "2mvan9fvba",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 18
+   },
+   {
+    "name": "2mvaqft5o7",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 8
+   },
+   {
+    "name": "2mvb24kohm",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 1
+   },
+   {
+    "name": "2mvb2960u9",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 14
+   },
+   {
+    "name": "2mvb2hnk6t",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 10
+   },
+   {
+    "name": "2mvb3411ns",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 13
+   },
+   {
+    "name": "2mvbh7jcfl",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 2
+   },
+   {
+    "name": "2mvc1le9ef",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 6
+   },
+   {
+    "name": "2mvc4o31ib",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 15
+   },
+   {
+    "name": "2mvcj6fb4u",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 24
+   },
+   {
+    "name": "2mvclaeffl",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 7
+   },
+   {
+    "name": "2mvd01s5di",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 20
+   },
+   {
+    "name": "2mvdfud857",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 15
+   },
+   {
+    "name": "2mve0t31ph",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 30
+   },
+   {
+    "name": "2mve58ec9b",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 16
+   },
+   {
+    "name": "2mvfd9chpj",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 4
+   },
+   {
+    "name": "2mvg57eqra",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 32
+   },
+   {
+    "name": "2mvgft26ht",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 27
+   },
+   {
+    "name": "2mvgr91ao9",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 5
+   },
+   {
+    "name": "2mvgt8pld3",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 19
+   },
+   {
+    "name": "2mvh0jl8s4",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 42
+   },
+   {
+    "name": "2mvh331g4a",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 31
+   },
+   {
+    "name": "2mvhdd624s",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 28
+   },
+   {
+    "name": "2mvhrdvfvl",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 2
+   },
+   {
+    "name": "2mvhu35829",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 13
+   },
+   {
+    "name": "2mvhu89k6v",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 3
+   },
+   {
+    "name": "2mvi478acc",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 15
+   },
+   {
+    "name": "2mvib86hfb",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 13
+   },
+   {
+    "name": "2mvis7c6cs",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 26
+   },
+   {
+    "name": "2mvkjm7rht",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 26
+   },
+   {
+    "name": "2mvklp284v",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 32
+   },
+   {
+    "name": "2mvlddqqka",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 27
+   },
+   {
+    "name": "2mvll3at98",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 10
+   },
+   {
+    "name": "2mvlr1121i",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 29
+   },
+   {
+    "name": "2mvnb4lj81",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 8
+   },
+   {
+    "name": "2mvnijcnmk",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 5
+   },
+   {
+    "name": "2mvo5s6024",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 19
+   },
+   {
+    "name": "2mvoba7vdc",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 21
+   },
+   {
+    "name": "2mvogjab66",
+    "parent": "Budget",
+    "modified": "2026-10-01 08:35:07.129230",
+    "idx": 3
+   },
+   {
+    "name": "2mvp9bg7a5",
+    "parent": "Budget",
+    "modified": "2026-10-01 08:35:07.129230",
+    "idx": 5
+   },
+   {
+    "name": "2mvpadnu1l",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 35
+   },
+   {
+    "name": "2mvplpirrl",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 5
+   },
+   {
+    "name": "2mvqev6lo4",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 17
+   },
+   {
+    "name": "2mvqmqe992",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 37
+   },
+   {
+    "name": "2mvr7aokl8",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 6
+   },
+   {
+    "name": "2mvrnqlaa8",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 8
+   },
+   {
+    "name": "2mvrobotq3",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 31
+   },
+   {
+    "name": "2mvs26344i",
+    "parent": "Budget",
+    "modified": "2026-10-01 08:35:07.129230",
+    "idx": 2
+   },
+   {
+    "name": "2mvsc1lskr",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 22
+   },
+   {
+    "name": "2mvtbvmmvc",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 14
+   },
+   {
+    "name": "2mvtsed5md",
+    "parent": "Banking",
+    "modified": "2026-10-01 08:35:07.101639",
+    "idx": 2
+   },
+   {
+    "name": "2mvtskarco",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 34
+   },
+   {
+    "name": "2mvtvqqk0v",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 21
+   },
+   {
+    "name": "2mvu328qqr",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 12
+   },
+   {
+    "name": "2mvud466fu",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 3
+   },
+   {
+    "name": "2mvuesp5jp",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 17
+   },
+   {
+    "name": "2mvugu956v",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 16
+   },
+   {
+    "name": "2mvuqkcj3d",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 33
+   },
+   {
+    "name": "2mvus4ojlb",
+    "parent": "Budget",
+    "modified": "2026-10-01 08:35:07.129230",
+    "idx": 4
+   },
+   {
+    "name": "2mvvin4i0g",
+    "parent": "Buying",
+    "modified": "2026-10-01 08:35:07.147069",
+    "idx": 22
+   },
+   {
+    "name": "2mvvtqm4ks",
+    "parent": "CRM",
+    "modified": "2026-10-01 08:35:07.173862",
+    "idx": 1
+   },
+   {
+    "name": "2n004o50ka",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 18
+   },
+   {
+    "name": "2n01jsc0lm",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 11
+   },
+   {
+    "name": "2n0203rp94",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 14
+   },
+   {
+    "name": "2n02fgklg9",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 24
+   },
+   {
+    "name": "2n02jbfj1f",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 9
+   },
+   {
+    "name": "2n03lc9d9d",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 21
+   },
+   {
+    "name": "2n03uvp4kc",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 15
+   },
+   {
+    "name": "2n03v56nn9",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 2
+   },
+   {
+    "name": "2n04cu0t7r",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 5
+   },
+   {
+    "name": "2n04evjjek",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 10
+   },
+   {
+    "name": "2n04n9lc7a",
+    "parent": "Home",
+    "modified": "2026-10-01 08:35:07.269618",
+    "idx": 1
+   },
+   {
+    "name": "2n04rtnl7q",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 34
+   },
+   {
+    "name": "2n04u1fhdn",
+    "parent": "Home",
+    "modified": "2026-10-01 08:35:07.269618",
+    "idx": 4
+   },
+   {
+    "name": "2n0526p6o1",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 25
+   },
+   {
+    "name": "2n07cp20k7",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 3
+   },
+   {
+    "name": "2n07eet2as",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 1
+   },
+   {
+    "name": "2n08eo78g0",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 33
+   },
+   {
+    "name": "2n08irqari",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 20
+   },
+   {
+    "name": "2n08lb8p1l",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 9
+   },
+   {
+    "name": "2n098oa6o2",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 19
+   },
+   {
+    "name": "2n09ns8r4u",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 15
+   },
+   {
+    "name": "2n09vd3b5u",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 10
+   },
+   {
+    "name": "2n0antnr8m",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 11
+   },
+   {
+    "name": "2n0aq84cdd",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 13
+   },
+   {
+    "name": "2n0aqn7o6b",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 3
+   },
+   {
+    "name": "2n0b0j91al",
+    "parent": "Home",
+    "modified": "2026-10-01 08:35:07.269618",
+    "idx": 5
+   },
+   {
+    "name": "2n0bo8eflh",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 29
+   },
+   {
+    "name": "2n0cf3umv5",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 1
+   },
+   {
+    "name": "2n0dnjnc00",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 18
+   },
+   {
+    "name": "2n0dsqvnub",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 8
+   },
+   {
+    "name": "2n0dvqaol5",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 19
+   },
+   {
+    "name": "2n0fncgn0o",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 18
+   },
+   {
+    "name": "2n0fu9vosm",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 23
+   },
+   {
+    "name": "2n0g1h18f0",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 8
+   },
+   {
+    "name": "2n0g6fskpi",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 3
+   },
+   {
+    "name": "2n0gb93ek8",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 24
+   },
+   {
+    "name": "2n0gd67rqp",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 17
+   },
+   {
+    "name": "2n0gneq70j",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 12
+   },
+   {
+    "name": "2n0ho7s8hh",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 30
+   },
+   {
+    "name": "2n0i0cbett",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 7
+   },
+   {
+    "name": "2n0ied0sjk",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 12
+   },
+   {
+    "name": "2n0ii6a26c",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 17
+   },
+   {
+    "name": "2n0j39cpgd",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 6
+   },
+   {
+    "name": "2n0j54j3p8",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 2
+   },
+   {
+    "name": "2n0jgna2ut",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 4
+   },
+   {
+    "name": "2n0k3cleud",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 10
+   },
+   {
+    "name": "2n0k6pf8qh",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 21
+   },
+   {
+    "name": "2n0knafmn4",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 12
+   },
+   {
+    "name": "2n0krcad3s",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 5
+   },
+   {
+    "name": "2n0ku02dvd",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 1
+   },
+   {
+    "name": "2n0l2ova7u",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 11
+   },
+   {
+    "name": "2n0lldn8od",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 15
+   },
+   {
+    "name": "2n0m66uv47",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 16
+   },
+   {
+    "name": "2n0mis2057",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 7
+   },
+   {
+    "name": "2n0mp33afu",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 5
+   },
+   {
+    "name": "2n0msk9tum",
+    "parent": "Home",
+    "modified": "2026-10-01 08:35:07.269618",
+    "idx": 2
+   },
+   {
+    "name": "2n0mt4a06g",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 6
+   },
+   {
+    "name": "2n0n885dtr",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 20
+   },
+   {
+    "name": "2n0nduillu",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 31
+   },
+   {
+    "name": "2n0nmpfsdk",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 14
+   },
+   {
+    "name": "2n0nqcf0ck",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 17
+   },
+   {
+    "name": "2n0o3q4q7o",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 26
+   },
+   {
+    "name": "2n0o4kh2p7",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 6
+   },
+   {
+    "name": "2n0o4t98qi",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 2
+   },
+   {
+    "name": "2n0oflasoc",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 14
+   },
+   {
+    "name": "2n0p4fdt6p",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 16
+   },
+   {
+    "name": "2n0p5j4922",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 27
+   },
+   {
+    "name": "2n0pcfum19",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 26
+   },
+   {
+    "name": "2n0pmld3vj",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 7
+   },
+   {
+    "name": "2n0pqj1lg3",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 13
+   },
+   {
+    "name": "2n0pvdq6ee",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 22
+   },
+   {
+    "name": "2n0q0cek3r",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 22
+   },
+   {
+    "name": "2n0qdh2g8i",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 19
+   },
+   {
+    "name": "2n0rn205mk",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 4
+   },
+   {
+    "name": "2n0ru5b05g",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 8
+   },
+   {
+    "name": "2n0ru77355",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 28
+   },
+   {
+    "name": "2n0sdqaf2q",
+    "parent": "ERPNext Settings",
+    "modified": "2026-10-01 08:35:07.215046",
+    "idx": 9
+   },
+   {
+    "name": "2n0snpk0fv",
+    "parent": "Home",
+    "modified": "2026-10-01 08:35:07.269618",
+    "idx": 3
+   },
+   {
+    "name": "2n0t88or8q",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 32
+   },
+   {
+    "name": "2n0tupfe84",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 28
+   },
+   {
+    "name": "2n0u6qqjug",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 13
+   },
+   {
+    "name": "2n0uaa9rts",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 25
+   },
+   {
+    "name": "2n0uccqa57",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 4
+   },
+   {
+    "name": "2n0upi15c7",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 27
+   },
+   {
+    "name": "2n0us57avl",
+    "parent": "Financial Reports",
+    "modified": "2026-10-01 08:35:07.240430",
+    "idx": 23
+   },
+   {
+    "name": "2n0vlnu86c",
+    "parent": "Invoicing",
+    "modified": "2026-10-01 08:35:07.286560",
+    "idx": 16
+   },
+   {
+    "name": "2n10do7h12",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 36
+   },
+   {
+    "name": "2n11219b2n",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 7
+   },
+   {
+    "name": "2n11a8dfv2",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 9
+   },
+   {
+    "name": "2n11fgok5d",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 16
+   },
+   {
+    "name": "2n12g4jug2",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 5
+   },
+   {
+    "name": "2n12i57a2e",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 34
+   },
+   {
+    "name": "2n12nopnf7",
+    "parent": "Organization",
+    "modified": "2026-10-01 08:35:07.339374",
+    "idx": 7
+   },
+   {
+    "name": "2n130ego3p",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 37
+   },
+   {
+    "name": "2n13og1m4v",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 12
+   },
+   {
+    "name": "2n142abid4",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 5
+   },
+   {
+    "name": "2n15agn147",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 13
+   },
+   {
+    "name": "2n15udijjj",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 18
+   },
+   {
+    "name": "2n167me2n3",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 7
+   },
+   {
+    "name": "2n16dlgmpm",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 12
+   },
+   {
+    "name": "2n16kas467",
+    "parent": "Organization",
+    "modified": "2026-10-01 08:35:07.339374",
+    "idx": 1
+   },
+   {
+    "name": "2n16l5mssa",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 28
+   },
+   {
+    "name": "2n16pctiki",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 9
+   },
+   {
+    "name": "2n182he1bt",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 9
+   },
+   {
+    "name": "2n191nm66u",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 19
+   },
+   {
+    "name": "2n194qm1cc",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 6
+   },
+   {
+    "name": "2n1a63qn6g",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 5
+   },
+   {
+    "name": "2n1abtqa9j",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 14
+   },
+   {
+    "name": "2n1b0oodvg",
+    "parent": "Organization",
+    "modified": "2026-10-01 08:35:07.339374",
+    "idx": 3
+   },
+   {
+    "name": "2n1blqnfo0",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 4
+   },
+   {
+    "name": "2n1btsoo5d",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 2
+   },
+   {
+    "name": "2n1c0bf2bp",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 25
+   },
+   {
+    "name": "2n1c3499mk",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 1
+   },
+   {
+    "name": "2n1c3d6jmg",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 6
+   },
+   {
+    "name": "2n1c3ds5lp",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 8
+   },
+   {
+    "name": "2n1c6r0sev",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 12
+   },
+   {
+    "name": "2n1c79ao1p",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 15
+   },
+   {
+    "name": "2n1cckvj6u",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 26
+   },
+   {
+    "name": "2n1cd86on5",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 3
+   },
+   {
+    "name": "2n1d5n1tsj",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 8
+   },
+   {
+    "name": "2n1df8f4l0",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 17
+   },
+   {
+    "name": "2n1dlslpc9",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 27
+   },
+   {
+    "name": "2n1eho64go",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 2
+   },
+   {
+    "name": "2n1erpejfh",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 9
+   },
+   {
+    "name": "2n1f0qpact",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 4
+   },
+   {
+    "name": "2n1frf04uc",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 31
+   },
+   {
+    "name": "2n1gig8e2k",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 10
+   },
+   {
+    "name": "2n1gvv7ec7",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 1
+   },
+   {
+    "name": "2n1h1bd78s",
+    "parent": "Organization",
+    "modified": "2026-10-01 08:35:07.339374",
+    "idx": 5
+   },
+   {
+    "name": "2n1h3skpqi",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 6
+   },
+   {
+    "name": "2n1h5tc0eo",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 18
+   },
+   {
+    "name": "2n1htce97n",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 15
+   },
+   {
+    "name": "2n1i7c3ie1",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 2
+   },
+   {
+    "name": "2n1iht3jgi",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 35
+   },
+   {
+    "name": "2n1ihu5o8u",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 30
+   },
+   {
+    "name": "2n1j0965mj",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 12
+   },
+   {
+    "name": "2n1j36lnnd",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 3
+   },
+   {
+    "name": "2n1j90vfhs",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 1
+   },
+   {
+    "name": "2n1jdanjjj",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 10
+   },
+   {
+    "name": "2n1johpt1h",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 14
+   },
+   {
+    "name": "2n1jsniit0",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 11
+   },
+   {
+    "name": "2n1ju1navj",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 11
+   },
+   {
+    "name": "2n1jul5uq3",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 1
+   },
+   {
+    "name": "2n1kb470uu",
+    "parent": "Organization",
+    "modified": "2026-10-01 08:35:07.339374",
+    "idx": 6
+   },
+   {
+    "name": "2n1kj7n4a5",
+    "parent": "Organization",
+    "modified": "2026-10-01 08:35:07.339374",
+    "idx": 2
+   },
+   {
+    "name": "2n1l2vd5lb",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 7
+   },
+   {
+    "name": "2n1lliljs4",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 13
+   },
+   {
+    "name": "2n1lr4fucg",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 23
+   },
+   {
+    "name": "2n1m1kn290",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 7
+   },
+   {
+    "name": "2n1n1n32gs",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 4
+   },
+   {
+    "name": "2n1ng27eeg",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 21
+   },
+   {
+    "name": "2n1njkj93m",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 15
+   },
+   {
+    "name": "2n1nmmrde0",
+    "parent": "Organization",
+    "modified": "2026-10-01 08:35:07.339374",
+    "idx": 4
+   },
+   {
+    "name": "2n1ol0v2bh",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 20
+   },
+   {
+    "name": "2n1ol557r2",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 8
+   },
+   {
+    "name": "2n1oldr15e",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 6
+   },
+   {
+    "name": "2n1ovaf25g",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 33
+   },
+   {
+    "name": "2n1pbrg8uc",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 5
+   },
+   {
+    "name": "2n1pfap20p",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 16
+   },
+   {
+    "name": "2n1pm5i38l",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 22
+   },
+   {
+    "name": "2n1prufhaa",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 29
+   },
+   {
+    "name": "2n1pseddf6",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 3
+   },
+   {
+    "name": "2n1qgug4r0",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 3
+   },
+   {
+    "name": "2n1qhaln38",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 17
+   },
+   {
+    "name": "2n1qis7mpa",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 24
+   },
+   {
+    "name": "2n1qqdli52",
+    "parent": "Quality",
+    "modified": "2026-10-01 08:35:07.396710",
+    "idx": 10
+   },
+   {
+    "name": "2n1qs69i1d",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 10
+   },
+   {
+    "name": "2n1rk0ibji",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 8
+   },
+   {
+    "name": "2n1rmru3tt",
+    "parent": "Payments",
+    "modified": "2026-10-01 08:35:07.356247",
+    "idx": 4
+   },
+   {
+    "name": "2n1rr12l40",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 11
+   },
+   {
+    "name": "2n1s1cmau3",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 17
+   },
+   {
+    "name": "2n1s2d6iqf",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 32
+   },
+   {
+    "name": "2n1sa3l836",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 2
+   },
+   {
+    "name": "2n1skr8d94",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 16
+   },
+   {
+    "name": "2n1tbbccg7",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 13
+   },
+   {
+    "name": "2n1the00o6",
+    "parent": "Projects",
+    "modified": "2026-10-01 08:35:07.376616",
+    "idx": 14
+   },
+   {
+    "name": "2n1uucd9kg",
+    "parent": "Manufacturing",
+    "modified": "2026-10-01 08:35:07.310457",
+    "idx": 11
+   },
+   {
+    "name": "2n20du7b1a",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 19
+   },
+   {
+    "name": "2n20e0msoa",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 33
+   },
+   {
+    "name": "2n213gljie",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 7
+   },
+   {
+    "name": "2n21454vnh",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 7
+   },
+   {
+    "name": "2n215rei9e",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 6
+   },
+   {
+    "name": "2n22or2jqj",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 21
+   },
+   {
+    "name": "2n22sjh3q1",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 55
+   },
+   {
+    "name": "2n23203l5g",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 22
+   },
+   {
+    "name": "2n23obu125",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 49
+   },
+   {
+    "name": "2n23p12l88",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 47
+   },
+   {
+    "name": "2n23vigdpp",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 42
+   },
+   {
+    "name": "2n244phi1k",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 41
+   },
+   {
+    "name": "2n245v2s7s",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 19
+   },
+   {
+    "name": "2n246pepke",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 26
+   },
+   {
+    "name": "2n2482lo1j",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 25
+   },
+   {
+    "name": "2n24eineo5",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 43
+   },
+   {
+    "name": "2n24sj8c1i",
+    "parent": "Share Management",
+    "modified": "2026-10-01 08:35:07.454715",
+    "idx": 4
+   },
+   {
+    "name": "2n259ap305",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 16
+   },
+   {
+    "name": "2n25aes6sk",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 23
+   },
+   {
+    "name": "2n25pnlqse",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 62
+   },
+   {
+    "name": "2n25ppijsj",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 32
+   },
+   {
+    "name": "2n26fut876",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 8
+   },
+   {
+    "name": "2n270et2aj",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 5
+   },
+   {
+    "name": "2n2786r8ji",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 46
+   },
+   {
+    "name": "2n278n8jhl",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 10
+   },
+   {
+    "name": "2n279qm3lc",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 24
+   },
+   {
+    "name": "2n27eo9mkr",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 50
+   },
+   {
+    "name": "2n27la2rjp",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 32
+   },
+   {
+    "name": "2n27mi165f",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 34
+   },
+   {
+    "name": "2n280q7fon",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 44
+   },
+   {
+    "name": "2n283ulfb2",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 28
+   },
+   {
+    "name": "2n28mdcc04",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 43
+   },
+   {
+    "name": "2n28pr00t5",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 31
+   },
+   {
+    "name": "2n295c0o19",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 26
+   },
+   {
+    "name": "2n2965jn63",
+    "parent": "Share Management",
+    "modified": "2026-10-01 08:35:07.454715",
+    "idx": 1
+   },
+   {
+    "name": "2n29e6bach",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 40
+   },
+   {
+    "name": "2n29fnea1p",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 53
+   },
+   {
+    "name": "2n29puqrki",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 36
+   },
+   {
+    "name": "2n29qd1k7b",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 28
+   },
+   {
+    "name": "2n2a66ercr",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 25
+   },
+   {
+    "name": "2n2a913bdm",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 12
+   },
+   {
+    "name": "2n2ahvbb25",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 57
+   },
+   {
+    "name": "2n2amo33bk",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 15
+   },
+   {
+    "name": "2n2atl3rla",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 55
+   },
+   {
+    "name": "2n2avn877b",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 13
+   },
+   {
+    "name": "2n2b7aubtd",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 56
+   },
+   {
+    "name": "2n2bbtpikj",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 17
+   },
+   {
+    "name": "2n2bms5oum",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 27
+   },
+   {
+    "name": "2n2brnl6uk",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 16
+   },
+   {
+    "name": "2n2cicojov",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 27
+   },
+   {
+    "name": "2n2cscmu9m",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 52
+   },
+   {
+    "name": "2n2dfgvf6s",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 51
+   },
+   {
+    "name": "2n2dgj5rop",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 49
+   },
+   {
+    "name": "2n2dse6ktd",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 48
+   },
+   {
+    "name": "2n2ee74au7",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 42
+   },
+   {
+    "name": "2n2evn9eib",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 38
+   },
+   {
+    "name": "2n2f4e56o0",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 41
+   },
+   {
+    "name": "2n2f4q3bln",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 29
+   },
+   {
+    "name": "2n2fb3fnqv",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 20
+   },
+   {
+    "name": "2n2ff9r9k6",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 38
+   },
+   {
+    "name": "2n2fqhkbm4",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 4
+   },
+   {
+    "name": "2n2fr6e7v8",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 45
+   },
+   {
+    "name": "2n2gcjn0gk",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 14
+   },
+   {
+    "name": "2n2go36058",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 15
+   },
+   {
+    "name": "2n2gs48gfh",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 4
+   },
+   {
+    "name": "2n2gsjr4f9",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 61
+   },
+   {
+    "name": "2n2hb5c731",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 8
+   },
+   {
+    "name": "2n2hcg3eki",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 50
+   },
+   {
+    "name": "2n2hp9kl1d",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 22
+   },
+   {
+    "name": "2n2hpio839",
+    "parent": "Share Management",
+    "modified": "2026-10-01 08:35:07.454715",
+    "idx": 3
+   },
+   {
+    "name": "2n2i9n06pu",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 9
+   },
+   {
+    "name": "2n2id7p3ii",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 14
+   },
+   {
+    "name": "2n2idpo6rm",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 51
+   },
+   {
+    "name": "2n2it4l642",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 35
+   },
+   {
+    "name": "2n2k79c26o",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 1
+   },
+   {
+    "name": "2n2kcs8355",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 12
+   },
+   {
+    "name": "2n2kem14a3",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 44
+   },
+   {
+    "name": "2n2ko7j4ha",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 3
+   },
+   {
+    "name": "2n2kquegu2",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 40
+   },
+   {
+    "name": "2n2lgbn999",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 59
+   },
+   {
+    "name": "2n2m5qmefl",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 37
+   },
+   {
+    "name": "2n2mp8l2ig",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 29
+   },
+   {
+    "name": "2n2mtf6bd8",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 2
+   },
+   {
+    "name": "2n2nd73rrp",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 6
+   },
+   {
+    "name": "2n2ng9jrf0",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 23
+   },
+   {
+    "name": "2n2ns3furp",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 37
+   },
+   {
+    "name": "2n2ok8p8d4",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 39
+   },
+   {
+    "name": "2n2orqoh7c",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 39
+   },
+   {
+    "name": "2n2oude48v",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 36
+   },
+   {
+    "name": "2n2ovpkjsr",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 31
+   },
+   {
+    "name": "2n2p11t9di",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 30
+   },
+   {
+    "name": "2n2pc3g24e",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 9
+   },
+   {
+    "name": "2n2q5dirpu",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 2
+   },
+   {
+    "name": "2n2q860fps",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 46
+   },
+   {
+    "name": "2n2qie0uu7",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 18
+   },
+   {
+    "name": "2n2qim2srr",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 11
+   },
+   {
+    "name": "2n2qmshb4a",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 54
+   },
+   {
+    "name": "2n2qo4p3qb",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 58
+   },
+   {
+    "name": "2n2qokv0ee",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 20
+   },
+   {
+    "name": "2n2qoum3ct",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 45
+   },
+   {
+    "name": "2n2qv3ueg9",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 3
+   },
+   {
+    "name": "2n2r16curc",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 35
+   },
+   {
+    "name": "2n2r3ss5pg",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 24
+   },
+   {
+    "name": "2n2r7fv54u",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 18
+   },
+   {
+    "name": "2n2rtg4lb0",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 13
+   },
+   {
+    "name": "2n2rucoq8j",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 60
+   },
+   {
+    "name": "2n2rui7gqq",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 53
+   },
+   {
+    "name": "2n2rve88su",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 17
+   },
+   {
+    "name": "2n2sfinp36",
+    "parent": "Share Management",
+    "modified": "2026-10-01 08:35:07.454715",
+    "idx": 2
+   },
+   {
+    "name": "2n2sjk7l7j",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 47
+   },
+   {
+    "name": "2n2sq494ue",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 33
+   },
+   {
+    "name": "2n2t1gf0qc",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 1
+   },
+   {
+    "name": "2n2t3vp2ra",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 5
+   },
+   {
+    "name": "2n2t8hb680",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 10
+   },
+   {
+    "name": "2n2tt83vpo",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 52
+   },
+   {
+    "name": "2n2u4k7rrf",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 48
+   },
+   {
+    "name": "2n2udj6ek9",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 34
+   },
+   {
+    "name": "2n2um0as6f",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 54
+   },
+   {
+    "name": "2n2v3i9stu",
+    "parent": "Stock",
+    "modified": "2026-10-01 08:35:07.470390",
+    "idx": 30
+   },
+   {
+    "name": "2n2v6pnajp",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 21
+   },
+   {
+    "name": "2n2v7eu0u2",
+    "parent": "Selling",
+    "modified": "2026-10-01 08:35:07.416336",
+    "idx": 11
+   },
+   {
+    "name": "2n30apmgjh",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 10
+   },
+   {
+    "name": "2n30uebdrt",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 17
+   },
+   {
+    "name": "2n31lp7m0i",
+    "parent": "Subscription",
+    "modified": "2026-10-01 08:35:07.527465",
+    "idx": 6
+   },
+   {
+    "name": "2n33k1dipg",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 16
+   },
+   {
+    "name": "2n33rnv7sr",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 9
+   },
+   {
+    "name": "2n33svugv0",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 10
+   },
+   {
+    "name": "2n34u56hi5",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 19
+   },
+   {
+    "name": "2n358rr03i",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 5
+   },
+   {
+    "name": "2n35b9mmju",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 6
+   },
+   {
+    "name": "2n35ncrodm",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 12
+   },
+   {
+    "name": "2n35vi6k5n",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 5
+   },
+   {
+    "name": "2n36fcd4lk",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 12
+   },
+   {
+    "name": "2n36jnbj9g",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 12
+   },
+   {
+    "name": "2n36pd656c",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 8
+   },
+   {
+    "name": "2n370139ad",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 5
+   },
+   {
+    "name": "2n37fv7beq",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 18
+   },
+   {
+    "name": "2n38f8vjft",
+    "parent": "Subscription",
+    "modified": "2026-10-01 08:35:07.527465",
+    "idx": 2
+   },
+   {
+    "name": "2n38lqi6ob",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 6
+   },
+   {
+    "name": "2n392dctga",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 1
+   },
+   {
+    "name": "2n396ggrak",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 11
+   },
+   {
+    "name": "2n39fcep0u",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 14
+   },
+   {
+    "name": "2n39hunj1n",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 3
+   },
+   {
+    "name": "2n39rok44m",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 4
+   },
+   {
+    "name": "2n3a96qv09",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 1
+   },
+   {
+    "name": "2n3ashcblo",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 13
+   },
+   {
+    "name": "2n3b6p86it",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 7
+   },
+   {
+    "name": "2n3bl0jc23",
+    "parent": "Subscription",
+    "modified": "2026-10-01 08:35:07.527465",
+    "idx": 3
+   },
+   {
+    "name": "2n3blubjlt",
+    "parent": "Subscription",
+    "modified": "2026-10-01 08:35:07.527465",
+    "idx": 1
+   },
+   {
+    "name": "2n3bojjbh8",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 3
+   },
+   {
+    "name": "2n3cfm4cf4",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 2
+   },
+   {
+    "name": "2n3dlogn2n",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 9
+   },
+   {
+    "name": "2n3evbbfur",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 1
+   },
+   {
+    "name": "2n3gieis3q",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 8
+   },
+   {
+    "name": "2n3hbbf90r",
+    "parent": "Subscription",
+    "modified": "2026-10-01 08:35:07.527465",
+    "idx": 5
+   },
+   {
+    "name": "2n3hh28tuh",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 6
+   },
+   {
+    "name": "2n3j6ei4ro",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 10
+   },
+   {
+    "name": "2n3lfje0kf",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 15
+   },
+   {
+    "name": "2n3li1e28s",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 2
+   },
+   {
+    "name": "2n3m7g5fn6",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 11
+   },
+   {
+    "name": "2n3n33nvql",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 4
+   },
+   {
+    "name": "2n3q9ootjk",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 7
+   },
+   {
+    "name": "2n3u3v3hti",
+    "parent": "Subscription",
+    "modified": "2026-10-01 08:35:07.527465",
+    "idx": 4
+   },
+   {
+    "name": "2n3u6lhbqa",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 11
+   },
+   {
+    "name": "2n3ubph2h7",
+    "parent": "Subscription",
+    "modified": "2026-10-01 08:35:07.527465",
+    "idx": 7
+   },
+   {
+    "name": "2n3unqaqqe",
+    "parent": "Taxes",
+    "modified": "2026-10-01 08:35:07.564011",
+    "idx": 2
+   },
+   {
+    "name": "2n3v1a0eqb",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 4
+   },
+   {
+    "name": "2n3v6pdfka",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 9
+   },
+   {
+    "name": "2n3vdrrkh2",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 8
+   },
+   {
+    "name": "2n3vlk0fvu",
+    "parent": "Support",
+    "modified": "2026-10-01 08:35:07.544314",
+    "idx": 7
+   },
+   {
+    "name": "2n3vpndnnv",
+    "parent": "Subcontracting",
+    "modified": "2026-10-01 08:35:07.505402",
+    "idx": 3
+   },
+   {
+    "name": "rch1btmjco",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.554214",
+    "idx": 12
+   },
+   {
+    "name": "rch3f0kgvr",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.554487",
+    "idx": 13
+   },
+   {
+    "name": "rch986vgns",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.552690",
+    "idx": 7
+   },
+   {
+    "name": "rchbv7mrs2",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.551154",
+    "idx": 1
+   },
+   {
+    "name": "rchgdvufak",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.553708",
+    "idx": 10
+   },
+   {
+    "name": "rchjai44b1",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.552434",
+    "idx": 6
+   },
+   {
+    "name": "rchkfj6nsk",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.551908",
+    "idx": 4
+   },
+   {
+    "name": "rchl2fujnn",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.553346",
+    "idx": 9
+   },
+   {
+    "name": "rchl3va1kv",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.551427",
+    "idx": 2
+   },
+   {
+    "name": "rchnr7e0on",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.552938",
+    "idx": 8
+   },
+   {
+    "name": "rchqvrp8bn",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.553960",
+    "idx": 11
+   },
+   {
+    "name": "rchris39kj",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.552146",
+    "idx": 5
+   },
+   {
+    "name": "rchtr8duih",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.551665",
+    "idx": 3
+   },
+   {
+    "name": "rchuqn061i",
+    "parent": "Frappe CRM",
+    "modified": "2026-10-07 00:40:46.550878",
+    "idx": 0
+   },
+   {
+    "name": "rs601aa1i3",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 17
+   },
+   {
+    "name": "rs602h25b2",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 14
+   },
+   {
+    "name": "rs63nhhkcq",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 5
+   },
+   {
+    "name": "rs63qtppbr",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 22
+   },
+   {
+    "name": "rs649ib08c",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 3
+   },
+   {
+    "name": "rs649jgbtq",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 1
+   },
+   {
+    "name": "rs64iigjsi",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 10
+   },
+   {
+    "name": "rs64kjg6k9",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 13
+   },
+   {
+    "name": "rs64ogtp8v",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 10
+   },
+   {
+    "name": "rs64qci29j",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 2
+   },
+   {
+    "name": "rs64s9o0so",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 11
+   },
+   {
+    "name": "rs64spkrna",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 11
+   },
+   {
+    "name": "rs653cme2c",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 9
+   },
+   {
+    "name": "rs657bmqhd",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 14
+   },
+   {
+    "name": "rs65krv593",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 6
+   },
+   {
+    "name": "rs65otjqn5",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 2
+   },
+   {
+    "name": "rs66jq2029",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 6
+   },
+   {
+    "name": "rs66pec2s4",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 9
+   },
+   {
+    "name": "rs67b8o7q8",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 4
+   },
+   {
+    "name": "rs67rs1ah4",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 11
+   },
+   {
+    "name": "rs67rsqnoa",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 3
+   },
+   {
+    "name": "rs6842iq36",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 18
+   },
+   {
+    "name": "rs6874rqqb",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 12
+   },
+   {
+    "name": "rs6akeen4k",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 3
+   },
+   {
+    "name": "rs6atsfj0s",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 3
+   },
+   {
+    "name": "rs6bdpcl8s",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 17
+   },
+   {
+    "name": "rs6bkftfmb",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 7
+   },
+   {
+    "name": "rs6chvlc6g",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 9
+   },
+   {
+    "name": "rs6csanpte",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 8
+   },
+   {
+    "name": "rs6d9d4pk3",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 17
+   },
+   {
+    "name": "rs6dh4dd1d",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 16
+   },
+   {
+    "name": "rs6dsu9a5f",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 5
+   },
+   {
+    "name": "rs6dvn58ft",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 6
+   },
+   {
+    "name": "rs6e1f42i3",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 11
+   },
+   {
+    "name": "rs6ecien65",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 14
+   },
+   {
+    "name": "rs6f7dmva6",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 19
+   },
+   {
+    "name": "rs6fakr479",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 6
+   },
+   {
+    "name": "rs6ff7j88s",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 7
+   },
+   {
+    "name": "rs6frvph1v",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 16
+   },
+   {
+    "name": "rs6fvu00hb",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 7
+   },
+   {
+    "name": "rs6g3ns86o",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 7
+   },
+   {
+    "name": "rs6gmem95r",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 18
+   },
+   {
+    "name": "rs6h0bk4gh",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 1
+   },
+   {
+    "name": "rs6iuj1c21",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 4
+   },
+   {
+    "name": "rs6ji4huf2",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 2
+   },
+   {
+    "name": "rs6jsm3a57",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 12
+   },
+   {
+    "name": "rs6kprdkfb",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 10
+   },
+   {
+    "name": "rs6maag673",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 20
+   },
+   {
+    "name": "rs6mv1sao0",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 18
+   },
+   {
+    "name": "rs6mvgdbof",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 5
+   },
+   {
+    "name": "rs6npt6mkn",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 15
+   },
+   {
+    "name": "rs6o11o9kr",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 13
+   },
+   {
+    "name": "rs6o9rlrsb",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 15
+   },
+   {
+    "name": "rs6p6d764m",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 8
+   },
+   {
+    "name": "rs6pa0u4a7",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 12
+   },
+   {
+    "name": "rs6ps8he95",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 1
+   },
+   {
+    "name": "rs6q6bnidu",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 21
+   },
+   {
+    "name": "rs6r9c1e0r",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 13
+   },
+   {
+    "name": "rs6rjsfob5",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 4
+   },
+   {
+    "name": "rs6s9qrlg6",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 2
+   },
+   {
+    "name": "rs6se53iud",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 12
+   },
+   {
+    "name": "rs6sk5h5nc",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 1
+   },
+   {
+    "name": "rs6sk9gria",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 5
+   },
+   {
+    "name": "rs6t2dt253",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 8
+   },
+   {
+    "name": "rs6ted5bcf",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 16
+   },
+   {
+    "name": "rs6ttbkgb0",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 4
+   },
+   {
+    "name": "rs6u60ckhi",
+    "parent": "Expenses",
+    "modified": "2026-10-07 00:41:36.605460",
+    "idx": 10
+   },
+   {
+    "name": "rs6v2v9luk",
+    "parent": "Leaves",
+    "modified": "2026-10-07 00:41:36.661924",
+    "idx": 15
+   },
+   {
+    "name": "rs6varlp14",
+    "parent": "HR Setup",
+    "modified": "2026-10-07 00:41:36.640609",
+    "idx": 8
+   },
+   {
+    "name": "rs6vbjs9gj",
+    "parent": "Payroll",
+    "modified": "2026-10-07 00:41:36.686250",
+    "idx": 9
+   },
+   {
+    "name": "rs712dkb5t",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 10
+   },
+   {
+    "name": "rs723h5fej",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 19
+   },
+   {
+    "name": "rs728m7t92",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 4
+   },
+   {
+    "name": "rs72k4hqia",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 17
+   },
+   {
+    "name": "rs72tfbh0p",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 12
+   },
+   {
+    "name": "rs73guhtqe",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 1
+   },
+   {
+    "name": "rs73q06q2l",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 4
+   },
+   {
+    "name": "rs7480nb0n",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 12
+   },
+   {
+    "name": "rs74fcjjep",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 15
+   },
+   {
+    "name": "rs74gctj1i",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 6
+   },
+   {
+    "name": "rs74meich1",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 11
+   },
+   {
+    "name": "rs766rucd5",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 18
+   },
+   {
+    "name": "rs773t455m",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 2
+   },
+   {
+    "name": "rs782t4ci9",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 3
+   },
+   {
+    "name": "rs784ik9fp",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 1
+   },
+   {
+    "name": "rs794l3ha1",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 14
+   },
+   {
+    "name": "rs79h1sg1r",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 10
+   },
+   {
+    "name": "rs7a2hlq0v",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 7
+   },
+   {
+    "name": "rs7ak3uajr",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 16
+   },
+   {
+    "name": "rs7b4fkbnq",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 3
+   },
+   {
+    "name": "rs7bt42ktp",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 1
+   },
+   {
+    "name": "rs7buvqtrn",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 10
+   },
+   {
+    "name": "rs7bvn4n83",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 15
+   },
+   {
+    "name": "rs7ca0udvj",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 8
+   },
+   {
+    "name": "rs7co9haf3",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 13
+   },
+   {
+    "name": "rs7cv58did",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 21
+   },
+   {
+    "name": "rs7db80rs1",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 5
+   },
+   {
+    "name": "rs7dqb0t5c",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 9
+   },
+   {
+    "name": "rs7e3aj0lr",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 7
+   },
+   {
+    "name": "rs7e7o3oqb",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 20
+   },
+   {
+    "name": "rs7f65o1k8",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 8
+   },
+   {
+    "name": "rs7flt3n9e",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 18
+   },
+   {
+    "name": "rs7fmci1k4",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 9
+   },
+   {
+    "name": "rs7gdmnlkj",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 13
+   },
+   {
+    "name": "rs7gg8rhpt",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 5
+   },
+   {
+    "name": "rs7gmp00kd",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 9
+   },
+   {
+    "name": "rs7h5ql5k1",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 6
+   },
+   {
+    "name": "rs7icp2ta1",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 5
+   },
+   {
+    "name": "rs7im51hje",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 12
+   },
+   {
+    "name": "rs7iqmtfvk",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 2
+   },
+   {
+    "name": "rs7iqncvpn",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 11
+   },
+   {
+    "name": "rs7jr6ana8",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 1
+   },
+   {
+    "name": "rs7kukj05v",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 5
+   },
+   {
+    "name": "rs7laqi9sn",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 7
+   },
+   {
+    "name": "rs7m5ca3jb",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 8
+   },
+   {
+    "name": "rs7miakm6p",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 14
+   },
+   {
+    "name": "rs7ncu092o",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 3
+   },
+   {
+    "name": "rs7nj5mcg9",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 9
+   },
+   {
+    "name": "rs7p3srp9e",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 7
+   },
+   {
+    "name": "rs7p6gp61l",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 20
+   },
+   {
+    "name": "rs7pasl3f5",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 3
+   },
+   {
+    "name": "rs7ps6oid8",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 4
+   },
+   {
+    "name": "rs7q7san5m",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 12
+   },
+   {
+    "name": "rs7qk5cqo5",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 4
+   },
+   {
+    "name": "rs7qvssq4g",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 6
+   },
+   {
+    "name": "rs7r5d458l",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 6
+   },
+   {
+    "name": "rs7r964sli",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 19
+   },
+   {
+    "name": "rs7svhpj6q",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 17
+   },
+   {
+    "name": "rs7t0ajlvc",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 10
+   },
+   {
+    "name": "rs7talqhbp",
+    "parent": "Performance",
+    "modified": "2026-10-07 00:41:36.713910",
+    "idx": 2
+   },
+   {
+    "name": "rs7tfoqbua",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 2
+   },
+   {
+    "name": "rs7tiek5u1",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 8
+   },
+   {
+    "name": "rs7to9tbpo",
+    "parent": "Recruitment",
+    "modified": "2026-10-07 00:41:36.734566",
+    "idx": 16
+   },
+   {
+    "name": "rs7udd1udc",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 21
+   },
+   {
+    "name": "rs7uer8ukv",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 11
+   },
+   {
+    "name": "rs7vakdm89",
+    "parent": "Shift & Attendance",
+    "modified": "2026-10-07 00:41:36.764714",
+    "idx": 22
+   },
+   {
+    "name": "rs7vs22qip",
+    "parent": "Tax & Benefits",
+    "modified": "2026-10-07 00:41:36.789286",
+    "idx": 11
+   },
+   {
+    "name": "rs83j04vca",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 2
+   },
+   {
+    "name": "rs88apc1s5",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 13
+   },
+   {
+    "name": "rs89c8g1l0",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 1
+   },
+   {
+    "name": "rs8adu48ia",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 15
+   },
+   {
+    "name": "rs8bef3i4m",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 11
+   },
+   {
+    "name": "rs8biusnaa",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 17
+   },
+   {
+    "name": "rs8es7188v",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 16
+   },
+   {
+    "name": "rs8fbdqkj5",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 6
+   },
+   {
+    "name": "rs8gg6u36a",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 10
+   },
+   {
+    "name": "rs8kb2afdj",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 5
+   },
+   {
+    "name": "rs8ll34vnv",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 3
+   },
+   {
+    "name": "rs8ngtd96m",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 14
+   },
+   {
+    "name": "rs8nt19897",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 4
+   },
+   {
+    "name": "rs8otna579",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 7
+   },
+   {
+    "name": "rs8q5qhg7s",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 9
+   },
+   {
+    "name": "rs8qg9cvek",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 18
+   },
+   {
+    "name": "rs8t1jttjv",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 12
+   },
+   {
+    "name": "rs8vadri5o",
+    "parent": "Tenure",
+    "modified": "2026-10-07 00:41:36.812552",
+    "idx": 8
+   },
+   {
+    "name": "t2ddb4hk31",
+    "parent": "Raven",
+    "modified": "2026-10-07 00:43:38.960879",
+    "idx": 0
+   }
+  ]
+ }
+}

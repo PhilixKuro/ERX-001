@@ -1,0 +1,4007 @@
+{
+ "POS设置": {
+  "sources": [
+   "POS Profile",
+   "POS Settings"
+  ],
+  "visible": {
+   "POS Profile": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:pos_profile",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json"
+   ],
+   "POS Settings": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/erpnext_settings.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json"
+   ]
+  }
+ },
+ "RGT": {
+  "sources": [
+   "Rgt",
+   "rgt"
+  ],
+  "visible": {
+   "Rgt": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:rgt",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:rgt"
+   ],
+   "rgt": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/cost_center/cost_center.json:rgt",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.json:rgt",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/item_group/item_group.json:rgt",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/warehouse/warehouse.json:rgt"
+   ]
+  }
+ },
+ "业务伙伴": {
+  "sources": [
+   "Referral Sales Partner",
+   "Sales Partner"
+  ],
+  "visible": {
+   "Referral Sales Partner": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:referral_sales_partner"
+   ],
+   "Sales Partner": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:sales_partner",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:default_sales_partner",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:sales_team_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:sales_partner",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:sales_partner",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json"
+   ]
+  }
+ },
+ "临时冻结": {
+  "sources": [
+   "Hold",
+   "On Hold",
+   "Temporarily on Hold"
+  ],
+  "visible": {
+   "Hold": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:338",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:995"
+   ],
+   "On Hold": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice_list.js:27",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:status",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order_list.js:18",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier_list.js:7",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:status",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:status",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order_list.js:21"
+   ],
+   "Temporarily on Hold": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice_list.js:29"
+   ]
+  }
+ },
+ "临时冻结原因": {
+  "sources": [
+   "Reason For Putting On Hold",
+   "Reason for Hold"
+  ],
+  "visible": {
+   "Reason For Putting On Hold": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:283",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:hold_comment"
+   ],
+   "Reason for Hold": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:696",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1804"
+   ]
+  }
+ },
+ "主生产计划": {
+  "sources": [
+   "MPS",
+   "Master Production Schedule"
+  ],
+  "visible": {
+   "MPS": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:mps",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:mps"
+   ],
+   "Master Production Schedule": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/manufacturing.json"
+   ]
+  }
+ },
+ "仓库": {
+  "sources": [
+   "Accepted Warehouse",
+   "For Warehouse",
+   "Request for",
+   "Requesting Site",
+   "Stores",
+   "Warehouse",
+   "Warehouses"
+  ],
+  "visible": {
+   "Accepted Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:set_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:warehouse"
+   ],
+   "For Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:477",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:for_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1451"
+   ],
+   "Request for": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_reorder/item_reorder.json:warehouse"
+   ],
+   "Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:warehouse_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:warehouse_section",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_material_request_warehouse/production_plan_material_request_warehouse.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:warehouses",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:445",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:385",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:493",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/warehouse/warehouse.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/manufacturing.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/stock.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Warehouses": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:532",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:warehouses"
+   ]
+  }
+ },
+ "付款": {
+  "sources": [
+   "Outward",
+   "Pay",
+   "Payment",
+   "Payments"
+  ],
+  "visible": {
+   "Outward": [
+    "需求 §4.2.4"
+   ],
+   "Pay": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:payment_type"
+   ],
+   "Payment": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:exchange_gain_loss_posting_date",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:124",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice_list.js:55",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:98",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice_list.js:42",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:430",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1176"
+   ],
+   "Payments": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:payments_tab",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:payments_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:payments_tab",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:payments_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:payments_tab",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:hold_type",
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/payments.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/invoicing.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/payments.json"
+   ]
+  }
+ },
+ "付款类型": {
+  "sources": [
+   "Payment Type",
+   "Type of Payment"
+  ],
+  "visible": {
+   "Payment Type": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:payment_type",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_reference/payment_entry_reference.json:payment_type",
+    "需求 §4.2.4"
+   ],
+   "Type of Payment": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:type_of_payment",
+    "需求 §4.2.4"
+   ]
+  }
+ },
+ "付款金额": {
+  "sources": [
+   "Paid Amount",
+   "Payment Amount"
+  ],
+  "visible": {
+   "Paid Amount": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:paid_amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_schedule/payment_schedule.json:paid_amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:paid_amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:paid_amount",
+    "需求 §4.2.4"
+   ],
+   "Payment Amount": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_schedule/payment_schedule.json:payment_amount",
+    "需求 §4.2.4"
+   ]
+  }
+ },
+ "任务": {
+  "sources": [
+   "Task",
+   "Tasks"
+  ],
+  "visible": {
+   "Task": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/projects.json"
+   ],
+   "Tasks": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:774",
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:589",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json:tasks_section"
+   ]
+  }
+ },
+ "会计": {
+  "sources": [
+   "Accountant",
+   "Accounting",
+   "Accounts",
+   "Accounts User"
+  ],
+  "visible": {
+   "Accounting": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:accounting",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:accounting_tab",
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/accounting.json",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:accounting_tab",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:accounting",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:accounting"
+   ],
+   "Accounts": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/mode_of_payment/mode_of_payment.json:accounts",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:payment_accounts_section",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:accounts_tab",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher/month_end_closing_voucher.json:accounts"
+   ]
+  }
+ },
+ "会计凭证": {
+  "sources": [
+   "Accounting Ledger",
+   "Ledger"
+  ],
+  "visible": {
+   "Accounting Ledger": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.js:123",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.js:173"
+   ],
+   "Ledger": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:426"
+   ]
+  }
+ },
+ "使用公司默认小数精度尾差成本中心": {
+  "sources": [
+   "Use Company Default Round Off Cost Center",
+   "Use Company default Cost Center for Round off"
+  ],
+  "visible": {
+   "Use Company Default Round Off Cost Center": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:use_company_roundoff_cost_center"
+   ],
+   "Use Company default Cost Center for Round off": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:use_company_roundoff_cost_center"
+   ]
+  }
+ },
+ "供应商信息": {
+  "sources": [
+   "Supplier Details",
+   "Supplier Info"
+  ],
+  "visible": {
+   "Supplier Details": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:supplier_details",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:supplier_details",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:contact_section"
+   ],
+   "Supplier Info": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:supplier_info_tab"
+   ]
+  }
+ },
+ "信用额度": {
+  "sources": [
+   "Credit Limit",
+   "Credit Limits"
+  ],
+  "visible": {
+   "Credit Limit": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer_credit_limit/customer_credit_limit.json:credit_limit",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:credit_limit"
+   ],
+   "Credit Limits": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:invoicing_settings_tab"
+   ]
+  }
+ },
+ "借方": {
+  "sources": [
+   "Debit",
+   "Debit Amount",
+   "Debits",
+   "Dr"
+  ],
+  "visible": {
+   "Debit": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:balance_must_be",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher_account/month_end_closing_voucher_account.json:debit"
+   ],
+   "Debit Amount": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:debit"
+   ],
+   "Dr": [
+    "需求 §4.2.4"
+   ]
+  }
+ },
+ "假期列表": {
+  "sources": [
+   "Holiday List",
+   "Leaves"
+  ],
+  "visible": {
+   "Holiday List": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.json:holiday_list",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.json:holiday_list"
+   ],
+   "Leaves": [
+    "frappe-bench/apps/hrms/hrms/desktop_icon/leaves.json"
+   ]
+  }
+ },
+ "公司": {
+  "sources": [
+   "Companies",
+   "Company",
+   "For Company"
+  ],
+  "visible": {
+   "Companies": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/fiscal_year/fiscal_year.json:companies"
+   ],
+   "Company": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:company",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/allowed_to_transact_with/allowed_to_transact_with.json:company",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/cost_center/cost_center.json:company",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/fiscal_year_company/fiscal_year_company.json:company",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:company",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/mode_of_payment_account/mode_of_payment_account.json:company",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/party_account/party_account.json:company",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:company",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:company",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:company",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json:company",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/customer_number_at_supplier/customer_number_at_supplier.json:company",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:company",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:supplier_type",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:company",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:company",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:company",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:company",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:customer_type",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer_credit_limit/customer_credit_limit.json:company",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:company",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:company",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/supplier_number_at_customer/supplier_number_at_customer.json:company",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:company_name",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.json:company",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee_external_work_history/employee_external_work_history.json:company_name",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json:company",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.json:company",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:company",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_default/item_default.json:company",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:company",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:company",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.json:company",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/warehouse/warehouse.json:company",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/accounts_setup.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/organization.json",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/bank_statement_preprocess/bank_statement_preprocess.json:company",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/cash_flow_worksheet/cash_flow_worksheet.json:company",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher/month_end_closing_voucher.json:company",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher/month_end_closing_voucher_list.js:19",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ]
+  }
+ },
+ "关闭": {
+  "sources": [
+   "Close",
+   "to close"
+  ],
+  "visible": {
+   "Close": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:350",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order_list.js:54",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:132",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:765",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1001",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:969",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order_list.js:66",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:322",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:250"
+   ],
+   "to close": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:307"
+   ]
+  }
+ },
+ "冻结发票": {
+  "sources": [
+   "Block Invoice",
+   "Hold Invoice"
+  ],
+  "visible": {
+   "Block Invoice": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:109",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:269"
+   ],
+   "Hold Invoice": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:98",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:on_hold",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:sb_14"
+   ]
+  }
+ },
+ "创建多规格物料": {
+  "sources": [
+   "Create Variant",
+   "Create Variants"
+  ],
+  "visible": {
+   "Create Variant": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:1112"
+   ],
+   "Create Variants": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:924",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:961"
+   ]
+  }
+ },
+ "动态定价规则": {
+  "sources": [
+   "Pricing Rule",
+   "Pricing Rules"
+  ],
+  "visible": {
+   "Pricing Rule": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/pricing_rule_detail/pricing_rule_detail.json:pricing_rule",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json"
+   ],
+   "Pricing Rules": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:pricing_rule_details",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:pricing_rules",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:pricing_rule_details",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:pricing_rules",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:section_break_48",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:pricing_rules",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:pricing_rule_details",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:pricing_rules",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:pricing_rule_details",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:pricing_rules",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:pricing_rule_details",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:pricing_rules",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:pricing_rule_details",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:pricing_rules"
+   ]
+  }
+ },
+ "半成品/产成品": {
+  "sources": [
+   "Semi Finished Good / Finished Good",
+   "Semi Finished Goods / Finished Goods"
+  ],
+  "visible": {
+   "Semi Finished Good / Finished Good": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:semi_finished_good__finished_good_section"
+   ],
+   "Semi Finished Goods / Finished Goods": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:finished_good"
+   ]
+  }
+ },
+ "单价（本币）": {
+  "sources": [
+   "Basic Rate (Company Currency)",
+   "Rate (Company Currency)"
+  ],
+  "visible": {
+   "Basic Rate (Company Currency)": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_item/bom_item.json:base_rate",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:base_rate"
+   ],
+   "Rate (Company Currency)": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:base_rate",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:base_rate",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:base_rate",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:base_rate",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:base_rate",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:base_rate"
+   ]
+  }
+ },
+ "单据类型": {
+  "sources": [
+   "Against Doctype",
+   "Doctype",
+   "Document Types",
+   "Enter Form Type",
+   "For Document Type",
+   "From Document Type"
+  ],
+  "visible": {
+   "Against Doctype": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:prevdoc_doctype"
+   ],
+   "Doctype": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/repost_allowed_types/repost_allowed_types.json:document_type"
+   ]
+  }
+ },
+ "参考": {
+  "sources": [
+   "Reference",
+   "References"
+  ],
+  "visible": {
+   "Reference": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:section_break_14",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:reference",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_timesheet/sales_invoice_timesheet.json:section_break_11",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:reference_section",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:section_break_8",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:reference_section",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:reference_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_price/item_price.json:reference",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:reference_details_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:reference_section"
+   ],
+   "References": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:edit_references",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:references_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:references_section"
+   ]
+  }
+ },
+ "发件人": {
+  "sources": [
+   "From",
+   "Sender"
+  ],
+  "visible": {
+   "From": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:308",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/uom_conversion_factor/uom_conversion_factor.json:from_uom"
+   ],
+   "Sender": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:sender"
+   ]
+  }
+ },
+ "发料仓": {
+  "sources": [
+   "From Warehouse",
+   "Set From Warehouse",
+   "Set Source Warehouse",
+   "Source Warehouse"
+  ],
+  "visible": {
+   "From Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:from_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:from_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:from_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/packed_item/packed_item.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:from_warehouse"
+   ],
+   "Set From Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:set_from_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:set_from_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:set_from_warehouse"
+   ],
+   "Set Source Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:set_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:set_warehouse"
+   ],
+   "Source Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:set_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:505",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_explosion_item/bom_explosion_item.json:source_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_item/bom_item.json:source_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:source_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:source_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_item/job_card_item.json:source_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:source_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_item/work_order_item.json:source_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:source_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:810",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:s_warehouse"
+   ]
+  }
+ },
+ "发生错误": {
+  "sources": [
+   "An error occurred",
+   "Error Occurred"
+  ],
+  "visible": {
+   "An error occurred": [
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:360"
+   ],
+   "Error Occurred": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:458"
+   ]
+  }
+ },
+ "发票": {
+  "sources": [
+   "Billing",
+   "Invoice",
+   "Invoices",
+   "Linked Invoices"
+  ],
+  "visible": {
+   "Invoice": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:exchange_gain_loss_posting_date"
+   ],
+   "Invoices": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:hold_type"
+   ]
+  }
+ },
+ "发票地址": {
+  "sources": [
+   "Billing Address",
+   "Select Billing Address"
+  ],
+  "visible": {
+   "Billing Address": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:determine_address_tax_category_from",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:billing_address_display",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:address_and_contact",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:billing_address_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:billing_address_column",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:address_display",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:contact_info",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:billing_address",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:billing_address_display"
+   ],
+   "Select Billing Address": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:billing_address"
+   ]
+  }
+ },
+ "取消预留": {
+  "sources": [
+   "Stock Unreservation",
+   "Unreserve",
+   "Unreserve Stock"
+  ],
+  "visible": {
+   "Stock Unreservation": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:459"
+   ],
+   "Unreserve": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:954",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:122"
+   ],
+   "Unreserve Stock": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:510"
+   ]
+  }
+ },
+ "可用数量": {
+  "sources": [
+   "Available",
+   "Available Qty",
+   "Available Quantity",
+   "Projected Qty",
+   "Projected Quantity",
+   "Stock Projected Qty"
+  ],
+  "visible": {
+   "Available": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:513"
+   ],
+   "Available Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:505",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:available_qty_section"
+   ],
+   "Available Quantity": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:available_quantity_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:available_quantity_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:available_quantity_section"
+   ],
+   "Projected Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:projected_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:projected_qty",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:projected_qty",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:projected_qty",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.json:projected_qty",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/packed_item/packed_item.json:projected_qty"
+   ],
+   "Stock Projected Qty": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:174",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/stock.json"
+   ]
+  }
+ },
+ "名称": {
+  "sources": [
+   " Name",
+   "Name",
+   "name"
+  ],
+  "visible": {
+   "Name": [
+    "frappe-bench/apps/crm/frontend/src/components/ViewControls.vue:856",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_reference/payment_entry_reference.json:reference_name",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.js:290"
+   ],
+   "name": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:646"
+   ]
+  }
+ },
+ "否 备注 找到": {
+  "sources": [
+   "No Comments Found",
+   "No Notes Found"
+  ],
+  "visible": {
+   "No Comments Found": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:736"
+   ],
+   "No Notes Found": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:742"
+   ]
+  }
+ },
+ "员工": {
+  "sources": [
+   "Employee",
+   "Employee ",
+   "Employees",
+   "From Employee"
+  ],
+  "visible": {
+   "Employee": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:employee",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_time_log/job_card_time_log.json:employee",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:328",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:359",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.json",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.json:employee",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Employees": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:351"
+   ]
+  }
+ },
+ "商机": {
+  "sources": [
+   "Deal",
+   "Deals",
+   "Opportunities",
+   "Opportunity",
+   "deals"
+  ],
+  "visible": {
+   "Deals": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:527",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Opportunity": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:opportunity_name",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.js:154",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:opportunity",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/crm.json"
+   ]
+  }
+ },
+ "固定视图": {
+  "sources": [
+   "Pin View",
+   "Pinned Views"
+  ],
+  "visible": {
+   "Pin View": [
+    "frappe-bench/apps/crm/frontend/src/components/ViewControls.vue:1359"
+   ],
+   "Pinned Views": [
+    "frappe-bench/apps/crm/frontend/src/components/ViewControls.vue:765"
+   ]
+  }
+ },
+ "地址及联系方式": {
+  "sources": [
+   "Address & Contact",
+   "Address & Contacts"
+  ],
+  "visible": {
+   "Address & Contact": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:address_and_contact_tab",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:contact_and_address_tab",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:address_and_contact_tab",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:contact_and_address_tab",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:contact_and_address_tab",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:address_and_contact_tab",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:contact_info",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:company_info",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:address_and_contact_tab",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:address_and_contact_tab"
+   ],
+   "Address & Contacts": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.json:contact_details"
+   ]
+  }
+ },
+ "地址和联系方式": {
+  "sources": [
+   "Address and Contact",
+   "Address and Contacts",
+   "Addresses And Contacts"
+  ],
+  "visible": {
+   "Address and Contact": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:address_contacts",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/warehouse/warehouse.json:address_and_contact"
+   ],
+   "Address and Contacts": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:address_contacts"
+   ]
+  }
+ },
+ "备注": {
+  "sources": [
+   "Note",
+   "Notes",
+   "Remark",
+   "Remarks",
+   "comments"
+  ],
+  "visible": {
+   "Note": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1634",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:751",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_price/item_price.json:note"
+   ],
+   "Notes": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:779",
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:594"
+   ],
+   "Remark": [
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher/month_end_closing_voucher.json:remark",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher_account/month_end_closing_voucher_account.json:remark"
+   ],
+   "Remarks": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:remarks",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:remarks",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:remarks",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_advance/purchase_invoice_advance.json:remarks",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:remarks",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_advance/sales_invoice_advance.json:remarks",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:remarks",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:remarks",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:remarks"
+   ]
+  }
+ },
+ "失效日期": {
+  "sources": [
+   "Effective To",
+   "End of Life",
+   "Expiry Date",
+   "Valid Till"
+  ],
+  "visible": {
+   "End of Life": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:end_of_life"
+   ],
+   "Valid Till": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:valid_till"
+   ]
+  }
+ },
+ "套件明细": {
+  "sources": [
+   "Bundle Items",
+   "Packed Item",
+   "Packed Items"
+  ],
+  "visible": {
+   "Bundle Items": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:bundle_items_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:packed_items"
+   ],
+   "Packed Item": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/packed_item/packed_item.json"
+   ],
+   "Packed Items": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:packed_items",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:packed_items",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:packed_items"
+   ]
+  }
+ },
+ "委外": {
+  "sources": [
+   "Is Subcontracted",
+   "Sub-contracting",
+   "Subcontract",
+   "Subcontracting"
+  ],
+  "visible": {
+   "Is Subcontracted": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:is_subcontracted",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:is_subcontracted",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:is_subcontracted",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:is_subcontracted",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:is_subcontracted",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:is_subcontracted"
+   ],
+   "Subcontract": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:type_of_manufacturing"
+   ],
+   "Subcontracting": [
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/subcontracting.json",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:material_request_type",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:subcontracting_section"
+   ]
+  }
+ },
+ "委外原材料": {
+  "sources": [
+   "Consumed Items",
+   "Material to Supplier",
+   "Supplied Item",
+   "Supplied Items"
+  ],
+  "visible": {
+   "Consumed Items": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:supplied_items"
+   ],
+   "Material to Supplier": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:394"
+   ],
+   "Supplied Items": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:supplied_items",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:supplied_items"
+   ]
+  }
+ },
+ "子工序": {
+  "sources": [
+   "Sub Operation",
+   "Sub Operations"
+  ],
+  "visible": {
+   "Sub Operation": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:361",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_time_log/job_card_time_log.json:operation",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/sub_operation/sub_operation.json"
+   ],
+   "Sub Operations": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:section_break_21",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:sub_operations",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/operation/operation.json:sub_operations_section"
+   ]
+  }
+ },
+ "完工数量": {
+  "sources": [
+   "Completed Qty",
+   "Manufactured Qty",
+   "Produced Qty"
+  ],
+  "visible": {
+   "Completed Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_operation/job_card_operation.json:completed_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_time_log/job_card_time_log.json:completed_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:completed_qty"
+   ],
+   "Manufactured Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:manufactured_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:produced_qty"
+   ],
+   "Produced Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:produced_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:wo_produced_qty"
+   ]
+  }
+ },
+ "完成": {
+  "sources": [
+   "Complete",
+   "Done",
+   "Finish"
+  ],
+  "visible": {
+   "Complete": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_operation/job_card_operation.json:status"
+   ],
+   "Done": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/transaction_deletion_record_details/transaction_deletion_record_details.json:done"
+   ],
+   "Finish": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:904",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:919",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:928"
+   ]
+  }
+ },
+ "对方科目": {
+  "sources": [
+   "Against",
+   "Against Account"
+  ],
+  "visible": {
+   "Against": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:against"
+   ],
+   "Against Account": [
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/cash_flow_item/cash_flow_item.json:against"
+   ]
+  }
+ },
+ "工单发料": {
+  "sources": [
+   "Material Transfer for Manufacture",
+   "Material Transferred for Manufacture"
+  ],
+  "visible": {
+   "Material Transfer for Manufacture": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:purpose",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_type/stock_entry_type.json:purpose"
+   ],
+   "Material Transferred for Manufacture": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:backflush_based_on",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.json:backflush_raw_materials_based_on"
+   ]
+  }
+ },
+ "工单拆解": {
+  "sources": [
+   "Disassemble",
+   "Disassemble Order"
+  ],
+  "visible": {
+   "Disassemble": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:1076",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:1087",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:406",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:449",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:purpose",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_type/stock_entry_type.json:purpose"
+   ],
+   "Disassemble Order": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:229"
+   ]
+  }
+ },
+ "工单数量": {
+  "sources": [
+   "Planned Qty",
+   "Planned Quantity",
+   "Qty To Manufacture",
+   "Work Order Qty"
+  ],
+  "visible": {
+   "Planned Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:planned_qty",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.json:planned_qty"
+   ],
+   "Planned Quantity": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:planned_qty"
+   ],
+   "Qty To Manufacture": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:410",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:for_quantity",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:qty"
+   ],
+   "Work Order Qty": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:work_order_qty"
+   ]
+  }
+ },
+ "工单耗用": {
+  "sources": [
+   "Material Consumption",
+   "Material Consumption for Manufacture"
+  ],
+  "visible": {
+   "Material Consumption": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:884"
+   ],
+   "Material Consumption for Manufacture": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:purpose",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_type/stock_entry_type.json:purpose"
+   ]
+  }
+ },
+ "工序": {
+  "sources": [
+   "For Operation",
+   "Item operation",
+   "Operation",
+   "Operations"
+  ],
+  "visible": {
+   "For Operation": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:475",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:for_operation"
+   ],
+   "Item operation": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_item/bom_item.json:operation"
+   ],
+   "Operation": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:511",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_explosion_item/bom_explosion_item.json:operation",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:operation",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:operation",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_operation/job_card_operation.json:sub_operation",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/operation/operation.json",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/sub_operation/sub_operation.json:operation",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:334",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_item/work_order_item.json:operation",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:operation",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/manufacturing.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Operations": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:operations",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:operations_section_section",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:329",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:operations",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:operations_section"
+   ]
+  }
+ },
+ "工序行ID": {
+  "sources": [
+   "Operation Row ID",
+   "Operation Row Id"
+  ],
+  "visible": {
+   "Operation Row ID": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:operation_row_id"
+   ],
+   "Operation Row Id": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_item/work_order_item.json:operation_row_id"
+   ]
+  }
+ },
+ "工序顺序号": {
+  "sources": [
+   "Sequence ID",
+   "Sequence Id"
+  ],
+  "visible": {
+   "Sequence ID": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:sequence_id",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:sequence_id"
+   ],
+   "Sequence Id": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:sequence_id",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:371"
+   ]
+  }
+ },
+ "工时单": {
+  "sources": [
+   "Time Sheet",
+   "Time Sheets",
+   "Timesheet",
+   "Timesheets"
+  ],
+  "visible": {
+   "Time Sheet": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_timesheet/sales_invoice_timesheet.json:time_sheet",
+    "需求 §4.2.4"
+   ],
+   "Time Sheets": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:timesheets",
+    "需求 §4.2.4"
+   ],
+   "Timesheet": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:302",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/projects.json",
+    "需求 §4.2.4"
+   ],
+   "Timesheets": [
+    "需求 §4.2.4"
+   ]
+  }
+ },
+ "工费成本": {
+  "sources": [
+   "Operating Cost",
+   "Operating Costs"
+  ],
+  "visible": {
+   "Operating Cost": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:operating_cost",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:operating_cost",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation_cost/workstation_cost.json:operating_cost"
+   ],
+   "Operating Costs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.json:over_heads"
+   ]
+  }
+ },
+ "工费成本（本币）": {
+  "sources": [
+   "Operating Cost (Company Currency)",
+   "Operating Cost(Company Currency)"
+  ],
+  "visible": {
+   "Operating Cost (Company Currency)": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:base_operating_cost"
+   ],
+   "Operating Cost(Company Currency)": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:base_operating_cost"
+   ]
+  }
+ },
+ "左值": {
+  "sources": [
+   "Lft",
+   "lft"
+  ],
+  "visible": {
+   "Lft": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:lft",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:lft"
+   ],
+   "lft": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/cost_center/cost_center.json:lft",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.json:lft",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/item_group/item_group.json:lft",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/warehouse/warehouse.json:lft"
+   ]
+  }
+ },
+ "已付款": {
+  "sources": [
+   "Is Paid",
+   "Paid"
+  ],
+  "visible": {
+   "Is Paid": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:is_paid",
+    "需求 §4.2.4"
+   ],
+   "Paid": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:status",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:status",
+    "需求 §4.2.4"
+   ]
+  }
+ },
+ "已发料数量": {
+  "sources": [
+   "Supplied Qty",
+   "Transferred Qty"
+  ],
+  "visible": {
+   "Supplied Qty": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item_supplied/purchase_order_item_supplied.json:supplied_qty"
+   ],
+   "Transferred Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_item/job_card_item.json:transferred_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_item/work_order_item.json:transferred_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:497",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:transferred_qty"
+   ]
+  }
+ },
+ "已取消": {
+  "sources": [
+   "CANCELLED",
+   "Canceled",
+   "Cancelled",
+   "Is Cancelled",
+   "cancelled"
+  ],
+  "visible": {
+   "Cancelled": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:status",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:status",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:status",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json:status",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:status",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:status",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:status",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:status",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:status",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:status",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json:status",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:status",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:status",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry_list.js:38"
+   ],
+   "Is Cancelled": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:is_cancelled",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.json:is_cancelled"
+   ]
+  }
+ },
+ "已开票%": {
+  "sources": [
+   "% Amount Billed",
+   "% Billed"
+  ],
+  "visible": {
+   "% Amount Billed": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:per_billed",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:per_billed",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:per_billed"
+   ],
+   "% Billed": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:per_billed"
+   ]
+  }
+ },
+ "已开票金额": {
+  "sources": [
+   "Billed Amount",
+   "Billed Amt"
+  ],
+  "visible": {
+   "Billed Amount": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:billed_amt"
+   ],
+   "Billed Amt": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:billed_amt",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:billed_amt",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:billed_amt"
+   ]
+  }
+ },
+ "已预留库存": {
+  "sources": [
+   "Reserved Stock",
+   "Stock Reserved"
+  ],
+  "visible": {
+   "Reserved Stock": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:961",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:135",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:465",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.json:reserved_stock"
+   ],
+   "Stock Reserved": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:status"
+   ]
+  }
+ },
+ "序列号与批号": {
+  "sources": [
+   "Serial & Batch Item",
+   "Serial and Batch",
+   "Serial and Batch Bundle",
+   "Serial and Batch No"
+  ],
+  "visible": {
+   "Serial & Batch Item": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:serial_and_batch_item_settings_tab"
+   ],
+   "Serial and Batch Bundle": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:serial_and_batch_bundle",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:serial_and_batch_bundle",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:serial_and_batch_bundle",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:serial_and_batch_bundle",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/packed_item/packed_item.json:serial_and_batch_bundle",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:serial_and_batch_bundle",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:serial_and_batch_bundle",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.json:serial_and_batch_bundle",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.js:156",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:auto_bundle_section",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/stock.json"
+   ],
+   "Serial and Batch No": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:section_break_40",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:section_break_45"
+   ]
+  }
+ },
+ "序號／批次": {
+  "sources": [
+   "Serial / Batch",
+   "Serial Nos / Batches"
+  ],
+  "visible": {
+   "Serial / Batch": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:section_break_jcmx"
+   ],
+   "Serial Nos / Batches": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:serial_nos_and_batches"
+   ]
+  }
+ },
+ "库存": {
+  "sources": [
+   "In Stock",
+   "Inventory",
+   "Stock"
+  ],
+  "visible": {
+   "Inventory": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:inventory_section"
+   ],
+   "Stock": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:account_type",
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/stock.json",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:21",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ]
+  }
+ },
+ "库存单位": {
+  "sources": [
+   "Stock UOM",
+   "Stock Uom"
+  ],
+  "visible": {
+   "Stock UOM": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_explosion_item/bom_explosion_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_item/bom_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_item/job_card_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_item/work_order_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.json:stock_uom"
+   ],
+   "Stock Uom": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item_supplied/purchase_order_item_supplied.json:stock_uom",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_receipt_item_supplied/purchase_receipt_item_supplied.json:stock_uom"
+   ]
+  }
+ },
+ "库存设置": {
+  "sources": [
+   "Inventory Settings",
+   "Stock Settings"
+  ],
+  "visible": {
+   "Inventory Settings": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:inventory_settings_section"
+   ],
+   "Stock Settings": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:auto_accounting_for_stock_settings",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:418",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/erpnext_settings.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/stock.json"
+   ]
+  }
+ },
+ "应付账款": {
+  "sources": [
+   "Accounts Payable",
+   "Creditors",
+   "Payable",
+   "Payables"
+  ],
+  "visible": {
+   "Accounts Payable": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.js:135",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/financial_reports.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/invoicing.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/payments.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Payable": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:account_type"
+   ],
+   "Payables": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/invoicing.json"
+   ]
+  }
+ },
+ "应收账款": {
+  "sources": [
+   "Accounts Receivable",
+   "Debtors",
+   "Receivable",
+   "Receivable Account",
+   "Receivables"
+  ],
+  "visible": {
+   "Accounts Receivable": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.js:162",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/financial_reports.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/invoicing.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/payments.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json",
+    "需求 §4.2.4"
+   ],
+   "Debtors": [
+    "需求 §4.2.4"
+   ],
+   "Receivable": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:account_type",
+    "需求 §4.2.4"
+   ],
+   "Receivables": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/invoicing.json"
+   ]
+  }
+ },
+ "应用": {
+  "sources": [
+   "App",
+   "Apply",
+   "Apps"
+  ],
+  "visible": {
+   "App": [
+    "frappe-bench/apps/frappe/frappe/desk/doctype/desktop_icon/desktop_icon.json"
+   ],
+   "Apply": [
+    "frappe-bench/apps/crm/frontend/src/components/Kanban/KanbanView.vue:46"
+   ]
+  }
+ },
+ "开始时间": {
+  "sources": [
+   "From Datetime",
+   "From Time",
+   "Start Time",
+   "Started At",
+   "Starts on"
+  ],
+  "visible": {
+   "From Time": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_timesheet/sales_invoice_timesheet.json:from_time",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_scheduled_time/job_card_scheduled_time.json:from_time",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_time_log/job_card_time_log.json:from_time"
+   ],
+   "Start Time": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:322",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation_working_hour/workstation_working_hour.json:start_time"
+   ]
+  }
+ },
+ "待处理": {
+  "sources": [
+   "Open",
+   "Pending"
+  ],
+  "visible": {
+   "Open": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:status",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:status",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation_list.js:30"
+   ],
+   "Pending": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_operation/job_card_operation.json:status",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:status",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json:clear_notifications_status",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json:delete_bin_data_status",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json:delete_leads_and_addresses_status",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json:delete_transactions_status",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json:initialize_doctypes_table_status",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json:reset_company_default_values_status"
+   ]
+  }
+ },
+ "待处理数量": {
+  "sources": [
+   "Pending Qty",
+   "Pending Quantity"
+  ],
+  "visible": {
+   "Pending Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:pending_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:pending_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:353",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:pending_qty",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1689"
+   ],
+   "Pending Quantity": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:294"
+   ]
+  }
+ },
+ "总完工数量": {
+  "sources": [
+   "Total Completed Qty",
+   "Total Produced Qty"
+  ],
+  "visible": {
+   "Total Completed Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:total_completed_qty"
+   ],
+   "Total Produced Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:total_produced_qty"
+   ]
+  }
+ },
+ "总计": {
+  "sources": [
+   "Grand Total",
+   "Total",
+   "Totals"
+  ],
+  "visible": {
+   "Grand Total": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_reference/payment_entry_reference.json:total_amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:apply_discount_on",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:base_grand_total",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:grand_total",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:apply_discount_on",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:grand_total",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:apply_discount_on",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:base_grand_total",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:grand_total",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sales_order/production_plan_sales_order.json:grand_total",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:apply_discount_on",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:grand_total",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:apply_discount_on",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:base_grand_total",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:grand_total",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:apply_discount_on",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:base_grand_total",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:grand_total",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:apply_discount_on",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:base_grand_total",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:grand_total"
+   ],
+   "Total": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/advance_taxes_and_charges/advance_taxes_and_charges.json:total",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:total",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:category",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:total",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:total",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_taxes_and_charges/sales_taxes_and_charges.json:total",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:total",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:total",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:total",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:total",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:total"
+   ],
+   "Totals": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:totals_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:totals_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_timesheet/sales_invoice_timesheet.json:section_break_7",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:totals_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:totals",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:totals_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:totals_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:totals_section"
+   ]
+  }
+ },
+ "成品": {
+  "sources": [
+   "Final Product",
+   "Finished Good",
+   "Finished Goods",
+   "Item To Manufacture",
+   "Production Item"
+  ],
+  "visible": {
+   "Final Product": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:production_item"
+   ],
+   "Finished Good": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:204",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:fg_item",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:parent_item_code",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:830",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:fg_item"
+   ],
+   "Finished Goods": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1438"
+   ],
+   "Item To Manufacture": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:production_item"
+   ],
+   "Production Item": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:production_item_tab",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:item"
+   ]
+  }
+ },
+ "成本中心": {
+  "sources": [
+   "Cost Center",
+   "Cost Centers"
+  ],
+  "visible": {
+   "Cost Center": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/advance_taxes_and_charges/advance_taxes_and_charges.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/cost_center/cost_center.json",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_deduction/payment_entry_deduction.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_taxes_and_charges/sales_taxes_and_charges.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/landed_cost_taxes_and_charges/landed_cost_taxes_and_charges.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:cost_center",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/budget.json",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/cash_flow_item/cash_flow_item.json:cost_center",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher_account/month_end_closing_voucher_account.json:cost_center",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Cost Centers": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.js:124"
+   ]
+  }
+ },
+ "成本价": {
+  "sources": [
+   "Costing Rate",
+   "Incoming Rate (Costing)",
+   "Valuation",
+   "Valuation Rate"
+  ],
+  "visible": {
+   "Incoming Rate (Costing)": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:incoming_rate"
+   ],
+   "Valuation": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:category"
+   ],
+   "Valuation Rate": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:valuation_rate",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:rm_cost_as_per",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:valuation_type",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:valuation_rate",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:valuation_rate",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.json:valuation_rate",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:valuation_rate",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:valuation_rate",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:valuation_rate",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:valuation_type"
+   ]
+  }
+ },
+ "成本分攤 %": {
+  "sources": [
+   "% Cost Allocation",
+   "Cost Allocation %"
+  ],
+  "visible": {
+   "% Cost Allocation": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:cost_allocation_per"
+   ],
+   "Cost Allocation %": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:cost_allocation_per"
+   ]
+  }
+ },
+ "截止日期": {
+  "sources": [
+   "Closes On",
+   "Due Date",
+   "To Date"
+  ],
+  "visible": {
+   "Due Date": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:due_date",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:900",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_reference/payment_entry_reference.json:due_date",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_schedule/payment_schedule.json:due_date",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:due_date"
+   ],
+   "To Date": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:899",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:903",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:to_date",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:to_date",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:to_date",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:to_date",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:to_date",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee_internal_work_history/employee_internal_work_history.json:to_date"
+   ]
+  }
+ },
+ "所需物料": {
+  "sources": [
+   "Items Required",
+   "Required Items"
+  ],
+  "visible": {
+   "Items Required": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1720"
+   ],
+   "Required Items": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:section_break_ndpq"
+   ]
+  }
+ },
+ "打印设置": {
+  "sources": [
+   "Print Settings",
+   "Printing Details",
+   "Printing Settings"
+  ],
+  "visible": {
+   "Print Settings": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:print_settings",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:printing_settings",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:edit_printing_settings",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:print_settings",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:printing_details",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:printing_details"
+   ],
+   "Printing Settings": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:column_break5",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:printing_settings",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:printing_settings"
+   ]
+  }
+ },
+ "扣款": {
+  "sources": [
+   "Debit Note",
+   "Payment Entry Deduction"
+  ],
+  "visible": {
+   "Debit Note": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:45",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/invoicing.json"
+   ],
+   "Payment Entry Deduction": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_deduction/payment_entry_deduction.json"
+   ]
+  }
+ },
+ "扣繳稅款分錄": {
+  "sources": [
+   "Tax Withholding Entries",
+   "Tax Withholding Entry"
+  ],
+  "visible": {
+   "Tax Withholding Entries": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:tax_withholding_entries",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:tax_withholding_entries",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:tax_withholding_entries"
+   ],
+   "Tax Withholding Entry": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:section_tax_withholding_entry",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:section_tax_withholding_entry",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:section_tax_withholding_entry",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json"
+   ]
+  }
+ },
+ "找零": {
+  "sources": [
+   "Change Amount",
+   "Changes"
+  ],
+  "visible": {
+   "Change Amount": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:change_amount"
+   ],
+   "Changes": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:section_break_88"
+   ]
+  }
+ },
+ "折扣金额": {
+  "sources": [
+   "Discount Amount",
+   "Discounted Amount"
+  ],
+  "visible": {
+   "Discount Amount": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:discount_amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:discount_amount",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:discount_amount",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:discount_amount",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:discount_amount",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:discount_amount",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:discount_amount"
+   ],
+   "Discounted Amount": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_schedule/payment_schedule.json:discounted_amount"
+   ]
+  }
+ },
+ "报价": {
+  "sources": [
+   "Quotation",
+   "Quotations"
+  ],
+  "visible": {
+   "Quotation": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:403",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1192",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:prevdoc_docname",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Quotations": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:795"
+   ]
+  }
+ },
+ "报价明细": {
+  "sources": [
+   "Quotation Item",
+   "quotation_item"
+  ],
+  "visible": {
+   "Quotation Item": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json"
+   ],
+   "quotation_item": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:quotation_item"
+   ]
+  }
+ },
+ "拒收数量": {
+  "sources": [
+   "Rejected Qty",
+   "Rejected Quantity"
+  ],
+  "visible": {
+   "Rejected Qty": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:rejected_qty"
+   ],
+   "Rejected Quantity": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:rejected_qty"
+   ]
+  }
+ },
+ "描述": {
+  "sources": [
+   "Description",
+   "description"
+  ],
+  "visible": {
+   "Description": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/advance_taxes_and_charges/advance_taxes_and_charges.json:description",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_deduction/payment_entry_deduction.json:description",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_schedule/payment_schedule.json:description",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_schedule/payment_schedule.json:section_break_15",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:description_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:description",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:description_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_timesheet/sales_invoice_timesheet.json:description",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_taxes_and_charges/sales_taxes_and_charges.json:description",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:section_break_5",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_receipt_item_supplied/purchase_receipt_item_supplied.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_explosion_item/bom_explosion_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_item/bom_item.json:section_break_5",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_item/job_card_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/operation/operation.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/sub_operation/sub_operation.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_item/work_order_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.json:description",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.json:workstaion_description",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.js:308",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:section_break_5",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:section_break_5",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/uom/uom.json:description",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:section_break_6",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:section_break_11",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/landed_cost_taxes_and_charges/landed_cost_taxes_and_charges.json:description",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/packed_item/packed_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:description",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:section_break_4",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:description",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:section_break_8",
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:88"
+   ],
+   "description": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:description"
+   ]
+  }
+ },
+ "收到数量": {
+  "sources": [
+   "In Qty",
+   "Received Qty",
+   "Received Quantity"
+  ],
+  "visible": {
+   "Received Qty": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:received_qty",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:received_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:received_qty",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:received_qty"
+   ],
+   "Received Quantity": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:received_qty"
+   ]
+  }
+ },
+ "收料仓": {
+  "sources": [
+   "Set Target Warehouse",
+   "Target Warehouse",
+   "To Warehouse"
+  ],
+  "visible": {
+   "Set Target Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:set_target_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:set_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:set_target_warehouse"
+   ],
+   "Target Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:target_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:target_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:fg_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:fg_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:target_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:816",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:t_warehouse"
+   ]
+  }
+ },
+ "收款": {
+  "sources": [
+   "Inward",
+   "Receive"
+  ],
+  "visible": {
+   "Inward": [
+    "需求 §4.2.4"
+   ],
+   "Receive": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:payment_type"
+   ]
+  }
+ },
+ "收货数量": {
+  "sources": [
+   "Accepted Qty",
+   "Accepted Quantity",
+   "Arrival Quantity"
+  ],
+  "visible": {
+   "Accepted Qty": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:qty"
+   ],
+   "Accepted Quantity": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:qty"
+   ]
+  }
+ },
+ "数量": {
+  "sources": [
+   "Batch Quantity",
+   "Qty",
+   "Qty ",
+   "Quantity"
+  ],
+  "visible": {
+   "Qty": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:1160",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_item/bom_item.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_item/job_card_item.json:qty_section",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json:stock_qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item_reference/production_plan_item_reference.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_additional_item/work_order_additional_item.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_item/work_order_item.json:qty_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1307",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1469",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:398",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:502",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:592",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:639",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/landed_cost_taxes_and_charges/landed_cost_taxes_and_charges.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/packed_item/packed_item.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:qty"
+   ],
+   "Quantity": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:787",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:498",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:section_break_4rxf",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:qty",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:819",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:quantity_section"
+   ]
+  }
+ },
+ "数量(库存单位)": {
+  "sources": [
+   "Qty as per Stock UOM",
+   "Qty in Stock UOM"
+  ],
+  "visible": {
+   "Qty as per Stock UOM": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:stock_qty",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:stock_qty",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:stock_qty",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:transfer_qty"
+   ],
+   "Qty in Stock UOM": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:stock_qty",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:stock_qty"
+   ]
+  }
+ },
+ "无效 电子邮件 地址": {
+  "sources": [
+   "Invalid Email Address",
+   "Invalid email address"
+  ],
+  "visible": {
+   "Invalid Email Address": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/ContactModal.vue:110"
+   ],
+   "Invalid email address": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/DealModal.vue:205",
+    "frappe-bench/apps/crm/frontend/src/components/Modals/LeadModal.vue:148"
+   ]
+  }
+ },
+ "日期": {
+  "sources": [
+   "As On Date",
+   "Date",
+   "Date ",
+   "Dates",
+   "On Date",
+   "On This Date"
+  ],
+  "visible": {
+   "Date": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:transaction_date",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:transaction_date",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:transaction_date",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:posting_date",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:posting_date"
+   ],
+   "Dates": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:dates_section"
+   ]
+  }
+ },
+ "日记账凭证": {
+  "sources": [
+   "Journal Entries",
+   "Journal Entry",
+   "Journals"
+  ],
+  "visible": {
+   "Journal Entry": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.js:58",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/invoicing.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/payments.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Journals": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:journals_section"
+   ]
+  }
+ },
+ "时间(分)": {
+  "sources": [
+   "Time (In Mins)",
+   "Time In Mins"
+  ],
+  "visible": {
+   "Time (In Mins)": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_scheduled_time/job_card_scheduled_time.json:time_in_mins"
+   ],
+   "Time In Mins": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_time_log/job_card_time_log.json:time_in_mins"
+   ]
+  }
+ },
+ "更多信息": {
+  "sources": [
+   "More Info",
+   "More Information",
+   "Other Info"
+  ],
+  "visible": {
+   "More Info": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:more_info_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:more_info_tab",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:more_info_tab",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:more_info_tab",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:more_info_tab",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:more_info_tab",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:more_information",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:more_info",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:more_info_tab",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:more_info_tab",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:more_info",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:more_info_tab",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:more_info_tab"
+   ],
+   "More Information": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:section_break_12",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:more_info_section_break",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:column_break2",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:more_information_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:more_info",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:more_info"
+   ],
+   "Other Info": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:other_info_tab"
+   ]
+  }
+ },
+ "替代物料": {
+  "sources": [
+   "Alternate Item",
+   "Item Alternative"
+  ],
+  "visible": {
+   "Alternate Item": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:291",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:162",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:177",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:358"
+   ],
+   "Item Alternative": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/stock.json"
+   ]
+  }
+ },
+ "最小起订量": {
+  "sources": [
+   "Minimum Order Qty",
+   "Minimum Order Quantity"
+  ],
+  "visible": {
+   "Minimum Order Qty": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:min_order_qty"
+   ],
+   "Minimum Order Quantity": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:min_order_qty"
+   ]
+  }
+ },
+ "月": {
+  "sources": [
+   "Month",
+   "Months"
+  ],
+  "visible": {
+   "Month": [
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/cash_flow_worksheet/cash_flow_worksheet.json:month",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher/month_end_closing_voucher.json:month",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher/month_end_closing_voucher_list.js:34"
+   ],
+   "Months": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:book_deferred_entries_based_on"
+   ]
+  }
+ },
+ "未付": {
+  "sources": [
+   "Outstanding",
+   "Unpaid"
+  ],
+  "visible": {
+   "Outstanding": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_reference/payment_entry_reference.json:outstanding_amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_schedule/payment_schedule.json:outstanding"
+   ],
+   "Unpaid": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:status",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:status",
+    "需求 §4.2.4"
+   ]
+  }
+ },
+ "未成交原因": {
+  "sources": [
+   "Lost Reason",
+   "Lost Reasons"
+  ],
+  "visible": {
+   "Lost Reason": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/LostReasonModal.vue:14",
+    "frappe-bench/apps/crm/frontend/src/components/Modals/LostReasonModal.vue:2"
+   ],
+   "Lost Reasons": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:lost_reasons",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:lost_reasons_section"
+   ]
+  }
+ },
+ "条款和条件": {
+  "sources": [
+   "Clauses and Conditions",
+   "Terms & Conditions",
+   "Terms and Conditions"
+  ],
+  "visible": {
+   "Terms & Conditions": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:terms_section_break",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:terms_section_break"
+   ],
+   "Terms and Conditions": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:terms",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:terms_section_break",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:terms_section_break",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:terms",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:terms_section_break",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:terms",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/accounts_setup.json"
+   ]
+  }
+ },
+ "条码": {
+  "sources": [
+   "Barcode",
+   "Barcodes"
+  ],
+  "visible": {
+   "Barcode": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:barcode",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:barcode",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:barcode",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_barcode/item_barcode.json:barcode",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:barcode",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:barcode"
+   ],
+   "Barcodes": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:barcodes",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:sb_barcodes"
+   ]
+  }
+ },
+ "核销明细": {
+  "sources": [
+   "Payment Entry Reference",
+   "Payment References"
+  ],
+  "visible": {
+   "Payment Entry Reference": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_reference/payment_entry_reference.json",
+    "需求 §4.2.4"
+   ],
+   "Payment References": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:references",
+    "需求 §4.2.4"
+   ]
+  }
+ },
+ "框架订单": {
+  "sources": [
+   "Against Blanket Order",
+   "Blanket Order"
+  ],
+  "visible": {
+   "Against Blanket Order": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:against_blanket_order",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:against_blanket_order",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:against_blanket_order"
+   ],
+   "Blanket Order": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:blanket_order",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:blanket_order",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:blanket_order",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json"
+   ]
+  }
+ },
+ "模板物料": {
+  "sources": [
+   "Template Item",
+   "Variant Of"
+  ],
+  "visible": {
+   "Template Item": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:457"
+   ],
+   "Variant Of": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:variant_of",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_variant_attribute/item_variant_attribute.json:variant_of"
+   ]
+  }
+ },
+ "汇兑损益": {
+  "sources": [
+   "Exchange Gain / Loss",
+   "Exchange Gain Or Loss",
+   "Exchange Gain/Loss"
+  ],
+  "visible": {
+   "Exchange Gain / Loss": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:exchange_gain__loss_section"
+   ],
+   "Exchange Gain/Loss": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_reference/payment_entry_reference.json:exchange_gain_loss",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_advance/purchase_invoice_advance.json:exchange_gain_loss",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_advance/sales_invoice_advance.json:exchange_gain_loss"
+   ]
+  }
+ },
+ "源单": {
+  "sources": [
+   "Adjustment Against",
+   "Return Against"
+  ],
+  "visible": {
+   "Adjustment Against": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:1180"
+   ],
+   "Return Against": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:return_against"
+   ]
+  }
+ },
+ "源单据类型": {
+  "sources": [
+   "Deleted DocType",
+   "From Voucher Type",
+   "Link DocType",
+   "Link Document Type",
+   "Ref DocType",
+   "Reference DocType",
+   "Reference Type",
+   "Source Document Type"
+  ],
+  "visible": {
+   "Reference DocType": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js:1727"
+   ],
+   "Reference Type": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_advance/purchase_invoice_advance.json:reference_type",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_advance/sales_invoice_advance.json:reference_type"
+   ]
+  }
+ },
+ "物料": {
+  "sources": [
+   " Item",
+   "For Item",
+   "Item",
+   "Items",
+   "Items Catalogue",
+   "Material",
+   "item",
+   "items"
+  ],
+  "visible": {
+   "Item": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:1140",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1675",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.js:149",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/assets.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/buying.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/home.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/manufacturing.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/stock.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/subcontracting.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/subscription.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json",
+    "需求 §4.2.4"
+   ],
+   "Items": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:items",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:sec_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:items",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:items_section",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:items",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:items",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:items",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1270",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:items",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:sec_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/item_group/item_group.js:87",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:500",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:items_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:items",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:sec_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:items",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:items_section"
+   ]
+  }
+ },
+ "物料价格": {
+  "sources": [
+   "Item Price",
+   "Item Prices"
+  ],
+  "visible": {
+   "Item Price": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_price/item_price.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Item Prices": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:item_prices_column"
+   ]
+  }
+ },
+ "物料凭证": {
+  "sources": [
+   "Stock Ledger",
+   "Stock Ledger Entry"
+  ],
+  "visible": {
+   "Stock Ledger": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:164",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/stock.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Stock Ledger Entry": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.json"
+   ]
+  }
+ },
+ "物料号": {
+  "sources": [
+   "Item Code",
+   "Item Reference"
+  ],
+  "visible": {
+   "Item Code": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/pricing_rule_detail/pricing_rule_detail.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:314",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:773",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item_supplied/purchase_order_item_supplied.json:main_item_code",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_receipt_item_supplied/purchase_receipt_item_supplied.json:main_item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_explosion_item/bom_explosion_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_item/bom_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_item/job_card_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_additional_item/work_order_additional_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_item/work_order_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.js:471",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.js:297",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1280",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1444",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:376",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:484",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_price/item_price.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/packed_item/packed_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.json:item_code",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:item_naming_by"
+   ],
+   "Item Reference": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:item_reference",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item_reference/production_plan_item_reference.json:item_reference"
+   ]
+  }
+ },
+ "物料名称": {
+  "sources": [
+   "Item Name",
+   "Item name"
+  ],
+  "visible": {
+   "Item Name": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:780",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_receipt_item_supplied/purchase_receipt_item_supplied.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_explosion_item/bom_explosion_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_item/bom_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_item/job_card_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_item/work_order_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1287",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_price/item_price.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/packed_item/packed_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:item_name",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:item_name"
+   ],
+   "Item name": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1682"
+   ]
+  }
+ },
+ "物料清单": {
+  "sources": [
+   " BOM",
+   "BOM",
+   "Bill of Materials"
+  ],
+  "visible": {
+   "BOM": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:bom",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:bom",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:backflush_based_on",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.json:backflush_raw_materials_based_on",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.json:bom_section",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:213",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:bom",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1459",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:bom",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:800",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/manufacturing.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Bill of Materials": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:786",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/subcontracting.json"
+   ]
+  }
+ },
+ "物料清单号": {
+  "sources": [
+   "BOM Detail No",
+   "BOM No"
+  ],
+  "visible": {
+   "BOM Detail No": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item_supplied/purchase_order_item_supplied.json:bom_detail_no",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_receipt_item_supplied/purchase_receipt_item_supplied.json:bom_detail_no"
+   ],
+   "BOM No": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_item/bom_item.json:bom_no",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:bom_no",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:bom_no",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:bom_no",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:bom_no",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:bom_no",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:bom_no",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:bom_no"
+   ]
+  }
+ },
+ "物料移动明细": {
+  "sources": [
+   "Stock Entry Child",
+   "Stock Entry Detail"
+  ],
+  "visible": {
+   "Stock Entry Child": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:ste_detail"
+   ],
+   "Stock Entry Detail": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json"
+   ]
+  }
+ },
+ "物料需求": {
+  "sources": [
+   "Material Request",
+   "Material Requests"
+  ],
+  "visible": {
+   "Material Request": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:material_request",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:528",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:material_request",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:221",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:159",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:get_items_from",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:material_request",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_material_request/production_plan_material_request.json:material_request",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:type_of_manufacturing",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:820",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:material_request",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1093",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:material_request",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:material_request",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:material_request",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:323",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:479",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:material_request",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.js:153",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/buying.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/stock.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Material Requests": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:material_requests"
+   ]
+  }
+ },
+ "物料需求明细": {
+  "sources": [
+   "Material Request Item",
+   "material_request_item"
+  ],
+  "visible": {
+   "Material Request Item": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:material_request_item",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:material_request_item",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:material_request_item",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:material_request_item",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:material_request_item",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:material_request_item",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:material_request_item"
+   ],
+   "material_request_item": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:material_request_item"
+   ]
+  }
+ },
+ "物料默认值": {
+  "sources": [
+   "Item Default",
+   "Item Defaults"
+  ],
+  "visible": {
+   "Item Default": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_default/item_default.json"
+   ],
+   "Item Defaults": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:item_defaults",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:item_defaults_section"
+   ]
+  }
+ },
+ "现金流水明细": {
+  "sources": [
+   "Cash Flow Item",
+   "Cash Flow Items"
+  ],
+  "visible": {
+   "Cash Flow Item": [
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/cash_flow_item/cash_flow_item.json"
+   ],
+   "Cash Flow Items": [
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/cash_flow_worksheet/cash_flow_worksheet.json:items"
+   ]
+  }
+ },
+ "生产": {
+  "sources": [
+   "For Production",
+   "Manufacturing",
+   "Production",
+   "production"
+  ],
+  "visible": {
+   "Manufacturing": [
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/manufacturing.json",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:work_order_details_section",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:manufacturing_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:manufacturing",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Production": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.json:status"
+   ]
+  }
+ },
+ "生产任务单": {
+  "sources": [
+   "For Job Card",
+   "Job Card",
+   "Job Cards"
+  ],
+  "visible": {
+   "For Job Card": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:for_job_card"
+   ],
+   "Job Card": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:job_card",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:transfer_material_against",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/operation/operation.json:job_card_section",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:412",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:transfer_material_against",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:job_card",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/manufacturing.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Job Cards": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.json:dashboard_tab"
+   ]
+  }
+ },
+ "生成": {
+  "sources": [
+   "Generate",
+   "Make"
+  ],
+  "visible": {
+   "Generate": [
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher/month_end_closing_voucher_list.js:41"
+   ],
+   "Make": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:490",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:859",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:893"
+   ]
+  }
+ },
+ "生成{0}个多规格物料": {
+  "sources": [
+   "Make {0} Variant",
+   "Make {0} Variants"
+  ],
+  "visible": {
+   "Make {0} Variant": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:930"
+   ],
+   "Make {0} Variants": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:931"
+   ]
+  }
+ },
+ "用户": {
+  "sources": [
+   "For User",
+   "User",
+   "Users"
+  ],
+  "visible": {
+   "User": [
+    "frappe-bench/apps/erpnext/erpnext/utilities/doctype/portal_user/portal_user.json:user",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/organization.json"
+   ],
+   "Users": [
+    "frappe-bench/apps/frappe/frappe/desktop_icon/users.json",
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/UserList.tsx:93"
+   ]
+  }
+ },
+ "由供应商交货（直运）": {
+  "sources": [
+   "Delivered by Supplier (Drop Ship)",
+   "Drop Ship"
+  ],
+  "visible": {
+   "Delivered by Supplier (Drop Ship)": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:delivered_by_supplier"
+   ],
+   "Drop Ship": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:drop_ship",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:drop_ship",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:drop_ship_section"
+   ]
+  }
+ },
+ "禁用": {
+  "sources": [
+   "Disable",
+   "Disabled",
+   "disabled"
+  ],
+  "visible": {
+   "Disable": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:disabled"
+   ],
+   "Disabled": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/cost_center/cost_center.json:disabled",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/fiscal_year/fiscal_year.json:disabled",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:disabled",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier_list.js:5",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/routing/routing.json:disabled",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.json:disabled",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:disabled",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:disabled",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:55",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_variant_attribute/item_variant_attribute.json:disabled",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/warehouse/warehouse.json:disabled",
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/UserList.tsx:127"
+   ]
+  }
+ },
+ "科目": {
+  "sources": [
+   "Account",
+   "Account Head",
+   "Applicable On Account"
+  ],
+  "visible": {
+   "Account": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:account",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_deduction/payment_entry_deduction.json:account",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_reference/payment_entry_reference.json:account",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_payment/sales_invoice_payment.json:account",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/warehouse/warehouse.json:account",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/cash_flow_item/cash_flow_item.json:account",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher_account/month_end_closing_voucher_account.json:account"
+   ],
+   "Account Head": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/advance_taxes_and_charges/advance_taxes_and_charges.json:account_head",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:account_head",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_taxes_and_charges/sales_taxes_and_charges.json:account_head"
+   ]
+  }
+ },
+ "积分": {
+  "sources": [
+   "Loyalty Point Entry",
+   "Loyalty Points"
+  ],
+  "visible": {
+   "Loyalty Point Entry": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json"
+   ],
+   "Loyalty Points": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:loyalty_points",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:loyalty_points_tab",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:loyalty_points",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:loyalty_points_redemption"
+   ]
+  }
+ },
+ "税": {
+  "sources": [
+   "Tax",
+   "Tax Masters",
+   "Taxes"
+  ],
+  "visible": {
+   "Tax": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:account_type",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:tax_tab",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:tax_tab",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:item_tax_section_break"
+   ],
+   "Taxes": [
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/taxes.json",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:taxes_section",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/item_group/item_group.json:taxes",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:taxes"
+   ]
+  }
+ },
+ "税后付款金额(本币)": {
+  "sources": [
+   "Paid Amount After Tax",
+   "Paid Amount After Tax (Company Currency)"
+  ],
+  "visible": {
+   "Paid Amount After Tax": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:paid_amount_after_tax"
+   ],
+   "Paid Amount After Tax (Company Currency)": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:base_paid_amount_after_tax"
+   ]
+  }
+ },
+ "税费": {
+  "sources": [
+   "Taxes and Charges",
+   "Taxes and Charges Added"
+  ],
+  "visible": {
+   "Taxes and Charges": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:taxes_and_charges_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:taxes_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:taxes_section",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:taxes_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:taxes_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:taxes_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:taxes_charges_section"
+   ],
+   "Taxes and Charges Added": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:taxes_and_charges_added",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:taxes_and_charges_added",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:taxes_and_charges_added"
+   ]
+  }
+ },
+ "竞争对手": {
+  "sources": [
+   "Competitor",
+   "Competitors"
+  ],
+  "visible": {
+   "Competitor": [
+    "frappe-bench/apps/erpnext/erpnext/crm/doctype/competitor_detail/competitor_detail.json:competitor"
+   ],
+   "Competitors": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:competitors"
+   ]
+  }
+ },
+ "纳税登记号": {
+  "sources": [
+   "Tax ID",
+   "Tax Id"
+  ],
+  "visible": {
+   "Tax ID": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json:tax_id",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:tax_id",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:tax_id",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:tax_id"
+   ],
+   "Tax Id": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:tax_id",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:tax_id",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:tax_id",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:tax_id"
+   ]
+  }
+ },
+ "线索": {
+  "sources": [
+   "Lead",
+   "Leads",
+   "leads"
+  ],
+  "visible": {
+   "Lead": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:lead_name",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/crm.json"
+   ],
+   "Leads": [
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:390",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ]
+  }
+ },
+ "结束时间": {
+  "sources": [
+   "End Time",
+   "Ended At",
+   "Ends on",
+   "To Datetime",
+   "To Time"
+  ],
+  "visible": {
+   "End Time": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:383",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation_working_hour/workstation_working_hour.json:end_time"
+   ],
+   "To Time": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_timesheet/sales_invoice_timesheet.json:to_time",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_scheduled_time/job_card_scheduled_time.json:to_time",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_time_log/job_card_time_log.json:to_time"
+   ]
+  }
+ },
+ "联系人": {
+  "sources": [
+   "Contact",
+   "Contact Person",
+   "Contacts"
+  ],
+  "visible": {
+   "Contact": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/ConvertToDealModal.vue:51",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:contact_person",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:contact_display",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:contact_display",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:contact_display",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:contact_display",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee_external_work_history/employee_external_work_history.json:contact",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:contact_display",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:contact_display",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/crm.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json"
+   ],
+   "Contact Person": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:contact_person",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:contact_person",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:contact_person",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:contact_person",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:contact_person",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:contact_person"
+   ],
+   "Contacts": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/buying.json"
+   ]
+  }
+ },
+ "至": {
+  "sources": [
+   "To",
+   "to"
+  ],
+  "visible": {
+   "To": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:334",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/uom_conversion_factor/uom_conversion_factor.json:to_uom"
+   ],
+   "to": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:289",
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:352"
+   ]
+  }
+ },
+ "行业": {
+  "sources": [
+   "Domain",
+   "Industries",
+   "Industry"
+  ],
+  "visible": {
+   "Domain": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:domain"
+   ],
+   "Industry": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:industry"
+   ]
+  }
+ },
+ "说明": {
+  "sources": [
+   "Explanation",
+   "Instruction",
+   "Instructions"
+  ],
+  "visible": {
+   "Instruction": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:201"
+   ],
+   "Instructions": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:instructions",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:instructions"
+   ]
+  }
+ },
+ "质检单": {
+  "sources": [
+   "Quality Inspection",
+   "Quality Inspection(s)"
+  ],
+  "visible": {
+   "Quality Inspection": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:quality_inspection",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:quality_inspection",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.js:277",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:quality_inspection_section_break",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:quality_inspection",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:quality_inspection_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:quality_inspection",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:quality_inspection",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:quality_inspection",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/quality.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/stock.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Quality Inspection(s)": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:219"
+   ]
+  }
+ },
+ "贷方": {
+  "sources": [
+   "Cr",
+   "Credit",
+   "Credit Amount"
+  ],
+  "visible": {
+   "Credit": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:balance_must_be",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/month_end_closing_voucher_account/month_end_closing_voucher_account.json:credit"
+   ],
+   "Credit Amount": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:credit"
+   ]
+  }
+ },
+ "费用": {
+  "sources": [
+   "Charges Incurred",
+   "Expense",
+   "Expenses"
+  ],
+  "visible": {
+   "Expense": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:root_type"
+   ],
+   "Expenses": [
+    "frappe-bench/apps/hrms/hrms/desktop_icon/expenses.json"
+   ]
+  }
+ },
+ "费用科目": {
+  "sources": [
+   "Expense Account",
+   "Expense Head"
+  ],
+  "visible": {
+   "Expense Account": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:account_type",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:expense_account",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:expense_account",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:expense_account",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/landed_cost_taxes_and_charges/landed_cost_taxes_and_charges.json:expense_account",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:expense_account"
+   ],
+   "Expense Head": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:expense_account"
+   ]
+  }
+ },
+ "资产": {
+  "sources": [
+   "Asset",
+   "Assets"
+  ],
+  "visible": {
+   "Asset": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:root_type",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:asset",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:192",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/assets.json"
+   ],
+   "Assets": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:assets_tab",
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/assets.json"
+   ]
+  }
+ },
+ "车间仓": {
+  "sources": [
+   "WIP Warehouse",
+   "Work-in-Progress Warehouse"
+  ],
+  "visible": {
+   "WIP Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:wip_warehouse",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:wip_warehouse"
+   ],
+   "Work-in-Progress Warehouse": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:wip_warehouse"
+   ]
+  }
+ },
+ "辅助核算": {
+  "sources": [
+   "Accounting Dimension",
+   "Accounting Dimensions"
+  ],
+  "visible": {
+   "Accounting Dimension": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/accounts_setup.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/budget.json"
+   ],
+   "Accounting Dimensions": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/advance_taxes_and_charges/advance_taxes_and_charges.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_taxes_and_charges/sales_taxes_and_charges.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/landed_cost_taxes_and_charges/landed_cost_taxes_and_charges.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:accounting_dimensions_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:accounting_dimensions_section"
+   ]
+  }
+ },
+ "这是不能被编辑的树形结构的根结点。": {
+  "sources": [
+   "This is a root account and cannot be edited.",
+   "This is a root department and cannot be edited.",
+   "This is a root item group and cannot be edited.",
+   "This is a root sales person and cannot be edited.",
+   "This is a root supplier group and cannot be edited.",
+   "This is a root territory and cannot be edited."
+  ],
+  "visible": {
+   "This is a root account and cannot be edited.": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.js:45"
+   ],
+   "This is a root item group and cannot be edited.": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/item_group/item_group.js:98"
+   ]
+  }
+ },
+ "进行中": {
+  "sources": [
+   "In Process",
+   "In Progress",
+   "Ongoing",
+   "Work In Progress",
+   "Work in Progress"
+  ],
+  "visible": {
+   "In Process": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:status",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:status"
+   ],
+   "Work In Progress": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:status",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_operation/job_card_operation.json:status"
+   ],
+   "Work in Progress": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:status"
+   ]
+  }
+ },
+ "退款": {
+  "sources": [
+   "Credit Note",
+   "Issue Credit Note"
+  ],
+  "visible": {
+   "Credit Note": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:89",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:credit_note",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/invoicing.json"
+   ],
+   "Issue Credit Note": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:issue_credit_note"
+   ]
+  }
+ },
+ "退货": {
+  "sources": [
+   "Is Return",
+   "Return",
+   "Returns"
+  ],
+  "visible": {
+   "Is Return": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:is_return",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:is_return",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:is_return"
+   ],
+   "Return": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:status",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:status",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:status",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note_list.js:16",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:status",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt_list.js:15"
+   ]
+  }
+ },
+ "退货数量": {
+  "sources": [
+   "Return Qty",
+   "Returned Qty "
+  ],
+  "visible": {
+   "Return Qty": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:329"
+   ],
+   "Returned Qty ": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_item/work_order_item.json:returned_qty"
+   ]
+  }
+ },
+ "选工时单": {
+  "sources": [
+   "Fetch Timesheet",
+   "Get Timesheets"
+  ],
+  "visible": {
+   "Fetch Timesheet": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:305",
+    "需求 §4.2.4"
+   ],
+   "Get Timesheets": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:357",
+    "需求 §4.2.4"
+   ]
+  }
+ },
+ "选物料": {
+  "sources": [
+   "Get Items",
+   "Get Items From"
+  ],
+  "visible": {
+   "Get Items": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:488",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:get_items"
+   ],
+   "Get Items From": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:177",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:202",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:361",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:396",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:428",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:468",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:549",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:572",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:get_items_from",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.js:182",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1217",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:211",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:187",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:239",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:144",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:244",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:475",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:522",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:555",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:622",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js:790"
+   ]
+  }
+ },
+ "邮件": {
+  "sources": [
+   "Email",
+   "Emails"
+  ],
+  "visible": {
+   "Email": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:contact_email",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:email",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.js:57",
+    "frappe-bench/apps/frappe/frappe/desktop_icon/email.json"
+   ],
+   "Emails": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:754",
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:569"
+   ]
+  }
+ },
+ "采购": {
+  "sources": [
+   "Buy",
+   "Buying",
+   "For Buying",
+   "Procurement",
+   "Purchase",
+   "Purchased",
+   "Purchases",
+   "Purchasing"
+  ],
+  "visible": {
+   "Buying": [
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/buying.json",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_price/item_price.json:buying",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/price_list/price_list.json:buying",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Purchase": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:material_request_type",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:default_material_request_type",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:30",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_reorder/item_reorder.json:material_request_type"
+   ],
+   "Purchasing": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:purchasing_tab"
+   ]
+  }
+ },
+ "采购入库趋势": {
+  "sources": [
+   "Purchase Receipt Trends",
+   "Purchase Receipt Trends "
+  ],
+  "visible": {
+   "Purchase Receipt Trends": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/stock.json"
+   ],
+   "Purchase Receipt Trends ": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/buying.json"
+   ]
+  }
+ },
+ "采购税费模板": {
+  "sources": [
+   "Purchase Tax Template",
+   "Purchase Taxes and Charges Template"
+  ],
+  "visible": {
+   "Purchase Tax Template": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.js:156",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/taxes.json"
+   ],
+   "Purchase Taxes and Charges Template": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:purchase_taxes_and_charges_template",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:taxes_and_charges",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:taxes_and_charges",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:taxes_and_charges"
+   ]
+  }
+ },
+ "重新打开": {
+  "sources": [
+   "Re-open",
+   "Reopen"
+  ],
+  "visible": {
+   "Re-open": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:369",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js:124",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:783",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:974",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order_list.js:70"
+   ],
+   "Reopen": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order_list.js:58",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:358",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:279"
+   ]
+  }
+ },
+ "金额（本币）": {
+  "sources": [
+   "Amount (Company Currency)",
+   "Base Amount (Company Currency)"
+  ],
+  "visible": {
+   "Amount (Company Currency)": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/advance_taxes_and_charges/advance_taxes_and_charges.json:base_tax_amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry_deduction/payment_entry_deduction.json:amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:base_amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:base_tax_amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:base_amount",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_taxes_and_charges/sales_taxes_and_charges.json:base_tax_amount",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:base_amount",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_item/bom_item.json:base_amount",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation_item/quotation_item.json:base_amount",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:base_amount",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:base_amount",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/landed_cost_taxes_and_charges/landed_cost_taxes_and_charges.json:base_amount",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:base_amount"
+   ],
+   "Base Amount (Company Currency)": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_payment/sales_invoice_payment.json:base_amount"
+   ]
+  }
+ },
+ "银行": {
+  "sources": [
+   "Bank",
+   "Banking"
+  ],
+  "visible": {
+   "Bank": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:account_type",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/mode_of_payment/mode_of_payment.json:type",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:bank",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.json:salary_mode",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/banking.json"
+   ],
+   "Banking": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:banking_section",
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/banking.json"
+   ]
+  }
+ },
+ "销售": {
+  "sources": [
+   "For Selling",
+   "Sales",
+   "Sell",
+   "Selling"
+  ],
+  "visible": {
+   "Sales": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:order_type",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:order_type",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:sales_details",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:29"
+   ],
+   "Selling": [
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/selling.json",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_price/item_price.json:selling",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/price_list/price_list.json:selling",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ]
+  }
+ },
+ "销售发票": {
+  "sources": [
+   "Against Sales Invoice",
+   "Sales Invoice"
+  ],
+  "visible": {
+   "Against Sales Invoice": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:against_sales_invoice"
+   ],
+   "Sales Invoice": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.js:63",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation_list.js:22",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1078",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order_list.js:75",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:347",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note_list.js:67",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/home.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/invoicing.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ]
+  }
+ },
+ "销售税费": {
+  "sources": [
+   "Sales Taxes",
+   "Sales Taxes and Charges"
+  ],
+  "visible": {
+   "Sales Taxes": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/accounts_setup.json"
+   ],
+   "Sales Taxes and Charges": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:taxes",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_taxes_and_charges/sales_taxes_and_charges.json",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:taxes",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:taxes",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:taxes"
+   ]
+  }
+ },
+ "销售税费模板": {
+  "sources": [
+   "Sales Tax Template",
+   "Sales Taxes and Charges Template"
+  ],
+  "visible": {
+   "Sales Tax Template": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.js:144",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/taxes.json"
+   ],
+   "Sales Taxes and Charges Template": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:sales_taxes_and_charges_template",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:taxes_and_charges",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:taxes_and_charges",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:taxes_and_charges",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:taxes_and_charges"
+   ]
+  }
+ },
+ "销售订单": {
+  "sources": [
+   "Against Sales Order",
+   "Sales Order",
+   "Sales Orders"
+  ],
+  "visible": {
+   "Against Sales Order": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:against_sales_order"
+   ],
+   "Sales Order": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:379",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:sales_order",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:sales_order",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/material_request_plan_item/material_request_plan_item.json:sales_order",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:get_items_from",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:sales_order",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sales_order/production_plan_sales_order.json:sales_order",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:sales_order",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:sales_order",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.js:134",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation_list.js:16",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:157",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js:223",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:sales_order",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/selling.json",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/subcontracting.json",
+    "frappe-bench/apps/frappe_china/frappe_china/workspace_sidebar/business_flow.json"
+   ],
+   "Sales Orders": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:sales_orders",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:sales_orders_detail"
+   ]
+  }
+ },
+ "销售订单明细": {
+  "sources": [
+   "Against Sales Order Item",
+   "Sales Order Item"
+  ],
+  "visible": {
+   "Against Sales Order Item": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:so_detail"
+   ],
+   "Sales Order Item": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:so_detail",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:sales_order_item",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item/production_plan_item.json:sales_order_item",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_item_reference/production_plan_item_reference.json:sales_order_item",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan_sub_assembly_item/production_plan_sub_assembly_item.json:sales_order_item",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:sales_order_item",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1314",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:344",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:sales_order_item"
+   ]
+  }
+ },
+ "门户网站用户": {
+  "sources": [
+   "Portal User",
+   "Portal Users"
+  ],
+  "visible": {
+   "Portal User": [
+    "frappe-bench/apps/erpnext/erpnext/utilities/doctype/portal_user/portal_user.json"
+   ],
+   "Portal Users": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:portal_users_tab",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:portal_users_tab"
+   ]
+  }
+ },
+ "问题": {
+  "sources": [
+   "Issue",
+   "Issues",
+   "Problem",
+   "Questions"
+  ],
+  "visible": {
+   "Issue": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/support.json"
+   ],
+   "Problem": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/workstation/workstation.json:status"
+   ]
+  }
+ },
+ "隐藏": {
+  "sources": [
+   "Hidden",
+   "Hide",
+   "Is Hidden"
+  ],
+  "visible": {
+   "Hidden": [
+    "frappe-bench/apps/frappe/frappe/desk/doctype/desktop_icon/desktop_icon.json"
+   ],
+   "Hide": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:247"
+   ]
+  }
+ },
+ "需要检验": {
+  "sources": [
+   "Inspection Required",
+   "Quality Inspection Required"
+  ],
+  "visible": {
+   "Inspection Required": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:inspection_required"
+   ],
+   "Quality Inspection Required": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:inspection_required",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_operation/bom_operation.json:quality_inspection_required",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_operation/work_order_operation.json:quality_inspection_required"
+   ]
+  }
+ },
+ "项目": {
+  "sources": [
+   "Project",
+   "Projects"
+  ],
+  "visible": {
+   "Project": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/advance_taxes_and_charges/advance_taxes_and_charges.json:project",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/gl_entry/gl_entry.json:project",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:project",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:project",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:project",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:project",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js:340",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:project",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:project",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_taxes_and_charges/sales_taxes_and_charges.json:project",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:project",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order_item/purchase_order_item.json:project",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:project",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.json:project",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.json:project",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:project",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.js:1138",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:project",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order_item/sales_order_item.json:project",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:project",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note_item/delivery_note_item.json:project",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/landed_cost_taxes_and_charges/landed_cost_taxes_and_charges.json:project",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.json:project",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/purchase_receipt_item/purchase_receipt_item.json:project",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:project",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:project",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.json:project",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/projects.json",
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/cash_flow_item/cash_flow_item.json:project"
+   ],
+   "Projects": [
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/projects.json"
+   ]
+  }
+ },
+ "项目名称": {
+  "sources": [
+   "Cash Flow Name",
+   "Project Name"
+  ],
+  "visible": {
+   "Cash Flow Name": [
+    "frappe-bench/apps/frappe_china/frappe_china/cn_tax/doctype/cash_flow_subtotal/cash_flow_subtotal.json:cash_flow_name"
+   ],
+   "Project Name": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_timesheet/sales_invoice_timesheet.json:project_name"
+   ]
+  }
+ },
+ "项目类型": {
+  "sources": [
+   "Item Type",
+   "Project Type"
+  ],
+  "visible": {
+   "Item Type": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item_list.js:40"
+   ],
+   "Project Type": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/projects.json"
+   ]
+  }
+ },
+ "预付款": {
+  "sources": [
+   "Advance Paid",
+   "Advance Payment",
+   "Advance Payments"
+  ],
+  "visible": {
+   "Advance Paid": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:advance_paid"
+   ],
+   "Advance Payment": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order_list.js:75",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order_list.js:122"
+   ],
+   "Advance Payments": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:advances_section",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:advances_section",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:advance_payments_section"
+   ]
+  }
+ },
+ "预付金额": {
+  "sources": [
+   "Advance Amount",
+   "Advance amount"
+  ],
+  "visible": {
+   "Advance Amount": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_advance/purchase_invoice_advance.json:advance_amount"
+   ],
+   "Advance amount": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_advance/sales_invoice_advance.json:advance_amount"
+   ]
+  }
+ },
+ "额外物料调拨": {
+  "sources": [
+   "Additional Material Transfer",
+   "Extra Material Transfer"
+  ],
+  "visible": {
+   "Additional Material Transfer": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:838"
+   ],
+   "Extra Material Transfer": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.json:section_break_xhtl"
+   ]
+  }
+ },
+ "额外费用": {
+  "sources": [
+   "Additional Cost",
+   "Additional Costs"
+  ],
+  "visible": {
+   "Additional Cost": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:additional_cost"
+   ],
+   "Additional Costs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:additional_costs",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry/stock_entry.json:additional_costs_section"
+   ]
+  }
+ },
+ "默认": {
+  "sources": [
+   "Default",
+   "Defaults",
+   "default"
+  ],
+  "visible": {
+   "Default": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_payment/sales_invoice_payment.json:default",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom_list.js:7"
+   ],
+   "Defaults": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:defaults_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:section_break_hwkr",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/item_group/item_group.json:defaults",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:defaults_tab"
+   ]
+  }
+ },
+ "默认科目": {
+  "sources": [
+   "Default Account",
+   "Default Accounts"
+  ],
+  "visible": {
+   "Default Account": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/mode_of_payment_account/mode_of_payment_account.json:default_account",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/party_account/party_account.json:account"
+   ],
+   "Default Accounts": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:default_accounts_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:accounts",
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:default_settings"
+   ]
+  }
+ }
+}

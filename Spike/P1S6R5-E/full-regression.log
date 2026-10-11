@@ -1,0 +1,336 @@
+Starting test run with parameters: site=test.localhost, app=frappe_china, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 240 integration tests for frappe_china
+
+frappe_china.tests.test_balance_sheet.TestBalanceSheet
+   [32m ✔ [0m test_imbalance_is_reported_in_red
+   [32m ✔ [0m test_missing_account_number_in_mapping_raises [31m (25.8s)[0m
+   [32m ✔ [0m test_opening_imbalance_is_reported_in_red
+   [32m ✔ [0m test_pending_property_loss_year_end_note
+   [32m ✔ [0m test_profit_and_loss_rows_match_plan
+   [32m ✔ [0m test_report_returns_two_column_layout
+   [32m ✔ [0m test_statutory_rows_without_accounts_show_zero_and_reason
+
+frappe_china.tests.test_bank_preprocess.TestBankPreprocess
+   [32m ✔ [0m test_amount_accepts_only_finite_plain_decimals
+   [32m ✔ [0m test_invalid_rows_are_reported_together
+   [32m ✔ [0m test_missing_header_lists_expected_headers
+   [32m ✔ [0m test_parse_signed_amount_column
+   [32m ✔ [0m test_parse_valid_rows_and_skip_summary
+   [32m ✔ [0m test_read_csv_auto_detects_utf8_sig_and_gb18030
+   [32m ✔ [0m test_read_xlsx_and_xls_dispatch
+   [32m ✔ [0m test_split_amount_columns_reject_negative_values
+   [32m ✔ [0m test_summary_row_rule_does_not_swallow_real_rows
+
+frappe_china.tests.test_bank_reconcile.TestBankReconcile
+   [32m ✔ [0m test_failed_preprocess_survives_request_rollback [31m (9.38s)[0m
+   [32m ✔ [0m test_import_reconcile_duplicate_and_xlsx_equivalence [31m (14.1s)[0m
+
+frappe_china.tests.test_cash_flow.TestCashFlow
+   [32m ✔ [0m test_cancelled_month_can_be_amended [31m (11.3s)[0m
+   [32m ✔ [0m test_cash_flow_code_fixture_has_statutory_rows [31m (9.58s)[0m
+   [32m ✔ [0m test_cash_flow_statement_monthly_and_annual_columns [31m (11.1s)[0m
+   [32m ✔ [0m test_doctype_meta_keeps_zelin_ui_behaviour [31m (10.4s)[0m
+   [32m ✔ [0m test_empty_items_with_cash_activity_explain_how_to_save [31m (11.3s)[0m
+   [32m ✔ [0m test_empty_month_builds_all_subtotals [31m (11.7s)[0m
+   [32m ✔ [0m test_internal_transfer_rows_must_balance [31m (12.7s)[0m
+   [32m ✔ [0m test_invalid_month_is_rejected [31m (12.7s)[0m
+   [32m ✔ [0m test_item_code_direction_and_formula_rows_are_validated [31m (13.6s)[0m
+   [32m ✔ [0m test_items_internal_transfer_balances_and_submit_boundaries [31m (15.8s)[0m
+   [32m ✔ [0m test_later_month_cannot_skip_month_with_cash_activity [31m (14.5s)[0m
+   [32m ✔ [0m test_later_month_requires_previous_month_even_without_cash [31m (15.2s)[0m
+   [32m ✔ [0m test_mid_year_opening_entry_joins_that_month_opening [31m (16.0s)[0m
+   [32m ✔ [0m test_missing_code_and_split_mismatch_are_rejected [31m (16.2s)[0m
+   [32m ✔ [0m test_nonempty_items_keep_original_balance_error [31m (16.3s)[0m
+   [32m ✔ [0m test_opening_entry_is_opening_balance_not_cash_flow [31m (17.5s)[0m
+   [32m ✔ [0m test_party_type_fallback_prefills_code [31m (17.1s)[0m
+   [32m ✔ [0m test_report_without_submitted_voucher_errors_instead_of_blank [31m (18.1s)[0m
+   [32m ✔ [0m test_statement_flags_cash_after_submission_and_balance_mismatch [31m (19.5s)[0m
+   [32m ✔ [0m test_year_to_date_ending_balance_is_checked [31m (19.2s)[0m
+
+frappe_china.tests.test_cash_flow_rename.TestCashFlowRename
+   [32m ✔ [0m test_already_renamed_site_returns
+   [32m ✔ [0m test_new_install_without_old_table_returns
+
+frappe_china.tests.test_chart.TestChart
+   [32m ✔ [0m test_cn_chart_is_available_only_for_china
+   [32m ✔ [0m test_cn_chart_tree_is_complete_and_fresh
+   [32m ✔ [0m test_get_chart_preserves_native_fallbacks
+   [32m ✔ [0m test_get_coa_builds_cn_root_nodes
+   [32m ✔ [0m test_is_cn_chart_handles_empty_and_exact_values
+   [32m ✔ [0m test_whitelisted_methods_resolve_to_frappe_china
+
+frappe_china.tests.test_closing.TestMonthEndClosing
+   [32m ✔ [0m test_balance_sheet_only_supplement_does_not_block [31m (9.72s)[0m
+   [32m ✔ [0m test_cancel_earlier_month_requires_later_cancelled [31m (11.1s)[0m
+   [32m ✔ [0m test_closed_accounting_period_blocks_closing [31m (10.6s)[0m
+   [32m ✔ [0m test_cost_center_reclassification_counts_as_activity [31m (10.9s)[0m
+   [32m ✔ [0m test_depreciation_entry_does_not_block_pl_transfer [31m (11.8s)[0m
+   [32m ✔ [0m test_drafts_default_rate_and_changed_after_closing [31m (16.1s)[0m
+   [32m ✔ [0m test_empty_month_does_not_block [31m (12.8s)[0m
+   [32m ✔ [0m test_finance_book_on_vat_accounts_blocks_closing [31m (14.0s)[0m
+   [32m ✔ [0m test_finance_book_pl_entries_block_closing [31m (15.2s)[0m
+   [32m ✔ [0m test_frozen_month_rolls_back_all_vouchers [31m (16.3s)[0m
+   [32m ✔ [0m test_immutable_ledger_blocks_generate_and_cancel [31m (17.6s)[0m
+   [32m ✔ [0m test_incomplete_message_in_chinese [31m (16.2s)[0m
+   [32m ✔ [0m test_input_credit_carries_to_next_month [31m (17.9s)[0m
+   [32m ✔ [0m test_multiple_incomplete_months_listed [31m (17.1s)[0m
+   [32m ✔ [0m test_non_calendar_fiscal_year_is_rejected [31m (16.4s)[0m
+   [32m ✔ [0m test_normal_month_duplicate_cancel_and_regenerate [31m (20.6s)[0m
+   [32m ✔ [0m test_overpaid_vat_and_configured_urban_rate [31m (18.4s)[0m
+   [32m ✔ [0m test_pending_property_loss_at_year_end [31m (22.2s)[0m
+   [32m ✔ [0m test_pending_property_loss_midyear_does_not_block [31m (20.6s)[0m
+   [32m ✔ [0m test_pending_property_loss_with_split_1901 [31m (20.4s)[0m
+   [32m ✔ [0m test_previous_active_month_must_be_closed [31m (20.2s)[0m
+   [32m ✔ [0m test_supplement_after_closing_blocks_next_month [31m (24.5s)[0m
+   [32m ✔ [0m test_surtax_rounding_to_zero_skips_accrual [31m (21.2s)[0m
+   [32m ✔ [0m test_year_end_transfers_current_year_profit [31m (23.5s)[0m
+
+frappe_china.tests.test_closing_voucher.TestClosingVoucher
+   [32m ✔ [0m test_accounts_user_cannot_create_voucher [31m (2.69s)[0m
+   [32m ✔ [0m test_cancel_empty_month_reports_instead_of_returning_nothing
+   [32m ✔ [0m test_cancelled_voucher_cannot_be_deleted
+   [32m ✔ [0m test_direct_insert_and_invalid_year_end_month_are_rejected
+   [32m ✔ [0m test_generated_voucher_posts_and_reverses_gl_entries
+   [32m ✔ [0m test_pl_excluded_subtypes_is_the_single_source
+   [32m ✔ [0m test_series_are_independent_by_company_and_month [31m (10.1s)[0m
+   [32m ✔ [0m test_write_entry_points_only_accept_post
+
+frappe_china.tests.test_company.TestCompany
+   [32m ✔ [0m test_build_failure_resets_flag_after_rollback [31m (5.36s)[0m
+   [32m ✔ [0m test_cn_and_standard_companies_can_be_created_in_both_orders [31m (29.0s)[0m
+   [32m ✔ [0m test_cn_chart_rejects_non_china_company
+   [32m ✔ [0m test_cn_company_builds_complete_chart_and_defaults [31m (10.6s)[0m
+   [32m ✔ [0m test_cn_company_has_tax_setup_ready [31m (11.8s)[0m
+   [32m ✔ [0m test_default_account_numbers_match_r15 [31m (11.5s)[0m
+   [32m ✔ [0m test_default_accounts_satisfy_upstream_filters [31m (12.7s)[0m
+   [32m ✔ [0m test_existing_company_path_uses_native_clone [31m (26.7s)[0m
+   [32m ✔ [0m test_failure_before_on_update_is_reset_by_after_rollback [31m (3.86s)[0m
+   [32m ✔ [0m test_fd004_patch [31m (13.9s)[0m
+   [32m ✔ [0m test_fd004_patch_skips_other_charts_and_reports_missing_target [31m (14.9s)[0m
+       ▹  公司 _FCT 迁移缺目标 缺少必需的科目：stock_adjustment_account=1901
+   [32m ✔ [0m test_missing_warehouse_or_item_group_account_is_reported [31m (18.6s)[0m
+   [32m ✔ [0m test_stale_ignore_flag_does_not_skip_standard_company [31m (4.3s)[0m
+
+frappe_china.tests.test_company_hr_lifecycle.TestCompanyHRLifecycle
+   [32m ✔ [0m test_sl011_1_cn_company_deletes_without_force [31m (12.3s)[0m
+   [32m ✔ [0m test_sl011_2_standard_company_deletes_without_force [31m (7.76s)[0m
+   [32m ✔ [0m test_sl011_3_recreate_after_delete [31m (26.9s)[0m
+   [32m ✔ [0m test_sl011_4_only_own_rows_are_deleted [31m (24.2s)[0m
+   [32m ✔ [0m test_sl011_5_1_no_hrms_doctype [31m (14.2s)[0m
+   [32m ✔ [0m test_sl011_5_2_company_with_transactions_stays_intact [31m (14.0s)[0m
+   [32m ✔ [0m test_sl011_5_3_standard_company_delete_keeps_tax_rules [31m (20.9s)[0m
+   [32m ✔ [0m test_sl012_1_and_2_new_type_is_prefilled_before_hrms [31m (28.4s)[0m
+   [32m ✔ [0m test_sl012_3_existing_company_copy_is_repointed [31m (76.8s)[0m
+   [32m ✔ [0m test_sl012_4_row_on_numbered_account_is_untouched [31m (17.1s)[0m
+   [32m ✔ [0m test_sl012_5_translated_type_name_hits_mapping [31m (17.8s)[0m
+   [32m ✔ [0m test_sl012_6_1_generic_account_with_gl_is_kept [31m (19.0s)[0m
+   [32m ✔ [0m test_sl012_6_1b_deleted_generic_account_is_logged [31m (21.0s)[0m
+   [32m ✔ [0m test_sl012_6_2_missing_mapped_account_writes_nothing [31m (19.8s)[0m
+   [32m ✔ [0m test_sl012_6_3_no_hrms_doctype_writes_nothing [31m (20.0s)[0m
+   [32m ✔ [0m test_sl012_6_4_standard_company_save_unchanged [31m (11.3s)[0m
+
+frappe_china.tests.test_crm_contact.TestCrmDealContact
+   [32m ✔ [0m test_1_deal_contact_is_linked_to_customer
+   [32m ✔ [0m test_2_unrelated_contact_is_left_alone
+   [32m ✔ [0m test_3_already_linked_is_not_duplicated
+   [32m ✔ [0m test_4_customer_without_crm_deal_is_left_alone
+   [32m ✔ [0m test_5_quotation_to_crm_deal_is_skipped
+   [32m ✔ [0m test_6_real_quotation_saves_with_deal_contact [31m (10.8s)[0m
+
+frappe_china.tests.test_default_account_postings.TestDefaultAccountPostings
+   [32m ✔ [0m test_asset_scrap_uses_loss_account [31m (11.7s)[0m
+   [32m ✔ [0m test_stock_gain_transfer_and_loss [31m (12.5s)[0m
+
+frappe_china.tests.test_e2e_minimal.TestMinimalEndToEnd
+   [32m ✔ [0m test_sales_purchase_and_return_tax_postings [31m (11.5s)[0m
+
+frappe_china.tests.test_expense_claim.TestExpenseClaimAccounts
+   [32m ✔ [0m test_1_new_cn_company_gets_mapped_rows [31m (9.21s)[0m
+   [32m ✔ [0m test_2_after_hrms_install_backfills_missing_rows [31m (10.2s)[0m
+       ▹  frappe_china expense claim account backfill: {'_FCT CRM 验证': [], '_FCT 报销预配': [], '_FCT 报销补配': ['Calls', 'Food', 'Medical', 'Others', 'Travel']}
+   [32m ✔ [0m test_2b_after_hrms_install_backfills_existing_company_copy [31m (23.7s)[0m
+       ▹  frappe_china expense claim account backfill: {'_FCT CRM 验证': [], '_FCT 报销预配': [], '_FCT 报销补配': [], '_FCT 报销补配源': [], '_FCT 报销补配复制': ['Calls', 'Food', 'Medical', 'Others', 'Travel']}
+   [32m ✔ [0m test_3_existing_row_is_not_overwritten [31m (11.3s)[0m
+   [32m ✔ [0m test_4_other_app_install_writes_nothing
+   [32m ✔ [0m test_5_missing_accounts_are_reported_before_any_write [31m (11.8s)[0m
+   [32m ✔ [0m test_6_no_hrms_doctype_is_a_noop
+   [32m ✔ [0m test_7_saving_in_zh_and_en_keeps_chart [31m (13.9s)[0m
+
+frappe_china.tests.test_hr.TestHRExpenseAccounts
+   [32m ✔ [0m test_backfill_only_visits_chinese_companies
+   [32m ✔ [0m test_missing_accounts_are_reported_together_before_any_write
+   [32m ✔ [0m test_missing_expense_claim_type_doctype_is_a_noop
+
+frappe_china.tests.test_install.TestInstall
+   [32m ✔ [0m test_after_install_is_idempotent_and_preserves_existing_settings [31m (4.58s)[0m
+   [32m ✔ [0m test_check_app_order_passes_on_current_site
+   [32m ✔ [0m test_check_app_order_rejects_china_before_business_apps
+   [32m ✔ [0m test_check_app_order_rejects_override_won_by_another_app
+   [32m ✔ [0m test_check_app_order_rejects_unknown_app_after_china
+   [32m ✔ [0m test_check_app_order_reports_ineffective_probe_without_competitor
+   [32m ✔ [0m test_check_app_order_reports_missing_probe_source
+   [32m ✔ [0m test_disable_rounded_total_reports_noop_when_already_disabled
+   [32m ✔ [0m test_existing_disabled_cn_uom_stays_disabled
+   [32m ✔ [0m test_install_keeps_system_defaults [31m (4.01s)[0m
+   [32m ✔ [0m test_reorder_installed_apps_is_idempotent_on_current_site
+   [32m ✔ [0m test_reorder_installed_apps_rewrites_order_mirror_and_caches
+   [32m ✔ [0m test_target_app_order_is_idempotent
+   [32m ✔ [0m test_target_app_order_keeps_debug_after_china
+   [32m ✔ [0m test_target_app_order_keeps_unknown_apps_in_relative_order
+   [32m ✔ [0m test_target_app_order_omits_uninstalled_business_apps
+   [32m ✔ [0m test_target_app_order_places_known_apps_and_preserves_unknowns
+   [32m ✔ [0m test_target_app_order_without_frappe_china
+
+frappe_china.tests.test_mapping.TestStatementMapping
+   [32m ✔ [0m test_balance_sheet_accounts_are_not_claimed_twice
+   [32m ✔ [0m test_balance_sheet_covers_every_asset_liability_equity_leaf
+   [32m ✔ [0m test_balance_sheet_sub_rows_within_parent
+   [32m ✔ [0m test_check_formulas_match_original_text
+   [32m ✔ [0m test_check_notes_name_the_column_and_soften_signed_rows
+   [32m ✔ [0m test_every_numbered_line_has_a_source
+   [32m ✔ [0m test_formula_cycle_is_rejected
+   [32m ✔ [0m test_profit_and_loss_accounts_are_not_claimed_twice
+   [32m ✔ [0m test_profit_and_loss_covers_every_income_expense_leaf
+   [32m ✔ [0m test_profit_and_loss_sub_rows_within_parent
+   [32m ✔ [0m test_resolve_collects_all_missing_numbers
+   [32m ✔ [0m test_resolve_rejects_empty_group_and_bad_exclude
+   [32m ✔ [0m test_statement_layout_matches_plan_verbatim
+   [32m ✔ [0m test_surtax_lines_match_allocation_map
+
+frappe_china.tests.test_named_terms.TestNamedTerms
+   [32m ✔ [0m test_named_terms
+   [32m ✔ [0m test_timesheet_family_uses_gong_shi_dan
+
+frappe_china.tests.test_prepared_report.TestPreparedReport
+   [32m ✔ [0m test_accounts_user_can_open_every_report
+   [32m ✔ [0m test_report_records_disable_prepared_report
+   [32m ✔ [0m test_slow_report_stays_unprepared [31m (26.8s)[0m
+
+frappe_china.tests.test_profit_and_loss.TestProfitAndLoss
+   [32m ✔ [0m test_annual_report_uses_previous_year_column [31m (9.98s)[0m
+   [32m ✔ [0m test_monthly_layout_and_surtax_allocation [31m (10.2s)[0m
+   [32m ✔ [0m test_surtax_reversal_reduces_detail_rows [31m (10.7s)[0m
+   [32m ✔ [0m test_unallocated_surtax_is_reported [31m (11.0s)[0m
+
+frappe_china.tests.test_realtime_check.TestRealtimeCheck
+   [32m ✔ [0m test_ack_marks_token_acked_for_matching_user
+   [32m ✔ [0m test_ack_rejects_other_user
+   [32m ✔ [0m test_ack_rejects_unknown_token
+   [32m ✔ [0m test_run_fails_on_timeout_without_ack
+       ▹  实时通道检查：失败（timeout: 页面未在 1 秒内回执——实时通道不通、或目标用户没有打开的桌面页）
+   [32m ✔ [0m test_run_passes_when_page_acks
+   [32m ✔ [0m test_run_sees_ack_written_by_another_process
+       ▹  实时通道检查：通过（0.4 ms，回执用户 Administrator，回执页面 unknown）
+
+frappe_china.tests.test_s6_closing_separator.TestClosingSeparator
+   [32m ✔ [0m test_incomplete_detail_uses_language_specific_separator
+   [32m ✔ [0m test_success_message_uses_language_specific_separator
+
+frappe_china.tests.test_scaffold.TestScaffold
+   [32m ✔ [0m test_cn_tax_sidebar_is_registered_but_hidden
+   [32m ✔ [0m test_hrms_is_optional
+   [32m ✔ [0m test_no_language_dependent_expense_claim_cleanup
+   [32m ✔ [0m test_script_report_stubs_run [31m (2.52s)[0m
+
+frappe_china.tests.test_selfcheck.TestSelfCheck
+   [32m ✔ [0m test_check_all_never_raises_when_company_lookup_fails
+   [32m ✔ [0m test_cn_company_passes_selfcheck [31m (8.98s)[0m
+   [32m ✔ [0m test_extra_account_is_reported_without_failing [31m (9.69s)[0m
+   [32m ✔ [0m test_internal_errors_are_returned_as_warnings [31m (9.86s)[0m
+   [32m ✔ [0m test_missing_account_is_reported [31m (10.5s)[0m
+   [32m ✔ [0m test_missing_company_and_standard_company_are_not_checked [31m (5.45s)[0m
+   [32m ✔ [0m test_missing_default_is_reported [31m (11.2s)[0m
+
+frappe_china.tests.test_smoke.TestSmoke
+   [32m ✔ [0m test_app_is_installed
+   [32m ✔ [0m test_cn_tax_module_is_synced
+   [32m ✔ [0m test_tests_run_in_chinese
+
+frappe_china.tests.test_statement_dataset.TestStatementDataset
+[90m  ▹ 
+[0m[90m  ▹ [dataset] built 15 months for _FCT 报表数据集 FDS in 31.9s
+[0m   [32m ✔ [0m test_annual_previous_year_column
+   [32m ✔ [0m test_balance_sheet_balances_and_checks
+   [32m ✔ [0m test_cash_flow_annual_previous_year_column
+   [32m ✔ [0m test_cash_flow_opening_closing_and_items_every_month
+   [32m ✔ [0m test_cash_flow_prefill_and_internal_transfer
+   [32m ✔ [0m test_cash_flow_statement_checks_on_dataset
+   [32m ✔ [0m test_closing_does_not_change_statements
+   [32m ✔ [0m test_cross_year_columns
+   [32m ✔ [0m test_dataset_covers_planned_business
+   [32m ✔ [0m test_dataset_has_no_unmapped_accounts
+   [32m ✔ [0m test_dataset_ledger_matches_independent_book
+   [32m ✔ [0m test_party_and_tax_reclassification
+   [32m ✔ [0m test_profit_and_loss_checks
+   [32m ✔ [0m test_rows_match_dataset_expectations
+   [32m ✔ [0m test_six_rows_match_independent_sql
+
+frappe_china.tests.test_statement_export.TestStatementExport
+   [32m ✔ [0m test_pdf_text_fonts_and_orientation
+   [32m ✔ [0m test_screen_columns_are_legal
+   [32m ✔ [0m test_xlsx_header_and_rows_match_screen
+
+frappe_china.tests.test_statement_output.TestStatementOutput
+   [32m ✔ [0m test_legal_label_guard_detects_translation_collision
+   [32m ✔ [0m test_legal_labels_are_untranslated
+   [32m ✔ [0m test_pdf_filename_header_is_ascii_with_utf8_name
+   [32m ✔ [0m test_pdf_orientation_is_statutory
+   [32m ✔ [0m test_templates_share_report_columns
+   [32m ✔ [0m test_unsupported_statement_reports_its_name
+
+frappe_china.tests.test_taxes.TestTaxes
+   [32m ✔ [0m test_cn_company_gets_exact_tax_setup [31m (8.81s)[0m
+   [32m ✔ [0m test_purchase_tax_rule_resolves_p9_template [31m (9.55s)[0m
+   [32m ✔ [0m test_setup_is_idempotent_and_standard_company_fails_without_accounts [31m (15.2s)[0m
+
+frappe_china.tests.test_translations.TestTranslations
+   [32m ✔ [0m test_app_translations_are_unique_and_do_not_alias_legal_labels
+   [32m ✔ [0m test_csv_has_no_duplicate_keys
+   [32m ✔ [0m test_csv_rows_have_two_or_three_columns
+   [32m ✔ [0m test_duplicate_key_detector_detects_appended_duplicate
+   [32m ✔ [0m test_every_app_source_string_has_chinese
+   [32m ✔ [0m test_override_officials_are_current
+   [32m ✔ [0m test_overrides_exist_in_csv
+   [32m ✔ [0m test_placeholders_preserved
+
+frappe_china.tests.test_translation_check.TestTranslationCheck
+   [32m ✔ [0m test_all_languages_and_translation_limit_are_reported
+   [32m ✔ [0m test_assets_mo_file_is_reported
+   [32m ✔ [0m test_clean_site_passes
+   [32m ✔ [0m test_labels_raise_other_errors
+   [32m ✔ [0m test_labels_skip_db_only_when_not_connected
+   [32m ✔ [0m test_legal_label_translation_is_reported
+   [32m ✔ [0m test_mo_and_po_files_are_reported
+   [32m ✔ [0m test_translation_record_is_reported [31m (2.29s)[0m
+
+frappe_china.tests.test_unmapped.TestUnmappedAccounts
+   [32m ✔ [0m test_account_with_activity_outside_mapping_is_listed [31m (9.35s)[0m
+   [32m ✔ [0m test_cash_account_type_mismatch_is_listed [31m (9.69s)[0m
+   [32m ✔ [0m test_clean_company_has_no_unmapped_accounts [31m (10.2s)[0m
+   [32m ✔ [0m test_missing_cash_group_raises_instead_of_skipping [31m (10.7s)[0m
+
+frappe_china.tests.test_website_translation.TestWebsiteTranslation
+   [32m ✔ [0m test_known_entry_uses_wrapper_and_csv
+   [32m ✔ [0m test_unknown_template_and_other_language_are_untouched
+   [32m ✔ [0m test_wrappers_keep_official_entry_and_inject_before_body_end
+
+
+----------------------------------------------------------------------
+Ran 240 tests in 1808.337s
+
+OK
+
+Running 2 old-frappe-test-class-category tests for frappe_china
+
+frappe_china.tests.test_business_flow_navigation.TestBusinessFlowNavigation
+   [32m ✔ [0m test_desktop_icon_is_first_and_links_sidebar
+   [32m ✔ [0m test_sidebar_has_required_sections_and_unique_labels
+----------------------------------------------------------------------
+Ran 2 tests in 0.011s
+
+OK
+
+
+exit=0
