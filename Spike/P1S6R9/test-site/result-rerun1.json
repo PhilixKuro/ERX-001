@@ -1,0 +1,214 @@
+{
+ "base": "http://test.localhost:6787",
+ "browser": "Chrome/154.0.8037.98",
+ "at": "2026-10-12T17:41:23.220Z",
+ "results": [
+  {
+   "id": "HT-021-marks",
+   "readout": {
+    "boot_lang": "zh",
+    "filter_title": true,
+    "sort_title": true,
+    "group_label": true,
+    "doctype_columns": true,
+    "dialog_labels": true,
+    "timeline_observer": true,
+    "desk_patches_loaded": true
+   }
+  },
+  {
+   "id": "3a",
+   "name": "general-ledger",
+   "screenshot": "3a-general-ledger.png",
+   "readout": {
+    "voucher_type": {
+     "shown": [
+      "采购入库",
+      "采购发票",
+      "收付款凭证",
+      "物料移动",
+      "销售出库",
+      "销售发票",
+      "结转凭证"
+     ],
+     "data": [
+      "Purchase Receipt",
+      "Purchase Invoice",
+      "Payment Entry",
+      "Stock Entry",
+      "Delivery Note",
+      "Sales Invoice",
+      "Month End Closing Voucher"
+     ]
+    },
+    "against_voucher_type": {
+     "shown": [
+      "采购发票",
+      "销售发票"
+     ],
+     "data": [
+      "采购发票",
+      "销售发票"
+     ]
+    },
+    "party_type": {
+     "shown": [
+      "供应商",
+      "客户"
+     ],
+     "data": [
+      "供应商",
+      "客户"
+     ]
+    },
+    "voucher_no_href": "/desk/purchase-receipt/MAT-PRE-2026-00001"
+   }
+  },
+  {
+   "id": "3b",
+   "name": "stock-ledger",
+   "screenshot": "3b-stock-ledger.png",
+   "readout": {
+    "voucher_type": {
+     "shown": [
+      "采购入库",
+      "物料移动",
+      "销售出库"
+     ],
+     "data": [
+      "Purchase Receipt",
+      "Stock Entry",
+      "Delivery Note"
+     ]
+    },
+    "voucher_no_href": "/desk/purchase-receipt/MAT-PRE-2026-00001"
+   }
+  },
+  {
+   "id": "6a",
+   "name": "raven-profile-status",
+   "screenshot": "6a-raven-profile-status.png",
+   "readout": {
+    "menu_status": [
+     "有空",
+     "离开",
+     "请勿打扰",
+     "隐身"
+    ],
+    "messages_available": "有空",
+    "context_row": "有空",
+    "trigger": "",
+    "options": [
+     "有空",
+     "离开",
+     "请勿打扰",
+     "隐身"
+    ]
+   }
+  },
+  {
+   "id": "6b",
+   "name": "desk-raven-user-form",
+   "screenshot": "6b-desk-raven-user-form.png",
+   "readout": {
+    "options": [
+     {
+      "value": "",
+      "text": ""
+     },
+     {
+      "value": "Available",
+      "text": "有空"
+     },
+     {
+      "value": "Away",
+      "text": "离开"
+     },
+     {
+      "value": "Do not disturb",
+      "text": "请勿打扰"
+     },
+     {
+      "value": "Invisible",
+      "text": "隐身"
+     }
+    ],
+    "formatter_available": "有空",
+    "plain_available": "工位可用"
+   }
+  },
+  {
+   "id": "7a",
+   "name": "crm-dashboard",
+   "screenshot": "7a-crm-dashboard.png",
+   "readout": {
+    "html_lang": "zh",
+    "echarts_charts": 9,
+    "axis_month_like": [
+     "11月",
+     "Qualification (100%)"
+    ],
+    "english_month_abbr": [],
+    "empty_texts": [
+     "空 (100%)",
+     "空 (100%)",
+     "空"
+    ]
+   }
+  },
+  {
+   "id": "7b",
+   "name": "crm-leads-list",
+   "screenshot": "7b-crm-leads-list.png",
+   "readout": {
+    "pager": [
+     "20 50 100",
+     "20 / 22"
+    ],
+    "load_more": [
+     "加载更多"
+    ]
+   }
+  },
+  {
+   "id": "7c",
+   "name": "crm-lead-detail-sidepanel",
+   "screenshot": "7c-crm-lead-detail-sidepanel.png",
+   "readout": {
+    "placeholder_texts": [
+     "添加区域……",
+     "添加行业……",
+     "添加来源……",
+     "选择线索负责人……",
+     "添加称呼……"
+    ],
+    "placeholder_attrs": [
+     "添加组织……",
+     "添加网站……",
+     "添加区域……",
+     "添加行业……",
+     "添加职位……",
+     "添加来源……",
+     "选择线索负责人……",
+     "添加称呼……",
+     "添加名字……",
+     "添加姓氏……",
+     "添加邮件……",
+     "添加手机号……"
+    ],
+    "english_left": []
+   }
+  },
+  {
+   "id": "8",
+   "name": "contact-salutation",
+   "screenshot": "8-contact-salutation.png",
+   "error": "Condition timed out: document.querySelectorAll(\".frappe-control[data-fieldname=\\\"salutation\\\"] .awesomplete ul li\").length >= 5"
+  },
+  {
+   "id": "console",
+   "frappe_china_warnings": [],
+   "other_warning_count": 7
+  }
+ ]
+}

@@ -1,0 +1,117 @@
+{
+ "base": "http://test.localhost:6787",
+ "browser": "Chrome/154.0.8037.98",
+ "at": "2026-10-12T17:45:50.760Z",
+ "results": [
+  {
+   "id": "HT-021-marks",
+   "readout": {
+    "boot_lang": "zh",
+    "filter_title": false,
+    "sort_title": false,
+    "group_label": false,
+    "doctype_columns": false,
+    "dialog_labels": false,
+    "timeline_observer": false,
+    "desk_patches_loaded": false
+   }
+  },
+  {
+   "id": "1",
+   "name": "work-order-list-filter",
+   "screenshot": "1-work-order-list-filter.png",
+   "readout": {
+    "filter_count": 1,
+    "filter_button_title": "1 Filter Applied",
+    "filter_button_class_primary_light": true,
+    "subject_sort_title": "点击按Item To Manufacture排序",
+    "subject_label": "成品"
+   }
+  },
+  {
+   "id": "3a",
+   "name": "general-ledger",
+   "screenshot": "3a-general-ledger.png",
+   "readout": {
+    "voucher_type": {
+     "shown": [
+      "Purchase Receipt",
+      "Purchase Invoice",
+      "Payment Entry",
+      "Stock Entry",
+      "Delivery Note",
+      "Sales Invoice",
+      "Month End Closing Voucher"
+     ],
+     "data": [
+      "Purchase Receipt",
+      "Purchase Invoice",
+      "Payment Entry",
+      "Stock Entry",
+      "Delivery Note",
+      "Sales Invoice",
+      "Month End Closing Voucher"
+     ]
+    },
+    "against_voucher_type": {
+     "shown": [
+      "采购发票",
+      "销售发票"
+     ],
+     "data": [
+      "采购发票",
+      "销售发票"
+     ]
+    },
+    "party_type": {
+     "shown": [
+      "供应商",
+      "客户"
+     ],
+     "data": [
+      "供应商",
+      "客户"
+     ]
+    },
+    "voucher_no_href": "/desk/purchase-receipt/MAT-PRE-2026-00001"
+   }
+  },
+  {
+   "id": "3b",
+   "name": "stock-ledger",
+   "screenshot": "3b-stock-ledger.png",
+   "readout": {
+    "voucher_type": {
+     "shown": [
+      "Purchase Receipt",
+      "Stock Entry",
+      "Delivery Note"
+     ],
+     "data": [
+      "Purchase Receipt",
+      "Stock Entry",
+      "Delivery Note"
+     ]
+    },
+    "voucher_no_href": "/desk/purchase-receipt/MAT-PRE-2026-00001"
+   }
+  },
+  {
+   "id": "5",
+   "name": "fetch-timesheet-dialog",
+   "screenshot": "5-fetch-timesheet-dialog.png",
+   "readout": {
+    "title": "取工时单",
+    "from_time": "发件人",
+    "to_time": "至",
+    "item_code": "物料号",
+    "project": "项目"
+   }
+  },
+  {
+   "id": "console",
+   "frappe_china_warnings": [],
+   "other_warning_count": 8
+  }
+ ]
+}

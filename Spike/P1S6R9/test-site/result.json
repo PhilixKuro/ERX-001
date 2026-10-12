@@ -1,0 +1,279 @@
+{
+ "base": "http://test.localhost:6787",
+ "browser": "Chrome/154.0.8037.98",
+ "at": "2026-10-12T17:34:10.903Z",
+ "results": [
+  {
+   "id": "HT-021-marks",
+   "readout": {
+    "boot_lang": "zh",
+    "filter_title": true,
+    "sort_title": true,
+    "group_label": true,
+    "doctype_columns": true,
+    "dialog_labels": true,
+    "timeline_observer": true,
+    "desk_patches_loaded": true
+   }
+  },
+  {
+   "id": "1",
+   "name": "work-order-list-filter",
+   "screenshot": "1-work-order-list-filter.png",
+   "readout": {
+    "filter_count": 1,
+    "filter_button_title": "已应用 1 个筛选条件",
+    "filter_button_class_primary_light": true,
+    "subject_sort_title": "点击按成品排序",
+    "subject_label": "成品"
+   }
+  },
+  {
+   "id": "2",
+   "name": "purchase-invoice-create-menu",
+   "screenshot": "2-purchase-invoice-create-menu.png",
+   "readout": {
+    "items": [
+     {
+      "text": "采购入库",
+      "data_label": "采购入库"
+     },
+     {
+      "text": "冻结发票",
+      "data_label": "冻结发票"
+     },
+     {
+      "text": "收付款",
+      "data_label": "收付款"
+     },
+     {
+      "text": "退货/采购红字发票",
+      "data_label": "退货/采购红字发票"
+     },
+     {
+      "text": "收付款申请",
+      "data_label": "收付款申请"
+     },
+     {
+      "text": "公司间销售发票",
+      "data_label": "公司间销售发票"
+     }
+    ],
+    "mobile_menu": [
+     "创建 > 采购入库",
+     "查看 > 会计账簿",
+     "创建 > 冻结发票",
+     "创建 > 收付款",
+     "创建 > 退货/采购红字发票",
+     "创建 > 收付款申请",
+     "创建 > 公司间销售发票"
+    ]
+   }
+  },
+  {
+   "id": "3a",
+   "name": "general-ledger",
+   "screenshot": "3a-general-ledger.png",
+   "readout": {
+    "voucher_type": {
+     "shown": [
+      "采购入库",
+      "采购发票",
+      "付款",
+      "工单入库",
+      "销售出库",
+      "销售发票",
+      "收款",
+      "其他入库"
+     ],
+     "data": [
+      "Purchase Receipt",
+      "Purchase Invoice",
+      "Payment Entry",
+      "Stock Entry",
+      "Delivery Note",
+      "Sales Invoice",
+      "Month End Closing Voucher"
+     ]
+    },
+    "against_voucher_type": {
+     "shown": [
+      "ACC-PINV-2026-00004",
+      "ACC-SINV-2026-00002",
+      "ACC-SINV-2026-00004",
+      "ACC-PINV-2026-00006"
+     ],
+     "data": [
+      "采购发票",
+      "销售发票"
+     ]
+    },
+    "party_type": {
+     "shown": [
+      "_S6R6 验收供应商",
+      "_S6R6 验收客户"
+     ],
+     "data": [
+      "供应商",
+      "客户"
+     ]
+    },
+    "voucher_no_href": null
+   }
+  },
+  {
+   "id": "3b",
+   "name": "stock-ledger",
+   "screenshot": "3b-stock-ledger.png",
+   "readout": {
+    "voucher_type": {
+     "shown": [
+      "采购入库",
+      "物料移动",
+      "销售出库"
+     ],
+     "data": [
+      "Purchase Receipt",
+      "Stock Entry",
+      "Delivery Note"
+     ]
+    },
+    "voucher_no_href": "/desk/purchase-receipt/MAT-PRE-2026-00001"
+   }
+  },
+  {
+   "id": "4",
+   "name": "timeline-empty",
+   "screenshot": "4-timeline-empty.png",
+   "readout": {
+    "empty_count": 6,
+    "null_count": 0,
+    "sample_row": "你更改了 制程损耗数量 从 0 变更为 （空）, 已拆解数量 从 0 变更为 （空）, 计划结束日期 从 （空） 变更为 2026-10-12 00:24:05 · 23小时前"
+   }
+  },
+  {
+   "id": "5",
+   "name": "fetch-timesheet-dialog",
+   "screenshot": "5-fetch-timesheet-dialog.png",
+   "readout": {
+    "title": "取工时单",
+    "from_time": "起始日期",
+    "to_time": "截止日期",
+    "item_code": "物料号",
+    "project": "项目"
+   }
+  },
+  {
+   "id": "6a",
+   "name": "raven-profile-status",
+   "screenshot": "6a-raven-profile-status.png",
+   "error": "Condition timed out: !!document.body.innerText.trim() && !document.querySelector('.animate-spin') && !!document.querySelector('button[role=\"combobox\"]')"
+  },
+  {
+   "id": "6b",
+   "name": "desk-raven-user-form",
+   "screenshot": "6b-desk-raven-user-form.png",
+   "readout": {
+    "options": [
+     {
+      "value": "",
+      "text": ""
+     },
+     {
+      "value": "Available",
+      "text": "有空"
+     },
+     {
+      "value": "Away",
+      "text": "离开"
+     },
+     {
+      "value": "Do not disturb",
+      "text": "请勿打扰"
+     },
+     {
+      "value": "Invisible",
+      "text": "隐身"
+     }
+    ],
+    "formatter_available": "有空",
+    "plain_available": "工位可用"
+   }
+  },
+  {
+   "id": "7a",
+   "name": "crm-dashboard",
+   "screenshot": "7a-crm-dashboard.png",
+   "error": "Condition timed out: !!document.body.innerText.trim() && !document.querySelector('.animate-spin, .loading-indicator') && !!document.querySelector('canvas')"
+  },
+  {
+   "id": "7b",
+   "name": "crm-leads-list",
+   "screenshot": "7b-crm-leads-list.png",
+   "readout": {
+    "pager": [
+     "20 50 100",
+     "1 / 1"
+    ],
+    "load_more": []
+   }
+  },
+  {
+   "id": "7c",
+   "name": "crm-lead-detail-sidepanel",
+   "screenshot": "7c-crm-lead-detail-sidepanel.png",
+   "readout": {
+    "placeholder_texts": [
+     "添加区域……",
+     "添加行业……",
+     "添加来源……",
+     "选择线索负责人……",
+     "添加称呼……"
+    ],
+    "placeholder_attrs": [
+     "添加组织……",
+     "添加网站……",
+     "添加区域……",
+     "添加行业……",
+     "添加职位……",
+     "添加来源……",
+     "选择线索负责人……",
+     "添加称呼……",
+     "添加名字……",
+     "添加姓氏……",
+     "添加邮件……",
+     "添加手机号……"
+    ],
+    "english_left": []
+   }
+  },
+  {
+   "id": "8",
+   "name": "contact-salutation",
+   "screenshot": "8-contact-salutation.png",
+   "error": "Condition timed out: [...document.querySelectorAll('.frappe-control[data-fieldname=\"salutation\"] ul[role=\"listbox\"] li')].length >= 5"
+  },
+  {
+   "id": "9",
+   "name": "workstation-available",
+   "screenshot": "9-workstation-available.png",
+   "readout": {
+    "plain_available": "工位可用",
+    "raven_context": "有空",
+    "workstation_status_options": [
+     "运行中",
+     "离线",
+     "闲置",
+     "故障",
+     "维护保养",
+     "调机"
+    ]
+   }
+  },
+  {
+   "id": "console",
+   "frappe_china_warnings": [],
+   "other_warning_count": 19
+  }
+ ]
+}
