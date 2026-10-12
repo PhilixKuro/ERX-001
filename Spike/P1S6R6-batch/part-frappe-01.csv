@@ -1,0 +1,292 @@
+"<p><strong>{{ __(""Condition Examples"") }}:</strong></p>
+<pre><code class=""language-python"">doc.status==""Open""<br>doc.due_date==nowdate()<br>doc.total &gt; 40000
+</code></pre>
+","<p><strong>{{ __(""Condition Examples"") }}：</strong></p>
+<pre><code class=""language-python"">doc.status==""Open""<br>doc.due_date==nowdate()<br>doc.total &gt; 40000
+</code></pre>
+"
+"<p><strong>{{ __(""Condition Examples"") }}:</strong></p>
+<pre>doc.status==""Open""<br>doc.due_date==nowdate()<br>doc.total &gt; 40000
+</pre>","<p><strong>{{ __(""Condition Examples"") }}：</strong></p>
+<pre>doc.status==""Open""<br>doc.due_date==nowdate()<br>doc.total &gt; 40000
+</pre>"
+`doctype` and `fieldname` are required for deleting property setters.,删除属性设置时必须提供 `doctype` 与 `fieldname`。
+A folder cannot have a File URL,文件夹不能有文件 URL
+Active Directory,活动目录
+Add attachment,添加附件
+Add Series Prefix,添加编号模板前缀
+added {0} row(s) to {1},向 {1} 添加了 {0} 行
+Allowed Doctypes for Guest Uploads,允许访客上传文件的单据类型
+Allowed special characters are '/' and '-',允许使用的特殊字符为“/”和“-”
+Allows printing or PDF download of documents.,允许打印单据或下载 PDF。
+Allows sharing document access with other users.,允许将单据访问权限分享给其他用户。
+Allows the user to access reports related to the document.,允许用户访问与该单据相关的报表。
+Allows the user to create new documents.,允许用户新建单据。
+Allows the user to delete documents.,允许用户删除单据。
+Allows the user to edit existing records they have access to.,允许用户编辑其有权访问的已有记录。
+Allows the user to email from the document.,允许用户从单据发送邮件。
+Allows the user to export data from the Report view.,允许用户从报表视图导出数据。
+Allows the user to search and see records.,允许用户搜索并查看记录。
+Allows the user to use Data Import tool to create / update records.,允许用户使用数据导入工具新建或更新记录。
+Allows the user to view the document.,允许用户查看单据。
+Allows users to enable the mask property for any field of the respective doctype.,允许用户为相应单据类型的任意字段启用掩码属性。
+and {0} more,还有 {0} 项
+App name is required.,请填写应用名称。
+App that produced this notification; used to scope app-specific panels. Derived from the reference document when not set explicitly.,产生此通知的应用，用于限定各应用专属面板的范围。未明确设置时，取自关联单据。
+App {} is not installed,应用 {} 未安装
+Apps Involved,涉及的应用
+Are you sure you want to relink this communication?,确定要重新关联此沟通记录吗？
+Are you sure you want to resend the invitation?,确定要重新发送邀请吗？
+Attachment Gallery,附件图库
+Attachment Gallery filters must target File.,附件图库的筛选条件只能针对文件。
+Attendee not found in this event.,此事件中找不到该参与者。
+Attending,是否参加
+Authorization POST requests must use application/x-www-form-urlencoded,授权 POST 请求必须使用 application/x-www-form-urlencoded
+Auto repeat skipped. The owner cannot access the reference document.,已跳过自动重复：制单人无权访问关联单据。
+B,十亿,Number system
+Back to sign in,返回登录
+Begin typing for results.,输入内容即可显示结果。
+Cannot change field type in {0}: some existing values cannot be converted to the new type,无法更改 {0} 中的字段类型：部分已有值无法转换为新类型
+Cannot configure Core DocTypes for Global Search.,不能为核心模块的单据类型设置全局搜索。
+Cannot register an empty XLSX style,不能注册空的 XLSX 样式
+Category for the in-app notification. Used for filtering and per-user email preferences.,站内通知的类别，用于筛选及每位用户的邮件偏好设置。
+changed {0},修改了 {0}
+Check the Error Log for details.,详情请查看错误日志。
+Choose which notification types are emailed to you. Unchecked types still show as in-app notifications.,选择哪些类型的通知要发邮件给您。未勾选的类型仍会以站内通知显示。
+Clear all filters,清除全部筛选条件
+Clear cache and reload,清除缓存并重新加载
+Clear Link,清除链接
+cleared {0},清空了 {0}
+Click below to accept your invitation and get started.,请点击下方按钮接受邀请并开始使用。
+Click the button below to complete your registration and set a new password.,请点击下方按钮完成注册并设置新密码。
+Click the button below to sign in to your account. This link will expire in {0} minutes.,请点击下方按钮登录您的账号。此链接将在 {0} 分钟后失效。
+Cloud settings,云设置
+Company Abbreviation (requires ERPNext to be installed),公司简称（需安装 ERPNext）
+Complete your registration,完成注册
+Configure,配置
+Configure search fields,配置搜索字段
+Configure search settings,配置搜索设置
+Could not generate PDF,无法生成 PDF
+Could not reach your server: {0},无法连接到您的服务器：{0}
+Couldn't open Cloud settings. Please try again.,无法打开云设置，请重试。
+Create a new document,新建单据,Description of a list view shortcut
+Create Account,创建账号
+Current Series,当前编号模板
+Day of month,月内日期
+DB Tables,数据库表
+Delete Gravatar URLs,删除 Gravatar 链接
+Delete Row,删除行
+Delete Table,删除表格
+Depth,深度
+Didn't receive the link?,没有收到链接？
+Disable Prepared Report Automation,不自动启用后台运行报表
+Doc Values,单据值
+Doctype To Sync,待同步单据类型
+Document Name (ID),单据名称（ID）
+Document Type is required,请选择单据类型
+Domain is required.,请填写域名。
+DuckDB Sync,快照库同步
+DuckDB Sync Item,快照库同步明细
+Duration (ms),耗时（毫秒）
+e.g.,例如
+Edit Section,编辑区块
+Edit {0} rows,编辑 {0} 行
+Email everyone for <b>{0}</b> notifications? This adds it to every user's email preferences. Users can still opt out individually afterwards.,要为所有用户开启<b>{0}</b>通知的邮件吗？此操作会将其加入每位用户的邮件偏好设置，之后用户仍可各自退订。
+Email is required.,请填写邮箱。
+Email me for these notification types,以下类型的通知发邮件给我
+Enable bulk edit for child table fields in Form view.,在表单视图中允许批量编辑子表字段。
+Enable bulk update of this field across child table rows.,允许在子表各行中批量更新此字段。
+Enable Email Notifications for All Users,为所有用户启用邮件通知
+Enable Snapshot Reports,启用快照报表
+Enable the notification type before emailing it to users.,请先启用该通知类型，再向用户发送邮件。
+Enabling email for {0} across all users in the background.,正在后台为所有用户启用 {0} 的邮件通知。
+"Error validating ""Ignore User Permissions""",校验“忽略用户权限”出错
+Event Notifications,事件提醒
+Examples:,示例：
+Existing Gravatar URLs may still be stored on User and Contact records. Do you want to delete these URLs now?,用户和联系人记录中可能仍保存着现有的 Gravatar 链接。是否立即删除这些链接？
+"Existing Gravatar URLs may still be stored on User, Contact, and Lead records. Do you want to delete these URLs now?",用户、联系人和线索记录中可能仍保存着现有的 Gravatar 链接。是否立即删除这些链接？
+fieldname on the document e.g.,单据上的字段名，例如
+Fieldtype of {0} in {1} cannot be changed from {2} to {3},{1} 中 {0} 的字段类型不能从 {2} 改为 {3}
+Filters applied to Link queries and Attachment Gallery files.,应用于链接字段查询和附件图库文件的筛选条件。
+"Filters must be four-value rows with string doctypes, fields, and operators.",筛选条件每行须为四个值，且单据类型、字段与运算符须为字符串。
+Fingerprint,错误指纹
+Fingerprint Stats,错误指纹统计
+First Seen,首次出现
+First Used On,首次使用时间
+Fiscal Year (requires ERPNext to be installed),会计年度（需安装 ERPNext）
+Forgot password?,忘记密码？
+Forum,论坛
+found,已找到
+Frappe Framework Version,Frappe 框架版本
+"Frappe no longer uses Gravatar because it can disclose hashed email addresses to a third-party service. To fully stop this behavior, existing Gravatar image URLs must be deleted.",Frappe 已不再使用 Gravatar，因为它可能把经过哈希处理的邮箱地址泄露给第三方服务。要彻底杜绝这种情况，必须删除现有的 Gravatar 图片链接。
+Full name is required.,请填写姓名。
+Generating PDF...,正在生成 PDF……
+Go to Access Control section,转到访问控制区域
+Good,良好
+Google Calender,Google 日历
+Gravatar URL deletion has been queued.,已加入删除 Gravatar 链接的队列。
+Gravatar URLs will not be deleted.,Gravatar 链接不会被删除。
+Great!,很强！
+Guests are not allowed to upload files for {0} Doctype,访客不能为单据类型 {0} 上传文件
+Handlers,处理函数
+Heading 1,标题 1
+Heading 2,标题 2
+Heading 3,标题 3
+Heading 4,标题 4
+Heading 5,标题 5
+Heading 6,标题 6
+Headline of the in-app notification. Falls back to Subject if left blank. Supports Jinja.,站内通知的标题。留空时使用主题。支持 Jinja。
+"If checked, <i>Prepared Report</i> will not be enabled automatically on slow runs.",勾选后，运行缓慢时不会自动启用<i>后台运行报表</i>。
+"If enabled, the web form can only be used with a <i>Key</i> from a corresponding <b>Web Form Request</b>.",启用后，网页表单只能凭<i>密钥</i>使用，密钥须来自对应的<b>网页表单请求</b>。
+"If the user enables the mask property for the phone number field, the value will be displayed in a masked format (e.g., 811XXXXXXX).",如果用户为电话号码字段启用掩码属性，该值将以掩码形式显示（如 811XXXXXXX）。
+"If the user has access to Employee and Report is enabled, they can view Employee-based reports.",如果用户有员工的访问权限且启用了报表权限，即可查看基于员工的报表。
+"If this email is registered with us, a download link will be sent to it.",如果该邮箱已在我们这里注册，下载链接将发送到该邮箱。
+"If you did not request a password reset, please ignore this email. Your password will remain unchanged.",如果您没有请求重设密码，请忽略本邮件，您的密码不会改变。
+"If you did not request this code, you can safely ignore this email.",如果您没有请求此验证码，可放心忽略本邮件。
+"If you didn't request this link, you can ignore this email. Someone may have entered your email address by mistake.",如果您没有请求此链接，可忽略本邮件。可能有人误输入了您的邮箱地址。
+"In {0}, {1} is required in every row.",{0} 中每一行都必须填写 {1}。
+"In {0}, {1} is required in row {2}.",{0} 中第 {2} 行必须填写 {1}。
+"In {0}, {1} is required in rows {2}.",{0} 中第 {2} 行必须填写 {1}。
+"In {0}, {1} is required in {2} rows.",{0} 中有 {2} 行必须填写 {1}。
+Incompatible Values,值不兼容
+Insert Column Left,在左侧插入列
+Insert Column Right,在右侧插入列
+Insert Row Above,在上方插入行
+Insert Row Below,在下方插入行
+Insert Table,插入表格
+Interval,间隔
+Invalid action,无效操作
+Invalid aggregate function: {0},无效的聚合函数：{0}
+Invalid backup path,备份路径无效
+"Invalid credentials, try again.",账号或密码错误，请重试。
+"Invalid Filters for field {0}. Filters must be a list of filters, where each filter is a list with four values: doctype, fieldname, operator, and value.",字段 {0} 的筛选条件无效。筛选条件必须是一个列表，其中每个条件是包含四个值的列表：单据类型、字段名、运算符和值。
+Invalid Filters for field {0}. Filters must be valid JSON.,字段 {0} 的筛选条件无效，必须是有效的 JSON。
+Invalid format. Supported formats are {0},格式无效，支持的格式有：{0}
+Invalid JSON,无效的 JSON
+Invalid or expired key,密钥无效或已过期
+Invalid Package Name,包名称无效
+Invalid Web Form Request,网页表单请求无效
+Invitation cancelled,邀请已取消
+Invitation expired,邀请已过期
+Invitation resent,邀请已重新发送
+JSON value must be an object,JSON 值必须是对象
+Keep Gravatar URLs,保留 Gravatar 链接
+Key Required,需要密钥
+Key required,需要密钥
+Last Edited By You,最后由您编辑
+Last Edited By {0},最后由 {0} 编辑
+Last Seen,最近出现
+Let's setup your account.,开始设置您的账号。
+Loading error stats...,正在加载错误统计……
+Log In to {0},登录 {0}
+Log in to {0},登录 {0}
+Login or a request key is required to see web form list view. Enable {0} to see list settings,须登录或提供请求密钥才能查看网页表单的列表视图。请启用 {0} 以查看列表设置
+Login with password,使用密码登录
+Malformed Address Header,地址头格式错误
+Max Zip Extract Size (MB),ZIP 解压上限（MB）
+Maximum total size a ZIP archive is allowed to expand to when extracted.,ZIP 压缩包解压后允许的最大总大小。
+Maybe,待定
+Meaning of Different Permission Types,各类权限的含义
+"Module changed to {0}. Files in the previous module were not moved and remain at {1}, remove or relocate them manually.",模块已改为 {0}。原模块中的文件未移动，仍在 {1}，请手动删除或移走。
+Naming Series updated,单据编号模板已更新
+Need Workspace Manager role to edit public workspaces.,需要工作区管理员角色才能编辑公共工作区。
+No attachments,暂无附件
+No editable fields available for bulk edit.,没有可批量编辑的字段。
+No naming series defined,未定义单据编号模板
+No other document types.,没有其他单据类型。
+No pinned document types.,没有已固定的单据类型。
+Noop Source,空操作源文本
+Not configured,未设置
+Not Used,未使用
+Notification Message,通知内容
+Notification Title,通知标题
+Notification Type,通知类型
+Notification Type Preference,通知类型偏好
+Number of Events,事件数
+Occurrences (last 30 days),出现次数（近 30 天）
+Only CSV and Excel formats are supported for export,导出只支持 CSV 和 Excel 格式
+Only pending invitations can be resent,只能重新发送待处理的邀请
+Only users with one of these roles can send SMS. Leave empty to allow only System Manager.,只有具备以下任一角色的用户才能发送短信。留空则只允许系统管理员发送。
+Open Frappe CRM,打开 Frappe CRM
+Open Frappe Helpdesk,打开 Frappe 服务台
+Open Global Search,打开全局搜索
+Open Source applications for the web.,面向网页的开源应用。
+Optional body of the in-app notification. Supports Jinja.,站内通知的正文，选填。支持 Jinja。
+Or copy and paste this link:,或复制并粘贴以下链接：
+"Ordered timeline of document lifecycle methods and doc_events handlers that ran during this request, attributed to the app(s) that hook them.",本次请求中运行过的单据生命周期方法与单据事件处理函数，按先后顺序排列，并标明挂接它们的应用。
+Package contains disallowed path entry,包中含有不允许的路径条目
+Permission,权限
+Pin,固定
+Please add at least one naming series.,请至少添加一个单据编号模板。
+Please check your email.,请查收邮件。
+Please enter a valid email.,请输入有效的邮箱。
+"Please enter your email, we'll send you password reset link",请输入您的邮箱，我们将向您发送重设密码链接
+Please fill the following mandatory fields before saving:,保存前请填写以下必填字段：
+Please select a transaction.,请选择业务单据类型。
+Please select Document Type first.,请先选择单据类型。
+Poor!,太弱！
+"Provide a list of allowed Doctypes for file uploads. Each line should contain one allowed Doctype. If unset, uploads to all doctypes are allowed. Example: <br>User<br>Item<br>Quotation",填写允许访客上传文件的单据类型，每行一个。不填则允许上传到所有单据类型。示例：<br>User<br>Item<br>Quotation
+Queries,查询次数
+Raw HTML can be used only with Email Templates having 'Use HTML' checked. Proceeding with plain text email.,只有勾选了“使用HTML”的邮件模板才能使用原始 HTML，将改为发送纯文本邮件。
+Raw Method,原始方法
+Receive an email for notifications of these types. Remove a type to stop its emails (in-app notifications are unaffected).,以下类型的通知会发邮件给您。移除某类型即停止发送其邮件（站内通知不受影响）。
+Recipient & Status,接收人与状态
+Recorder Event,程序运行记录事件
+Redact Message After Send,发送后隐去邮件内容
+Rejected malformed encoded address header with synthesized '@': {0},已拒绝含合成“@”的格式错误编码地址头：{0}
+removed {0} row(s) from {1},从 {1} 移除了 {0} 行
+"Replace the message body with a placeholder once the email has been sent, so that sensitive content like password reset links is not retained in the queue.",邮件发送后，将正文替换为占位文本，以免重设密码链接等敏感内容留在队列中。
+Request to your server failed.,向您的服务器发出的请求失败。
+Resend,重新发送
+Rules for configuring series,编号模板设置规则
+Save the document to attach files.,请先保存单据再添加附件。
+Search fields updated.,搜索字段已更新。
+Send Acknowledgement Email,发送确认邮件
+Send an acknowledgement email to the email address entered in the contact form.,向联系表单中填写的邮箱地址发送确认邮件。
+Send Link,发送链接
+Sequence,序号
+Server is busy. Please try again in a few seconds.,服务器繁忙，请几秒后重试。
+set {0} to,将 {0} 设为
+set {0} to {1} in row #{2},将第 {2} 行的 {0} 设为 {1}
+Show Board,显示看板
+Show keyboard shortcuts,显示键盘快捷键
+Show more,显示更多
+Show Similar Errors,查看同类错误
+Sign In,登录
+Sign Up,注册
+Slug,网址别名
+Snapshot Report,快照报表
+Snapshot Reports,快照报表
+Standard reports can only be created in developer mode.,标准报表只能在开发者模式下创建。
+Supported Variables:,支持的变量：
+Switch theme,切换主题
+Switch to CRM,切换到 CRM
+Sync Data,同步数据
+Sync In Batches,分批同步
+Sync Timeout (Seconds),同步超时（秒）
+Synced,已同步
+T,万亿,Number system
+Task id is required.,请填写任务 ID。
+Test_Folder,测试文件夹
+Thank you for reaching out to us. We will get back to you at the earliest.,感谢您联系我们，我们会尽快回复您。
+The default value for the Check field {0} must be either '0' or '1',勾选框字段 {0} 的默认值只能是“0”或“1”
+The email button is enabled for the user in the document.,单据中的邮件按钮对该用户可用。
+The print button is enabled for the user in the document.,单据中的打印按钮对该用户可用。
+"The report may be too large to render in a single request. Narrow the filters and try again, or use Print and save as PDF from your browser.",报表可能太大，无法在单次请求中生成。请缩小筛选范围后重试，或使用打印功能在浏览器中另存为 PDF。
+The request could not be completed. Check your connection and try again.,请求未能完成，请检查网络连接后重试。
+The user can create a new Item but cannot edit existing items.,用户可新建物料，但不能编辑已有物料。
+The user can delete Draft / Cancelled documents.,用户可删除草稿或已取消的单据。
+The user can export report data.,用户可导出报表数据。
+The user can import new records or update existing data for the document.,用户可为该单据导入新记录或更新已有数据。
+The user can select a Customer in Sales Order but cannot open the Customer master.,用户可在销售订单中选择客户，但不能打开客户主数据。
+The user can share document access with another user.,用户可将单据访问权限分享给另一位用户。
+The user can update a customer or any other fields in an existing Sales Order but cannot create a new Sales Order.,用户可修改已有销售订单中的客户或其他任何字段，但不能新建销售订单。
+The user can view Sales Invoices but cannot modify any field values in them.,用户可查看销售发票，但不能修改其中任何字段的值。
+This is a snapshot report generated {0}.,此为快照报表，生成于 {0}。
+This Web Form Request has already been used,此网页表单请求已被使用
+This Web Form Request has expired,此网页表单请求已过期
+to open Awesome Bar,打开智能搜索栏
+to open Global Search,打开全局搜索
+Too many requests. Please try again later.,请求过多，请稍后再试。
+Trigger primary action,执行主操作
+Type Name,类型名称

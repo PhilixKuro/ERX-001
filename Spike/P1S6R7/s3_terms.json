@@ -1,0 +1,2431 @@
+{
+ "direction": [
+  {
+   "source": "Unpaid",
+   "context": "Purchase Invoice",
+   "target": "未付款",
+   "section": "§1.1 第 1 行（#1）",
+   "note": "Purchase Invoice.status 选项（Select，无 read_only）"
+  },
+  {
+   "source": "Unpaid",
+   "context": null,
+   "target": "未付",
+   "section": "§1.1 第 2 行（#1）",
+   "note": "官方原译，不写（S6 DEC-036）。草案原文写「未付款（不动官方原译，DEC-080）」，但草案 :36 记官方 erpnext:59191 实为「未付」"
+  },
+  {
+   "source": "Unpaid",
+   "context": "Sales Invoice",
+   "target": "未收款",
+   "section": "§1.1 第 2 行（#1）",
+   "note": "草案表中无此行（该行为无 context 兜底）；按后续裁决补 Sales Invoice context 行"
+  },
+  {
+   "source": "Paid",
+   "context": "Purchase Invoice",
+   "target": "已付款",
+   "section": "§1.1 第 3 行（#2）",
+   "note": "Purchase Invoice.status 选项；与官方原译同字"
+  },
+  {
+   "source": "Paid",
+   "context": null,
+   "target": "已付款",
+   "section": "§1.1 第 4 行（#2）",
+   "note": "官方原译（erpnext:35517），不写（S6 DEC-036 / DEC-080）"
+  },
+  {
+   "source": "Paid",
+   "context": "Sales Invoice",
+   "target": "已收款",
+   "section": "§1.1 第 4 行（#2）",
+   "note": "草案表中无此行（该行为无 context 兜底）；按后续裁决补 Sales Invoice context 行"
+  },
+  {
+   "source": "Is Paid",
+   "context": null,
+   "target": "是否已付",
+   "section": "§1.1 第 5 行（#2b）",
+   "note": "Purchase Invoice.is_paid；现译「已付款」（erpnext:26545）与 Paid 同词"
+  },
+  {
+   "source": "Paid Amount",
+   "context": "Purchase Invoice",
+   "target": "付款金额",
+   "section": "§1.1 第 6 行（#3）",
+   "note": "Purchase Invoice.paid_amount；与官方原译同字"
+  },
+  {
+   "source": "Paid Amount",
+   "context": "Sales Invoice",
+   "target": "收款金额",
+   "section": "§1.1 第 7 行（#3）",
+   "note": "Sales Invoice.paid_amount；该词现被 Received Amount 占，须同时办 #3c"
+  },
+  {
+   "source": "Paid Amount",
+   "context": "Payment Entry",
+   "target": "出账金额",
+   "section": "§1.1 第 8 行（#3b）",
+   "note": "Payment Entry.paid_amount；PE 方向不定，取中性"
+  },
+  {
+   "source": "Received Amount",
+   "context": "Payment Entry",
+   "target": "到账金额",
+   "section": "§1.1 第 9 行（#3c）",
+   "note": "Payment Entry.received_amount；现译「收款金额」（erpnext:43696）"
+  },
+  {
+   "source": "Paid Amount",
+   "context": "Payment Schedule",
+   "target": "已收付金额",
+   "section": "§1.1 第 10 行（#3d）",
+   "note": "共享子表，context 只取到子表名，分不出销/采"
+  },
+  {
+   "source": "Payment Amount",
+   "context": null,
+   "target": "分期金额",
+   "section": "§1.1 第 11 行（#3e）",
+   "note": "Payment Schedule.payment_amount、Overdue Payment.payment_amount；context 列原文为「—」"
+  },
+  {
+   "source": "Payment Type",
+   "context": null,
+   "target": "收付款类型",
+   "section": "§1.1 第 12 行（#4）",
+   "note": "context 列原文「不用 context」；Payment Entry.payment_type、Payment Entry Reference.payment_type"
+  },
+  {
+   "source": "Type of Payment",
+   "context": null,
+   "target": "收付款方向",
+   "section": "§1.1 第 13 行（#4b）",
+   "note": "Payment Entry.type_of_payment（Section Break）；现译「付款类型」"
+  },
+  {
+   "source": "Mode of Payment",
+   "context": null,
+   "target": "收付款方式",
+   "section": "§1.1 第 14 行（#5）",
+   "note": "context 列原文「不用 context」；17 处 label 见草案 :74"
+  },
+  {
+   "source": "Mode Of Payment",
+   "context": null,
+   "target": "收付款方式",
+   "section": "§1.1 第 15 行（#5b）",
+   "note": "5b 同义族，现译「付款方式」（erpnext:31649）"
+  },
+  {
+   "source": "Payment Mode",
+   "context": null,
+   "target": "收付款方式",
+   "section": "§1.1 第 15 行（#5b）",
+   "note": "5b 同义族，现译「付款方式」（erpnext:36694）"
+  },
+  {
+   "source": "Payment Method",
+   "context": null,
+   "target": "收付款方式",
+   "section": "§1.1 第 15 行（#5b）",
+   "note": "5b 同义族，现译「付款方式」（erpnext:36683）"
+  },
+  {
+   "source": "Mode of Payments",
+   "context": null,
+   "target": "收付款方式",
+   "section": "§1.1 第 15 行（#5b）",
+   "note": "5b 同义族，现译「付款方式」（erpnext:31711）"
+  },
+  {
+   "source": "Modes of Payment",
+   "context": null,
+   "target": "收付款方式",
+   "section": "§1.1 第 15 行（#5b）",
+   "note": "5b 同义族，现译「付款方式」（erpnext:31722）。注：§2.3.4 :253 列的付款方式组 7 源词另含 `Payment Methods`，5b 未列它"
+  },
+  {
+   "source": "Is Paid",
+   "context": null,
+   "target": "是否已付",
+   "section": "§1.3",
+   "note": "与 §1.1 #2b 重复"
+  },
+  {
+   "source": "Received Amount",
+   "context": null,
+   "target": "到账金额",
+   "section": "§1.3",
+   "note": "§1.3 表无 context 列；§1.1 #3c 同词写 context=Payment Entry，按哪个落待定"
+  },
+  {
+   "source": "Outstanding Amount",
+   "context": null,
+   "target": "未结金额",
+   "section": "§1.3",
+   "note": "现译「未付金额」（erpnext:34847）；须与 Outstanding → 未结 同步。「未结」属 LG-112 未闭合造词"
+  },
+  {
+   "source": "Outward",
+   "context": null,
+   "target": "资金流出",
+   "section": "§1.3",
+   "note": "现译「付款」（erpnext:34875）；原文「不在演示线渲染面上，一并建议」"
+  },
+  {
+   "source": "Inward",
+   "context": null,
+   "target": "资金流入",
+   "section": "§1.3",
+   "note": "现译「收款」（erpnext:26220）；原文「不在演示线渲染面上，一并建议」"
+  },
+  {
+   "source": "Dr",
+   "context": null,
+   "target": "借方",
+   "section": "§2.3.3 附注1",
+   "note": "不在 §1.1/§1.3，按后续裁决补入。DEC-079/081：给 erpnext/locale/zh.po 补裸 msgid \"Dr\"，不改 frappe 侧、不用 context；现译 frappe:8794「博士」"
+  }
+ ],
+ "groups": [
+  {
+   "section": "§2.3.1",
+   "target_word": "数量",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Batch Quantity",
+     "context": null,
+     "target": "批次数量"
+    }
+   ],
+   "keep": [
+    "Qty",
+    "Qty ",
+    "Quantity"
+   ],
+   "synonym": false,
+   "note": "三个同义不改（Qty 尾空格是官方脏串）；仅 Batch Quantity 指批次可用量"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "联系人",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Contact",
+     "context": null,
+     "target": "联系人详情"
+    }
+   ],
+   "keep": [
+    "Contact Person",
+    "Contacts"
+   ],
+   "synonym": false,
+   "note": "Contact 是 contact_display；Contacts 不在表单渲染面，保留"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "付款金额",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Paid Amount",
+     "context": "Sales Invoice",
+     "target": "收款金额"
+    },
+    {
+     "source": "Paid Amount",
+     "context": "Payment Entry",
+     "target": "出账金额"
+    },
+    {
+     "source": "Paid Amount",
+     "context": "Payment Schedule",
+     "target": "已收付金额"
+    },
+    {
+     "source": "Payment Amount",
+     "context": null,
+     "target": "分期金额"
+    }
+   ],
+   "keep": [
+    "Paid Amount"
+   ],
+   "synonym": false,
+   "note": "原文「见 §1.1 第 3／3b／3d／3e 行」；Paid Amount 无 context 与 Purchase Invoice context 均为付款金额，与原译同字"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "更多信息",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "More Information",
+     "context": null,
+     "target": "补充信息"
+    },
+    {
+     "source": "Other Info",
+     "context": null,
+     "target": "其它信息"
+    }
+   ],
+   "keep": [
+    "More Info"
+   ],
+   "synonym": false,
+   "note": "三者是三个不同的分节/页签"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "工序",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Operations",
+     "context": null,
+     "target": "工序清单"
+    },
+    {
+     "source": "Item operation",
+     "context": null,
+     "target": "所属工序"
+    },
+    {
+     "source": "For Operation",
+     "context": null,
+     "target": "对应工序"
+    }
+   ],
+   "keep": [
+    "Operation"
+   ],
+   "synonym": false,
+   "note": "BOM 上同屏三个，Job Card 上同屏两个"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "税费",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Taxes and Charges Added",
+     "context": null,
+     "target": "加计税费"
+    }
+   ],
+   "keep": [
+    "Taxes and Charges"
+   ],
+   "synonym": false,
+   "note": "与官方 Taxes and Charges Deducted → 抵扣税费 成对"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "仓库",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Warehouses",
+     "context": null,
+     "target": "仓库范围"
+    },
+    {
+     "source": "For Warehouse",
+     "context": null,
+     "target": "需求仓库"
+    },
+    {
+     "source": "Accepted Warehouse",
+     "context": null,
+     "target": "验收仓库"
+    },
+    {
+     "source": "Request for",
+     "context": null,
+     "target": "补货仓库"
+    },
+    {
+     "source": "Requesting Site",
+     "context": null,
+     "target": "需求方地点"
+    },
+    {
+     "source": "Stores",
+     "context": null,
+     "target": "库房"
+    }
+   ],
+   "keep": [
+    "Warehouse"
+   ],
+   "synonym": false,
+   "note": "Production Plan 上同屏三个；Request for 是 Item Reorder.warehouse 的 label"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "完工数量",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Completed Qty",
+     "context": null,
+     "target": "已报工数量"
+    },
+    {
+     "source": "Produced Qty",
+     "context": null,
+     "target": "已生产数量"
+    }
+   ],
+   "keep": [
+    "Manufactured Qty"
+   ],
+   "synonym": false,
+   "note": "整单级保留，工序级/计划行级改"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "成本价",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Valuation",
+     "context": null,
+     "target": "计入成本价"
+    },
+    {
+     "source": "Incoming Rate (Costing)",
+     "context": null,
+     "target": "出库成本价"
+    }
+   ],
+   "keep": [
+    "Valuation Rate",
+    "Costing Rate"
+   ],
+   "synonym": false,
+   "note": "Costing Rate 只在报表列，本 Stage 不定。Incoming Rate (Costing) 原文为「同义合并到官方 Outgoing Rate／Consumption Rate 已有的」出库成本价。另原文「官方 Valuation and Total → 成本价与总计 宜随之改「计入成本价与总计」」——非本组成员，未列入 changes"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "未付",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Unpaid",
+     "context": "Sales Invoice",
+     "target": "未收款"
+    },
+    {
+     "source": "Unpaid",
+     "context": "Purchase Invoice",
+     "target": "未付款"
+    },
+    {
+     "source": "Outstanding",
+     "context": null,
+     "target": "未结"
+    },
+    {
+     "source": "Outstanding Amount",
+     "context": null,
+     "target": "未结金额"
+    }
+   ],
+   "keep": [
+    "Unpaid"
+   ],
+   "synonym": false,
+   "note": "原文「见 §1.1 与 §1.2」；Unpaid 无 context 保留官方「未付」（S6 DEC-036）。Outstanding Amount 非本组成员（现译未付金额），草案在本组处置列一并写出。「未结」属 LG-112 未闭合造词"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "付款",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Payments",
+     "context": null,
+     "target": "收付款"
+    },
+    {
+     "source": "Payment",
+     "context": null,
+     "target": "收付款单"
+    },
+    {
+     "source": "Outward",
+     "context": null,
+     "target": "资金流出"
+    }
+   ],
+   "keep": [
+    "Pay"
+   ],
+   "synonym": false,
+   "note": "Pay 与 Receive → 收款 成对保留；Outward 同 §1.3"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "付款类型",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Payment Type",
+     "context": null,
+     "target": "收付款类型"
+    },
+    {
+     "source": "Type of Payment",
+     "context": null,
+     "target": "收付款方向"
+    }
+   ],
+   "keep": [],
+   "synonym": false,
+   "note": "原文「见 §1.1 第 4／4b」"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "工单数量",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Planned Qty",
+     "context": null,
+     "target": "计划数量"
+    },
+    {
+     "source": "Planned Quantity",
+     "context": null,
+     "target": "计划生产数量"
+    },
+    {
+     "source": "Work Order Qty",
+     "context": null,
+     "target": "已开工单数量"
+    }
+   ],
+   "keep": [
+    "Qty To Manufacture"
+   ],
+   "synonym": false,
+   "note": "Planned Qty 与 Planned Quantity 分给两个不同新词"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "工费成本",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Operating Costs",
+     "context": null,
+     "target": "工费构成"
+    }
+   ],
+   "keep": [
+    "Operating Cost"
+   ],
+   "synonym": false,
+   "note": "Workstation.over_heads 页签标题"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "待处理",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Pending",
+     "context": null,
+     "target": "待执行"
+    }
+   ],
+   "keep": [
+    "Open"
+   ],
+   "synonym": false,
+   "note": "单级状态保留，工序行状态改"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "成品",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Finished Good",
+     "context": null,
+     "target": "成品件"
+    },
+    {
+     "source": "Production Item",
+     "context": null,
+     "target": "成品信息"
+    }
+   ],
+   "keep": [
+    "Finished Goods",
+    "Item To Manufacture",
+    "Final Product"
+   ],
+   "synonym": false,
+   "note": "Production Item 是 BOM/Work Order 页签标题"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "物料号",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Item Reference",
+     "context": null,
+     "target": "物料参照号"
+    }
+   ],
+   "keep": [
+    "Item Code"
+   ],
+   "synonym": false,
+   "note": "Production Plan 明细行两列同屏"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "科目表模板",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Create Chart Of Accounts Based On",
+     "context": null,
+     "target": "科目表来源"
+    }
+   ],
+   "keep": [
+    "Chart Of Accounts Template"
+   ],
+   "synonym": false,
+   "note": "Company 上两个 Select 同屏同名"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "税",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Taxes",
+     "context": null,
+     "target": "税率表"
+    }
+   ],
+   "keep": [
+    "Tax",
+    "Tax Masters"
+   ],
+   "synonym": false,
+   "note": "Tax Masters 只在报表/工作区，本 Stage 不定。原文「Sales Order.taxes_section 分节宜随之调」，未给新词"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "进行中",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "In Process",
+     "context": null,
+     "target": "生产中"
+    },
+    {
+     "source": "Work in Progress",
+     "context": null,
+     "target": "在制"
+    }
+   ],
+   "keep": [
+    "Work In Progress",
+    "In Progress",
+    "Ongoing"
+   ],
+   "synonym": false,
+   "note": "Work In Progress（大写 I）保留、Work in Progress（小写 p）改，区分大小写；Ongoing 不在表单渲染面，不定"
+  },
+  {
+   "section": "§2.3.1",
+   "target_word": "采购",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Purchasing",
+     "context": null,
+     "target": "采购属性"
+    },
+    {
+     "source": "Buying",
+     "context": null,
+     "target": "用于采购"
+    }
+   ],
+   "keep": [
+    "Purchase",
+    "Buy",
+    "For Buying",
+    "Procurement",
+    "Purchased",
+    "Purchases"
+   ],
+   "synonym": false,
+   "note": "其余五个只在报表/工作区，保留"
+  },
+  {
+   "section": "§2.3.2",
+   "target_word": "会计",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Accounts",
+     "context": null,
+     "target": "会计科目"
+    },
+    {
+     "source": "Accountant",
+     "context": null,
+     "target": "会计人员"
+    },
+    {
+     "source": "Accounts User",
+     "context": null,
+     "target": "会计操作员"
+    }
+   ],
+   "keep": [
+    "Accounting"
+   ],
+   "synonym": false,
+   "note": "Accountant/Accounts User 是角色名"
+  },
+  {
+   "section": "§2.3.2",
+   "target_word": "单据类型",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Against Doctype",
+     "context": null,
+     "target": "源单类型"
+    }
+   ],
+   "keep": [
+    "DocType",
+    "Doctype",
+    "Document Type",
+    "Document Types",
+    "Enter Form Type",
+    "For Document Type",
+    "From Document Type"
+   ],
+   "synonym": false,
+   "note": "前三个同义保留；后四个只在报表/对话框，本 Stage 不定。注：§2.3.4 源单据类型组把 Reference Type 也改成「源单类型」，两源词撞同一新词"
+  },
+  {
+   "section": "§2.3.2",
+   "target_word": "收到数量",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "In Qty",
+     "context": null,
+     "target": "入库数量"
+    }
+   ],
+   "keep": [
+    "Received Qty",
+    "Received Quantity"
+   ],
+   "synonym": false,
+   "note": "与官方 Out Qty → 发出数量 成对"
+  },
+  {
+   "section": "§2.3.2",
+   "target_word": "日期",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Dates",
+     "context": null,
+     "target": "日期区间"
+    }
+   ],
+   "keep": [
+    "Date",
+    "As On Date",
+    "On This Date"
+   ],
+   "synonym": false,
+   "note": "后两个只在报表筛选，本 Stage 不定"
+  },
+  {
+   "section": "§2.3.2",
+   "target_word": "生产",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Production",
+     "context": null,
+     "target": "运行中"
+    }
+   ],
+   "keep": [
+    "Manufacturing",
+    "For Production",
+    "production"
+   ],
+   "synonym": false,
+   "note": "Production 是 Workstation.status 选项；For Production/production 只在报表，不定"
+  },
+  {
+   "section": "§2.3.2",
+   "target_word": "设置",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Setup",
+     "context": null,
+     "target": "基础设置"
+    },
+    {
+     "source": "Setup",
+     "context": "Workstation",
+     "target": "调机"
+    }
+   ],
+   "keep": [
+    "Settings",
+    "Setting",
+    "Set"
+   ],
+   "synonym": false,
+   "note": "草案原文 Setup → 调机（无 context）；按 S6 DEC-019 收窄为 Workstation context，无 context 取基础设置"
+  },
+  {
+   "section": "§2.3.2",
+   "target_word": "车间仓",
+   "decision": "不改",
+   "changes": [],
+   "keep": [
+    "WIP Warehouse",
+    "Work-in-Progress Warehouse"
+   ],
+   "synonym": true,
+   "note": "同义不改。原文另注「官方另有 WIP WH → 在制品仓库，三条同义却两个译名，宜统一到「车间仓」」——非本组成员，未列入 changes"
+  },
+  {
+   "section": "§2.3.2",
+   "target_word": "选物料",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Get Items From",
+     "context": null,
+     "target": "取物料来源"
+    }
+   ],
+   "keep": [
+    "Get Items"
+   ],
+   "synonym": false,
+   "note": "按钮 vs 来源选择框"
+  },
+  {
+   "section": "§2.3.2",
+   "target_word": "销售",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Selling",
+     "context": null,
+     "target": "用于销售"
+    }
+   ],
+   "keep": [
+    "Sales",
+    "For Selling",
+    "Sell"
+   ],
+   "synonym": false,
+   "note": "与 Buying → 用于采购 对称；后两个只在报表，不定"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "借方",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Debit Amount",
+     "context": null,
+     "target": "借方金额"
+    }
+   ],
+   "keep": [
+    "Debit"
+   ],
+   "synonym": false,
+   "note": "方向 vs 钱数"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "贷方",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Credit Amount",
+     "context": null,
+     "target": "贷方金额"
+    }
+   ],
+   "keep": [
+    "Cr",
+    "Credit"
+   ],
+   "synonym": false,
+   "note": "Cr 与 Credit 同义保留；Dr → 借方 见 direction 末行"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "完成",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Done",
+     "context": null,
+     "target": "已处理"
+    },
+    {
+     "source": "Finish",
+     "context": null,
+     "target": "完工"
+    }
+   ],
+   "keep": [
+    "Complete"
+   ],
+   "synonym": false,
+   "note": "Done 是 Transaction Deletion Record Details 的 Check；Finish 是 work_order.js 按钮"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "工单发料",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Material Transferred for Manufacture",
+     "context": null,
+     "target": "已发工单料"
+    }
+   ],
+   "keep": [
+    "Material Transfer for Manufacture"
+   ],
+   "synonym": false,
+   "note": "单据用途 vs 倒冲依据"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "库存设置",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Inventory Settings",
+     "context": null,
+     "target": "库存参数"
+    }
+   ],
+   "keep": [
+    "Stock Settings"
+   ],
+   "synonym": false,
+   "note": "单物料分节 vs 全局设置"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "库存",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Inventory",
+     "context": null,
+     "target": "库存信息"
+    },
+    {
+     "source": "In Stock",
+     "context": null,
+     "target": "有库存"
+    }
+   ],
+   "keep": [
+    "Stock"
+   ],
+   "synonym": false,
+   "note": "In Stock 是布尔状态"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "应收账款",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Receivable",
+     "context": null,
+     "target": "应收类"
+    },
+    {
+     "source": "Receivable Account",
+     "context": null,
+     "target": "应收科目"
+    }
+   ],
+   "keep": [
+    "Accounts Receivable",
+    "Debtors",
+    "Receivables"
+   ],
+   "synonym": false,
+   "note": "Receivable 是 Account.account_type 选项（科目类别）；Receivables 只在报表/工作区"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "应付账款",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Payable",
+     "context": null,
+     "target": "应付类"
+    }
+   ],
+   "keep": [
+    "Accounts Payable",
+    "Creditors",
+    "Payables"
+   ],
+   "synonym": false,
+   "note": "不能用「应付科目」——已被 Payable Account 占"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "发票",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Invoices",
+     "context": null,
+     "target": "发票列表"
+    }
+   ],
+   "keep": [
+    "Invoice",
+    "Billing",
+    "Linked Invoices"
+   ],
+   "synonym": false,
+   "note": "原文歧义：「Invoices → 发票列表（FREE，Supplier.hold_type 的选项……——此处宜作 发票类，见 §4 推断）」，§四 未见对应推断条目"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "开始日期",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Date of Commencement",
+     "context": null,
+     "target": "开业日期"
+    }
+   ],
+   "keep": [
+    "From Date",
+    "Start Date"
+   ],
+   "synonym": false,
+   "note": "Company.date_of_commencement"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "源单",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Return Against",
+     "context": null,
+     "target": "退货源单"
+    },
+    {
+     "source": "Adjustment Against",
+     "context": null,
+     "target": "冲销源单"
+    }
+   ],
+   "keep": [],
+   "synonym": false,
+   "note": "两个都改"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "物料清单",
+   "decision": "不改",
+   "changes": [],
+   "keep": [
+    " BOM",
+    "BOM",
+    "Bill of Materials"
+   ],
+   "synonym": true,
+   "note": "同义全部保留；` BOM` 前导空格报上游"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "物料清单号",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "BOM Detail No",
+     "context": null,
+     "target": "物料清单行号"
+    }
+   ],
+   "keep": [
+    "BOM No"
+   ],
+   "synonym": false,
+   "note": "BOM 明细行行 ID"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "结束时间",
+   "decision": "不改",
+   "changes": [],
+   "keep": [
+    "To Time",
+    "End Time",
+    "Ended At",
+    "Ends on",
+    "To Datetime"
+   ],
+   "synonym": true,
+   "note": "To Time/End Time 同义保留；其余三个不在演示线表单面，不定"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "行业",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Domain",
+     "context": null,
+     "target": "业务领域"
+    }
+   ],
+   "keep": [
+    "Industry"
+   ],
+   "synonym": false,
+   "note": "Company.domain 是 Domain 机制"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "销售税费模板",
+   "decision": "不改",
+   "changes": [],
+   "keep": [
+    "Sales Taxes and Charges Template",
+    "Sales Tax Template"
+   ],
+   "synonym": true,
+   "note": "同义不改"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "会计凭证",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Ledger",
+     "context": null,
+     "target": "会计账簿"
+    },
+    {
+     "source": "Accounting Ledger",
+     "context": null,
+     "target": "会计账簿"
+    }
+   ],
+   "keep": [],
+   "synonym": true,
+   "note": "两源词同义，但官方译文错（账簿不是凭证），都改为会计账簿；改完不再是撞名"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "重新打开",
+   "decision": "不改",
+   "changes": [],
+   "keep": [
+    "Re-open",
+    "Reopen"
+   ],
+   "synonym": true,
+   "note": "同义不改，报上游统一源串"
+  },
+  {
+   "section": "§2.3.3",
+   "target_word": "员工",
+   "decision": "不改",
+   "changes": [],
+   "keep": [
+    "Employee",
+    "Employees",
+    "From Employee"
+   ],
+   "synonym": true,
+   "note": "单复数差异不构成歧义"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "科目",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Account Head",
+     "context": null,
+     "target": "税目科目"
+    }
+   ],
+   "keep": [
+    "Account"
+   ],
+   "synonym": false,
+   "note": "税费子表 account_head"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "总计",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Total",
+     "context": null,
+     "target": "合计"
+    },
+    {
+     "source": "Totals",
+     "context": null,
+     "target": "合计栏"
+    }
+   ],
+   "keep": [
+    "Grand Total"
+   ],
+   "synonym": false,
+   "note": "含税总额/不含税小计/分节标题"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "退货",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Is Return",
+     "context": null,
+     "target": "是否退货"
+    }
+   ],
+   "keep": [
+    "Return"
+   ],
+   "synonym": false,
+   "note": "布尔加「是否」"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "默认",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Defaults",
+     "context": null,
+     "target": "默认值"
+    },
+    {
+     "source": "Is Default",
+     "context": null,
+     "target": "是否默认"
+    }
+   ],
+   "keep": [
+    "Default"
+   ],
+   "synonym": false,
+   "note": "BOM 列表默认标记与 is_default 同屏"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "发料仓",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "From Warehouse",
+     "context": null,
+     "target": "调出仓"
+    },
+    {
+     "source": "Set From Warehouse",
+     "context": null,
+     "target": "批量调出仓"
+    },
+    {
+     "source": "Set Source Warehouse",
+     "context": null,
+     "target": "批量发料仓"
+    }
+   ],
+   "keep": [
+    "Source Warehouse"
+   ],
+   "synonym": false,
+   "note": "「默认发料仓」已被 Default Source Warehouse 占"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "收料仓",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Set Target Warehouse",
+     "context": null,
+     "target": "批量收料仓"
+    }
+   ],
+   "keep": [
+    "Target Warehouse"
+   ],
+   "synonym": false,
+   "note": "「默认收料仓」已被 Default Target Warehouse 占"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "可用数量",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Available",
+     "context": null,
+     "target": "工位可用"
+    },
+    {
+     "source": "Projected Qty",
+     "context": null,
+     "target": "预计可用量"
+    },
+    {
+     "source": "Stock Projected Qty",
+     "context": null,
+     "target": "预计可用量"
+    }
+   ],
+   "keep": [
+    "Available Qty",
+    "Available Quantity"
+   ],
+   "synonym": false,
+   "note": "Projected Qty 与 Stock Projected Qty 改成同一新词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "已付款",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Is Paid",
+     "context": null,
+     "target": "是否已付"
+    },
+    {
+     "source": "Paid",
+     "context": "Sales Invoice",
+     "target": "已收款"
+    }
+   ],
+   "keep": [
+    "Paid"
+   ],
+   "synonym": false,
+   "note": "原文「Paid 按 §1.1 第 2 条走方案丙（销→已收款／采→已付款）」；Paid 无 context 与 Purchase Invoice context 均为已付款，同原译"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "已发料数量",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Supplied Qty",
+     "context": null,
+     "target": "已供料数量"
+    },
+    {
+     "source": "Transferred Qty",
+     "context": null,
+     "target": "已调拨数量"
+    }
+   ],
+   "keep": [],
+   "synonym": false,
+   "note": "两个都改"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "总完工数量",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Total Completed Qty",
+     "context": null,
+     "target": "工序总完工数量"
+    },
+    {
+     "source": "Total Produced Qty",
+     "context": null,
+     "target": "计划完工数量"
+    }
+   ],
+   "keep": [],
+   "synonym": false,
+   "note": "两个都改"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "委外原材料",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Consumed Items",
+     "context": null,
+     "target": "供应商已耗用"
+    },
+    {
+     "source": "Material to Supplier",
+     "context": null,
+     "target": "发往供应商物料"
+    }
+   ],
+   "keep": [
+    "Supplied Items"
+   ],
+   "synonym": false,
+   "note": "发出/耗用/结算三处"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "生产任务单",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "For Job Card",
+     "context": null,
+     "target": "所属生产任务单"
+    }
+   ],
+   "keep": [
+    "Job Card",
+    "Job Cards"
+   ],
+   "synonym": false,
+   "note": "原文「工时卡表单上两个都在」"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "源单据类型",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Reference Type",
+     "context": null,
+     "target": "源单类型"
+    }
+   ],
+   "keep": [
+    "Reference DocType"
+   ],
+   "synonym": false,
+   "note": "注：§2.3.2 已把 Against Doctype 也改成「源单类型」，两源词撞同一新词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "折扣金额",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Discounted Amount",
+     "context": null,
+     "target": "折后金额"
+    }
+   ],
+   "keep": [
+    "Discount Amount"
+   ],
+   "synonym": false,
+   "note": "现译方向反了"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "预付款",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Advance Paid",
+     "context": null,
+     "target": "已预收款"
+    },
+    {
+     "source": "Advance Payments",
+     "context": null,
+     "target": "预收/预付款"
+    }
+   ],
+   "keep": [
+    "Advance Payment"
+   ],
+   "synonym": false,
+   "note": "原文「Advance Paid → 已预收款（销售侧）」，未给 context，按无 context 记"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "找零",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Change Amount",
+     "context": null,
+     "target": "找零金额"
+    }
+   ],
+   "keep": [
+    "Changes"
+   ],
+   "synonym": false,
+   "note": "让开后「找零」归 Changes"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "退款",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Credit Note",
+     "context": null,
+     "target": "红字发票"
+    },
+    {
+     "source": "Issue Credit Note",
+     "context": null,
+     "target": "开红字发票"
+    }
+   ],
+   "keep": [],
+   "synonym": false,
+   "note": "两个都改"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "临时冻结",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Hold",
+     "context": null,
+     "target": "暂挂"
+    },
+    {
+     "source": "Temporarily on Hold",
+     "context": null,
+     "target": "已暂挂"
+    }
+   ],
+   "keep": [
+    "On Hold"
+   ],
+   "synonym": false,
+   "note": "按钮与状态值区分"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "冻结发票",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Hold Invoice",
+     "context": null,
+     "target": "暂挂发票"
+    }
+   ],
+   "keep": [
+    "Block Invoice"
+   ],
+   "synonym": false,
+   "note": "按钮 vs 勾选框"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "失效日期",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "End of Life",
+     "context": null,
+     "target": "停用日期"
+    },
+    {
+     "source": "Valid Till",
+     "context": null,
+     "target": "报价有效期"
+    }
+   ],
+   "keep": [
+    "Expiry Date"
+   ],
+   "synonym": false,
+   "note": "物料停产日/批次过期日/报价有效期"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "到期日",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Expires On",
+     "context": null,
+     "target": "失效于"
+    },
+    {
+     "source": "Expiry",
+     "context": null,
+     "target": "失效期优先"
+    }
+   ],
+   "keep": [
+    "Due Date"
+   ],
+   "synonym": false,
+   "note": "Expiry 是库存设置拣货排序选项值"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "备注",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Note",
+     "context": null,
+     "target": "备注说明"
+    },
+    {
+     "source": "Notes",
+     "context": null,
+     "target": "备注说明"
+    }
+   ],
+   "keep": [
+    "Remarks",
+    "Remark"
+   ],
+   "synonym": false,
+   "note": "原文「`Note`+`Notes` → 备注说明」，两源词改成同一新词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "序列号与批号",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Serial & Batch Item",
+     "context": null,
+     "target": "序列批次物料"
+    },
+    {
+     "source": "Serial and Batch",
+     "context": null,
+     "target": "序列批次设置"
+    },
+    {
+     "source": "Serial and Batch Bundle",
+     "context": null,
+     "target": "序列批次包"
+    }
+   ],
+   "keep": [
+    "Serial and Batch No"
+   ],
+   "synonym": false,
+   "note": "Bundle 是 v16 新单据"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "取消预留",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Unreserve Stock",
+     "context": null,
+     "target": "取消库存预留"
+    },
+    {
+     "source": "Stock Unreservation",
+     "context": null,
+     "target": "解除预留"
+    }
+   ],
+   "keep": [
+    "Unreserve"
+   ],
+   "synonym": false,
+   "note": "按钮/动作名/记录类型"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "套件明细",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Bundle Items",
+     "context": null,
+     "target": "组合套件明细"
+    }
+   ],
+   "keep": [
+    "Packed Items",
+    "Packed Item"
+   ],
+   "synonym": false,
+   "note": "报价单上 Bundle Items 与 Packed Items 同屏"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "委外",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Is Subcontracted",
+     "context": null,
+     "target": "是否委外"
+    }
+   ],
+   "keep": [
+    "Subcontracting",
+    "Subcontract",
+    "Sub-contracting"
+   ],
+   "synonym": false,
+   "note": "只把勾选框让开"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "工时表",
+   "decision": "不改",
+   "changes": [],
+   "keep": [
+    "Time Sheet",
+    "Time Sheets",
+    "Timesheet",
+    "Timesheets"
+   ],
+   "synonym": false,
+   "note": "DEC-081：全族不进本 Stage，推 S6 的 CR-002。起草建议原文「`Timesheet` 改 工时单，其余三个 → 工时单／工时单列表 按单复数分」，未定稿"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "选工时单",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Fetch Timesheet",
+     "context": null,
+     "target": "取工时单"
+    }
+   ],
+   "keep": [
+    "Get Timesheets"
+   ],
+   "synonym": false,
+   "note": "同一张销售发票上两个按钮。新词含「工时单」，而工时表→工时单 已推 S6"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "日记账凭证",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Journals",
+     "context": null,
+     "target": "日记账"
+    }
+   ],
+   "keep": [
+    "Journal Entry",
+    "Journal Entries"
+   ],
+   "synonym": false,
+   "note": "分节标题 vs 按钮"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "模板物料",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Variant Of",
+     "context": null,
+     "target": "派生自"
+    }
+   ],
+   "keep": [
+    "Template Item"
+   ],
+   "synonym": false,
+   "note": "指向父模板的 Link"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "物料需求明细",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "material_request_item",
+     "context": null,
+     "target": "物料需求行"
+    }
+   ],
+   "keep": [
+    "Material Request Item"
+   ],
+   "synonym": false,
+   "note": "小写那条是 fieldname 被收成可译串"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "额外物料调拨",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Additional Material Transfer",
+     "context": null,
+     "target": "超领调拨"
+    }
+   ],
+   "keep": [
+    "Extra Material Transfer"
+   ],
+   "synonym": false,
+   "note": "策略开关 vs 动作按钮"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "业务伙伴",
+   "decision": "改",
+   "changes": [
+    {
+     "source": "Sales Partner",
+     "context": null,
+     "target": "销售伙伴"
+    },
+    {
+     "source": "Referral Sales Partner",
+     "context": null,
+     "target": "推荐销售伙伴"
+    }
+   ],
+   "keep": [],
+   "synonym": false,
+   "note": "两个都改"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "参考",
+   "decision": "不改",
+   "changes": [],
+   "keep": [
+    "Reference",
+    "References"
+   ],
+   "synonym": true,
+   "note": "边界情形，人工判为不改；草案在 58 组同义列表末尾也以「加一个边界的 `参考`」提到它"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "这是不能被编辑的树形结构的根结点。",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "原文源词列「`This is a root account…` 等 6 条（account／department／item group／sales person／supplier group／territory）」，草案未给全 6 条源串，keep 留空；全部保留"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "使用公司默认小数精度尾差成本中心",
+   "decision": "不改",
+   "changes": [],
+   "keep": [
+    "Use Company Default Round Off Cost Center",
+    "Use Company default Cost Center for Round off"
+   ],
+   "synonym": true,
+   "note": "同一概念两种英文，均保留"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "公司",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "名称",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "描述",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "成本中心",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "条码",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "资产",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "银行",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "工序行ID",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "已开票%",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "单价（本币）",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "金额（本币）",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "税后付款金额(本币)",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "数量(库存单位)",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "时间(分)",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "最小起订量",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "条款和条件",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "拒收数量",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "收货数量",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "待处理数量",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "库存单位",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "物料名称",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "物料需求",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "质检单",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "费用科目",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "默认科目",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "预付金额",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "额外费用",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "汇兑损益",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "打印设置",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "信用额度",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "供应商信息",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "地址和联系方式",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "发票地址",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "子工序",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "工单拆解",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "工单耗用",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "工序顺序号",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "工费成本（本币）",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "已取消",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "已开票金额",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "已预留库存",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "开始时间",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "所需物料",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "框架订单",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "创建多规格物料",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "生成{0}个多规格物料",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "动态定价规则",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "半成品/产成品",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "由供应商交货（直运）",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "竞争对手",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "纳税登记号",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "销售发票",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "销售订单",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "销售订单明细",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "需要检验",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "RGT",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "临时冻结原因",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  },
+  {
+   "section": "§2.3.4",
+   "target_word": "采购税费模板",
+   "decision": "不改",
+   "changes": [],
+   "keep": [],
+   "synonym": true,
+   "note": "58 组同义/写法变体之一；草案只列目标词，未列源词"
+  }
+ ],
+ "counts": {
+  "groups_total": 143,
+  "groups_changed": 75,
+  "groups_unchanged": 68,
+  "change_rows": 127,
+  "by_section": {
+   "§2.3.1": {
+    "total": 21,
+    "changed": 21
+   },
+   "§2.3.2": {
+    "total": 9,
+    "changed": 8
+   },
+   "§2.3.3": {
+    "total": 19,
+    "changed": 14
+   },
+   "§2.3.4": {
+    "total": 94,
+    "changed": 32
+   }
+  },
+  "discrepancy": "草案称 143 组 = 73 改 / 70 不改；逐组数得 143 组 = 75 改 / 68 不改。§2.3.1 21/21 改、§2.3.2 9 组 8 改、§2.3.3 19 组 14 改，均与草案一致。差全在 §2.3.4：草案表后附注 1 称 36 组异义中 30 改 6 不改，逐行数 36 行中 32 组至少改一个源词、4 组不改（参考／这是不能被编辑的树形结构的根结点。／使用公司默认小数精度尾差成本中心／工时表）。工时表 已按 DEC-081 推 S6 记为不改；若仍按草案起草口径算改则为 33 改。草案列的 6 个不改里第 4 个写作「`员工`类的单复数同义」，但 员工 组在 §2.3.3 不在 §2.3.4，无法对上第 5、6 个。另：§2.3.4 的 58 组同义只列了目标词、未列源词，故这 58 组 keep 为空；58 组列表末尾「加一个边界的 `参考`」与 36 组表里的 参考 行是同一组，只计一次（58+36=94）。根结点组的 6 条源串草案只写「This is a root account… 等 6 条」，未逐条给出，keep 为空。"
+ }
+}

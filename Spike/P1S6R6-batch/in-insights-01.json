@@ -1,0 +1,2469 @@
+{
+ "group": "insights",
+ "items": [
+  {
+   "key": "Above average",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:203"
+   ],
+   "current": null,
+   "context": "\t{ label: __('Bottom N values'), value: 'bottom_n' as RankOperator },\n\t{ label: __('Top N percent'), value: 'top_percent' as RankOperator },\n\t{ label: __('Bottom N percent'), value: 'bottom_percent' as RankOperator },\n\t{ label: __('Above average'), value: 'above_average' as RankOperator },\n\t{ label: __('Below average'), value: 'below_average' as RankOperator },\n]\n"
+  },
+  {
+   "key": "Action if table exists",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import/insights_table_import.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"Fail\",\n   \"fieldname\": \"if_exists\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Action if table exists\",\n   \"options\": \"Fail\\nAppend\\nOverwrite\"\n  },\n  {"
+  },
+  {
+   "key": "Add a new column based on existing columns",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:63"
+   ],
+   "current": null,
+   "context": "\t},\n\t{\n\t\tlabel: __('Add New Column'),\n\t\tdescription: __('Add a new column based on existing columns'),\n\t\ticon: query_operation_types.mutate.icon,\n\t\tonClick: () => (showNewColumnSelectorDialog.value = true),\n\t},"
+  },
+  {
+   "key": "Add Data Source",
+   "refs": [
+    "insights/frontend/src2/data_source/ConnectClickhouseDialog.vue:106",
+    "insights/frontend/src2/data_source/ConnectDuckDBDialog.vue:77",
+    "insights/frontend/src2/data_source/ConnectMariaDBDialog.vue:106",
+    "insights/frontend/src2/data_source/ConnectPostgreSQLDialog.vue:114"
+   ],
+   "current": null,
+   "context": "\nconst submitButton = computed(() => {\n\treturn {\n\t\tlabel: __('Add Data Source'),\n\t\tdisabled: form.value?.hasRequiredFields === false || !connected.value || sources.creating,\n\t\tloading: sources.creating,\n\t\tvariant: connected.value ? 'solid' : 'subtle',"
+  },
+  {
+   "key": "Add New Column",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:62"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => (showUnionSelectorDialog.value = true),\n\t},\n\t{\n\t\tlabel: __('Add New Column'),\n\t\tdescription: __('Add a new column based on existing columns'),\n\t\ticon: query_operation_types.mutate.icon,\n\t\tonClick: () => (showNewColumnSelectorDialog.value = true),"
+  },
+  {
+   "key": "Add Operation",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:132"
+   ],
+   "current": null,
+   "context": "\t\t\t<div class=\"group relative flex cursor-pointer items-center gap-2\">\n\t\t\t\t<Button\n\t\t\t\t\tvariant=\"outline\"\n\t\t\t\t\t:label=\"__('Add Operation')\"\n\t\t\t\t\tclass=\"-ml-[14px] !h-6 !gap-1.5 bg-white !px-2 text-p-xs\"\n\t\t\t\t\t@click=\"togglePopover\"\n\t\t\t\t>"
+  },
+  {
+   "key": "after date",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:194"
+   ],
+   "current": null,
+   "context": "\t{ label: __('is last month'), value: 'is_last_month' as DateOperator },\n\t{ label: __('is this year'), value: 'is_this_year' as DateOperator },\n\t{ label: __('before date'), value: 'date_before' as DateOperator },\n\t{ label: __('after date'), value: 'date_after' as DateOperator },\n\t{ label: __('between dates'), value: 'date_between' as DateOperator },\n]\n"
+  },
+  {
+   "key": "Aggregation",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_column/insights_query_column.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"aggregation\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Aggregation\"\n  },\n  {\n   \"fieldname\": \"table_label\","
+  },
+  {
+   "key": "Aggregation Condition",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_column/insights_query_column.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"aggregation_condition\",\n   \"fieldname\": \"aggregation_condition\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Aggregation Condition\",\n   \"options\": \"JSON\"\n  },\n  {"
+  },
+  {
+   "key": "Alert Created",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:70"
+   ],
+   "current": null,
+   "context": "\talert.doc.disabled = 0\n\treturn alert.save().then(() => {\n\t\tcreateToast({\n\t\t\ttitle: isNew ? __('Alert Created') : __('Alert Updated'),\n\t\t\tmessage: isNew\n\t\t\t\t? __(`Alert \"{0}\" has been created.`, alert.doc.title)\n\t\t\t\t: __(`Alert \"{0}\" has been updated.`, alert.doc.title),"
+  },
+  {
+   "key": "Alert Disabled",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:98"
+   ],
+   "current": null,
+   "context": "\talert.doc.disabled = alert.doc.disabled ? 0 : 1\n\treturn alert.save().then(() => {\n\t\tcreateToast({\n\t\t\ttitle: alert.doc.disabled ? __('Alert Disabled') : __('Alert Enabled'),\n\t\t\tmessage: alert.doc.disabled\n\t\t\t\t? __(`Alert \"{0}\" has been disabled.`, alert.doc.title)\n\t\t\t\t: __(`Alert \"{0}\" has been enabled.`, alert.doc.title),"
+  },
+  {
+   "key": "Alert Enabled",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:98"
+   ],
+   "current": null,
+   "context": "\talert.doc.disabled = alert.doc.disabled ? 0 : 1\n\treturn alert.save().then(() => {\n\t\tcreateToast({\n\t\t\ttitle: alert.doc.disabled ? __('Alert Disabled') : __('Alert Enabled'),\n\t\t\tmessage: alert.doc.disabled\n\t\t\t\t? __(`Alert \"{0}\" has been disabled.`, alert.doc.title)\n\t\t\t\t: __(`Alert \"{0}\" has been enabled.`, alert.doc.title),"
+  },
+  {
+   "key": "Alert Name",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:144"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<div class=\"flex flex-1 flex-col gap-3\">\n\t\t\t\t\t\t<FormControl\n\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t:label=\"__('Alert Name')\"\n\t\t\t\t\t\t\tv-model=\"alert.doc.title\"\n\t\t\t\t\t\t\t:placeholder=\"__('e.g. Low Inventory')\"\n\t\t\t\t\t\t/>"
+  },
+  {
+   "key": "Alert Sent",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:87"
+   ],
+   "current": null,
+   "context": "\t}\n\treturn alert.call('test_alert').then(() => {\n\t\tcreateToast({\n\t\t\ttitle: __('Alert Sent'),\n\t\t\tmessage: __(`Alert \"{0}\" has been sent.`, alert.doc.title),\n\t\t\tvariant: 'success',\n\t\t})"
+  },
+  {
+   "key": "Alert sent",
+   "refs": [
+    "insights/insights/insights/doctype/insights_alert/insights_alert.js:12"
+   ],
+   "current": null,
+   "context": "\t\t\t\t.then(() => {\n\t\t\t\t\tfrappe.dom.unfreeze();\n\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\tmessage: __(\"Alert sent\"),\n\t\t\t\t\t\tindicator: \"green\",\n\t\t\t\t\t});\n\t\t\t\t})"
+  },
+  {
+   "key": "Alert Updated",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:70"
+   ],
+   "current": null,
+   "context": "\talert.doc.disabled = 0\n\treturn alert.save().then(() => {\n\t\tcreateToast({\n\t\t\ttitle: isNew ? __('Alert Created') : __('Alert Updated'),\n\t\t\tmessage: isNew\n\t\t\t\t? __(`Alert \"{0}\" has been created.`, alert.doc.title)\n\t\t\t\t: __(`Alert \"{0}\" has been updated.`, alert.doc.title),"
+  },
+  {
+   "key": "Alerts",
+   "refs": [
+    "insights/frontend/src2/query/components/QueryAlertsDialog.vue:95"
+   ],
+   "current": null,
+   "context": "\t<Dialog\n\t\tv-model=\"show\"\n\t\t:options=\"{\n\t\t\ttitle: __('Alerts'),\n\t\t\tsize: '2xl',\n\t\t}\"\n\t>"
+  },
+  {
+   "key": "Allow Data Download",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"1\",\n   \"fieldname\": \"allow_download\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow Data Download\"\n  },\n  {\n   \"fieldname\": \"integrations_section\","
+  },
+  {
+   "key": "Allow Subquery",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"allow_subquery\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow Subquery\"\n  },\n  {\n   \"default\": \"1000\","
+  },
+  {
+   "key": "Allow Table Import",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source/insights_data_source.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"allow_imports\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow Table Import\"\n  },\n  {\n   \"fieldname\": \"section_break_j5ez\","
+  },
+  {
+   "key": "Allowed Origins",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Comma seperated URLs to whitelist for embedding charts & dashboards\",\n   \"fieldname\": \"allowed_origins\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Allowed Origins\"\n  },\n  {\n   \"fieldname\": \"max_records_to_sync\","
+  },
+  {
+   "key": "Anyone in the organization can view",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardShareDialog.vue:110"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t\t\tvalue: 'anyone',\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\tlabel: __('Anyone in the organization can view'),\n\t\t\t\t\t\t\t\t\t\tvalue: 'organization',\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t{"
+  },
+  {
+   "key": "Anyone with the link can view",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardShareDialog.vue:106"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\tv-model=\"generalAccess\"\n\t\t\t\t\t\t\t\t:options=\"[\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\tlabel: __('Anyone with the link can view'),\n\t\t\t\t\t\t\t\t\t\tvalue: 'anyone',\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t{"
+  },
+  {
+   "key": "API Configuration",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.type=='REST API'\",\n   \"fieldname\": \"api_configuration_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"API Configuration\"\n  },\n  {\n   \"depends_on\": \"eval:doc.type=='REST API'\","
+  },
+  {
+   "key": "API Key / Bearer Token",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"api_authentication_type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Authentication Type\",\n   \"options\": \"None\\nAPI Key / Bearer Token\\nBasic Authentication\"\n  },\n  {\n   \"depends_on\": \"eval:doc.type=='REST API'\","
+  },
+  {
+   "key": "API Password",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.type=='REST API' && doc.api_authentication_type=='Basic Authentication'\",\n   \"fieldname\": \"api_password\",\n   \"fieldtype\": \"Password\",\n   \"label\": \"API Password\"\n  },\n  {\n   \"depends_on\": \"eval:doc.type=='REST API'\","
+  },
+  {
+   "key": "API Username",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.type=='REST API' && doc.api_authentication_type=='Basic Authentication'\",\n   \"fieldname\": \"api_username\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"API Username\"\n  },\n  {\n   \"depends_on\": \"eval:doc.type=='REST API' && doc.api_authentication_type=='Basic Authentication'\","
+  },
+  {
+   "key": "Append",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import/insights_table_import.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"if_exists\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Action if table exists\",\n   \"options\": \"Fail\\nAppend\\nOverwrite\"\n  },\n  {\n   \"default\": \"Draft\","
+  },
+  {
+   "key": "Append Only",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "   \"options\": \"Full\\nIncremental\"\n  },\n  {\n   \"default\": \"Append Only\",\n   \"depends_on\": \"eval:doc.sync_mode == 'Incremental'\",\n   \"description\": \"Choose how incremental sync writes rows: <b>Append Only</b> adds new rows, while <b>Update or Insert</b> updates matching keys and inserts new rows.\",\n   \"fieldname\": \"sync_strategy\","
+  },
+  {
+   "key": "Append Rows",
+   "refs": [
+    "insights/frontend/src2/query/components/UnionSelectorDialog.vue:116"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<!-- Title & Close -->\n\t\t\t\t<div class=\"flex items-center justify-between pb-4\">\n\t\t\t\t\t<h3 class=\"text-2xl font-semibold leading-6 text-gray-900\">\n\t\t\t\t\t\t{{ __('Append Rows') }}\n\t\t\t\t\t</h3>\n\t\t\t\t\t<Button variant=\"ghost\" @click=\"showDialog = false\" icon=\"x\" size=\"md\">\n\t\t\t\t\t</Button>"
+  },
+  {
+   "key": "Append Table",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:56"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => (showJoinSelectorDialog.value = true),\n\t},\n\t{\n\t\tlabel: __('Append Table'),\n\t\tdescription: __('Append this table with another table or query'),\n\t\ticon: query_operation_types.union.icon,\n\t\tonClick: () => (showUnionSelectorDialog.value = true),"
+  },
+  {
+   "key": "Append this table with another table or query",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:57"
+   ],
+   "current": null,
+   "context": "\t},\n\t{\n\t\tlabel: __('Append Table'),\n\t\tdescription: __('Append this table with another table or query'),\n\t\ticon: query_operation_types.union.icon,\n\t\tonClick: () => (showUnionSelectorDialog.value = true),\n\t},"
+  },
+  {
+   "key": "Apply a custom operation using python script",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:81"
+   ],
+   "current": null,
+   "context": "\t},\n\t{\n\t\tlabel: __('Custom Operation'),\n\t\tdescription: __('Apply a custom operation using python script'),\n\t\ticon: query_operation_types.custom_operation.icon,\n\t\tonClick: () => (showCustomScriptDialog.value = true),\n\t},"
+  },
+  {
+   "key": "Apply User Permissions",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"1\",\n   \"fieldname\": \"apply_user_permissions\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Apply User Permissions\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "asc",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_column/insights_query_column.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"order_by\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Order By\",\n   \"options\": \"\\nasc\\ndesc\"\n  },\n  {\n   \"depends_on\": \"aggregation_condition\","
+  },
+  {
+   "key": "Authentication Type",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.type=='REST API'\",\n   \"fieldname\": \"api_authentication_type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Authentication Type\",\n   \"options\": \"None\\nAPI Key / Bearer Token\\nBasic Authentication\"\n  },\n  {"
+  },
+  {
+   "key": "Auto Execute Query",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"auto_execute_query\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Auto Execute Query\"\n  },\n  {\n   \"default\": \"10\","
+  },
+  {
+   "key": "Automatically arrange cards vertically to fill empty spaces",
+   "refs": [
+    "insights/insights/insights/doctype/insights_dashboard_v3/insights_dashboard_v3.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Automatically arrange cards vertically to fill empty spaces\",\n   \"fieldname\": \"vertical_compact_layout\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Vertical Compact Layout\""
+  },
+  {
+   "key": "Average of...",
+   "refs": [
+    "insights/frontend/src2/charts/components/MeasurePicker.vue:138"
+   ],
+   "current": null,
+   "context": "\t\texpression: measureExpression.expression,\n\t\tmeasure_name: measureExpression.measure_name,\n\t\tdata_type: measureExpression.data_type,\n\t\tformat: measure.value.format,\n\t}\n\tshowMeasureDialog.value = false\n}"
+  },
+  {
+   "key": "Basic Authentication",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"api_authentication_type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Authentication Type\",\n   \"options\": \"None\\nAPI Key / Bearer Token\\nBasic Authentication\"\n  },\n  {\n   \"depends_on\": \"eval:doc.type=='REST API'\","
+  },
+  {
+   "key": "before date",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:193"
+   ],
+   "current": null,
+   "context": "\t{ label: __('is this month'), value: 'is_this_month' as DateOperator },\n\t{ label: __('is last month'), value: 'is_last_month' as DateOperator },\n\t{ label: __('is this year'), value: 'is_this_year' as DateOperator },\n\t{ label: __('before date'), value: 'date_before' as DateOperator },\n\t{ label: __('after date'), value: 'date_after' as DateOperator },\n\t{ label: __('between dates'), value: 'date_between' as DateOperator },\n]"
+  },
+  {
+   "key": "Before Import Script",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"before_import_script\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Before Import Script\",\n   \"options\": \"Python\"\n  },\n  {"
+  },
+  {
+   "key": "Below average",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:204"
+   ],
+   "current": null,
+   "context": "\t{ label: __('Top N percent'), value: 'top_percent' as RankOperator },\n\t{ label: __('Bottom N percent'), value: 'bottom_percent' as RankOperator },\n\t{ label: __('Above average'), value: 'above_average' as RankOperator },\n\t{ label: __('Below average'), value: 'below_average' as RankOperator },\n]\n\nconst colorScaleOptions = ["
+  },
+  {
+   "key": "between dates",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:195"
+   ],
+   "current": null,
+   "context": "\t{ label: __('is this year'), value: 'is_this_year' as DateOperator },\n\t{ label: __('before date'), value: 'date_before' as DateOperator },\n\t{ label: __('after date'), value: 'date_after' as DateOperator },\n\t{ label: __('between dates'), value: 'date_between' as DateOperator },\n]\n\nconst rankOperatorOptions = ["
+  },
+  {
+   "key": "BigQuery",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"database_type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Database Type\",\n   \"options\": \"MariaDB\\nPostgreSQL\\nSQLite\\nDuckDB\\nBigQuery\\nClickHouse\"\n  },\n  {\n   \"fieldname\": \"host\","
+  },
+  {
+   "key": "BigQuery Configuration",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.database_type == 'BigQuery'\",\n   \"fieldname\": \"bigquery_configuration_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"BigQuery Configuration\"\n  },\n  {\n   \"fieldname\": \"section_break_rccm\","
+  },
+  {
+   "key": "BigQuery Dataset ID",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.database_type == 'BigQuery'\",\n   \"fieldname\": \"bigquery_dataset_id\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"BigQuery Dataset ID\"\n  },\n  {\n   \"depends_on\": \"eval:doc.database_type == 'BigQuery'\","
+  },
+  {
+   "key": "BigQuery Project ID",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.database_type == 'BigQuery'\",\n   \"fieldname\": \"bigquery_project_id\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"BigQuery Project ID\"\n  },\n  {\n   \"depends_on\": \"eval:doc.database_type == 'BigQuery'\","
+  },
+  {
+   "key": "BigQuery Service Account Key (JSON)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.database_type == 'BigQuery'\",\n   \"fieldname\": \"bigquery_service_account_key\",\n   \"fieldtype\": \"JSON\",\n   \"label\": \"BigQuery Service Account Key (JSON)\",\n   \"permlevel\": 1\n  },\n  {"
+  },
+  {
+   "key": "Bottom N percent",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:202"
+   ],
+   "current": null,
+   "context": "\t{ label: __('Top N values'), value: 'top_n' as RankOperator },\n\t{ label: __('Bottom N values'), value: 'bottom_n' as RankOperator },\n\t{ label: __('Top N percent'), value: 'top_percent' as RankOperator },\n\t{ label: __('Bottom N percent'), value: 'bottom_percent' as RankOperator },\n\t{ label: __('Above average'), value: 'above_average' as RankOperator },\n\t{ label: __('Below average'), value: 'below_average' as RankOperator },\n]"
+  },
+  {
+   "key": "Bottom N values",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:200"
+   ],
+   "current": null,
+   "context": "\nconst rankOperatorOptions = [\n\t{ label: __('Top N values'), value: 'top_n' as RankOperator },\n\t{ label: __('Bottom N values'), value: 'bottom_n' as RankOperator },\n\t{ label: __('Top N percent'), value: 'top_percent' as RankOperator },\n\t{ label: __('Bottom N percent'), value: 'bottom_percent' as RankOperator },\n\t{ label: __('Above average'), value: 'above_average' as RankOperator },"
+  },
+  {
+   "key": "Bulk Enqueue",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.js:10"
+   ],
+   "current": null,
+   "context": "\t\t\tfrm.call(\"enqueue\");\n\t\t});\n\n\t\tfrm.add_custom_button(__(\"Bulk Enqueue\"), () => {\n\t\t\tfrappe.prompt(\n\t\t\t\t{\n\t\t\t\t\tfieldname: \"run_count\","
+  },
+  {
+   "key": "Bulk Enqueue Import Job",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.js:49"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t}\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Bulk Enqueue Import Job\"),\n\t\t\t);\n\t\t});\n\t},"
+  },
+  {
+   "key": "Bulk Enqueue Progress",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.js:24",
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.js:34"
+   ],
+   "current": null,
+   "context": "\n\t\t\t\t\t// Show progress indicator\n\t\t\t\t\tfrappe.show_progress(\n\t\t\t\t\t\t__(\"Bulk Enqueue Progress\"),\n\t\t\t\t\t\t0,\n\t\t\t\t\t\tvalues.run_count,\n\t\t\t\t\t\t__(\"Starting...\"),"
+  },
+  {
+   "key": "Cache Query Results For (Minutes)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"10\",\n   \"fieldname\": \"query_result_expiry\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Cache Query Results For (Minutes)\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Can Edit",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookShareDialog.vue:29",
+    "insights/frontend/src2/workbook/WorkbookShareDialog.vue:128",
+    "insights/frontend/src2/workbook/WorkbookShareDialog.vue:183"
+   ],
+   "current": null,
+   "context": "\tselectedUserEmail.value = ''\n}\n\ntype PermissionMap = Record<string, ShareAccess>\nconst permissionMap = ref<PermissionMap>({})\nconst accessOptions = (user_email: string) => [\n\t{"
+  },
+  {
+   "key": "Can View",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookShareDialog.vue:34",
+    "insights/frontend/src2/workbook/WorkbookShareDialog.vue:124",
+    "insights/frontend/src2/workbook/WorkbookShareDialog.vue:183"
+   ],
+   "current": null,
+   "context": "const accessOptions = (user_email: string) => [\n\t{\n\t\tlabel: __('Can Edit'),\n\t\tvalue: 'edit',\n\t\tonClick: () => (permissionMap.value[user_email] = 'edit'),\n\t},\n\t{"
+  },
+  {
+   "key": "Cardinality",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_link/insights_table_link.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"1:1\",\n   \"fieldname\": \"cardinality\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Cardinality\",\n   \"options\": \"1:1\\n1:N\\nN:1\\nN:N\",\n   \"reqd\": 1\n  }"
+  },
+  {
+   "key": "Check once a day",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:154"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\tv-model=\"alert.doc.frequency\"\n\t\t\t\t\t\t\t:options=\"[\n\t\t\t\t\t\t\t\t{ value: 'Hourly', label: __('Check once an hour') },\n\t\t\t\t\t\t\t\t{ value: 'Daily', label: __('Check once a day') },\n\t\t\t\t\t\t\t\t{ value: 'Weekly', label: __('Check once a week') },\n\t\t\t\t\t\t\t\t{ value: 'Monthly', label: __('Check once a month') },\n\t\t\t\t\t\t\t\t{ value: 'Cron', label: __('Cron') },"
+  },
+  {
+   "key": "Check once a month",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:156"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t{ value: 'Hourly', label: __('Check once an hour') },\n\t\t\t\t\t\t\t\t{ value: 'Daily', label: __('Check once a day') },\n\t\t\t\t\t\t\t\t{ value: 'Weekly', label: __('Check once a week') },\n\t\t\t\t\t\t\t\t{ value: 'Monthly', label: __('Check once a month') },\n\t\t\t\t\t\t\t\t{ value: 'Cron', label: __('Cron') },\n\t\t\t\t\t\t\t]\"\n\t\t\t\t\t\t/>"
+  },
+  {
+   "key": "Check once a week",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:155"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t:options=\"[\n\t\t\t\t\t\t\t\t{ value: 'Hourly', label: __('Check once an hour') },\n\t\t\t\t\t\t\t\t{ value: 'Daily', label: __('Check once a day') },\n\t\t\t\t\t\t\t\t{ value: 'Weekly', label: __('Check once a week') },\n\t\t\t\t\t\t\t\t{ value: 'Monthly', label: __('Check once a month') },\n\t\t\t\t\t\t\t\t{ value: 'Cron', label: __('Cron') },\n\t\t\t\t\t\t\t]\""
+  },
+  {
+   "key": "Check once an hour",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:153"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t:label=\"__('Frequency')\"\n\t\t\t\t\t\t\tv-model=\"alert.doc.frequency\"\n\t\t\t\t\t\t\t:options=\"[\n\t\t\t\t\t\t\t\t{ value: 'Hourly', label: __('Check once an hour') },\n\t\t\t\t\t\t\t\t{ value: 'Daily', label: __('Check once a day') },\n\t\t\t\t\t\t\t\t{ value: 'Weekly', label: __('Check once a week') },\n\t\t\t\t\t\t\t\t{ value: 'Monthly', label: __('Check once a month') },"
+  },
+  {
+   "key": "Choose Columns",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:38"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => (showSourceSelectorDialog.value = true),\n\t},\n\t{\n\t\tlabel: __('Choose Columns'),\n\t\tdescription: __('Show or hide columns from the table'),\n\t\ticon: query_operation_types.select.icon,\n\t\tonClick: () => (showColumnsSelectorDialog.value = true),"
+  },
+  {
+   "key": "Choose how incremental sync writes rows: <b>Append Only</b> adds new rows, while <b>Update or Insert</b> updates matching keys and inserts new rows.",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"Append Only\",\n   \"depends_on\": \"eval:doc.sync_mode == 'Incremental'\",\n   \"description\": \"Choose how incremental sync writes rows: <b>Append Only</b> adds new rows, while <b>Update or Insert</b> updates matching keys and inserts new rows.\",\n   \"fieldname\": \"sync_strategy\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Sync Strategy\","
+  },
+  {
+   "key": "Circular query reference detected while building \"{0}\"",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/ibis_utils.py:96"
+   ],
+   "current": null,
+   "context": "            rt = rt & (x != \"\")\n    return rt\n\n\nFILTER_OPERATORS = {\n    \">\": lambda x, y: x > y,\n    \"<\": lambda x, y: x < y,"
+  },
+  {
+   "key": "Clear Warehouse Data",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:13"
+   ],
+   "current": null,
+   "context": "\t\t);\n\n\t\tfrm.add_custom_button(__(\"Import to Warehouse\"), function () {\n\t\t\tfrm.call(\"import_to_warehouse\").then(() => {\n\t\t\t\tfrappe.msgprint(__(\"Import job has been queued\"));\n\t\t\t});\n\t\t});"
+  },
+  {
+   "key": "ClickHouse",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:58",
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "\t\t},\n\t},\n\t{\n\t\tlabel: __('ClickHouse'),\n\t\ticon: getDatabaseLogo('ClickHouse'),\n\t\tdescription: __('Connect to ClickHouse database'),\n\t\tonClick: () => {"
+  },
+  {
+   "key": "Color Scale",
+   "refs": [
+    "insights/frontend/src2/query/components/FormattingSelector.vue:60"
+   ],
+   "current": null,
+   "context": "\t\t\t\tlabel=\"Format Type\"\n\t\t\t\t:options=\"[\n\t\t\t\t\t{ label: __('Highlight Cell'), value: 'cell_rules' },\n\t\t\t\t\t{ label: __('Color Scale'), value: 'color_scale' },\n\t\t\t\t]\"\n\t\t\t>\n\t\t\t</FormControl>"
+  },
+  {
+   "key": "Comma seperated URLs to whitelist for embedding charts & dashboards",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Fiscal Year Start\"\n  },\n  {\n   \"description\": \"Comma seperated URLs to whitelist for embedding charts & dashboards\",\n   \"fieldname\": \"allowed_origins\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Allowed Origins\""
+  },
+  {
+   "key": "Compact Layout",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardBuilder.vue:163"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tdashboard.editing\n\t\t\t\t\t\t\t\t? {\n\t\t\t\t\t\t\t\t\t\tlabel: __('Compact Layout'),\n\t\t\t\t\t\t\t\t\t\ticon: verticalCompact ? 'check-square' : 'square',\n\t\t\t\t\t\t\t\t\t\tonClick: () => (verticalCompact = !verticalCompact),\n\t\t\t\t\t\t\t\t  }"
+  },
+  {
+   "key": "Connect",
+   "refs": [
+    "insights/frontend/src2/data_source/ConnectClickhouseDialog.vue:77",
+    "insights/frontend/src2/data_source/ConnectDuckDBDialog.vue:47",
+    "insights/frontend/src2/data_source/ConnectMariaDBDialog.vue:77",
+    "insights/frontend/src2/data_source/ConnectPostgreSQLDialog.vue:85"
+   ],
+   "current": null,
+   "context": "const connected = ref<boolean | null>(null)\nconst connectButton = computed(() => {\n\tconst _button = {\n\t\tlabel: __('Connect'),\n\t\tdisabled: form.value?.hasRequiredFields === false || sources.testing || sources.creating,\n\t\tloading: sources.testing,\n\t\tvariant: 'subtle',"
+  },
+  {
+   "key": "Connect to ClickHouse",
+   "refs": [
+    "insights/frontend/src2/data_source/ConnectClickhouseDialog.vue:120"
+   ],
+   "current": null,
+   "context": "</script>\n\n<template>\n\t<Dialog v-model=\"show\" :options=\"{ title: __('Connect to ClickHouse') }\">\n\t\t<template #body-content>\n\t\t\t<Form\n\t\t\t\tref=\"form\""
+  },
+  {
+   "key": "Connect to ClickHouse database",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:60"
+   ],
+   "current": null,
+   "context": "\t{\n\t\tlabel: __('ClickHouse'),\n\t\ticon: getDatabaseLogo('ClickHouse'),\n\t\tdescription: __('Connect to ClickHouse database'),\n\t\tonClick: () => {\n\t\t\tshowNewSourceDialog.value = false\n\t\t\tshowNewClickHouseDialog.value = true"
+  },
+  {
+   "key": "Connect to DuckDB",
+   "refs": [
+    "insights/frontend/src2/data_source/ConnectDuckDBDialog.vue:95"
+   ],
+   "current": null,
+   "context": "</script>\n\n<template>\n\t<Dialog v-model=\"show\" :options=\"{ title: __('Connect to DuckDB') }\">\n\t\t<template #body-content>\n\t\t\t<Form\n\t\t\t\tref=\"form\""
+  },
+  {
+   "key": "Connect to DuckDB database",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:69"
+   ],
+   "current": null,
+   "context": "\t{\n\t\tlabel: __('DuckDB'),\n\t\ticon: getDatabaseLogo('DuckDB'),\n\t\tdescription: __('Connect to DuckDB database'),\n\t\tonClick: () => {\n\t\t\tshowNewSourceDialog.value = false\n\t\t\tshowNewDuckDBDialog.value = true"
+  },
+  {
+   "key": "Connect to MariaDB",
+   "refs": [
+    "insights/frontend/src2/data_source/ConnectMariaDBDialog.vue:120"
+   ],
+   "current": null,
+   "context": "\t\tlabel: __('Add Data Source'),\n\t\tdisabled: form.value?.hasRequiredFields === false || !connected.value || sources.creating,\n\t\tloading: sources.creating,\n\t\tvariant: connected.value ? 'solid' : 'subtle',\n\t\tonClick() {\n\t\t\tsources.createDataSource(database.value).then(() => {\n\t\t\t\tshow.value = false"
+  },
+  {
+   "key": "Connect to MariaDB database",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:42"
+   ],
+   "current": null,
+   "context": "\t{\n\t\tlabel: __('MariaDB'),\n\t\ticon: getDatabaseLogo('MariaDB'),\n\t\tdescription: __('Connect to MariaDB database'),\n\t\tonClick: () => {\n\t\t\tshowNewSourceDialog.value = false\n\t\t\tshowNewMariaDBDialog.value = true"
+  },
+  {
+   "key": "Connect to PostgreSQL",
+   "refs": [
+    "insights/frontend/src2/data_source/ConnectPostgreSQLDialog.vue:128"
+   ],
+   "current": null,
+   "context": "\t\tlabel: __('Add Data Source'),\n\t\tdisabled: form.value?.hasRequiredFields === false || !connected.value || sources.creating,\n\t\tloading: sources.creating,\n\t\tvariant: connected.value ? 'solid' : 'subtle',\n\t\tonClick() {\n\t\t\tsources.createDataSource(database.value).then(() => {\n\t\t\t\tshow.value = false"
+  },
+  {
+   "key": "Connect to PostgreSQL database",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:51"
+   ],
+   "current": null,
+   "context": "\t{\n\t\tlabel: __('PostgreSQL'),\n\t\ticon: getDatabaseLogo('PostgreSQL'),\n\t\tdescription: __('Connect to PostgreSQL database'),\n\t\tonClick: () => {\n\t\t\tshowNewSourceDialog.value = false\n\t\t\tshowNewPostgreSQLDialog.value = true"
+  },
+  {
+   "key": "Connection String",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source/insights_data_source.json",
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"connection_string\",\n   \"fieldtype\": \"Small Text\",\n   \"label\": \"Connection String\"\n  }\n ],\n \"index_web_pages_for_search\": 1,"
+  },
+  {
+   "key": "contains",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:174"
+   ],
+   "current": null,
+   "context": "]\n\nconst textOperatorOptions = [\n\t{ label: __('contains'), value: 'contains' as TextOperator },\n\t{ label: __('does not contain'), value: 'not_contains' as TextOperator },\n\t{ label: __('starts with'), value: 'starts_with' as TextOperator },\n\t{ label: __('ends with'), value: 'ends_with' as TextOperator },"
+  },
+  {
+   "key": "Convert to Expression",
+   "refs": [
+    "insights/frontend/src2/query/components/FiltersSelector.vue:113"
+   ],
+   "current": null,
+   "context": "\t\t\t\t:options=\"[\n\t\t\t\t\t!props.disableExpressions\n\t\t\t\t\t\t? {\n\t\t\t\t\t\t\t\tlabel: __('Convert to Expression'),\n\t\t\t\t\t\t\t\tonClick: () => {\n\t\t\t\t\t\t\t\t\tfilterGroup.filters[i] = { expression: expression('') }\n\t\t\t\t\t\t\t\t},"
+  },
+  {
+   "key": "Copy JSON",
+   "refs": [
+    "insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:60",
+    "insights/frontend/src2/workbook/WorkbookNavbarActions.vue:66"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => (showViewSQLDialog.value = true),\n\t},\n\t{\n\t\tlabel: __('Copy JSON'),\n\t\ticon: h(Copy, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\tonClick: () => props.chart.copy(),\n\t},"
+  },
+  {
+   "key": "Copy Query",
+   "refs": [
+    "insights/frontend/src2/query/components/QueryToolbar.vue:50"
+   ],
+   "current": null,
+   "context": "\t\t\tonClick: () => query.duplicate(),\n\t\t},\n\t\t{\n\t\t\tlabel: __('Copy Query'),\n\t\t\ticon: h(Copy, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\t\tonClick: () => query.copy(),\n\t\t},"
+  },
+  {
+   "key": "Count of...",
+   "refs": [
+    "insights/frontend/src2/charts/components/MeasurePicker.vue:136"
+   ],
+   "current": null,
+   "context": "function updateMeasure(measureExpression: ExpressionMeasure) {\n\tmeasure.value = {\n\t\texpression: measureExpression.expression,\n\t\tmeasure_name: measureExpression.measure_name,\n\t\tdata_type: measureExpression.data_type,\n\t\tformat: measure.value.format,\n\t}"
+  },
+  {
+   "key": "Create a workbook, or start from a prebuilt one.",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookList.vue:199"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<ListEmptyState v-else-if=\"!workbookStore.loading\">\n\t\t\t\t\t<div class=\"text-xl font-medium text-ink-gray-8\">\n\t\t\t\t\t\t{{ __('No Workbooks') }}\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"mt-1 text-base text-ink-gray-5\">\n\t\t\t\t\t\t{{\n\t\t\t\t\t\t\ttemplates.length"
+  },
+  {
+   "key": "Create Alert",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:129"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tonClick: toggleAlert,\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\tlabel: alert.islocal ? __('Create Alert') : __('Update Alert'),\n\t\t\t\t\tvariant: 'solid',\n\t\t\t\t\tdisabled: !isValidAlert || !alert.isdirty || alert.saving || alert.loading,\n\t\t\t\t\tloading: alert.saving,"
+  },
+  {
+   "key": "Create Measure",
+   "refs": [
+    "insights/frontend/src2/charts/components/NewMeasureSelectorDialog.vue:97"
+   ],
+   "current": null,
+   "context": "\t\t\t<div class=\"bg-white px-4 pb-6 pt-5 sm:px-6\">\n\t\t\t\t<div class=\"flex items-center justify-between pb-4\">\n\t\t\t\t\t<h3 class=\"text-2xl font-semibold leading-6 text-gray-900\">\n\t\t\t\t\t\t{{ __('Create Measure') }}\n\t\t\t\t\t</h3>\n\t\t\t\t\t<Button variant=\"ghost\" @click=\"showDialog = false\" icon=\"x\" size=\"md\" />\n\t\t\t\t</div>"
+  },
+  {
+   "key": "Create Team",
+   "refs": [
+    "insights/frontend/src2/settings/PermissionsSettings.vue:67",
+    "insights/frontend/src2/teams/CreateTeamDialog.vue:15",
+    "insights/frontend/src2/teams/TeamList.vue:65"
+   ],
+   "current": null,
+   "context": "\t\t\tdescription: __('No teams to display.'),\n\t\t\tbutton: session.user.is_admin\n\t\t\t\t? {\n\t\t\t\t\t\tlabel: __('Create Team'),\n\t\t\t\t\t\tvariant: 'solid',\n\t\t\t\t\t\tonClick: () => (showCreateTeamDialog.value = true),\n\t\t\t\t  }"
+  },
+  {
+   "key": "Cron expression to schedule the script. Note: The scheduler checks for jobs every hour.",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.json"
+   ],
+   "current": null,
+   "context": "   \"reqd\": 1\n  },\n  {\n   \"description\": \"Cron expression to schedule the script. Note: The scheduler checks for jobs every hour.\",\n   \"fieldname\": \"schedule\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Schedule (Cron)\""
+  },
+  {
+   "key": "CumulativeSum",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_transform/insights_query_transform.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Type\",\n   \"options\": \"Pivot\\nUnpivot\\nTranspose\\nCumulativeSum\"\n  },\n  {\n   \"default\": \"{}\","
+  },
+  {
+   "key": "Cursor Column",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Temporal column used to detect rows that changed since the last sync. Use <b>modified</b> for mutable tables and <b>creation</b> for append-only tables.\",\n   \"fieldname\": \"sync_cursor_column\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Cursor Column\",\n   \"mandatory_depends_on\": \"eval:doc.sync_mode == 'Incremental'\"\n  },\n  {"
+  },
+  {
+   "key": "Custom Condition",
+   "refs": [
+    "insights/insights/insights/doctype/insights_alert/insights_alert.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"custom_condition\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Custom Condition\"\n  }\n ],\n \"index_web_pages_for_search\": 1,"
+  },
+  {
+   "key": "Custom Headers",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Custom headers for API requests. Sent with every request, so a key belongs here rather than in the URL.\",\n   \"fieldname\": \"api_custom_headers\",\n   \"fieldtype\": \"JSON\",\n   \"label\": \"Custom Headers\",\n   \"permlevel\": 1\n  },\n  {"
+  },
+  {
+   "key": "Custom headers for API requests (non-sensitive data only)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Custom Join Condition",
+   "refs": [
+    "insights/frontend/src2/query/components/JoinSelectorDialog.vue:316"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t<template v-else-if=\"'join_expression' in join.join_condition\">\n\t\t\t\t\t\t\t\t<div class=\"flex-1\">\n\t\t\t\t\t\t\t\t\t<label class=\"mb-1 block text-xs text-gray-600\"\n\t\t\t\t\t\t\t\t\t\t>{{ __('Custom Join Condition') }}\n\t\t\t\t\t\t\t\t\t</label>\n\t\t\t\t\t\t\t\t\t<InlineExpression\n\t\t\t\t\t\t\t\t\t\tv-model=\"join.join_condition.join_expression\""
+  },
+  {
+   "key": "Custom Operation",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:80"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => (showPivotSelectorDialog.value = true),\n\t},\n\t{\n\t\tlabel: __('Custom Operation'),\n\t\tdescription: __('Apply a custom operation using python script'),\n\t\ticon: query_operation_types.custom_operation.icon,\n\t\tonClick: () => (showCustomScriptDialog.value = true),"
+  },
+  {
+   "key": "Dashboard Access Updated",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardShareDialog.vue:48"
+   ],
+   "current": null,
+   "context": "\t})\n\tcreateToast({\n\t\tvariant: 'success',\n\t\ttitle: __('Dashboard Access Updated'),\n\t})\n\tshow.value = false\n}"
+  },
+  {
+   "key": "Dashboards shared with you will show up here.",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardList.vue:80"
+   ],
+   "current": null,
+   "context": "\t\tcase 'shared':\n\t\t\treturn {\n\t\t\t\ttitle: __('Nothing here'),\n\t\t\t\tsubtitle: __('Dashboards shared with you will show up here.'),\n\t\t\t}\n\t\tdefault:\n\t\t\treturn {"
+  },
+  {
+   "key": "Dashboards you open will show up here.",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardList.vue:70"
+   ],
+   "current": null,
+   "context": "\t\tcase 'recents':\n\t\t\treturn {\n\t\t\t\ttitle: __('No Recents'),\n\t\t\t\tsubtitle: __('Dashboards you open will show up here.'),\n\t\t\t}\n\t\tcase 'created':\n\t\t\treturn {"
+  },
+  {
+   "key": "Data Backup",
+   "refs": [
+    "insights/insights/insights/doctype/insights_workbook/insights_workbook.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"data_backup\",\n   \"fieldtype\": \"JSON\",\n   \"hidden\": 1,\n   \"label\": \"Data Backup\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Data Query",
+   "refs": [
+    "insights/insights/insights/doctype/insights_chart_v3/insights_chart_v3.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"data_query\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Data Query\",\n   \"options\": \"Insights Query v3\",\n   \"read_only\": 1,\n   \"search_index\": 1"
+  },
+  {
+   "key": "Data Sources",
+   "refs": [
+    "insights/frontend/src2/components/AppSidebar.vue:84",
+    "insights/frontend/src2/data_source/DataSourceList.vue:146",
+    "insights/frontend/src2/data_source/DataSourceTable.vue:25",
+    "insights/frontend/src2/data_source/DataSourceTableList.vue:65"
+   ],
+   "current": null,
+   "context": "// and not on a route, so this is the only way another app - v2 - can link into\n// one. The param is cleared, or a reload would reopen the dialog.\nconst route = useRoute()\nconst router = useRouter()\nonMounted(() => {\n\tconst tab = route.query.settings\n\tif (!tab) return"
+  },
+  {
+   "key": "Data Sources | Insights",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:141"
+   ],
+   "current": null,
+   "context": "\t},\n})\n\ndocument.title = __('Data Sources | Insights')\n</script>\n\n<template>"
+  },
+  {
+   "key": "Data Store",
+   "refs": [
+    "insights/frontend/src2/components/AppSidebar.vue:89",
+    "insights/frontend/src2/data_store/DataStoreList.vue:75",
+    "insights/frontend/src2/settings/Settings.vue:43",
+    "insights/insights/insights/doctype/insights_query_execution_log/insights_query_execution_log.json"
+   ],
+   "current": null,
+   "context": "\tconst tab = route.query.settings\n\tif (!tab) return\n\tsettingsTab.value = String(tab)\n\t// Only v2 links in, so the param is the whole of what \"came from v2\" means.\n\tsettingsOpenedFrom.value = 'v2'\n\tshowSettingsDialog.value = true\n\tconst query = { ...route.query }"
+  },
+  {
+   "key": "Data Type",
+   "refs": [
+    "insights/frontend/src2/charts/components/NewMeasureSelectorDialog.vue:120"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t<FormControl\n\t\t\t\t\t\t\ttype=\"select\"\n\t\t\t\t\t\t\tclass=\"flex-1\"\n\t\t\t\t\t\t\t:label=\"__('Data Type')\"\n\t\t\t\t\t\t\tautocomplete=\"off\"\n\t\t\t\t\t\t\t:options=\"columnTypes\"\n\t\t\t\t\t\t\tv-model=\"newMeasure.type\""
+  },
+  {
+   "key": "Database Name",
+   "refs": [
+    "insights/frontend/src2/data_source/ConnectClickhouseDialog.vue:49",
+    "insights/frontend/src2/data_source/ConnectMariaDBDialog.vue:49",
+    "insights/frontend/src2/data_source/ConnectPostgreSQLDialog.vue:50",
+    "insights/insights/insights/doctype/insights_data_source/insights_data_source.json",
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "\t\tdefaultValue: 8123,\n\t},\n\t{\n\t\tlabel: __('Database Name'),\n\t\tname: 'database_name',\n\t\ttype: 'text',\n\t\tplaceholder: 'DB_1267891',"
+  },
+  {
+   "key": "Database Type",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source/insights_data_source.json",
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"database_type\",\n   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Database Type\",\n   \"options\": \"MariaDB\\nPostgreSQL\\nSQLite\"\n  },\n  {"
+  },
+  {
+   "key": "Date Rules",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:234"
+   ],
+   "current": null,
+   "context": "\t}\n\n\tif (['Date', 'Datetime', 'Time'].includes(columnType.value || '')) {\n\t\toptions.push({ label: __('Date Rules'), value: 'date_rules' })\n\t}\n\n\treturn options"
+  },
+  {
+   "key": "Decimal",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_column/insights_table_column.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Type\",\n   \"options\": \"Integer\\nLong Int\\nDecimal\\nText\\nLong Text\\nDate\\nDatetime\\nTime\\nString\",\n   \"reqd\": 1\n  }\n ],"
+  },
+  {
+   "key": "Demo Data Ready",
+   "refs": [
+    "insights/frontend/src2/components/DemoDataBanner.vue:26",
+    "insights/frontend/src2/settings/GeneralSettings.vue:22"
+   ],
+   "current": null,
+   "context": "\t\tawait call('insights.setup.setup_wizard.setup_demo_data')\n\t\tsession.user.has_demo_data = true\n\t\tcreateToast({\n\t\t\ttitle: __('Demo Data Ready'),\n\t\t\tmessage: __('Sample data with workbook has been set up successfully'),\n\t\t\tvariant: 'success',\n\t\t})"
+  },
+  {
+   "key": "desc",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_column/insights_query_column.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"order_by\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Order By\",\n   \"options\": \"\\nasc\\ndesc\"\n  },\n  {\n   \"depends_on\": \"aggregation_condition\","
+  },
+  {
+   "key": "Disable Alert",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:123"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tonClick: testSendAlert,\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\tlabel: alert.doc.disabled ? __('Enable Alert') : __('Disable Alert'),\n\t\t\t\t\tdisabled: alert.loading || alert.saving,\n\t\t\t\t\tloading: alert.loading,\n\t\t\t\t\tonClick: toggleAlert,"
+  },
+  {
+   "key": "does not contain",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:175"
+   ],
+   "current": null,
+   "context": "\nconst textOperatorOptions = [\n\t{ label: __('contains'), value: 'contains' as TextOperator },\n\t{ label: __('does not contain'), value: 'not_contains' as TextOperator },\n\t{ label: __('starts with'), value: 'starts_with' as TextOperator },\n\t{ label: __('ends with'), value: 'ends_with' as TextOperator },\n\t{ label: __('equals'), value: 'equals_text' as TextOperator },"
+  },
+  {
+   "key": "does not equal",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:179"
+   ],
+   "current": null,
+   "context": "\t{ label: __('starts with'), value: 'starts_with' as TextOperator },\n\t{ label: __('ends with'), value: 'ends_with' as TextOperator },\n\t{ label: __('equals'), value: 'equals_text' as TextOperator },\n\t{ label: __('does not equal'), value: 'not_equals_text' as TextOperator },\n\t{ label: __('is empty'), value: 'is_empty' as TextOperator },\n\t{ label: __('is not empty'), value: 'is_not_empty' as TextOperator },\n]"
+  },
+  {
+   "key": "Drill Down",
+   "refs": [
+    "insights/frontend/src2/charts/components/DrillDown.vue:60"
+   ],
+   "current": null,
+   "context": "\t<Dialog\n\t\tv-model=\"show\"\n\t\t:options=\"{\n\t\t\ttitle: __('Drill Down'),\n\t\t\tsize: '5xl',\n\t\t}\"\n\t>"
+  },
+  {
+   "key": "Drop Duplicates",
+   "refs": [
+    "insights/frontend/src2/query/components/UnionSelectorDialog.vue:139"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<div>\n\t\t\t\t\t\t<FormControl\n\t\t\t\t\t\t\ttype=\"select\"\n\t\t\t\t\t\t\t:label=\"__('Drop Duplicates')\"\n\t\t\t\t\t\t\t:modelValue=\"union.distinct ? 'true' : 'false'\"\n\t\t\t\t\t\t\t@update:modelValue=\"union.distinct = $event === 'true'\"\n\t\t\t\t\t\t\t:options=\"["
+  },
+  {
+   "key": "DuckDB",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:67",
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "\t\t},\n\t},\n\t{\n\t\tlabel: __('DuckDB'),\n\t\ticon: getDatabaseLogo('DuckDB'),\n\t\tdescription: __('Connect to DuckDB database'),\n\t\tonClick: () => {"
+  },
+  {
+   "key": "Duplicate Chart",
+   "refs": [
+    "insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:44"
+   ],
+   "current": null,
+   "context": "\t\tcondition: () => !props.chart.doc.read_only,\n\t},\n\t{\n\t\tlabel: __('Duplicate Chart'),\n\t\ticon: h(CopyPlus, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\tonClick: () => props.chart.duplicate(),\n\t},"
+  },
+  {
+   "key": "Duplicate Query",
+   "refs": [
+    "insights/frontend/src2/query/components/QueryToolbar.vue:45"
+   ],
+   "current": null,
+   "context": "\t\t\tonClick: () => (showViewSQLDialog.value = true),\n\t\t},\n\t\t{\n\t\t\tlabel: __('Duplicate Query'),\n\t\t\ticon: h(CopyPlus, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\t\tonClick: () => query.duplicate(),\n\t\t},"
+  },
+  {
+   "key": "Duration (Seconds)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"time_taken\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Duration (Seconds)\",\n   \"non_negative\": 1,\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "e.g. 0 0 12 * * ?",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:165"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t:label=\"__('Cron')\"\n\t\t\t\t\t\t\tv-model=\"alert.doc.cron_format\"\n\t\t\t\t\t\t\t:placeholder=\"__('e.g. 0 0 12 * * ?')\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"flex flex-1 flex-col gap-3\">"
+  },
+  {
+   "key": "e.g. 123456789",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:190"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t:label=\"__('Telegram Chat ID')\"\n\t\t\t\t\t\t\tv-model=\"alert.doc.telegram_chat_id\"\n\t\t\t\t\t\t\t:placeholder=\"__('e.g. 123456789')\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t</div>\n\t\t\t\t</div>"
+  },
+  {
+   "key": "e.g. api_key",
+   "refs": [
+    "insights/frontend/src2/components/VariablesDialog.vue:99"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t\tclass=\"w-full rounded-sm border-none bg-transparent px-2 py-2 text-base focus:bg-gray-100 focus:outline-none focus:ring-0\"\n\t\t\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t\t\tv-model=\"variable.variable_name\"\n\t\t\t\t\t\t\t\t\t:placeholder=\"__('e.g. api_key')\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"flex flex-1 flex-shrink-0\">"
+  },
+  {
+   "key": "e.g. john@example.com, henry@example.com",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:183"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t:label=\"__('Recipients')\"\n\t\t\t\t\t\t\tv-model=\"alert.doc.recipients\"\n\t\t\t\t\t\t\t:placeholder=\"__('e.g. john@example.com, henry@example.com')\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<FormControl\n\t\t\t\t\t\t\tv-if=\"alert.doc.channel === 'Telegram'\""
+  },
+  {
+   "key": "e.g. Low Inventory",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:146"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t:label=\"__('Alert Name')\"\n\t\t\t\t\t\t\tv-model=\"alert.doc.title\"\n\t\t\t\t\t\t\t:placeholder=\"__('e.g. Low Inventory')\"\n\t\t\t\t\t\t/>\n\t\t\t\t\t\t<FormControl\n\t\t\t\t\t\t\ttype=\"select\""
+  },
+  {
+   "key": "edges",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookLineageDialog.vue:158"
+   ],
+   "current": null,
+   "context": "\t\t\t<div class=\"mb-3 flex items-center gap-2\">\n\t\t\t\t<span class=\"text-sm text-gray-500\">\n\t\t\t\t\t{{ visibleNodes.length }} {{ __('nodes') }}, {{ visibleEdges.length }}\n\t\t\t\t\t{{ __('edges') }}\n\t\t\t\t</span>\n\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<FormControl"
+  },
+  {
+   "key": "Edit Text",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardText.vue:24"
+   ],
+   "current": null,
+   "context": "\t\t:modelValue=\"dashboard.isEditingItem(props.item)\"\n\t\t@update:modelValue=\"!$event ? (dashboard.editingItemIndex = undefined) : true\"\n\t\t:options=\"{\n\t\t\ttitle: __('Edit Text'),\n\t\t\tactions: [\n\t\t\t\t{\n\t\t\t\t\tlabel: __('Save'),"
+  },
+  {
+   "key": "Empty - Click 'Add Filter' to add a filter",
+   "refs": [
+    "insights/frontend/src2/query/components/FiltersSelector.vue:134"
+   ],
+   "current": null,
+   "context": "\t\t</div>\n\t</div>\n\t<div v-else class=\"mb-3 flex h-7 items-center px-0 text-sm text-gray-600\">\n\t\t{{ __(\"Empty - Click 'Add Filter' to add a filter\") }}\n\t</div>\n\t<div class=\"mt-2 flex items-center justify-between gap-2\">\n\t\t<Button @click=\"addFilter\" :label=\"__('Add Filter')\">"
+  },
+  {
+   "key": "Enable Alert",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:123"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tonClick: testSendAlert,\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\tlabel: alert.doc.disabled ? __('Enable Alert') : __('Disable Alert'),\n\t\t\t\t\tdisabled: alert.loading || alert.saving,\n\t\t\t\t\tloading: alert.loading,\n\t\t\t\t\tonClick: toggleAlert,"
+  },
+  {
+   "key": "Enable Data Store",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"1\",\n   \"fieldname\": \"enable_data_store\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Data Store\"\n  },\n  {\n   \"default\": \"1\","
+  },
+  {
+   "key": "Enable Permissions",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"enable_permissions\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Permissions\"\n  },\n  {\n   \"default\": \"1\","
+  },
+  {
+   "key": "Enable Stored Procedure Execution",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:[\\\"MariaDB\\\", \\\"PostgreSQL\\\", \\\"MSSQL\\\"].includes(doc.database_type)\",\n   \"fieldname\": \"enable_stored_procedure_execution\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Stored Procedure Execution\"\n  },\n  {\n   \"depends_on\": \"eval:doc.database_type == 'PostgreSQL'\","
+  },
+  {
+   "key": "ends with",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:177"
+   ],
+   "current": null,
+   "context": "\t{ label: __('contains'), value: 'contains' as TextOperator },\n\t{ label: __('does not contain'), value: 'not_contains' as TextOperator },\n\t{ label: __('starts with'), value: 'starts_with' as TextOperator },\n\t{ label: __('ends with'), value: 'ends_with' as TextOperator },\n\t{ label: __('equals'), value: 'equals_text' as TextOperator },\n\t{ label: __('does not equal'), value: 'not_equals_text' as TextOperator },\n\t{ label: __('is empty'), value: 'is_empty' as TextOperator },"
+  },
+  {
+   "key": "Enqueue",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.js:6"
+   ],
+   "current": null,
+   "context": "\nfrappe.ui.form.on(\"Insights Table Import Job\", {\n\trefresh(frm) {\n\t\tfrm.add_custom_button(__(\"Enqueue\"), () => {\n\t\t\tfrm.call(\"enqueue\");\n\t\t});\n"
+  },
+  {
+   "key": "Enter filename",
+   "refs": [
+    "insights/frontend/src2/components/ExportDialog.vue:60"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t:label=\"__('Filename')\"\n\t\t\t\t\t\tv-model=\"filename\"\n\t\t\t\t\t\t:placeholder=\"__('Enter filename')\"\n\t\t\t\t\t\tclass=\"w-44\"\n\t\t\t\t\t/>\n\t\t\t\t</div>"
+  },
+  {
+   "key": "Enter filter label...",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardFilterEditor.vue:190"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t\tclass=\"flex-1\"\n\t\t\t\t\t\t\t\t\t:label=\"__('Label')\"\n\t\t\t\t\t\t\t\t\tv-model=\"filter.filter_name\"\n\t\t\t\t\t\t\t\t\t:placeholder=\"__('Enter filter label...')\"\n\t\t\t\t\t\t\t\t\tautocomplete=\"off\"\n\t\t\t\t\t\t\t\t/>\n\t\t\t\t\t\t\t\t<FormControl"
+  },
+  {
+   "key": "Enter text",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:443"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t:label=\"'Text Value'\"\n\t\t\t\t\t\t:modelValue=\"(format as text_rules).value\"\n\t\t\t\t\t\t:placeholder=\"__('Enter text')\"\n\t\t\t\t\t\t@update:modelValue=\"format.value = $event\"\n\t\t\t\t\t/>\n\t\t\t\t</template>"
+  },
+  {
+   "key": "Enter the URL of the DuckDB file",
+   "refs": [
+    "insights/frontend/src2/data_source/ConnectDuckDBDialog.vue:33"
+   ],
+   "current": null,
+   "context": "\t\ttype: 'text',\n\t\tplaceholder: 'https://example.com/file.duckdb',\n\t\trequired: true,\n\t\tdescription: __('Enter the URL of the DuckDB file'),\n\t},\n]\n"
+  },
+  {
+   "key": "Enter your text content here...",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardText.vue:52"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t:content=\"editedText\"\n\t\t\t\t\teditor-class=\"min-h-[8rem] h-auto prose-sm cursor-text bg-gray-100 rounded p-2\"\n\t\t\t\t\t@change=\"editedText = $event\"\n\t\t\t\t\t:placeholder=\"__('Enter your text content here...')\"\n\t\t\t\t/>\n\t\t\t\t<p class=\"text-xs text-gray-500\">{{ __('Markdown supported') }}</p>\n\t\t\t</div>"
+  },
+  {
+   "key": "Execute ({0})",
+   "refs": [
+    "insights/frontend/src2/query/components/QueryToolbar.vue:68"
+   ],
+   "current": null,
+   "context": "\t<div class=\"flex w-full flex-shrink-0 items-center justify-between bg-white\">\n\t\t<slot />\n\t\t<div class=\"flex items-center gap-2\">\n\t\t\t<Tooltip :text=\"__('Execute ({0})', formatShortcut('Meta+E'))\">\n\t\t\t\t<Button variant=\"outline\" :label=\"__('Execute')\" @click=\"handleExecute\">\n\t\t\t\t\t<template #prefix>\n\t\t\t\t\t\t<PlayIcon class=\"h-3.5 w-3.5 text-gray-700\" stroke-width=\"1.5\" />"
+  },
+  {
+   "key": "Execution Count",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:80"
+   ],
+   "current": null,
+   "context": "\t\ts.total_sync_time,\n\t)}</td></tr>\n    <tr><td>${__(\"Failed Syncs\")}</td><td>${fmt_num(s.failed_syncs)}</td></tr>\n  </table>\n  <h5 style=\"line-height: 24px; margin-bottom: 0px;\">${__(\"Usage\")}</h5>\n  <table class=\"table table-condensed table-bordered\" style=\"margin-top: 8px;\">\n    <tr><td>${__(\"Last Executed On\")}</td><td>${fmt_dt("
+  },
+  {
+   "key": "Execution Failed",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "   \"in_list_view\": 1,\n   \"in_standard_filter\": 1,\n   \"label\": \"Status\",\n   \"options\": \"Pending Execution\\nExecution Successful\\nExecution Failed\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Execution Successful",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "   \"in_list_view\": 1,\n   \"in_standard_filter\": 1,\n   \"label\": \"Status\",\n   \"options\": \"Pending Execution\\nExecution Successful\\nExecution Failed\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Execution Time (seconds)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"execution_time\",\n   \"fieldtype\": \"Float\",\n   \"label\": \"Execution Time (seconds)\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Export as PNG",
+   "refs": [
+    "insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:32",
+    "insights/frontend/src2/dashboard/Dashboard.vue:61",
+    "insights/frontend/src2/dashboard/DashboardBuilder.vue:156"
+   ],
+   "current": null,
+   "context": "\nconst moreActions = [\n\t{\n\t\tlabel: __('Export as PNG'),\n\t\ticon: h(ImageDown, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\tonClick: () => props.onDownload(),\n\t\tcondition: () => !!props.chartEl,"
+  },
+  {
+   "key": "Export Format",
+   "refs": [
+    "insights/frontend/src2/components/ExportDialog.vue:44"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t<FormControl\n\t\t\t\t\t\t\t\tclass=\"w-32\"\n\t\t\t\t\t\t\t\ttype=\"select\"\n\t\t\t\t\t\t\t\t:label=\"__('Export Format')\"\n\t\t\t\t\t\t\t\t:options=\"[\n\t\t\t\t\t\t\t\t\t{ label: __('CSV'), value: 'csv' },\n\t\t\t\t\t\t\t\t\t{ label: __('Excel'), value: 'excel' },"
+  },
+  {
+   "key": "Failed Syncs",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:73"
+   ],
+   "current": null,
+   "context": "\t\ts.last_import_rows,\n\t)}</td></tr>\n    <tr><td>${__(\"Last Import Duration\")}</td><td>${fmt_dur(\n\t\ts.last_import_duration,\n\t)}</td></tr>\n    <tr><td>${__(\"Total Syncs\")}</td><td>${fmt_num(s.total_syncs)}</td></tr>\n    <tr><td>${__(\"Total Sync Time\")}</td><td>${fmt_dur("
+  },
+  {
+   "key": "Failed to format SQL",
+   "refs": [
+    "insights/frontend/src2/query/components/NativeQueryEditor.vue:55"
+   ],
+   "current": null,
+   "context": "\t\t})\n\t} catch (error) {\n\t\tcreateToast({\n\t\t\ttitle: __('Failed to format SQL'),\n\t\t\tvariant: 'error',\n\t\t})\n\t} finally {"
+  },
+  {
+   "key": "Failed to import table",
+   "refs": [
+    "insights/frontend/src2/data_source/UploadCSVFileDialog.vue:72"
+   ],
+   "current": null,
+   "context": "\t\t.catch((error: any) => {\n\t\t\tcreateToast({\n\t\t\t\ttitle: __('Import Failed'),\n\t\t\t\tmessage: error?.message || __('Failed to import table'),\n\t\t\t\tvariant: 'error',\n\t\t\t})\n\t\t})"
+  },
+  {
+   "key": "Failed to import {0}",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookTemplates.vue:60"
+   ],
+   "current": null,
+   "context": "\t\t\t\tresult.dashboard\n\t\t\t\t\t? `/workbook/${result.workbook}/dashboard/${result.dashboard}`\n\t\t\t\t\t: `/workbook/${result.workbook}`,\n\t\t\t)\n\t\t})\n\t\t.catch(() => {\n\t\t\tcreateToast({"
+  },
+  {
+   "key": "Failed to process uploaded file",
+   "refs": [
+    "insights/frontend/src2/data_source/UploadCSVFileDialog.vue:38"
+   ],
+   "current": null,
+   "context": "\t\t.catch((error: any) => {\n\t\t\tcreateToast({\n\t\t\t\ttitle: __('Upload Failed'),\n\t\t\t\tmessage: error?.message || __('Failed to process uploaded file'),\n\t\t\t\tvariant: 'error',\n\t\t\t})\n\t\t\tfileUploaded.value = false"
+  },
+  {
+   "key": "Failed to setup demo data",
+   "refs": [
+    "insights/frontend/src2/components/DemoDataBanner.vue:33",
+    "insights/frontend/src2/settings/GeneralSettings.vue:29"
+   ],
+   "current": null,
+   "context": "\t} catch {\n\t\tcreateToast({\n\t\t\ttitle: __('Setup Failed'),\n\t\t\tmessage: __('Failed to setup demo data'),\n\t\t\tvariant: 'error',\n\t\t})\n\t} finally {"
+  },
+  {
+   "key": "Favorites",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardList.vue:22"
+   ],
+   "current": null,
+   "context": "const filterTabs: { label: string; value: DashboardFilter }[] = [\n\t{ label: __('All'), value: 'all' },\n\t{ label: __('Recents'), value: 'recents' },\n\t{ label: __('Favorites'), value: 'favorites' },\n\t{ label: __('Created'), value: 'created' },\n\t{ label: __('Shared'), value: 'shared' },\n]"
+  },
+  {
+   "key": "Fetched from cache",
+   "refs": [
+    "insights/frontend/src2/query/components/QueryExecutionStatus.vue:18",
+    "insights/frontend/src2/query/components/ScriptQueryEditor.vue:128"
+   ],
+   "current": null,
+   "context": "\t\t<div class=\"h-2 w-2 rounded-full bg-green-500\"></div>\n\t\t<div class=\"flex items-center gap-1\">\n\t\t\t<span v-if=\"query.result.timeTaken == -1\">\n\t\t\t\t{{ __('Fetched from cache') }}\n\t\t\t</span>\n\t\t\t<span v-else>\n\t\t\t\t{{ __('Fetched in {0}s', String(query.result.timeTaken)) }}"
+  },
+  {
+   "key": "Fetched in {0}s",
+   "refs": [
+    "insights/frontend/src2/query/components/QueryExecutionStatus.vue:21",
+    "insights/frontend/src2/query/components/ScriptQueryEditor.vue:129"
+   ],
+   "current": null,
+   "context": "\t\t\t\t{{ __('Fetched from cache') }}\n\t\t\t</span>\n\t\t\t<span v-else>\n\t\t\t\t{{ __('Fetched in {0}s', String(query.result.timeTaken)) }}\n\t\t\t</span>\n\t\t\t<span> {{ useTimeAgo(query.result.lastExecutedAt).value }} </span>\n\t\t</div>"
+  },
+  {
+   "key": "Filter Icon",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardFilterEditor.vue:237"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t<div v-else-if=\"tab.value === 'config'\" class=\"flex flex-col gap-4 pt-2\">\n\t\t\t\t\t\t\t<div class=\"flex flex-col gap-1.5 p-1\">\n\t\t\t\t\t\t\t\t<label class=\"block text-xs text-ink-gray-5\">{{\n\t\t\t\t\t\t\t\t\t__('Filter Icon')\n\t\t\t\t\t\t\t\t}}</label>\n\t\t\t\t\t\t\t\t<IconPicker v-model=\"filter.icon\" />\n\t\t\t\t\t\t\t</div>"
+  },
+  {
+   "key": "Filter Rows",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:44"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => (showColumnsSelectorDialog.value = true),\n\t},\n\t{\n\t\tlabel: __('Filter Rows'),\n\t\tdescription: __('Filter rows based on columns or expressions'),\n\t\ticon: query_operation_types.filter.icon,\n\t\tonClick: () => (showFiltersSelectorDialog.value = true),"
+  },
+  {
+   "key": "Filter rows based on columns or expressions",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:45"
+   ],
+   "current": null,
+   "context": "\t},\n\t{\n\t\tlabel: __('Filter Rows'),\n\t\tdescription: __('Filter rows based on columns or expressions'),\n\t\ticon: query_operation_types.filter.icon,\n\t\tonClick: () => (showFiltersSelectorDialog.value = true),\n\t},"
+  },
+  {
+   "key": "Fiscal Year Start",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"fiscal_year_start\",\n   \"fieldtype\": \"Date\",\n   \"label\": \"Fiscal Year Start\"\n  },\n  {\n   \"description\": \"Comma seperated URLs to whitelist for embedding charts & dashboards\","
+  },
+  {
+   "key": "Folder and item must belong to the same workbook",
+   "refs": [
+    "insights/insights/api/workbooks.py:301"
+   ],
+   "current": null,
+   "context": "        )\n        # move all charts to root\n        frappe.db.set_value(\n            \"Insights Chart v3\",\n            {\"folder\": folder_name},\n            \"folder\",\n            None,"
+  },
+  {
+   "key": "Force Refresh",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardBuilder.vue:151"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t:button=\"{ icon: 'more-horizontal', variant: 'outline' }\"\n\t\t\t\t\t\t:options=\"[\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: __('Force Refresh'),\n\t\t\t\t\t\t\t\ticon: RefreshCcw,\n\t\t\t\t\t\t\t\tonClick: () => dashboard.refresh(true),\n\t\t\t\t\t\t\t},"
+  },
+  {
+   "key": "Force Run",
+   "refs": [
+    "insights/frontend/src2/query/components/ScriptQueryEditor.vue:103"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t:button=\"{ icon: MoreHorizontal }\"\n\t\t\t\t\t:options=\"[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tlabel: __('Force Run'),\n\t\t\t\t\t\t\ticon: Play,\n\t\t\t\t\t\t\tonClick: () => query.execute(true),\n\t\t\t\t\t\t},"
+  },
+  {
+   "key": "Foreign Key",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_link/insights_table_link.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"foreign_key\",\n   \"fieldtype\": \"Data\",\n   \"in_list_view\": 1,\n   \"label\": \"Foreign Key\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Foreign Table",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_link/insights_table_link.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"foreign_table\",\n   \"fieldtype\": \"Data\",\n   \"in_list_view\": 1,\n   \"label\": \"Foreign Table\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Foreign Table Label",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_link/insights_table_link.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"foreign_table_label\",\n   \"fieldtype\": \"Data\",\n   \"in_list_view\": 1,\n   \"label\": \"Foreign Table Label\"\n  },\n  {\n   \"fieldname\": \"primary_key\","
+  },
+  {
+   "key": "Format Option",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_column/insights_query_column.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"format_option\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Format Option\",\n   \"options\": \"JSON\"\n  },\n  {"
+  },
+  {
+   "key": "Format SQL",
+   "refs": [
+    "insights/frontend/src2/query/components/NativeQueryEditor.vue:65"
+   ],
+   "current": null,
+   "context": "\nconst extraActions = () => [\n\t{\n\t\tlabel: __('Format SQL'),\n\t\ticon: h(Wand2, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\tonClick: () => format(),\n\t},"
+  },
+  {
+   "key": "Generated SQL",
+   "refs": [
+    "insights/frontend/src2/query/components/ViewSQLDialog.vue:16"
+   ],
+   "current": null,
+   "context": "<template>\n\t<Dialog\n\t\tv-model=\"showDialog\"\n\t\t:options=\"{ title: __('Generated SQL'), size: '3xl' }\"\n\t\t:dismissable=\"true\"\n\t>\n\t\t<template #body-content>"
+  },
+  {
+   "key": "greater than",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:167"
+   ],
+   "current": null,
+   "context": "const operatorOptions = [\n\t{ label: __('equals'), value: '=' as ConditionalOperator },\n\t{ label: __('not equals'), value: '!=' as ConditionalOperator },\n\t{ label: __('greater than'), value: '>' as ConditionalOperator },\n\t{ label: __('greater than or equals'), value: '>=' as ConditionalOperator },\n\t{ label: __('less than'), value: '<' as ConditionalOperator },\n\t{ label: __('less than or equals'), value: '<=' as ConditionalOperator },"
+  },
+  {
+   "key": "greater than or equals",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:168"
+   ],
+   "current": null,
+   "context": "\t{ label: __('equals'), value: '=' as ConditionalOperator },\n\t{ label: __('not equals'), value: '!=' as ConditionalOperator },\n\t{ label: __('greater than'), value: '>' as ConditionalOperator },\n\t{ label: __('greater than or equals'), value: '>=' as ConditionalOperator },\n\t{ label: __('less than'), value: '<' as ConditionalOperator },\n\t{ label: __('less than or equals'), value: '<=' as ConditionalOperator },\n]"
+  },
+  {
+   "key": "Green-Red",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:213"
+   ],
+   "current": null,
+   "context": "\t\tvalue: 'Red-Green',\n\t},\n\t{\n\t\tlabel: __('Green-Red'),\n\t\tvalue: 'Green-Red',\n\t},\n]"
+  },
+  {
+   "key": "Group & Summarize",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:68"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => (showNewColumnSelectorDialog.value = true),\n\t},\n\t{\n\t\tlabel: __('Group & Summarize'),\n\t\tdescription: __('Group rows by columns and summarize the data'),\n\t\ticon: query_operation_types.summarize.icon,\n\t\tonClick: () => (showSummarySelectorDialog.value = true),"
+  },
+  {
+   "key": "Group rows by columns and summarize the data",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:69"
+   ],
+   "current": null,
+   "context": "\t},\n\t{\n\t\tlabel: __('Group & Summarize'),\n\t\tdescription: __('Group rows by columns and summarize the data'),\n\t\ticon: query_operation_types.summarize.icon,\n\t\tonClick: () => (showSummarySelectorDialog.value = true),\n\t},"
+  },
+  {
+   "key": "Highlight Cell",
+   "refs": [
+    "insights/frontend/src2/query/components/FormattingSelector.vue:59"
+   ],
+   "current": null,
+   "context": "\t\t\t\tv-model=\"selectedFormatMode\"\n\t\t\t\tlabel=\"Format Type\"\n\t\t\t\t:options=\"[\n\t\t\t\t\t{ label: __('Highlight Cell'), value: 'cell_rules' },\n\t\t\t\t\t{ label: __('Color Scale'), value: 'color_scale' },\n\t\t\t\t]\"\n\t\t\t>"
+  },
+  {
+   "key": "Horizontal",
+   "refs": [
+    "insights/frontend/src2/charts/components/SankeyChartConfigForm.vue:60"
+   ],
+   "current": null,
+   "context": "\t\t\t\tlabel=\"Orientation\"\n\t\t\t\ttype=\"select\"\n\t\t\t\t:options=\"[\n\t\t\t\t\t{ label: __('Horizontal'), value: 'horizontal' },\n\t\t\t\t\t{ label: __('Vertical'), value: 'vertical' },\n\t\t\t\t]\"\n\t\t\t/>"
+  },
+  {
+   "key": "HTTP Headers",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.database_type == 'DuckDB' && doc.database_name?.includes(\\\"http\\\")\",\n   \"fieldname\": \"http_headers\",\n   \"fieldtype\": \"JSON\",\n   \"label\": \"HTTP Headers\",\n   \"permlevel\": 1\n  },\n  {"
+  },
+  {
+   "key": "Import Failed",
+   "refs": [
+    "insights/frontend/src2/data_source/UploadCSVFileDialog.vue:71"
+   ],
+   "current": null,
+   "context": "\t\t})\n\t\t.catch((error: any) => {\n\t\t\tcreateToast({\n\t\t\t\ttitle: __('Import Failed'),\n\t\t\t\tmessage: error?.message || __('Failed to import table'),\n\t\t\t\tvariant: 'error',\n\t\t\t})"
+  },
+  {
+   "key": "Import Job",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"import_job\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Import Job\",\n   \"options\": \"Insights Table Import Job\"\n  }\n ],"
+  },
+  {
+   "key": "Import job has been queued",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:8"
+   ],
+   "current": null,
+   "context": "\trefresh: function (frm) {\n\t\t// __() substitutes {0} into a string that frappe.confirm and the dialog\n\t\t// title both append as HTML, so the label is escaped, not interpolated.\n\t\tconst table_label = frappe.utils.escape_html(\n\t\t\tfrm.doc.label || frm.doc.table,\n\t\t);\n"
+  },
+  {
+   "key": "Import Query",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"query\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Import Query\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Import Table",
+   "refs": [
+    "insights/frontend/src2/data_source/UploadCSVFileDialog.vue:96",
+    "insights/frontend/src2/data_store/DataStoreList.vue:61",
+    "insights/frontend/src2/data_store/DataStoreList.vue:79",
+    "insights/frontend/src2/data_store/ImportTableDialog.vue:59"
+   ],
+   "current": null,
+   "context": "\t<Dialog\n\t\tv-model=\"show\"\n\t\t:options=\"{\n\t\t\ttitle: csvData.tablename ? __('Import Table') : __('Upload CSV/Excel/JSON File'),\n\t\t\tsize: fileUploaded ? '4xl' : '',\n\t\t}\"\n\t>"
+  },
+  {
+   "key": "Import to Warehouse",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:6"
+   ],
+   "current": null,
+   "context": "\nfrappe.ui.form.on(\"Insights Table v3\", {\n\trefresh: function (frm) {\n\t\t// __() substitutes {0} into a string that frappe.confirm and the dialog\n\t\t// title both append as HTML, so the label is escaped, not interpolated.\n\t\tconst table_label = frappe.utils.escape_html(\n\t\t\tfrm.doc.label || frm.doc.table,"
+  },
+  {
+   "key": "Incremental",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"sync_mode\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Sync Mode\",\n   \"options\": \"Full\\nIncremental\"\n  },\n  {\n   \"default\": \"Append Only\","
+  },
+  {
+   "key": "India",
+   "refs": [
+    "insights/frontend/src2/charts/components/MapChartConfigForm.vue:55"
+   ],
+   "current": null,
+   "context": "\nconst map_options = [\n\t{ label: __('World Map'), value: 'world' },\n\t{ label: __('India'), value: 'india' },\n]\n\nconst showRegionMappingDialog = ref(false)"
+  },
+  {
+   "key": "Insights Admin",
+   "refs": [
+    "insights/insights/insights/doctype/insights_alert/insights_alert.json",
+    "insights/insights/insights/doctype/insights_chart_v3/insights_chart_v3.json",
+    "insights/insights/insights/doctype/insights_dashboard_v3/insights_dashboard_v3.json",
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json",
+    "insights/insights/insights/doctype/insights_folder/insights_folder.json",
+    "insights/insights/insights/doctype/insights_query_execution_log/insights_query_execution_log.json"
+   ],
+   "current": null,
+   "context": "   \"print\": 1,\n   \"read\": 1,\n   \"report\": 1,\n   \"role\": \"Insights Admin\",\n   \"share\": 1,\n   \"write\": 1\n  },"
+  },
+  {
+   "key": "Insights Alert",
+   "refs": [
+    "insights/insights/insights/doctype/insights_alert/insights_alert.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2025-03-21 15:42:02.011577\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Alert\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Chart",
+   "refs": [
+    "insights/insights/insights/doctype/insights_chart/insights_chart.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2024-06-09 19:24:28.025276\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Chart\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Chart v3",
+   "refs": [
+    "insights/insights/insights/doctype/insights_chart_v3/insights_chart_v3.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2025-10-18 02:38:53.314449\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Chart v3\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Dashboard",
+   "refs": [
+    "insights/insights/insights/doctype/insights_dashboard/insights_dashboard.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"items\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Items\",\n   \"options\": \"Insights Dashboard Item\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Insights Dashboard Chart v3",
+   "refs": [
+    "insights/insights/insights/doctype/insights_dashboard_chart_v3/insights_dashboard_chart_v3.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2025-03-19 14:51:30.724154\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Dashboard Chart v3\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"sort_field\": \"creation\","
+  },
+  {
+   "key": "Insights Dashboard Item",
+   "refs": [
+    "insights/insights/insights/doctype/insights_dashboard_item/insights_dashboard_item.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2024-01-09 12:53:46.364752\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Dashboard Item\",\n \"naming_rule\": \"Autoincrement\",\n \"owner\": \"Administrator\",\n \"permissions\": [],"
+  },
+  {
+   "key": "Insights Dashboard v3",
+   "refs": [
+    "insights/insights/insights/doctype/insights_dashboard_v3/insights_dashboard_v3.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2025-09-01 16:28:11.944860\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Dashboard v3\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Data Source",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source/insights_data_source.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2023-05-29 14:25:59.190544\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Data Source\",\n \"naming_rule\": \"By fieldname\",\n \"owner\": \"Administrator\",\n \"permissions\": ["
+  },
+  {
+   "key": "Insights Data Source v3",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-01-26 14:31:03.238213\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Data Source v3\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Folder",
+   "refs": [
+    "insights/insights/insights/doctype/insights_folder/insights_folder.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2025-10-18 02:24:37.839809\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Folder\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Notebook",
+   "refs": [
+    "insights/insights/insights/doctype/insights_notebook/insights_notebook.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2023-07-19 12:57:08.384599\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Notebook\",\n \"naming_rule\": \"Expression\",\n \"owner\": \"Administrator\",\n \"permissions\": ["
+  },
+  {
+   "key": "Insights Notebook Page",
+   "refs": [
+    "insights/insights/insights/doctype/insights_notebook_page/insights_notebook_page.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2024-02-29 19:23:47.822633\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Notebook Page\",\n \"naming_rule\": \"Expression (old style)\",\n \"owner\": \"Administrator\",\n \"permissions\": ["
+  },
+  {
+   "key": "Insights Query",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"columns\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Columns\",\n   \"options\": \"Insights Query Column\"\n  },\n  {\n   \"depends_on\": \"eval: !doc.is_native_query\","
+  },
+  {
+   "key": "Insights Query Chart",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_chart/insights_query_chart.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2022-10-23 13:31:40.223868\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Query Chart\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Query Column",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_column/insights_query_column.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2022-07-20 20:40:22.532890\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Query Column\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"sort_field\": \"modified\","
+  },
+  {
+   "key": "Insights Query Execution Log",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_execution_log/insights_query_execution_log.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-04-19 00:12:10.738307\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Query Execution Log\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Query Reference",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_reference/insights_query_reference.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-04-19 14:13:44.125880\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Query Reference\",\n \"naming_rule\": \"Random\",\n \"owner\": \"Administrator\",\n \"permissions\": ["
+  },
+  {
+   "key": "Insights Query Result",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_result/insights_query_result.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2024-01-20 13:16:23.766809\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Query Result\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Query Table",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_table/insights_query_table.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2022-06-08 13:09:07.003961\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Query Table\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"sort_field\": \"modified\","
+  },
+  {
+   "key": "Insights Query Transform",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_transform/insights_query_transform.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2023-12-02 14:08:17.355102\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Query Transform\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"sort_field\": \"modified\","
+  },
+  {
+   "key": "Insights Query v3",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_v3/insights_query_v3.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-04-19 14:06:26.149575\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Query v3\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Query Variable",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_variable/insights_query_variable.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2023-09-18 13:27:44.064362\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Query Variable\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"sort_field\": \"modified\","
+  },
+  {
+   "key": "Insights Resource Permission",
+   "refs": [
+    "insights/insights/insights/doctype/insights_resource_permission/insights_resource_permission.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2024-09-22 22:12:03.664642\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Resource Permission\",\n \"naming_rule\": \"Autoincrement\",\n \"owner\": \"Administrator\",\n \"permissions\": [],"
+  },
+  {
+   "key": "Insights Secret Key",
+   "refs": [
+    "insights/insights/insights/doctype/insights_secret_key/insights_secret_key.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-01-23 21:12:34.757683\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Secret Key\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"row_format\": \"Dynamic\","
+  },
+  {
+   "key": "Insights Settings",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-04-28 13:08:07.166485\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Settings\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Table",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table/insights_table.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"table_links\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Links\",\n   \"options\": \"Insights Table Link\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Insights Table Column",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_column/insights_table_column.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2022-10-18 10:03:54.280471\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Table Column\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"sort_field\": \"modified\","
+  },
+  {
+   "key": "Insights Table Import",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import/insights_table_import.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Link\",\n   \"label\": \"Amended From\",\n   \"no_copy\": 1,\n   \"options\": \"Insights Table Import\",\n   \"print_hide\": 1,\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Insights Table Import Job",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-01-29 13:16:15.575743\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Table Import Job\",\n \"naming_rule\": \"By fieldname\",\n \"owner\": \"Administrator\",\n \"permissions\": ["
+  },
+  {
+   "key": "Insights Table Import Log",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-01-26 17:39:07.945509\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Table Import Log\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Table Link",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_link/insights_table_link.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2023-10-21 16:18:57.220379\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Table Link\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"sort_field\": \"modified\","
+  },
+  {
+   "key": "Insights Table Link v3",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_link_v3/insights_table_link_v3.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2024-09-18 19:33:10.480353\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Table Link v3\",\n \"naming_rule\": \"Autoincrement\",\n \"owner\": \"Administrator\",\n \"permissions\": ["
+  },
+  {
+   "key": "Insights Table v3",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-09-16 12:00:00.000000\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Table v3\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Insights Team",
+   "refs": [
+    "insights/insights/insights/doctype/insights_team/insights_team.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"team_members\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Team Members\",\n   \"options\": \"Insights Team Member\"\n  },\n  {\n   \"fieldname\": \"team_permissions\","
+  },
+  {
+   "key": "Insights Team Member",
+   "refs": [
+    "insights/insights/insights/doctype/insights_team_member/insights_team_member.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2022-12-22 20:17:59.274364\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Team Member\",\n \"naming_rule\": \"Autoincrement\",\n \"owner\": \"Administrator\",\n \"permissions\": [],"
+  },
+  {
+   "key": "Insights User",
+   "refs": [
+    "insights/insights/insights/doctype/insights_alert/insights_alert.json",
+    "insights/insights/insights/doctype/insights_chart/insights_chart.json",
+    "insights/insights/insights/doctype/insights_chart_v3/insights_chart_v3.json",
+    "insights/insights/insights/doctype/insights_dashboard/insights_dashboard.json",
+    "insights/insights/insights/doctype/insights_dashboard_v3/insights_dashboard_v3.json",
+    "insights/insights/insights/doctype/insights_data_source/insights_data_source.json"
+   ],
+   "current": null,
+   "context": "   \"print\": 1,\n   \"read\": 1,\n   \"report\": 1,\n   \"role\": \"Insights User\",\n   \"share\": 1,\n   \"write\": 1\n  },"
+  },
+  {
+   "key": "Insights User Invitation",
+   "refs": [
+    "insights/insights/insights/doctype/insights_user_invitation/insights_user_invitation.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-08-25 00:00:00.000000\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights User Invitation\",\n \"naming_rule\": \"Autoincrement\",\n \"owner\": \"Administrator\",\n \"permissions\": ["
+  },
+  {
+   "key": "Insights Workbook",
+   "refs": [
+    "insights/insights/insights/doctype/insights_workbook/insights_workbook.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-08-06 10:12:33.482915\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights Workbook\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Integer",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_column/insights_table_column.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Type\",\n   \"options\": \"Integer\\nLong Int\\nDecimal\\nText\\nLong Text\\nDate\\nDatetime\\nTime\\nString\",\n   \"reqd\": 1\n  }\n ],"
+  },
+  {
+   "key": "Invitation Expired",
+   "refs": [
+    "insights/frontend/src2/settings/UsersSettings.vue:44",
+    "insights/frontend/src2/users/UserList.vue:44"
+   ],
+   "current": null,
+   "context": "\t\t\t\tif (user.invitation_status) {\n\t\t\t\t\treturn user.invitation_status === 'Pending'\n\t\t\t\t\t\t? __('Invitation Sent')\n\t\t\t\t\t\t: __('Invitation Expired')\n\t\t\t\t}\n\t\t\t\treturn props.row.enabled ? __('Enabled') : __('Disabled')\n\t\t\t},"
+  },
+  {
+   "key": "Invitation Sent",
+   "refs": [
+    "insights/frontend/src2/settings/UsersSettings.vue:43",
+    "insights/frontend/src2/users/UserList.vue:43"
+   ],
+   "current": null,
+   "context": "\t\t\t\tconst user = props.row as User\n\t\t\t\tif (user.invitation_status) {\n\t\t\t\t\treturn user.invitation_status === 'Pending'\n\t\t\t\t\t\t? __('Invitation Sent')\n\t\t\t\t\t\t: __('Invitation Expired')\n\t\t\t\t}\n\t\t\t\treturn props.row.enabled ? __('Enabled') : __('Disabled')"
+  },
+  {
+   "key": "Is Assisted Query",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"is_assisted_query\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Assisted Query\"\n  },\n  {\n   \"fieldname\": \"section_break_cnma\","
+  },
+  {
+   "key": "Is Builder Query",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_v3/insights_query_v3.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"is_builder_query\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Builder Query\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Is DuckLake",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.database_type == 'DuckDB'\",\n   \"fieldname\": \"is_ducklake\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is DuckLake\"\n  },\n  {\n   \"fieldname\": \"column_break_khqs\","
+  },
+  {
+   "key": "is empty",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:180"
+   ],
+   "current": null,
+   "context": "\t{ label: __('ends with'), value: 'ends_with' as TextOperator },\n\t{ label: __('equals'), value: 'equals_text' as TextOperator },\n\t{ label: __('does not equal'), value: 'not_equals_text' as TextOperator },\n\t{ label: __('is empty'), value: 'is_empty' as TextOperator },\n\t{ label: __('is not empty'), value: 'is_not_empty' as TextOperator },\n]\n"
+  },
+  {
+   "key": "Is Expanded",
+   "refs": [
+    "insights/insights/insights/doctype/insights_folder/insights_folder.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"1\",\n   \"fieldname\": \"is_expanded\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Expanded\"\n  }\n ],\n \"grid_page_length\": 50,"
+  },
+  {
+   "key": "Is Expression",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_column/insights_query_column.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"is_expression\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Expression\"\n  },\n  {\n   \"fieldname\": \"section_break_8\","
+  },
+  {
+   "key": "Is Frappe Database",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"is_frappe_db\",\n   \"fieldname\": \"is_frappe_db\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Frappe Database\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "is last month",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:191"
+   ],
+   "current": null,
+   "context": "\t{ label: __('is this week'), value: 'is_this_week' as DateOperator },\n\t{ label: __('is last week'), value: 'is_last_week' as DateOperator },\n\t{ label: __('is this month'), value: 'is_this_month' as DateOperator },\n\t{ label: __('is last month'), value: 'is_last_month' as DateOperator },\n\t{ label: __('is this year'), value: 'is_this_year' as DateOperator },\n\t{ label: __('before date'), value: 'date_before' as DateOperator },\n\t{ label: __('after date'), value: 'date_after' as DateOperator },"
+  },
+  {
+   "key": "is last week",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:189"
+   ],
+   "current": null,
+   "context": "\t{ label: __('is yesterday'), value: 'is_yesterday' as DateOperator },\n\t{ label: __('is tomorrow'), value: 'is_tomorrow' as DateOperator },\n\t{ label: __('is this week'), value: 'is_this_week' as DateOperator },\n\t{ label: __('is last week'), value: 'is_last_week' as DateOperator },\n\t{ label: __('is this month'), value: 'is_this_month' as DateOperator },\n\t{ label: __('is last month'), value: 'is_last_month' as DateOperator },\n\t{ label: __('is this year'), value: 'is_this_year' as DateOperator },"
+  },
+  {
+   "key": "Is Native Query",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json",
+    "insights/insights/insights/doctype/insights_query_v3/insights_query_v3.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"is_native_query\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Native Query\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "is not empty",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:181"
+   ],
+   "current": null,
+   "context": "\t{ label: __('equals'), value: 'equals_text' as TextOperator },\n\t{ label: __('does not equal'), value: 'not_equals_text' as TextOperator },\n\t{ label: __('is empty'), value: 'is_empty' as TextOperator },\n\t{ label: __('is not empty'), value: 'is_not_empty' as TextOperator },\n]\n\nconst dateOperatorOptions = ["
+  },
+  {
+   "key": "Is Query Based",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table/insights_table.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"is_query_based\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Query Based\"\n  }\n ],\n \"index_web_pages_for_search\": 1,"
+  },
+  {
+   "key": "Is Saved as Table",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"is_saved_as_table\",\n   \"fieldtype\": \"Check\",\n   \"is_virtual\": 1,\n   \"label\": \"Is Saved as Table\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Is Script Query",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json",
+    "insights/insights/insights/doctype/insights_query_v3/insights_query_v3.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"is_script_query\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Script Query\"\n  },\n  {\n   \"depends_on\": \"eval: doc.is_script_query\","
+  },
+  {
+   "key": "Is Site Database",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"is_site_db\",\n   \"fieldname\": \"is_site_db\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Site Database\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "is this month",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:190"
+   ],
+   "current": null,
+   "context": "\t{ label: __('is tomorrow'), value: 'is_tomorrow' as DateOperator },\n\t{ label: __('is this week'), value: 'is_this_week' as DateOperator },\n\t{ label: __('is last week'), value: 'is_last_week' as DateOperator },\n\t{ label: __('is this month'), value: 'is_this_month' as DateOperator },\n\t{ label: __('is last month'), value: 'is_last_month' as DateOperator },\n\t{ label: __('is this year'), value: 'is_this_year' as DateOperator },\n\t{ label: __('before date'), value: 'date_before' as DateOperator },"
+  },
+  {
+   "key": "is this week",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:188"
+   ],
+   "current": null,
+   "context": "\t{ label: __('is today'), value: 'is_today' as DateOperator },\n\t{ label: __('is yesterday'), value: 'is_yesterday' as DateOperator },\n\t{ label: __('is tomorrow'), value: 'is_tomorrow' as DateOperator },\n\t{ label: __('is this week'), value: 'is_this_week' as DateOperator },\n\t{ label: __('is last week'), value: 'is_last_week' as DateOperator },\n\t{ label: __('is this month'), value: 'is_this_month' as DateOperator },\n\t{ label: __('is last month'), value: 'is_last_month' as DateOperator },"
+  },
+  {
+   "key": "is this year",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:192"
+   ],
+   "current": null,
+   "context": "\t{ label: __('is last week'), value: 'is_last_week' as DateOperator },\n\t{ label: __('is this month'), value: 'is_this_month' as DateOperator },\n\t{ label: __('is last month'), value: 'is_last_month' as DateOperator },\n\t{ label: __('is this year'), value: 'is_this_year' as DateOperator },\n\t{ label: __('before date'), value: 'date_before' as DateOperator },\n\t{ label: __('after date'), value: 'date_after' as DateOperator },\n\t{ label: __('between dates'), value: 'date_between' as DateOperator },"
+  },
+  {
+   "key": "is today",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:185"
+   ],
+   "current": null,
+   "context": "]\n\nconst dateOperatorOptions = [\n\t{ label: __('is today'), value: 'is_today' as DateOperator },\n\t{ label: __('is yesterday'), value: 'is_yesterday' as DateOperator },\n\t{ label: __('is tomorrow'), value: 'is_tomorrow' as DateOperator },\n\t{ label: __('is this week'), value: 'is_this_week' as DateOperator },"
+  },
+  {
+   "key": "is tomorrow",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:187"
+   ],
+   "current": null,
+   "context": "const dateOperatorOptions = [\n\t{ label: __('is today'), value: 'is_today' as DateOperator },\n\t{ label: __('is yesterday'), value: 'is_yesterday' as DateOperator },\n\t{ label: __('is tomorrow'), value: 'is_tomorrow' as DateOperator },\n\t{ label: __('is this week'), value: 'is_this_week' as DateOperator },\n\t{ label: __('is last week'), value: 'is_last_week' as DateOperator },\n\t{ label: __('is this month'), value: 'is_this_month' as DateOperator },"
+  },
+  {
+   "key": "is yesterday",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:186"
+   ],
+   "current": null,
+   "context": "\nconst dateOperatorOptions = [\n\t{ label: __('is today'), value: 'is_today' as DateOperator },\n\t{ label: __('is yesterday'), value: 'is_yesterday' as DateOperator },\n\t{ label: __('is tomorrow'), value: 'is_tomorrow' as DateOperator },\n\t{ label: __('is this week'), value: 'is_this_week' as DateOperator },\n\t{ label: __('is last week'), value: 'is_last_week' as DateOperator },"
+  },
+  {
+   "key": "Join Table",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:50",
+    "insights/frontend/src2/query/components/JoinSelectorDialog.vue:251"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => (showFiltersSelectorDialog.value = true),\n\t},\n\t{\n\t\tlabel: __('Join Table'),\n\t\tdescription: __('Join this table with another table or query'),\n\t\ticon: query_operation_types.join.icon,\n\t\tonClick: () => (showJoinSelectorDialog.value = true),"
+  },
+  {
+   "key": "Join Telegram Group",
+   "refs": [
+    "insights/frontend/src2/components/UserDropdown.vue:121"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => window.open('https://docs.frappe.io/insights', '_blank'),\n\t},\n\t{\n\t\tlabel: __('Join Telegram Group'),\n\t\ticon: h(MessageCircle),\n\t\tonClick: () => window.open('https://t.me/frappeinsights', '_blank'),\n\t},"
+  },
+  {
+   "key": "Join this table with another table or query",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:51"
+   ],
+   "current": null,
+   "context": "\t},\n\t{\n\t\tlabel: __('Join Table'),\n\t\tdescription: __('Join this table with another table or query'),\n\t\ticon: query_operation_types.join.icon,\n\t\tonClick: () => (showJoinSelectorDialog.value = true),\n\t},"
+  },
+  {
+   "key": "Justify",
+   "refs": [
+    "insights/frontend/src2/charts/components/SankeyChartConfigForm.vue:69"
+   ],
+   "current": null,
+   "context": "\t\t\t\tlabel=\"Node Alignment\"\n\t\t\t\ttype=\"select\"\n\t\t\t\t:options=\"[\n\t\t\t\t\t{ label: __('Justify'), value: 'justify' },\n\t\t\t\t\t{ label: __('Left'), value: 'left' },\n\t\t\t\t\t{ label: __('Right'), value: 'right' },\n\t\t\t\t]\""
+  },
+  {
+   "key": "Last Executed On",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json",
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:77"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"last_execution\",\n   \"fieldtype\": \"Datetime\",\n   \"label\": \"Last Executed On\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Last Import Duration",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:66"
+   ],
+   "current": null,
+   "context": "<div style=\"font-size:13px;line-height:2\">\n  <h5 style=\"line-height: 24px; margin-bottom: 0px;\">${__(\"Sync\")}</h5>\n  <table class=\"table table-condensed table-bordered\" style=\"margin-top: 8px;\">\n    <tr><td>${__(\"Last Synced On\")}</td><td>${fmt_dt(\n\t\ts.last_synced_on,\n\t)}</td></tr>\n    <tr><td>${__(\"Last Import Rows\")}</td><td>${fmt_num("
+  },
+  {
+   "key": "Last Import Rows",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:63"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t: \"<li>—</li>\";\n\n\t\t\t\tconst html = `\n<div style=\"font-size:13px;line-height:2\">\n  <h5 style=\"line-height: 24px; margin-bottom: 0px;\">${__(\"Sync\")}</h5>\n  <table class=\"table table-condensed table-bordered\" style=\"margin-top: 8px;\">\n    <tr><td>${__(\"Last Synced On\")}</td><td>${fmt_dt("
+  },
+  {
+   "key": "Last Log",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"last_log\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Last Log\",\n   \"no_copy\": 1,\n   \"options\": \"Insights Table Import Log\",\n   \"read_only\": 1"
+  },
+  {
+   "key": "Last Status",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"last_status\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Last Status\",\n   \"no_copy\": 1,\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Last Sync Bookmark",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"last_sync_bookmark\",\n   \"fieldtype\": \"Data\",\n   \"hidden\": 1,\n   \"label\": \"Last Sync Bookmark\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Last Synced",
+   "refs": [
+    "insights/frontend/src2/data_store/DataStoreList.vue:48"
+   ],
+   "current": null,
+   "context": "\t\t\t},\n\t\t},\n\t\t{\n\t\t\tlabel: __('Last Synced'),\n\t\t\tkey: 'last_synced_from_now',\n\t\t},\n\t],"
+  },
+  {
+   "key": "Last synced cursor value (set automatically)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Sync From\"\n  },\n  {\n   \"description\": \"Last synced cursor value (set automatically)\",\n   \"fieldname\": \"last_sync_bookmark\",\n   \"fieldtype\": \"Data\",\n   \"hidden\": 1,"
+  },
+  {
+   "key": "Left Column",
+   "refs": [
+    "insights/frontend/src2/query/components/JoinSelectorDialog.vue:280",
+    "insights/insights/insights/doctype/insights_table_link_v3/insights_table_link_v3.json"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t<div class=\"flex-1\">\n\t\t\t\t\t\t\t\t\t<label class=\"mb-1 block text-xs text-gray-600\">{{\n\t\t\t\t\t\t\t\t\t\t__('Left Column')\n\t\t\t\t\t\t\t\t\t}}</label>\n\t\t\t\t\t\t\t\t\t<Combobox\n\t\t\t\t\t\t\t\t\t\t:placeholder=\"__('Column')\""
+  },
+  {
+   "key": "Left Table",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_link_v3/insights_table_link_v3.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"left_table\",\n   \"fieldtype\": \"Data\",\n   \"in_list_view\": 1,\n   \"label\": \"Left Table\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Legacy",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"tab_break_tvwi\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Legacy\"\n  },\n  {\n   \"fieldname\": \"max_memory_usage\","
+  },
+  {
+   "key": "less than",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:169"
+   ],
+   "current": null,
+   "context": "\t{ label: __('not equals'), value: '!=' as ConditionalOperator },\n\t{ label: __('greater than'), value: '>' as ConditionalOperator },\n\t{ label: __('greater than or equals'), value: '>=' as ConditionalOperator },\n\t{ label: __('less than'), value: '<' as ConditionalOperator },\n\t{ label: __('less than or equals'), value: '<=' as ConditionalOperator },\n]\n"
+  },
+  {
+   "key": "less than or equals",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:170"
+   ],
+   "current": null,
+   "context": "\t{ label: __('greater than'), value: '>' as ConditionalOperator },\n\t{ label: __('greater than or equals'), value: '>=' as ConditionalOperator },\n\t{ label: __('less than'), value: '<' as ConditionalOperator },\n\t{ label: __('less than or equals'), value: '<=' as ConditionalOperator },\n]\n\nconst textOperatorOptions = ["
+  },
+  {
+   "key": "Linked Charts",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardFilterEditor.vue:204",
+    "insights/insights/insights/doctype/insights_dashboard_v3/insights_dashboard_v3.json"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t<div class=\"flex flex-col gap-1 border-t pt-3\">\n\t\t\t\t\t\t\t\t<label class=\"text-xs text-ink-gray-5\">{{\n\t\t\t\t\t\t\t\t\t__('Linked Charts')\n\t\t\t\t\t\t\t\t}}</label>\n\t\t\t\t\t\t\t\t<div\n\t\t\t\t\t\t\t\t\tv-for=\"link in linkOptions\""
+  },
+  {
+   "key": "Long Int",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_column/insights_table_column.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Type\",\n   \"options\": \"Integer\\nLong Int\\nDecimal\\nText\\nLong Text\\nDate\\nDatetime\\nTime\\nString\",\n   \"reqd\": 1\n  }\n ],"
+  },
+  {
+   "key": "Manage Team",
+   "refs": [
+    "insights/frontend/src2/teams/ManageTeamDialog.vue:64"
+   ],
+   "current": null,
+   "context": "\t\tv-if=\"currentTeam\"\n\t\tv-model=\"show\"\n\t\t:options=\"{\n\t\t\ttitle: __('Manage Team'),\n\t\t\tactions: [\n\t\t\t\t{\n\t\t\t\t\tlabel: __('Done'),"
+  },
+  {
+   "key": "Manage Workbook Access",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookShareDialog.vue:92"
+   ],
+   "current": null,
+   "context": "\t\t.then(() => {\n\t\t\tshow.value = false\n\t\t\tcreateToast({\n\t\t\t\ttitle: __('Permissions updated'),\n\t\t\t\tvariant: 'success',\n\t\t\t})\n\t\t})"
+  },
+  {
+   "key": "MariaDB",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:40",
+    "insights/insights/insights/doctype/insights_data_source/insights_data_source.json",
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "\nconst sourceTypes = [\n\t{\n\t\tlabel: __('MariaDB'),\n\t\ticon: getDatabaseLogo('MariaDB'),\n\t\tdescription: __('Connect to MariaDB database'),\n\t\tonClick: () => {"
+  },
+  {
+   "key": "Mark a dashboard as favorite to see it here.",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardList.vue:65"
+   ],
+   "current": null,
+   "context": "\t\tcase 'favorites':\n\t\t\treturn {\n\t\t\t\ttitle: __('No Favorites'),\n\t\t\t\tsubtitle: __('Mark a dashboard as favorite to see it here.'),\n\t\t\t}\n\t\tcase 'recents':\n\t\t\treturn {"
+  },
+  {
+   "key": "Mark as Failed",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.js:7"
+   ],
+   "current": null,
+   "context": "frappe.ui.form.on(\"Insights Table Import Log\", {\n\trefresh(frm) {\n\t\tif (frm.doc.status == \"In Progress\") {\n\t\t\tfrm.add_custom_button(__(\"Mark as Failed\"), function () {\n\t\t\t\tfrm.call(\"mark_as_failed\").then(() => {\n\t\t\t\t\tfrm.reload_doc();\n\t\t\t\t});"
+  },
+  {
+   "key": "Markdown supported",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardText.vue:54"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t@change=\"editedText = $event\"\n\t\t\t\t\t:placeholder=\"__('Enter your text content here...')\"\n\t\t\t\t/>\n\t\t\t\t<p class=\"text-xs text-gray-500\">{{ __('Markdown supported') }}</p>\n\t\t\t</div>\n\t\t</template>\n\t</Dialog>"
+  },
+  {
+   "key": "Max Execution Time (Seconds)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Interactive queries are cancelled after this many seconds. Applies to new connections and to live (non-data-store) queries; background imports are exempt.\",\n   \"fieldname\": \"max_execution_time\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Max Execution Time (Seconds)\"\n  }\n ],\n \"index_web_pages_for_search\": 1,"
+  },
+  {
+   "key": "Max Memory Usage",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"max_memory_usage\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Max Memory Usage\",\n   \"non_negative\": 1\n  },\n  {"
+  },
+  {
+   "key": "Max Records To Sync",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"max_records_to_sync\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Max Records To Sync\",\n   \"non_negative\": 1\n  },\n  {"
+  },
+  {
+   "key": "Maximum of...",
+   "refs": [
+    "insights/frontend/src2/charts/components/MeasurePicker.vue:140"
+   ],
+   "current": null,
+   "context": "\t\tdata_type: measureExpression.data_type,\n\t\tformat: measure.value.format,\n\t}\n\tshowMeasureDialog.value = false\n}\n\nconst aggregationOptions: { label: string; value: AggregationType }[] = ["
+  },
+  {
+   "key": "Measure Name",
+   "refs": [
+    "insights/frontend/src2/charts/components/NewMeasureSelectorDialog.vue:112"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t<FormControl\n\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\tclass=\"flex-1\"\n\t\t\t\t\t\t\t:label=\"__('Measure Name')\"\n\t\t\t\t\t\t\tautocomplete=\"off\"\n\t\t\t\t\t\t\tplaceholder=\"Measure Name\"\n\t\t\t\t\t\t\tv-model=\"newMeasure.name\""
+  },
+  {
+   "key": "Memory Limit (MB)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"memory_limit\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Memory Limit (MB)\",\n   \"non_negative\": 1,\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Minimum of...",
+   "refs": [
+    "insights/frontend/src2/charts/components/MeasurePicker.vue:139"
+   ],
+   "current": null,
+   "context": "\t\tmeasure_name: measureExpression.measure_name,\n\t\tdata_type: measureExpression.data_type,\n\t\tformat: measure.value.format,\n\t}\n\tshowMeasureDialog.value = false\n}\n"
+  },
+  {
+   "key": "New Alert",
+   "refs": [
+    "insights/frontend/src2/query/components/QueryAlertsDialog.vue:79",
+    "insights/frontend/src2/query/components/QueryAlertsDialog.vue:108"
+   ],
+   "current": null,
+   "context": "\t\t\ttitle: __('No alerts'),\n\t\t\tdescription: __('Set up alerts to get notified when a condition is met'),\n\t\t\tbutton: {\n\t\t\t\tlabel: __('New Alert'),\n\t\t\t\tvariant: 'solid',\n\t\t\t\tonClick: () => {\n\t\t\t\t\temit('set-current-alert-name', 'new-alert-' + getUniqueId())"
+  },
+  {
+   "key": "New Dashboard",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookTabSwitcher.vue:64"
+   ],
+   "current": null,
+   "context": "\t\t\t:options=\"[\n\t\t\t\t{ label: __('New Query'), onClick: workbook.addQuery },\n\t\t\t\t{ label: __('New Chart'), onClick: workbook.addChart },\n\t\t\t\t{ label: __('New Dashboard'), onClick: workbook.addDashboard },\n\t\t\t]\"\n\t\t>\n\t\t\t<Button variant=\"ghost\" icon=\"plus\"> </Button>"
+  },
+  {
+   "key": "New Data Source",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:133",
+    "insights/frontend/src2/data_source/DataSourceList.vue:148"
+   ],
+   "current": null,
+   "context": "\t\t\ttitle: __('No data sources.'),\n\t\t\tdescription: __('No data sources to display.'),\n\t\t\tbutton: {\n\t\t\t\tlabel: __('New Data Source'),\n\t\t\t\tvariant: 'solid',\n\t\t\t\tonClick: () => (showNewSourceDialog.value = true),\n\t\t\t},"
+  },
+  {
+   "key": "New Query",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookTabSwitcher.vue:62"
+   ],
+   "current": null,
+   "context": "\t\t<Dropdown\n\t\t\tclass=\"ml-1.5\"\n\t\t\t:options=\"[\n\t\t\t\t{ label: __('New Query'), onClick: workbook.addQuery },\n\t\t\t\t{ label: __('New Chart'), onClick: workbook.addChart },\n\t\t\t\t{ label: __('New Dashboard'), onClick: workbook.addDashboard },\n\t\t\t]\""
+  },
+  {
+   "key": "New Workbook",
+   "refs": [
+    "insights/frontend/src2/home/HomeQuickActions.vue:28",
+    "insights/frontend/src2/workbook/WorkbookList.vue:155",
+    "insights/frontend/src2/workbook/WorkbookList.vue:216"
+   ],
+   "current": null,
+   "context": "\t\t\t\tclass=\"col-span-1 flex cursor-pointer items-center justify-between rounded border border-transparent bg-white p-4 shadow transition-all hover:border-gray-400\"\n\t\t\t\t@click=\"openNewWorkbook\"\n\t\t\t>\n\t\t\t\t<div class=\"text-lg font-medium text-gray-900\">{{ __('New Workbook') }}</div>\n\t\t\t\t<div class=\"rounded bg-gray-100 p-1\">\n\t\t\t\t\t<Plus class=\"h-4 w-4 text-gray-700\" stroke-width=\"1.5\" />\n\t\t\t\t</div>"
+  },
+  {
+   "key": "No alerts",
+   "refs": [
+    "insights/frontend/src2/query/components/QueryAlertsDialog.vue:76"
+   ],
+   "current": null,
+   "context": "\t\t\tshow.value = false\n\t\t},\n\t\temptyState: {\n\t\t\ttitle: __('No alerts'),\n\t\t\tdescription: __('Set up alerts to get notified when a condition is met'),\n\t\t\tbutton: {\n\t\t\t\tlabel: __('New Alert'),"
+  },
+  {
+   "key": "No columns selected",
+   "refs": [
+    "insights/frontend/src2/query/components/ColumnsSelectorDialog.vue:108"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\tv-model:items=\"selectedColumns\"\n\t\t\t\t\t\t:item-key=\"'name'\"\n\t\t\t\t\t\tgroup=\"columns\"\n\t\t\t\t\t\t:empty-text=\"__('No columns selected')\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<template #item-content=\"{ item }\">\n\t\t\t\t\t\t\t<div class=\"flex items-center gap-1.5\">"
+  },
+  {
+   "key": "No dashboards to display.",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardList.vue:85"
+   ],
+   "current": null,
+   "context": "\t\tdefault:\n\t\t\treturn {\n\t\t\t\ttitle: __('Nothing here'),\n\t\t\t\tsubtitle: __('No dashboards to display.'),\n\t\t\t}\n\t}\n})"
+  },
+  {
+   "key": "No data found on this site — dashboards may look empty.",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookTemplates.vue:131"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<div class=\"mb-2.5 text-p-sm font-medium text-ink-gray-5\">\n\t\t\t\t\t\t{{ section.app }}\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"grid grid-cols-1 gap-4 sm:grid-cols-2\">\n\t\t\t\t\t\t<div\n\t\t\t\t\t\t\tv-for=\"template in section.items\"\n\t\t\t\t\t\t\t:key=\"template.name\""
+  },
+  {
+   "key": "No data sources to display.",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:131"
+   ],
+   "current": null,
+   "context": "\t\t}),\n\t\temptyState: {\n\t\t\ttitle: __('No data sources.'),\n\t\t\tdescription: __('No data sources to display.'),\n\t\t\tbutton: {\n\t\t\t\tlabel: __('New Data Source'),\n\t\t\t\tvariant: 'solid',"
+  },
+  {
+   "key": "No data sources.",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:130"
+   ],
+   "current": null,
+   "context": "\t\t\tpath: `/data-source/${data_source.name}`,\n\t\t}),\n\t\temptyState: {\n\t\t\ttitle: __('No data sources.'),\n\t\t\tdescription: __('No data sources to display.'),\n\t\t\tbutton: {\n\t\t\t\tlabel: __('New Data Source'),"
+  },
+  {
+   "key": "No Favorites",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardList.vue:64"
+   ],
+   "current": null,
+   "context": "\tswitch (filter.value) {\n\t\tcase 'favorites':\n\t\t\treturn {\n\t\t\t\ttitle: __('No Favorites'),\n\t\t\t\tsubtitle: __('Mark a dashboard as favorite to see it here.'),\n\t\t\t}\n\t\tcase 'recents':"
+  },
+  {
+   "key": "No Queries Found",
+   "refs": [
+    "insights/frontend/src2/query/components/source_selector/WorkbookQueryList.vue:90"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t}\n\t\t\t\t},\n\t\t\t\temptyState: {\n\t\t\t\t\ttitle: __('No Queries Found'),\n\t\t\t\t},\n\t\t\t}\"\n\t\t>"
+  },
+  {
+   "key": "No Recents",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardList.vue:69"
+   ],
+   "current": null,
+   "context": "\t\t\t}\n\t\tcase 'recents':\n\t\t\treturn {\n\t\t\t\ttitle: __('No Recents'),\n\t\t\t\tsubtitle: __('Dashboards you open will show up here.'),\n\t\t\t}\n\t\tcase 'created':"
+  },
+  {
+   "key": "No Tables Found",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceTableList.vue:40",
+    "insights/frontend/src2/query/components/source_selector/DataSourceTableList.vue:58"
+   ],
+   "current": null,
+   "context": "\t\t\tpath: `/data-source/${props.name}/${table.table_name}`,\n\t\t}),\n\t\temptyState: {\n\t\t\ttitle: __('No Tables Found'),\n\t\t\tdescription: __('No tables found for the selected data source.'),\n\t\t\tbutton: {\n\t\t\t\tlabel: __('Refresh'),"
+  },
+  {
+   "key": "No tables found for the selected data source.",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceTableList.vue:41"
+   ],
+   "current": null,
+   "context": "\t\t}),\n\t\temptyState: {\n\t\t\ttitle: __('No Tables Found'),\n\t\t\tdescription: __('No tables found for the selected data source.'),\n\t\t\tbutton: {\n\t\t\t\tlabel: __('Refresh'),\n\t\t\t\ticonLeft: 'refresh-ccw',"
+  },
+  {
+   "key": "No tables found in the data store.",
+   "refs": [
+    "insights/frontend/src2/data_store/DataStoreList.vue:58"
+   ],
+   "current": null,
+   "context": "\t\tshowTooltip: false,\n\t\temptyState: {\n\t\t\ttitle: __('No Tables Stored'),\n\t\t\tdescription: __('No tables found in the data store.'),\n\t\t\tbutton: session.user.is_admin\n\t\t\t\t? {\n\t\t\t\t\t\tlabel: __('Import Table'),"
+  },
+  {
+   "key": "No Tables Stored",
+   "refs": [
+    "insights/frontend/src2/data_store/DataStoreList.vue:57"
+   ],
+   "current": null,
+   "context": "\toptions: {\n\t\tshowTooltip: false,\n\t\temptyState: {\n\t\t\ttitle: __('No Tables Stored'),\n\t\t\tdescription: __('No tables found in the data store.'),\n\t\t\tbutton: session.user.is_admin\n\t\t\t\t? {"
+  },
+  {
+   "key": "No teams to display.",
+   "refs": [
+    "insights/frontend/src2/settings/PermissionsSettings.vue:64",
+    "insights/frontend/src2/teams/TeamList.vue:62"
+   ],
+   "current": null,
+   "context": "\t\t},\n\t\temptyState: {\n\t\t\ttitle: __('No teams.'),\n\t\t\tdescription: __('No teams to display.'),\n\t\t\tbutton: session.user.is_admin\n\t\t\t\t? {\n\t\t\t\t\t\tlabel: __('Create Team'),"
+  },
+  {
+   "key": "No teams.",
+   "refs": [
+    "insights/frontend/src2/settings/PermissionsSettings.vue:63",
+    "insights/frontend/src2/teams/TeamList.vue:61"
+   ],
+   "current": null,
+   "context": "\t\t\tshowEditTeamDialog.value = true\n\t\t},\n\t\temptyState: {\n\t\t\ttitle: __('No teams.'),\n\t\t\tdescription: __('No teams to display.'),\n\t\t\tbutton: session.user.is_admin\n\t\t\t\t? {"
+  }
+ ]
+}

@@ -1,0 +1,2458 @@
+[
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 90,
+  "labels": [
+   [
+    "Update Items",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Update Items\"), () => {\n\t\t\t\t\terpnext.utils.update_child_items({\n\t\t\t\t\t\tfrm: frm,\n\t\t\t\t\t\tchild_docname: \"items\",\n\t\t\t\t\t\tchild_doctype: \"Sales Order Detail\",\n\t\t\t\t\t\tcannot_add_row: false,\n\t\t\t\t\t\thas_reserved_stock: frm.doc.__onload && frm.doc.__onload.has_reserved_stock,\n\t\t\t\t\t});\n\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 106,
+  "labels": [
+   [
+    "Reserve",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Reserve\"),\n\t\t\t\t\t\t() => frm.events.create_stock_reservation_entries(frm),\n\t\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 121,
+  "labels": [
+   [
+    "Unreserve",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Unreserve\"),\n\t\t\t\t\t() => frm.events.cancel_stock_reservation_entries(frm),\n\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 134,
+  "labels": [
+   [
+    "Reserved Stock",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Reserved Stock\"),\n\t\t\t\t\t\t\t() => frm.events.show_reserved_stock(frm),\n\t\t\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 188,
+  "labels": [
+   [
+    "Purchase Order",
+    ""
+   ],
+   [
+    "Supplier",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t__(\"Purchase Order\"),\n\t\t\t() => {\n\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\tmethod: \"erpnext.buying.doctype.purchase_order.purchase_order.make_inter_company_sales_order\",\n\t\t\t\t\tsource_doctype: \"Purchase Order\",\n\t\t\t\t\ttarget: frm,\n\t\t\t\t\tsetters: [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tlabel: __(\"Supplier\"),\n\t\t\t\t\t\t\tfieldname: \"supplier\",\n\t\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\t\toptions: \"Supplier\",\n\t\t\t\t\t\t},\n\t\t\t\t\t],\n\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\tcompany: frm.doc.company,\n\t\t\t\t\t\tis_internal_supplier: 1,\n\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\tstatus: [\"!=\", \"Completed\"],\n\t\t\t\t\t},\n\t\t\t\t});\n\t\t\t},\n\t\t\t__(\"Get Items From\")\n\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 946,
+  "labels": [
+   [
+    "Update Items",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Update Items\"), () => {\n\t\t\t\t\t\terpnext.utils.update_child_items({\n\t\t\t\t\t\t\tfrm: this.frm,\n\t\t\t\t\t\t\tchild_docname: \"items\",\n\t\t\t\t\t\t\tchild_doctype: \"Sales Order Detail\",\n\t\t\t\t\t\t\tcannot_add_row: false,\n\t\t\t\t\t\t});\n\t\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 959,
+  "labels": [
+   [
+    "Resume",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Resume\"),\n\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\tme.frm.cscript.update_status(\"Resume\", \"Draft\");\n\t\t\t\t\t\t},\n\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 969,
+  "labels": [
+   [
+    "Close",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Close\"), () => this.close_sales_order(), __(\"Status\"))"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 973,
+  "labels": [
+   [
+    "Re-open",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Re-open\"),\n\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\tme.frm.cscript.update_status(\"Re-open\", \"Draft\");\n\t\t\t\t\t\t},\n\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 994,
+  "labels": [
+   [
+    "Hold",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Hold\"),\n\t\t\t\t\t\t\t\t() => this.hold_sales_order(),\n\t\t\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1000,
+  "labels": [
+   [
+    "Close",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Close\"),\n\t\t\t\t\t\t\t\t() => this.close_sales_order(),\n\t\t\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1010,
+  "labels": [
+   [
+    "Subcontracting Inward Order",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Subcontracting Inward Order\"),\n\t\t\t\t\t\t\t\t() => {\n\t\t\t\t\t\t\t\t\tme.make_subcontracting_inward_order();\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1027,
+  "labels": [
+   [
+    "Pick List",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Pick List\"),\n\t\t\t\t\t\t\t() => this.create_pick_list(),\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1047,
+  "labels": [
+   [
+    "Delivery Note",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Delivery Note\"),\n\t\t\t\t\t\t\t\t() => this.make_delivery_note_based_on_delivery_date(true),\n\t\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1055,
+  "labels": [
+   [
+    "Work Order",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Work Order\"),\n\t\t\t\t\t\t\t\t() => this.make_work_order(),\n\t\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1063,
+  "labels": [
+   [
+    "Production Plan",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Production Plan\"),\n\t\t\t\t\t\t\t\t() => this.make_production_plan(),\n\t\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1077,
+  "labels": [
+   [
+    "Sales Invoice",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Sales Invoice\"),\n\t\t\t\t\t\t\t() => me.make_sales_invoice(),\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1092,
+  "labels": [
+   [
+    "Material Request",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Material Request\"),\n\t\t\t\t\t\t\t\t() => this.make_material_request(),\n\t\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1098,
+  "labels": [
+   [
+    "Request for Raw Materials",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Request for Raw Materials\"),\n\t\t\t\t\t\t\t() => this.make_raw_material_request(),\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1111,
+  "labels": [
+   [
+    "Purchase Order",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Purchase Order\"),\n\t\t\t\t\t\t\t() => this.make_purchase_order(),\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1121,
+  "labels": [
+   [
+    "Maintenance Visit",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Maintenance Visit\"),\n\t\t\t\t\t\t\t\t() => this.make_maintenance_visit(),\n\t\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1128,
+  "labels": [
+   [
+    "Maintenance Schedule",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Maintenance Schedule\"),\n\t\t\t\t\t\t\t\t() => this.make_maintenance_schedule(),\n\t\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1138,
+  "labels": [
+   [
+    "Project",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Project\"), () => this.make_project(), __(\"Create\"))"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1154,
+  "labels": [
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\tbutton_label,\n\t\t\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\t\t\tme.make_inter_company_order();\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1167,
+  "labels": [
+   [
+    "Payment Request",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Payment Request\"),\n\t\t\t\t\t\t\t() => this.make_payment_request_with_schedule(),\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1175,
+  "labels": [
+   [
+    "Payment",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Payment\"),\n\t\t\t\t\t\t\t() => this.make_payment_entry(),\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+  "line": 1191,
+  "labels": [
+   [
+    "Quotation",
+    ""
+   ],
+   [
+    "Customer",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Quotation\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tlet d = erpnext.utils.map_current_doc({\n\t\t\t\t\t\tmethod: \"erpnext.selling.doctype.quotation.quotation.make_sales_order\",\n\t\t\t\t\t\tsource_doctype: \"Quotation\",\n\t\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\t\tsetters: [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: __(\"Customer\"),\n\t\t\t\t\t\t\t\tfieldname: \"party_name\",\n\t\t\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\t\t\toptions: \"Customer\",\n\t\t\t\t\t\t\t\tdefault: me.frm.doc.customer || undefined,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t],\n\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\t\tstatus: [\"not in\", [\"Lost\", \"Ordered\"]],\n\t\t\t\t\t\t},\n\t\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"rate\", \"amount\"],\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 162,
+  "labels": [
+   [
+    "Alternate Item",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Alternate Item\"), () => {\n\t\t\t\terpnext.utils.select_alternate_items({\n\t\t\t\t\tfrm: frm,\n\t\t\t\t\tchild_docname: \"required_items\",\n\t\t\t\t\twarehouse_field: \"source_warehouse\",\n\t\t\t\t\tchild_doctype: \"Work Order Item\",\n\t\t\t\t\toriginal_item_field: \"original_item\",\n\t\t\t\t\tcondition: (d) => {\n\t\t\t\t\t\tif (d.allow_alternative_item) {\n\t\t\t\t\t\t\treturn true;\n\t\t\t\t\t\t}\n\t\t\t\t\t},\n\t\t\t\t});\n\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 203,
+  "labels": [
+   [
+    "Create Job Card",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Create Job Card\"), () => {\n\t\t\t\t\t\tfrm.trigger(\"make_job_card\");\n\t\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 212,
+  "labels": [
+   [
+    "BOM",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"BOM\"),\n\t\t\t\t\t() => {\n\t\t\t\t\t\tfrm.trigger(\"make_bom\");\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 228,
+  "labels": [
+   [
+    "Disassemble Order",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Disassemble Order\"),\n\t\t\t\t() => {\n\t\t\t\t\tfrm.trigger(\"make_disassembly_order\");\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 237,
+  "labels": [],
+  "text": "add_custom_button_to_return_components\");\n\t\tfrm.trigger(\"allow_alternative_item\");\n\t\tfrm.trigger(\"hide_reserve_stock_button\");\n\t\tfrm.trigger(\"toggle_items_editable\");\n\t\tfrm.trigger(\"set_fg_warehouse_mandatory\");\n\t\tfrm.trigger(\"toggle_hide_fields\");\n\t},\n\n\ttoggle_hide_fields(frm) {\n\t\tfrm.toggle_display(\"operations\", frm.doc?.operations && frm.doc.operations.length > 0);\n\t},\n\n\tskip_transfer(frm) {\n\t\tfrm.trigger(\"set_fg_warehouse_mandatory\");\n\t},\n\n\ttoggle_items_editable(frm) {\n\t\tlet allow_edit = true;\n\t\tif (!frm.doc.__onload?.allow_editing_items) allow_edit = false;\n\n\t\tfrm.set_df_property(\"required_items\", \"cannot_delete_rows\", !allow_edit);\n\t\tfrm.set_df_property(\"required_items\", \"cannot_add_rows\", !allow_edit);\n\n\t\tconst grid = frm.fields_dict[\"required_items\"].grid;\n\t\tgrid.update_docfield_property(\"item_code\", \"read_only\", !allow_edit);\n\t\tgrid.update_docfield_property(\"required_qty\", \"read_only\", !allow_edit);\n\t\tgrid.refresh();\n\t},\n\n\thide_reserve_stock_button(frm) {\n\t\tfrm.toggle_display(\"reserve_stock\", false);\n\t\tif (frm.doc.__onload?.enable_stock_reservation) {\n\t\t\tfrm.toggle_display(\"reserve_stock\", true);\n\t\t}\n\t},\n\n\thas_unreserved_stock(frm) {\n\t\tlet has_unreserved_stock = frm.doc.required_items.some(\n\t\t\t(item)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 292,
+  "labels": [],
+  "text": "add_custom_button_to_return_components: function (frm)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 299,
+  "labels": [
+   [
+    "Return Components",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Return Components\"), function () {\n\t\t\t\t\tfrm.trigger(\"create_stock_return_entry\");\n\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 764,
+  "labels": [
+   [
+    "Close",
+    ""
+   ],
+   [
+    "Once the Work Order is Closed. It can't be resumed.",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Close\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.confirm(__(\"Once the Work Order is Closed. It can't be resumed.\"), () => {\n\t\t\t\t\t\terpnext.work_order.change_work_order_status(frm, \"Closed\");\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Status\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 774,
+  "labels": [
+   [
+    "Stop",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Stop\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\terpnext.work_order.change_work_order_status(frm, \"Stopped\");\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Status\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 782,
+  "labels": [
+   [
+    "Re-open",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Re-open\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\terpnext.work_order.change_work_order_status(frm, \"Resumed\");\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Status\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 816,
+  "labels": [
+   [
+    "Create Pick List",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Create Pick List\"), function () {\n\t\t\t\t\t\t\terpnext.work_order.create_pick_list(frm);\n\t\t\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 820,
+  "labels": [
+   [
+    "Material Request",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Material Request\"), function () {\n\t\t\t\t\t\t\terpnext.work_order.make_material_request(frm);\n\t\t\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 824,
+  "labels": [
+   [
+    "Start",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Start\"), function () {\n\t\t\t\t\t\t\terpnext.work_order.make_se(frm, \"Material Transfer for Manufacture\");\n\t\t\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 837,
+  "labels": [
+   [
+    "Additional Material Transfer",
+    ""
+   ],
+   [
+    "Make",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Additional Material Transfer\"),\n\t\t\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\t\t\tlet purpose = \"Material Transfer for Manufacture\";\n\t\t\t\t\t\t\t\t\terpnext.work_order\n\t\t\t\t\t\t\t\t\t\t.show_prompt_for_qty_input(frm, purpose, qty, 1)\n\t\t\t\t\t\t\t\t\t\t.then((data) => {\n\t\t\t\t\t\t\t\t\t\t\treturn frappe.xcall(\n\t\t\t\t\t\t\t\t\t\t\t\t\"erpnext.manufacturing.doctype.work_order.work_order.make_stock_entry\",\n\t\t\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\t\t\twork_order_id: frm.doc.name,\n\t\t\t\t\t\t\t\t\t\t\t\t\tpurpose: purpose,\n\t\t\t\t\t\t\t\t\t\t\t\t\tqty: data.qty,\n\t\t\t\t\t\t\t\t\t\t\t\t\tis_additional_transfer_entry: 1,\n\t\t\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t\t\t);\n\t\t\t\t\t\t\t\t\t\t})\n\t\t\t\t\t\t\t\t\t\t.then((stock_entry) => {\n\t\t\t\t\t\t\t\t\t\t\tfrappe.model.sync(stock_entry);\n\t\t\t\t\t\t\t\t\t\t\tfrappe.set_route(\"Form\", stock_entry.doctype, stock_entry.name);\n\t\t\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t__(\"Make\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 883,
+  "labels": [
+   [
+    "Material Consumption",
+    ""
+   ],
+   [
+    "Make",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Material Consumption\"),\n\t\t\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\t\t\tconst backflush_raw_materials_based_on =\n\t\t\t\t\t\t\t\t\t\tfrm.doc.__onload.backflush_raw_materials_based_on;\n\t\t\t\t\t\t\t\t\terpnext.work_order.make_consumption_se(\n\t\t\t\t\t\t\t\t\t\tfrm,\n\t\t\t\t\t\t\t\t\t\tbackflush_raw_materials_based_on\n\t\t\t\t\t\t\t\t\t);\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t__(\"Make\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 904,
+  "labels": [
+   [
+    "Finish",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Finish\"), function () {\n\t\t\t\t\t\t\t\terpnext.work_order.make_se(frm, \"Manufacture\");\n\t\t\t\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 919,
+  "labels": [
+   [
+    "Finish",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Finish\"), function () {\n\t\t\t\t\t\t\t\t\t\terpnext.work_order.make_se(frm, \"Manufacture\");\n\t\t\t\t\t\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 928,
+  "labels": [
+   [
+    "Finish",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Finish\"), function () {\n\t\t\t\t\t\t\terpnext.work_order.make_se(frm, \"Manufacture\");\n\t\t\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 944,
+  "labels": [
+   [
+    "Reserve",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Reserve\"),\n\t\t\t\t\t() => erpnext.stock_reservation.make_entries(frm, \"required_items\"),\n\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 953,
+  "labels": [
+   [
+    "Unreserve",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Unreserve\"),\n\t\t\t\t\t\t() => erpnext.stock_reservation.unreserve_stock(frm),\n\t\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+  "line": 960,
+  "labels": [
+   [
+    "Reserved Stock",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Reserved Stock\"),\n\t\t\t\t\t() => erpnext.stock_reservation.show_reserved_stock(frm, \"required_items\"),\n\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 105,
+  "labels": [
+   [
+    "Return of Components",
+    ""
+   ],
+   [
+    "Creating Stock Entry",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Return of Components\"),\n\t\t\t\t() => {\n\t\t\t\t\tfrm.call({\n\t\t\t\t\t\tmethod: \"erpnext.controllers.subcontracting_controller.get_materials_from_supplier\",\n\t\t\t\t\t\tfreeze: true,\n\t\t\t\t\t\tfreeze_message: __(\"Creating Stock Entry\"),\n\t\t\t\t\t\targs: {\n\t\t\t\t\t\t\tsubcontract_order: frm.doc.name,\n\t\t\t\t\t\t\trm_details: po_details,\n\t\t\t\t\t\t\torder_doctype: frm.doc.doctype,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tcallback: function (r) {\n\t\t\t\t\t\t\tif (r && r.message) {\n\t\t\t\t\t\t\t\tconst doc = frappe.model.sync(r.message);\n\t\t\t\t\t\t\t\tfrappe.set_route(\"Form\", doc[0].doctype, doc[0].name);\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 324,
+  "labels": [
+   [
+    "Update Items",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Update Items\"), () => {\n\t\t\t\t\t\t\terpnext.utils.update_child_items({\n\t\t\t\t\t\t\t\tfrm: this.frm,\n\t\t\t\t\t\t\t\tchild_docname: \"items\",\n\t\t\t\t\t\t\t\tchild_doctype: \"Purchase Order Detail\",\n\t\t\t\t\t\t\t\tcannot_add_row: false,\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 337,
+  "labels": [
+   [
+    "Hold",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Hold\"),\n\t\t\t\t\t\t\t\t() => this.hold_purchase_order(),\n\t\t\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 343,
+  "labels": [
+   [
+    "Resume",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t__(\"Resume\"),\n\t\t\t\t\t\t\t\t() => this.unhold_purchase_order(),\n\t\t\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 349,
+  "labels": [
+   [
+    "Close",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Close\"),\n\t\t\t\t\t\t\t() => this.close_purchase_order(),\n\t\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 358,
+  "labels": [
+   [
+    "Deliver (Dropship)",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Deliver (Dropship)\"),\n\t\t\t\t\t\tthis.delivered_by_supplier.bind(this),\n\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 368,
+  "labels": [
+   [
+    "Re-open",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Re-open\"),\n\t\t\t\t\t\t() => this.unclose_purchase_order(),\n\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 383,
+  "labels": [
+   [
+    "Purchase Receipt",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Purchase Receipt\"),\n\t\t\t\t\t\t\t() => {\n\t\t\t\t\t\t\t\tme.make_purchase_receipt();\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 393,
+  "labels": [
+   [
+    "Material to Supplier",
+    ""
+   ],
+   [
+    "Transfer",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t\t\t__(\"Material to Supplier\"),\n\t\t\t\t\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\t\t\t\t\tme.make_stock_entry();\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t__(\"Transfer\")\n\t\t\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 403,
+  "labels": [
+   [
+    "Subcontracting Order",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\t\t\t__(\"Subcontracting Order\"),\n\t\t\t\t\t\t\t\t\t\t() => {\n\t\t\t\t\t\t\t\t\t\t\tme.make_subcontracting_order();\n\t\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 416,
+  "labels": [
+   [
+    "Purchase Invoice",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Purchase Invoice\"),\n\t\t\t\t\t\t\t() => {\n\t\t\t\t\t\t\t\tme.make_purchase_invoice();\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 429,
+  "labels": [
+   [
+    "Payment",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Payment\"),\n\t\t\t\t\t\t\t() => this.make_payment_entry(),\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 437,
+  "labels": [
+   [
+    "Payment Request",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Payment Request\"),\n\t\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\t\tme.make_payment_request_with_schedule();\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 455,
+  "labels": [
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t\tbutton_label,\n\t\t\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\t\t\tme.make_inter_company_order(me.frm);\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 527,
+  "labels": [
+   [
+    "Material Request",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t__(\"Material Request\"),\n\t\t\tfunction () {\n\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\tmethod: \"erpnext.stock.doctype.material_request.material_request.make_purchase_order\",\n\t\t\t\t\tsource_doctype: \"Material Request\",\n\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\tsetters: {\n\t\t\t\t\t\tschedule_date: undefined,\n\t\t\t\t\t},\n\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\tmaterial_request_type: \"Purchase\",\n\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\tstatus: [\"!=\", \"Stopped\"],\n\t\t\t\t\t\tper_ordered: [\"<\", 100],\n\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t},\n\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"ordered_qty\"],\n\t\t\t\t});\n\t\t\t},\n\t\t\t__(\"Get Items From\")\n\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 552,
+  "labels": [
+   [
+    "Supplier Quotation",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t__(\"Supplier Quotation\"),\n\t\t\tfunction () {\n\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\tmethod: \"erpnext.buying.doctype.supplier_quotation.supplier_quotation.make_purchase_order\",\n\t\t\t\t\tsource_doctype: \"Supplier Quotation\",\n\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\tsetters: {\n\t\t\t\t\t\tsupplier: me.frm.doc.supplier,\n\t\t\t\t\t\tvalid_till: undefined,\n\t\t\t\t\t},\n\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\tstatus: [\"not in\", [\"Stopped\", \"Expired\"]],\n\t\t\t\t\t},\n\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"rate\", \"amount\"],\n\t\t\t\t});\n\t\t\t},\n\t\t\t__(\"Get Items From\")\n\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 575,
+  "labels": [
+   [
+    "Update Rate as per Last Purchase",
+    ""
+   ],
+   [
+    "Tools",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t__(\"Update Rate as per Last Purchase\"),\n\t\t\tfunction () {\n\t\t\t\tfrappe.call({\n\t\t\t\t\tmethod: \"get_last_purchase_rate\",\n\t\t\t\t\tdoc: me.frm.doc,\n\t\t\t\t\tcallback: function (r, rt) {\n\t\t\t\t\t\tme.frm.dirty();\n\t\t\t\t\t\tme.frm.cscript.calculate_taxes_and_totals();\n\t\t\t\t\t},\n\t\t\t\t});\n\t\t\t},\n\t\t\t__(\"Tools\")\n\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+  "line": 590,
+  "labels": [
+   [
+    "Link to Material Request",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t__(\"Link to Material Request\"),\n\t\t\tfunction () {\n\t\t\t\tvar my_items = [];\n\t\t\t\tfor (var i in me.frm.doc.items) {\n\t\t\t\t\tif (!me.frm.doc.items[i].material_request) {\n\t\t\t\t\t\tmy_items.push(me.frm.doc.items[i].item_code);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\tfrappe.call({\n\t\t\t\t\tmethod: \"erpnext.buying.utils.get_linked_material_requests\",\n\t\t\t\t\targs: {\n\t\t\t\t\t\titems: my_items,\n\t\t\t\t\t},\n\t\t\t\t\tcallback: function (r) {\n\t\t\t\t\t\tif (r.exc) return;\n\n\t\t\t\t\t\tvar i = 0;\n\t\t\t\t\t\tvar item_length = me.frm.doc.items.length;\n\t\t\t\t\t\twhile (i < item_length) {\n\t\t\t\t\t\t\tvar qty = me.frm.doc.items[i].qty;\n\t\t\t\t\t\t\t(r.message[0] || []).forEach(function (d) {\n\t\t\t\t\t\t\t\tif (\n\t\t\t\t\t\t\t\t\td.qty > 0 &&\n\t\t\t\t\t\t\t\t\tqty > 0 &&\n\t\t\t\t\t\t\t\t\tme.frm.doc.items[i].item_code == d.item_code &&\n\t\t\t\t\t\t\t\t\t!me.frm.doc.items[i].material_request_item\n\t\t\t\t\t\t\t\t) {\n\t\t\t\t\t\t\t\t\tme.frm.doc.items[i].material_request = d.mr_name;\n\t\t\t\t\t\t\t\t\tme.frm.doc.items[i].material_request_item = d.mr_item;\n\t\t\t\t\t\t\t\t\tvar my_qty = Math.min(qty, d.qty);\n\t\t\t\t\t\t\t\t\tqty = qty - my_qty;\n\t\t\t\t\t\t\t\t\td.qty = d.qty - my_qty;\n\t\t\t\t\t\t\t\t\tme.frm.doc.items[i].stock_qty =\n\t\t\t\t\t\t\t\t\t\tmy_qty * me.frm.doc.items[i].conversion_factor;\n\t\t\t\t\t\t\t\t\tme.frm.doc.items[i].qty = my_qty;\n\n\t\t\t\t\t\t\t\t\tfrappe.msgprint(\n\t\t\t\t\t\t\t\t\t\t\"Assigning \" +\n\t\t\t\t\t\t\t\t\t\t\td.mr_name +\n\t\t\t\t\t\t\t\t\t\t\t\" to \" +\n\t\t\t\t\t\t\t\t\t\t\td.item_code +\n\t\t\t\t\t\t\t\t\t\t\t\" (row \" +\n\t\t\t\t\t\t\t\t\t\t\tme.frm.doc.items[i].idx +\n\t\t\t\t\t\t\t\t\t\t\t\")\"\n\t\t\t\t\t\t\t\t\t);\n\t\t\t\t\t\t\t\t\tif (qty > 0) {\n\t\t\t\t\t\t\t\t\t\tfrappe.msgprint(\"Splitting \" + qty + \" units of \" + d.item_code);\n\t\t\t\t\t\t\t\t\t\tvar new_row = frappe.model.add_child(\n\t\t\t\t\t\t\t\t\t\t\tme.frm.doc,\n\t\t\t\t\t\t\t\t\t\t\tme.frm.doc.items[i].doctype,\n\t\t\t\t\t\t\t\t\t\t\t\"items\"\n\t\t\t\t\t\t\t\t\t\t);\n\t\t\t\t\t\t\t\t\t\titem_length++;\n\n\t\t\t\t\t\t\t\t\t\tfor (var key in me.frm.doc.items[i]) {\n\t\t\t\t\t\t\t\t\t\t\tnew_row[key] = me.frm.doc.items[i][key];\n\t\t\t\t\t\t\t\t\t\t}\n\n\t\t\t\t\t\t\t\t\t\tnew_row.idx = item_length;\n"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 44,
+  "labels": [
+   [
+    "Debit Note",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Debit Note\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.model.open_mapped_doc({\n\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice\",\n\t\t\t\t\t\tfrm: cur_frm,\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 58,
+  "labels": [
+   [
+    "Delivery Note",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Delivery Note\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.model.open_mapped_doc({\n\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_inter_company_delivery_note\",\n\t\t\t\t\t\tfrm: cur_frm,\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 87,
+  "labels": [
+   [
+    "Landed Cost Voucher",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Landed Cost Voucher\"),\n\t\t\t\t() => {\n\t\t\t\t\tfrm.events.make_lcv(frm);\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 96,
+  "labels": [],
+  "text": "add_custom_buttons(frm)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 115,
+  "labels": [],
+  "text": "add_custom_buttons: function (frm)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 117,
+  "labels": [
+   [
+    "Purchase Invoice",
+    ""
+   ],
+   [
+    "Mandatory",
+    ""
+   ],
+   [
+    "Please Select a Supplier",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Purchase Invoice\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tif (!frm.doc.supplier) {\n\t\t\t\t\t\tfrappe.throw({\n\t\t\t\t\t\t\ttitle: __(\"Mandatory\"),\n\t\t\t\t\t\t\tmessage: __(\"Please Select a Supplier\"),\n\t\t\t\t\t\t});\n\t\t\t\t\t}\n\t\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\t\tmethod: \"erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_purchase_receipt\",\n\t\t\t\t\t\tsource_doctype: \"Purchase Invoice\",\n\t\t\t\t\t\ttarget: frm,\n\t\t\t\t\t\tsetters: {\n\t\t\t\t\t\t\tsupplier: frm.doc.supplier,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\t\tper_received: [\"<\", 100],\n\t\t\t\t\t\t\tcompany: frm.doc.company,\n\t\t\t\t\t\t\tupdate_stock: 0,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"received_qty\"],\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 191,
+  "labels": [
+   [
+    "Asset",
+    ""
+   ],
+   [
+    "View",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Asset\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.route_options = {\n\t\t\t\t\t\tpurchase_receipt: me.frm.doc.name,\n\t\t\t\t\t};\n\t\t\t\t\tfrappe.set_route(\"List\", \"Asset\");\n\t\t\t\t},\n\t\t\t\t__(\"View\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 202,
+  "labels": [
+   [
+    "Asset Movement",
+    ""
+   ],
+   [
+    "View",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Asset Movement\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.route_options = {\n\t\t\t\t\t\treference_name: me.frm.doc.name,\n\t\t\t\t\t};\n\t\t\t\t\tfrappe.set_route(\"List\", \"Asset Movement\");\n\t\t\t\t},\n\t\t\t\t__(\"View\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 216,
+  "labels": [
+   [
+    "Purchase Order",
+    ""
+   ],
+   [
+    "Mandatory",
+    ""
+   ],
+   [
+    "Please Select a Supplier",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Purchase Order\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tif (!me.frm.doc.supplier) {\n\t\t\t\t\t\t\tfrappe.throw({\n\t\t\t\t\t\t\t\ttitle: __(\"Mandatory\"),\n\t\t\t\t\t\t\t\tmessage: __(\"Please Select a Supplier\"),\n\t\t\t\t\t\t\t});\n\t\t\t\t\t\t}\n\t\t\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\t\t\tmethod: \"erpnext.buying.doctype.purchase_order.purchase_order.make_purchase_receipt\",\n\t\t\t\t\t\t\tsource_doctype: \"Purchase Order\",\n\t\t\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\t\t\tsetters: {\n\t\t\t\t\t\t\t\tsupplier: me.frm.doc.supplier,\n\t\t\t\t\t\t\t\tschedule_date: undefined,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\t\t\tstatus: [\"not in\", [\"Closed\", \"On Hold\"]],\n\t\t\t\t\t\t\t\tper_received: [\"<\", 99.99],\n\t\t\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"received_qty\"],\n\t\t\t\t\t\t});\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Get Items From\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 250,
+  "labels": [
+   [
+    "Close",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Close\"), this.close_purchase_receipt, __(\"Status\"))"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 253,
+  "labels": [
+   [
+    "Purchase Return",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Purchase Return\"), this.make_purchase_return, __(\"Create\"))"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 255,
+  "labels": [
+   [
+    "Make Stock Entry",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Make Stock Entry\"),\n\t\t\t\t\tcur_frm.cscript[\"Make Stock Entry\"],\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 262,
+  "labels": [
+   [
+    "Purchase Invoice",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Purchase Invoice\"),\n\t\t\t\t\t\tthis.make_purchase_invoice,\n\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 268,
+  "labels": [
+   [
+    "Sample Retention Stock Entry",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Sample Retention Stock Entry\"),\n\t\t\t\t\tthis.make_retention_stock_entry,\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+  "line": 279,
+  "labels": [
+   [
+    "Reopen",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Reopen\"), this.reopen_purchase_receipt, __(\"Status\"))"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 93,
+  "labels": [
+   [
+    "Change Release Date",
+    ""
+   ],
+   [
+    "Hold Invoice",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Change Release Date\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tme.change_release_date();\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Hold Invoice\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 100,
+  "labels": [
+   [
+    "Unblock Invoice",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Unblock Invoice\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tme.unblock_invoice();\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 108,
+  "labels": [
+   [
+    "Block Invoice",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Block Invoice\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tme.block_invoice();\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 124,
+  "labels": [
+   [
+    "Payment",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Payment\"), () => this.make_payment_entry(), __(\"Create\"))"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 130,
+  "labels": [
+   [
+    "Return / Debit Note",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Return / Debit Note\"),\n\t\t\t\t\tthis.make_debit_note.bind(this),\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 145,
+  "labels": [
+   [
+    "Payment Request",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Payment Request\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tme.make_payment_request_with_schedule();\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 155,
+  "labels": [
+   [
+    "Purchase Order",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Purchase Order\"),\n\t\t\t\tfunction () {\n\t\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\t\tmethod: \"erpnext.buying.doctype.purchase_order.purchase_order.make_purchase_invoice\",\n\t\t\t\t\t\tsource_doctype: \"Purchase Order\",\n\t\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\t\tsetters: {\n\t\t\t\t\t\t\tsupplier: me.frm.doc.supplier || undefined,\n\t\t\t\t\t\t\tschedule_date: undefined,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\t\tstatus: [\"not in\", [\"Closed\", \"On Hold\"]],\n\t\t\t\t\t\t\tper_billed: [\"<\", 99.99],\n\t\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"amount\", \"billed_amt\"],\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 180,
+  "labels": [
+   [
+    "Purchase Receipt",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Purchase Receipt\"),\n\t\t\t\tfunction () {\n\t\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice\",\n\t\t\t\t\t\tsource_doctype: \"Purchase Receipt\",\n\t\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\t\tsetters: {\n\t\t\t\t\t\t\tsupplier: me.frm.doc.supplier || undefined,\n\t\t\t\t\t\t\tposting_date: undefined,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\t\tstatus: [\"not in\", [\"Closed\", \"Completed\", \"Return Issued\"]],\n\t\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t\t\tis_return: 0,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"amount\", \"billed_amt\"],\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 227,
+  "labels": [
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\"Inter Company Invoice\",\n\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\tme.make_inter_company_invoice(me.frm);\n\t\t\t\t\t\t},\n\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 631,
+  "labels": [],
+  "text": "add_custom_buttons(frm)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 640,
+  "labels": [],
+  "text": "add_custom_buttons: function (frm)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 642,
+  "labels": [
+   [
+    "Purchase Receipt",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Purchase Receipt\"),\n\t\t\t\t() => {\n\t\t\t\t\tfrm.events.make_purchase_receipt(frm);\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 652,
+  "labels": [
+   [
+    "Purchase Receipt",
+    ""
+   ],
+   [
+    "View",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Purchase Receipt\"),\n\t\t\t\t() => {\n\t\t\t\t\tfrappe.route_options = {\n\t\t\t\t\t\tpurchase_invoice: frm.doc.name,\n\t\t\t\t\t};\n\n\t\t\t\t\tfrappe.set_route(\"List\", \"Purchase Receipt\", \"List\");\n\t\t\t\t},\n\t\t\t\t__(\"View\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+  "line": 666,
+  "labels": [
+   [
+    "Landed Cost Voucher",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Landed Cost Voucher\"),\n\t\t\t\t() => {\n\t\t\t\t\tfrm.events.make_lcv(frm);\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 218,
+  "labels": [
+   [
+    "Quality Inspection(s)",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Quality Inspection(s)\"),\n\t\t\t\t() => {\n\t\t\t\t\tlet transaction_controller = new erpnext.TransactionController({ frm: frm });\n\t\t\t\t\ttransaction_controller.make_quality_inspection();\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 322,
+  "labels": [
+   [
+    "Material Request",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Material Request\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.model.with_doctype(\"Material Request\", function () {\n\t\t\t\t\t\tvar mr = frappe.model.get_new_doc(\"Material Request\");\n\t\t\t\t\t\tvar items = frm.get_field(\"items\").grid.get_selected_children();\n\t\t\t\t\t\tif (!items.length) {\n\t\t\t\t\t\t\titems = frm.doc.items;\n\t\t\t\t\t\t}\n\n\t\t\t\t\t\tmr.work_order = frm.doc.work_order;\n\t\t\t\t\t\titems.forEach(function (item) {\n\t\t\t\t\t\t\tvar mr_item = frappe.model.add_child(mr, \"items\");\n\t\t\t\t\t\t\tmr_item.item_code = item.item_code;\n\t\t\t\t\t\t\tmr_item.item_name = item.item_name;\n\t\t\t\t\t\t\tmr_item.uom = item.uom;\n\t\t\t\t\t\t\tmr_item.stock_uom = item.stock_uom;\n\t\t\t\t\t\t\tmr_item.conversion_factor = item.conversion_factor;\n\t\t\t\t\t\t\tmr_item.item_group = item.item_group;\n\t\t\t\t\t\t\tmr_item.description = item.description;\n\t\t\t\t\t\t\tmr_item.image = item.image;\n\t\t\t\t\t\t\tmr_item.qty = item.qty;\n\t\t\t\t\t\t\tmr_item.warehouse = item.s_warehouse;\n\t\t\t\t\t\t\tmr_item.required_date = frappe.datetime.nowdate();\n\t\t\t\t\t\t});\n\t\t\t\t\t\tfrappe.set_route(\"Form\", \"Material Request\", mr.name);\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 358,
+  "labels": [
+   [
+    "Alternate Item",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Alternate Item\"), () => {\n\t\t\t\t\terpnext.utils.select_alternate_items({\n\t\t\t\t\t\tfrm: frm,\n\t\t\t\t\t\tchild_docname: \"items\",\n\t\t\t\t\t\twarehouse_field: \"s_warehouse\",\n\t\t\t\t\t\tchild_doctype: \"Stock Entry Detail\",\n\t\t\t\t\t\toriginal_item_field: \"original_item\",\n\t\t\t\t\t\tcondition: (d) => {\n\t\t\t\t\t\t\tif (d.s_warehouse && d.allow_alternative_item) {\n\t\t\t\t\t\t\t\treturn true;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 381,
+  "labels": [
+   [
+    "End Transit",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"End Transit\"), function () {\n\t\t\t\t\tfrappe.model.open_mapped_doc({\n\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.stock_entry.stock_entry.make_stock_in_entry\",\n\t\t\t\t\t\tfrm: frm,\n\t\t\t\t\t});\n\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 390,
+  "labels": [
+   [
+    "Received Stock Entries",
+    ""
+   ],
+   [
+    "View",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Received Stock Entries\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tfrappe.route_options = {\n\t\t\t\t\t\t\toutgoing_stock_entry: frm.doc.name,\n\t\t\t\t\t\t\tdocstatus: [\"!=\", 2],\n\t\t\t\t\t\t};\n\n\t\t\t\t\t\tfrappe.set_route(\"List\", \"Stock Entry\");\n\t\t\t\t\t},\n\t\t\t\t\t__(\"View\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 405,
+  "labels": [
+   [
+    "Disassemble",
+    ""
+   ],
+   [
+    "Qty to Disassemble",
+    ""
+   ],
+   [
+    "Max: {0}",
+    ""
+   ],
+   [
+    "Disassemble",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Disassemble\"),\n\t\t\t\t\tasync function () {\n\t\t\t\t\t\tlet available_qty = await frappe.xcall(\n\t\t\t\t\t\t\t\"erpnext.manufacturing.doctype.work_order.work_order.get_disassembly_available_qty\",\n\t\t\t\t\t\t\t{ stock_entry_name: frm.doc.name }\n\t\t\t\t\t\t);\n\t\t\t\t\t\tfrappe.prompt(\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tfieldtype: \"Float\",\n\t\t\t\t\t\t\t\tlabel: __(\"Qty to Disassemble\"),\n\t\t\t\t\t\t\t\tfieldname: \"qty\",\n\t\t\t\t\t\t\t\tdefault: available_qty,\n\t\t\t\t\t\t\t\tdescription: __(\"Max: {0}\", [available_qty]),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tasync (data) => {\n\t\t\t\t\t\t\t\tif (frm.doc.work_order) {\n\t\t\t\t\t\t\t\t\tlet stock_entry = await frappe.xcall(\n\t\t\t\t\t\t\t\t\t\t\"erpnext.manufacturing.doctype.work_order.work_order.make_stock_entry\",\n\t\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\t\twork_order_id: frm.doc.work_order,\n\t\t\t\t\t\t\t\t\t\t\tpurpose: \"Disassemble\",\n\t\t\t\t\t\t\t\t\t\t\tqty: data.qty,\n\t\t\t\t\t\t\t\t\t\t\tsource_stock_entry: frm.doc.name,\n\t\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t\t);\n\t\t\t\t\t\t\t\t\tif (stock_entry) {\n\t\t\t\t\t\t\t\t\t\tfrappe.model.sync(stock_entry);\n\t\t\t\t\t\t\t\t\t\tfrappe.set_route(\"Form\", stock_entry.doctype, stock_entry.name);\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\t\tlet se = frappe.model.get_new_doc(\"Stock Entry\");\n\t\t\t\t\t\t\t\t\tse.company = frm.doc.company;\n\t\t\t\t\t\t\t\t\tse.stock_entry_type = \"Disassemble\";\n\t\t\t\t\t\t\t\t\tse.purpose = \"Disassemble\";\n\t\t\t\t\t\t\t\t\tse.source_stock_entry = frm.doc.name;\n\t\t\t\t\t\t\t\t\tse.from_bom = frm.doc.from_bom;\n\t\t\t\t\t\t\t\t\tse.bom_no = frm.doc.bom_no;\n\t\t\t\t\t\t\t\t\tse.fg_completed_qty = data.qty;\n\t\t\t\t\t\t\t\t\tfrm._via_source_stock_entry = true;\n\n\t\t\t\t\t\t\t\t\tfrappe.set_route(\"Form\", \"Stock Entry\", se.name);\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t__(\"Disassemble\"),\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t);\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 459,
+  "labels": [
+   [
+    "Purchase Invoice",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Purchase Invoice\"),\n\t\t\t\tfunction () {\n\t\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\t\tmethod: \"erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_stock_entry\",\n\t\t\t\t\t\tsource_doctype: \"Purchase Invoice\",\n\t\t\t\t\t\ttarget: frm,\n\t\t\t\t\t\tdate_field: \"posting_date\",\n\t\t\t\t\t\tsetters: {\n\t\t\t\t\t\t\tsupplier: frm.doc.supplier || undefined,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 478,
+  "labels": [
+   [
+    "Material Request",
+    ""
+   ],
+   [
+    "Purpose",
+    ""
+   ],
+   [
+    "Customer",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Material Request\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tconst allowed_request_types = [\n\t\t\t\t\t\t\"Material Transfer\",\n\t\t\t\t\t\t\"Material Issue\",\n\t\t\t\t\t\t\"Customer Provided\",\n\t\t\t\t\t];\n\t\t\t\t\tconst depends_on_condition = \"eval:doc.material_request_type==='Customer Provided'\";\n\t\t\t\t\tconst d = erpnext.utils.map_current_doc({\n\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.material_request.material_request.make_stock_entry\",\n\t\t\t\t\t\tsource_doctype: \"Material Request\",\n\t\t\t\t\t\ttarget: frm,\n\t\t\t\t\t\tdate_field: \"schedule_date\",\n\t\t\t\t\t\tsetters: [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tfieldtype: \"Select\",\n\t\t\t\t\t\t\t\tlabel: __(\"Purpose\"),\n\t\t\t\t\t\t\t\toptions: allowed_request_types.join(\"\\n\"),\n\t\t\t\t\t\t\t\tfieldname: \"material_request_type\",\n\t\t\t\t\t\t\t\tdefault: \"Material Transfer\",\n\t\t\t\t\t\t\t\tmandatory: 1,\n\t\t\t\t\t\t\t\tchange() {\n\t\t\t\t\t\t\t\t\tif (this.value === \"Customer Provided\") {\n\t\t\t\t\t\t\t\t\t\td.dialog.get_field(\"customer\").set_focus();\n\t\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\t\t\tlabel: __(\"Customer\"),\n\t\t\t\t\t\t\t\toptions: \"Customer\",\n\t\t\t\t\t\t\t\tfieldname: \"customer\",\n\t\t\t\t\t\t\t\tdepends_on: depends_on_condition,\n\t\t\t\t\t\t\t\tmandatory_depends_on: depends_on_condition,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t],\n\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\t\tmaterial_request_type: [\"in\", allowed_request_types],\n\t\t\t\t\t\t\tstatus: [\"not in\", [\"Transferred\", \"Issued\", \"Cancelled\", \"Stopped\"]],\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 531,
+  "labels": [
+   [
+    "Expired Batches",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Expired Batches\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.call({\n\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.stock_entry.stock_entry.get_expired_batch_items\",\n\t\t\t\t\t\tfreeze: true,\n\t\t\t\t\t\tcallback: function (r) {\n\t\t\t\t\t\t\tif (!r.exc && r.message) {\n\t\t\t\t\t\t\t\tfrm.set_value(\"items\", []);\n\t\t\t\t\t\t\t\tr.message.forEach(function (element) {\n\t\t\t\t\t\t\t\t\tlet d = frm.add_child(\"items\");\n\t\t\t\t\t\t\t\t\td.item_code = element.item;\n\t\t\t\t\t\t\t\t\td.s_warehouse = element.warehouse;\n\t\t\t\t\t\t\t\t\td.qty = element.qty;\n\t\t\t\t\t\t\t\t\td.uom = element.stock_uom;\n\t\t\t\t\t\t\t\t\td.conversion_factor = 1;\n\t\t\t\t\t\t\t\t\td.batch_no = element.batch_no;\n\t\t\t\t\t\t\t\t\td.transfer_qty = element.qty;\n\t\t\t\t\t\t\t\t\tfrm.refresh_fields();\n\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 570,
+  "labels": [
+   [
+    "Sample Retention Stock Entry",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Sample Retention Stock Entry\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrm.trigger(\"make_retention_stock_entry\");\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 600,
+  "labels": [
+   [
+    "Transit Entry",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Transit Entry\"),\n\t\t\t\tfunction () {\n\t\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.stock_entry.stock_entry.make_stock_in_entry\",\n\t\t\t\t\t\tsource_doctype: \"Stock Entry\",\n\t\t\t\t\t\ttarget: frm,\n\t\t\t\t\t\tdate_field: \"posting_date\",\n\t\t\t\t\t\tread_only_setters: [\"stock_entry_type\", \"purpose\", \"add_to_transit\"],\n\t\t\t\t\t\tsetters: {\n\t\t\t\t\t\t\tstock_entry_type: \"Material Transfer\",\n\t\t\t\t\t\t\tpurpose: \"Material Transfer\",\n\t\t\t\t\t\t\tadd_to_transit: 1,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\t\tpurpose: \"Material Transfer\",\n\t\t\t\t\t\t\tadd_to_transit: 1,\n\t\t\t\t\t\t\tper_transferred: [\"<\", 100],\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 785,
+  "labels": [
+   [
+    "Bill of Materials",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Bill of Materials\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrm.events.get_items_from_bom(frm);\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+  "line": 1550,
+  "labels": [
+   [
+    "Excise Invoice",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Excise Invoice\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tvar excise = frappe.model.make_new_doc_and_get_name(\"Journal Entry\");\n\t\t\t\t\texcise = locals[\"Journal Entry\"][excise];\n\t\t\t\t\texcise.voucher_type = \"Excise Entry\";\n\t\t\t\t\tfrappe.set_route(\"Form\", \"Journal Entry\", excise.name);\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 88,
+  "labels": [
+   [
+    "Credit Note",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Credit Note\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.model.open_mapped_doc({\n\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.delivery_note.delivery_note.make_sales_invoice\",\n\t\t\t\t\t\tfrm: cur_frm,\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 113,
+  "labels": [
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(button_label),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tfrappe.model.open_mapped_doc({\n\t\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.delivery_note.delivery_note.make_inter_company_purchase_receipt\",\n\t\t\t\t\t\t\tfrm: frm,\n\t\t\t\t\t\t});\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 156,
+  "labels": [
+   [
+    "Sales Order",
+    ""
+   ],
+   [
+    "Mandatory",
+    ""
+   ],
+   [
+    "Please Select a Customer",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Sales Order\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tif (!me.frm.doc.customer) {\n\t\t\t\t\t\tfrappe.throw({\n\t\t\t\t\t\t\ttitle: __(\"Mandatory\"),\n\t\t\t\t\t\t\tmessage: __(\"Please Select a Customer\"),\n\t\t\t\t\t\t});\n\t\t\t\t\t}\n\t\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\t\tmethod: \"erpnext.selling.doctype.sales_order.sales_order.make_delivery_note\",\n\t\t\t\t\t\targs: {\n\t\t\t\t\t\t\tfor_reserved_stock: 1,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tsource_doctype: \"Sales Order\",\n\t\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\t\tsetters: {\n\t\t\t\t\t\t\tcustomer: me.frm.doc.customer,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\t\tstatus: [\"not in\", [\"Closed\", \"On Hold\"]],\n\t\t\t\t\t\t\tper_delivered: [\"<\", 99.99],\n\t\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t\t\tproject: me.frm.doc.project || undefined,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"delivered_qty\"],\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 198,
+  "labels": [
+   [
+    "Pick List",
+    ""
+   ],
+   [
+    "Mandatory",
+    ""
+   ],
+   [
+    "Please Select a Customer",
+    ""
+   ],
+   [
+    "Customer",
+    ""
+   ],
+   [
+    "Sales Order",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Pick List\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tif (!me.frm.doc.customer) {\n\t\t\t\t\t\tfrappe.throw({\n\t\t\t\t\t\t\ttitle: __(\"Mandatory\"),\n\t\t\t\t\t\t\tmessage: __(\"Please Select a Customer\"),\n\t\t\t\t\t\t});\n\t\t\t\t\t}\n\t\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.pick_list.pick_list.create_dn_for_pick_lists\",\n\t\t\t\t\t\tsource_doctype: \"Pick List\",\n\t\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\t\tsetters: [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tfieldname: \"customer\",\n\t\t\t\t\t\t\t\tdefault: me.frm.doc.customer,\n\t\t\t\t\t\t\t\tlabel: __(\"Customer\"),\n\t\t\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\t\t\toptions: \"Customer\",\n\t\t\t\t\t\t\t\treqd: 1,\n\t\t\t\t\t\t\t\tread_only: 1,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tfieldname: \"sales_order\",\n\t\t\t\t\t\t\t\tlabel: __(\"Sales Order\"),\n\t\t\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\t\t\toptions: \"Sales Order\",\n\t\t\t\t\t\t\t\tlink_filters: `[[\"Sales Order\",\"customer\",\"=\",\"${me.frm.doc.customer}\"],[\"Sales Order\",\"docstatus\",\"=\",\"1\"],[\"Sales Order\",\"delivery_status\",\"not in\",[\"Closed\",\"Fully Delivered\"]]]`,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t],\n\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t\t},\n\t\t\t\t\t\tget_query_method: \"erpnext.stock.doctype.pick_list.pick_list.get_pick_list_query\",\n\t\t\t\t\t\tsize: \"extra-large\",\n\t\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\t\tchild_fieldname: \"locations\",\n\t\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"stock_qty\", \"delivered_qty\"],\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 245,
+  "labels": [
+   [
+    "Shipment",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Shipment\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tme.make_shipment();\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 259,
+  "labels": [
+   [
+    "Installation Note",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Installation Note\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tme.make_installation_note();\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 269,
+  "labels": [
+   [
+    "Sales Return",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Sales Return\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tme.make_sales_return();\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 279,
+  "labels": [
+   [
+    "Delivery Trip",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Delivery Trip\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tme.make_delivery_trip();\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 295,
+  "labels": [
+   [
+    "Packing Slip",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Packing Slip\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tfrappe.model.open_mapped_doc({\n\t\t\t\t\t\t\tmethod: \"erpnext.stock.doctype.delivery_note.delivery_note.make_packing_slip\",\n\t\t\t\t\t\t\tfrm: me.frm,\n\t\t\t\t\t\t});\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 321,
+  "labels": [
+   [
+    "Close",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Close\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tme.close_delivery_note();\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Status\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 346,
+  "labels": [
+   [
+    "Sales Invoice",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Sales Invoice\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tme.make_sales_invoice();\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+  "line": 357,
+  "labels": [
+   [
+    "Reopen",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Reopen\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tme.reopen_delivery_note();\n\t\t\t\t},\n\t\t\t\t__(\"Status\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 98,
+  "labels": [
+   [
+    "Payment",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Payment\"), () => this.make_payment_entry(), __(\"Create\"))"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 110,
+  "labels": [
+   [
+    "Return / Credit Note",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Return / Credit Note\"),\n\t\t\t\t\tthis.make_sales_return.bind(this),\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 128,
+  "labels": [
+   [
+    "Delivery Note",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t\t__(\"Delivery Note\"),\n\t\t\t\t\t\t\tthis.frm.cscript[\"Make Delivery Note\"],\n\t\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 139,
+  "labels": [
+   [
+    "Payment Request",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Payment Request\"),\n\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\tme.make_payment_request_with_schedule();\n\t\t\t\t\t\t},\n\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 147,
+  "labels": [
+   [
+    "Invoice Discounting",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Invoice Discounting\"),\n\t\t\t\t\tthis.make_invoice_discounting.bind(this),\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 158,
+  "labels": [
+   [
+    "Dunning",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Dunning\"), this.make_dunning.bind(this), __(\"Create\"))"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 163,
+  "labels": [
+   [
+    "Maintenance Schedule",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Maintenance Schedule\"),\n\t\t\t\t\tthis.make_maintenance_schedule.bind(this),\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 181,
+  "labels": [
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(button_label),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tme.make_inter_company_invoice();\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 301,
+  "labels": [
+   [
+    "Timesheet",
+    ""
+   ],
+   [
+    "Fetch Timesheet",
+    ""
+   ],
+   [
+    "From",
+    ""
+   ],
+   [
+    "Item Code",
+    ""
+   ],
+   [
+    "To",
+    ""
+   ],
+   [
+    "Project",
+    ""
+   ],
+   [
+    "Get Timesheets",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t__(\"Timesheet\"),\n\t\t\tfunction () {\n\t\t\t\tlet d = new frappe.ui.Dialog({\n\t\t\t\t\ttitle: __(\"Fetch Timesheet\"),\n\t\t\t\t\tfields: [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tlabel: __(\"From\"),\n\t\t\t\t\t\t\tfieldname: \"from_time\",\n\t\t\t\t\t\t\tfieldtype: \"Date\",\n\t\t\t\t\t\t\treqd: 1,\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tlabel: __(\"Item Code\"),\n\t\t\t\t\t\t\tfieldname: \"item_code\",\n\t\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\t\toptions: \"Item\",\n\t\t\t\t\t\t\tget_query: () => {\n\t\t\t\t\t\t\t\treturn {\n\t\t\t\t\t\t\t\t\tquery: \"erpnext.controllers.queries.item_query\",\n\t\t\t\t\t\t\t\t\tfilters: {\n\t\t\t\t\t\t\t\t\t\tis_sales_item: 1,\n\t\t\t\t\t\t\t\t\t\tcustomer: me.frm.doc.customer,\n\t\t\t\t\t\t\t\t\t\thas_variants: 0,\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t};\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tfieldtype: \"Column Break\",\n\t\t\t\t\t\t\tfieldname: \"col_break_1\",\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tlabel: __(\"To\"),\n\t\t\t\t\t\t\tfieldname: \"to_time\",\n\t\t\t\t\t\t\tfieldtype: \"Date\",\n\t\t\t\t\t\t\treqd: 1,\n\t\t\t\t\t\t},\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tlabel: __(\"Project\"),\n\t\t\t\t\t\t\tfieldname: \"project\",\n\t\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\t\toptions: \"Project\",\n\t\t\t\t\t\t\tdefault: me.frm.doc.project,\n\t\t\t\t\t\t},\n\t\t\t\t\t],\n\t\t\t\t\tprimary_action: function () {\n\t\t\t\t\t\tconst data = d.get_values();\n\t\t\t\t\t\tme.frm.events.add_timesheet_data(me.frm, {\n\t\t\t\t\t\t\tfrom_time: data.from_time,\n\t\t\t\t\t\t\tto_time: data.to_time,\n\t\t\t\t\t\t\tproject: data.project,\n\t\t\t\t\t\t\titem_code: data.item_code,\n\t\t\t\t\t\t});\n\t\t\t\t\t\td.hide();\n\t\t\t\t\t},\n\t\t\t\t\tprimary_action_label: __(\"Get Timesheets\"),\n\t\t\t\t});\n\t\t\t\td.show();\n\t\t\t},\n"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 378,
+  "labels": [
+   [
+    "Sales Order",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t__(\"Sales Order\"),\n\t\t\tfunction () {\n\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\tmethod: \"erpnext.selling.doctype.sales_order.sales_order.make_sales_invoice\",\n\t\t\t\t\tsource_doctype: \"Sales Order\",\n\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\tsetters: {\n\t\t\t\t\t\tcustomer: me.frm.doc.customer || undefined,\n\t\t\t\t\t},\n\t\t\t\t\tget_query_filters: filters,\n\t\t\t\t\tget_query_method:\n\t\t\t\t\t\t\"erpnext.selling.doctype.sales_order.sales_order.get_potentially_billable_sales_orders\",\n\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"amount\", \"billed_amt\"],\n\t\t\t\t});\n\t\t\t},\n\t\t\t__(\"Get Items From\")\n\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 402,
+  "labels": [
+   [
+    "Quotation",
+    ""
+   ],
+   [
+    "Customer",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t__(\"Quotation\"),\n\t\t\tfunction () {\n\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\tmethod: \"erpnext.selling.doctype.quotation.quotation.make_sales_invoice\",\n\t\t\t\t\tsource_doctype: \"Quotation\",\n\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\tsetters: [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\t\tlabel: __(\"Customer\"),\n\t\t\t\t\t\t\toptions: \"Customer\",\n\t\t\t\t\t\t\tfieldname: \"party_name\",\n\t\t\t\t\t\t\tdefault: me.frm.doc.customer,\n\t\t\t\t\t\t},\n\t\t\t\t\t],\n\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\tstatus: [\"!=\", \"Lost\"],\n\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t},\n\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"rate\", \"amount\"],\n\t\t\t\t});\n\t\t\t},\n\t\t\t__(\"Get Items From\")\n\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+  "line": 434,
+  "labels": [
+   [
+    "Delivery Note",
+    ""
+   ],
+   [
+    "Mandatory",
+    ""
+   ],
+   [
+    "Please Select a Customer",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t__(\"Delivery Note\"),\n\t\t\tfunction () {\n\t\t\t\tif (!me.frm.doc.customer) {\n\t\t\t\t\tfrappe.throw({\n\t\t\t\t\t\ttitle: __(\"Mandatory\"),\n\t\t\t\t\t\tmessage: __(\"Please Select a Customer\"),\n\t\t\t\t\t});\n\t\t\t\t}\n\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\tmethod: \"erpnext.stock.doctype.delivery_note.delivery_note.make_sales_invoice\",\n\t\t\t\t\tsource_doctype: \"Delivery Note\",\n\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\tdate_field: \"posting_date\",\n\t\t\t\t\tsetters: {\n\t\t\t\t\t\tcustomer: me.frm.doc.customer || undefined,\n\t\t\t\t\t},\n\t\t\t\t\tget_query: function () {\n\t\t\t\t\t\tvar filters = {\n\t\t\t\t\t\t\tdocstatus: 1,\n\t\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t\t\tis_return: me.frm.doc.is_return,\n\t\t\t\t\t\t};\n\t\t\t\t\t\tif (me.frm.doc.customer) filters[\"customer\"] = me.frm.doc.customer;\n\t\t\t\t\t\treturn {\n\t\t\t\t\t\t\tquery: \"erpnext.controllers.queries.get_delivery_notes_to_be_billed\",\n\t\t\t\t\t\t\tfilters: filters,\n\t\t\t\t\t\t};\n\t\t\t\t\t},\n\t\t\t\t\tallow_child_item_selection: true,\n\t\t\t\t\tchild_fieldname: \"items\",\n\t\t\t\t\tchild_columns: [\"item_code\", \"item_name\", \"qty\", \"amount\", \"billed_amt\"],\n\t\t\t\t});\n\t\t\t},\n\t\t\t__(\"Get Items From\")\n\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 109,
+  "labels": [
+   [
+    "Production Plan Summary",
+    ""
+   ],
+   [
+    "View",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Production Plan Summary\"),\n\t\t\t\t() => {\n\t\t\t\t\tfrappe.set_route(\"query-report\", \"Production Plan Summary\", {\n\t\t\t\t\t\tproduction_plan: frm.doc.name,\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"View\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 123,
+  "labels": [
+   [
+    "Re-open",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Re-open\"),\n\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\tfrm.events.close_open_production_plan(frm, false);\n\t\t\t\t\t\t},\n\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 131,
+  "labels": [
+   [
+    "Close",
+    ""
+   ],
+   [
+    "Status",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Close\"),\n\t\t\t\t\t\tfunction () {\n\t\t\t\t\t\t\tfrm.events.close_open_production_plan(frm, true);\n\t\t\t\t\t\t},\n\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 143,
+  "labels": [
+   [
+    "Work Order / Subcontract PO",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Work Order / Subcontract PO\"),\n\t\t\t\t\t\t() => {\n\t\t\t\t\t\t\tfrm.trigger(\"make_work_order\");\n\t\t\t\t\t\t},\n\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 158,
+  "labels": [
+   [
+    "Material Request",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t\t__(\"Material Request\"),\n\t\t\t\t\t\t() => {\n\t\t\t\t\t\t\tfrm.trigger(\"make_material_request\");\n\t\t\t\t\t\t},\n\t\t\t\t\t\t__(\"Create\")\n\t\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 268,
+  "labels": [
+   [
+    "Reserve for Sub-assembly",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Reserve for Sub-assembly\"),\n\t\t\t\t\t() => erpnext.stock_reservation.make_entries(frm, \"sub_assembly_items\"),\n\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 276,
+  "labels": [
+   [
+    "Unreserve for Sub-assembly",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Unreserve for Sub-assembly\"),\n\t\t\t\t\t() => erpnext.stock_reservation.unreserve_stock(frm),\n\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 282,
+  "labels": [
+   [
+    "Reserved Stock for Sub-assembly",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Reserved Stock for Sub-assembly\"),\n\t\t\t\t\t() => erpnext.stock_reservation.show_reserved_stock(frm, \"sub_assembly_items\"),\n\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 294,
+  "labels": [
+   [
+    "Reserve for Raw Materials",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Reserve for Raw Materials\"),\n\t\t\t\t\t() => erpnext.stock_reservation.make_entries(frm, \"mr_items\"),\n\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 302,
+  "labels": [
+   [
+    "Unreserve for Raw Materials",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Unreserve for Raw Materials\"),\n\t\t\t\t\t() => erpnext.stock_reservation.unreserve_stock(frm),\n\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+  "line": 308,
+  "labels": [
+   [
+    "Reserved Stock for Raw Materials",
+    ""
+   ],
+   [
+    "Stock Reservation",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Reserved Stock for Raw Materials\"),\n\t\t\t\t\t() => erpnext.stock_reservation.show_reserved_stock(frm, \"mr_items\"),\n\t\t\t\t\t__(\"Stock Reservation\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+  "line": 225,
+  "labels": [
+   [
+    "Update Cost",
+    ""
+   ],
+   [
+    "Actions",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Update Cost\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrm.events.update_cost(frm, true);\n\t\t\t\t},\n\t\t\t\t__(\"Actions\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+  "line": 233,
+  "labels": [
+   [
+    "Browse BOM",
+    ""
+   ],
+   [
+    "Actions",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Browse BOM\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.route_options = {\n\t\t\t\t\t\tbom: frm.doc.name,\n\t\t\t\t\t};\n\t\t\t\t\tfrappe.set_route(\"Tree\", \"BOM\");\n\t\t\t\t},\n\t\t\t\t__(\"Actions\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+  "line": 246,
+  "labels": [
+   [
+    "New Version",
+    ""
+   ],
+   [
+    "Actions",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"New Version\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tlet new_bom = frappe.model.copy_doc(frm.doc);\n\t\t\t\t\tfrappe.set_route(\"Form\", \"BOM\", new_bom.name);\n\t\t\t\t},\n\t\t\t\t__(\"Actions\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+  "line": 257,
+  "labels": [
+   [
+    "Work Order",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Work Order\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrm.trigger(\"make_work_order\");\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+  "line": 266,
+  "labels": [
+   [
+    "Variant BOM",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Variant BOM\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tfrm.trigger(\"make_variant_bom\");\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+  "line": 276,
+  "labels": [
+   [
+    "Quality Inspection",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Quality Inspection\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tfrm.trigger(\"make_quality_inspection\");\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Create\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+  "line": 291,
+  "labels": [
+   [
+    "Alternate Item",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Alternate Item\"), () => {\n\t\t\t\t\terpnext.utils.select_alternate_items({\n\t\t\t\t\t\tfrm: frm,\n\t\t\t\t\t\tchild_docname: \"items\",\n\t\t\t\t\t\twarehouse_field: \"source_warehouse\",\n\t\t\t\t\t\tchild_doctype: \"BOM Item\",\n\t\t\t\t\t\toriginal_item_field: \"original_item\",\n\t\t\t\t\t\tcondition: (d) => {\n\t\t\t\t\t\t\tif (d.allow_alternative_item) {\n\t\t\t\t\t\t\t\treturn true;\n\t\t\t\t\t\t\t}\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/job_card/job_card.js",
+  "line": 111,
+  "labels": [
+   [
+    "Make Stock Entry",
+    ""
+   ],
+   [
+    "Do you want to submit the stock entry?",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Make Stock Entry\"), () => {\n\t\t\tfrappe.confirm(\n\t\t\t\t__(\"Do you want to submit the stock entry?\"),\n\t\t\t\t() => frm.events.make_manufacture_stock_entry(frm, 1),\n\t\t\t\t() => frm.events.make_manufacture_stock_entry(frm, 0)\n\t\t\t);\n\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/job_card/job_card.js",
+  "line": 220,
+  "labels": [
+   [
+    "Material Request",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Material Request\"),\n\t\t\t\t() => frm.trigger(\"make_material_request\"),\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/job_card/job_card.js",
+  "line": 228,
+  "labels": [
+   [
+    "Material Transfer",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Material Transfer\"),\n\t\t\t\t() => frm.trigger(\"make_stock_entry\"),\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/job_card/job_card.js",
+  "line": 419,
+  "labels": [
+   [
+    "Make Subcontracting PO",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Make Subcontracting PO\"), () => {\n\t\t\t\tfrappe.model.open_mapped_doc({\n\t\t\t\t\tmethod: \"erpnext.manufacturing.doctype.job_card.job_card.make_subcontracting_po\",\n\t\t\t\t\tfrm: frm,\n\t\t\t\t});\n\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/manufacturing/doctype/job_card/job_card.js",
+  "line": 456,
+  "labels": [
+   [
+    "Corrective Job Card",
+    ""
+   ],
+   [
+    "Corrective Operation",
+    ""
+   ],
+   [
+    "For Operation",
+    ""
+   ],
+   [
+    "Select Corrective Operation",
+    ""
+   ],
+   [
+    "Make",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t__(\"Corrective Job Card\"),\n\t\t\t() => {\n\t\t\t\tconst operations = frm.doc.sub_operations\n\t\t\t\t\t.map((d) => d.sub_operation)\n\t\t\t\t\t.concat(frm.doc.operation);\n\n\t\t\t\tconst fields = [\n\t\t\t\t\t{\n\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\tlabel: __(\"Corrective Operation\"),\n\t\t\t\t\t\toptions: \"Operation\",\n\t\t\t\t\t\tfieldname: \"operation\",\n\t\t\t\t\t\tget_query() {\n\t\t\t\t\t\t\treturn { filters: { is_corrective_operation: 1 } };\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\tlabel: __(\"For Operation\"),\n\t\t\t\t\t\toptions: \"Operation\",\n\t\t\t\t\t\tfieldname: \"for_operation\",\n\t\t\t\t\t\tget_query() {\n\t\t\t\t\t\t\treturn { filters: { name: [\"in\", operations] } };\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t];\n\n\t\t\t\tfrappe.prompt(\n\t\t\t\t\tfields,\n\t\t\t\t\t(d) => frm.events.make_corrective_job_card(frm, d.operation, d.for_operation),\n\t\t\t\t\t__(\"Select Corrective Operation\")\n\t\t\t\t);\n\t\t\t},\n\t\t\t__(\"Make\")\n\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/quotation/quotation.js",
+  "line": 134,
+  "labels": [
+   [
+    "Sales Order",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Sales Order\"), () => this.make_sales_order(), __(\"Create\"))"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/quotation/quotation.js",
+  "line": 136,
+  "labels": [
+   [
+    "Update Items",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Update Items\"), () => {\n\t\t\t\t\terpnext.utils.update_child_items({\n\t\t\t\t\t\tfrm: this.frm,\n\t\t\t\t\t\tchild_docname: \"items\",\n\t\t\t\t\t\tcannot_add_row: false,\n\t\t\t\t\t});\n\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/quotation/quotation.js",
+  "line": 146,
+  "labels": [
+   [
+    "Set as Lost",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(__(\"Set as Lost\"), () => {\n\t\t\t\t\tthis.frm.trigger(\"set_as_lost_dialog\");\n\t\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/selling/doctype/quotation/quotation.js",
+  "line": 153,
+  "labels": [
+   [
+    "Opportunity",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Opportunity\"),\n\t\t\t\tfunction () {\n\t\t\t\t\terpnext.utils.map_current_doc({\n\t\t\t\t\t\tmethod: \"erpnext.crm.doctype.opportunity.opportunity.make_quotation\",\n\t\t\t\t\t\tsource_doctype: \"Opportunity\",\n\t\t\t\t\t\ttarget: me.frm,\n\t\t\t\t\t\tsetters: [\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: \"Party\",\n\t\t\t\t\t\t\t\tfieldname: \"party_name\",\n\t\t\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\t\t\toptions: me.frm.doc.quotation_to,\n\t\t\t\t\t\t\t\tdefault: me.frm.doc.party_name || undefined,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\tlabel: \"Opportunity Type\",\n\t\t\t\t\t\t\t\tfieldname: \"opportunity_type\",\n\t\t\t\t\t\t\t\tfieldtype: \"Link\",\n\t\t\t\t\t\t\t\toptions: \"Opportunity Type\",\n\t\t\t\t\t\t\t\tdefault: me.frm.doc.order_type || undefined,\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t],\n\t\t\t\t\t\tget_query_filters: {\n\t\t\t\t\t\t\tstatus: [\"not in\", [\"Lost\", \"Closed\"]],\n\t\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Get Items From\"),\n\t\t\t\t\"btn-default\"\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js",
+  "line": 255,
+  "labels": [
+   [
+    "View Exchange Gain/Loss Journals",
+    ""
+   ],
+   [
+    "Actions",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"View Exchange Gain/Loss Journals\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.set_route(\"List\", \"Journal Entry\", {\n\t\t\t\t\t\tvoucher_type: \"Exchange Gain Or Loss\",\n\t\t\t\t\t\treference_name: frm.doc.name,\n\t\t\t\t\t});\n\t\t\t\t},\n\t\t\t\t__(\"Actions\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js",
+  "line": 425,
+  "labels": [
+   [
+    "Ledger",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Ledger\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.route_options = {\n\t\t\t\t\t\tvoucher_no: frm.doc.name,\n\t\t\t\t\t\tfrom_date: frm.doc.posting_date,\n\t\t\t\t\t\tto_date: moment(frm.doc.modified).format(\"YYYY-MM-DD\"),\n\t\t\t\t\t\tcompany: frm.doc.company,\n\t\t\t\t\t\tcategorize_by: \"\",\n\t\t\t\t\t\tshow_cancelled_entries: frm.doc.docstatus === 2,\n\t\t\t\t\t};\n\t\t\t\t\tfrappe.set_route(\"query-report\", \"General Ledger\");\n\t\t\t\t},\n\t\t\t\t\"fa fa-table\"\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/public/js/controllers/transaction.js",
+  "line": 436,
+  "labels": [
+   [
+    "Quality Inspection(s)",
+    ""
+   ],
+   [
+    "Create",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Quality Inspection(s)\"),\n\t\t\t\t() => {\n\t\t\t\t\tme.make_quality_inspection();\n\t\t\t\t},\n\t\t\t\t__(\"Create\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/public/js/controllers/transaction.js",
+  "line": 733,
+  "labels": [
+   [
+    "Send SMS",
+    ""
+   ]
+  ],
+  "text": "add_menu_item(__(\"Send SMS\"), function () {\n\t\t\t\tme.send_sms();\n\t\t\t})"
+ },
+ {
+  "file": "erpnext/erpnext/public/js/controllers/buying.js",
+  "line": 324,
+  "labels": [
+   [
+    "Product Bundle",
+    ""
+   ],
+   [
+    "Get Items From",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t\t__(\"Product Bundle\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\terpnext.buying.get_items_from_product_bundle(me.frm);\n\t\t\t\t\t},\n\t\t\t\t\t__(\"Get Items From\")\n\t\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/public/js/controllers/stock_controller.js",
+  "line": 96,
+  "labels": [
+   [
+    "Stock Ledger",
+    ""
+   ],
+   [
+    "View",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Stock Ledger\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.route_options = {\n\t\t\t\t\t\tvoucher_no: me.frm.doc.name,\n\t\t\t\t\t\tfrom_date: me.frm.doc.posting_date,\n\t\t\t\t\t\tto_date: moment(me.frm.doc.modified).format(\"YYYY-MM-DD\"),\n\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t\tshow_cancelled_entries: me.frm.doc.docstatus === 2,\n\t\t\t\t\t\tignore_prepared_report: true,\n\t\t\t\t\t};\n\t\t\t\t\tfrappe.set_route(\"query-report\", \"Stock Ledger\");\n\t\t\t\t},\n\t\t\t\t__(\"View\")\n\t\t\t)"
+ },
+ {
+  "file": "erpnext/erpnext/public/js/controllers/stock_controller.js",
+  "line": 117,
+  "labels": [
+   [
+    "Accounting Ledger",
+    ""
+   ],
+   [
+    "View",
+    ""
+   ]
+  ],
+  "text": "add_custom_button(\n\t\t\t\t__(\"Accounting Ledger\"),\n\t\t\t\tfunction () {\n\t\t\t\t\tfrappe.route_options = {\n\t\t\t\t\t\tvoucher_no: me.frm.doc.name,\n\t\t\t\t\t\tfrom_date: me.frm.doc.posting_date,\n\t\t\t\t\t\tto_date: moment(me.frm.doc.modified).format(\"YYYY-MM-DD\"),\n\t\t\t\t\t\tcompany: me.frm.doc.company,\n\t\t\t\t\t\tcategorize_by: \"Categorize by Voucher (Consolidated)\",\n\t\t\t\t\t\tshow_cancelled_entries: me.frm.doc.docstatus === 2,\n\t\t\t\t\t\tignore_prepared_report: true,\n\t\t\t\t\t};\n\t\t\t\t\tfrappe.set_route(\"query-report\", \"General Ledger\");\n\t\t\t\t},\n\t\t\t\t__(\"View\")\n\t\t\t)"
+ }
+]

@@ -1,0 +1,1532 @@
+[
+ {
+  "key": "Accepted Warehouse:Purchase Invoice Item",
+  "action": "写",
+  "target": "验收仓库",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Accepted Warehouse:Purchase Receipt",
+  "action": "写",
+  "target": "验收仓库",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Accepted Warehouse:Purchase Receipt Item",
+  "action": "写",
+  "target": "验收仓库",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Account Head:Advance Taxes and Charges",
+  "action": "写",
+  "target": "税目科目",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Account Head:Purchase Taxes and Charges",
+  "action": "写",
+  "target": "税目科目",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Account Head:Sales Taxes and Charges",
+  "action": "写",
+  "target": "税目科目",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Accountant",
+  "action": "不写",
+  "why": "fixture 职位名"
+ },
+ {
+  "key": "Accounting Ledger",
+  "action": "写",
+  "target": "会计账簿",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "无 context 行：演示面有不带 context 的渲染点 supplier.js:123, customer.js:173"
+ },
+ {
+  "key": "Accounts:Company",
+  "action": "写",
+  "target": "会计科目",
+  "basis": "S3 术语标准 §2.3.2",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Accounts:Mode of Payment",
+  "action": "写",
+  "target": "会计科目",
+  "basis": "S3 术语标准 §2.3.2",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Accounts:Month End Closing Voucher",
+  "action": "写",
+  "target": "会计科目",
+  "basis": "S3 术语标准 §2.3.2",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Accounts:Payment Entry",
+  "action": "写",
+  "target": "会计科目",
+  "basis": "S3 术语标准 §2.3.2",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Accounts User",
+  "action": "不写",
+  "why": "演示面无出处（DEC-002 演示线外撞名不处理）"
+ },
+ {
+  "key": "Additional Material Transfer",
+  "action": "写",
+  "target": "超领调拨",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 work_order.js:838"
+ },
+ {
+  "key": "Adjustment Against",
+  "action": "写",
+  "target": "冲销源单",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "无 context 行：演示面有不带 context 的渲染点 sales_invoice.js:1180"
+ },
+ {
+  "key": "Advance Paid:Sales Order",
+  "action": "写",
+  "target": "已预收款",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Advance Payments:Company",
+  "action": "写",
+  "target": "预收/预付款",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Advance Payments:Purchase Invoice",
+  "action": "写",
+  "target": "预收/预付款",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Advance Payments:Sales Invoice",
+  "action": "写",
+  "target": "预收/预付款",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Against Doctype:Quotation Item",
+  "action": "写",
+  "target": "源单类型",
+  "basis": "S3 术语标准 §2.3.2",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Available",
+  "action": "写",
+  "target": "工位可用",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 workstation.js:513"
+ },
+ {
+  "key": "Batch Quantity",
+  "action": "不写",
+  "why": "演示面无出处（DEC-002 演示线外撞名不处理）"
+ },
+ {
+  "key": "BOM Detail No:Purchase Order Item Supplied",
+  "action": "写",
+  "target": "物料清单行号",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "BOM Detail No:Purchase Receipt Item Supplied",
+  "action": "写",
+  "target": "物料清单行号",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Bundle Items:Quotation",
+  "action": "写",
+  "target": "组合套件明细",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Buying:Item Price",
+  "action": "写",
+  "target": "用于采购",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Buying:Price List",
+  "action": "写",
+  "target": "用于采购",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Change Amount:Sales Invoice",
+  "action": "写",
+  "target": "找零金额",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Completed Qty:Job Card Operation",
+  "action": "写",
+  "target": "已报工数量",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Completed Qty:Job Card Time Log",
+  "action": "写",
+  "target": "已报工数量",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Completed Qty:Work Order Operation",
+  "action": "写",
+  "target": "已报工数量",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Consumed Items:Purchase Receipt",
+  "action": "写",
+  "target": "供应商已耗用",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Contact:Delivery Note",
+  "action": "写",
+  "target": "联系人详情",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Contact:Employee External Work History",
+  "action": "写",
+  "target": "联系人详情",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Contact:Payment Entry",
+  "action": "写",
+  "target": "联系人详情",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Contact:Purchase Invoice",
+  "action": "写",
+  "target": "联系人详情",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Contact:Purchase Receipt",
+  "action": "写",
+  "target": "联系人详情",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Contact:Quotation",
+  "action": "写",
+  "target": "联系人详情",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Contact:Sales Invoice",
+  "action": "写",
+  "target": "联系人详情",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Contact:Sales Order",
+  "action": "写",
+  "target": "联系人详情",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Create Chart Of Accounts Based On",
+  "action": "已在 csv",
+  "csv": "科目表建立方式",
+  "target": "科目表建立方式",
+  "basis": "S3 术语标准 §2.3.1"
+ },
+ {
+  "key": "Credit Amount:GL Entry",
+  "action": "写",
+  "target": "贷方金额",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Credit Note",
+  "action": "写",
+  "target": "红字发票",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 delivery_note.js:89, invoicing.json"
+ },
+ {
+  "key": "Date of Commencement:Company",
+  "action": "写",
+  "target": "开业日期",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Dates:GL Entry",
+  "action": "写",
+  "target": "日期区间",
+  "basis": "S3 术语标准 §2.3.2",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Debit Amount:GL Entry",
+  "action": "写",
+  "target": "借方金额",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Defaults:Customer",
+  "action": "写",
+  "target": "默认值",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Defaults:Item Group",
+  "action": "写",
+  "target": "默认值",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Defaults:Stock Settings",
+  "action": "写",
+  "target": "默认值",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Defaults:Supplier",
+  "action": "写",
+  "target": "默认值",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Discounted Amount:Payment Schedule",
+  "action": "写",
+  "target": "折后金额",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Domain:Company",
+  "action": "写",
+  "target": "业务领域",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Done:Transaction Deletion Record Details",
+  "action": "写",
+  "target": "已处理",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Dr",
+  "action": "已在 csv",
+  "csv": "借方",
+  "target": "借方",
+  "basis": "S3 术语标准 §2.3.3"
+ },
+ {
+  "key": "End of Life:Item",
+  "action": "写",
+  "target": "停用日期",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Expires On",
+  "action": "不写",
+  "why": "演示面无出处（DEC-002 演示线外撞名不处理）"
+ },
+ {
+  "key": "Expiry:Stock Settings",
+  "action": "写",
+  "target": "失效期优先",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Fetch Timesheet",
+  "action": "写",
+  "target": "取工时单",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 sales_invoice.js:305, 需求 §4.2.4"
+ },
+ {
+  "key": "Finish",
+  "action": "写",
+  "target": "完工",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "无 context 行：演示面有不带 context 的渲染点 work_order.js:904, work_order.js:919, work_order.js:928"
+ },
+ {
+  "key": "Finished Good",
+  "action": "写",
+  "target": "成品件",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "无 context 行：演示面有不带 context 的渲染点 purchase_order.js:204, sales_order.js:830"
+ },
+ {
+  "key": "For Job Card:Job Card",
+  "action": "写",
+  "target": "所属生产任务单",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "For Operation",
+  "action": "写",
+  "target": "对应工序",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "无 context 行：演示面有不带 context 的渲染点 job_card.js:475"
+ },
+ {
+  "key": "For Warehouse",
+  "action": "写",
+  "target": "需求仓库",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "无 context 行：演示面有不带 context 的渲染点 production_plan.js:477, sales_order.js:1451"
+ },
+ {
+  "key": "From Warehouse:Material Request Plan Item",
+  "action": "写",
+  "target": "调出仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "From Warehouse:Packed Item",
+  "action": "写",
+  "target": "调出仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "From Warehouse:Purchase Invoice Item",
+  "action": "写",
+  "target": "调出仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "From Warehouse:Purchase Order Item",
+  "action": "写",
+  "target": "调出仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "From Warehouse:Purchase Receipt Item",
+  "action": "写",
+  "target": "调出仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Get Items From",
+  "action": "写",
+  "target": "取物料来源",
+  "basis": "S3 术语标准 §2.3.2",
+  "why": "无 context 行：演示面有不带 context 的渲染点 purchase_invoice.js:177, purchase_invoice.js:202, sales_invoice.js:361, sales_invoice.js:396"
+ },
+ {
+  "key": "Hold",
+  "action": "写",
+  "target": "暂挂",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 purchase_order.js:338, sales_order.js:995"
+ },
+ {
+  "key": "Hold Invoice",
+  "action": "写",
+  "target": "暂挂发票",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 purchase_invoice.js:98"
+ },
+ {
+  "key": "In Process:Production Plan",
+  "action": "写",
+  "target": "生产中",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "In Process:Work Order",
+  "action": "写",
+  "target": "生产中",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "In Qty",
+  "action": "不写",
+  "why": "演示面无出处（DEC-002 演示线外撞名不处理）"
+ },
+ {
+  "key": "In Stock",
+  "action": "不写",
+  "why": "演示面无出处（DEC-002 演示线外撞名不处理）"
+ },
+ {
+  "key": "Incoming Rate (Costing):Sales Invoice Item",
+  "action": "写",
+  "target": "出库成本价",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Inventory:Item",
+  "action": "写",
+  "target": "库存信息",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Inventory Settings:Item",
+  "action": "写",
+  "target": "库存参数",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Invoices:Supplier",
+  "action": "写",
+  "target": "发票列表",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Inward",
+  "action": "写",
+  "target": "资金流入",
+  "basis": "S3 术语标准 §1.3",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Is Default:BOM",
+  "action": "写",
+  "target": "是否默认",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Is Paid",
+  "action": "写",
+  "target": "是否已付",
+  "basis": "S3 术语标准 §1.1",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Is Return:Delivery Note",
+  "action": "写",
+  "target": "是否退货",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Is Return:Purchase Receipt",
+  "action": "写",
+  "target": "是否退货",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Is Return:Stock Entry",
+  "action": "写",
+  "target": "是否退货",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Is Subcontracted:BOM Operation",
+  "action": "写",
+  "target": "是否委外",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Is Subcontracted:Purchase Invoice",
+  "action": "写",
+  "target": "是否委外",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Is Subcontracted:Purchase Order",
+  "action": "写",
+  "target": "是否委外",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Is Subcontracted:Purchase Receipt",
+  "action": "写",
+  "target": "是否委外",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Is Subcontracted:Sales Order",
+  "action": "写",
+  "target": "是否委外",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Is Subcontracted:Work Order Operation",
+  "action": "写",
+  "target": "是否委外",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Issue Credit Note:Delivery Note",
+  "action": "写",
+  "target": "开红字发票",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Item operation:BOM Item",
+  "action": "写",
+  "target": "所属工序",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Item Reference:Production Plan Item",
+  "action": "写",
+  "target": "物料参照号",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Item Reference:Production Plan Item Reference",
+  "action": "写",
+  "target": "物料参照号",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Journals:Accounts Settings",
+  "action": "写",
+  "target": "日记账",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Ledger",
+  "action": "写",
+  "target": "会计账簿",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "无 context 行：演示面有不带 context 的渲染点 payment_entry.js:426"
+ },
+ {
+  "key": "Material to Supplier",
+  "action": "写",
+  "target": "发往供应商物料",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 purchase_order.js:394"
+ },
+ {
+  "key": "Material Transferred for Manufacture:BOM",
+  "action": "写",
+  "target": "已发工单料",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Material Transferred for Manufacture:Manufacturing Settings",
+  "action": "写",
+  "target": "已发工单料",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "material_request_item:Production Plan Item",
+  "action": "写",
+  "target": "物料需求行",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Mode of Payment",
+  "action": "写",
+  "target": "收付款方式",
+  "basis": "S3 术语标准 §1.1",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Mode Of Payment",
+  "action": "写",
+  "target": "收付款方式",
+  "basis": "S3 术语标准 §1.1",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Mode of Payments",
+  "action": "写",
+  "target": "收付款方式",
+  "basis": "S3 术语标准 §1.1",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Modes of Payment",
+  "action": "写",
+  "target": "收付款方式",
+  "basis": "S3 术语标准 §1.1",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "More Information:BOM Operation",
+  "action": "写",
+  "target": "补充信息",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "More Information:Payment Entry",
+  "action": "写",
+  "target": "补充信息",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "More Information:Purchase Order Item",
+  "action": "写",
+  "target": "补充信息",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "More Information:Stock Entry",
+  "action": "写",
+  "target": "补充信息",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "More Information:Stock Entry Detail",
+  "action": "写",
+  "target": "补充信息",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "More Information:Supplier",
+  "action": "写",
+  "target": "补充信息",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Note",
+  "action": "写",
+  "target": "备注说明",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 sales_order.js:1634, item.js:751"
+ },
+ {
+  "key": "Notes",
+  "action": "写",
+  "target": "备注说明",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 Deal.vue:779, Lead.vue:594"
+ },
+ {
+  "key": "Operating Costs:Workstation",
+  "action": "写",
+  "target": "工费构成",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Operations",
+  "action": "写",
+  "target": "工序清单",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "无 context 行：演示面有不带 context 的渲染点 work_order.js:329"
+ },
+ {
+  "key": "Other Info:Stock Entry",
+  "action": "写",
+  "target": "其它信息",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Outstanding:Payment Entry Reference",
+  "action": "写",
+  "target": "未结",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Outstanding:Payment Schedule",
+  "action": "写",
+  "target": "未结",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Outstanding Amount",
+  "action": "写",
+  "target": "未结金额",
+  "basis": "S3 术语标准 §1.3",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Outward",
+  "action": "写",
+  "target": "资金流出",
+  "basis": "S3 术语标准 §1.3",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Paid",
+  "action": "不写",
+  "why": "无 context 的 Paid 官方即「已付款」，不写，进 NAMED_TERMS 断言官方值"
+ },
+ {
+  "key": "Paid Amount:Payment Entry",
+  "action": "写",
+  "target": "出账金额",
+  "basis": "S3 术语标准 §1.1",
+  "why": "S3 带 context 行"
+ },
+ {
+  "key": "Paid Amount:Payment Schedule",
+  "action": "写",
+  "target": "已收付金额",
+  "basis": "S3 术语标准 §1.1",
+  "why": "S3 带 context 行"
+ },
+ {
+  "key": "Paid Amount:Purchase Invoice",
+  "action": "写",
+  "target": "付款金额",
+  "basis": "S3 术语标准 §1.1",
+  "why": "S3 带 context 行"
+ },
+ {
+  "key": "Paid Amount:Sales Invoice",
+  "action": "写",
+  "target": "收款金额",
+  "basis": "S3 术语标准 §1.1",
+  "why": "S3 带 context 行"
+ },
+ {
+  "key": "Paid:Purchase Invoice",
+  "action": "已在 csv",
+  "csv": "已付款",
+  "target": "已付款",
+  "basis": "S3 术语标准 §1.1"
+ },
+ {
+  "key": "Paid:Sales Invoice",
+  "action": "已在 csv",
+  "csv": "已收款",
+  "target": "已收款",
+  "basis": "S3 术语标准 §1.1"
+ },
+ {
+  "key": "Payable",
+  "action": "写",
+  "target": "应付类",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Payment",
+  "action": "写",
+  "target": "收付款",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "无 context 行：演示面有不带 context 的渲染点 purchase_invoice.js:124, purchase_invoice_list.js:55, sales_invoice.js:98, sales_invoice_list.js:42"
+ },
+ {
+  "key": "Payment Amount",
+  "action": "写",
+  "target": "分期金额",
+  "basis": "S3 术语标准 §1.1",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Payment Method",
+  "action": "写",
+  "target": "收付款方式",
+  "basis": "S3 术语标准 §1.1",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Payment Mode",
+  "action": "写",
+  "target": "收付款方式",
+  "basis": "S3 术语标准 §1.1",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Payment Type",
+  "action": "写",
+  "target": "收付款类型",
+  "basis": "S3 术语标准 §1.1",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Payments",
+  "action": "写",
+  "target": "收付款",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "无 context 行：演示面有不带 context 的渲染点 payments.json, invoicing.json, payments.json"
+ },
+ {
+  "key": "Pending:Job Card Operation",
+  "action": "写",
+  "target": "待执行",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Pending:Transaction Deletion Record",
+  "action": "写",
+  "target": "待执行",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Pending:Work Order Operation",
+  "action": "写",
+  "target": "待执行",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Planned Qty:Bin",
+  "action": "写",
+  "target": "计划数量",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Planned Qty:Production Plan Item",
+  "action": "写",
+  "target": "计划数量",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Planned Quantity:Sales Order Item",
+  "action": "写",
+  "target": "计划生产数量",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Produced Qty:Production Plan Item",
+  "action": "写",
+  "target": "已生产数量",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Produced Qty:Production Plan Sub Assembly Item",
+  "action": "写",
+  "target": "已生产数量",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Production:Workstation",
+  "action": "写",
+  "target": "运行中",
+  "basis": "S3 术语标准 §2.3.2",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Production Item:BOM",
+  "action": "写",
+  "target": "成品信息",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Production Item:Work Order",
+  "action": "写",
+  "target": "成品信息",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Projected Qty:Bin",
+  "action": "写",
+  "target": "预计可用量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Projected Qty:Material Request Plan Item",
+  "action": "写",
+  "target": "预计可用量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Projected Qty:Packed Item",
+  "action": "写",
+  "target": "预计可用量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Projected Qty:Production Plan Sub Assembly Item",
+  "action": "写",
+  "target": "预计可用量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Projected Qty:Quotation Item",
+  "action": "写",
+  "target": "预计可用量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Projected Qty:Sales Order Item",
+  "action": "写",
+  "target": "预计可用量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Purchasing:Item",
+  "action": "写",
+  "target": "采购属性",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Receivable",
+  "action": "改 csv",
+  "csv": "应收账款",
+  "target": "应收类",
+  "basis": "S3 术语标准 §2.3.3"
+ },
+ {
+  "key": "Receivable Account",
+  "action": "不写",
+  "why": "演示面无出处（DEC-002 演示线外撞名不处理）"
+ },
+ {
+  "key": "Received Amount",
+  "action": "写",
+  "target": "到账金额",
+  "basis": "S3 术语标准 §1.3",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Received Amount:Payment Entry",
+  "action": "写",
+  "target": "到账金额",
+  "basis": "S3 术语标准 §1.1",
+  "why": "S3 带 context 行"
+ },
+ {
+  "key": "Reference Type:Purchase Invoice Advance",
+  "action": "写",
+  "target": "源单类型",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Reference Type:Sales Invoice Advance",
+  "action": "写",
+  "target": "源单类型",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Referral Sales Partner:Quotation",
+  "action": "写",
+  "target": "推荐销售伙伴",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Request for:Item Reorder",
+  "action": "写",
+  "target": "补货仓库",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Requesting Site",
+  "action": "不写",
+  "why": "演示面无出处（DEC-002 演示线外撞名不处理）"
+ },
+ {
+  "key": "Return Against:Sales Invoice",
+  "action": "写",
+  "target": "退货源单",
+  "basis": "S3 术语标准 §2.3.3",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Sales Partner",
+  "action": "写",
+  "target": "销售伙伴",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 selling.json"
+ },
+ {
+  "key": "Selling:Item Price",
+  "action": "写",
+  "target": "用于销售",
+  "basis": "S3 术语标准 §2.3.2",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Selling:Price List",
+  "action": "写",
+  "target": "用于销售",
+  "basis": "S3 术语标准 §2.3.2",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Serial & Batch Item:Stock Settings",
+  "action": "写",
+  "target": "序列批次物料",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Serial and Batch",
+  "action": "不写",
+  "why": "演示面无出处（DEC-002 演示线外撞名不处理）"
+ },
+ {
+  "key": "Serial and Batch Bundle",
+  "action": "写",
+  "target": "序列批次包",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 stock_settings.js:156, stock.json"
+ },
+ {
+  "key": "Set From Warehouse:Purchase Invoice",
+  "action": "写",
+  "target": "批量调出仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Set From Warehouse:Purchase Order",
+  "action": "写",
+  "target": "批量调出仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Set From Warehouse:Purchase Receipt",
+  "action": "写",
+  "target": "批量调出仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Set Source Warehouse:Delivery Note",
+  "action": "写",
+  "target": "批量发料仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Set Source Warehouse:Sales Order",
+  "action": "写",
+  "target": "批量发料仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Set Target Warehouse:Delivery Note",
+  "action": "写",
+  "target": "批量收料仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Set Target Warehouse:Purchase Order",
+  "action": "写",
+  "target": "批量收料仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Set Target Warehouse:Sales Invoice",
+  "action": "写",
+  "target": "批量收料仓",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Setup",
+  "action": "已在 csv",
+  "csv": "基础设置",
+  "target": "基础设置",
+  "basis": "S3 术语标准 §2.3.2"
+ },
+ {
+  "key": "Setup:Workstation",
+  "action": "已在 csv",
+  "csv": "调机",
+  "target": "调机",
+  "basis": "S3 术语标准 §2.3.2"
+ },
+ {
+  "key": "Stock Projected Qty",
+  "action": "写",
+  "target": "预计可用量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 item.js:174, stock.json"
+ },
+ {
+  "key": "Stock Unreservation",
+  "action": "写",
+  "target": "解除预留",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 sales_order.js:459"
+ },
+ {
+  "key": "Stores",
+  "action": "不写",
+  "why": "服务端 _() 生成的仓库记录名"
+ },
+ {
+  "key": "Supplied Qty:Purchase Order Item Supplied",
+  "action": "写",
+  "target": "已供料数量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Taxes:Item",
+  "action": "写",
+  "target": "税率表",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Taxes:Item Group",
+  "action": "写",
+  "target": "税率表",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Taxes:Sales Order",
+  "action": "写",
+  "target": "税率表",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Taxes and Charges Added:Purchase Invoice",
+  "action": "写",
+  "target": "加计税费",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Taxes and Charges Added:Purchase Order",
+  "action": "写",
+  "target": "加计税费",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Taxes and Charges Added:Purchase Receipt",
+  "action": "写",
+  "target": "加计税费",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Temporarily on Hold",
+  "action": "写",
+  "target": "已暂挂",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 purchase_invoice_list.js:29"
+ },
+ {
+  "key": "Total:Advance Taxes and Charges",
+  "action": "写",
+  "target": "合计",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total:Delivery Note",
+  "action": "写",
+  "target": "合计",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total:Purchase Invoice",
+  "action": "写",
+  "target": "合计",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total:Purchase Order",
+  "action": "写",
+  "target": "合计",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total:Purchase Receipt",
+  "action": "写",
+  "target": "合计",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total:Purchase Taxes and Charges",
+  "action": "写",
+  "target": "合计",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total:Quotation",
+  "action": "写",
+  "target": "合计",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total:Sales Invoice",
+  "action": "写",
+  "target": "合计",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total:Sales Order",
+  "action": "写",
+  "target": "合计",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total:Sales Taxes and Charges",
+  "action": "写",
+  "target": "合计",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total Completed Qty:Job Card",
+  "action": "写",
+  "target": "工序总完工数量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Total Produced Qty:Production Plan",
+  "action": "写",
+  "target": "计划完工数量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Totals:Delivery Note",
+  "action": "写",
+  "target": "合计栏",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Totals:Purchase Invoice",
+  "action": "写",
+  "target": "合计栏",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Totals:Purchase Order",
+  "action": "写",
+  "target": "合计栏",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Totals:Purchase Receipt",
+  "action": "写",
+  "target": "合计栏",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Totals:Quotation",
+  "action": "写",
+  "target": "合计栏",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Totals:Sales Invoice",
+  "action": "写",
+  "target": "合计栏",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Totals:Sales Invoice Timesheet",
+  "action": "写",
+  "target": "合计栏",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Totals:Sales Order",
+  "action": "写",
+  "target": "合计栏",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Transferred Qty",
+  "action": "写",
+  "target": "已调拨数量",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 workstation.js:497"
+ },
+ {
+  "key": "Type of Payment",
+  "action": "写",
+  "target": "收付款方向",
+  "basis": "S3 术语标准 §1.1",
+  "why": "无 context 行：§1 收付款方向全表落"
+ },
+ {
+  "key": "Unpaid",
+  "action": "不写",
+  "why": "DEC-036：无 context 的 Unpaid 不写，显示官方「未付」"
+ },
+ {
+  "key": "Unpaid:Purchase Invoice",
+  "action": "已在 csv",
+  "csv": "未付款",
+  "target": "未付款",
+  "basis": "S3 术语标准 §1.1"
+ },
+ {
+  "key": "Unpaid:Sales Invoice",
+  "action": "已在 csv",
+  "csv": "未收款",
+  "target": "未收款",
+  "basis": "S3 术语标准 §1.1"
+ },
+ {
+  "key": "Unreserve Stock",
+  "action": "写",
+  "target": "取消库存预留",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "无 context 行：演示面有不带 context 的渲染点 sales_order.js:510"
+ },
+ {
+  "key": "Valid Till:Quotation",
+  "action": "写",
+  "target": "报价有效期",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Valuation:Purchase Taxes and Charges",
+  "action": "写",
+  "target": "计入成本价",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Variant Of:Item",
+  "action": "写",
+  "target": "派生自",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Variant Of:Item Variant Attribute",
+  "action": "写",
+  "target": "派生自",
+  "basis": "S3 术语标准 §2.3.4",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Warehouses",
+  "action": "写",
+  "target": "仓库范围",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "无 context 行：演示面有不带 context 的渲染点 production_plan.js:532"
+ },
+ {
+  "key": "Work in Progress:Work Order Operation",
+  "action": "写",
+  "target": "在制",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ },
+ {
+  "key": "Work Order Qty:Sales Order Item",
+  "action": "写",
+  "target": "已开工单数量",
+  "basis": "S3 术语标准 §2.3.1",
+  "why": "context 行：演示面渲染点为该 DocType 字段"
+ }
+]

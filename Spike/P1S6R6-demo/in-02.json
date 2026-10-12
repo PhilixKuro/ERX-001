@@ -1,0 +1,1231 @@
+{
+ "group": "erpnext",
+ "items": [
+  {
+   "key": "% Cost Allocation",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:cost_allocation_per"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"100\",\n   \"fieldname\": \"cost_allocation_per\",\n   \"fieldtype\": \"Percent\",\n   \"label\": \"% Cost Allocation\",\n   \"non_negative\": 1"
+  },
+  {
+   "key": "% of Component Cost",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:valuation_type",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:valuation_type"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"Valuation Rate\",\n   \"description\": \"Valuation Rate and Manual value this item on its own and deduct that cost from the raw material cost, like the pre-v16 scrap items. % of Component Cost allocates a percentage of the remaining raw material cost.\",\n   \"fieldname\": \"valuation_type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Valuation Type\",\n   \"options\": \"Valuation Rate\\n% of Component Cost\\nManual\","
+  },
+  {
+   "key": "(none)",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:295"
+   ],
+   "current": null,
+   "context": "\t\t\t\tfrappe.msgprint(\n\t\t\t\t\t__(\"DocType {0} with company field '{1}' is already in the list\", [\n\t\t\t\t\t\trow.doctype_name,\n\t\t\t\t\t\trow.company_field || __(\"(none)\"),\n\t\t\t\t\t])\n\t\t\t\t);\n\t\t\t\tfrappe.model.set_value(cdt, cdn, \"company_field\", \"\");"
+  },
+  {
+   "key": "Account Category",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/account/account.json:account_category",
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/accounts_setup.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"description\": \"Used with Financial Report Template\",\n   \"fieldname\": \"account_category\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Account Category\",\n   \"options\": \"Account Category\""
+  },
+  {
+   "key": "Accounts Receivable / Payable remarks length",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:receivable_payable_remarks_length"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Truncates 'Remarks' column to set character length\",\n   \"fieldname\": \"receivable_payable_remarks_length\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Accounts Receivable / Payable remarks length\"\n  },"
+  },
+  {
+   "key": "Accounts Receivable / Payable Report",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:accounts_receivable_payable_tuning_section"
+   ],
+   "current": null,
+   "context": "   \"options\": \"Buffered Cursor\\nUnBuffered Cursor\"\n  },\n  {\n   \"fieldname\": \"accounts_receivable_payable_tuning_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Accounts Receivable / Payable Report\"\n  },"
+  },
+  {
+   "key": "Action if Quality Inspection is not submitted",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:action_if_quality_inspection_is_not_submitted"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"Stop\",\n   \"fieldname\": \"action_if_quality_inspection_is_not_submitted\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Action if Quality Inspection is not submitted\",\n   \"options\": \"Stop\\nWarn\""
+  },
+  {
+   "key": "Action if Quality Inspection is rejected",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:action_if_quality_inspection_is_rejected"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"Stop\",\n   \"fieldname\": \"action_if_quality_inspection_is_rejected\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Action if Quality Inspection is rejected\",\n   \"options\": \"Stop\\nWarn\""
+  },
+  {
+   "key": "Action if same rate is not maintained throughout internal transaction",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:maintain_same_rate_action"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"Stop\",\n   \"depends_on\": \"maintain_same_internal_transaction_rate\",\n   \"fieldname\": \"maintain_same_rate_action\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Action if same rate is not maintained throughout internal transaction\",\n   \"mandatory_depends_on\": \"maintain_same_internal_transaction_rate\","
+  },
+  {
+   "key": "Activate Serial / Batch No for Item",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:417",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:enable_serial_and_batch_no_for_item"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<span class=\"banner-icon\">${frappe.utils.icon(\"solid-warning\", \"lg\", \"\", \"padding-bottom:2px\")}</span>\n\t\t\t\t<span class=\"banner-text\">\n\t\t\t\t\t${__(\"To use Serial / Batch feature, enable {0} in {1}.\", [\n\t\t\t\t\t\t`<b>${__(\"Activate Serial / Batch No for Item\")}</b>`,\n\t\t\t\t\t\t`<a class=\"go-to-settings\" style=\"text-decoration: underline;\">${__(\n\t\t\t\t\t\t\t\"Stock Settings\"\n\t\t\t\t\t\t)}</a>`,"
+  },
+  {
+   "key": "Actual quantity of the finished good that will be manufactured.",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:1135"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tfieldname: \"finished_good_qty\",\n\t\t\t\t\tdefault: flt(Math.max(max - pending_process_loss, 0), precision(\"qty\")),\n\t\t\t\t\tread_only: 1,\n\t\t\t\t\tdescription: __(\"Actual quantity of the finished good that will be manufactured.\"),\n\t\t\t\t}\n\t\t\t);\n\t\t}"
+  },
+  {
+   "key": "Additional Costs (as per BOM)",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.json:non_stock_items"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Section Break\"\n  },\n  {\n   \"fieldname\": \"non_stock_items\",\n   \"fieldtype\": \"Table\",\n   \"is_virtual\": 1,\n   \"label\": \"Additional Costs (as per BOM)\","
+  },
+  {
+   "key": "Additional Finished Good",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:secondary_item_type",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json:secondary_item_type",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:secondary_item_type"
+   ],
+   "current": null,
+   "context": " ],\n \"fields\": [\n  {\n   \"fieldname\": \"secondary_item_type\",\n   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Type\","
+  },
+  {
+   "key": "Advance Paid (Company Currency)",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:advance_paid"
+   ],
+   "current": null,
+   "context": "   \"read_only\": 1\n  },\n  {\n   \"fieldname\": \"advance_paid\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Advance Paid (Company Currency)\",\n   \"no_copy\": 1,"
+  },
+  {
+   "key": "After save, please refresh the page to apply the changes.",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.js:79"
+   ],
+   "current": null,
+   "context": "\n\tenable_serial_and_batch_no_for_item(frm) {\n\t\tif (frm.doc.enable_serial_and_batch_no_for_item) {\n\t\t\tfrappe.msgprint(__(\"After save, please refresh the page to apply the changes.\"));\n\t\t}\n\t},\n"
+  },
+  {
+   "key": "Alias",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:alias",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:alias"
+   ],
+   "current": null,
+   "context": "   \"reqd\": 1\n  },\n  {\n   \"fieldname\": \"alias\",\n   \"fieldtype\": \"Data\",\n   \"in_global_search\": 1,\n   \"label\": \"Alias\","
+  },
+  {
+   "key": "ALL records will be deleted (entire DocType cleared)",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:88"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\"Only records belonging to {0} will be deleted\",\n\t\t\t\t\t\t[`<b>${frm.doc.company}</b>`]\n\t\t\t\t\t)}</li>` +\n\t\t\t\t\t`<li><b>${__(\"DocTypes without a company field:\")}</b> ${__(\n\t\t\t\t\t\t\"ALL records will be deleted (entire DocType cleared)\"\n\t\t\t\t\t)}</li>` +\n\t\t\t\t\t`</ul>` +"
+  },
+  {
+   "key": "Allocate Full Amount to Stock Items",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:allocate_full_amount_to_stock_items"
+   ],
+   "current": null,
+   "context": "   \"default\": \"1\",\n   \"depends_on\": \"eval:doc.charge_type=='Actual' && ['Valuation', 'Valuation and Total'].includes(doc.category)\",\n   \"description\": \"If checked, the entire amount (e.g. Freight) is allocated to the valuation of stock & asset items only. If unchecked, the amount is distributed across all items and the portion belonging to non-stock items is not added to valuation.\",\n   \"fieldname\": \"allocate_full_amount_to_stock_items\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allocate Full Amount to Stock Items\",\n   \"show_description_on_click\": 1"
+  },
+  {
+   "key": "Allow Editing of Items and Quantities in Work Order",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.json:allow_editing_of_items_and_quantities_in_work_order"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"If enabled, the system will allow users to edit the raw materials and their quantities in the Work Order. The system will not reset the quantities as per the BOM, if the user has changed them.\",\n   \"fieldname\": \"allow_editing_of_items_and_quantities_in_work_order\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow Editing of Items and Quantities in Work Order\"\n  },"
+  },
+  {
+   "key": "Allow internal transfers at user-defined rate",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:allow_internal_transfer_at_arms_length_price"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"If enabled, the item rate won't adjust to the valuation rate during internal transfers, but accounting will still use the valuation rate. This will allow the user to specify a different rate for printing or taxation purposes.\",\n   \"fieldname\": \"allow_internal_transfer_at_arms_length_price\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow internal transfers at user-defined rate\"\n  },"
+  },
+  {
+   "key": "Allow negative stock",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:allow_negative_stock"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"description\": \"This can be enabled at specific Item level as well\",\n   \"documentation_url\": \"https://docs.frappe.io/erpnext/stock-settings#allow-negative-stock\",\n   \"fieldname\": \"allow_negative_stock\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow negative stock\"\n  },"
+  },
+  {
+   "key": "Allow negative stock for Batch",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:allow_negative_stock_for_batch"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"If enabled, the system will allow negative stock entries for the batch. But, this may lead to incorrect valuation rates, so it is recommended to avoid using this option. The system will permit negative stock only when it is caused by backdated entries and will validate and block negative stock in all other cases.\",\n   \"fieldname\": \"allow_negative_stock_for_batch\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow negative stock for Batch\"\n  },"
+  },
+  {
+   "key": "Allow partial reservation",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:allow_partial_reservation"
+   ],
+   "current": null,
+   "context": "   \"default\": \"1\",\n   \"depends_on\": \"eval: doc.enable_stock_reservation\",\n   \"description\": \"Partial stock can be reserved. For example, If you have a Sales Order of 100 units and the Available Stock is 90 units then a Stock Reservation Entry will be created for 90 units. \",\n   \"fieldname\": \"allow_partial_reservation\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow partial reservation\"\n  },"
+  },
+  {
+   "key": "Allow purchase invoice creation without purchase order",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:allow_purchase_invoice_creation_without_purchase_order"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"allow_purchase_invoice_creation_without_purchase_order\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow purchase invoice creation without purchase order\"\n  },"
+  },
+  {
+   "key": "Allow purchase invoice creation without purchase receipt",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:allow_purchase_invoice_creation_without_purchase_receipt"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"allow_purchase_invoice_creation_without_purchase_receipt\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow purchase invoice creation without purchase receipt\"\n  },"
+  },
+  {
+   "key": "Allow sales invoice creation without delivery note",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:dn_required"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"dn_required\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow sales invoice creation without delivery note\"\n  },"
+  },
+  {
+   "key": "Allow sales invoice creation without sales order",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:so_required"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"so_required\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow sales invoice creation without sales order\"\n  },"
+  },
+  {
+   "key": "Allow to edit stock UOM qty for Purchase documents",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:allow_to_edit_stock_uom_qty_for_purchase"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"documentation_url\": \"https://docs.frappe.io/erpnext/stock-settings#why-to-edit-stock-qty-qty-as-per-stock-uom\",\n   \"fieldname\": \"allow_to_edit_stock_uom_qty_for_purchase\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow to edit stock UOM qty for Purchase documents\"\n  },"
+  },
+  {
+   "key": "Allow to edit stock UOM qty for Sales documents",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:allow_to_edit_stock_uom_qty_for_sales"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"documentation_url\": \"https://docs.frappe.io/erpnext/stock-settings#why-to-edit-stock-qty-qty-as-per-stock-uom\",\n   \"fieldname\": \"allow_to_edit_stock_uom_qty_for_sales\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow to edit stock UOM qty for Sales documents\"\n  },"
+  },
+  {
+   "key": "Allow to edit stock UOM qty for Stock Entry",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:allow_to_edit_stock_uom_qty_for_stock_entry"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"documentation_url\": \"https://docs.frappe.io/erpnext/stock-settings#why-to-edit-stock-qty-qty-as-per-stock-uom\",\n   \"fieldname\": \"allow_to_edit_stock_uom_qty_for_stock_entry\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow to edit stock UOM qty for Stock Entry\"\n  },"
+  },
+  {
+   "key": "Allow to make Quality Inspection after Purchase / Delivery",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:allow_to_make_quality_inspection_after_purchase_or_delivery"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"allow_to_make_quality_inspection_after_purchase_or_delivery\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow to make Quality Inspection after Purchase / Delivery\"\n  },"
+  },
+  {
+   "key": "Allow UOM with conversion rate defined in Item",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:allow_uom_with_conversion_rate_defined_in_item"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"If enabled, the system will allow selecting UOMs in sales and purchase transactions only if the conversion rate is set in the item master.\",\n   \"fieldname\": \"allow_uom_with_conversion_rate_defined_in_item\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow UOM with conversion rate defined in Item\"\n  },"
+  },
+  {
+   "key": "Allowed DocTypes",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:repost_allowed_types"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Repost\"\n  },\n  {\n   \"fieldname\": \"repost_allowed_types\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Allowed DocTypes\",\n   \"options\": \"Repost Allowed Types\""
+  },
+  {
+   "key": "Allowed to transact with",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/supplier/supplier.json:companies",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:companies"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"represents_company\",\n   \"fieldname\": \"companies\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Allowed to transact with\",\n   \"options\": \"Allowed To Transact With\""
+  },
+  {
+   "key": "Analytical Accounting",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:analytics_section"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Budget\"\n  },\n  {\n   \"fieldname\": \"analytics_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Analytical Accounting\"\n  },"
+  },
+  {
+   "key": "AP Summary",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/financial_reports.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "AR Summary",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/financial_reports.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Auto create assets on purchase",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:auto_create_assets"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"depends_on\": \"is_fixed_asset\",\n   \"fieldname\": \"auto_create_assets\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Auto create assets on purchase\"\n  },"
+  },
+  {
+   "key": "Auto create Serial and Batch Bundle for outward",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:auto_create_serial_and_batch_bundle_for_outward"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"1\",\n   \"fieldname\": \"auto_create_serial_and_batch_bundle_for_outward\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Auto create Serial and Batch Bundle for outward\"\n  },"
+  },
+  {
+   "key": "Auto insert Item Price if missing",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:auto_insert_price_list_rate_if_missing"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"documentation_url\": \"https://docs.frappe.io/erpnext/stock-settings#71-auto-insert-price-list-rate-if-missing\",\n   \"fieldname\": \"auto_insert_price_list_rate_if_missing\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Auto insert Item Price if missing\"\n  },"
+  },
+  {
+   "key": "Auto reconcile Payments",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:auto_reconcile_payments"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"auto_reconcile_payments\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Auto reconcile Payments\"\n  },"
+  },
+  {
+   "key": "Auto Reconciliation job trigger",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:auto_reconciliation_job_trigger"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"15\",\n   \"description\": \"Interval should be between 1 to 59 MInutes\",\n   \"fieldname\": \"auto_reconciliation_job_trigger\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Auto Reconciliation job trigger\"\n  },"
+  },
+  {
+   "key": "Auto reserve Serial and Batch Nos",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:auto_reserve_serial_and_batch"
+   ],
+   "current": null,
+   "context": "   \"default\": \"1\",\n   \"depends_on\": \"eval: doc.enable_stock_reservation\",\n   \"description\": \"Serial and Batch Nos will be auto-reserved based on <b>Pick Serial / Batch Based On</b>\",\n   \"fieldname\": \"auto_reserve_serial_and_batch\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Auto reserve Serial and Batch Nos\"\n  },"
+  },
+  {
+   "key": "Auto reserve stock",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:auto_reserve_stock"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Upon submission of the Sales Order, Work Order, or Production Plan, the system will automatically reserve the stock.\",\n   \"fieldname\": \"auto_reserve_stock\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Auto reserve stock\"\n  },"
+  },
+  {
+   "key": "Auto reserve Stock for Sales Order on Purchase",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:auto_reserve_stock_for_sales_order_on_purchase"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"depends_on\": \"eval: doc.enable_stock_reservation\",\n   \"description\": \"Stock will be reserved on submission of <b>Purchase Receipt</b> created against Material Request for Sales Order.\",\n   \"fieldname\": \"auto_reserve_stock_for_sales_order_on_purchase\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Auto reserve Stock for Sales Order on Purchase\"\n  },"
+  },
+  {
+   "key": "Automatically add Taxes and Charges from Item Tax Template",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:add_taxes_from_item_tax_template"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"1\",\n   \"fieldname\": \"add_taxes_from_item_tax_template\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Automatically add Taxes and Charges from Item Tax Template\"\n  },"
+  },
+  {
+   "key": "Automatically add taxes from Taxes and Charges Template",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:add_taxes_from_taxes_and_charges_template"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"If no taxes are set, and Taxes and Charges Template is selected, the system will automatically apply the taxes from the chosen template.\",\n   \"fieldname\": \"add_taxes_from_taxes_and_charges_template\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Automatically add taxes from Taxes and Charges Template\"\n  },"
+  },
+  {
+   "key": "Automatically fetch Payment Terms from Order/Quotation",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:automatically_fetch_payment_terms"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Payment Terms from orders will be fetched into the invoices as is\",\n   \"fieldname\": \"automatically_fetch_payment_terms\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Automatically fetch Payment Terms from Order/Quotation\"\n  },"
+  },
+  {
+   "key": "Automatically process deferred Accounting entry",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:automatically_process_deferred_accounting_entry"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"1\",\n   \"fieldname\": \"automatically_process_deferred_accounting_entry\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Automatically process deferred Accounting entry\"\n  },"
+  },
+  {
+   "key": "Automatically run rules on unreconciled transactions",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:automatically_run_rules_on_unreconciled_transactions"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"1\",\n   \"description\": \"If enabled, rule matching algorithm will run every hour\",\n   \"fieldname\": \"automatically_run_rules_on_unreconciled_transactions\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Automatically run rules on unreconciled transactions\"\n  },"
+  },
+  {
+   "key": "Available / Future Inventory",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.json:available__future_inventory_section"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Item and Warehouse\"\n  },\n  {\n   \"fieldname\": \"available__future_inventory_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Available / Future Inventory\"\n  },"
+  },
+  {
+   "key": "Bank Reconciliation",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/banking.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Base Cost (Company Currency)",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:base_cost"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"base_cost\",\n   \"fieldtype\": \"Currency\",\n   \"hidden\": 1,\n   \"label\": \"Base Cost (Company Currency)\","
+  },
+  {
+   "key": "Base Tax Withheld",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json:withholding_amount"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"columns\": 1,\n   \"fieldname\": \"withholding_amount\",\n   \"fieldtype\": \"Currency\",\n   \"in_list_view\": 1,\n   \"label\": \"Base Tax Withheld\","
+  },
+  {
+   "key": "Base Taxable Amount",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json:taxable_amount"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"columns\": 1,\n   \"fieldname\": \"taxable_amount\",\n   \"fieldtype\": \"Currency\",\n   \"in_list_view\": 1,\n   \"label\": \"Base Taxable Amount\","
+  },
+  {
+   "key": "Batch Item settings",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:section_break_gnhq"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"enable_serial_and_batch_no_for_item\",\n   \"fieldname\": \"section_break_gnhq\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Batch Item settings\"\n  },"
+  },
+  {
+   "key": "Bin Values Recalculated",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/bin/bin.js:16"
+   ],
+   "current": null,
+   "context": "\t\t\t\tfreeze: true,\n\t\t\t\tdoc: frm.doc,\n\t\t\t\tcallback: function (r) {\n\t\t\t\t\tfrappe.show_alert(__(\"Bin Values Recalculated\"), 2);\n\t\t\t\t},\n\t\t\t});\n\t\t});"
+  },
+  {
+   "key": "BOM Configuration",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:bom_conf_tab"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Section Break\"\n  },\n  {\n   \"fieldname\": \"bom_conf_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"BOM Configuration\"\n  },"
+  },
+  {
+   "key": "BOM Secondary Item",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:bom_secondary_item"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "BOM Secondary Item Reference",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json:bom_secondary_item"
+   ],
+   "current": null,
+   "context": "   \"reqd\": 1\n  },\n  {\n   \"fieldname\": \"bom_secondary_item\",\n   \"fieldtype\": \"Data\",\n   \"hidden\": 1,\n   \"label\": \"BOM Secondary Item Reference\","
+  },
+  {
+   "key": "Book Asset Depreciation entry automatically",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:book_asset_depreciation_entry_automatically"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"1\",\n   \"fieldname\": \"book_asset_depreciation_entry_automatically\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Book Asset Depreciation entry automatically\"\n  },"
+  },
+  {
+   "key": "Book Deferred entries based on",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:book_deferred_entries_based_on"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"Days\",\n   \"description\": \"If \\\"Months\\\" is selected, a fixed amount will be booked as deferred revenue or expense for each month irrespective of the number of days in a month. It will be prorated if deferred revenue or expense is not booked for an entire month\",\n   \"fieldname\": \"book_deferred_entries_based_on\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Book Deferred entries based on\",\n   \"options\": \"Days\\nMonths\""
+  },
+  {
+   "key": "Book deferred entries via Journal Entry",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:book_deferred_entries_via_journal_entry"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"If this is unchecked, direct GL entries will be created to book deferred revenue or expense\",\n   \"fieldname\": \"book_deferred_entries_via_journal_entry\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Book deferred entries via Journal Entry\"\n  },"
+  },
+  {
+   "key": "Book Stock Expense GL Entries",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:book_stock_expense_gl_entries"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Books Purchase Expense and Expenses Added To Stock account pairs against stock value. On enabling this, the accounts become mandatory in Company or Item Defaults for Purchase Receipt, Purchase Invoice, Stock Entry, Stock Reconciliation and Landed Cost Voucher\",\n   \"fieldname\": \"book_stock_expense_gl_entries\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Book Stock Expense GL Entries\"\n  },"
+  },
+  {
+   "key": "Book tax loss on early payment discount",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:book_tax_discount_loss"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Split Early Payment Discount Loss into Income and Tax Loss\",\n   \"fieldname\": \"book_tax_discount_loss\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Book tax loss on early payment discount\"\n  },"
+  },
+  {
+   "key": "Budget Variance",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/budget.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "By-Product",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:secondary_item_type",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json:secondary_item_type",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:secondary_item_type"
+   ],
+   "current": null,
+   "context": " ],\n \"fields\": [\n  {\n   \"fieldname\": \"secondary_item_type\",\n   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Type\","
+  },
+  {
+   "key": "Bypass credit limit check at sales order",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer_credit_limit/customer_credit_limit.json:bypass_credit_limit_check"
+   ],
+   "current": null,
+   "context": "  {\n   \"columns\": 3,\n   \"default\": \"0\",\n   \"fieldname\": \"bypass_credit_limit_check\",\n   \"fieldtype\": \"Check\",\n   \"in_list_view\": 1,\n   \"label\": \"Bypass credit limit check at sales order\""
+  },
+  {
+   "key": "Check Availability in Warehouse",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_reorder/item_reorder.json:warehouse_group"
+   ],
+   "current": null,
+   "context": " \"fields\": [\n  {\n   \"columns\": 3,\n   \"fieldname\": \"warehouse_group\",\n   \"fieldtype\": \"Link\",\n   \"ignore_user_permissions\": 1,\n   \"in_list_view\": 1,"
+  },
+  {
+   "key": "Check Supplier invoice number uniqueness",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:check_supplier_invoice_uniqueness"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Enabling this ensures each Purchase Invoice has a unique value in Supplier Invoice No. field within a particular fiscal year\",\n   \"fieldname\": \"check_supplier_invoice_uniqueness\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Check Supplier invoice number uniqueness\"\n  },"
+  },
+  {
+   "key": "Child DocTypes",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.json:child_doctypes"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"description\": \"Child tables that will also be deleted\",\n   \"fieldname\": \"child_doctypes\",\n   \"fieldtype\": \"Small Text\",\n   \"in_list_view\": 1,\n   \"label\": \"Child DocTypes\","
+  },
+  {
+   "key": "Co-Product",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:secondary_item_type",
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card_secondary_item/job_card_secondary_item.json:secondary_item_type",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:secondary_item_type"
+   ],
+   "current": null,
+   "context": " ],\n \"fields\": [\n  {\n   \"fieldname\": \"secondary_item_type\",\n   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Type\","
+  },
+  {
+   "key": "COA Importer",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/accounts_setup.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Company Field",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.json:company_field"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"description\": \"Company link field name used for filtering (optional - leave empty to delete all records)\",\n   \"fieldname\": \"company_field\",\n   \"fieldtype\": \"Data\",\n   \"in_list_view\": 1,\n   \"label\": \"Company Field\""
+  },
+  {
+   "key": "Completed Quantity cannot be greater than {0}",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:281"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\tflt(dialog.get_value(\"for_quantity\")) - flt(dialog.get_value(\"process_loss_qty\"));\n\t\t\t\t\t\tdialog.set_value(\"completed_qty\", max_completed_qty);\n\t\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t\t__(\"Completed Quantity cannot be greater than {0}\", [\n\t\t\t\t\t\t\t\tget_qty_with_uom(max_completed_qty, frm.doc.stock_uom),\n\t\t\t\t\t\t\t])\n\t\t\t\t\t\t);"
+  },
+  {
+   "key": "Completed, Pending and Process Loss quantities must add up to this.",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:255"
+   ],
+   "current": null,
+   "context": "\t\t\t\tfieldname: \"for_quantity\",\n\t\t\t\treqd: 1,\n\t\t\t\tdefault: pending_qty,\n\t\t\t\tdescription: __(\"Completed, Pending and Process Loss quantities must add up to this.\"),\n\t\t\t\tchange() {\n\t\t\t\t\tconst dialog = frm.job_completion_dialog;\n\t\t\t\t\tdialog.set_value(\"completed_qty\", dialog.get_value(\"for_quantity\"));"
+  },
+  {
+   "key": "Components",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:items"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"allow_bulk_edit\": 1,\n   \"fieldname\": \"items\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Components\",\n   \"oldfieldname\": \"bom_materials\","
+  },
+  {
+   "key": "Configure Series",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:configure",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:configure_series"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"HTML\"\n  },\n  {\n   \"fieldname\": \"configure\",\n   \"fieldtype\": \"Button\",\n   \"hidden\": 1,\n   \"label\": \"Configure Series\""
+  },
+  {
+   "key": "Consider for Tax Withholding",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:apply_tds",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:apply_tds",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:apply_tds",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:apply_tds",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice_item/sales_invoice_item.json:apply_tds"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"depends_on\": \"eval:doc.party_type == 'Supplier'\",\n   \"fieldname\": \"apply_tds\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Consider for Tax Withholding\"\n  },"
+  },
+  {
+   "key": "Consolidated Report",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/financial_reports.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Consume Components",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:consume_components_section"
+   ],
+   "current": null,
+   "context": "   \"label\": \"BOM Configuration\"\n  },\n  {\n   \"fieldname\": \"consume_components_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Consume Components\"\n  },"
+  },
+  {
+   "key": "Convert Item description to clean HTML in transactions",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:clean_description_html"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"1\",\n   \"fieldname\": \"clean_description_html\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Convert Item description to clean HTML in transactions\"\n  },"
+  },
+  {
+   "key": "Convert to Ledger",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/warehouse/warehouse.js:52"
+   ],
+   "current": null,
+   "context": "\n\t\t\t\tfrm.add_custom_button(\n\t\t\t\t\tfrm.doc.is_group\n\t\t\t\t\t\t? __(\"Convert to Ledger\", null, \"Warehouse\")\n\t\t\t\t\t\t: __(\"Convert to Group\", null, \"Warehouse\"),\n\t\t\t\t\tfunction () {\n\t\t\t\t\t\tconvert_to_group_or_ledger(frm);"
+  },
+  {
+   "key": "Cost Allocation",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:cost_allocation"
+   ],
+   "current": null,
+   "context": "   \"read_only\": 1\n  },\n  {\n   \"fieldname\": \"cost_allocation\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Cost Allocation\",\n   \"non_negative\": 1,"
+  },
+  {
+   "key": "Cost Allocation %",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:cost_allocation_per"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"depends_on\": \"eval:doc.valuation_type == '% of Component Cost'\",\n   \"fieldname\": \"cost_allocation_per\",\n   \"fieldtype\": \"Percent\",\n   \"label\": \"Cost Allocation %\",\n   \"non_negative\": 1,"
+  },
+  {
+   "key": "Cost Allocation / Process Loss",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:cost_allocation__process_loss_section"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"collapsible\": 1,\n   \"fieldname\": \"cost_allocation__process_loss_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Cost Allocation / Process Loss\"\n  },"
+  },
+  {
+   "key": "Create payment requests in Draft status",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:create_pr_in_draft_status"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"1\",\n   \"description\": \"Payment Requests made from Sales / Purchase Invoice will be put in Draft explicitly\",\n   \"fieldname\": \"create_pr_in_draft_status\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Create payment requests in Draft status\"\n  },"
+  },
+  {
+   "key": "Create User Automatically",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.json:create_user_automatically"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"depends_on\": \"eval:doc.__islocal && !doc.user_id\",\n   \"description\": \"Creates a User account for this employee using the Preferred, Company, or Personal email.\",\n   \"fieldname\": \"create_user_automatically\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Create User Automatically\",\n   \"set_only_once\": 1"
+  },
+  {
+   "key": "Created By Migration",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json:created_by_migration"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"created_by_migration\",\n   \"fieldtype\": \"Check\",\n   \"hidden\": 1,\n   \"label\": \"Created By Migration\","
+  },
+  {
+   "key": "Credit & Overdue Limits",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:credit_limits"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"description\": \"Transactions are blocked when the outstanding balance exceeds the credit limit. When Restrict Customer Over Billing is enabled, new invoices are also blocked when the customer's overdue amount exceeds the Overdue Limit.\",\n   \"fieldname\": \"credit_limits\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Credit & Overdue Limits\",\n   \"options\": \"Customer Credit Limit\","
+  },
+  {
+   "key": "Custom Financial Statement",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/financial_reports.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Customer Ledger",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/financial_reports.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Customer POS ID",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:customer_pos_id"
+   ],
+   "current": null,
+   "context": "   \"options\": \"Sales Team\"\n  },\n  {\n   \"fieldname\": \"customer_pos_id\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Customer POS ID\",\n   \"no_copy\": 1,"
+  },
+  {
+   "key": "Data fetch method",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:receivable_payable_fetch_method"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"Buffered Cursor\",\n   \"fieldname\": \"receivable_payable_fetch_method\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Data fetch method\",\n   \"options\": \"Buffered Cursor\\nUnBuffered Cursor\""
+  },
+  {
+   "key": "Deducted From",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json:source_section"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"description\": \"Transaction from which tax is withheld\",\n   \"fieldname\": \"source_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Deducted From\"\n  },"
+  },
+  {
+   "key": "Deduction Certificate",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/taxes.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Default Ageing Range",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:default_ageing_range"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"30, 60, 90, 120\",\n   \"fieldname\": \"default_ageing_range\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Default Ageing Range\"\n  },"
+  },
+  {
+   "key": "Default Sales Contact",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:default_sales_contact"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Column Break\"\n  },\n  {\n   \"fieldname\": \"default_sales_contact\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Default Sales Contact\",\n   \"options\": \"Contact\""
+  },
+  {
+   "key": "Default Stock Valuation Method",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:valuation_method"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"FIFO\",\n   \"fieldname\": \"valuation_method\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Default Stock Valuation Method\",\n   \"options\": \"FIFO\\nMoving Average\\nLIFO\","
+  },
+  {
+   "key": "Delete Accounting and Stock Ledger entries on deletion of transaction",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:delete_linked_ledger_entries"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"delete_linked_ledger_entries\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Delete Accounting and Stock Ledger entries on deletion of transaction\"\n  },"
+  },
+  {
+   "key": "Delete all the Transactions for {0}",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.js:249"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t__(\"Delete all the Transactions for {0}\", [frappe.utils.bold(frm.doc.name)]),\n\t\t\t\t\t\t\t__(\"Delete\")\n\t\t\t\t\t\t);\n\t\t\t\t\t\td.get_primary_btn().addClass(\"btn-danger\");"
+  },
+  {
+   "key": "Deletion process restarted",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:216"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tdoc: frm.doc,\n\t\t\t\t\tcallback: () => {\n\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\tmessage: __(\"Deletion process restarted\"),\n\t\t\t\t\t\t\tindicator: \"blue\",\n\t\t\t\t\t\t});\n\t\t\t\t\t\tfrm.reload_doc();"
+  },
+  {
+   "key": "Deletion will start automatically after submission.",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:97"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\"IMPORTANT: Create a backup before proceeding!\"\n\t\t\t\t\t)}</b>` +\n\t\t\t\t\t`</div>` +\n\t\t\t\t\t`<div style='margin-top: 10px;'>${__(\n\t\t\t\t\t\t\"Deletion will start automatically after submission.\"\n\t\t\t\t\t)}</div>`;\n"
+  },
+  {
+   "key": "Deliver (Dropship)",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js:359"
+   ],
+   "current": null,
+   "context": "\n\t\t\t\tif (is_drop_ship && ![\"Completed\", \"Delivered\"].includes(doc.status)) {\n\t\t\t\t\tthis.frm.add_custom_button(\n\t\t\t\t\t\t__(\"Deliver (Dropship)\"),\n\t\t\t\t\t\tthis.delivered_by_supplier.bind(this),\n\t\t\t\t\t\t__(\"Status\")\n\t\t\t\t\t);"
+  },
+  {
+   "key": "Delivered",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order.json:status",
+    "frappe-bench/apps/erpnext/erpnext/buying/doctype/purchase_order/purchase_order_list.js:20"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"Draft\",\n   \"fieldname\": \"status\",\n   \"fieldtype\": \"Select\",\n   \"in_standard_filter\": 1,\n   \"label\": \"Status\","
+  },
+  {
+   "key": "Delivered by Supplier",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice_item/purchase_invoice_item.json:delivered_by_supplier"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"delivered_by_supplier\",\n   \"fieldtype\": \"Check\",\n   \"hidden\": 1,\n   \"label\": \"Delivered by Supplier\","
+  },
+  {
+   "key": "Determine Address Tax Category from",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:determine_address_tax_category_from"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"Billing Address\",\n   \"description\": \"Address used to determine Tax Category in transactions\",\n   \"fieldname\": \"determine_address_tax_category_from\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Determine Address Tax Category from\",\n   \"options\": \"Billing Address\\nShipping Address\""
+  },
+  {
+   "key": "Disable \"Consider Accounting Dimension\" Filter",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:disable_include_dimensions"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"disable_include_dimensions\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Disable \\\"Consider Accounting Dimension\\\" Filter\"\n  }"
+  },
+  {
+   "key": "Disable Serial No and Batch selector",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:disable_serial_no_and_batch_selector"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"If enabled, users must enter Serial No. / Batch data manually instead of using the selector dialog.\",\n   \"fieldname\": \"disable_serial_no_and_batch_selector\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Disable Serial No and Batch selector\"\n  },"
+  },
+  {
+   "key": "Disassemble Qty cannot be less than or equal to <b>0</b>.",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:461"
+   ],
+   "current": null,
+   "context": "\t\t\t.show_disassembly_prompt(frm)\n\t\t\t.then((data) => {\n\t\t\t\tif (flt(data.qty) <= 0) {\n\t\t\t\t\tfrappe.msgprint(__(\"Disassemble Qty cannot be less than or equal to <b>0</b>.\"));\n\t\t\t\t\treturn;\n\t\t\t\t}\n\t\t\t\treturn frappe.xcall(\"erpnext.manufacturing.doctype.work_order.work_order.make_stock_entry\", {"
+  },
+  {
+   "key": "Display & Data Formatting",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:display_data_formatting_section"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Internal Transfer Rules\"\n  },\n  {\n   \"fieldname\": \"display_data_formatting_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Display & Data Formatting\"\n  },"
+  },
+  {
+   "key": "Do not update Serial / Batch on creation of auto bundle",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:do_not_update_serial_batch_on_creation_of_auto_bundle"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"1\",\n   \"description\": \"If enabled, do not update serial / batch values in the stock transactions on creation of auto Serial \\n / Batch Bundle. \",\n   \"fieldname\": \"do_not_update_serial_batch_on_creation_of_auto_bundle\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Do not update Serial / Batch on creation of auto bundle\"\n  },"
+  },
+  {
+   "key": "Do not use Batch-wise Valuation",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:do_not_use_batchwise_valuation"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"If enabled, the system will use the moving average valuation method to calculate the valuation rate for the batched items and will not consider the individual batch-wise incoming rate.\",\n   \"fieldname\": \"do_not_use_batchwise_valuation\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Do not use Batch-wise Valuation\"\n  },"
+  },
+  {
+   "key": "DocType {0} with company field '{1}' is already in the list",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:293"
+   ],
+   "current": null,
+   "context": "\t\t\t);\n\t\t\tif (duplicates.length > 0) {\n\t\t\t\tfrappe.msgprint(\n\t\t\t\t\t__(\"DocType {0} with company field '{1}' is already in the list\", [\n\t\t\t\t\t\trow.doctype_name,\n\t\t\t\t\t\trow.company_field || __(\"(none)\"),\n\t\t\t\t\t])"
+  },
+  {
+   "key": "DocTypes To Delete",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.json:doctypes_to_delete"
+   ],
+   "current": null,
+   "context": "   \"read_only\": 1\n  },\n  {\n   \"fieldname\": \"doctypes_to_delete\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"DocTypes To Delete\",\n   \"options\": \"Transaction Deletion Record To Delete\""
+  },
+  {
+   "key": "DocTypes with a company field:",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:84"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t)}</div>` +\n\t\t\t\t\t`<div style='margin-bottom: 10px;'><b>${__(\"What will be deleted:\")}</b></div>` +\n\t\t\t\t\t`<ul style='margin-left: 20px; margin-bottom: 10px;'>` +\n\t\t\t\t\t`<li><b>${__(\"DocTypes with a company field:\")}</b> ${__(\n\t\t\t\t\t\t\"Only records belonging to {0} will be deleted\",\n\t\t\t\t\t\t[`<b>${frm.doc.company}</b>`]\n\t\t\t\t\t)}</li>` +"
+  },
+  {
+   "key": "DocTypes without a company field:",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:88"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\"Only records belonging to {0} will be deleted\",\n\t\t\t\t\t\t[`<b>${frm.doc.company}</b>`]\n\t\t\t\t\t)}</li>` +\n\t\t\t\t\t`<li><b>${__(\"DocTypes without a company field:\")}</b> ${__(\n\t\t\t\t\t\t\"ALL records will be deleted (entire DocType cleared)\"\n\t\t\t\t\t)}</li>` +\n\t\t\t\t\t`</ul>` +"
+  },
+  {
+   "key": "Document Count",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.json:document_count"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Company Field\"\n  },\n  {\n   \"fieldname\": \"document_count\",\n   \"fieldtype\": \"Int\",\n   \"in_list_view\": 1,\n   \"label\": \"Document Count\","
+  },
+  {
+   "key": "Document Naming",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:document_naming_tab",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:document_naming_tab"
+   ],
+   "current": null,
+   "context": "   \"options\": \"Repost Allowed Types\"\n  },\n  {\n   \"fieldname\": \"document_naming_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Document Naming\"\n  },"
+  },
+  {
+   "key": "Don't Recompute Tax",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_taxes_and_charges/purchase_taxes_and_charges.json:dont_recompute_tax",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_taxes_and_charges/sales_taxes_and_charges.json:dont_recompute_tax"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"dont_recompute_tax\",\n   \"fieldtype\": \"Check\",\n   \"hidden\": 1,\n   \"label\": \"Don't Recompute Tax\","
+  },
+  {
+   "key": "Edit Tax Withholding Entries",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:override_tax_withholding_entries",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:override_tax_withholding_entries",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:override_tax_withholding_entries"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"override_tax_withholding_entries\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Edit Tax Withholding Entries\"\n  },"
+  },
+  {
+   "key": "Elapsed Time",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:687"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<div>\n\t\t\t\t\t\t<div style=\"font-size:10px;color:var(--text-muted);font-weight:600;\n\t\t\t\t\t\t\ttext-transform:uppercase;letter-spacing:0.6px;margin-bottom:6px;\">\n\t\t\t\t\t\t\t${__(\"Elapsed Time\")}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div style=\"display:flex;align-items:center;gap:8px;\">\n\t\t\t\t\t\t\t${frappe.utils.icon(\"clock-4\", \"md\", \"\", \"\", \"\", \"\", timer_color)}"
+  },
+  {
+   "key": "Email is required to create a user.",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee.js:72"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tprimary_action_label: __(\"Create\"),\n\t\t\t\t\tprimary_action: (values) => {\n\t\t\t\t\t\tif (!values.email) {\n\t\t\t\t\t\t\tfrappe.msgprint(__(\"Email is required to create a user.\"));\n\t\t\t\t\t\t\treturn;\n\t\t\t\t\t\t}\n"
+  },
+  {
+   "key": "Enable Accounting Dimensions",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:enable_accounting_dimensions"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Enable cost center, projects and other custom accounting dimensions\",\n   \"fieldname\": \"enable_accounting_dimensions\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Accounting Dimensions\"\n  },"
+  },
+  {
+   "key": "Enable Discounts and Margin",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:enable_discounts_and_margin"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Apply discounts and margins on products\",\n   \"fieldname\": \"enable_discounts_and_margin\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Discounts and Margin\"\n  },"
+  },
+  {
+   "key": "Enable Loyalty Point Program",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:enable_loyalty_point_program"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"documentation_url\": \"https://docs.frappe.io/erpnext/loyalty-program\",\n   \"fieldname\": \"enable_loyalty_point_program\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Loyalty Point Program\"\n  },"
+  },
+  {
+   "key": "Enable stock reservation",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:enable_stock_reservation"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Allows to keep aside a specific quantity of inventory for a particular order.\",\n   \"fieldname\": \"enable_stock_reservation\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable stock reservation\"\n  },"
+  },
+  {
+   "key": "Enable Subscription",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:enable_subscription"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"1\",\n   \"description\": \"Enable Subscription tracking in invoice\",\n   \"fieldname\": \"enable_subscription\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Subscription\"\n  },"
+  },
+  {
+   "key": "ERPNext",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/desktop_icon/erpnext.json"
+   ],
+   "current": "ERPNext",
+   "context": null
+  },
+  {
+   "key": "Error getting details for {0}: {1}",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:267"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\tfrappe.msgprint({\n\t\t\t\t\t\t\t\ttitle: __(\"Error\"),\n\t\t\t\t\t\t\t\tindicator: \"red\",\n\t\t\t\t\t\t\t\tmessage: __(\"Error getting details for {0}: {1}\", [\n\t\t\t\t\t\t\t\t\trow.doctype_name,\n\t\t\t\t\t\t\t\t\tr.message.error,\n\t\t\t\t\t\t\t\t]),"
+  },
+  {
+   "key": "Expenses Added To Stock Account",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:expenses_added_to_stock_account",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_default/item_default.json:expenses_added_to_stock_account"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Stock Expense\"\n  },\n  {\n   \"fieldname\": \"expenses_added_to_stock_account\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Expenses Added To Stock Account\",\n   \"options\": \"Account\""
+  },
+  {
+   "key": "Expenses Added To Stock Contra Account",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/company/company.json:expenses_added_to_stock_contra_account",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item_default/item_default.json:expenses_added_to_stock_contra_account"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Column Break\"\n  },\n  {\n   \"fieldname\": \"expenses_added_to_stock_contra_account\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Expenses Added To Stock Contra Account\",\n   \"options\": \"Account\""
+  },
+  {
+   "key": "Feedback Template",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/quality.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Fetch Payment Schedule in Payment Request",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:fetch_payment_schedule_in_payment_request"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"1\",\n   \"fieldname\": \"fetch_payment_schedule_in_payment_request\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Fetch Payment Schedule in Payment Request\"\n  },"
+  },
+  {
+   "key": "Fetch valuation rate for internal Transaction",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:fetch_valuation_rate_for_internal_transaction"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"fetch_valuation_rate_for_internal_transaction\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Fetch valuation rate for internal Transaction\"\n  },"
+  },
+  {
+   "key": "Financial Report Template",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/financial_reports.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Freeze stocks older than (days)",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:stock_frozen_upto_days"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"description\": \"Stock transactions that are older than the mentioned days cannot be modified.\",\n   \"fieldname\": \"stock_frozen_upto_days\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Freeze stocks older than (days)\"\n  },"
+  },
+  {
+   "key": "FX Revaluation",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/accounts_setup.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "General Ledger remarks length",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:general_ledger_remarks_length"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Truncates 'Remarks' column to set character length\",\n   \"fieldname\": \"general_ledger_remarks_length\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"General Ledger remarks length\"\n  },"
+  },
+  {
+   "key": "General Ledger Report",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:remarks_section"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Column Break\"\n  },\n  {\n   \"fieldname\": \"remarks_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"General Ledger Report\"\n  },"
+  },
+  {
+   "key": "Generate To Delete List",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:112"
+   ],
+   "current": null,
+   "context": "\t\t}\n\n\t\tif (frm.doc.docstatus == 0) {\n\t\t\tfrm.add_custom_button(__(\"Generate To Delete List\"), () => {\n\t\t\t\tfrm.call({\n\t\t\t\t\tmethod: \"generate_to_delete_list\",\n\t\t\t\t\tdoc: frm.doc,"
+  },
+  {
+   "key": "Grand Total (Company Currency",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:base_grand_total"
+   ],
+   "current": null,
+   "context": "   \"print_hide\": 1\n  },\n  {\n   \"fieldname\": \"base_grand_total\",\n   \"fieldtype\": \"Currency\",\n   \"hide_days\": 1,\n   \"hide_seconds\": 1,"
+  },
+  {
+   "key": "Has Operating Cost",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/landed_cost_taxes_and_charges/landed_cost_taxes_and_charges.json:has_operating_cost"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"has_operating_cost\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Has Operating Cost\",\n   \"read_only\": 1"
+  },
+  {
+   "key": "Have default Naming Series for Batch ID?",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:use_naming_series"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"This will be applied if no naming series is configured in Item master\",\n   \"fieldname\": \"use_naming_series\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Have default Naming Series for Batch ID?\"\n  },"
+  },
+  {
+   "key": "Ignore Account closing balance",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:ignore_account_closing_balance"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"Financial reports will be generated using GL Entry doctypes (should be enabled if Period Closing Voucher is not posted for all years sequentially or missing) \",\n   \"fieldname\": \"ignore_account_closing_balance\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Ignore Account closing balance\"\n  },"
+  },
+  {
+   "key": "Ignore Tax Withholding Threshold",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:ignore_tax_withholding_threshold",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:ignore_tax_withholding_threshold",
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:ignore_tax_withholding_threshold"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"ignore_tax_withholding_threshold\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Ignore Tax Withholding Threshold\"\n  },"
+  },
+  {
+   "key": "Import Employees",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/employee/employee_list.js:16"
+   ],
+   "current": null,
+   "context": "\t\tif (frappe.perm.has_perm(\"Employee\", 0, \"create\")) {\n\t\t\tfrappe.db.count(\"Employee\").then((count) => {\n\t\t\t\tif (count === 0) {\n\t\t\t\t\tlistview.page.add_inner_button(__(\"Import Employees\"), () => {\n\t\t\t\t\t\tfrappe.new_doc(\"Data Import\", {\n\t\t\t\t\t\t\treference_doctype: \"Employee\",\n\t\t\t\t\t\t});"
+  },
+  {
+   "key": "IMPORTANT: Create a backup before proceeding!",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:93"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t)}</li>` +\n\t\t\t\t\t`</ul>` +\n\t\t\t\t\t`<div style='margin-bottom: 10px; padding: 10px; background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;'>` +\n\t\t\t\t\t`<b style='color: #856404;'>📦 ${__(\n\t\t\t\t\t\t\"IMPORTANT: Create a backup before proceeding!\"\n\t\t\t\t\t)}</b>` +\n\t\t\t\t\t`</div>` +"
+  },
+  {
+   "key": "Imported {0} DocTypes",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:192"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\tcallback: (r) => {\n\t\t\t\t\t\t\t\t\tif (r.message) {\n\t\t\t\t\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\t\t\t\t\tmessage: __(\"Imported {0} DocTypes\", [r.message.imported]),\n\t\t\t\t\t\t\t\t\t\t\tindicator: \"green\",\n\t\t\t\t\t\t\t\t\t\t});\n"
+  },
+  {
+   "key": "Internal Customer Accounting",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/customer/customer.json:internal_customer_section"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Tax\"\n  },\n  {\n   \"fieldname\": \"internal_customer_section\",\n   \"fieldtype\": \"Section Break\",\n   \"hide_border\": 1,\n   \"label\": \"Internal Customer Accounting\""
+  }
+ ]
+}

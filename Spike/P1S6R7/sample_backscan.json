@@ -1,0 +1,99 @@
+{
+ "specific": {
+  "Reposting Item and Warehouse": "追溯调整的物料与仓库",
+  "Grand Total must match sum of Payment References": "总计必须等于各付款凭据行金额之和",
+  "Vote Selection": "所选选项"
+ },
+ "backscan": [
+  {
+   "type": "追溯调整",
+   "key": "Auto Repost Incorrect Valuation Entries (Weekly)",
+   "old": "自动重过账成本价错误的分录（每周）",
+   "new": "自动追溯调整成本价错误的分录（每周）"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Auto Reposting of Incorrect Valuation",
+   "old": "成本价错误自动重过账",
+   "new": "成本价错误自动追溯调整"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Enable Parallel Reposting",
+   "old": "启用并行重过账",
+   "new": "启用并行追溯调整"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Enable Separate Reposting for GL",
+   "old": "启用总账单独重过账",
+   "new": "启用总账单独追溯调整"
+  },
+  {
+   "type": "追溯调整",
+   "key": "If enabled, a weekly scheduler scans the Stock Ledger Variance for item-warehouses with incorrect valuation in the current financial year and auto-creates Item & Warehouse based reposts to fix them.",
+   "old": "启用后，系统每周定时扫描本会计年度物料凭证差异报表中成本价有误的物料与仓库组合，并自动按物料与仓库创建重过账予以修正。",
+   "new": "启用后，系统每周定时扫描本会计年度物料凭证差异报表中成本价有误的物料与仓库组合，并自动按物料与仓库创建追溯调整予以修正。"
+  },
+  {
+   "type": "追溯调整",
+   "key": "No of Items to Repost",
+   "old": "待重过账物料数",
+   "new": "待追溯调整物料数"
+  },
+  {
+   "type": "追溯调整",
+   "key": "No of Parallel Reposting (Per Item)",
+   "old": "并行重过账数（每个物料）",
+   "new": "并行追溯调整数（每个物料）"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Repost Only Accounting Ledgers",
+   "old": "仅重过账会计分录",
+   "new": "仅追溯调整会计分录"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Reposting for Item-Wh Completed {0}%",
+   "old": "按物料与仓库重过账已完成 {0}%",
+   "new": "按物料与仓库追溯调整已完成 {0}%"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Reposting for Vouchers Completed {0}%",
+   "old": "按凭证重过账已完成 {0}%",
+   "new": "按凭证追溯调整已完成 {0}%"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Reposting Reference",
+   "old": "重过账参照号",
+   "new": "追溯调整参照号"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Reposting Vouchers",
+   "old": "重过账凭证",
+   "new": "追溯调整凭证"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Reposting Vouchers Progress",
+   "old": "凭证重过账进度",
+   "new": "凭证追溯调整进度"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Stock and accounting values could not be reconciled by reposting for {0}.",
+   "old": "重过账后，{0} 的库存与账务数值仍未能对平。",
+   "new": "追溯调整后，{0} 的库存与账务数值仍未能对平。"
+  },
+  {
+   "type": "追溯调整",
+   "key": "Stock Ledgers won’t be reposted.",
+   "old": "不重过账库存台账。",
+   "new": "不追溯调整库存台账。"
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+Alerts	新词：Alert 译「预警」（官方有「预警通知」「提醒」两说；Insights 里是查询达条件后发消息，取「预警」），同块 Alert 系列一律用它
+Create Measure	新词：Measure 译「度量」（图表的数值指标，与维度相对）
+Data Store	新词：Data Store 译「数据存储」（Insights 把外部表缓存到本地 DuckDB 的功能）
+Clear Warehouse Data	新词：此处 Warehouse 是数据仓库，不是库存仓库，译「数据仓库」，未用术语表的 Warehouse → 仓库
+Import to Warehouse	同上，Warehouse 指数据仓库
+Drill Down	新词：译「下钻」（数据分析通行说法）
+Cardinality	新词：表关联的 1:1／1:N 类型，译「对应关系」，比直译「基数」好懂
+Last Sync Bookmark	新词：Bookmark 指增量同步断点，译「同步位点」
+Cursor Column	新词：增量同步用的时间游标列，译「游标列」
+Is Builder Query	「Builder Query」指可视化拖拽构建的查询，译「是否可视化构建查询」
+Is Assisted Query	「Assisted Query」是 v2 的引导式查询，译「辅助查询」，把握一般
+Insights Dashboard Item	Item 指仪表板上的图表／文本块，译「仪表板组件」
+edges	与 nodes 拼成「{n} nodes, {m} edges」，译「条边」「个节点」作量词接在数字后
+Average of...	度量选择菜单项，译「平均值……」，以下 Count／Sum／Maximum／Minimum 同式
+Apply a custom operation using python script	混排守卫会报：Python 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+BigQuery Configuration	混排守卫会报：BigQuery 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+BigQuery Dataset ID	混排守卫会报：BigQuery 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+BigQuery Project ID	混排守卫会报：BigQuery 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+BigQuery Service Account Key (JSON)	混排守卫会报：BigQuery 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Connect to ClickHouse	混排守卫会报：ClickHouse 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Connect to ClickHouse database	混排守卫会报：ClickHouse 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Connect to DuckDB	混排守卫会报：DuckDB 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Connect to DuckDB database	混排守卫会报：DuckDB 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Connect to MariaDB	混排守卫会报：MariaDB 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Connect to MariaDB database	混排守卫会报：MariaDB 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Connect to PostgreSQL	混排守卫会报：PostgreSQL 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Connect to PostgreSQL database	混排守卫会报：PostgreSQL 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Cron expression to schedule the script. Note: The scheduler checks for jobs every hour.	混排守卫会报：Cron 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+e.g. api_key	混排守卫会报：示例变量名 api_key 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+e.g. john@example.com, henry@example.com	混排守卫会报：示例邮箱地址 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Enter the URL of the DuckDB file	混排守卫会报：DuckDB 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Is DuckLake	混排守卫会报：DuckLake 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Join Telegram Group	混排守卫会报：Telegram 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Markdown supported	混排守卫会报：Markdown 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS

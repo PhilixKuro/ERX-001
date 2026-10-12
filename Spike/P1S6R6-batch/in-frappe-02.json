@@ -1,0 +1,596 @@
+{
+ "group": "frappe",
+ "items": [
+  {
+   "key": "Type {0} or more characters for results.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/awesomplete.js:7"
+   ],
+   "current": null,
+   "context": "\tconstructor(input, options) {\n\t\tsuper(input, options);\n\t\tthis.status.textContent = this.minChars\n\t\t\t? __(\"Type {0} or more characters for results.\", [this.minChars])\n\t\t\t: __(\"Begin typing for results.\");\n\t}\n"
+  },
+  {
+   "key": "Unable to load attachments.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/attachment_gallery.js:43"
+   ],
+   "current": null,
+   "context": "\t\t\t}\n\t\t\tthis.$gallery.empty();\n\t\t\tthis.image_thumbnails = new Map();\n\t\t\tthis.render_empty_state(__(\"Unable to load attachments.\"));\n\t\t\treturn;\n\t\t}\n\t\tif (refresh_id !== this.refresh_id) {"
+  },
+  {
+   "key": "Unpin",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:696",
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:698"
+   ],
+   "current": null,
+   "context": "\t\t\tconst safe_label = frappe.utils.escape_html(label || dt || \"\");\n\t\t\tlet pin_btn = \"\";\n\t\t\tif (action === \"unpin\") {\n\t\t\t\tpin_btn = `<button type=\"button\" class=\"btn btn-xs btn-default global-search-pin-btn\" data-pin-action=\"remove\" data-doctype=\"${esc}\" title=\"${__(\n\t\t\t\t\t\"Unpin\"\n\t\t\t\t)}\" aria-label=\"${__(\"Unpin\")}\">${unpin_icon}</button>`;\n\t\t\t} else if (action === \"pin\") {"
+  },
+  {
+   "key": "Unsupported file format: {0}",
+   "refs": [
+    "frappe/frappe/desk/query_report.py:523"
+   ],
+   "current": null,
+   "context": "\t\t).getvalue()\n\telse:\n\t\tfrappe.throw(\n\t\t\ttitle=_(\"Unsupported file format: {0}\").format(file_format_type),\n\t\t\tmsg=_(\"Only CSV and Excel formats are supported for export\"),\n\t\t)\n"
+  },
+  {
+   "key": "Update Available",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/about.js:127"
+   ],
+   "current": null,
+   "context": "\t\t\t$(`<a href=\"https://frappecloud.com/dashboard/sites/${window.location.hostname}\"\n\t\t\t\t\ttarget=\"_blank\"\n\t\t\t\t\tclass=\"btn btn-default btn-sm about-update-indicator\">\n\t\t\t\t\t${__(\"Update Available\")}\n\t\t\t\t</a>`).appendTo($version_row);\n\t\t}\n"
+  },
+  {
+   "key": "Update {0} rows",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/grid.js:1233"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t);\n\t\t\t\t});\n\t\t\t},\n\t\t\tprimary_action_label: __(\"Update {0} rows\", [selected_children.length]),\n\t\t});\n\n\t\tif (default_field) set_value_field(dialog);"
+  },
+  {
+   "key": "updated {0}",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:571"
+   ],
+   "current": null,
+   "context": "\n\t# long-text/HTML edits and clears can't show values — ship a finished phrase\n\tif df.fieldtype in LONG_TEXT_FIELDTYPES:\n\t\treturn {\"fieldname\": fieldname, \"type\": \"phrase\", \"text\": _(\"updated {0}\").format(label)}\n\tif old_s and not new_s:\n\t\treturn {\"fieldname\": fieldname, \"type\": \"phrase\", \"text\": _(\"cleared {0}\").format(label)}\n"
+  },
+  {
+   "key": "Updated {0} selected {1}. Save the form to keep changes.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/grid.js:1226"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tdialog.hide();\n\t\t\t\t\tconst row_label = selected_children.length === 1 ? __(\"row\") : __(\"rows\");\n\t\t\t\t\tfrappe.show_alert(\n\t\t\t\t\t\t__(\"Updated {0} selected {1}. Save the form to keep changes.\", [\n\t\t\t\t\t\t\tselected_children.length,\n\t\t\t\t\t\t\trow_label,\n\t\t\t\t\t\t])"
+  },
+  {
+   "key": "Updating search index",
+   "refs": [
+    "frappe/frappe/desk/doctype/global_search_settings/global_search_settings.js:38"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\tmethod: \"frappe.desk.doctype.global_search_settings.global_search_settings.update_global_search_fields\",\n\t\t\t\t\t\targs: { doctype, fields: checked },\n\t\t\t\t\t\tfreeze: true,\n\t\t\t\t\t\tfreeze_message: __(\"Updating search index\"),\n\t\t\t\t\t\tcallback: function (r) {\n\t\t\t\t\t\t\tif (r.exc) {\n\t\t\t\t\t\t\t\tfrappe.msgprint(r.exc);"
+  },
+  {
+   "key": "Use ampersand to match multiple terms",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:134"
+   ],
+   "current": null,
+   "context": "\tput_placeholder(status_text) {\n\t\tlet $shell = $(frappe.render_template(\"search\")).addClass(\"hide\");\n\t\tconst tipLine =\n\t\t\t__(\"Use ampersand to match multiple terms\") + \" (\" + __(\"e.g.\") + \" Marie&John)\";\n\t\tconst awesomebarShortcut = frappe.utils.is_mac() ? \"⌘K\" : \"Ctrl+K\";\n\t\tconst awesomebarTipLine = `<span class=\"global-search-shortcut-key\">${frappe.utils.escape_html(\n\t\t\tawesomebarShortcut"
+  },
+  {
+   "key": "Use minimum of 8 characters(case sensitive) with at least one number or special character.",
+   "refs": [
+    "frappe/frappe/www/update-password.html:63"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n\t\t\t\t\t\t\t\t\t<use href=\"#es-line-alert-circle\"></use>\n\t\t\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t\t\t{{ _(\"Use minimum of 8 characters(case sensitive) with at least one number or special character.\") }}\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<p class=\"password-strength-message hidden\"></p>\n\t\t\t\t\t\t</div>"
+  },
+  {
+   "key": "Use strong passwords.",
+   "refs": [
+    "frappe/frappe/www/update-password.html:20"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<img class=\"app-logo\" src=\"{{ logo }}\">\n\t\t\t\t<div class=\"page-card-head-text\">\n\t\t\t\t\t<h4>{{ _(\"Set Password\") }}</h4>\n\t\t\t\t\t<p class=\"page-card-subtitle\">{{ _(\"Use strong passwords.\") }}</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<form id=\"reset-password\" novalidate>"
+  },
+  {
+   "key": "Use the code below to complete your sign-in.",
+   "refs": [
+    "frappe/frappe/templates/emails/verification_code.html:2"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"Verification code\") }}</h1>\n<p>{{ _(\"Use the code below to complete your sign-in.\") }}</p>\n<div class=\"verification-code\">{{ code }}</div>\n<p class=\"text-muted text-small\">{{ _(\"If you did not request this code, you can safely ignore this email.\") }}</p>"
+  },
+  {
+   "key": "Verdana",
+   "refs": [
+    "frappe/frappe/printing/doctype/print_settings/print_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"font\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Font\",\n   \"options\": \"Default\\nHelvetica Neue\\nArial\\nHelvetica\\nInter\\nVerdana\\nMonospace\"\n  },\n  {\n   \"description\": \"In points. Default is 9.\","
+  },
+  {
+   "key": "Verification code",
+   "refs": [
+    "frappe/frappe/templates/emails/verification_code.html:1"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"Verification code\") }}</h1>\n<p>{{ _(\"Use the code below to complete your sign-in.\") }}</p>\n<div class=\"verification-code\">{{ code }}</div>\n<p class=\"text-muted text-small\">{{ _(\"If you did not request this code, you can safely ignore this email.\") }}</p>"
+  },
+  {
+   "key": "View Documentation",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/info_card.js:50"
+   ],
+   "current": null,
+   "context": "\t\t\t}\n\t\t\tcard_args.message += `<a style=\"display: inline-block; text-underline-offset: 2px;\" class=\"py-1\" href=\"${\n\t\t\t\tthis.df.documentation_url\n\t\t\t}\" target=\"_blank\">${__(\"View Documentation\")}</a>`;\n\t\t}\n\t\tthis.card = new frappe.ui.Card(card_args);\n\t}"
+  },
+  {
+   "key": "visible_types entries must be strings or {type: [fields]} maps",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:96"
+   ],
+   "current": null,
+   "context": "\t\t\t\tif activity_type == \"version\":\n\t\t\t\t\tversion_fields = fields\n\t\telse:\n\t\t\tfrappe.throw(_(\"visible_types entries must be strings or {type: [fields]} maps\"))\n\treturn types, version_fields\n\n"
+  },
+  {
+   "key": "visible_types fields for {0} must be a list",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:91"
+   ],
+   "current": null,
+   "context": "\t\telif isinstance(entry, dict):\n\t\t\tfor activity_type, fields in entry.items():\n\t\t\t\tif not isinstance(fields, list):\n\t\t\t\t\tfrappe.throw(_(\"visible_types fields for {0} must be a list\").format(activity_type))\n\t\t\t\ttypes.add(activity_type)\n\t\t\t\tif activity_type == \"version\":\n\t\t\t\t\tversion_fields = fields"
+  },
+  {
+   "key": "visible_types is not valid JSON: {0}",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:77"
+   ],
+   "current": null,
+   "context": "\t\ttry:\n\t\t\tvisible_types = frappe.parse_json(visible_types)\n\t\texcept JSONDecodeError:\n\t\t\tfrappe.throw(_(\"visible_types is not valid JSON: {0}\").format(visible_types))\n\tif not visible_types:\n\t\treturn None, None\n\tif not isinstance(visible_types, list):"
+  },
+  {
+   "key": "visible_types must be a list",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:81"
+   ],
+   "current": null,
+   "context": "\tif not visible_types:\n\t\treturn None, None\n\tif not isinstance(visible_types, list):\n\t\tfrappe.throw(_(\"visible_types must be a list\"))\n\n\ttypes: set[str] = set()\n\tversion_fields = None"
+  },
+  {
+   "key": "Visit Frappe Support Portal",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/about.js:50"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t${frappe.utils.icon(\"external-link\", \"xs\")}\n\t\t\t\t\t\t</a>\n\t\t\t\t\t\t<div class=\"about-info-sub\">\n\t\t\t\t\t\t\t${__(\"Visit Frappe Support Portal\")}\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>`"
+  },
+  {
+   "key": "Wait for it to finish. Deleting the lock file {} will not release the lock.",
+   "refs": [
+    "frappe/frappe/utils/synchronization.py:48"
+   ],
+   "current": null,
+   "context": "\t\traise LockTimeoutError(\n\t\t\t_(\"Failed to aquire lock: {}. Lock may be held by another process.\").format(lock_name)\n\t\t\t+ \"<br>\"\n\t\t\t+ _(\"Wait for it to finish. Deleting the lock file {} will not release the lock.\").format(\n\t\t\t\tlock_path\n\t\t\t)\n\t\t) from e"
+  },
+  {
+   "key": "We received a request to reset the password for your account. Click the button below to set a new password.",
+   "refs": [
+    "frappe/frappe/templates/emails/password_reset.html:3"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"Reset your password\") }}</h1>\n<p>{{_(\"Dear\")}} {{ first_name }}{% if last_name %} {{ last_name}}{% endif %},</p>\n<p>{{_(\"We received a request to reset the password for your account. Click the button below to set a new password.\")}}</p>\n<p><a class=\"btn btn-primary\" href=\"{{ link }}\">{{_(\"Reset Password\")}}</a></p>\n<div class=\"callout callout-warning\">\n\t{{_(\"If you did not request a password reset, please ignore this email. Your password will remain unchanged.\")}}"
+  },
+  {
+   "key": "Web Form Request",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-05-14 19:09:06.550774\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Website\",\n \"name\": \"Web Form Request\",\n \"naming_rule\": \"Random\",\n \"owner\": \"Administrator\",\n \"permissions\": ["
+  },
+  {
+   "key": "Web Form Request key is required",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.py:129"
+   ],
+   "current": null,
+   "context": ") -> WebFormRequest | None:\n\tif not key:\n\t\tif required:\n\t\t\tfrappe.throw(_(\"Web Form Request key is required\"), frappe.PermissionError)\n\t\treturn\n\n\tif not isinstance(key, str):"
+  },
+  {
+   "key": "Web Form Request link copied",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.js:15"
+   ],
+   "current": null,
+   "context": "\t\t\t\tconst route = message.route || frm.doc.web_form;\n\t\t\t\tconst key = encodeURIComponent(frm.doc.key);\n\t\t\t\tconst url = frappe.urllib.get_full_url(`${route}/new?web_form_request_key=${key}`);\n\t\t\t\tfrappe.utils.copy_to_clipboard(url, __(\"Web Form Request link copied\"));\n\t\t\t});\n\t\t});\n\t},"
+  },
+  {
+   "key": "Web Form Values",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.json",
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.py:98"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"web_form_values\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Web Form Values\",\n   \"options\": \"JSON\"\n  },\n  {"
+  },
+  {
+   "key": "Webhook URL",
+   "refs": [
+    "frappe/frappe/integrations/doctype/slack_webhook_url/slack_webhook_url.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"webhook_url\",\n   \"fieldtype\": \"Data\",\n   \"in_list_view\": 1,\n   \"label\": \"Webhook URL\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Websocket",
+   "refs": [
+    "frappe/frappe/desk/doctype/system_health_report/system_health_report.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"socketio_transport_mode\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"SocketIO Transport Mode\",\n   \"options\": \"Polling\\nWebsocket\"\n  },\n  {\n   \"fieldname\": \"outgoing_emails_column\","
+  },
+  {
+   "key": "Week of the year",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:102"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<li><code>.YY.</code> - ${__(\"Year in 2 digits\")}</li>\n\t\t\t\t\t<li><code>.MM.</code> - ${__(\"Month\")}</li>\n\t\t\t\t\t<li><code>.DD.</code> - ${__(\"Day of month\")}</li>\n\t\t\t\t\t<li><code>.WW.</code> - ${__(\"Week of the year\")}</li>\n\t\t\t\t\t<li>\n\t\t\t\t\t\t<code>.{fieldname}.</code> - ${__(\"fieldname on the document e.g.\")}\n\t\t\t\t\t\t<code>branch</code>"
+  },
+  {
+   "key": "Welcome! Please sign in to continue.",
+   "refs": [
+    "frappe/frappe/www/login.html:120",
+    "frappe/frappe/www/login.html:136",
+    "frappe/frappe/www/login.html:195"
+   ],
+   "current": null,
+   "context": "\t</noscript>\n\t<section class='for-login'>\n\t\t<div class=\"login-content page-card\">\n\t\t\t{{ logo_section(_('Sign In'), _('Welcome! Please sign in to continue.')) }}\n\t\t\t<form class=\"form-signin form-login\" role=\"form\" novalidate>\n\t\t\t\t{{ email_login_body() }}\n\t\t\t</form>"
+  },
+  {
+   "key": "What the recipient receives by email when this notification fires. Mirrors Title/Description by default; set these to make the email differ from the in-app text.",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_log/notification_log.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"collapsible\": 1,\n   \"description\": \"What the recipient receives by email when this notification fires. Mirrors Title/Description by default; set these to make the email differ from the in-app text.\",\n   \"fieldname\": \"email_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Email\""
+  },
+  {
+   "key": "Yandex.Mail",
+   "refs": [
+    "frappe/frappe/email/doctype/email_account/email_account.json"
+   ],
+   "current": null,
+   "context": "   \"hide_days\": 1,\n   \"hide_seconds\": 1,\n   \"label\": \"Service\",\n   \"options\": \"\\nFrappe Mail\\nGMail\\nSendgrid\\nSparkPost\\nYahoo Mail\\nOutlook.com\\nYandex.Mail\"\n  },\n  {\n   \"depends_on\": \"eval: doc.service != \\\"Frappe Mail\\\"\","
+  },
+  {
+   "key": "Year in 2 digits",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:99"
+   ],
+   "current": null,
+   "context": "            ${__(\"Supported Variables:\")}\n\t\t\t\t<ul>\n\t\t\t\t\t<li><code>.YYYY.</code> - ${__(\"Year in 4 digits\")}</li>\n\t\t\t\t\t<li><code>.YY.</code> - ${__(\"Year in 2 digits\")}</li>\n\t\t\t\t\t<li><code>.MM.</code> - ${__(\"Month\")}</li>\n\t\t\t\t\t<li><code>.DD.</code> - ${__(\"Day of month\")}</li>\n\t\t\t\t\t<li><code>.WW.</code> - ${__(\"Week of the year\")}</li>"
+  },
+  {
+   "key": "Year in 4 digits",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:98"
+   ],
+   "current": null,
+   "context": "            <br>\n            ${__(\"Supported Variables:\")}\n\t\t\t\t<ul>\n\t\t\t\t\t<li><code>.YYYY.</code> - ${__(\"Year in 4 digits\")}</li>\n\t\t\t\t\t<li><code>.YY.</code> - ${__(\"Year in 2 digits\")}</li>\n\t\t\t\t\t<li><code>.MM.</code> - ${__(\"Month\")}</li>\n\t\t\t\t\t<li><code>.DD.</code> - ${__(\"Day of month\")}</li>"
+  },
+  {
+   "key": "You are not allowed to update attendance for another user.",
+   "refs": [
+    "frappe/frappe/desk/doctype/event/event.py:249"
+   ],
+   "current": null,
+   "context": "\tif attendee != caller:\n\t\tif event_doc.owner != caller and not frappe.has_permission(\"Event\", \"write\", event_name):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"You are not allowed to update attendance for another user.\"), frappe.PermissionError\n\t\t\t)\n\n\tif event_doc.owner == caller:"
+  },
+  {
+   "key": "You are not permitted to send SMS",
+   "refs": [
+    "frappe/frappe/core/doctype/sms_settings/sms_settings.py:80"
+   ],
+   "current": null,
+   "context": "\n\tallowed_roles = {d.role for d in frappe.get_single(\"SMS Settings\").get(\"allowed_roles\") if d.role}\n\tif not user_roles & allowed_roles:\n\t\tfrappe.throw(_(\"You are not permitted to send SMS\"), frappe.PermissionError)\n\n\n@frappe.whitelist()"
+  },
+  {
+   "key": "You can also use variables in the series name by putting them between (.) dots",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:92"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\"Optionally, set the number of digits in the series using dot (.) followed by hashes (#). For example, '.####' means that the series will have four digits. Default is five digits.\"\n\t\t\t\t\t)}\n\t\t\t\t</li>\n        \t<li> ${__(\n\t\t\t\t\"You can also use variables in the series name by putting them between (.) dots\"\n\t\t\t)}\n            <br>"
+  },
+  {
+   "key": "You can only edit your own replies.",
+   "refs": [
+    "frappe/frappe/website/doctype/discussion_topic/discussion_topic.py:37"
+   ],
+   "current": null,
+   "context": "\tif reply_name:\n\t\tdoc = frappe.get_doc(\"Discussion Reply\", reply_name)\n\t\tif doc.owner != frappe.session.user:\n\t\t\tfrappe.throw(frappe._(\"You can only edit your own replies.\"), frappe.PermissionError)\n\t\tdoc.reply = reply\n\t\tdoc.save(ignore_permissions=True)\n\t\treturn"
+  },
+  {
+   "key": "You created this document",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:148"
+   ],
+   "current": null,
+   "context": "def get_creation_msg(owner: str, fullname: str):\n\t# \"You\" keys off the session user; everyone else shows the resolved fullname (not the raw user id)\n\tif frappe.session.user == owner:\n\t\treturn _(\"You created this document\")\n\treturn _(\"{0} created this document\").format(fullname)\n\n"
+  },
+  {
+   "key": "You do not have access to Cloud Settings for this site.",
+   "refs": [
+    "frappe/frappe/integrations/frappe_providers/cloud_settings.py:125"
+   ],
+   "current": null,
+   "context": "def _assert_access() -> None:\n\tif not is_cloud_settings_enabled():\n\t\tfrappe.throw(\n\t\t\t_(\"You do not have access to Cloud Settings for this site.\"),\n\t\t\tfrappe.PermissionError,\n\t\t)\n"
+  },
+  {
+   "key": "You do not have permission to access this file",
+   "refs": [
+    "frappe/frappe/core/doctype/file/file.py:238"
+   ],
+   "current": null,
+   "context": "\t\t\texisting_doc = frappe.get_doc(\"File\", existing_file.name)\n\t\t\tif not has_permission(existing_doc, \"read\", user=user):\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"You do not have permission to access this file\"),\n\t\t\t\t\tfrappe.PermissionError,\n\t\t\t\t)\n"
+  },
+  {
+   "key": "You do not have permission to create or restore documents of type {0}.",
+   "refs": [
+    "frappe/frappe/core/doctype/deleted_document/deleted_document.py:52"
+   ],
+   "current": null,
+   "context": "\n\tif not frappe.has_permission(doc.doctype, \"create\"):\n\t\tfrappe.throw(\n\t\t\t_(\"You do not have permission to create or restore documents of type {0}.\").format(doc.doctype),\n\t\t\tfrappe.PermissionError,\n\t\t)\n"
+  },
+  {
+   "key": "You do not have permission to restore this document.",
+   "refs": [
+    "frappe/frappe/core/doctype/deleted_document/deleted_document.py:57"
+   ],
+   "current": null,
+   "context": "\t\t)\n\n\tif not frappe.has_permission(doc.doctype, \"read\", doc=doc):\n\t\tfrappe.throw(_(\"You do not have permission to restore this document.\"), frappe.PermissionError)\n\n\toriginal_owner = doc.get(\"owner\")\n\toriginal_creation = doc.get(\"creation\")"
+  },
+  {
+   "key": "You don't have permission to create report for {0}",
+   "refs": [
+    "frappe/frappe/desk/reportview.py:381"
+   ],
+   "current": null,
+   "context": "\t\t\tfrappe.throw(_(\"You don't have permission to create Report records.\"), frappe.PermissionError)\n\t\tif not frappe.has_permission(doctype, \"read\"):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"You don't have permission to create report for {0}\").format(_(doctype)),\n\t\t\t\tfrappe.PermissionError,\n\t\t\t)\n\t\treport = frappe.new_doc(\"Report\")"
+  },
+  {
+   "key": "You don't have permission to create Report records.",
+   "refs": [
+    "frappe/frappe/desk/reportview.py:378"
+   ],
+   "current": null,
+   "context": "\t\t\tfrappe.throw(_(\"Insufficient Permissions for editing Report\"), frappe.PermissionError)\n\telse:\n\t\tif not frappe.has_permission(\"Report\", \"create\"):\n\t\t\tfrappe.throw(_(\"You don't have permission to create Report records.\"), frappe.PermissionError)\n\t\tif not frappe.has_permission(doctype, \"read\"):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"You don't have permission to create report for {0}\").format(_(doctype)),"
+  },
+  {
+   "key": "You don't have permission to print: {0}",
+   "refs": [
+    "frappe/frappe/desk/query_report.py:80"
+   ],
+   "current": null,
+   "context": "\n\tif not frappe.has_permission(report.ref_doctype, \"print\"):\n\t\tfrappe.throw(\n\t\t\t_(\"You don't have permission to print: {0}\").format(_(report.ref_doctype)),\n\t\t\tfrappe.PermissionError,\n\t\t)\n"
+  },
+  {
+   "key": "You don't have permission to read/attach the file {0}.",
+   "refs": [
+    "frappe/frappe/utils/file_manager.py:419"
+   ],
+   "current": null,
+   "context": "\n\tif isinstance(attachments, str):\n\t\tattachments = json.loads(attachments)\n\t# loop through attachments\n\tfiles = []\n\tfor a in attachments:\n\t\tif isinstance(a, str):"
+  },
+  {
+   "key": "You last edited this document",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:176"
+   ],
+   "current": null,
+   "context": "\ndef get_edit_msg(modified_by: str, fullname: str):\n\tif frappe.session.user == modified_by:\n\t\treturn _(\"You last edited this document\")\n\treturn _(\"{0} last edited this document\").format(fullname)\n\n"
+  },
+  {
+   "key": "You must login to use this form",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form/web_form.py:761",
+    "frappe/frappe/website/doctype/web_form/web_form.py:978"
+   ],
+   "current": null,
+   "context": "\t)\n\n\tif web_form.login_required and frappe.session.user == \"Guest\":\n\t\tfrappe.throw(_(\"You must login to use this form\"))\n\n\tif web_form.anonymous and frappe.session.user != \"Guest\":\n\t\tfrappe.session.user = \"Guest\""
+  },
+  {
+   "key": "You need the Workspace Manager role to edit this workspace.",
+   "refs": [
+    "frappe/frappe/desk/doctype/workspace/workspace.py:347"
+   ],
+   "current": null,
+   "context": "\tcan_edit = is_workspace_manager() or (not doc.public and doc.for_user == frappe.session.user)\n\tif not can_edit:\n\t\tfrappe.throw(\n\t\t\t_(\"You need the Workspace Manager role to edit this workspace.\"),\n\t\t\tfrappe.PermissionError,\n\t\t)\n"
+  },
+  {
+   "key": "You need write permissions to add attachments to this record.",
+   "refs": [
+    "frappe/frappe/utils/file_manager.py:410"
+   ],
+   "current": null,
+   "context": "\t\treturn f\"{partial}{optional_suffix}{extn}\"\n\treturn fname\n\n\n@frappe.whitelist()\ndef add_attachments(doctype: str, name: str | int, attachments: str | list[str]):\n\t\"\"\"Add attachments to the given DocType\"\"\""
+  },
+  {
+   "key": "You've been invited",
+   "refs": [
+    "frappe/frappe/templates/emails/user_invitation.html:1"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"You've been invited\") }}</h1>\n<p>{{ _(\"Hello,\") }}</p>\n<p>\n\t{{ _(\"You've been invited to join {0}.\").format(frappe.bold(title)) }}"
+  },
+  {
+   "key": "Your authorization attempt is invalid or has expired. Please try again.",
+   "refs": [
+    "frappe/frappe/integrations/google_oauth.py:204"
+   ],
+   "current": null,
+   "context": "\tif state is None:\n\t\treturn frappe.respond_as_web_page(\n\t\t\tfrappe._(\"Invalid Request\"),\n\t\t\tfrappe._(\"Your authorization attempt is invalid or has expired. Please try again.\"),\n\t\t\thttp_status_code=417,\n\t\t)\n"
+  },
+  {
+   "key": "Your login attempt is invalid or has expired. Please try again.",
+   "refs": [
+    "frappe/frappe/utils/oauth.py:232"
+   ],
+   "current": null,
+   "context": "\tif redirect_to is None:\n\t\tfrappe.respond_as_web_page(\n\t\t\t_(\"Invalid Request\"),\n\t\t\t_(\"Your login attempt is invalid or has expired. Please try again.\"),\n\t\t\thttp_status_code=417,\n\t\t)\n\t\treturn"
+  },
+  {
+   "key": "Your login ID is:",
+   "refs": [
+    "frappe/frappe/templates/emails/new_user.html:8"
+   ],
+   "current": null,
+   "context": "{% set site_link = \"<a href='\" + site_url + \"'>\" + site_url + \"</a>\" %}\n<p>\n\t{{_(\"A new account has been created for you at {0}.\").format(site_link)}}\n\t{{_(\"Your login ID is:\")}} <b>{{ user }}</b>\n</p>\n<p>{{_(\"Click the button below to complete your registration and set a new password.\")}}</p>\n<p>"
+  },
+  {
+   "key": "Your password has expired. Please set a new password.",
+   "refs": [
+    "frappe/frappe/www/update-password.html:122"
+   ],
+   "current": null,
+   "context": "\t}\n\n\tif(password_expired) {\n\t\t$('.page-card-subtitle').text(\"{{ _('Your password has expired. Please set a new password.') }}\");\n\t}\n\n\t$(\".toggle-password\").click(function() {"
+  },
+  {
+   "key": "Zip file extracts to more than the maximum allowed size of {0} MB",
+   "refs": [
+    "frappe/frappe/core/doctype/file/file.py:654",
+    "frappe/frappe/core/doctype/file/file.py:672"
+   ],
+   "current": null,
+   "context": "\t\t\tdeclared_total_size = sum(file.file_size for file in members)\n\t\t\tif declared_total_size > max_extracted_size:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"Zip file extracts to more than the maximum allowed size of {0} MB\").format(\n\t\t\t\t\t\tmax_extracted_size // 1048576\n\t\t\t\t\t)\n\t\t\t\t)"
+  },
+  {
+   "key": "{0} ${type}",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search_utils.js:209"
+   ],
+   "current": null,
+   "context": "\t\t\treturn {\n\t\t\t\ttype: type,\n\t\t\t\tlabel: label,\n\t\t\t\tvalue: __(`{0} ${type}`, [target]),\n\t\t\t\tindex: score + order,\n\t\t\t\tmatch: target,\n\t\t\t\troute: route,"
+  },
+  {
+   "key": "{0} contains invalid field(s): {1}",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.py:110"
+   ],
+   "current": null,
+   "context": "def validate_value_fields(values: dict, valid_fields: set[str], label: str):\n\tinvalid_fields = sorted(set(values) - valid_fields)\n\tif invalid_fields:\n\t\tmsg = _(\"{0} contains invalid field(s): {1}\").format(label, \", \".join(invalid_fields))\n\t\tfrappe.throw(\n\t\t\tmsg,\n\t\t\tInvalidFieldsInValuesError(msg, invalid_fields=tuple(invalid_fields)),"
+  },
+  {
+   "key": "{0} created this document",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:149"
+   ],
+   "current": null,
+   "context": "\t# \"You\" keys off the session user; everyone else shows the resolved fullname (not the raw user id)\n\tif frappe.session.user == owner:\n\t\treturn _(\"You created this document\")\n\treturn _(\"{0} created this document\").format(fullname)\n\n\ndef get_edit_activity(doc: \"Document\", user_info: dict) -> list[dict]:"
+  },
+  {
+   "key": "{0} does not exist",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_type/notification_type.py:89"
+   ],
+   "current": null,
+   "context": "\tfrappe.only_for(\"System Manager\")\n\n\tif not frappe.db.exists(\"Notification Type\", notification_type):\n\t\tfrappe.throw(_(\"{0} does not exist\").format(frappe.bold(notification_type)))\n\n\tif not frappe.db.get_value(\"Notification Type\", notification_type, \"enabled\"):\n\t\tfrappe.throw(_(\"Enable the notification type before emailing it to users.\"))"
+  },
+  {
+   "key": "{0} is a built-in Notification Type and cannot be deleted. Disable it instead.",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_type/notification_type.py:42"
+   ],
+   "current": null,
+   "context": "\t\t# migrations/patches so the doctype can be reorganised if ever needed)\n\t\tif self.name in BUILTIN_TYPE_NAMES and not frappe.flags.in_migrate and not frappe.flags.in_patch:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"{0} is a built-in Notification Type and cannot be deleted. Disable it instead.\").format(\n\t\t\t\t\tfrappe.bold(self.name)\n\t\t\t\t)\n\t\t\t)"
+  },
+  {
+   "key": "{0} is a Virtual DocType and must implement its own delete() method.",
+   "refs": [
+    "frappe/frappe/model/delete_doc.py:102"
+   ],
+   "current": null,
+   "context": "\n\t\t\tif type(doc).delete == Document.delete:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"{0} is a Virtual DocType and must implement its own delete() method.\").format(doctype)\n\t\t\t\t)\n\n\t\t\tdoc.delete()"
+  },
+  {
+   "key": "{0} is not a valid field of {1}",
+   "refs": [
+    "frappe/frappe/desk/calendar.py:65"
+   ],
+   "current": null,
+   "context": "\tvalid_columns = doc_meta.get_valid_columns()\n\tfor key in (\"start\", \"end\"):\n\t\tif field_map.get(key) not in valid_columns:\n\t\t\tfrappe.throw(_(\"{0} is not a valid field of {1}\").format(field_map.get(key), doctype))\n\n\tdt = frappe.qb.DocType(doctype)\n\tstart_field = functions.IfNull(dt[field_map.start], ValueWrapper(\"0001-01-01 00:00:00\"))"
+  },
+  {
+   "key": "{0} is not an enabled Print Format for a Report",
+   "refs": [
+    "frappe/frappe/desk/query_report.py:71"
+   ],
+   "current": null,
+   "context": "\t)\n\tif not pf:\n\t\tfrappe.throw(\n\t\t\t_(\"{0} is not an enabled Print Format for a Report\").format(frappe.bold(print_format)),\n\t\t\tfrappe.DoesNotExistError,\n\t\t)\n"
+  },
+  {
+   "key": "{0} last edited this document",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:177"
+   ],
+   "current": null,
+   "context": "def get_edit_msg(modified_by: str, fullname: str):\n\tif frappe.session.user == modified_by:\n\t\treturn _(\"You last edited this document\")\n\treturn _(\"{0} last edited this document\").format(fullname)\n\n\ndef get_email_activities(doc: \"Document\", user_info: dict, start: int = 0) -> tuple[list[dict], bool]:"
+  },
+  {
+   "key": "{0} Naming Series",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:291",
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:435"
+   ],
+   "current": null,
+   "context": "\t\t\tif (!this.frm._naming_dialogs[doctype]) {\n\t\t\t\tthis.frm._naming_dialogs[doctype] = new frappe.ui.NamingSeriesDialog({\n\t\t\t\t\tdoctype: doctype,\n\t\t\t\t\ttitle: __(\"{0} Naming Series\", [__(label)]),\n\t\t\t\t\ton_update: ({ naming_series_options }) => {\n\t\t\t\t\t\tconst series = naming_series_options.split(\"\\n\").filter(Boolean);\n\t\t\t\t\t\tthis.$wrapper"
+  },
+  {
+   "key": "{0} never sends email, so it cannot be enabled for users.",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_type/notification_type.py:95"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.throw(_(\"Enable the notification type before emailing it to users.\"))\n\n\tif notification_type in get_skip_email_types():\n\t\tfrappe.throw(_(\"{0} never sends email, so it cannot be enabled for users.\").format(notification_type))\n\n\tfrappe.enqueue(\n\t\t\"frappe.desk.doctype.notification_type.notification_type.seed_type_into_settings\","
+  },
+  {
+   "key": "{0} results found",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/awesomplete.js:14"
+   ],
+   "current": null,
+   "context": "\tevaluate() {\n\t\tsuper.evaluate();\n\t\tthis.status.textContent = this.opened\n\t\t\t? __(\"{0} results found\", [this.ul.children.length])\n\t\t\t: __(\"No results found\");\n\t}\n"
+  },
+  {
+   "key": "{0}, list item {1} of {2}",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/awesomplete.js:22"
+   ],
+   "current": null,
+   "context": "\t\tsuper.goto(index);\n\t\tconst items = this.ul.children;\n\t\tif (index > -1 && items.length) {\n\t\t\tthis.status.textContent = __(\"{0}, list item {1} of {2}\", [\n\t\t\t\titems[index].textContent,\n\t\t\t\tindex + 1,\n\t\t\t\titems.length,"
+  },
+  {
+   "key": "{0}.:Money in words",
+   "refs": [
+    "frappe/frappe/utils/data.py:1592"
+   ],
+   "current": null,
+   "context": "\t\t\t)\n\n\tif main_currency == \"DZD\":\n\t\treturn _(\"{0}.\", context=\"Money in words\").format(out)\n\treturn _(\"{0} only.\", context=\"Money in words\").format(out)\n\n"
+  },
+  {
+   "key": "{0}: Link field cannot reference DocType {1} without Guest read permission",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form/web_form.py:121"
+   ],
+   "current": null,
+   "context": "\n\t\t\tif not frappe.has_permission(field.options, \"read\", user=\"Guest\"):\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"{0}: Link field cannot reference DocType {1} without Guest read permission\").format(\n\t\t\t\t\t\tfield.label, field.options\n\t\t\t\t\t)\n\t\t\t\t)"
+  }
+ ]
+}

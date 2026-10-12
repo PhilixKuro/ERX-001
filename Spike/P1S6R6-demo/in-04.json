@@ -1,0 +1,169 @@
+{
+ "group": "erpnext",
+ "items": [
+  {
+   "key": "Use legacy controller for Period Closing Voucher",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:use_legacy_controller_for_pcv"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"1\",\n   \"fieldname\": \"use_legacy_controller_for_pcv\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Use legacy controller for Period Closing Voucher\"\n  },"
+  },
+  {
+   "key": "Use Posting Datetime for Naming Documents",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/global_defaults/global_defaults.json:use_posting_datetime_for_naming_documents"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"When checked, the system will use the posting datetime of the document for naming the document instead of the creation datetime of the document.\",\n   \"fieldname\": \"use_posting_datetime_for_naming_documents\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Use Posting Datetime for Naming Documents\"\n  }"
+  },
+  {
+   "key": "Use Serial / Batch fields",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:use_serial_batch_fields"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"1\",\n   \"description\": \"On submission of the stock transaction, system will auto create the Serial and Batch Bundle based on the Serial No / Batch fields.\",\n   \"fieldname\": \"use_serial_batch_fields\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Use Serial / Batch fields\"\n  },"
+  },
+  {
+   "key": "UTM Analytics",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:utm_analytics_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/quotation/quotation.json:utm_analytics_section",
+    "frappe-bench/apps/erpnext/erpnext/selling/doctype/sales_order/sales_order.json:utm_analytics_section",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/delivery_note/delivery_note.json:utm_analytics_section"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"collapsible\": 1,\n   \"fieldname\": \"utm_analytics_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"UTM Analytics\"\n  },"
+  },
+  {
+   "key": "Validate Material Transfer warehouses",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:validate_material_transfer_warehouses"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"description\": \"If enabled, the source and target warehouse in the Material Transfer Stock Entry must be different else an error will be thrown. If inventory dimensions are present, same source and target warehouse can be allowed but atleast any one of the inventory dimension fields must be different.\",\n   \"fieldname\": \"validate_material_transfer_warehouses\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Validate Material Transfer warehouses\"\n  },"
+  },
+  {
+   "key": "Valuation Type",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:valuation_type",
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_entry_detail/stock_entry_detail.json:valuation_type"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"Valuation Rate\",\n   \"description\": \"Valuation Rate and Manual value this item on its own and deduct that cost from the raw material cost, like the pre-v16 scrap items. % of Component Cost allocates a percentage of the remaining raw material cost.\",\n   \"fieldname\": \"valuation_type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Valuation Type\",\n   \"options\": \"Valuation Rate\\n% of Component Cost\\nManual\","
+  },
+  {
+   "key": "Variants",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.json:variants_section"
+   ],
+   "current": null,
+   "context": "   \"collapsible\": 1,\n   \"collapsible_depends_on\": \"attributes\",\n   \"depends_on\": \"eval:!doc.is_fixed_asset\",\n   \"fieldname\": \"variants_section\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Variants\"\n  },"
+  },
+  {
+   "key": "Warehouse Defaults",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:warehouse_defaults_section"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Activate Serial / Batch No for Item\"\n  },\n  {\n   \"fieldname\": \"warehouse_defaults_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Warehouse Defaults\"\n  },"
+  },
+  {
+   "key": "Warning: This action cannot be undone!",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:75"
+   ],
+   "current": null,
+   "context": "\t\t\t\t}\n\n\t\t\t\tlet message =\n\t\t\t\t\t`<div style='margin-bottom: 15px;'><b style='color: #d73939;'>⚠ ${__(\n\t\t\t\t\t\t\"Warning: This action cannot be undone!\"\n\t\t\t\t\t)}</b></div>` +\n\t\t\t\t\t`<div style='margin-bottom: 10px;'>${__("
+  },
+  {
+   "key": "What will be deleted:",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:82"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\"You are about to permanently delete data for {0} entries for company {1}.\",\n\t\t\t\t\t\t[`<b>${frm.doc.doctypes_to_delete.length}</b>`, `<b>${frm.doc.company}</b>`]\n\t\t\t\t\t)}</div>` +\n\t\t\t\t\t`<div style='margin-bottom: 10px;'><b>${__(\"What will be deleted:\")}</b></div>` +\n\t\t\t\t\t`<ul style='margin-left: 20px; margin-bottom: 10px;'>` +\n\t\t\t\t\t`<li><b>${__(\"DocTypes with a company field:\")}</b> ${__(\n\t\t\t\t\t\t\"Only records belonging to {0} will be deleted\","
+  },
+  {
+   "key": "Withholding Date",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json:withholding_date"
+   ],
+   "current": null,
+   "context": "   \"read_only\": 1\n  },\n  {\n   \"fieldname\": \"withholding_date\",\n   \"fieldtype\": \"Date\",\n   \"label\": \"Withholding Date\",\n   \"read_only\": 1"
+  },
+  {
+   "key": "Withholding Document Name",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json:withholding_name"
+   ],
+   "current": null,
+   "context": "   \"options\": \"DocType\"\n  },\n  {\n   \"fieldname\": \"withholding_name\",\n   \"fieldtype\": \"Dynamic Link\",\n   \"label\": \"Withholding Document Name\",\n   \"options\": \"withholding_doctype\""
+  },
+  {
+   "key": "Withholding Document Type",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/accounts/doctype/tax_withholding_entry/tax_withholding_entry.json:withholding_doctype"
+   ],
+   "current": null,
+   "context": "   \"read_only\": 1\n  },\n  {\n   \"fieldname\": \"withholding_doctype\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Withholding Document Type\",\n   \"options\": \"DocType\""
+  },
+  {
+   "key": "Work Order Additional Item",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order_additional_item/work_order_additional_item.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "You are about to permanently delete data for {0} entries for company {1}.",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:78"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t`<div style='margin-bottom: 15px;'><b style='color: #d73939;'>⚠ ${__(\n\t\t\t\t\t\t\"Warning: This action cannot be undone!\"\n\t\t\t\t\t)}</b></div>` +\n\t\t\t\t\t`<div style='margin-bottom: 10px;'>${__(\n\t\t\t\t\t\t\"You are about to permanently delete data for {0} entries for company {1}.\",\n\t\t\t\t\t\t[`<b>${frm.doc.doctypes_to_delete.length}</b>`, `<b>${frm.doc.company}</b>`]\n\t\t\t\t\t)}</div>` +"
+  },
+  {
+   "key": "{0} items disassembled",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:541"
+   ],
+   "current": null,
+   "context": "\t\t// disassembled qty\n\t\tif (frm.doc.disassembled_qty) {\n\t\t\tvar disassembled_width = (frm.doc.disassembled_qty / frm.doc.qty) * 100;\n\t\t\ttitle = __(\"{0} items disassembled\", [frm.doc.disassembled_qty]);\n\t\t\tbars.push({\n\t\t\t\ttitle: title,\n\t\t\t\twidth: disassembled_width + \"%\","
+  },
+  {
+   "key": "{0} items returned",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:509"
+   ],
+   "current": null,
+   "context": "\t\t\t\tlet progress_class = \"progress-bar-warning\";\n\t\t\t\tif (frm.doc.status == \"Closed\") {\n\t\t\t\t\tif (frm.doc.required_items.find((d) => d.returned_qty > 0)) {\n\t\t\t\t\t\ttitle = __(\"{0} items returned\", [pending_complete]);\n\t\t\t\t\t\tprogress_class = \"progress-bar-warning\";\n\t\t\t\t\t} else {\n\t\t\t\t\t\ttitle = __(\"{0} items to return\", [pending_complete]);"
+  },
+  {
+   "key": "{0} items to return",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:512"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\ttitle = __(\"{0} items returned\", [pending_complete]);\n\t\t\t\t\t\tprogress_class = \"progress-bar-warning\";\n\t\t\t\t\t} else {\n\t\t\t\t\t\ttitle = __(\"{0} items to return\", [pending_complete]);\n\t\t\t\t\t\tprogress_class = \"progress-bar-info\";\n\t\t\t\t\t}\n\t\t\t\t}"
+  },
+  {
+   "key": "{0}: remove invalid value(s) {1}",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:899"
+   ],
+   "current": null,
+   "context": "\t\t\t\t];\n\t\t\t\tif (invalid.length) {\n\t\t\t\t\tlet values = invalid.map(frappe.utils.escape_html).join(\", \");\n\t\t\t\t\terrors.push(__(\"{0}: remove invalid value(s) {1}\", [attribute, values]));\n\t\t\t\t}\n\n\t\t\t\tlet pending = (field.$input?.val() || \"\").trim();"
+  },
+  {
+   "key": "{0}: select the typed value {1} from the list or clear it",
+   "refs": [
+    "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:906"
+   ],
+   "current": null,
+   "context": "\t\t\t\tif (pending) {\n\t\t\t\t\tlet value = frappe.utils.escape_html(pending);\n\t\t\t\t\terrors.push(\n\t\t\t\t\t\t__(\"{0}: select the typed value {1} from the list or clear it\", [attribute, value])\n\t\t\t\t\t);\n\t\t\t\t}\n\t\t\t});"
+  }
+ ]
+}

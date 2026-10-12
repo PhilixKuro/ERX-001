@@ -1,0 +1,2500 @@
+{
+ "group": "raven",
+ "items": [
+  {
+   "key": "Could not edit message",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/EditMessageComposer.tsx:108"
+   ],
+   "current": null,
+   "context": "                    is_edited: prev.is_edited,\n                })\n            }\n            errorResponseToast(_(\"Could not edit message\"), e)\n        })\n    }\n    submitRef.current = onSave"
+  },
+  {
+   "key": "Could not forward message",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/dialogs/ForwardMessageDialog.tsx:405"
+   ],
+   "current": null,
+   "context": "                })\n            })\n            .catch((error) => {\n                errorResponseToast(_(\"Could not forward message\"), error)\n            })\n            .finally(() => setSending(false))\n    }"
+  },
+  {
+   "key": "Could not join",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/composerGate.tsx:67"
+   ],
+   "current": null,
+   "context": "    // more to do here.\n    const { joinChannel, loading: joining } = useJoinChannel(channelID)\n    const onJoin = useCallback(() => {\n        joinChannel().catch((e) => errorResponseToast(_(\"Could not join\"), e))\n    }, [joinChannel])\n\n    let state: ComposerGateState"
+  },
+  {
+   "key": "Could not join channel",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Channels/Channels.tsx:198"
+   ],
+   "current": null,
+   "context": "            success: isJoin\n                ? _(\"You have joined {0}.\", [channel.channel_name])\n                : _(\"You have left {0}.\", [channel.channel_name]),\n            error: isJoin ? _(\"Could not join channel\") : _(\"Could not leave channel\"),\n        })\n    }\n"
+  },
+  {
+   "key": "Could not leave channel",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Channels/Channels.tsx:198"
+   ],
+   "current": null,
+   "context": "            success: isJoin\n                ? _(\"You have joined {0}.\", [channel.channel_name])\n                : _(\"You have left {0}.\", [channel.channel_name]),\n            error: isJoin ? _(\"Could not join channel\") : _(\"Could not leave channel\"),\n        })\n    }\n"
+  },
+  {
+   "key": "Could not leave the thread",
+   "refs": [
+    "raven/apps/web/src/components/features/message/ThreadDrawer.tsx:130"
+   ],
+   "current": null,
+   "context": "                toast.success(_(\"You left the thread\"))\n                onClose()\n            })\n            .catch((e) => errorResponseToast(_(\"Could not leave the thread\"), e))\n    }\n\n    const { deleteDoc, loading: deleting } = useFrappeDeleteDoc()"
+  },
+  {
+   "key": "Could not load messages",
+   "refs": [
+    "raven/apps/web/src/components/features/message/ChatStream.tsx:382"
+   ],
+   "current": null,
+   "context": "const StreamError = ({ error, onRetry }: { error: string; onRetry: () => void }) => (\n    <Empty>\n        <EmptyHeader>\n            <EmptyTitle>{_(\"Could not load messages\")}</EmptyTitle>\n            <EmptyDescription>{error}</EmptyDescription>\n        </EmptyHeader>\n        <Button variant=\"outline\" size=\"sm\" onClick={onRetry}>"
+  },
+  {
+   "key": "Could not load this action.",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/dialogs/RunMessageActionDialog.tsx:76"
+   ],
+   "current": null,
+   "context": "    if (error) {\n        return (\n            <>\n                <ResponsiveDialogHeader title={_(\"Run action\")} description={_(\"Could not load this action.\")} hideDescription />\n                <ErrorBanner error={error} />\n            </>\n        )"
+  },
+  {
+   "key": "Could not load workflow actions",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/DocumentLinkRenderer.tsx:684"
+   ],
+   "current": null,
+   "context": "\n    // A failed fetch (no workflow state on the doc, no read permission) must not\n    // read as an endless \"Loading...\" — retries are off, so say what happened.\n    if (error) return <DropdownMenuItem disabled>{_(\"Could not load workflow actions\")}</DropdownMenuItem>\n    if (!data) return <DropdownMenuItem disabled>{_(\"Loading...\")}</DropdownMenuItem>\n    if (data.message.length === 0) {\n        return <DropdownMenuItem disabled>{_(\"No actions available\")}</DropdownMenuItem>"
+  },
+  {
+   "key": "Could not log out",
+   "refs": [
+    "raven/apps/web/src/hooks/useLogout.ts:113"
+   ],
+   "current": null,
+   "context": "            // error. Only a session that survived the call is a real failure.\n            if (!sessionIsGone()) {\n                setIsLoggingOut(false)\n                errorResponseToast(_(\"Could not log out\"), e as FrappeError)\n                return\n            }\n        }"
+  },
+  {
+   "key": "Could not pin message",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/useMessageActions.tsx:354"
+   ],
+   "current": null,
+   "context": "                        message_id: message.name,\n                    }).catch((e) => {\n                        channelStore.patchChannel(message.channel_id, { pinned_messages_string: prev })\n                        errorResponseToast(isPinned ? _(\"Could not unpin message\") : _(\"Could not pin message\"), e)\n                    })\n                },\n            })"
+  },
+  {
+   "key": "Could not record your vote",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/PollMessageContent.tsx:122"
+   ],
+   "current": null,
+   "context": "        if (optionIds.length === 0 || !canVote) return\n        addVote({ message_id: message.name, option_id: poll.is_multi_choice ? optionIds : optionIds[0] })\n            .then(() => mutate())\n            .catch((e) => errorResponseToast(_(\"Could not record your vote\"), e))\n    }\n\n    return ("
+  },
+  {
+   "key": "Could not remove member",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceMembers.tsx:209"
+   ],
+   "current": null,
+   "context": "                toast.success(_(\"Member removed\"))\n                onUpdate()\n            })\n            .catch((error) => errorResponseToast(_(\"Could not remove member\"), error as FrappeError))\n    }\n\n    return ("
+  },
+  {
+   "key": "Could not remove photo",
+   "refs": [
+    "raven/apps/web/src/components/features/profile/ProfileImageMenu.tsx:62"
+   ],
+   "current": null,
+   "context": "            await setImage(\"\")\n            toast.success(_(\"Photo removed\"))\n        } catch (e) {\n            errorResponseToast(_(\"Could not remove photo\"), e as FrappeError)\n        } finally {\n            setSaving(false)\n        }"
+  },
+  {
+   "key": "Could not retract your vote",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/useMessageActions.tsx:486",
+    "raven/apps/web/src/components/features/message/renderers/PollDrawer.tsx:106"
+   ],
+   "current": null,
+   "context": "                        // The realtime poll_update event also revalidates this key;\n                        // mutating directly just makes it instant for the voter.\n                        .then(() => mutatePoll())\n                        .catch((e) => errorResponseToast(_(\"Could not retract your vote\"), e as FrappeError))\n                },\n            })\n        }"
+  },
+  {
+   "key": "Could not run this action",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/dialogs/RunMessageActionDialog.tsx:130"
+   ],
+   "current": null,
+   "context": "            })\n        } catch (error) {\n            // Dialog stays open with the values intact so the user can correct and retry.\n            errorResponseToast(_(\"Could not run this action\"), error as FrappeError)\n        }\n    }\n"
+  },
+  {
+   "key": "Could not save message",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/useMessageActions.tsx:374"
+   ],
+   "current": null,
+   "context": "                    channelMessagesStore.savedUpdated(message.channel_id, message.name, JSON.stringify(nextLiked))\n                    call.post(\"raven.api.raven_message.save_message\", { message_id: message.name, add: !currentlySaved }).catch((e) => {\n                        channelMessagesStore.savedUpdated(message.channel_id, message.name, prevLiked)\n                        errorResponseToast(currentlySaved ? _(\"Could not unsave message\") : _(\"Could not save message\"), e)\n                    })\n                },\n            },"
+  },
+  {
+   "key": "Could not schedule your message",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/ChatInput.tsx:288"
+   ],
+   "current": null,
+   "context": "            if (!isMobile) editor.commands.focus()\n        }).catch((error) => {\n            // Composer content is untouched — the user can retry or send normally.\n            errorResponseToast(_(\"Could not schedule your message\"), error)\n        }).finally(() => setScheduleBusy(false))\n    }, [editor, call, channelID, persistDraft, stopTyping, isMobile, mutateSWR])\n"
+  },
+  {
+   "key": "Could not send message",
+   "refs": [
+    "raven/apps/web/src/components/features/schedule-send/ScheduledMessagesList.tsx:106"
+   ],
+   "current": null,
+   "context": "                toast.success(_(\"Message sent\"))\n                refresh()\n            })\n            .catch((e) => errorResponseToast(_(\"Could not send message\"), e))\n    }\n\n    const deleteMessage = (row: ScheduledMessageRow) => {"
+  },
+  {
+   "key": "Could not send your message",
+   "refs": [
+    "raven/apps/web/src/stores/messages/messageSender.ts:257"
+   ],
+   "current": null,
+   "context": "            // One shared id means many failures at once show a single error, not a\n            // pile of them. (The failed message on screen is the main signal; this\n            // error also covers sends the user has scrolled past.)\n            errorResponseToast(_(\"Could not send your message\"), error)\n        })\n        .finally(() => inFlight.delete(batchId))\n}"
+  },
+  {
+   "key": "Could not set the reminder",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/useMessageActions.tsx:393",
+    "raven/apps/web/src/components/features/reminders/ReminderDialog.tsx:99"
+   ],
+   "current": null,
+   "context": "                    remind_at: toServerDatetime(time),\n                })\n                    .then(() => toast.success(_(\"Reminder set for {0}\", [formatDateTimeLabel(time, timeFormat)])))\n                    .catch((e) => errorResponseToast(_(\"Could not set the reminder\"), e))\n            }\n            organize.push({\n                id: \"remind\","
+  },
+  {
+   "key": "Could not snooze the reminder",
+   "refs": [
+    "raven/apps/web/src/components/features/reminders/RemindersList.tsx:255"
+   ],
+   "current": null,
+   "context": "                mutate()\n                globalMutate(UNREAD_REMINDER_COUNT_KEY)\n            })\n            .catch((e) => errorResponseToast(_(\"Could not snooze the reminder\"), e))\n    }\n\n    /** Completes ALL fired reminders on the message — the server API is message-keyed. */"
+  },
+  {
+   "key": "Could not unpin message",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/ChannelPins.tsx:76",
+    "raven/apps/web/src/components/features/message/actions/useMessageActions.tsx:354"
+   ],
+   "current": null,
+   "context": "            message_id: messageID,\n        }).catch((error) => {\n            channelStore.patchChannel(channelID, { pinned_messages_string: prev })\n            errorResponseToast(_(\"Could not unpin message\"), error)\n        })\n    }\n"
+  },
+  {
+   "key": "Could not unsave message",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/useMessageActions.tsx:374"
+   ],
+   "current": null,
+   "context": "                    channelMessagesStore.savedUpdated(message.channel_id, message.name, JSON.stringify(nextLiked))\n                    call.post(\"raven.api.raven_message.save_message\", { message_id: message.name, add: !currentlySaved }).catch((e) => {\n                        channelMessagesStore.savedUpdated(message.channel_id, message.name, prevLiked)\n                        errorResponseToast(currentlySaved ? _(\"Could not unsave message\") : _(\"Could not save message\"), e)\n                    })\n                },\n            },"
+  },
+  {
+   "key": "Could not update chat style",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Appearance.tsx:286"
+   ],
+   "current": null,
+   "context": "            mutate()\n            toast.success(_(\"Chat style updated\"))\n        }).catch((e) => {\n            errorResponseToast(_(\"Could not update chat style\"), e)\n        })\n    }\n"
+  },
+  {
+   "key": "Could not update link preview style",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Appearance.tsx:356"
+   ],
+   "current": null,
+   "context": "            mutate()\n            toast.success(_(\"Link preview style updated\"))\n        }).catch((e) => {\n            errorResponseToast(_(\"Could not update link preview style\"), e)\n        })\n    }\n"
+  },
+  {
+   "key": "Could not update member",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceMembers.tsx:200"
+   ],
+   "current": null,
+   "context": "                toast.success(member.is_admin ? _(\"Admin removed\") : _(\"Admin added\"))\n                onUpdate()\n            })\n            .catch((error) => errorResponseToast(_(\"Could not update member\"), error as FrappeError))\n    }\n\n    const removeMember = () => {"
+  },
+  {
+   "key": "Could not update message",
+   "refs": [
+    "raven/apps/web/src/components/features/schedule-send/useScheduledMessageEdit.ts:115"
+   ],
+   "current": null,
+   "context": "            status: \"Scheduled\",\n        })\n            .then(onDone)\n            .catch((error) => errorResponseToast(_(\"Could not update message\"), error))\n    }\n    submitRef.current = onSave\n"
+  },
+  {
+   "key": "Could not update notifications",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Channels/Channels.tsx:279"
+   ],
+   "current": null,
+   "context": "        toggleNotifications({ member: channel.member_id, allow_notifications: allow })\n            .catch((e) => {\n                channelStore.patchChannel(channel.name, { allow_notifications: allow ? 0 : 1 })\n                errorResponseToast(_(\"Could not update notifications\"), e as FrappeError)\n            })\n    }\n"
+  },
+  {
+   "key": "Could not update photo",
+   "refs": [
+    "raven/apps/web/src/components/features/profile/ProfileImageMenu.tsx:50"
+   ],
+   "current": null,
+   "context": "            await setImage(res.file_url)\n            toast.success(_(\"Photo updated\"))\n        } catch (e) {\n            errorResponseToast(_(\"Could not update photo\"), e as FrappeError)\n        } finally {\n            setSaving(false)\n        }"
+  },
+  {
+   "key": "Could not update preference",
+   "refs": [
+    "raven/apps/web/src/components/features/profile/PreferencesDrawer.tsx:64",
+    "raven/apps/web/src/components/features/settings/panels/Preferences.tsx:57",
+    "raven/apps/web/src/hooks/useQuietHours.ts:65"
+   ],
+   "current": null,
+   "context": "                if (fieldname === \"time_format\") setTimeFormat(value as TimeFormat)\n                mutate()\n            })\n            .catch((e) => errorResponseToast(_(\"Could not update preference\"), e, { position: \"top-center\" }))\n    }\n\n    const pickEmoji = (emoji: PickedEmoji) => {"
+  },
+  {
+   "key": "Could not update profile",
+   "refs": [
+    "raven/apps/web/src/components/features/profile/EditProfileDrawer.tsx:66",
+    "raven/apps/web/src/components/features/settings/panels/Profile.tsx:89"
+   ],
+   "current": null,
+   "context": "            toast.success(_(\"Profile updated\"), { id: SAVE_TOAST_ID })\n            onOpenChange(false)\n        } catch (e) {\n            errorResponseToast(_(\"Could not update profile\"), e as FrappeError, { id: SAVE_TOAST_ID })\n        }\n    }\n"
+  },
+  {
+   "key": "Could not update reaction",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/useToggleReaction.ts:89"
+   ],
+   "current": null,
+   "context": "                })\n                .catch((e) => {\n                    apply() // undo — re-toggling is the exact inverse\n                    errorResponseToast(_(\"Could not update reaction\"), e)\n                })\n        },\n        [call, currentUser],"
+  },
+  {
+   "key": "Could not update settings",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/AdminSettingsForm.tsx:79",
+    "raven/apps/web/src/components/features/settings/panels/LinkSettingsAdminSection.tsx:128",
+    "raven/apps/web/src/components/features/settings/panels/QuietHoursAdminSection.tsx:184"
+   ],
+   "current": null,
+   "context": "            updateDoc(\"Raven Settings\", ravenSettings.name, { ...ravenSettings, ...data }).then((res) =>\n                mutate(res, { revalidate: false }),\n            ),\n            { id: SAVE_TOAST_ID, loading: _(\"Saving…\"), success: _(\"Settings updated\"), error: _(\"Could not update settings\") },\n        )\n    }\n"
+  },
+  {
+   "key": "Could not update status",
+   "refs": [
+    "raven/apps/web/src/hooks/useSetAvailability.ts:34"
+   ],
+   "current": null,
+   "context": "            await mutate()\n            toast.success(_(\"Status set to {0}\", [_(status)]))\n        } catch (e) {\n            errorResponseToast(_(\"Could not update status\"), e as FrappeError)\n        }\n    }\n"
+  },
+  {
+   "key": "Could not update the reminder",
+   "refs": [
+    "raven/apps/web/src/components/features/reminders/ReminderDialog.tsx:99"
+   ],
+   "current": null,
+   "context": "                onSaved?.()\n                onClose()\n            })\n            .catch((e) => errorResponseToast(editing ? _(\"Could not update the reminder\") : _(\"Could not set the reminder\"), e))\n    }\n\n    return ("
+  },
+  {
+   "key": "Could not update time format",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Appearance.tsx:406"
+   ],
+   "current": null,
+   "context": "            mutate()\n            toast.success(_(\"Time format updated\"))\n        }).catch((e) => {\n            errorResponseToast(_(\"Could not update time format\"), e)\n        })\n    }\n"
+  },
+  {
+   "key": "Couldn't load notifications",
+   "refs": [
+    "raven/apps/web/src/pages/notifications/Notifications.tsx:224"
+   ],
+   "current": null,
+   "context": "                                    <ErrorBanner\n                                        error={error}\n                                        layout=\"centered\"\n                                        overrideHeading={_(\"Couldn't load notifications\")}\n                                        className=\"pointer-events-auto\"\n                                    >\n                                        <Button variant=\"outline\" size=\"sm\" onClick={() => refresh()}>"
+  },
+  {
+   "key": "Couldn't load Raven",
+   "refs": [
+    "raven/apps/web/src/components/layout/AppShell.tsx:137"
+   ],
+   "current": null,
+   "context": "            <div className=\"flex max-w-md flex-col gap-3 px-4\">\n                <Alert>\n                    <WifiOffIcon />\n                    <AlertTitle>{_(\"Couldn't load Raven\")}</AlertTitle>\n                    <AlertDescription>\n                        {navigator.onLine\n                            ? _(\"Your account details couldn't be loaded. Please try again in a moment.\")"
+  },
+  {
+   "key": "Couldn't load threads",
+   "refs": [
+    "raven/apps/web/src/components/features/threads/ThreadsList.tsx:228"
+   ],
+   "current": null,
+   "context": "                <ErrorBanner\n                    error={error}\n                    layout=\"centered\"\n                    overrideHeading={_(\"Couldn't load threads\")}\n                    className=\"pointer-events-auto\"\n                >\n                    <Button variant=\"outline\" size=\"sm\" onClick={() => refresh()}>"
+  },
+  {
+   "key": "Create a channel for each department",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/FrappeHR.tsx:56"
+   ],
+   "current": null,
+   "context": "\n            <SwitchFormField\n                name=\"auto_create_department_channel\"\n                label={_(\"Create a channel for each department\")}\n                formDescription={_(\"A channel is created per department and employees are synced as members.\")}\n                disabled={hrMissing}\n            />"
+  },
+  {
+   "key": "Create a Document Notification",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentNotifications/DocumentNotificationEditorView.tsx:17"
+   ],
+   "current": null,
+   "context": "        doctype=\"Raven Document Notification\"\n        listKey={DOC_NOTIFICATIONS_LIST_KEY}\n        createDefaults={{ enabled: 1 }}\n        createTitle={_(\"Create a Document Notification\")}\n        backLabel={_(\"Back to notifications\")}\n        deleteTitle={_(\"Delete Document Notification?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.notification_name])}"
+  },
+  {
+   "key": "Create a Function",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/FunctionEditorView.tsx:16"
+   ],
+   "current": null,
+   "context": "        doctype=\"Raven AI Function\"\n        listKey={FUNCTIONS_LIST_KEY}\n        createDefaults={{ function_name: \"\", description: \"\", reference_doctype: \"\", function_path: \"\", params: { type: \"object\", properties: {} } }}\n        createTitle={_(\"Create a Function\")}\n        backLabel={_(\"Back to functions\")}\n        deleteTitle={_(\"Delete Function?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.function_name])}"
+  },
+  {
+   "key": "Create a Message Action",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionEditorView.tsx:17"
+   ],
+   "current": null,
+   "context": "        doctype=\"Raven Message Action\"\n        listKey={MESSAGE_ACTIONS_LIST_KEY}\n        createDefaults={{ enabled: 1, action: \"Create Document\" }}\n        createTitle={_(\"Create a Message Action\")}\n        backLabel={_(\"Back to message actions\")}\n        deleteTitle={_(\"Delete Message Action?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.action_name])}"
+  },
+  {
+   "key": "Create a new channel",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/CustomizeSidebar/CustomizeSidebarButton.tsx:54"
+   ],
+   "current": null,
+   "context": "                    </DropdownMenuItem>}\n                    {!isMobile && <DropdownMenuSeparator />}\n                    <DropdownMenuItem onClick={() => setCreateOpen(true)}>\n                        <PlusIcon />{_(\"Create a new channel\")}\n                    </DropdownMenuItem>\n                </DropdownMenuContent>\n            </DropdownMenu>"
+  },
+  {
+   "key": "Create a new processor",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/ProcessorTypeSelector.tsx:45"
+   ],
+   "current": null,
+   "context": "\n    return (\n        <div className=\"flex flex-col gap-3\">\n            <h5 className=\"text-base font-medium\">{_(\"Create a new processor\")}</h5>\n            <RadioGroup\n                value={selectedProcessorType}\n                onValueChange={setSelectedProcessorType}"
+  },
+  {
+   "key": "Create a poll",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/CreatePollDialog.tsx:71",
+    "raven/apps/web/src/components/features/ChatInput/CreatePollDialog.tsx:78"
+   ],
+   "current": null,
+   "context": "                                variant=\"ghost\"\n                                size=\"sm\"\n                                isIconButton\n                                aria-label={_(\"Create a poll\")}\n                            >\n                                <BarChart3 />\n                            </Button>"
+  },
+  {
+   "key": "Create a Raven Cloud account",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/PushNotifications.tsx:75"
+   ],
+   "current": null,
+   "context": "                            rel=\"noreferrer\"\n                            className=\"inline-flex items-center gap-1 text-ink-blue-link underline\"\n                        >\n                            {_(\"Create a Raven Cloud account\")}\n                            <ExternalLinkIcon className=\"size-3.5\" />\n                        </a>{\" \"}\n                        {_(\"and add your site to get an API Key and API Secret.\")}"
+  },
+  {
+   "key": "Create a Scheduled Message",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageEditorView.tsx:17"
+   ],
+   "current": null,
+   "context": "        doctype=\"Raven Scheduler Event\"\n        listKey={SCHEDULED_MESSAGES_LIST_KEY}\n        createDefaults={{ disabled: 0, send_to: \"Channel\", event_frequency: \"Every Day\", ...CRON_DEFAULTS }}\n        createTitle={_(\"Create a Scheduled Message\")}\n        backLabel={_(\"Back to scheduled messages\")}\n        deleteTitle={_(\"Delete Scheduled Message?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.event_name])}"
+  },
+  {
+   "key": "Create a support ticket from the message.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionForm.tsx:137"
+   ],
+   "current": null,
+   "context": "            <SmallTextField\n                name=\"description\"\n                label={_(\"Description\")}\n                inputProps={{ placeholder: _(\"Create a support ticket from the message.\") }}\n                formDescription={_(\"Shown on the message action dialog.\")}\n            />\n"
+  },
+  {
+   "key": "Create a thread by right-clicking a message and selecting 'Create Thread'.",
+   "refs": [
+    "raven/apps/web/src/components/features/threads/ThreadsList.tsx:263"
+   ],
+   "current": null,
+   "context": "                                ? _(\"There are no unread threads to show. Clear the filter to see all threads.\")\n                                : threadType === \"ai\"\n                                    ? _(\"AI threads will appear here when you start conversations with an AI bot.\")\n                                    : _(\"Create a thread by right-clicking a message and selecting 'Create Thread'.\")}\n                        </EmptyDescription>\n                    </EmptyHeader>\n                </Empty>"
+  },
+  {
+   "key": "Create a Webhook",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookEditorView.tsx:17"
+   ],
+   "current": null,
+   "context": "        doctype=\"Raven Webhook\"\n        listKey={WEBHOOKS_LIST_KEY}\n        createDefaults={{ enabled: 1, timeout: 5 }}\n        createTitle={_(\"Create a Webhook\")}\n        backLabel={_(\"Back to webhooks\")}\n        deleteTitle={_(\"Delete Webhook?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.name])}"
+  },
+  {
+   "key": "Create agents to run automations on Raven.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentListView.tsx:94"
+   ],
+   "current": null,
+   "context": "                                <EmptyHeader>\n                                    <EmptyTitle>{_(\"Get started with agents\")}</EmptyTitle>\n                                    <EmptyDescription>\n                                        {_(\"Create agents to run automations on Raven.\")}\n                                        <br />\n                                        {_(\"Send reminders, document notifications and run AI assistants.\")}\n                                    </EmptyDescription>"
+  },
+  {
+   "key": "Create an Agent",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentEditorView.tsx:24"
+   ],
+   "current": null,
+   "context": "        doctype=\"Raven Bot\"\n        listKey={AGENTS_LIST_KEY}\n        createDefaults={{ bot_name: \"\", description: \"\", is_ai_bot: 0, enable_file_search: 1, enable_code_interpreter: 1 }}\n        createTitle={_(\"Create an Agent\")}\n        backLabel={_(\"Back to agents\")}\n        deleteTitle={_(\"Delete Agent?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.bot_name])}"
+  },
+  {
+   "key": "Create an Instruction Template",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Instructions/InstructionEditorView.tsx:16"
+   ],
+   "current": null,
+   "context": "        doctype=\"Raven Bot Instruction Template\"\n        listKey={INSTRUCTIONS_LIST_KEY}\n        createDefaults={{ template_name: \"\", instruction: \"\", dynamic_instructions: 0 }}\n        createTitle={_(\"Create an Instruction Template\")}\n        backLabel={_(\"Back to instruction templates\")}\n        deleteTitle={_(\"Delete Instruction Template?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.template_name])}"
+  },
+  {
+   "key": "Create and manage document processors for your bots.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:232"
+   ],
+   "current": null,
+   "context": "            label: _(\"Document Processors\"),\n            icon: CpuIcon,\n            component: DocumentProcessorsPanel,\n            description: _(\"Create and manage document processors for your bots.\"),\n        },\n        {\n            id: \"ai-settings\","
+  },
+  {
+   "key": "Create Channel",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/CreateChannel/CreateChannelButton.tsx:60",
+    "raven/apps/web/src/components/features/channel/CreateChannel/CreateChannelButton.tsx:77",
+    "raven/apps/web/src/components/features/channel/CreateChannel/CreateChannelForm.tsx:320",
+    "raven/apps/web/src/components/features/settings/panels/Channels/Channels.tsx:318"
+   ],
+   "current": null,
+   "context": "            <Drawer open={open} onOpenChange={onOpenChange}>\n                <DrawerContent className=\"max-h-[90vh]\">\n                    <div className=\"flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto px-4 pt-1 pb-4\">\n                        <DrawerTitle className=\"text-left text-2xl-semibold text-ink-gray-9\">{_('Create Channel')}</DrawerTitle>\n                        <DrawerDescription className=\"sr-only\">\n                            {_('Choose a name and type for your channel, then add members.')}\n                        </DrawerDescription>"
+  },
+  {
+   "key": "Create Document",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionForm.tsx:64",
+    "raven/raven/raven_ai/doctype/raven_ai_function/raven_ai_function.json",
+    "raven/raven/raven_integrations/doctype/raven_message_action/raven_message_action.json"
+   ],
+   "current": null,
+   "context": "                        },\n                    }}\n                >\n                    <SelectItem value=\"Create Document\">{_(\"Create Document\")}</SelectItem>\n                    <SelectItem value=\"Custom Function\">{_(\"Custom Function (API)\")}</SelectItem>\n                    <SelectItem value=\"Server Script\">{_(\"Server Script\")}</SelectItem>\n                </SelectFormField>"
+  },
+  {
+   "key": "Create Document Processors",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentDocumentProcessorsTab.tsx:99",
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentDocumentProcessorsTab.tsx:132"
+   ],
+   "current": null,
+   "context": "                                    className=\"font-medium underline underline-offset-2\"\n                                    onClick={() => setOpenTab(\"document-processors\")}\n                                >\n                                    {_(\"Create Document Processors\")}\n                                </button>\n                            </div>\n                        </div>"
+  },
+  {
+   "key": "Create Document Template",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Instructions/InstructionTemplateForm.tsx:16"
+   ],
+   "current": null,
+   "context": "                label={_(\"Template Name\")}\n                isRequired\n                rules={{ required: _(\"Name is required\") }}\n                inputProps={{ placeholder: _(\"Create Document Template\"), autoFocus: !isEdit }}\n                readOnly={isEdit}\n            />\n        </div>"
+  },
+  {
+   "key": "Create functions in the",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentFunctionsTab.tsx:50"
+   ],
+   "current": null,
+   "context": "                <p className=\"text-p-sm text-ink-gray-6\">\n                    {_(\"Add functions that the bot can use to create or update documents in the system.\")}\n                    <br />\n                    {_(\"Create functions in the\")}{\" \"}\n                    <button\n                        type=\"button\"\n                        className=\"font-medium underline underline-offset-2\""
+  },
+  {
+   "key": "Create Multiple Documents",
+   "refs": [
+    "raven/raven/raven_ai/doctype/raven_ai_function/raven_ai_function.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Type\",\n   \"options\": \"Get Document\\nGet Multiple Documents\\nGet List\\nCreate Document\\nCreate Multiple Documents\\nUpdate Document\\nUpdate Multiple Documents\\nDelete Document\\nDelete Multiple Documents\\nSubmit Document\\nCancel Document\\nGet Amended Document\\nCustom Function\\nSend Message\\nAttach File to Document\\nGet Report Result\\nGet Value\\nSet Value\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Create one from the menu above.",
+   "refs": [
+    "raven/apps/web/src/components/channel-sidebar/ChannelSidebar.tsx:206"
+   ],
+   "current": null,
+   "context": "            </EmptyMedia>\n            <EmptyHeader>\n                <EmptyTitle>{_(\"No channels yet\")}</EmptyTitle>\n                <EmptyDescription>{_(\"Create one from the menu above.\")}</EmptyDescription>\n            </EmptyHeader>\n        </Empty>\n    )"
+  },
+  {
+   "key": "Create Poll",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/CreatePollDialog.tsx:50",
+    "raven/apps/web/src/components/features/ChatInput/CreatePollDialog.tsx:85",
+    "raven/apps/web/src/components/features/ChatInput/CreatePollForm.tsx:379"
+   ],
+   "current": null,
+   "context": "                        for them at mount, and during the Suspense fallback the form —\n                        and any header inside it — doesn't exist yet. */}\n                    <div className=\"max-h-[85vh] overflow-y-auto px-4 pb-4\">\n                        <DrawerTitle className=\"pt-1 text-left text-2xl-semibold\">{_('Create Poll')}</DrawerTitle>\n                        <DrawerDescription className=\"sr-only\">{_('Ask a question and add options for people to vote on.')}</DrawerDescription>\n                        <Suspense fallback={<div className=\"flex h-64 items-center justify-center\"><Spinner /></div>}>\n                            <CreatePollForm channelID={channelID} onClose={() => setOpen(false)} />"
+  },
+  {
+   "key": "Create Processor",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:133"
+   ],
+   "current": null,
+   "context": "                        loadingText={_(\"Creating\")}\n                    >\n                        <PlusIcon />\n                        {_(\"Create Processor\")}\n                    </Button>\n                }\n            >"
+  },
+  {
+   "key": "Create support ticket",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionForm.tsx:42",
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionForm.tsx:129"
+   ],
+   "current": null,
+   "context": "                    name=\"action_name\"\n                    label={_(\"Name\")}\n                    isRequired\n                    inputProps={{ placeholder: _(\"Create support ticket\") }}\n                    rules={{\n                        required: _(\"Name is required\"),\n                        // The dialog title follows the name."
+  },
+  {
+   "key": "Create thread",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/useMessageActions.tsx:194"
+   ],
+   "current": null,
+   "context": "        if (!message.is_thread && parentChannel && canInteract && onServer) {\n            respond.push({\n                id: \"create-thread\",\n                label: _(\"Create thread\"),\n                icon: MessageSquareText,\n                onSelect: () => {\n                    const threadID = message.name"
+  },
+  {
+   "key": "Create Workspace",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/AddWorkspaceDialog.tsx:49"
+   ],
+   "current": null,
+   "context": "            </DialogTrigger>\n            <DialogContent className=\"sm:max-w-[520px]\">\n                <DialogHeader>\n                    <DialogTitle>{_(\"Create Workspace\")}</DialogTitle>\n                    <DialogDescription>\n                        {_(\"Workspaces allow you to organize your channels and teams.\")}\n                    </DialogDescription>"
+  },
+  {
+   "key": "Create your first action",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionListView.tsx:100"
+   ],
+   "current": null,
+   "context": "                            </EmptyHeader>\n                            {isAdmin && (\n                                <EmptyContent>\n                                    <Button variant=\"outline\" onClick={onCreate}>{_(\"Create your first action\")}</Button>\n                                </EmptyContent>\n                            )}\n                        </Empty>"
+  },
+  {
+   "key": "Create your first agent",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentListView.tsx:100"
+   ],
+   "current": null,
+   "context": "                                    </EmptyDescription>\n                                </EmptyHeader>\n                                {isAdmin && (\n                                    <Button variant=\"outline\" onClick={onCreate}>{_(\"Create your first agent\")}</Button>\n                                )}\n                            </Empty>\n                        ) : ("
+  },
+  {
+   "key": "Create your first function",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/FunctionListView.tsx:112"
+   ],
+   "current": null,
+   "context": "                                    </EmptyDescription>\n                                </EmptyHeader>\n                                {isAdmin && (\n                                    <Button variant=\"outline\" onClick={onCreate}>{_(\"Create your first function\")}</Button>\n                                )}\n                            </Empty>\n                        ) : ("
+  },
+  {
+   "key": "Create your first notification",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentNotifications/DocumentNotificationListView.tsx:105"
+   ],
+   "current": null,
+   "context": "                            </EmptyHeader>\n                            {isAdmin && (\n                                <EmptyContent>\n                                    <Button variant=\"outline\" onClick={onCreate}>{_(\"Create your first notification\")}</Button>\n                                </EmptyContent>\n                            )}\n                        </Empty>"
+  },
+  {
+   "key": "Create your first template",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Instructions/InstructionListView.tsx:101"
+   ],
+   "current": null,
+   "context": "                                    </EmptyDescription>\n                                </EmptyHeader>\n                                {isAdmin && (\n                                    <Button variant=\"outline\" onClick={onCreate}>{_(\"Create your first template\")}</Button>\n                                )}\n                            </Empty>\n                        ) : ("
+  },
+  {
+   "key": "Create your first webhook",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookListView.tsx:106"
+   ],
+   "current": null,
+   "context": "                            </EmptyHeader>\n                            {isAdmin && (\n                                <EmptyContent>\n                                    <Button variant=\"outline\" onClick={onCreate}>{_(\"Create your first webhook\")}</Button>\n                                </EmptyContent>\n                            )}\n                        </Empty>"
+  },
+  {
+   "key": "Creating",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:130",
+    "raven/apps/web/src/components/features/settings/panels/SettingsRecordEditor.tsx:100"
+   ],
+   "current": null,
+   "context": "                        onClick={handleCreateProcessor}\n                        disabled={!selectedProcessorType}\n                        loading={creating}\n                        loadingText={_(\"Creating\")}\n                    >\n                        <PlusIcon />\n                        {_(\"Create Processor\")}"
+  },
+  {
+   "key": "Creating...",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/CreatePollForm.tsx:378",
+    "raven/apps/web/src/components/features/channel/CreateChannel/CreateChannelForm.tsx:319"
+   ],
+   "current": null,
+   "context": "                    <Button type=\"button\" variant=\"outline\" size={isMobile ? 'lg' : 'md'} onClick={onClose} disabled={isCreating}>\n                        {_('Cancel')}\n                    </Button>\n                    <Button type=\"submit\" size={isMobile ? 'lg' : 'md'} loading={isCreating} loadingText={_('Creating...')} disabled={!form.watch('question')?.trim()}>\n                        {_('Create Poll')}\n                    </Button>\n                </DialogFooter>"
+  },
+  {
+   "key": "CRON Expression",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_scheduler_event/raven_scheduler_event.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"cron_expression\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"CRON Expression\"\n  },\n  {\n   \"description\": \"This Bot will be used to send the message.\","
+  },
+  {
+   "key": "Cron expression",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageForm.tsx:119"
+   ],
+   "current": null,
+   "context": "            {frequency === \"Cron\" && (\n                <DataField\n                    name=\"cron\"\n                    label={_(\"Cron expression\")}\n                    isRequired\n                    inputProps={{ placeholder: \"30 9 * * 1-5\", className: \"font-mono\", spellCheck: false }}\n                    rules={{"
+  },
+  {
+   "key": "Cron expression is required.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageForm.tsx:123"
+   ],
+   "current": null,
+   "context": "                    isRequired\n                    inputProps={{ placeholder: \"30 9 * * 1-5\", className: \"font-mono\", spellCheck: false }}\n                    rules={{\n                        required: _(\"Cron expression is required.\"),\n                        validate: (v) => (isValidCron(v ?? \"\") ? true : _(\"Use five parts: minute, hour, day of month, month, day of week.\")),\n                    }}\n                    formDescription={_(\"Minute, hour, day of month, month, day of week. Use * for any, lists like 1,3,5 and ranges like 1-5.\")}"
+  },
+  {
+   "key": "Currently, code interpreter features are not available for Local LLM providers. These features require OpenAI's infrastructure.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentAITab.tsx:94"
+   ],
+   "current": null,
+   "context": "            {isLocalLLM && (\n                <Alert theme=\"blue\">\n                    <AlertDescription>\n                        {_(\"Currently, code interpreter features are not available for Local LLM providers. These features require OpenAI's infrastructure.\")}\n                    </AlertDescription>\n                </Alert>\n            )}"
+  },
+  {
+   "key": "Custom date & time…",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/useMessageActions.tsx:407",
+    "raven/apps/web/src/components/features/schedule-send/ScheduleSendMenu.tsx:89",
+    "raven/apps/web/src/components/features/schedule-send/ScheduleSendSheet.tsx:137"
+   ],
+   "current": null,
+   "context": "                    })),\n                    {\n                        id: \"remind-custom\",\n                        label: _(\"Custom date & time…\"),\n                        onSelect: () => setDialog({ type: \"reminder\", message }),\n                    },\n                ],"
+  },
+  {
+   "key": "Custom Function",
+   "refs": [
+    "raven/raven/raven_ai/doctype/raven_ai_function/raven_ai_function.json",
+    "raven/raven/raven_integrations/doctype/raven_message_action/raven_message_action.json"
+   ],
+   "current": null,
+   "context": " ],\n \"fields\": [\n  {\n   \"depends_on\": \"eval: doc.type == \\\"Custom Function\\\";\",\n   \"fieldname\": \"function_path\",\n   \"fieldtype\": \"Small Text\",\n   \"in_list_view\": 1,"
+  },
+  {
+   "key": "Custom Function (API)",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionForm.tsx:65"
+   ],
+   "current": null,
+   "context": "                    }}\n                >\n                    <SelectItem value=\"Create Document\">{_(\"Create Document\")}</SelectItem>\n                    <SelectItem value=\"Custom Function\">{_(\"Custom Function (API)\")}</SelectItem>\n                    <SelectItem value=\"Server Script\">{_(\"Server Script\")}</SelectItem>\n                </SelectFormField>\n            </div>"
+  },
+  {
+   "key": "Custom Function Path",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/FunctionDetailsTab.tsx:229",
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionForm.tsx:112",
+    "raven/raven/raven_integrations/doctype/raven_message_action/raven_message_action.json"
+   ],
+   "current": null,
+   "context": "        <>\n            <SmallTextField\n                name=\"function_path\"\n                label={_(\"Custom Function Path\")}\n                isRequired\n                rules={{\n                    required: _(\"Path is required\"),"
+  },
+  {
+   "key": "Custom Status",
+   "refs": [
+    "raven/raven/raven/doctype/raven_user/raven_user.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"custom_status\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Custom Status\"\n  },\n  {\n   \"fieldname\": \"user_status_section\","
+  },
+  {
+   "key": "Customise how document links are displayed in the chat. You can add/remove fields to be displayed in the preview.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:168",
+    "raven/apps/web/src/components/features/settings/panels/DocumentPreviews.tsx:42"
+   ],
+   "current": null,
+   "context": "            label: _(\"Document Previews\"),\n            icon: IdCardIcon,\n            component: DocumentPreviewsPanel,\n            description: _(\"Customise how document links are displayed in the chat. You can add/remove fields to be displayed in the preview.\"),\n        },\n        {\n            id: \"message-actions\","
+  },
+  {
+   "key": "Customize Sidebar",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/CustomizeSidebar/CustomizeSidebarButton.tsx:47",
+    "raven/apps/web/src/components/features/channel/CustomizeSidebar/CustomizeSidebarDialog.tsx:116",
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:108"
+   ],
+   "current": null,
+   "context": "                    {/* Desktop only: AppShellLayout doesn't mount RavenSettingsDialog on\n                        mobile, so setting the tab atom there would do nothing at all. */}\n                    {!isMobile && <DropdownMenuItem onClick={() => setSettingsDialogAtom('sidebar')}>\n                        <SidebarIcon />{_(\"Customize Sidebar\")}\n                    </DropdownMenuItem>}\n                    {!isMobile && <DropdownMenuItem onClick={() => setSettingsDialogAtom('channels')}>\n                        <Hash />{_(\"Manage Channels\")}"
+  },
+  {
+   "key": "Customize your sidebar channels and groups",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/CustomizeSidebar/CustomizeSidebarDialog.tsx:118",
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:109"
+   ],
+   "current": null,
+   "context": "                        </>}>\n                    <SettingsPanelTitle>{_(\"Customize Sidebar\")}</SettingsPanelTitle>\n                    <SettingsPanelDescription>\n                        {_(\"Customize your sidebar channels and groups\")}\n                    </SettingsPanelDescription>\n                </SettingsPanelHeader>\n                <SettingsPanelContent className=\"min-h-0 gap-2\">"
+  },
+  {
+   "key": "Data synced to Raven Cloud.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/PushNotifications.tsx:166"
+   ],
+   "current": null,
+   "context": "\n    const sync = () => {\n        call({})\n            .then(() => toast.success(_(\"Data synced to Raven Cloud.\")))\n            .catch((e) => errorResponseToast(_(\"Failed to sync data to Raven Cloud\"), e))\n    }\n"
+  },
+  {
+   "key": "Date of the month",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_scheduler_event/raven_scheduler_event.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"event_frequency\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Event Frequency\",\n   \"options\": \"Every Day\\nEvery Day of the week\\nDate of the month\\nCron\"\n  },\n  {\n   \"fieldname\": \"cron_expression\","
+  },
+  {
+   "key": "Day of the month is required.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageForm.tsx:108"
+   ],
+   "current": null,
+   "context": "                        name=\"date\"\n                        label={_(\"On which day of the month?\")}\n                        isRequired\n                        rules={{ required: _(\"Day of the month is required.\") }}\n                        formDescription={_(\"Days past the 28th are skipped in shorter months.\")}\n                    >\n                        {DATES.map((d) => <SelectItem key={d} value={d}>{d}</SelectItem>)}"
+  },
+  {
+   "key": "Days past the 28th are skipped in shorter months.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageForm.tsx:109"
+   ],
+   "current": null,
+   "context": "                        label={_(\"On which day of the month?\")}\n                        isRequired\n                        rules={{ required: _(\"Day of the month is required.\") }}\n                        formDescription={_(\"Days past the 28th are skipped in shorter months.\")}\n                    >\n                        {DATES.map((d) => <SelectItem key={d} value={d}>{d}</SelectItem>)}\n                    </SelectFormField>"
+  },
+  {
+   "key": "Debug Mode",
+   "refs": [
+    "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"If enabled, stack traces of errors will be sent as messages by the bot \",\n   \"fieldname\": \"debug_mode\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Debug Mode\"\n  },\n  {\n   \"default\": \"gpt-4o\","
+  },
+  {
+   "key": "Decide how a group of images should appear in the chat stream. 4+ images always use the carousel.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Appearance.tsx:440"
+   ],
+   "current": null,
+   "context": "        <div className=\"flex flex-col\">\n            <SettingsFormLabel htmlFor=\"sort_channels_by\">{_(\"Image group layout\")}</SettingsFormLabel>\n            <SettingsFormDescription>\n                {_(\"Decide how a group of images should appear in the chat stream. 4+ images always use the carousel.\")}\n            </SettingsFormDescription>\n        </div>\n        <div className=\"min-w-40 flex justify-end\">"
+  },
+  {
+   "key": "Declare functions to be used by your AI bots.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:208",
+    "raven/apps/web/src/components/features/settings/panels/Functions/FunctionListView.tsx:85"
+   ],
+   "current": null,
+   "context": "            label: _(\"Functions\"),\n            icon: FunctionSquareIcon,\n            component: FunctionsPanel,\n            description: _(\"Declare functions to be used by your AI bots.\"),\n        },\n        {\n            id: \"file-sources\","
+  },
+  {
+   "key": "Default value is required if AI is not asked to fill this field",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/DoctypeVariableDialogForm.tsx:163"
+   ],
+   "current": null,
+   "context": "                    label={_(\"Default Value\")}\n                    isRequired={do_not_ask_ai ? true : false}\n                    rules={{\n                        required: do_not_ask_ai ? _(\"Default value is required if AI is not asked to fill this field\") : false,\n                    }}\n                    formDescription={_(\"You can specify a default value for this variable. If the AI does not fill this field, then the default value will be used.\")}\n                />"
+  },
+  {
+   "key": "Default Value Type",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionFieldDialog.tsx:182",
+    "raven/raven/raven_integrations/doctype/raven_message_action_fields/raven_message_action_fields.json"
+   ],
+   "current": null,
+   "context": "\n                    <SelectFormField\n                        name=\"default_value_type\"\n                        label={_(\"Default Value Type\")}\n                        formDescription={_(\"Static value, a field from the selected message, or a Jinja template with the message as context.\")}\n                    >\n                        <SelectItem value=\"Static\">{_(\"Static\")}</SelectItem>"
+  },
+  {
+   "key": "Default Value:",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/DoctypeVariableBuilder.tsx:115"
+   ],
+   "current": null,
+   "context": "                    </div>\n                    <p className=\"text-base md:text-sm\">{field.description}</p>\n                    <div className=\"flex flex-wrap items-center gap-2\">\n                        {field.default_value ? <p className=\"text-sm text-ink-gray-6\">{_(\"Default Value:\")} {field.default_value}</p> : null}\n                        {field.default_value && field.child_table_name ? <Separator orientation=\"vertical\" className=\"h-4\" /> : null}\n                        {field.child_table_name && inList(TABLE_FIELD_TYPES, type) ? (\n                            <p className=\"text-sm text-ink-gray-6\">{_(\"Child Table:\")} {options} ({field.child_table_name})</p>"
+  },
+  {
+   "key": "Default Values",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_message_action_fields/raven_message_action_fields.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"default_values_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Default Values\"\n  },\n  {\n   \"fieldname\": \"default_value_type\","
+  },
+  {
+   "key": "Delete ({0})",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/dialogs/DeleteMessageDialog.tsx:128"
+   ],
+   "current": null,
+   "context": "                        disabled={selected.size === 0}\n                        onClick={onConfirm}\n                    >\n                        {isBatch && selected.size > 0 ? _(\"Delete ({0})\", [`${selected.size}`]) : _(\"Delete\")}\n                    </Button>\n                </AlertDialogFooter>\n            </AlertDialogContent>"
+  },
+  {
+   "key": "Delete :{0}:?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Emojis/DeleteEmojiDialog.tsx:54"
+   ],
+   "current": null,
+   "context": "            </AlertDialogTrigger>\n            <AlertDialogContent>\n                <AlertDialogHeader>\n                    <AlertDialogTitle>{_(\"Delete :{0}:?\", [emojiName])}</AlertDialogTitle>\n                    <AlertDialogDescription>\n                        {_(\"This action cannot be undone. This will permanently delete the emoji and it will no longer be available in reactions or messages.\")}\n                    </AlertDialogDescription>"
+  },
+  {
+   "key": "Delete Agent?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentEditorView.tsx:26"
+   ],
+   "current": null,
+   "context": "        createDefaults={{ bot_name: \"\", description: \"\", is_ai_bot: 0, enable_file_search: 1, enable_code_interpreter: 1 }}\n        createTitle={_(\"Create an Agent\")}\n        backLabel={_(\"Back to agents\")}\n        deleteTitle={_(\"Delete Agent?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.bot_name])}\n        title={(doc) => <span className=\"truncate max-w-[24rem]\">{doc.bot_name}</span>}\n        actions={(doc) => <OpenChatButton bot={doc} />}"
+  },
+  {
+   "key": "Delete attachments?",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/dialogs/DeleteMessageDialog.tsx:92"
+   ],
+   "current": null,
+   "context": "        <AlertDialog open={open} onOpenChange={(next) => !next && onClose()}>\n            <AlertDialogContent>\n                <AlertDialogHeader>\n                    <AlertDialogTitle>{isBatch ? _(\"Delete attachments?\") : _(\"Delete message?\")}</AlertDialogTitle>\n                    <AlertDialogDescription>\n                        {isBatch\n                            ? _(\"Select what to delete. This can't be undone.\")"
+  },
+  {
+   "key": "Delete channel",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/DeleteChannelButton.tsx:70"
+   ],
+   "current": null,
+   "context": "    <AlertDialog>\n      <AlertDialogTrigger asChild>\n        <PrefActionRow\n          label={_(\"Delete channel\")}\n          description={_(\"Permanently delete this channel and all of its messages\")}\n          destructive\n        />"
+  },
+  {
+   "key": "Delete Document",
+   "refs": [
+    "raven/raven/raven_ai/doctype/raven_ai_function/raven_ai_function.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Type\",\n   \"options\": \"Get Document\\nGet Multiple Documents\\nGet List\\nCreate Document\\nCreate Multiple Documents\\nUpdate Document\\nUpdate Multiple Documents\\nDelete Document\\nDelete Multiple Documents\\nSubmit Document\\nCancel Document\\nGet Amended Document\\nCustom Function\\nSend Message\\nAttach File to Document\\nGet Report Result\\nGet Value\\nSet Value\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Delete Document Notification?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentNotifications/DocumentNotificationEditorView.tsx:19"
+   ],
+   "current": null,
+   "context": "        createDefaults={{ enabled: 1 }}\n        createTitle={_(\"Create a Document Notification\")}\n        backLabel={_(\"Back to notifications\")}\n        deleteTitle={_(\"Delete Document Notification?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.notification_name])}\n        deleteSuccessMessage={_(\"Notification deleted\")}\n        menu={(ctx) => <EnabledMenuItem {...ctx} />}"
+  },
+  {
+   "key": "Delete emoji",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Emojis/DeleteEmojiDialog.tsx:45"
+   ],
+   "current": null,
+   "context": "                    variant=\"ghost\"\n                    size=\"sm\"\n                    theme=\"red\"\n                    aria-label={_(\"Delete emoji\")}\n                    className='opacity-0 group-hover:opacity-100 transition-opacity'\n                    isIconButton\n                >"
+  },
+  {
+   "key": "Delete File?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/FileSources/FileSources.tsx:211"
+   ],
+   "current": null,
+   "context": "            <AlertDialog open={!!selected} onOpenChange={(open) => { if (!open) setSelected(null) }}>\n                <AlertDialogContent>\n                    <AlertDialogHeader>\n                        <AlertDialogTitle>{_(\"Delete File?\")}</AlertDialogTitle>\n                        <AlertDialogDescription>\n                            {_(\"Are you sure you want to delete the file\")} <strong>{selected?.file_name}</strong>?\n                        </AlertDialogDescription>"
+  },
+  {
+   "key": "Delete Function?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/FunctionEditorView.tsx:18"
+   ],
+   "current": null,
+   "context": "        createDefaults={{ function_name: \"\", description: \"\", reference_doctype: \"\", function_path: \"\", params: { type: \"object\", properties: {} } }}\n        createTitle={_(\"Create a Function\")}\n        backLabel={_(\"Back to functions\")}\n        deleteTitle={_(\"Delete Function?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.function_name])}\n        title={(doc) => doc.name}\n        form={(isEdit) => <FunctionForm isEdit={isEdit} />}"
+  },
+  {
+   "key": "Delete Instruction Template?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Instructions/InstructionEditorView.tsx:18"
+   ],
+   "current": null,
+   "context": "        createDefaults={{ template_name: \"\", instruction: \"\", dynamic_instructions: 0 }}\n        createTitle={_(\"Create an Instruction Template\")}\n        backLabel={_(\"Back to instruction templates\")}\n        deleteTitle={_(\"Delete Instruction Template?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.template_name])}\n        title={(doc) => doc.template_name}\n        form={(isEdit) => <InstructionTemplateForm isEdit={isEdit} />}"
+  },
+  {
+   "key": "Delete Message Action?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionEditorView.tsx:19"
+   ],
+   "current": null,
+   "context": "        createDefaults={{ enabled: 1, action: \"Create Document\" }}\n        createTitle={_(\"Create a Message Action\")}\n        backLabel={_(\"Back to message actions\")}\n        deleteTitle={_(\"Delete Message Action?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.action_name])}\n        deleteSuccessMessage={_(\"Message action deleted\")}\n        menu={(ctx) => <EnabledMenuItem {...ctx} />}"
+  },
+  {
+   "key": "Delete message?",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/dialogs/DeleteMessageDialog.tsx:92"
+   ],
+   "current": null,
+   "context": "        <AlertDialog open={open} onOpenChange={(next) => !next && onClose()}>\n            <AlertDialogContent>\n                <AlertDialogHeader>\n                    <AlertDialogTitle>{isBatch ? _(\"Delete attachments?\") : _(\"Delete message?\")}</AlertDialogTitle>\n                    <AlertDialogDescription>\n                        {isBatch\n                            ? _(\"Select what to delete. This can't be undone.\")"
+  },
+  {
+   "key": "Delete Multiple Documents",
+   "refs": [
+    "raven/raven/raven_ai/doctype/raven_ai_function/raven_ai_function.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Type\",\n   \"options\": \"Get Document\\nGet Multiple Documents\\nGet List\\nCreate Document\\nCreate Multiple Documents\\nUpdate Document\\nUpdate Multiple Documents\\nDelete Document\\nDelete Multiple Documents\\nSubmit Document\\nCancel Document\\nGet Amended Document\\nCustom Function\\nSend Message\\nAttach File to Document\\nGet Report Result\\nGet Value\\nSet Value\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Delete Processor",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:221",
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:246",
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:270"
+   ],
+   "current": null,
+   "context": "                                        theme=\"red\"\n                                        size=\"sm\"\n                                        isIconButton\n                                        aria-label={_(\"Delete Processor\")}\n                                        onClick={() => setProcessorToDelete(processor)}\n                                        disabled={isDeleting}\n                                    >"
+  },
+  {
+   "key": "Delete reminder?",
+   "refs": [
+    "raven/apps/web/src/components/features/reminders/RemindersList.tsx:573"
+   ],
+   "current": null,
+   "context": "            <AlertDialog open={confirmOpen} onOpenChange={(next) => !next && setConfirmOpen(false)}>\n                <AlertDialogContent>\n                    <AlertDialogHeader>\n                        <AlertDialogTitle>{_(\"Delete reminder?\")}</AlertDialogTitle>\n                        <AlertDialogDescription>\n                            {_(\"You won't be reminded about this message. This can't be undone.\")}\n                        </AlertDialogDescription>"
+  },
+  {
+   "key": "Delete Scheduled Message?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageEditorView.tsx:19"
+   ],
+   "current": null,
+   "context": "        createDefaults={{ disabled: 0, send_to: \"Channel\", event_frequency: \"Every Day\", ...CRON_DEFAULTS }}\n        createTitle={_(\"Create a Scheduled Message\")}\n        backLabel={_(\"Back to scheduled messages\")}\n        deleteTitle={_(\"Delete Scheduled Message?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.event_name])}\n        deleteSuccessMessage={_(\"Scheduled message deleted\")}\n        title={(doc) => <span className=\"truncate\">{doc.event_name}</span>}"
+  },
+  {
+   "key": "Delete scheduled message?",
+   "refs": [
+    "raven/apps/web/src/components/features/schedule-send/ScheduledMessageCard.tsx:294"
+   ],
+   "current": null,
+   "context": "                                <AlertDialog open={deleteOpen} onOpenChange={setDeleteOpen}>\n                                    <AlertDialogContent>\n                                        <AlertDialogHeader>\n                                            <AlertDialogTitle>{_(\"Delete scheduled message?\")}</AlertDialogTitle>\n                                            <AlertDialogDescription>\n                                                {_(\"This scheduled message will be permanently deleted.\")}\n                                            </AlertDialogDescription>"
+  },
+  {
+   "key": "Delete this channel?",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/DeleteChannelButton.tsx:77",
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/DeleteChannelButton.tsx:127"
+   ],
+   "current": null,
+   "context": "      </AlertDialogTrigger>\n      <AlertDialogContent className=\"sm:max-w-xl\">\n        <AlertDialogHeader>\n          <AlertDialogTitle>{_(\"Delete this channel?\")}</AlertDialogTitle>\n          <AlertDialogDescription asChild>\n            <div className=\"space-y-4 pt-1\">\n              {error ? <ErrorBanner error={error} /> : null}"
+  },
+  {
+   "key": "Delete this thread?",
+   "refs": [
+    "raven/apps/web/src/components/features/message/ThreadDrawer.tsx:218"
+   ],
+   "current": null,
+   "context": "            <AlertDialog open={confirmDelete} onOpenChange={setConfirmDelete}>\n                <AlertDialogContent>\n                    <AlertDialogHeader>\n                        <AlertDialogTitle>{_(\"Delete this thread?\")}</AlertDialogTitle>\n                        <AlertDialogDescription>\n                            {_(\"The thread and all its replies will be permanently deleted for everyone. This can't be undone.\")}\n                        </AlertDialogDescription>"
+  },
+  {
+   "key": "Delete thread",
+   "refs": [
+    "raven/apps/web/src/components/features/message/ThreadDrawer.tsx:226",
+    "raven/apps/web/src/components/features/message/ThreadHeader.tsx:113"
+   ],
+   "current": null,
+   "context": "                    <AlertDialogFooter>\n                        <AlertDialogCancel disabled={deleting}>{_(\"Cancel\")}</AlertDialogCancel>\n                        <Button type=\"button\" variant=\"solid\" theme=\"red\" size=\"md\" loading={deleting} loadingText={_(\"Deleting…\")} onClick={onDeleteThread}>\n                            {_(\"Delete thread\")}\n                        </Button>\n                    </AlertDialogFooter>\n                </AlertDialogContent>"
+  },
+  {
+   "key": "Delete Webhook?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookEditorView.tsx:19"
+   ],
+   "current": null,
+   "context": "        createDefaults={{ enabled: 1, timeout: 5 }}\n        createTitle={_(\"Create a Webhook\")}\n        backLabel={_(\"Back to webhooks\")}\n        deleteTitle={_(\"Delete Webhook?\")}\n        deleteDescription={(doc) => _(\"This will permanently delete {0}.\", [doc.name])}\n        deleteSuccessMessage={_(\"Webhook deleted\")}\n        menu={(ctx) => <EnabledMenuItem {...ctx} />}"
+  },
+  {
+   "key": "Delete {0}?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceActionMenu.tsx:158"
+   ],
+   "current": null,
+   "context": "    return (\n        <>\n            <AlertDialogHeader>\n                <AlertDialogTitle>{_(\"Delete {0}?\", [workspaceName])}</AlertDialogTitle>\n                <AlertDialogDescription>\n                    {_(\"Are you sure you want to delete this workspace? If you proceed, all channels, threads and messages within the workspace will be deleted. This action cannot be undone.\")}\n                </AlertDialogDescription>"
+  },
+  {
+   "key": "Deleting",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/DeleteChannelButton.tsx:124",
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:262",
+    "raven/apps/web/src/components/features/settings/panels/FileSources/FileSources.tsx:219",
+    "raven/apps/web/src/components/features/settings/panels/RecordActionsMenu.tsx:75",
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceActionMenu.tsx:175"
+   ],
+   "current": null,
+   "context": "            theme=\"red\"\n            size=\"md\"\n            loading={loading}\n            loadingText={_(\"Deleting\")}\n            disabled={!allowDelete || loading}\n            onClick={deleteChannel}\n            aria-label={_(\"Delete this channel?\")}"
+  },
+  {
+   "key": "Deleting…",
+   "refs": [
+    "raven/apps/web/src/components/features/message/ThreadDrawer.tsx:225"
+   ],
+   "current": null,
+   "context": "                    </AlertDialogHeader>\n                    <AlertDialogFooter>\n                        <AlertDialogCancel disabled={deleting}>{_(\"Cancel\")}</AlertDialogCancel>\n                        <Button type=\"button\" variant=\"solid\" theme=\"red\" size=\"md\" loading={deleting} loadingText={_(\"Deleting…\")} onClick={onDeleteThread}>\n                            {_(\"Delete thread\")}\n                        </Button>\n                    </AlertDialogFooter>"
+  },
+  {
+   "key": "Delivery time",
+   "refs": [
+    "raven/apps/web/src/components/features/schedule-send/EditScheduledMessageSheet.tsx:77",
+    "raven/apps/web/src/components/features/schedule-send/ScheduleTimePicker.tsx:54"
+   ],
+   "current": null,
+   "context": "                    </div>\n                    {/* Delivery time: date + time side by side on one row, preview underneath. */}\n                    <div className=\"flex shrink-0 flex-col gap-2\">\n                        <Label>{_(\"Delivery time\")}</Label>\n                        {/* Grid, not flex — exact equal halves for the two fields. */}\n                        <div className=\"grid grid-cols-2 items-center gap-3\">\n                            <DatePickerPopover value={date} onChange={setDate} size=\"lg\" />"
+  },
+  {
+   "key": "Delivery time is in the past",
+   "refs": [
+    "raven/apps/web/src/components/features/schedule-send/EditScheduledMessageSheet.tsx:104",
+    "raven/apps/web/src/components/features/schedule-send/InlineScheduledMessageEditor.tsx:75"
+   ],
+   "current": null,
+   "context": "                        {/* Clock race: the picked time can pass while the editor sits\n                            open — say why Save is off instead of silently disabling it. */}\n                        <p className={pastPick ? \"text-p-sm text-ink-red-5\" : \"text-p-sm text-ink-gray-5\"}>\n                            {pastPick ? _(\"Delivery time is in the past\") : formatDateTimeLabel(picked, timeFormat)}\n                        </p>\n                    </div>\n                </div>"
+  },
+  {
+   "key": "Department Channel Type",
+   "refs": [
+    "raven/raven/raven/doctype/raven_settings/raven_settings.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.auto_create_department_channel\",\n   \"fieldname\": \"department_channel_type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Department Channel Type\",\n   \"options\": \"Public\\nPrivate\"\n  },\n  {"
+  },
+  {
+   "key": "Department channel type",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/FrappeHR.tsx:64"
+   ],
+   "current": null,
+   "context": "                <>\n                    <SelectFormField\n                        name=\"department_channel_type\"\n                        label={_(\"Department channel type\")}\n                        disabled={hrMissing}\n                    >\n                        <SelectItem value=\"Public\">{_(\"Public\")}</SelectItem>"
+  },
+  {
+   "key": "Describe what this function does.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/FunctionDetailsTab.tsx:97"
+   ],
+   "current": null,
+   "context": "            label={_(\"Description\")}\n            isRequired\n            rules={{ required: _(\"Description is required\") }}\n            inputProps={{ placeholder: _(\"Describe what this function does.\") }}\n            formDescription={_(\"This is used to describe what this function does to the AI Agent.\")}\n        />\n        <CustomFunction />"
+  },
+  {
+   "key": "Device Information",
+   "refs": [
+    "raven/raven/raven/doctype/raven_push_token/raven_push_token.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"device_information\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Device Information\",\n   \"length\": 300\n  },\n  {"
+  },
+  {
+   "key": "Dialog Properties",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_message_action/raven_message_action.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"dialog_properties_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Dialog Properties\"\n  },\n  {\n   \"fieldname\": \"server_script\","
+  },
+  {
+   "key": "Direct Message",
+   "refs": [
+    "raven/apps/web/src/components/common/filters/ChannelFilter.tsx:101",
+    "raven/apps/web/src/components/features/settings/panels/DocumentNotifications/DocumentNotificationRecipientsTab.tsx:83",
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookConditionForm.tsx:125",
+    "raven/apps/web/src/components/layout/DocumentTitle.tsx:53"
+   ],
+   "current": null,
+   "context": "                    channel,\n                    channel.workspace ? workspaceNames.get(channel.workspace) ?? channel.workspace : undefined,\n                ))}\n                {dmChannels?.map((dm) => item(dm, _(\"Direct Message\")))}\n            </CommandGroup>\n        )\n    }"
+  },
+  {
+   "key": "Direct message",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/RavenLinkPreview.tsx:247"
+   ],
+   "current": null,
+   "context": "                <MessageSquareTextIcon className=\"size-8 shrink-0 text-ink-gray-6\" aria-hidden=\"true\" />\n            )}\n            <div className=\"min-w-0 flex-1 space-y-0.5\">\n                <div className=\"truncate text-sm-medium leading-snug text-ink-gray-8\">{peer?.full_name ?? _(\"Direct message\")}</div>\n                <div className=\"truncate text-sm text-ink-gray-5 leading-snug\">{_(\"Direct message conversation\")}</div>\n            </div>\n        </CardShell>"
+  },
+  {
+   "key": "Direct message conversation",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/RavenLinkPreview.tsx:248"
+   ],
+   "current": null,
+   "context": "            )}\n            <div className=\"min-w-0 flex-1 space-y-0.5\">\n                <div className=\"truncate text-sm-medium leading-snug text-ink-gray-8\">{peer?.full_name ?? _(\"Direct message\")}</div>\n                <div className=\"truncate text-sm text-ink-gray-5 leading-snug\">{_(\"Direct message conversation\")}</div>\n            </div>\n        </CardShell>\n    )"
+  },
+  {
+   "key": "Direct messages",
+   "refs": [
+    "raven/apps/web/src/pages/share/ShareTarget.tsx:116"
+   ],
+   "current": null,
+   "context": "            <div className=\"flex-1 overflow-y-auto px-1 pb-8\">\n                {filteredDMs.length > 0 && (\n                    <>\n                        <SectionLabel label={_(\"Direct messages\")} />\n                        {filteredDMs.map((dm) => (\n                            <DMRow key={dm.name} dm={dm} peer={users.get(dm.peer_user_id)} onPick={pick} />\n                        ))}"
+  },
+  {
+   "key": "Direct modification of message_reactions is not allowed. Use the Reactions API.",
+   "refs": [
+    "raven/raven/raven_messaging/doctype/raven_message/raven_message.py:250"
+   ],
+   "current": null,
+   "context": "\n\t\tif not self.is_new() and self.has_value_changed(\"message_reactions\"):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Direct modification of message_reactions is not allowed. Use the Reactions API.\")\n\t\t\t)\n\n\tdef validate_linked_message(self):"
+  },
+  {
+   "key": "Disable Notifications",
+   "refs": [
+    "raven/apps/web/src/components/features/header/NavUserMenu/NavUserMenu.tsx:110"
+   ],
+   "current": null,
+   "context": "                </DropdownMenuItem>\n                {isPushAvailable && <DropdownMenuItem onClick={() => togglePush(!pushOn)}>\n                    <Bell />\n                    <span>{pushOn ? _(\"Disable Notifications\") : _(\"Enable Notifications\")}</span>\n                </DropdownMenuItem>}\n                <DropdownMenuSeparator />\n                {/* preventDefault keeps the menu open (spinner visible) while logout"
+  },
+  {
+   "key": "Discard changes",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/CustomizeSidebar/CustomizeSidebarDialog.tsx:105"
+   ],
+   "current": null,
+   "context": "                                    variant=\"outline\"\n                                    onClick={() => reset()}\n                                >\n                                    {_(\"Discard changes\")}\n                                </Button>\n                            )}\n                            <Button"
+  },
+  {
+   "key": "Display a leave indicator on users who are off today.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/FrappeHR.tsx:48"
+   ],
+   "current": null,
+   "context": "            <SwitchFormField\n                name=\"show_if_a_user_is_on_leave\"\n                label={_(\"Show if a user is on leave\")}\n                formDescription={_(\"Display a leave indicator on users who are off today.\")}\n                disabled={hrMissing}\n            />\n"
+  },
+  {
+   "key": "DM",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_scheduler_event/raven_scheduler_event.json",
+    "raven/raven/raven_integrations/doctype/raven_webhook/raven_webhook.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"send_to\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Send to\",\n   \"options\": \"Channel\\nDM\"\n  },\n  {\n   \"depends_on\": \"eval: doc.send_to === \\\"Channel\\\"\","
+  },
+  {
+   "key": "DM User 1",
+   "refs": [
+    "raven/raven/raven_channel_management/doctype/raven_channel/raven_channel.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.is_direct_message;\",\n   \"fieldname\": \"dm_user_1\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"DM User 1\",\n   \"options\": \"Raven User\",\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "DM User 2",
+   "refs": [
+    "raven/raven/raven_channel_management/doctype/raven_channel/raven_channel.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.is_direct_message;\",\n   \"fieldname\": \"dm_user_2\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"DM User 2\",\n   \"options\": \"Raven User\",\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "DMs",
+   "refs": [
+    "raven/apps/web/src/components/features/header/AppMobileFooter.tsx:26",
+    "raven/apps/web/src/components/features/header/AppMobileFooter.tsx:124"
+   ],
+   "current": null,
+   "context": "    },\n    {\n        icon: UsersRoundIcon,\n        title: _(\"DMs\"),\n        to: \"/dm-channel\",\n    },\n    {"
+  },
+  {
+   "key": "Do not ask AI",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/DoctypeVariableBuilder.tsx:111"
+   ],
+   "current": null,
+   "context": "                                <TooltipContent>{field.options.split(\"\\n\").join(\", \")}</TooltipContent>\n                            </Tooltip>\n                        ) : null}\n                        {field.do_not_ask_ai ? <Badge variant=\"subtle\" theme=\"gray\">{_(\"Do not ask AI\")}</Badge> : null}\n                    </div>\n                    <p className=\"text-base md:text-sm\">{field.description}</p>\n                    <div className=\"flex flex-wrap items-center gap-2\">"
+  },
+  {
+   "key": "Do not ask AI to fill this field?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/DoctypeVariableDialogForm.tsx:156"
+   ],
+   "current": null,
+   "context": "                        <SelectItem value=\"boolean\">{_(\"Boolean\")}</SelectItem>\n                    </SelectFormField>\n                    <SwitchFormField name=\"required\" label={_(\"Required\")} />\n                    <SwitchFormField name=\"do_not_ask_ai\" label={_(\"Do not ask AI to fill this field?\")} />\n                </div>\n                <DataField\n                    name=\"default_value\""
+  },
+  {
+   "key": "Do not ask AI to fill this variable",
+   "refs": [
+    "raven/raven/raven_ai/doctype/raven_ai_function_params/raven_ai_function_params.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"do_not_ask_ai\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Do not ask AI to fill this variable\"\n  },\n  {\n   \"fieldname\": \"child_table_name\","
+  },
+  {
+   "key": "Do not attach document with message",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_document_notification/raven_document_notification.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"If enabled, the message won't have a document preview\",\n   \"fieldname\": \"do_not_attach_doc\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Do not attach document with message\"\n  }\n ],\n \"grid_page_length\": 50,"
+  },
+  {
+   "key": "Do not disturb",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Profile.tsx:30",
+    "raven/apps/web/src/hooks/useSetAvailability.ts:11",
+    "raven/raven/raven/doctype/raven_user/raven_user.json"
+   ],
+   "current": null,
+   "context": "const STATUS_OPTIONS = [\n    { value: \"Available\", label: _(\"Available\") },\n    { value: \"Away\", label: _(\"Away\") },\n    { value: \"Do not disturb\", label: _(\"Do not disturb\") },\n    { value: \"Invisible\", label: _(\"Invisible\") },\n] as const\n"
+  },
+  {
+   "key": "Do nothing",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/QuietHoursBanner.tsx:165",
+    "raven/apps/web/src/components/features/settings/panels/Preferences.tsx:199"
+   ],
+   "current": null,
+   "context": "                    >\n                        <DropdownMenuRadioItem value=\"Nudge\">{_(\"Suggest sending silently\")}</DropdownMenuRadioItem>\n                        <DropdownMenuRadioItem value=\"Auto Silent\">{_(\"Always send silently\")}</DropdownMenuRadioItem>\n                        <DropdownMenuRadioItem value=\"No Nudge\">{_(\"Do nothing\")}</DropdownMenuRadioItem>\n                    </DropdownMenuRadioGroup>\n                    {isAdmin && (\n                        <>"
+  },
+  {
+   "key": "Do you want to autofill these as options?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/DoctypeVariableDialogForm.tsx:244"
+   ],
+   "current": null,
+   "context": "            <AlertTitle>\n                {_(\"There are only {0} options in {1}.\", [String(data.message), linkDoctypeName])}\n                <br />\n                {_(\"Do you want to autofill these as options?\")}\n            </AlertTitle>\n            <AlertDescription>\n                <Button type=\"button\" variant=\"outline\" onClick={autoFillOptions}>"
+  },
+  {
+   "key": "DocTypes",
+   "refs": [
+    "raven/raven/raven/workspace/raven/raven.json"
+   ],
+   "current": null,
+   "context": "{\n \"app\": \"raven\",\n \"charts\": [],\n \"content\": \"[{\\\"id\\\":\\\"MKitHAnT4f\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><a href=\\\\\\\"/raven\\\\\\\">Raven</a></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"gBy2HFBNf4\\\",\\\"type\\\":\\\"onboarding\\\",\\\"data\\\":{\\\"onboarding_name\\\":\\\"Raven\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"ZcawYU5brv\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"DocTypes\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"Uox8EFjnuM\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"AI\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"F85-QVSjIb\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Integrations\\\",\\\"col\\\":4}}]\",\n \"creation\": \"2023-06-22 20:12:29.687295\",\n \"custom_blocks\": [],\n \"docstatus\": 0,"
+  },
+  {
+   "key": "Document Field",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentNotifications/DocumentNotificationRecipientsTab.tsx:98"
+   ],
+   "current": null,
+   "context": "                            <SelectTrigger className=\"w-full\"><SelectValue /></SelectTrigger>\n                            <SelectContent>\n                                <SelectItem value=\"Static\">{_(\"Static\")}</SelectItem>\n                                <SelectItem value=\"DocField\">{_(\"Document Field\")}</SelectItem>\n                                <SelectItem value=\"Jinja\">{_(\"Jinja\")}</SelectItem>\n                            </SelectContent>\n                        </Select>"
+  },
+  {
+   "key": "Document is required",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/AttachFrappeDocumentDialog.tsx:134",
+    "raven/apps/web/src/components/features/message/actions/dialogs/AttachToDocumentDialog.tsx:201"
+   ],
+   "current": null,
+   "context": "                                label={_(\"Document\")}\n                                isRequired\n                                doctype={doctype}\n                                rules={{ required: _(\"Document is required\") }}\n                            />\n                        )}\n"
+  },
+  {
+   "key": "Document Notifications",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:157",
+    "raven/apps/web/src/components/features/settings/panels/DocumentNotifications/DocumentNotificationListView.tsx:81",
+    "raven/raven/raven/workspace/raven/raven.json"
+   ],
+   "current": null,
+   "context": "        {\n            id: \"document-notifications\",\n            group: \"integrations\",\n            label: _(\"Document Notifications\"),\n            icon: BellDotIcon,\n            component: DocumentNotificationsPanel,\n            description: _(\"Configure alerts to be sent to users or channels when documents are updated in the system.\"),"
+  },
+  {
+   "key": "Document Parsing",
+   "refs": [
+    "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"document_parsing_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Document Parsing\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Document Previews",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:165",
+    "raven/apps/web/src/components/features/settings/panels/DocumentPreviews.tsx:40"
+   ],
+   "current": null,
+   "context": "        {\n            id: \"document-previews\",\n            group: \"integrations\",\n            label: _(\"Document Previews\"),\n            icon: IdCardIcon,\n            component: DocumentPreviewsPanel,\n            description: _(\"Customise how document links are displayed in the chat. You can add/remove fields to be displayed in the preview.\"),"
+  },
+  {
+   "key": "Document Processor Selection",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentDocumentProcessorsTab.tsx:89"
+   ],
+   "current": null,
+   "context": "                    <Separator />\n                    <div className=\"flex flex-col gap-4\">\n                        <div className=\"flex flex-col gap-1\">\n                            <h5 className=\"text-sm font-semibold\">{_(\"Document Processor Selection\")}</h5>\n                            <div className=\"flex flex-wrap items-center gap-1\">\n                                <p className=\"text-p-sm text-ink-gray-6\">\n                                    {_(\"Choose an existing document processor for this bot. Processors can be shared across multiple bots.\")}"
+  },
+  {
+   "key": "Document Processors",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:229",
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentForm.tsx:49",
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:106",
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:137"
+   ],
+   "current": null,
+   "context": "        {\n            id: \"document-processors\",\n            group: \"ai\",\n            label: _(\"Document Processors\"),\n            icon: CpuIcon,\n            component: DocumentProcessorsPanel,\n            description: _(\"Create and manage document processors for your bots.\"),"
+  },
+  {
+   "key": "Document Processors require Google Cloud APIs to be enabled in your Raven settings.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentDocumentProcessorsTab.tsx:66"
+   ],
+   "current": null,
+   "context": "            <Alert theme=\"blue\">\n                <InfoIcon />\n                <AlertTitle>\n                    {_(\"Document Processors require Google Cloud APIs to be enabled in your Raven settings.\")}\n                </AlertTitle>\n            </Alert>\n        )"
+  },
+  {
+   "key": "Document Type is required.",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_message_action/raven_message_action.py:44"
+   ],
+   "current": null,
+   "context": "\tdef validate_action_type(self):\n\t\tif self.action == \"Create Document\":\n\t\t\tif not self.document_type:\n\t\t\t\tfrappe.throw(_(\"Document Type is required.\"))\n\t\telif self.action == \"Custom Function\":\n\t\t\tif not self.custom_function_path:\n\t\t\t\tfrappe.throw(_(\"Function Path is required.\"))"
+  },
+  {
+   "key": "Dotted path to the custom function/API. Cannot contain spaces.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/FunctionDetailsTab.tsx:236",
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionForm.tsx:119"
+   ],
+   "current": null,
+   "context": "                    validate: (value?: string) => (!value?.includes(\" \") ? true : _(\"Path cannot contain spaces\")),\n                }}\n                inputProps={{ placeholder: \"myapp.api.my_custom_function\" }}\n                formDescription={_(\"Dotted path to the custom function/API. Cannot contain spaces.\")}\n            />\n            <SwitchFormField\n                name=\"pass_parameters_as_json\""
+  },
+  {
+   "key": "Double-tap reaction",
+   "refs": [
+    "raven/apps/web/src/components/features/profile/PreferencesDrawer.tsx:226"
+   ],
+   "current": null,
+   "context": "                            </div>\n\n                            <PrefRow\n                                label={_(\"Double-tap reaction\")}\n                                description={_(\"Toggled when you double-tap a message\")}\n                                control={\n                                    <Button"
+  },
+  {
+   "key": "Download all ({0})",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/fileActions.ts:111"
+   ],
+   "current": null,
+   "context": "    if (fileMessages.length > 1) {\n        actions.push({\n            id: \"download-all\",\n            label: _(\"Download all ({0})\", [`${fileMessages.length}`]),\n            icon: Download,\n            onSelect: () => {\n                const ids = fileMessages.map((fileMessage) => fileMessage.name)"
+  },
+  {
+   "key": "Download {0}",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/ChannelFiles.tsx:332"
+   ],
+   "current": null,
+   "context": "                href={file.internal_link}\n                download\n                onClick={(event) => event.stopPropagation()}\n                aria-label={_(\"Download {0}\", [file.title])}\n                className=\"shrink-0 rounded p-1.5 text-ink-gray-4 transition-opacity hover:text-ink-gray-8 md:opacity-0 md:group-hover:opacity-100 md:focus-visible:opacity-100\"\n            >\n                <ArrowDownToLine className=\"h-4 w-4\" />"
+  },
+  {
+   "key": "Drop files to upload",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/FileDropZone.tsx:84"
+   ],
+   "current": null,
+   "context": "                        <div className=\"flex size-12 items-center justify-center rounded-full bg-surface-gray-2 text-ink-gray-8\">\n                            <Upload className=\"size-6\" />\n                        </div>\n                        <p className=\"text-sm font-medium text-ink-gray-9\">{_(\"Drop files to upload\")}</p>\n                    </div>\n                </div>\n            )}"
+  },
+  {
+   "key": "Due",
+   "refs": [
+    "raven/apps/web/src/components/features/reminders/RemindersList.tsx:163"
+   ],
+   "current": null,
+   "context": "            .sort((a, b) => b.remind_at.localeCompare(a.remind_at))\n        // Due first: those need an action now. Upcoming is a schedule to glance at.\n        const out: Row[] = []\n        if (due.length) out.push({ kind: \"header\", label: _(\"Due\") }, ...due.map((reminder) => ({ kind: \"reminder\" as const, reminder })))\n        if (upcoming.length) out.push({ kind: \"header\", label: _(\"Upcoming\") }, ...upcoming.map((reminder) => ({ kind: \"reminder\" as const, reminder })))\n        return out\n    }, [reminders, searchQuery, channel, mode, stickyRead])"
+  },
+  {
+   "key": "Dynamic Instructions allow you to embed Jinja tags in your instruction to the bot. Hence the instruction would be different based on the user who is calling the bot or the data in your system. These instructions are computed every time the bot is called. Check this if you want to embed things like Employee ID, Company Name etc in your instructions dynamically",
+   "refs": [
+    "raven/raven/raven_ai/doctype/raven_bot_instruction_template/raven_bot_instruction_template.json",
+    "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Dynamic Instructions allow you to embed Jinja tags in your instruction to the bot. Hence the instruction would be different based on the user who is calling the bot or the data in your system. These instructions are computed every time the bot is called. Check this if you want to embed things like Employee ID, Company Name etc in your instructions dynamically\",\n   \"fieldname\": \"dynamic_instructions\",\n   \"fieldtype\": \"Check\",\n   \"in_list_view\": 1,"
+  },
+  {
+   "key": "e.g. Hello, this is a reminder to pay your dues.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageForm.tsx:136"
+   ],
+   "current": null,
+   "context": "                name=\"content\"\n                label={_(\"Message\")}\n                isRequired\n                placeholder={_(\"e.g. Hello, this is a reminder to pay your dues.\")}\n                rules={{ required: _(\"Message is required.\") }}\n            />\n        </div>"
+  },
+  {
+   "key": "e.g. marketing, design-team, project-alpha",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/CreateChannel/ChannelNameInput.tsx:41"
+   ],
+   "current": null,
+   "context": "                value={value}\n                onChange={handleChange}\n                maxLength={50}\n                placeholder={_('e.g. marketing, design-team, project-alpha')}\n                className=\"pl-9 pr-12\"\n                // No autoFocus attribute — the form is lazy-loaded, so the attribute\n                // fires too late on a cold open; CreateChannelForm focuses via ref"
+  },
+  {
+   "key": "e.g. My Workspace",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/AddWorkspaceDialog.tsx:116"
+   ],
+   "current": null,
+   "context": "                    label={_(\"Workspace Name\")}\n                    isRequired\n                    rules={{ required: _(\"Name is required\") }}\n                    inputProps={{ autoFocus: true, placeholder: _(\"e.g. My Workspace\") }}\n                />\n                <SmallTextField\n                    name=\"description\""
+  },
+  {
+   "key": "e.g. Out of office",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Profile.tsx:154"
+   ],
+   "current": null,
+   "context": "                                name=\"custom_status\"\n                                label={_(\"Status\")}\n                                formDescription={_(\"Share what you are up to\")}\n                                inputProps={{ placeholder: _(\"e.g. Out of office\") }}\n                                rules={{\n                                    maxLength: { value: 140, message: _(\"Status cannot be more than 140 characters.\") },\n                                }}"
+  },
+  {
+   "key": "e.g. party, celebrate, dance",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Emojis/AddEmojiDialog.tsx:88"
+   ],
+   "current": null,
+   "context": "                name=\"keywords\"\n                label={_(\"Keywords\")}\n                formDescription={_(\"You will be able to search for this emoji by these keywords.(Optional)\")}\n                inputProps={{ placeholder: _(\"e.g. party, celebrate, dance\"), autoComplete: \"off\" }}\n            />\n        </UploadDocDialog>\n    )"
+  },
+  {
+   "key": "e.g. party_parrot",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Emojis/AddEmojiDialog.tsx:82"
+   ],
+   "current": null,
+   "context": "                    maxLength: { value: 20, message: _(\"Name must be less than 20 characters\") },\n                    pattern: { value: /^[a-z0-9_]+$/, message: _(\"Only lowercase letters, numbers, and underscores allowed\") },\n                }}\n                inputProps={{ placeholder: _(\"e.g. party_parrot\"), autoComplete: \"off\" }}\n            />\n            <DataField\n                name=\"keywords\""
+  },
+  {
+   "key": "e.g. Sales Invoice - Daily Reminder",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageForm.tsx:45"
+   ],
+   "current": null,
+   "context": "                    name=\"event_name\"\n                    label={_(\"Name\")}\n                    isRequired\n                    inputProps={{ placeholder: _(\"e.g. Sales Invoice - Daily Reminder\"), autoFocus: true }}\n                    rules={{\n                        required: _(\"Name is required.\"),\n                        maxLength: { value: 140, message: _(\"Name cannot be more than 140 characters.\") },"
+  },
+  {
+   "key": "Edit channel",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/EditChannelDescriptionButton.tsx:216"
+   ],
+   "current": null,
+   "context": "        <DrawerTrigger asChild>{trigger}</DrawerTrigger>\n        <DrawerContent>\n          <DrawerActionBar\n            title={_(\"Edit channel\")}\n            leading={\n              <DrawerClose asChild>\n                <Button variant=\"ghost\" size=\"md\" disabled={loading}>"
+  },
+  {
+   "key": "Edit channel details",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/EditChannelDescriptionButton.tsx:264"
+   ],
+   "current": null,
+   "context": "      </Tooltip>\n      <DialogContent>\n        <DialogHeader>\n          <DialogTitle>{_(\"Edit channel details\")}</DialogTitle>\n          <DialogDescription className=\"sr-only\">\n            {_(\"Update the channel name and description\")}\n          </DialogDescription>"
+  },
+  {
+   "key": "Edit channel form",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/EditChannelDescriptionButton.tsx:148"
+   ],
+   "current": null,
+   "context": "        id={FORM_ID}\n        onSubmit={form.handleSubmit(onSubmit)}\n        className=\"flex flex-col gap-4\"\n        aria-label={_(\"Edit channel form\")}\n      >\n        {error ? <ErrorBanner error={error} /> : null}\n        <FormField"
+  },
+  {
+   "key": "Edit channel name and description",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/EditChannelDescriptionButton.tsx:137"
+   ],
+   "current": null,
+   "context": "  };\n\n  const trigger = (\n    <Button variant=\"ghost\" isIconButton aria-label={_(\"Edit channel name and description\")}>\n      <Edit />\n    </Button>\n  );"
+  },
+  {
+   "key": "Edit Field",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionFieldDialog.tsx:36"
+   ],
+   "current": null,
+   "context": "            <DialogTrigger asChild>{children}</DialogTrigger>\n            <DialogContent className=\"sm:max-w-[560px]\">\n                <DialogHeader>\n                    <DialogTitle>{field ? _(\"Edit Field\") : _(\"Add Field\")}</DialogTitle>\n                </DialogHeader>\n                {open && (\n                    <FieldForm"
+  },
+  {
+   "key": "Edit last message",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/KeyboardShortcuts.tsx:122"
+   ],
+   "current": null,
+   "context": "                },\n                {\n                    keys: <Key><ArrowUpIcon /></Key>,\n                    icon: <PencilIcon />, label: _(\"Edit last message\"),\n                    description: _(\"With the message box empty, open your last message for editing.\"),\n                },\n                {"
+  },
+  {
+   "key": "Edit message...",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/EditMessageComposer.tsx:73",
+    "raven/apps/web/src/components/features/schedule-send/useScheduledMessageEdit.ts:85"
+   ],
+   "current": null,
+   "context": "        linkRef,\n        content: message.text,\n        autofocus: true,\n        placeholder: _(\"Edit message...\"),\n    })\n\n    const onSave = () => {"
+  },
+  {
+   "key": "Edit profile",
+   "refs": [
+    "raven/apps/web/src/components/features/profile/EditProfileDrawer.tsx:73",
+    "raven/apps/web/src/components/features/profile/EditProfileDrawer.tsx:77",
+    "raven/apps/web/src/pages/profile/Profile.tsx:170"
+   ],
+   "current": null,
+   "context": "    return (\n        <Drawer open={open} onOpenChange={onOpenChange}>\n            <DrawerContent>\n                <DrawerTitle className=\"sr-only\">{_(\"Edit profile\")}</DrawerTitle>\n                <DrawerDescription className=\"sr-only\">{_(\"Update your name, photo and profile details\")}</DrawerDescription>\n                <Form {...form}>\n                    <form onSubmit={form.handleSubmit(onSubmit)} className=\"flex flex-col gap-4 p-4 pb-2\">"
+  },
+  {
+   "key": "Edit reminder",
+   "refs": [
+    "raven/apps/web/src/components/features/reminders/ReminderDialog.tsx:106"
+   ],
+   "current": null,
+   "context": "        <ResponsiveDialog open={open} onClose={onClose}>\n            {/* Description is sr-only — required for a11y, visually redundant. */}\n            <ResponsiveDialogHeader\n                title={editing ? _(\"Edit reminder\") : _(\"Reminder\")}\n                description={_(\"Pick when to be reminded about this message.\")}\n                hideDescription\n            />"
+  },
+  {
+   "key": "Edit scheduled message",
+   "refs": [
+    "raven/apps/web/src/components/features/schedule-send/EditScheduledMessageSheet.tsx:46"
+   ],
+   "current": null,
+   "context": "                    the Create Channel sheet). */}\n                <div className=\"flex min-h-0 flex-col gap-5 px-4 pt-1 pb-2\">\n                    <DrawerTitle className=\"shrink-0 text-left text-2xl-semibold text-ink-gray-9\">\n                        {_(\"Edit scheduled message\")}\n                    </DrawerTitle>\n                    {/* Composer-style box: toolbar pinned on top, overflow-hidden clips\n                        its square band to the rounded corners. */}"
+  },
+  {
+   "key": "Edit the variable in your function schema.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/VariableBuilder.tsx:241"
+   ],
+   "current": null,
+   "context": "        <Dialog open={isOpen} onOpenChange={onOpenChange}>\n            <DialogContent className=\"sm:max-w-xl\">\n                <DialogTitle>{_(\"Edit Variable\")}</DialogTitle>\n                <DialogDescription className=\"sr-only\">{_(\"Edit the variable in your function schema.\")}</DialogDescription>\n                <VariableDialog\n                    onAdd={onAdd}\n                    allowNameChange={false}"
+  },
+  {
+   "key": "Edit Variable",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/DoctypeVariableBuilder.tsx:183",
+    "raven/apps/web/src/components/features/settings/panels/Functions/VariableBuilder.tsx:240"
+   ],
+   "current": null,
+   "context": "                </Button>\n            </DialogTrigger>\n            <DialogContent className=\"sm:max-w-xl\">\n                <DialogTitle>{_(\"Edit Variable\")}</DialogTitle>\n                <DialogDescription className=\"sr-only\">{_(\"Edit variable - {0} in the function.\", [field.fieldname])}</DialogDescription>\n                <DoctypeVariableDialogForm doctype={doctype} onAdd={onEditField} defaultValues={field} />\n            </DialogContent>"
+  },
+  {
+   "key": "Edit variable - {0} in the function.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/DoctypeVariableBuilder.tsx:184"
+   ],
+   "current": null,
+   "context": "            </DialogTrigger>\n            <DialogContent className=\"sm:max-w-xl\">\n                <DialogTitle>{_(\"Edit Variable\")}</DialogTitle>\n                <DialogDescription className=\"sr-only\">{_(\"Edit variable - {0} in the function.\", [field.fieldname])}</DialogDescription>\n                <DoctypeVariableDialogForm doctype={doctype} onAdd={onEditField} defaultValues={field} />\n            </DialogContent>\n        </Dialog>"
+  },
+  {
+   "key": "edited",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/MessageContent.tsx:106"
+   ],
+   "current": null,
+   "context": " * added text would fail the emoji-only check and shrink the emojis.\n */\nconst EditedMessageBody = ({ text, bubble = false }: { text: string; bubble?: boolean }) => {\n    const label = `(${_(\"edited\")})`\n    const injected = useMemo(() => {\n        const trimmed = text.trim()\n        if (!trimmed.endsWith(\"</p>\") || isJumbomojiHtml(trimmed)) return null"
+  },
+  {
+   "key": "Email is required",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Users/AddUserDialog.tsx:146"
+   ],
+   "current": null,
+   "context": "                    <FormField\n                        control={form.control}\n                        name=\"email\"\n                        rules={{ required: _(\"Email is required\") }}\n                        render={({ field }) => (\n                            <FormItem className=\"flex flex-col\">\n                                <FormLabel>"
+  },
+  {
+   "key": "Emoji",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/EmojiPickerButton.tsx:48",
+    "raven/apps/web/src/components/features/ChatInput/EmojiPickerButton.tsx:53"
+   ],
+   "current": null,
+   "context": "            <Tooltip>\n                <TooltipTrigger asChild>\n                    <PopoverTrigger asChild>\n                        <Button type=\"button\" variant=\"ghost\" size=\"sm\" isIconButton aria-label={_(\"Emoji\")}>\n                            <SmilePlusIcon />\n                        </Button>\n                    </PopoverTrigger>"
+  },
+  {
+   "key": "Emoji Name",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Emojis/AddEmojiDialog.tsx:75",
+    "raven/raven/raven_messaging/doctype/raven_custom_emoji/raven_custom_emoji.json"
+   ],
+   "current": null,
+   "context": "        >\n            <DataField\n                name=\"emoji_name\"\n                label={_(\"Emoji Name\")}\n                isRequired\n                rules={{\n                    required: _(\"Name is required\"),"
+  },
+  {
+   "key": "Emoji {0} already exists.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Emojis/AddEmojiDialog.tsx:62"
+   ],
+   "current": null,
+   "context": "            }}\n            beforeUpload={async (data, form) => {\n                if (await emojiNameExists(data.emoji_name)) {\n                    form.setError(\"emoji_name\", { message: _(\"Emoji {0} already exists.\", [data.emoji_name]) })\n                    return false\n                }\n                return true"
+  },
+  {
+   "key": "Emojis",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:139",
+    "raven/apps/web/src/components/features/settings/panels/Emojis/Emojis.tsx:35",
+    "raven/apps/web/src/components/features/settings/panels/Emojis/Emojis.tsx:176"
+   ],
+   "current": null,
+   "context": "        {\n            id: \"emojis\",\n            group: \"workspace\",\n            label: _(\"Emojis\"),\n            icon: SmilePlusIcon,\n            component: EmojisPanel,\n            description: _(\"Add custom emojis to use for your reactions. PNG, SVG and GIFs supported.\"),"
+  },
+  {
+   "key": "Enable AI Integration",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/AISettings.tsx:64",
+    "raven/raven/raven/doctype/raven_settings/raven_settings.json"
+   ],
+   "current": null,
+   "context": "        <>\n            <SwitchFormField\n                name=\"enable_ai_integration\"\n                label={_(\"Enable AI Integration\")}\n                formDescription={_(\"Turn on AI features across Raven.\")}\n            />\n"
+  },
+  {
+   "key": "Enable Code Interpreter",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentAITab.tsx:79",
+    "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+   ],
+   "current": null,
+   "context": "                        />\n                        <DocLinkedSwitchFormField\n                            name=\"enable_code_interpreter\"\n                            label={_(\"Enable Code Interpreter\")}\n                            docUrl=\"https://platform.openai.com/docs/assistants/tools/code-interpreter\"\n                            docTitle={_(\"View OpenAI documentation about Code Interpreter\")}\n                            formDescription={_("
+  },
+  {
+   "key": "Enable Debug Mode",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentAITab.tsx:103"
+   ],
+   "current": null,
+   "context": "\n            <SwitchFormField\n                name=\"debug_mode\"\n                label={_(\"Enable Debug Mode\")}\n                formDescription={_(\n                    \"If enabled, stack traces of errors will be sent as messages by the bot during runs.\\nThis is helpful when you're testing your bots and want to know where things are going wrong.\"\n                )}"
+  },
+  {
+   "key": "Enable File Search",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentAITab.tsx:70",
+    "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+   ],
+   "current": null,
+   "context": "                    <div className=\"grid items-start gap-4 md:grid-cols-2\">\n                        <DocLinkedSwitchFormField\n                            name=\"enable_file_search\"\n                            label={_(\"Enable File Search\")}\n                            docUrl=\"https://platform.openai.com/docs/assistants/tools/file-search\"\n                            docTitle={_(\"View OpenAI documentation about File Search\")}\n                            formDescription={_("
+  },
+  {
+   "key": "Enable Google APIs",
+   "refs": [
+    "raven/raven/raven/doctype/raven_settings/raven_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Useful for extracting information from documents before sending it to agents\",\n   \"fieldname\": \"enable_google_apis\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Google APIs\"\n  },\n  {\n   \"default\": \"us\","
+  },
+  {
+   "key": "Enable Local LLM",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/AISettings.tsx:115",
+    "raven/raven/raven/doctype/raven_settings/raven_settings.json"
+   ],
+   "current": null,
+   "context": "                    {/* Local LLM */}\n                    <SwitchFormField\n                        name=\"enable_local_llm\"\n                        label={_(\"Enable Local LLM\")}\n                        formDescription={_(\"Use a self-hosted, OpenAI-compatible model.\")}\n                    />\n                    {localEnabled ? ("
+  },
+  {
+   "key": "Enable Notifications",
+   "refs": [
+    "raven/apps/web/src/components/features/header/NavUserMenu/NavUserMenu.tsx:110"
+   ],
+   "current": null,
+   "context": "                </DropdownMenuItem>\n                {isPushAvailable && <DropdownMenuItem onClick={() => togglePush(!pushOn)}>\n                    <Bell />\n                    <span>{pushOn ? _(\"Disable Notifications\") : _(\"Enable Notifications\")}</span>\n                </DropdownMenuItem>}\n                <DropdownMenuSeparator />\n                {/* preventDefault keeps the menu open (spinner visible) while logout"
+  },
+  {
+   "key": "Enable OpenAI Services",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/AISettings.tsx:75",
+    "raven/raven/raven/doctype/raven_settings/raven_settings.json"
+   ],
+   "current": null,
+   "context": "                    {/* OpenAI */}\n                    <SwitchFormField\n                        name=\"enable_openai_services\"\n                        label={_(\"Enable OpenAI Services\")}\n                        formDescription={_(\"Use OpenAI models for AI features.\")}\n                    />\n                    {openaiEnabled ? ("
+  },
+  {
+   "key": "Enable Quiet Hours",
+   "refs": [
+    "raven/raven/raven/doctype/raven_settings/raven_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"enable_quiet_hours\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Quiet Hours\"\n  },\n  {\n   \"default\": \"09:00:00\","
+  },
+  {
+   "key": "Enable quiet hours",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/QuietHoursAdminSection.tsx:204"
+   ],
+   "current": null,
+   "context": "                <form onSubmit={form.handleSubmit(onSubmit)} noValidate className=\"flex flex-col gap-4\">\n                    <div className=\"flex items-center justify-between\">\n                        <Label htmlFor=\"enable_quiet_hours\">\n                            {_('Enable quiet hours')}\n                        </Label>\n                        <Switch\n                            size=\"md\""
+  },
+  {
+   "key": "Enable Security?",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookForm.tsx:130"
+   ],
+   "current": null,
+   "context": "                            <Switch checked={!!field.value} onCheckedChange={(v) => field.onChange(v ? 1 : 0)} />\n                        )}\n                    />\n                    <span className=\"text-p-base text-ink-gray-8\">{_(\"Enable Security?\")}</span>\n                    <Badge variant=\"subtle\">{_(\"Recommended\")}</Badge>\n                </div>\n                <FieldHelp>"
+  },
+  {
+   "key": "Enable this if you want the bot to be able to process files like Excel sheets or data from Insights.\\n\\nOpenAI Assistants run code in a sandboxed environment (on OpenAI servers) to do this.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentAITab.tsx:82"
+   ],
+   "current": null,
+   "context": "                            label={_(\"Enable Code Interpreter\")}\n                            docUrl=\"https://platform.openai.com/docs/assistants/tools/code-interpreter\"\n                            docTitle={_(\"View OpenAI documentation about Code Interpreter\")}\n                            formDescription={_(\n                                \"Enable this if you want the bot to be able to process files like Excel sheets or data from Insights.\\n\\nOpenAI Assistants run code in a sandboxed environment (on OpenAI servers) to do this.\"\n                            )}\n                        />"
+  },
+  {
+   "key": "Enable this if you want the bot to be able to read PDF files and scan them.\n\nFile search enables the assistant with knowledge from files that you upload. Once a file is uploaded, the assistant automatically decides when to retrieve content based on user requests.",
+   "refs": [
+    "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Enable this if you want the bot to be able to read PDF files and scan them.\\n\\nFile search enables the assistant with knowledge from files that you upload. Once a file is uploaded, the assistant automatically decides when to retrieve content based on user requests.\",\n   \"documentation_url\": \"https://platform.openai.com/docs/assistants/tools/file-search\",\n   \"fieldname\": \"enable_file_search\",\n   \"fieldtype\": \"Check\","
+  },
+  {
+   "key": "Enable this if you want the bot to be able to read PDF files and scan them.\\n\\nFile search enables the assistant with knowledge from files that you upload.\\nOnce a file is uploaded, the assistant automatically decides when to retrieve content based on user requests.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentAITab.tsx:73"
+   ],
+   "current": null,
+   "context": "                            label={_(\"Enable File Search\")}\n                            docUrl=\"https://platform.openai.com/docs/assistants/tools/file-search\"\n                            docTitle={_(\"View OpenAI documentation about File Search\")}\n                            formDescription={_(\n                                \"Enable this if you want the bot to be able to read PDF files and scan them.\\n\\nFile search enables the assistant with knowledge from files that you upload.\\nOnce a file is uploaded, the assistant automatically decides when to retrieve content based on user requests.\"\n                            )}\n                        />"
+  },
+  {
+   "key": "Enabling…",
+   "refs": [
+    "raven/apps/web/src/components/features/header/NavUserMenu/NavUserMenu.tsx:63",
+    "raven/apps/web/src/pages/profile/Profile.tsx:53"
+   ],
+   "current": null,
+   "context": "                    if (!granted) { setPushOn(false); throw new Error(_(\"Permission denied for push notifications\")) }\n                    setPushOn(true)\n                }),\n                { loading: _(\"Enabling…\"), success: _(\"Push notifications enabled\"), error: (e: Error) => e.message },\n            )\n        } else {\n            disablePush()"
+  },
+  {
+   "key": "End date",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/CreatePollForm.tsx:351"
+   ],
+   "current": null,
+   "context": "                        <div className=\"grid grid-cols-2 gap-2\">\n                            <DateField\n                                name=\"end_date\"\n                                label={_('End date')}\n                                isRequired\n                                rules={{\n                                    validate: (value: string) => {"
+  },
+  {
+   "key": "End time",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/CreatePollForm.tsx:363"
+   ],
+   "current": null,
+   "context": "                            />\n                            <DataField\n                                name=\"end_time\"\n                                label={_('End time')}\n                                inputProps={{\n                                    type: 'time',\n                                    step: TIME_STEP_SECONDS,"
+  },
+  {
+   "key": "Enter a description for this variable",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/DoctypeVariableDialogForm.tsx:173",
+    "raven/apps/web/src/components/features/settings/panels/Functions/VariableDialog.tsx:121"
+   ],
+   "current": null,
+   "context": "                label={_(\"Description\")}\n                isRequired\n                rules={{ required: true }}\n                inputProps={{ placeholder: _(\"Enter a description for this variable\"), className: \"field-sizing-fixed h-16 min-h-16\" }}\n                formDescription={_(\"This is used to describe what this variable is used for. A better description will help the AI Bot perform better.\")}\n            />\n        </div>"
+  },
+  {
+   "key": "Enter a valid time.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageForm.tsx:94"
+   ],
+   "current": null,
+   "context": "                        inputProps={{ type: \"time\" }}\n                        rules={{\n                            required: _(\"Time is required.\"),\n                            pattern: { value: /^\\d{2}:\\d{2}$/, message: _(\"Enter a valid time.\") },\n                        }}\n                    />\n                )}"
+  },
+  {
+   "key": "Enter key behaviour",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Preferences.tsx:231"
+   ],
+   "current": null,
+   "context": "\n    return <SettingsFormRow>\n        <div className=\"flex flex-col\">\n            <SettingsFormLabel htmlFor=\"enterKeyBehaviour\">{_(\"Enter key behaviour\")}</SettingsFormLabel>\n            <SettingsFormDescription>\n                {_(\"Choose whether to send a message or start a new line when pressing the Enter key.\")}<br />\n                {enterKeyBehaviour === \"send-message\" ? _(\"Pressing Enter will immediately send your message. Use Shift+Enter to add a new line.\") : _(\"Pressing Enter will add a new line. Use Ctrl / ⌘ + Enter to send your message.\")}"
+  },
+  {
+   "key": "Enter the credentials below and save.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/PushNotifications.tsx:80"
+   ],
+   "current": null,
+   "context": "                        </a>{\" \"}\n                        {_(\"and add your site to get an API Key and API Secret.\")}\n                    </li>\n                    <li>{_(\"Enter the credentials below and save.\")}</li>\n                    <li>{_(\"Register the site on Raven Cloud, then sync your users' devices.\")}</li>\n                </ol>\n            </div>"
+  },
+  {
+   "key": "Enter the workspace name to confirm deletion",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceActionMenu.tsx:165"
+   ],
+   "current": null,
+   "context": "            </AlertDialogHeader>\n            {error && <ErrorBanner error={error} />}\n            <div className=\"flex flex-col gap-2\">\n                <Label htmlFor=\"delete-workspace-name\">{_(\"Enter the workspace name to confirm deletion\")}</Label>\n                <Input\n                    id=\"delete-workspace-name\"\n                    value={typedName}"
+  },
+  {
+   "key": "Environment",
+   "refs": [
+    "raven/raven/raven/doctype/raven_push_token/raven_push_token.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"environment\",\n   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Environment\",\n   \"options\": \"Web\\nMobile\",\n   \"reqd\": 1\n  },"
+  },
+  {
+   "key": "Error fetching processors: {0}",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentDocumentProcessorsTab.tsx:112"
+   ],
+   "current": null,
+   "context": "                            <Alert theme=\"red\">\n                                <InfoIcon />\n                                <AlertDescription>\n                                    {_(\"Error fetching processors: {0}\", [processorsError.message])}\n                                </AlertDescription>\n                            </Alert>\n                        )}"
+  },
+  {
+   "key": "Error formatting JSON. Please check your JSON.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/VariableBuilder.tsx:40"
+   ],
+   "current": null,
+   "context": "\n            setValue(\"params\", JSON.stringify(json, null, 4))\n        } catch (e) {\n            toast.error(_(\"Error formatting JSON. Please check your JSON.\"))\n            setError((e as Error).message)\n        }\n    }"
+  },
+  {
+   "key": "Error in Raven Notification",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_document_notification/raven_document_notification.py:273",
+    "raven/raven/raven_integrations/doctype/raven_document_notification/raven_document_notification.py:284"
+   ],
+   "current": null,
+   "context": "\t\tmessage = _(\"Error while evaluating Raven Notification {0}. Please fix your template.\").format(\n\t\t\tfrappe.utils.get_link_to_form(\"Raven Document Notification\", notification_name)\n\t\t)\n\t\tfrappe.throw(message, title=_(\"Error in Raven Notification\"))\n\texcept Exception as e:\n\t\ttitle = str(e)\n\t\tmessage = frappe.get_traceback(with_context=True)"
+  },
+  {
+   "key": "Error loading processor types: {0}",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/ProcessorTypeSelector.tsx:36"
+   ],
+   "current": null,
+   "context": "        return (\n            <Alert theme=\"red\">\n                <CircleAlertIcon />\n                <AlertDescription>{_(\"Error loading processor types: {0}\", [typesError.message])}</AlertDescription>\n            </Alert>\n        )\n    }"
+  },
+  {
+   "key": "Error loading processors: {0}",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:194"
+   ],
+   "current": null,
+   "context": "        return (\n            <Alert theme=\"red\">\n                <CircleAlertIcon />\n                <AlertDescription>{_(\"Error loading processors: {0}\", [error.message])}</AlertDescription>\n            </Alert>\n        )\n    }"
+  },
+  {
+   "key": "Error loading variables in the builder. Please check your JSON structure.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/VariableBuilder.tsx:71",
+    "raven/apps/web/src/components/features/settings/panels/Functions/VariableBuilder.tsx:76"
+   ],
+   "current": null,
+   "context": "                            try {\n                                const json = typeof field.value === \"string\" ? JSON.parse(field.value) : field.value\n                                return (\n                                    <BuilderErrorBoundary fallback={<p className=\"text-sm text-ink-red-9\">{_(\"Error loading variables in the builder. Please check your JSON structure.\")}</p>}>\n                                        <VariableBuilderField json={json} onChange={(j) => field.onChange(JSON.stringify(j, null, 4))} />\n                                    </BuilderErrorBoundary>\n                                )"
+  },
+  {
+   "key": "Error reacting to message {0}",
+   "refs": [
+    "raven/raven/api/reactions.py:77"
+   ],
+   "current": null,
+   "context": "\n\t\treturn \"Ok\"\n\texcept Exception as e:\n\t\tfrappe.throw(_(\"Error reacting to message {0}\").format(str(e)))\n\n\ndef calculate_message_reaction(message_id, channel_id: str = None, do_not_publish: bool = False):"
+  },
+  {
+   "key": "Error sending message",
+   "refs": [
+    "raven/raven/public/js/timeline_button.js:312"
+   ],
+   "current": null,
+   "context": "                  frappe.utils.play_sound('email');\n                })\n                .catch((err) => {\n                  frappe.throw(__('Error sending message'));\n                });\n            };\n"
+  },
+  {
+   "key": "Error uploading file. Remove and try again.",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/InputFiles.tsx:126"
+   ],
+   "current": null,
+   "context": "                        isIconButton\n                        theme=\"red\"\n                        onClick={onRemoveClick}\n                        title={_(\"Error uploading file. Remove and try again.\")}\n                    >\n                        <AlertCircleIcon />\n                    </Button>"
+  },
+  {
+   "key": "Error while evaluating Raven Notification {0}. Please fix your template.",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_document_notification/raven_document_notification.py:270"
+   ],
+   "current": null,
+   "context": "\ttry:\n\t\treturn frappe.safe_eval(condition, None, context)\n\texcept TemplateError:\n\t\tmessage = _(\"Error while evaluating Raven Notification {0}. Please fix your template.\").format(\n\t\t\tfrappe.utils.get_link_to_form(\"Raven Document Notification\", notification_name)\n\t\t)\n\t\tfrappe.throw(message, title=_(\"Error in Raven Notification\"))"
+  },
+  {
+   "key": "Esc to cancel",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/EditMessageComposer.tsx:133",
+    "raven/apps/web/src/components/features/schedule-send/InlineScheduledMessageEditor.tsx:79"
+   ],
+   "current": null,
+   "context": "                        <EditorContent editor={editor} />\n                    </div>\n                    <div className=\"flex items-center md:justify-start justify-end gap-2 px-1.5 pb-1.5\">\n                        <span className=\"mr-auto px-1 text-xs text-ink-gray-4 hidden md:block\">{_(\"Esc to cancel\")}</span>\n                        <Button type=\"button\" variant=\"ghost\" size=\"sm\" onClick={close}>\n                            {_(\"Cancel\")}\n                        </Button>"
+  },
+  {
+   "key": "eu",
+   "refs": [
+    "raven/raven/raven/doctype/raven_settings/raven_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"google_processor_location\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Google Processor Location\",\n   \"options\": \"us\\neu\"\n  },\n  {\n   \"fieldname\": \"google_project_id\","
+  },
+  {
+   "key": "Evening",
+   "refs": [
+    "raven/apps/web/src/lib/timeUtils.ts:106"
+   ],
+   "current": null,
+   "context": "const SLOT_TIMES: { id: ScheduleSlotId; label: () => string; hour: number }[] = [\n    { id: \"morning\", label: () => _(\"Morning\"), hour: 9 },\n    { id: \"afternoon\", label: () => _(\"Afternoon\"), hour: 13 },\n    { id: \"evening\", label: () => _(\"Evening\"), hour: 18 },\n]\n\n/** Today / Tomorrow / next-working-day preset sections for the schedule submenu."
+  },
+  {
+   "key": "Every Day",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_scheduler_event/raven_scheduler_event.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"event_frequency\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Event Frequency\",\n   \"options\": \"Every Day\\nEvery Day of the week\\nDate of the month\\nCron\"\n  },\n  {\n   \"fieldname\": \"cron_expression\","
+  },
+  {
+   "key": "Every day",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageForm.tsx:182"
+   ],
+   "current": null,
+   "context": "                                {_(\"Weekdays\")}\n                            </Button>\n                            <Button type=\"button\" size=\"sm\" variant={sameAs(ALL_DAYS) ? \"subtle\" : \"ghost\"} onClick={() => field.onChange(ALL_DAYS)}>\n                                {_(\"Every day\")}\n                            </Button>\n                        </div>\n                        {fieldState.error && <FormMessage>{fieldState.error.message}</FormMessage>}"
+  },
+  {
+   "key": "Every Day of the week",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_scheduler_event/raven_scheduler_event.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"event_frequency\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Event Frequency\",\n   \"options\": \"Every Day\\nEvery Day of the week\\nDate of the month\\nCron\"\n  },\n  {\n   \"fieldname\": \"cron_expression\","
+  },
+  {
+   "key": "Everyone from your organisation will become a channel member and will be able to view its message history.",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/ChannelTypeSelect.tsx:170"
+   ],
+   "current": null,
+   "context": "                    </p>\n                    <ul className=\"list-inside list-disc space-y-1\">\n                      <li>\n                        {_(\n                          \"Everyone from your organisation will become a channel member and will be able to view its message history.\",\n                        )}\n                      </li>"
+  },
+  {
+   "key": "Everyone in this workspace is already a member of this channel.",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelMembersDrawer/AddChannelMembers.tsx:118"
+   ],
+   "current": null,
+   "context": "                    onSelectUsers={setSelectedUsers}\n                    workspace={channel.workspace ?? ''}\n                    excludeUserIds={existingMemberIds}\n                    emptyText={_('Everyone in this workspace is already a member of this channel.')}\n                />\n            </div>\n        </>"
+  },
+  {
+   "key": "Everyone is a member",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/CreateChannel/ChannelTypeSelector.tsx:21"
+   ],
+   "current": null,
+   "context": "const CHANNEL_TYPES: { value: RavenChannel['type']; label: string; description: string }[] = [\n    { value: 'Public', label: _('Public'), description: _('Anyone can view but is not a member by default') },\n    { value: 'Private', label: _('Private'), description: _('Join by invitation only') },\n    { value: 'Open', label: _('Open'), description: _('Everyone is a member') },\n]\n\n/**"
+  },
+  {
+   "key": "Everyone is already a member of this workspace.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceMembers.tsx:280"
+   ],
+   "current": null,
+   "context": "                        selectedUsers={selectedUsers}\n                        onSelectUsers={setSelectedUsers}\n                        excludeUserIds={existingMemberIds}\n                        emptyText={_(\"Everyone is already a member of this workspace.\")}\n                    />\n                </DialogBody>\n                <DialogFooter>"
+  },
+  {
+   "key": "Examples",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookDataTable.tsx:242"
+   ],
+   "current": null,
+   "context": "                        <SelectTrigger className=\"w-full\"><SelectValue placeholder={_(\"Select example\")} /></SelectTrigger>\n                        <SelectContent>\n                            <SelectGroup>\n                                <SelectLabel>{_(\"Examples\")}</SelectLabel>\n                                {exampleList.map((e) => <SelectItem key={e} value={e}>{e}</SelectItem>)}\n                            </SelectGroup>\n                        </SelectContent>"
+  },
+  {
+   "key": "Expand message",
+   "refs": [
+    "raven/apps/web/src/components/features/message/ThreadRootMessage.tsx:116",
+    "raven/apps/web/src/components/features/message/ThreadRootMessage.tsx:152"
+   ],
+   "current": null,
+   "context": "                            isIconButton\n                            className=\"shrink-0\"\n                            onClick={() => setExpanded((v) => !v)}\n                            aria-label={expanded ? _(\"Collapse message\") : _(\"Expand message\")}\n                        >\n                            {expanded ? <ChevronUp /> : <ChevronDown />}\n                        </Button>"
+  },
+  {
+   "key": "Failed to create chat channel",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentEditorView.tsx:46"
+   ],
+   "current": null,
+   "context": "                setOpenTab(\"\")\n                navigate(`/dm-channel/${encodeURIComponent(res.message)}`)\n            })\n            .catch(() => toast.error(_(\"Failed to create chat channel\")))\n    }\n\n    return ("
+  },
+  {
+   "key": "Failed to create document processor",
+   "refs": [
+    "raven/raven/ai/google_ai.py:287"
+   ],
+   "current": null,
+   "context": "\t\t}\n\texcept Exception as e:\n\t\tfrappe.log_error(f\"Error creating document processor {str(e)}\")\n\t\tfrappe.throw(_(\"Failed to create document processor\"))\n\n\n@frappe.whitelist(methods=[\"POST\"])"
+  },
+  {
+   "key": "Failed to create processor",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:86",
+    "raven/raven/ai/google_ai.py:275"
+   ],
+   "current": null,
+   "context": "                setSelectedProcessorType(\"\")\n            })\n            .catch((error: Error) =>\n                toast.error(_(\"Failed to create processor\"), { description: error.message }),\n            )\n    }\n"
+  },
+  {
+   "key": "Failed to delete document processor",
+   "refs": [
+    "raven/raven/ai/google_ai.py:345"
+   ],
+   "current": null,
+   "context": "\n\texcept Exception as e:\n\t\tfrappe.log_error(f\"Error deleting document processor {str(e)}\")\n\t\tfrappe.throw(_(\"Failed to delete document processor\"))\n\n\treturn {\"message\": \"Document processor deleted successfully\"}"
+  },
+  {
+   "key": "Failed to delete processor",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:99"
+   ],
+   "current": null,
+   "context": "                description: _(\"{0} has been deleted from your Google Cloud project.\", [processorName]),\n            })\n        }).catch((error: Error) =>\n            toast.error(_(\"Failed to delete processor\"), { description: error.message }),\n        )\n\n    if (!isAdmin) {"
+  },
+  {
+   "key": "Failed to register site on Raven Cloud",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/PushNotifications.tsx:151"
+   ],
+   "current": null,
+   "context": "                toast.success(_(\"Site registered on Raven Cloud. You can now send push notifications.\"))\n                onDone()\n            })\n            .catch((e) => errorResponseToast(_(\"Failed to register site on Raven Cloud\"), e))\n    }\n\n    return ("
+  },
+  {
+   "key": "Failed to remove member",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelMembersDrawer/ChannelMembersList.tsx:125"
+   ],
+   "current": null,
+   "context": "                toast.success(_(\"Member removed\"))\n                loadChannelMembers(call, channelID, true)\n            })\n            .catch((error) => errorResponseToast(_(\"Failed to remove member\"), error))\n    }\n\n    const handleToggleAdmin = (member: ChannelMemberData) => {"
+  },
+  {
+   "key": "Failed to send",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/OptimisticStatus.tsx:39",
+    "raven/apps/web/src/components/features/message/renderers/OptimisticStatus.tsx:57"
+   ],
+   "current": null,
+   "context": "    return (\n        <CircleAlertIcon\n            className=\"size-4 shrink-0 text-ink-red-6\"\n            aria-label={_(\"Failed to send\")}\n        />\n    )\n}"
+  },
+  {
+   "key": "Failed to submit the ticket",
+   "refs": [
+    "raven/raven/api/support_request.py:45"
+   ],
+   "current": null,
+   "context": "\tif response.status_code == 200:\n\t\treturn \"Ticket submitted successfully\"\n\telse:\n\t\tfrappe.throw(_(\"Failed to submit the ticket\"))"
+  },
+  {
+   "key": "Failed to sync data to Raven Cloud",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/PushNotifications.tsx:167"
+   ],
+   "current": null,
+   "context": "    const sync = () => {\n        call({})\n            .then(() => toast.success(_(\"Data synced to Raven Cloud.\")))\n            .catch((e) => errorResponseToast(_(\"Failed to sync data to Raven Cloud\"), e))\n    }\n\n    return ("
+  },
+  {
+   "key": "Failed to test connection",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/AISettings.tsx:55",
+    "raven/apps/web/src/components/features/settings/panels/AISettings.tsx:56"
+   ],
+   "current": null,
+   "context": "                toast.error(result.message.message)\n            }\n        } catch {\n            toast.error(_(\"Failed to test connection\"))\n            setTestResult({ success: false, message: _(\"Failed to test connection\") })\n        }\n    }"
+  },
+  {
+   "key": "Failed to update member",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelMembersDrawer/ChannelMembersList.tsx:136"
+   ],
+   "current": null,
+   "context": "                toast.success(newAdminStatus === 1 ? _(\"Member is now an admin\") : _(\"Admin rights removed\"))\n                loadChannelMembers(call, channelID, true)\n            })\n            .catch((error) => errorResponseToast(_(\"Failed to update member\"), error))\n    }\n\n    return ("
+  },
+  {
+   "key": "Failed to update sidebar",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/CustomizeSidebar/CustomizeSidebarDialog.tsx:84"
+   ],
+   "current": null,
+   "context": "                toast.success(_(\"Sidebar updated\"))\n                mutate()\n            }).catch((error) => {\n                errorResponseToast(_(\"Failed to update sidebar\"), error)\n            })\n        }\n    }"
+  },
+  {
+   "key": "FCM Token",
+   "refs": [
+    "raven/raven/raven/doctype/raven_push_token/raven_push_token.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"fcm_token\",\n   \"fieldtype\": \"Small Text\",\n   \"in_list_view\": 1,\n   \"label\": \"FCM Token\",\n   \"reqd\": 1\n  }\n ],"
+  },
+  {
+   "key": "FCM token not found",
+   "refs": [
+    "raven/raven/api/notification.py:114"
+   ],
+   "current": null,
+   "context": "\t\t\"Raven Push Token\", {\"fcm_token\": fcm_token, \"user\": frappe.session.user}\n\t)\n\tif not token_name:\n\t\tfrappe.throw(_(\"FCM token not found\"))\n\n\t# Delete the FCM token from the database using delete_doc to ensure that on_trash method gets called to delete the token from RC/FCP.\n\tfrappe.delete_doc(\"Raven Push Token\", token_name, delete_permanently=True)"
+  },
+  {
+   "key": "Fetch Attempts",
+   "refs": [
+    "raven/raven/raven_messaging/doctype/raven_link_preview/raven_link_preview.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"fetch_attempts\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Fetch Attempts\"\n  },\n  {\n   \"fieldname\": \"fetch_error\","
+  },
+  {
+   "key": "Fetch Error",
+   "refs": [
+    "raven/raven/raven_messaging/doctype/raven_link_preview/raven_link_preview.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"fetch_error\",\n   \"fieldtype\": \"Small Text\",\n   \"label\": \"Fetch Error\"\n  },\n  {\n   \"fieldname\": \"stale_after\","
+  },
+  {
+   "key": "Fetched",
+   "refs": [
+    "raven/raven/raven_messaging/doctype/raven_link_preview/raven_link_preview.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"fetched_on\",\n   \"fieldtype\": \"Datetime\",\n   \"label\": \"Fetched On\"\n  },\n  {\n   \"fieldname\": \"provider\","
+  },
+  {
+   "key": "Fetched On",
+   "refs": [
+    "raven/raven/raven_messaging/doctype/raven_link_preview/raven_link_preview.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"fetched_on\",\n   \"fieldtype\": \"Datetime\",\n   \"label\": \"Fetched On\"\n  },\n  {\n   \"fieldname\": \"provider\","
+  },
+  {
+   "key": "Field info",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookDataTable.tsx:177"
+   ],
+   "current": null,
+   "context": "    return (\n        <Dialog>\n            <DialogTrigger asChild>\n                <Button type=\"button\" variant=\"ghost\" size=\"sm\" isIconButton disabled={!fieldname} aria-label={_(\"Field info\")}>\n                    <InfoIcon className=\"text-ink-gray-6\" />\n                </Button>\n            </DialogTrigger>"
+  },
+  {
+   "key": "Field is required",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/DoctypeVariableDialogForm.tsx:120",
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionFieldDialog.tsx:111",
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionFieldDialog.tsx:251",
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookConditionForm.tsx:57"
+   ],
+   "current": null,
+   "context": "            dropdownClassName=\"max-w-[360px]\"\n            dropdownAlign=\"end\"\n            rules={{\n                required: _(\"Field is required\"),\n                onChange: (event) => onFieldSelect(event.target.value),\n            }}\n        >"
+  },
+  {
+   "key": "Field on which the condition will be applied",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookConditionForm.tsx:71"
+   ],
+   "current": null,
+   "context": "                                </Select>\n                            )}\n                        />\n                        <FieldHelp>{_(\"Field on which the condition will be applied\")}</FieldHelp>\n                    </div>\n                </div>\n            ) : null}"
+  },
+  {
+   "key": "Field {0} does not exist in {1}.",
+   "refs": [
+    "raven/raven/raven_integrations/doctype/raven_document_notification/raven_document_notification.py:112"
+   ],
+   "current": null,
+   "context": "\n\t\t\t\tif not has_field:\n\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t_(\"Field {0} does not exist in {1}.\").format(recipient.value, self.document_type)\n\t\t\t\t\t)\n\n\tdef on_update(self):"
+  },
+  {
+   "key": "Field {0} not found in {1}",
+   "refs": [
+    "raven/raven/raven_ai/doctype/raven_ai_function/raven_ai_function.py:123",
+    "raven/raven/raven_ai/doctype/raven_ai_function/raven_ai_function.py:129",
+    "raven/raven/raven_integrations/doctype/raven_message_action/raven_message_action.py:75"
+   ],
+   "current": null,
+   "context": "\t\t\t\t# Check if the child table variable has a valid name\n\t\t\t\tdocfield = child_meta.get_field(param.fieldname)\n\t\t\t\tif not docfield:\n\t\t\t\t\tfrappe.throw(_(\"Field {0} not found in {1}\").format(param.fieldname, child_table.options))\n\t\t\telse:\n\n\t\t\t\tfield = doctype.get_field(param.fieldname)"
+  },
+  {
+   "key": "Fieldname is required",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookDataTable.tsx:128"
+   ],
+   "current": null,
+   "context": "                <Controller\n                    control={control}\n                    name={`webhook_data.${index}.fieldname`}\n                    rules={{ required: _(\"Fieldname is required\") }}\n                    render={({ field: f }) => (\n                        <Select\n                            value={f.value}"
+  },
+  {
+   "key": "Fields to collect from the user when this action runs.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionFieldsBuilder.tsx:28"
+   ],
+   "current": null,
+   "context": "    return (\n        <div className=\"flex flex-col gap-3\">\n            <div className=\"flex items-start justify-between gap-2\">\n                <p className=\"text-p-sm text-ink-gray-5 max-w-lg\">{_(\"Fields to collect from the user when this action runs.\")}</p>\n                <div className=\"flex items-center gap-2\">\n                    {action === \"Create Document\" && doctype && (\n                        <ImportFromDoctype doctype={doctype} append={(d) => append(d as RavenMessageActionFields)} />"
+  },
+  {
+   "key": "Fields updated",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/DocumentPreviews.tsx:134"
+   ],
+   "current": null,
+   "context": "    const save = () => {\n        call({ doctype, fields: selected })\n            .then(() => {\n                toast.success(_(\"Fields updated\"), {\n                    id: \"preview-field-updated\"\n                })\n                onSaved()"
+  },
+  {
+   "key": "Figma",
+   "refs": [
+    "raven/raven/raven_messaging/doctype/raven_link_preview/raven_link_preview.json",
+    "raven/raven/raven_messaging/doctype/raven_message_links/raven_message_links.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"provider\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Provider\",\n   \"options\": \"Other\\nWikipedia\\nFrappe\\nSite Document Link\\nRaven Link\\nFrappe Meet\\nGoogle Meet\\nZoom\\nYouTube\\nYouTube Music\\nSpotify\\nApple Music\\nApple Podcasts\\nSoundCloud\\nLoom\\nVimeo\\nReddit\\nFigma\\nX\\nGitHub\\nHacker News\"\n  },\n  {\n   \"default\": \"Pending\","
+  },
+  {
+   "key": "File link copied",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/fileActions.ts:80"
+   ],
+   "current": null,
+   "context": "            onSelect: () => {\n                navigator.clipboard\n                    .writeText(absoluteURL)\n                    .then(() => toast.success(_(\"File link copied\")))\n                    .catch(() => toast.error(_(\"Could not copy link\")))\n            },\n        })"
+  },
+  {
+   "key": "File name is required",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/FileSources/FileSourceUploadDialog.tsx:42"
+   ],
+   "current": null,
+   "context": "            name=\"file_name\"\n            label={_(\"File Name\")}\n            isRequired\n            rules={{ required: _(\"File name is required\") }}\n        />\n    </UploadDocDialog>\n)"
+  },
+  {
+   "key": "File Search",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentListView.tsx:166"
+   ],
+   "current": null,
+   "context": "            <HoverCardContent className=\"w-60\">\n                <div className=\"flex flex-col gap-2\">\n                    <BotFeatureRow enabled={bot.allow_bot_to_write_documents} label={_(\"Can Write Documents\")} />\n                    <BotFeatureRow enabled={bot.enable_file_search} label={_(\"File Search\")} />\n                    <BotFeatureRow enabled={bot.enable_code_interpreter} label={_(\"Code Interpreter\")} />\n                    <BotFeatureRow enabled={bot.dynamic_instructions} label={_(\"Dynamic Instructions\")} />\n                </div>"
+  },
+  {
+   "key": "File size should not exceed {0}MB",
+   "refs": [
+    "raven/apps/web/src/components/common/UploadDocDialog.tsx:87"
+   ],
+   "current": null,
+   "context": "        const next = typeof action === \"function\" ? action(files) : action\n        const file = next[0]\n        if (file && maxBytes && file.size > maxBytes) {\n            toast.error(_(\"File size should not exceed {0}MB\", [String(Math.round(maxBytes / (1024 * 1024)))]))\n            setFiles([])\n            onFilePicked?.(null, form)\n            return"
+  },
+  {
+   "key": "File Sources",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:213",
+    "raven/apps/web/src/components/features/settings/panels/FileSources/FileSources.tsx:144",
+    "raven/apps/web/src/components/features/settings/panels/FileSources/FileSources.tsx:166",
+    "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+   ],
+   "current": null,
+   "context": "        {\n            id: \"file-sources\",\n            group: \"ai\",\n            label: _(\"File Sources\"),\n            icon: FolderIcon,\n            component: FileSourcesPanel,\n            description: _(\"Add files that can be used by AI Agents.\"),"
+  },
+  {
+   "key": "File Thumbnail",
+   "refs": [
+    "raven/raven/raven_messaging/doctype/raven_message/raven_message.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"file_thumbnail\",\n   \"fieldtype\": \"Attach\",\n   \"label\": \"File Thumbnail\"\n  },\n  {\n   \"fieldname\": \"image_width\","
+  },
+  {
+   "key": "File type",
+   "refs": [
+    "raven/apps/web/src/components/features/search/SearchFiltersBar.tsx:82"
+   ],
+   "current": null,
+   "context": "                (see onTabChange) — its badge lingering on other tabs read\n                like a filter that wasn't filtering. */}\n            {showFileTypeFilter && (\n                <Field label={_(\"File type\")}>\n                    <FileTypeFilter\n                        value={filters.file_type || []}\n                        onValueChange={onFileTypeChange}"
+  },
+  {
+   "key": "Files like manuals, sheets etc can be added to the AI agent as instructions.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentFileSourcesTab.tsx:59"
+   ],
+   "current": null,
+   "context": "        <div className=\"flex flex-col gap-4\">\n            <div className=\"flex flex-wrap items-start justify-between gap-4\">\n                <p className=\"text-p-sm text-ink-gray-6\">\n                    {_(\"Files like manuals, sheets etc can be added to the AI agent as instructions.\")}\n                </p>\n                <div className=\"flex items-center gap-2\">\n                    <FileSourceUploadDialog"
+  },
+  {
+   "key": "Files view",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/ChannelSettingsDrawer/ChannelFiles.tsx:202"
+   ],
+   "current": null,
+   "context": "                        onChange={(e) => setSearchQuery(e.target.value)}\n                    />\n                </InputGroup>\n                <TabsButton value={view} size=\"md\" onValueChange={(value) => setView(value as FilesView)} aria-label={_(\"Files view\")}>\n                    <TabsButtonItem value=\"grid\" iconOnly aria-label={_(\"Grid view\")} title={_(\"Grid view\")}>\n                        <LayoutGridIcon />\n                    </TabsButtonItem>"
+  },
+  {
+   "key": "Filter and Sort",
+   "refs": [
+    "raven/apps/web/src/components/features/channel/CustomizeSidebar/CustomizeSidebarButton.tsx:42"
+   ],
+   "current": null,
+   "context": "                </DropdownMenuTrigger>\n                <DropdownMenuContent align=\"start\" side=\"bottom\" className=\"min-w-64\">\n                    {!isMobile && <DropdownMenuItem onClick={() => setSettingsDialogAtom('preferences')}>\n                        <FilterIcon />{_(\"Filter and Sort\")}\n                    </DropdownMenuItem>}\n                    {/* Desktop only: AppShellLayout doesn't mount RavenSettingsDialog on\n                        mobile, so setting the tab atom there would do nothing at all. */}"
+  },
+  {
+   "key": "Filter by source",
+   "refs": [
+    "raven/apps/web/src/components/common/filters/ProviderFilter.tsx:151"
+   ],
+   "current": null,
+   "context": "                            isIconButton\n                            role=\"combobox\"\n                            aria-expanded={open}\n                            aria-label={_('Filter by source')}\n                            className={cn(\"relative\", triggerClassName)}\n                        >\n                            <ListFilterIcon />"
+  },
+  {
+   "key": "Filter members",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceMembers.tsx:135"
+   ],
+   "current": null,
+   "context": "                    />\n                </div>\n                <Select value={filter} onValueChange={(value) => setFilter(value as MemberFilter)}>\n                    <SelectTrigger inputSize=\"sm\" className=\"w-36\" aria-label={_(\"Filter members\")}>\n                        <SelectValue />\n                    </SelectTrigger>\n                    <SelectContent>"
+  },
+  {
+   "key": "Filtering & sorting",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Preferences.tsx:114"
+   ],
+   "current": null,
+   "context": "                        <QuickEmojis />\n\n                        {/* ---- Filtering & sorting ---- */}\n                        <SettingsSectionHeader>{_(\"Filtering & sorting\")}</SettingsSectionHeader>\n\n                        <SettingsFormRow>\n                            <div className=\"flex flex-col\">"
+  },
+  {
+   "key": "Find messages, files, links and polls. Type a query or pick a filter to start.",
+   "refs": [
+    "raven/apps/web/src/pages/search/Search.tsx:321"
+   ],
+   "current": null,
+   "context": "                                <EmptyMedia><SearchIcon /></EmptyMedia>\n                                <EmptyHeader>\n                                    <EmptyTitle>{_('Search Raven')}</EmptyTitle>\n                                    <EmptyDescription>{_('Find messages, files, links and polls. Type a query or pick a filter to start.')}</EmptyDescription>\n                                </EmptyHeader>\n                            </Empty>\n                        </div>"
+  },
+  {
+   "key": "Fire webhooks on specific events like when a message is sent or channel is created.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:192",
+    "raven/apps/web/src/components/features/settings/panels/Webhooks/WebhookListView.tsx:84"
+   ],
+   "current": null,
+   "context": "            label: _(\"Webhooks\"),\n            icon: WebhookIcon,\n            component: WebhooksPanel,\n            description: _(\"Fire webhooks on specific events like when a message is sent or channel is created.\"),\n        },\n        {\n            id: \"agents\","
+  },
+  {
+   "key": "First Name is required",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Users/AddUserDialog.tsx:184"
+   ],
+   "current": null,
+   "context": "                                label={_(\"First Name\")}\n                                isRequired\n                                rules={{\n                                    required: _(\"First Name is required\"),\n                                    maxLength: { value: 140, message: _(\"First name must be less than 140 characters\") },\n                                }}\n                            />"
+  },
+  {
+   "key": "First name must be less than 140 characters",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Users/AddUserDialog.tsx:185"
+   ],
+   "current": null,
+   "context": "                                isRequired\n                                rules={{\n                                    required: _(\"First Name is required\"),\n                                    maxLength: { value: 140, message: _(\"First name must be less than 140 characters\") },\n                                }}\n                            />\n                            <DataField"
+  },
+  {
+   "key": "float",
+   "refs": [
+    "raven/raven/raven_ai/doctype/raven_ai_function_params/raven_ai_function_params.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Type\",\n   \"options\": \"string\\ninteger\\nnumber\\nfloat\\nboolean\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "For example, you could schedule a reminder for a meeting to be sent to a channel every week.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageListView.tsx:129"
+   ],
+   "current": null,
+   "context": "                                <EmptyDescription>\n                                    {_(\"Schedule messages and reminders to be sent to you at a specific date and time.\")}\n                                    <br />\n                                    {_(\"For example, you could schedule a reminder for a meeting to be sent to a channel every week.\")}\n                                </EmptyDescription>\n                            </EmptyHeader>\n                            {isAdmin && ("
+  },
+  {
+   "key": "For OpenAI: gpt-4o, gpt-4, etc. For Local LLM: use model name from /v1/models endpoint",
+   "refs": [
+    "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"gpt-4o\",\n   \"depends_on\": \"eval:doc.is_ai_bot\",\n   \"description\": \"For OpenAI: gpt-4o, gpt-4, etc. For Local LLM: use model name from /v1/models endpoint\",\n   \"fieldname\": \"model\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Model\""
+  },
+  {
+   "key": "Format JSON",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Functions/VariableBuilder.tsx:59"
+   ],
+   "current": null,
+   "context": "                        <span className=\"text-sm font-medium\">{_(\"JSON\")}</span>\n                    </div>\n                    {viewMode === \"json\" && (\n                        <Button type=\"button\" variant=\"subtle\" onClick={formatJSON}>{_(\"Format JSON\")}</Button>\n                    )}\n                </div>\n                {error && <p className=\"text-sm text-ink-red-9\">{error}</p>}"
+  },
+  {
+   "key": "Formatting",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/ChatInput.tsx:511",
+    "raven/apps/web/src/components/features/ChatInput/ChatInput.tsx:522",
+    "raven/apps/web/src/components/features/settings/panels/KeyboardShortcuts.tsx:133"
+   ],
+   "current": null,
+   "context": "                                                variant=\"ghost\"\n                                                size=\"sm\"\n                                                isIconButton\n                                                aria-label={_(\"Formatting\")}\n                                                aria-pressed={showFormatting}\n                                                onClick={() => {\n                                                    setShowFormatting((v) => !v)"
+  },
+  {
+   "key": "Forward message",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/dialogs/ForwardMessageDialog.tsx:415"
+   ],
+   "current": null,
+   "context": "        // run-action dialogs.\n        <ResponsiveDialog open={open} onClose={onClose}>\n            <ResponsiveDialogHeader\n                title={_(\"Forward message\")}\n                // A batch member forwards its whole album — say so, since the dialog\n                // was opened from just one of its attachments.\n                description={"
+  },
+  {
+   "key": "Forwarded",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/MessageContent.tsx:131"
+   ],
+   "current": null,
+   "context": "    return (\n        <div className=\"flex items-center gap-1.5 py-0.5\">\n            {message.is_pinned === 1 && <MessageAttributeIndicator attribute={_(\"Pinned\")} Icon={PinIcon} theme=\"violet\" />}\n            {message.is_forwarded === 1 && <MessageAttributeIndicator attribute={_(\"Forwarded\")} Icon={ForwardIcon} />}\n        </div>\n    )\n}"
+  },
+  {
+   "key": "Forwarding",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/dialogs/ForwardMessageDialog.tsx:452"
+   ],
+   "current": null,
+   "context": "                    onClick={onForward}\n                    disabled={!recipient}\n                    loading={sending}\n                    loadingText={_(\"Forwarding\")}\n                    className=\"min-w-0 max-sm:order-first\"\n                >\n                    <span className=\"truncate\">"
+  },
+  {
+   "key": "Frappe Cloud",
+   "refs": [
+    "raven/raven/raven/doctype/raven_settings/raven_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"push_notification_service\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Push Notification Service\",\n   \"options\": \"Frappe Cloud\\nRaven\"\n  },\n  {\n   \"depends_on\": \"eval: doc.push_notification_service == \\\"Raven\\\";\","
+  },
+  {
+   "key": "Frappe HR isn't installed",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/FrappeHR.tsx:38"
+   ],
+   "current": null,
+   "context": "            {hrMissing && (\n                <Alert theme=\"amber\">\n                    <AlertTriangleIcon />\n                    <AlertTitle>{_(\"Frappe HR isn't installed\")}</AlertTitle>\n                    <AlertDescription>\n                        {_(\"Install Frappe HR on this site to sync employees, departments and leaves with Raven.\")}\n                    </AlertDescription>"
+  },
+  {
+   "key": "Frappe Integrations",
+   "refs": [
+    "raven/raven/raven/doctype/raven_settings/raven_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"frappe_integrations_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Frappe Integrations\"\n  },\n  {\n   \"description\": \"Site URLs of where Frappe Meet is hosted to show previews of meeting links. Separated by newline characters.\","
+  },
+  {
+   "key": "Frappe Meet",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/LinkPreview.tsx:709",
+    "raven/raven/raven_messaging/doctype/raven_link_preview/raven_link_preview.json",
+    "raven/raven/raven_messaging/doctype/raven_message_links/raven_message_links.json"
+   ],
+   "current": null,
+   "context": "    },\n    (href) => {\n        const frappeMeet = matchFrappeMeet(href)\n        return frappeMeet ? <MeetingCard href={href} brand={BRAND.frappeMeet} label={_(\"Frappe Meet\")} detail={frappeMeet.detail} /> : null\n    },\n]"
+  },
+  {
+   "key": "Frappe Meet Hosted URLs",
+   "refs": [
+    "raven/raven/raven/doctype/raven_settings/raven_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Site URLs of where Frappe Meet is hosted to show previews of meeting links. Separated by newline characters.\",\n   \"fieldname\": \"frappe_meet_hosted_urls\",\n   \"fieldtype\": \"Small Text\",\n   \"label\": \"Frappe Meet Hosted URLs\"\n  },\n  {\n   \"description\": \"The system will not generate link previews for these links if they appear in messages.\","
+  },
+  {
+   "key": "Frappe Meet sites",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/LinkSettingsAdminSection.tsx:60",
+    "raven/apps/web/src/components/features/settings/panels/LinkSettingsAdminSection.tsx:172"
+   ],
+   "current": null,
+   "context": "                    <SettingsFormLabel>\n                        <span className=\"flex items-center gap-1.5\">\n                            <BrandIcon brand={BRAND.frappeMeet} className=\"size-4 shrink-0\" />\n                            {_('Frappe Meet sites')}\n                        </span>\n                    </SettingsFormLabel>\n                    <SettingsFormDescription>"
+  },
+  {
+   "key": "Frequency is required.",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageForm.tsx:78"
+   ],
+   "current": null,
+   "context": "                    name=\"event_frequency\"\n                    label={_(\"How often?\")}\n                    isRequired\n                    rules={{ required: _(\"Frequency is required.\") }}\n                >\n                    <SelectItem value=\"Every Day\">{_(\"Daily\")}</SelectItem>\n                    <SelectItem value=\"Every Day of the week\">{_(\"Weekly\")}</SelectItem>"
+  },
+  {
+   "key": "Fri",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageForm.tsx:23"
+   ],
+   "current": null,
+   "context": "    { value: \"2\", short: _(\"Tue\"), long: _(\"Tuesday\") },\n    { value: \"3\", short: _(\"Wed\"), long: _(\"Wednesday\") },\n    { value: \"4\", short: _(\"Thu\"), long: _(\"Thursday\") },\n    { value: \"5\", short: _(\"Fri\"), long: _(\"Friday\") },\n    { value: \"6\", short: _(\"Sat\"), long: _(\"Saturday\") },\n    { value: \"0\", short: _(\"Sun\"), long: _(\"Sunday\") },\n]"
+  },
+  {
+   "key": "Full name",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Profile.tsx:131"
+   ],
+   "current": null,
+   "context": "                        <form id={FORM_ID} onSubmit={form.handleSubmit(onSubmit)} noValidate className=\"flex flex-col gap-5\">\n                            <DataField\n                                name=\"full_name\"\n                                label={_(\"Full name\")}\n                                isRequired\n                                rules={{\n                                    required: _(\"Name is required\"),"
+  }
+ ]
+}

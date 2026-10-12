@@ -1,0 +1,34 @@
+Invalid format. Try: 1 hour 30 minutes, 2 hours, 45 seconds, 1:30:45, 90s	解析器只认英文单位（h/m/s、hour/minute/second），示例改用 1h 30m 等缩写写法，避免用户照中文示例输入「1 小时」而报错
+Invalid format. Try: 1h 30m 45s, 1:30:45, 90s	示例中的 1h、30m、45s 是输入格式，照原样保留
+Invalid GeoJSON	GeoJSON 非全大写，混排守卫会报，改写为「地理 JSON 数据」；若加入 ALLOW 可改回「GeoJSON 无效」
+Invite Agent	Agent 此处指分配规则里的处理人（销售用户），非智能体；点击后跳转邀请用户页，故译「邀请用户」
+Invite As	新词：邀请时选择的角色，译「邀请身份」
+item	与 {0} 拼接成「3 项物料」，单复数同译
+items	同上
+Items are required	doc.py 批量接口的 items 指待处理的记录列表，译「条目」
+John, Jane, Doe	筛选框「属于」运算的示例占位，按 crm-01 %John%→%张三% 先例本地化为人名，保留半角逗号（筛选按半角逗号拆分）
+john@doe.com	示例邮箱，原样显示，建议进白名单
+Keeping my pipeline organized	新词：pipeline → 销售管道（官方 Sales Pipeline 有「销售渠道」「销售管道」两译，CRM 语境取销售管道）
+Last Response Time	新词：Duration 字段，译「最近响应时长」，与 Last Responded On「最近回复时间」区分
+Lead and deal visibility will no longer be restricted by the reporting tree. Are you sure?	新词：reporting tree → 汇报关系树
+Lost Details	新词：Lost Details 标签页 → 未成交详情（沿官方 Lost Reason → 未成交原因）
+Mandatory if	新词：表单字段条件规则，Mandatory if / Read-only if / Visible if → 必填条件 / 只读条件 / 显示条件
+Not in	沿官方 Not In → 不包括
+Not like	沿官方 Not Like → 不含关键字
+Not Synced	线索同步字段映射里未映射时的占位，译「不同步」
+old_value	代码里 _(data["old_value"]) 被误抽成源词，是字典键名，原样显示，建议进白名单
+Payment reminder from Frappé - (#{{ name }})	邮件主题示例占位；Frappé 的 é 会被混排守卫切成 Frapp 报错，改写为 Frappe（在 ALLOW 内）
+Pipedrive	品牌名（CRM 产品），原样显示，建议进白名单
+Referrals	新词：线索来源选项 → 转介绍
+Rolling Response Due	新词：SLA 状态选项，仿官方 First Response Due → 首次响应截止，译「滚动响应截止」
+Set once the first admin completes the onboarding persona questionnaire	新词：persona questionnaire → 用户画像问卷
+Setting Up	帮助文档侧栏分组标题，译「入门设置」
+Setting up Frappe Mail requires you to have an API key and API secret for your email account. Read more	Frappe Mail 中 Mail 不在 ALLOW，写作「Frappe 邮件服务」；API secret → API 私钥（新词）
+Setting up GMail requires you to enable two factor authentication and app specific passwords. Read more	GMail 不在 ALLOW，写作「Google 邮箱」
+Setting up Outlook requires you to enable two factor authentication and app specific passwords. Read more	Outlook 不在 ALLOW，写作「微软邮箱」；若加 ALLOW 宜改回原名
+Setting up Sendgrid requires you to enable two factor authentication and app specific passwords. Read more	Sendgrid 不在 ALLOW 且无通行中文名，写作「此邮件服务」（提示显示在该服务商卡片内，不致混淆）；建议把 Sendgrid 加入 ALLOW 后改回原名
+Setting up Sparkpost requires you to enable two factor authentication and app specific passwords. Read more	同上，Sparkpost
+Setting up Yahoo requires you to enable two factor authentication and app specific passwords. Read more	Yahoo 不在 ALLOW，写作「雅虎邮箱」
+Setting up Yandex requires you to enable two factor authentication and app specific passwords. Read more	同 Sendgrid，Yandex
+Setup the Exchange Rate Provider other than 'Frankfurter' in settings, as default provider does not support currency conversion for {0} to {1}.	Frankfurter 不在 ALLOW；它即默认服务商，译文以「默认汇率服务商」指代，意思不减
+Table MultiSelect requires a Table with at least one Link field	沿官方 Table MultiSelect → 表-多选

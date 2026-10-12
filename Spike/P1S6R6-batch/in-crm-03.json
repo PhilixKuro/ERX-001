@@ -1,0 +1,581 @@
+{
+ "group": "crm",
+ "items": [
+  {
+   "key": "Toggle on for Preview",
+   "refs": [
+    "crm/frontend/src/components/Modals/SidePanelModal.vue:59"
+   ],
+   "current": null,
+   "context": "            v-else\n            class=\"flex flex-1 justify-center items-center text-ink-gray-5 bg-surface-gray-2 rounded\"\n          >\n            {{ __('Toggle on for Preview') }}\n          </div>\n        </div>\n      </div>"
+  },
+  {
+   "key": "Too many failed attempts. Please try again after some time.",
+   "refs": [
+    "crm/crm/api/user.py:21"
+   ],
+   "current": null,
+   "context": "\n\ttracker = LoginAttemptTracker(user)\n\tif not tracker.is_user_allowed():\n\t\tfrappe.throw(_(\"Too many failed attempts. Please try again after some time.\"))\n\n\tif old_password == new_password:\n\t\tfrappe.throw("
+  },
+  {
+   "key": "Too many redirects while fetching recording",
+   "refs": [
+    "crm/crm/integrations/api.py:247"
+   ],
+   "current": null,
+   "context": "\t\tresp._pinned_session = session\n\t\treturn resp\n\n\tfrappe.throw(_(\"Too many redirects while fetching recording\"), frappe.ValidationError)\n\n\n@frappe.whitelist()"
+  },
+  {
+   "key": "Turn into a Group",
+   "refs": [
+    "crm/frontend/src/components/ConditionsFilter/CFCondition.vue:157"
+   ],
+   "current": null,
+   "context": "  conjunction: { type: String, default: 'and' },\n  disableAddCondition: { type: Boolean, default: false },\n  doctype: { type: String, default: '' },\n  variant: { type: String, default: 'subtle' },\n})\n\nconst condition = reactive(props.condition)"
+  },
+  {
+   "key": "Twilio",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_call_log/crm_call_log.json",
+    "crm/crm/fcrm/doctype/crm_telephony_agent/crm_telephony_agent.json",
+    "crm/frontend/src/components/Layouts/AppSidebar.vue:800",
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:51",
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:171"
+   ],
+   "current": null,
+   "context": "   \"in_list_view\": 1,\n   \"in_standard_filter\": 1,\n   \"label\": \"Telephony Medium\",\n   \"options\": \"\\nManual\\nTwilio\\nExotel\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Twilio App Name",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TwilioSettings.vue:68"
+   ],
+   "current": null,
+   "context": "          >\n            <div class=\"flex flex-col\">\n              <div class=\"text-p-base-medium text-ink-gray-7 truncate\">\n                {{ __('Twilio App Name') }}\n              </div>\n              <div class=\"text-p-sm text-ink-gray-5\">\n                {{ __('Select a Twilio app for your CRM') }}"
+  },
+  {
+   "key": "Twilio Apps",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_twilio_settings/crm_twilio_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"twilio_apps\",\n   \"fieldtype\": \"Data\",\n   \"hidden\": 1,\n   \"label\": \"Twilio Apps\"\n  }\n ],\n \"index_web_pages_for_search\": 1,"
+  },
+  {
+   "key": "Twilio configuration is missing",
+   "refs": [
+    "crm/crm/integrations/twilio/api.py:16"
+   ],
+   "current": null,
+   "context": "def validate_twilio_request(args, require_application_sid: bool = False):\n\ttwilio = Twilio.connect()\n\tif not twilio:\n\t\tfrappe.throw(_(\"Twilio configuration is missing\"), frappe.PermissionError)\n\n\taccount_sid = frappe.utils.cstr(args.get(\"AccountSid\"))\n\tif not account_sid or account_sid != frappe.utils.cstr(twilio.account_sid):"
+  },
+  {
+   "key": "Twilio Integration Disabled",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TwilioSettings.vue:115"
+   ],
+   "current": null,
+   "context": "            <div class=\"flex flex-col items-center gap-1.5 text-center\">\n              <PhoneIcon class=\"size-7.5 text-ink-gray-7\" />\n              <span class=\"text-lg-medium text-ink-gray-8\">\n                {{ __('Twilio Integration Disabled') }}\n              </span>\n              <span class=\"text-center text-p-base text-ink-gray-6\">\n                {{"
+  },
+  {
+   "key": "Twilio Settings",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TwilioSettings.vue:8"
+   ],
+   "current": null,
+   "context": "        <Button\n          variant=\"ghost\"\n          icon-left=\"lucide-chevron-left\"\n          :label=\"__('Twilio Settings')\"\n          size=\"md\"\n          class=\"cursor-pointer -ml-4 hover:bg-transparent focus:bg-transparent focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:none active:bg-transparent active:outline-none active:ring-0 active:ring-offset-0 active:text-ink-gray-5 text-2xl-semibold hover:opacity-70 !pr-0 !max-w-96 !justify-start\"\n          @click=\"emit('updateStep', 'telephony-settings')\""
+  },
+  {
+   "key": "TwiML SID",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_twilio_settings/crm_twilio_settings.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"enabled\",\n   \"fieldname\": \"twiml_sid\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"TwiML SID\",\n   \"permlevel\": 1\n  },\n  {"
+  },
+  {
+   "key": "Type an email address to invite",
+   "refs": [
+    "crm/frontend/src/components/Controls/MultiSelectEmailInput.vue:73",
+    "crm/frontend/src/components/Controls/MultiSelectUserInput.vue:73"
+   ],
+   "current": null,
+   "context": "                      {{\n                        fetchContacts\n                          ? __('No results found')\n                          : __('Type an email address to invite')\n                      }}\n                    </div>\n                    <ComboboxOption"
+  },
+  {
+   "key": "Unable to connect to Twilio account to fetch applications.",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_twilio_settings/crm_twilio_settings.py:117"
+   ],
+   "current": null,
+   "context": "\t\ttwilio = self.validate_twilio_account()\n\n\t\tif not twilio:\n\t\t\tfrappe.throw(_(\"Unable to connect to Twilio account to fetch applications.\"))\n\t\t\treturn\n\n\t\tapplications = [app.friendly_name for app in twilio.applications.list()]"
+  },
+  {
+   "key": "Unassign conditions are invalid",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:449"
+   ],
+   "current": null,
+   "context": "          assignmentRuleData.value.unassignConditionJson?.length > 0 &&\n          !validateConditions(assignmentRuleData.value.unassignConditionJson)\n        ) {\n          assignmentRuleErrors.value.unassignConditionError = __(\n            'Unassign conditions are invalid',\n          )\n        } else {"
+  },
+  {
+   "key": "Unassignment Condition",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:224",
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:602"
+   ],
+   "current": null,
+   "context": "      <div>\n        <div class=\"flex flex-col gap-1\">\n          <span class=\"text-lg-semibold text-ink-gray-8\">{{\n            __('Unassignment Condition')\n          }}</span>\n          <div class=\"flex items-center justify-between gap-6\">\n            <span class=\"text-p-sm text-ink-gray-6\">"
+  },
+  {
+   "key": "Ungroup Conditions",
+   "refs": [
+    "crm/frontend/src/components/ConditionsFilter/CFCondition.vue:167"
+   ],
+   "current": null,
+   "context": "\n  if (!props.isGroup && props.level < 4) {\n    options.push({\n      label: __('Turn into a Group'),\n      icon: () => h(GroupIcon),\n      onClick: () => {\n        emit('turnIntoGroup')"
+  },
+  {
+   "key": "Unlink & Delete",
+   "refs": [
+    "crm/frontend/src/components/BulkDeleteLinkedDocModal.vue:74"
+   ],
+   "current": null,
+   "context": "        <div class=\"flex flex-row-reverse gap-2\">\n          <Button\n            :label=\"\n              confirmDeleteInfo.delete ? __('Delete') : __('Unlink & Delete')\n            \"\n            :icon-left=\"confirmDeleteInfo.delete ? 'trash-2' : 'unlock'\"\n            variant=\"solid\""
+  },
+  {
+   "key": "Unlink & Delete {0} items",
+   "refs": [
+    "crm/frontend/src/components/BulkDeleteLinkedDocModal.vue:35"
+   ],
+   "current": null,
+   "context": "            @click=\"confirmDelete()\"\n          />\n          <Button\n            :label=\"__('Unlink & Delete {0} items', [props.items.length])\"\n            icon-left=\"lucide-unlock\"\n            variant=\"solid\"\n            @click=\"confirmUnlink()\""
+  },
+  {
+   "key": "Unlink & Delete {0} Users",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:214"
+   ],
+   "current": null,
+   "context": "          <div class=\"flex w-full justify-end gap-2\">\n            <template v-if=\"checkTargetChild\">\n              <Button\n                :label=\"__('Unlink & Delete {0} Users', [unlinkCount])\"\n                icon-left=\"lucide-trash-2\"\n                variant=\"solid\"\n                theme=\"red\""
+  },
+  {
+   "key": "unlinked_orphan",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_product_sync_issue/crm_product_sync_issue.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Kind\",\n   \"options\": \"unlinked_orphan\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Unnamed field",
+   "refs": [
+    "crm/crm/api/form.py:413",
+    "crm/crm/api/form.py:427"
+   ],
+   "current": null,
+   "context": "\t\t\tcontinue\n\t\tallowed = catalog.get(fieldname)\n\t\tif not allowed:\n\t\t\tfrappe.throw(_(\"{0} can't be collected by a form\").format(fieldname or _(\"Unnamed field\")))\n\t\trows.append({**f, \"fieldtype\": allowed[\"fieldtype\"], \"options\": allowed[\"options\"]})\n\treturn rows\n"
+  },
+  {
+   "key": "Update Configuration",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:181",
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:208"
+   ],
+   "current": null,
+   "context": "        </div>\n        <Button\n          :label=\"\n            isEnabled('twilio') ? __('Update Configuration') : __('Configure')\n          \"\n          @click=\"emit('updateStep', 'twilio-settings')\"\n        />"
+  },
+  {
+   "key": "Update the modified timestamp on new email communication & comment for leads & deals",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"1\",\n   \"description\": \"Update the modified timestamp on new email communication & comment for leads & deals\",\n   \"fieldname\": \"update_timestamp_on_new_communication\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Update timestamp on new communication\""
+  },
+  {
+   "key": "Update the modified timestamp on new email communication & comments for leads & deals",
+   "refs": [
+    "crm/frontend/src/components/Settings/GeneralSettings.vue:20"
+   ],
+   "current": null,
+   "context": "          </div>\n          <div class=\"text-p-sm text-ink-gray-5 truncate\">\n            {{\n              __(\n                'Update the modified timestamp on new email communication & comments for leads & deals',\n              )\n            }}"
+  },
+  {
+   "key": "Updated reports to",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:470"
+   ],
+   "current": null,
+   "context": "      fieldname: 'reports_to',\n      value: newParent || '',\n    })\n    toast.success(__('Updated reports to'))\n    nodes.reload()\n  } catch (e) {\n    toast.error(e?.messages?.[0] || __('Could not update report to'))"
+  },
+  {
+   "key": "Upload Photo",
+   "refs": [
+    "crm/frontend/src/components/Settings/Profile/ProfileSettings.vue:162"
+   ],
+   "current": null,
+   "context": "\nconst profileTooltipText = computed(() => {\n  if (isHoveringRemove.value) return __('Remove Photo')\n  return user.doc.user_image ? __('Change Photo') : __('Upload Photo')\n})\n\nconst fullNameRef = useTemplateRef('fullNameRef')"
+  },
+  {
+   "key": "Use \"{0}\"",
+   "refs": [
+    "crm/frontend/src/components/FieldLayout/Field.vue:635"
+   ],
+   "current": null,
+   "context": "      key: '__custom_value',\n      label: __('Use custom value'),\n      slots: {\n        label: ({ query }) => __('Use \"{0}\"', [query.trim()]),\n      },\n      condition: ({ query }) => {\n        const q = (query || '').trim()"
+  },
+  {
+   "key": "Use custom value",
+   "refs": [
+    "crm/frontend/src/components/FieldLayout/Field.vue:633"
+   ],
+   "current": null,
+   "context": "    {\n      type: 'custom',\n      key: '__custom_value',\n      label: __('Use custom value'),\n      slots: {\n        label: ({ query }) => __('Use \"{0}\"', [query.trim()]),\n      },"
+  },
+  {
+   "key": "Use ERPNext to Create Products",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_product/crm_product.py:45"
+   ],
+   "current": null,
+   "context": "\t\t\t\t_(\n\t\t\t\t\t\"ERPNext integration is active. Create an Item in ERPNext and it will appear in CRM Product automatically.\"\n\t\t\t\t),\n\t\t\t\ttitle=_(\"Use ERPNext to Create Products\"),\n\t\t\t)\n\n\tdef validate(self):"
+  },
+  {
+   "key": "User added to hierarchy",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:506"
+   ],
+   "current": null,
+   "context": "    if (added) {\n      toast.success(\n        added === 1\n          ? __('User added to hierarchy')\n          : __('{0} users added to hierarchy', [added]),\n      )\n    }"
+  },
+  {
+   "key": "User Configuration",
+   "refs": [
+    "crm/frontend/src/components/Settings/Settings.vue:103"
+   ],
+   "current": null,
+   "context": "const user = computed(() => getUser() || {})\n\nconst tabs = computed(() => {\n  let _tabs = [\n    {\n      label: __('User Configuration'),\n      items: ["
+  },
+  {
+   "key": "User {0} cannot be removed as it has a Role Profile assigned to it.",
+   "refs": [
+    "crm/crm/api/user.py:206"
+   ],
+   "current": null,
+   "context": "\n\tif user_doc.get(\"role_profiles\") or user_doc.get(\"role_profile_name\"):\n\t\treturn frappe.throw(\n\t\t\t_(\"User {0} cannot be removed as it has a Role Profile assigned to it.\").format(user)\n\t\t)\n\n\tif \"Sales User\" in roles:"
+  },
+  {
+   "key": "User {0} has been removed from CRM roles.",
+   "refs": [
+    "crm/crm/api/user.py:223"
+   ],
+   "current": null,
+   "context": "\tif node_name:\n\t\tfrappe.delete_doc(\"CRM Sales Hierarchy\", node_name, ignore_permissions=True)\n\n\tfrappe.msgprint(_(\"User {0} has been removed from CRM roles.\").format(user))\n\n\ndef remove_roles(self, *roles):"
+  },
+  {
+   "key": "User {0} is already mapped to hierarchy node {1}.",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_sales_hierarchy/crm_sales_hierarchy.py:43"
+   ],
+   "current": null,
+   "context": "\t\t\t)\n\t\t\tif existing:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\tfrappe._(\"User {0} is already mapped to hierarchy node {1}.\").format(self.user, existing)\n\t\t\t\t)\n\n\t\t# A node with reports_to becomes a child so its parent must be a group"
+  },
+  {
+   "key": "Users Added Successfully",
+   "refs": [
+    "crm/frontend/src/components/Modals/AddExistingUserModal.vue:103"
+   ],
+   "current": null,
+   "context": "    role: role.value,\n  }),\n  onSuccess: () => {\n    toast.success(__('Users Added Successfully'))\n    newUsers.value = []\n    show.value = false\n    users.reload()"
+  },
+  {
+   "key": "Valid conditions are required",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/utils.js:187"
+   ],
+   "current": null,
+   "context": "          slaData.value.condition_json.length > 0 &&\n          !validateConditions(slaData.value.condition_json)\n        ) {\n          slaDataErrors.value.condition = __('Valid conditions are required')\n        } else {\n          slaDataErrors.value.condition = ''\n        }"
+  },
+  {
+   "key": "Value already exists",
+   "refs": [
+    "crm/frontend/src/components/Controls/TableMultiselectInput.vue:105"
+   ],
+   "current": null,
+   "context": "  error.value = null\n\n  if (values.value.some((row) => row[linkField.value.fieldname] === value)) {\n    error.value = __('Value already exists')\n    return\n  }\n"
+  },
+  {
+   "key": "Verify Connection",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:110"
+   ],
+   "current": null,
+   "context": "              :loading=\"erpnextCRMSettingsResource.setValue.loading\"\n              @click=\"verifyConnection\"\n            >\n              {{ __('Verify Connection') }}\n            </Button>\n          </div>\n          <div"
+  },
+  {
+   "key": "View documentation",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:9"
+   ],
+   "current": null,
+   "context": "          <h2 class=\"flex text-2xl-semibold leading-none h-5\">\n            {{ __('Sales Hierarchy') }}\n          </h2>\n          <Tooltip :text=\"__('View documentation')\">\n            <a\n              href=\"https://docs.frappe.io/crm/settings/sales-hierarchy\"\n              target=\"_blank\""
+  },
+  {
+   "key": "View Location",
+   "refs": [
+    "crm/frontend/src/components/Controls/GeolocationControl.vue:50"
+   ],
+   "current": null,
+   "context": "  <!-- Map Dialog -->\n  <Dialog\n    v-model:open=\"showModal\"\n    :title=\"disabled ? __('View Location') : __('Set Location')\"\n    :size=\"'4xl'\"\n  >\n    <template #default>"
+  },
+  {
+   "key": "Visible if",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FieldCard.vue:134"
+   ],
+   "current": null,
+   "context": "          v-model=\"dependsOnModel\"\n          type=\"text\"\n          size=\"sm\"\n          :label=\"__('Visible if')\"\n          :placeholder=\"rulePlaceholder\"\n        />\n        <FormControl"
+  },
+  {
+   "key": "Walk-ins",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:80"
+   ],
+   "current": null,
+   "context": "      { label: __('Email'), value: 'email' },\n      { label: __('Phone calls'), value: 'phone_calls' },\n      { label: __('Referrals'), value: 'referrals' },\n      { label: __('Walk-ins'), value: 'walk_ins' },\n      { label: __('CSV imports'), value: 'csv_imports' },\n      { label: __('Other'), value: 'other' },\n    ],"
+  },
+  {
+   "key": "We're unable to connect your call right now. Please try again later.",
+   "refs": [
+    "crm/crm/integrations/twilio/api.py:108"
+   ],
+   "current": null,
+   "context": "\ndef _call_failed_response():\n\tresp = VoiceResponse()\n\tresp.say(_(\"We're unable to connect your call right now. Please try again later.\"))\n\treturn resp\n\n"
+  },
+  {
+   "key": "Website forms",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:73"
+   ],
+   "current": null,
+   "context": "    title: __('How do new leads usually come to you?'),\n    multiple: true,\n    options: [\n      { label: __('Website forms'), value: 'website_forms' },\n      { label: __('Facebook/Instagram Ads'), value: 'meta_ads' },\n      { label: __('Google Ads'), value: 'google_ads' },\n      { label: __('WhatsApp'), value: 'whatsapp' },"
+  },
+  {
+   "key": "Welcome to Frappe CRM",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:132"
+   ],
+   "current": null,
+   "context": "  },\n])\n\nusePageMeta(() => ({ title: __('Welcome to Frappe CRM') }))\n</script>"
+  },
+  {
+   "key": "What are your biggest challenges with sales today?",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:87"
+   ],
+   "current": null,
+   "context": "  },\n  {\n    key: 'biggest_challenges',\n    title: __('What are your biggest challenges with sales today?'),\n    multiple: true,\n    options: [\n      { label: __('Capturing leads'), value: 'capturing_leads' },"
+  },
+  {
+   "key": "What would you like to accomplish first?",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:118"
+   ],
+   "current": null,
+   "context": "  },\n  {\n    key: 'first_goal',\n    title: __('What would you like to accomplish first?'),\n    optional: true,\n    options: [\n      { label: __('Import my existing data'), value: 'import_data' },"
+  },
+  {
+   "key": "WhatsApp Message",
+   "refs": [
+    "crm/frontend/src/components/Activities/ActivityHeader.vue:146"
+   ],
+   "current": null,
+   "context": "    {\n      icon: h(AttachmentIcon, { class: 'h-4 w-4' }),\n      label: __('Upload Attachment'),\n      onClick: () => (showFilesUploader.value = true),\n    },\n    {\n      icon: h(WhatsAppIcon, { class: 'h-4 w-4' }),"
+  },
+  {
+   "key": "Work Schedule & Holidays",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaHolidays.vue:5"
+   ],
+   "current": null,
+   "context": "  <div class=\"flex items-center justify-between\">\n    <div class=\"flex flex-col gap-1\">\n      <div class=\"text-lg-semibold text-ink-gray-8\">\n        {{ __('Work Schedule & Holidays') }}\n      </div>\n      <div class=\"text-p-sm text-ink-gray-6 max-w-lg\">\n        {{"
+  },
+  {
+   "key": "You are not allowed to invite Sales Managers",
+   "refs": [
+    "crm/crm/api/__init__.py:119"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.throw(_(\"You are not allowed to invite System Managers\"), frappe.PermissionError)\n\n\tif role == \"Sales Manager\" and \"System Manager\" not in user_roles:\n\t\tfrappe.throw(_(\"You are not allowed to invite Sales Managers\"), frappe.PermissionError)\n\n\tif role not in [\"System Manager\", \"Sales Manager\", \"Sales User\"]:\n\t\tfrappe.throw(_(\"Cannot invite for this role\"), frappe.PermissionError)"
+  },
+  {
+   "key": "You are not allowed to invite System Managers",
+   "refs": [
+    "crm/crm/api/__init__.py:116"
+   ],
+   "current": null,
+   "context": "\tuser_roles = frappe.get_roles(frappe.session.user)\n\n\tif role == \"System Manager\" and \"System Manager\" not in user_roles:\n\t\tfrappe.throw(_(\"You are not allowed to invite System Managers\"), frappe.PermissionError)\n\n\tif role == \"Sales Manager\" and \"System Manager\" not in user_roles:\n\t\tfrappe.throw(_(\"You are not allowed to invite Sales Managers\"), frappe.PermissionError)"
+  },
+  {
+   "key": "You are not permitted to access CRM resources.",
+   "refs": [
+    "crm/crm/api/session.py:11"
+   ],
+   "current": null,
+   "context": "\troles = set(frappe.get_roles())\n\n\tif not roles.intersection(set(CRM_ALLOWED_ROLES)):\n\t\tfrappe.throw(_(\"You are not permitted to access CRM resources.\"), frappe.PermissionError)\n\n\treturn {\n\t\t\"is_system_manager\": \"System Manager\" in roles,"
+  },
+  {
+   "key": "You are not permitted to create leads.",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_call_log/crm_call_log.py:281"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.throw(_(\"You are not permitted to update this call log.\"), frappe.PermissionError)\n\n\tif not frappe.has_permission(\"CRM Lead\", \"create\"):\n\t\tfrappe.throw(_(\"You are not permitted to create leads.\"), frappe.PermissionError)\n\n\tlead_details_data = frappe.parse_json(lead_details or {})\n\tif lead_details_data and not isinstance(lead_details_data, dict):"
+  },
+  {
+   "key": "You are not permitted to update this call log.",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_call_log/crm_call_log.py:278"
+   ],
+   "current": null,
+   "context": "\tcall_doc = frappe.get_doc(\"CRM Call Log\", call_log_name)\n\n\tif not call_doc.has_permission(\"write\"):\n\t\tfrappe.throw(_(\"You are not permitted to update this call log.\"), frappe.PermissionError)\n\n\tif not frappe.has_permission(\"CRM Lead\", \"create\"):\n\t\tfrappe.throw(_(\"You are not permitted to create leads.\"), frappe.PermissionError)"
+  },
+  {
+   "key": "You can get your access key from ",
+   "refs": [
+    "crm/frontend/src/components/Settings/DashboardSettings.vue:145"
+   ],
+   "current": null,
+   "context": "            }}\n          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{ __('You can get your access key from ') }}\n            <a\n              class=\"hover:underline text-ink-gray-7\"\n              :href=\"providerMeta.docsUrl\""
+  },
+  {
+   "key": "You cannot remove yourself.",
+   "refs": [
+    "crm/crm/api/user.py:194"
+   ],
+   "current": null,
+   "context": "\tfrappe.only_for([\"System Manager\", \"Sales Manager\"], True)\n\n\tif user == frappe.session.user:\n\t\tfrappe.throw(_(\"You cannot remove yourself.\"), frappe.PermissionError)\n\n\tuser_doc = frappe.get_doc(\"User\", user)\n\troles = [d.role for d in user_doc.roles]"
+  },
+  {
+   "key": "You do not have enough permissions to access Frappe CRM. Please contact your administrator if you believe this is an error.",
+   "refs": [
+    "crm/frontend/src/pages/NotPermitted.vue:12"
+   ],
+   "current": null,
+   "context": "      <div class=\"border-t w-full my-[15px]\" />\n      <p class=\"text-ink-gray-4 text-p-base\">\n        {{\n          __(\n            'You do not have enough permissions to access Frappe CRM. Please contact your administrator if you believe this is an error.',\n          )\n        }}"
+  },
+  {
+   "key": "You do not have permission to access Frappe CRM",
+   "refs": [
+    "crm/crm/www/crm.py:18"
+   ],
+   "current": null,
+   "context": "\ndef get_context():\n\tfrom crm.api import check_app_permission\n\n\tif not check_app_permission():\n\t\tfrappe.throw(_(\"You do not have permission to access Frappe CRM\"), frappe.PermissionError)\n"
+  },
+  {
+   "key": "You don't have permission to delete this attachment",
+   "refs": [
+    "crm/crm/api/__init__.py:155"
+   ],
+   "current": null,
+   "context": "@frappe.whitelist(methods=[\"DELETE\", \"POST\"])\ndef delete_attachment(doctype: str, docname: str, file_url: str):\n\tif not frappe.has_permission(doctype, doc=docname, ptype=\"write\"):\n\t\tfrappe.throw(_(\"You don't have permission to delete this attachment\"), frappe.PermissionError)\n\n\tfile_name = frappe.db.get_value(\n\t\t\"File\","
+  },
+  {
+   "key": "You must be logged in to change your password",
+   "refs": [
+    "crm/crm/api/user.py:17"
+   ],
+   "current": null,
+   "context": "\t\"\"\"\n\tuser = frappe.session.user\n\tif user == \"Guest\":\n\t\tfrappe.throw(_(\"You must be logged in to change your password\"), frappe.AuthenticationError)\n\n\ttracker = LoginAttemptTracker(user)\n\tif not tracker.is_user_allowed():"
+  },
+  {
+   "key": "Your account is not configured with a phone number. Please contact your administrator.",
+   "refs": [
+    "crm/crm/integrations/twilio/api.py:71"
+   ],
+   "current": null,
+   "context": "\tfrom_number = _get_caller_number(args.Caller)\n\tif not from_number:\n\t\tresp = VoiceResponse()\n\t\tresp.say(_(\"Your account is not configured with a phone number. Please contact your administrator.\"))\n\t\treturn Response(resp.to_xml(), mimetype=\"text/xml\")\n\n\tcall_details = TwilioCallDetails(args, call_from=from_number)"
+  },
+  {
+   "key": "Your old conditions will be overwritten. Are you sure you want to save?",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyView.vue:413"
+   ],
+   "current": null,
+   "context": "      showConfirmDialog.value = {\n        show: true,\n        title: __('Confirm Overwrite'),\n        message: __(\n          'Your old conditions will be overwritten. Are you sure you want to save?',\n        ),\n        onConfirm: () => {"
+  },
+  {
+   "key": "Zoho CRM",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:62"
+   ],
+   "current": null,
+   "context": "      { label: __('Spreadsheets'), value: 'spreadsheets' },\n      { label: __('HubSpot'), value: 'hubspot' },\n      { label: __('Salesforce'), value: 'salesforce' },\n      { label: __('Zoho CRM'), value: 'zoho' },\n      { label: __('Pipedrive'), value: 'pipedrive' },\n      { label: __('Another CRM'), value: 'other_crm' },\n      { label: __('Other'), value: 'other' },"
+  },
+  {
+   "key": "{0} (Invalid time format)",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/utils.js:254"
+   ],
+   "current": null,
+   "context": "            } catch {\n              // If time parsing fails, mark as invalid\n              invalidTimeRanges.push(\n                __(`{0} (Invalid time format)`, [day.workday]),\n              )\n            }\n          }"
+  },
+  {
+   "key": "{0} can't be collected by a form",
+   "refs": [
+    "crm/crm/api/form.py:413"
+   ],
+   "current": null,
+   "context": "\t\t\tcontinue\n\t\tallowed = catalog.get(fieldname)\n\t\tif not allowed:\n\t\t\tfrappe.throw(_(\"{0} can't be collected by a form\").format(fieldname or _(\"Unnamed field\")))\n\t\trows.append({**f, \"fieldtype\": allowed[\"fieldtype\"], \"options\": allowed[\"options\"]})\n\treturn rows\n"
+  },
+  {
+   "key": "{0} can't be set as a hidden field",
+   "refs": [
+    "crm/crm/api/form.py:427"
+   ],
+   "current": null,
+   "context": "\t\tfieldname = h.get(\"fieldname\")\n\t\tallowed = catalog.get(fieldname)\n\t\tif not allowed:\n\t\t\tfrappe.throw(_(\"{0} can't be set as a hidden field\").format(fieldname or _(\"Unnamed field\")))\n\t\trows.append({**h, \"fieldtype\": allowed[\"fieldtype\"], \"options\": allowed[\"options\"]})\n\treturn rows\n"
+  },
+  {
+   "key": "{0} can't be used as a layout break",
+   "refs": [
+    "crm/crm/api/form.py:408"
+   ],
+   "current": null,
+   "context": "\t\tif f.get(\"fieldtype\") in LAYOUT_BREAKS:\n\t\t\t# a break carries no data, but `accept()` still writes any row naming a field\n\t\t\tif meta.has_field(fieldname):\n\t\t\t\tfrappe.throw(_(\"{0} can't be used as a layout break\").format(fieldname))\n\t\t\trows.append(f)\n\t\t\tcontinue\n\t\tallowed = catalog.get(fieldname)"
+  },
+  {
+   "key": "{0} isn't a linkable field on a CRM form.",
+   "refs": [
+    "crm/crm/api/form.py:276"
+   ],
+   "current": null,
+   "context": "\ta site-level Custom DocPerm.\"\"\"\n\t_check_manager()\n\tif doctype not in _link_target_doctypes():\n\t\tfrappe.throw(_(\"{0} isn't a linkable field on a CRM form.\").format(doctype))\n\n\tif not guest_can_select(doctype):\n\t\tfrom frappe.permissions import add_permission"
+  },
+  {
+   "key": "{0} not yet synced",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:569"
+   ],
+   "current": null,
+   "context": "    )\n  }\n  if (!parts.length) return ''\n  return __('{0} not yet synced', [parts.join(__(' and '))])\n})\n\nconst isDisabled = computed(() => {"
+  },
+  {
+   "key": "{0} users added to hierarchy",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:507"
+   ],
+   "current": null,
+   "context": "      toast.success(\n        added === 1\n          ? __('User added to hierarchy')\n          : __('{0} users added to hierarchy', [added]),\n      )\n    }\n    if (lastError) {"
+  },
+  {
+   "key": "{0}% complete",
+   "refs": [
+    "crm/frontend/src/components/Questionnaire.vue:92"
+   ],
+   "current": null,
+   "context": "\nconst labels = computed(() => ({\n  progress: (n, total) => __('Step {0} of {1}', [n, total]),\n  complete: (pct) => __('{0}% complete', [pct]),\n  selectMultiple: __('Select all that apply'),\n  back: __('Back to previous question'),\n  next: __('Next question'),"
+  }
+ ]
+}

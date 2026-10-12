@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "D:\ERX-001\Spike\P1S6R4-baseline.py", line 312, in <module>
+    main()
+  File "D:\ERX-001\Spike\P1S6R4-baseline.py", line 279, in main
+    heads = commits(args.allow_unlocked)
+  File "D:\ERX-001\Spike\P1S6R4-baseline.py", line 268, in commits
+    raise ValueError(f"Unlocked commits (pass --allow-unlocked to proceed): {unlocked}")
+ValueError: Unlocked commits (pass --allow-unlocked to proceed): {'frappe_china': ['af015fa59b593d91deba1cb8aa31f6593e377f3c', '1d51db2b7a775002078961477c7ccf0f5dbc8fc4']}
+exit=1

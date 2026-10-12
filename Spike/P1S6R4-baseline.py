@@ -1,5 +1,6 @@
 import argparse
 import ast
+import importlib.util
 import csv
 import json
 import re
@@ -97,21 +98,36 @@ def merged_dict():
     return merged, plain_keys
 
 
-def gaps(merged):
+def untranslated():
+    """Load frappe_china.tests.translation_whitelist.UNTRANSLATED by path, without importing frappe."""
+    path = app_path("frappe_china") / "tests/translation_whitelist.py"
+    spec = importlib.util.spec_from_file_location("translation_whitelist", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.UNTRANSLATED
+
+
+def gaps(merged, whitelist=None):
+    whitelist = untranslated() if whitelist is None else whitelist
     result = {}
     identity_counts = {}
+    whitelisted = {}
     for app in APPS[:-1]:
         missing = []
         identity = 0
+        whitelisted[app] = 0
         for entry in parse_po(app_path(app) / "locale/main.pot"):
             key = entry_key(entry)
             value = merged.get(key) or merged.get(entry["id"])
+            if key in whitelist:
+                whitelisted[app] += 1
+                continue
             if not value or value == entry["id"]:
                 missing.append([key, entry["refs"]])
                 identity += bool(value and value == entry["id"])
         result[app] = missing
         identity_counts[app] = identity
-    return result, identity_counts
+    return result, identity_counts, whitelisted
 
 
 def collisions(merged, plain_keys):
@@ -238,25 +254,31 @@ def official_overrides():
     return [{"key": key, **official[key], "ours": ours[key]} for key in sorted(ours.keys() & official.keys())]
 
 
-def commits():
-    result = {}
+def commits(allow_unlocked: bool) -> dict:
+    """Return {"heads": {app: sha}, "unlocked": {app: [head, locked]}}; refuse unlocked trees unless allowed."""
+    heads, unlocked = {}, {}
     locked = {app["app_name"]: app["commit"] for app in json.loads((PROJECT / "docker/apps.json").read_text(encoding="utf-8-sig"))}
     for app in APPS:
         completed = subprocess.run(["git", "-C", str(ROOT / "apps" / app), "rev-parse", "HEAD"],
                                    check=True, capture_output=True, text=True)
-        result[app] = completed.stdout.strip()
-        if result[app] != locked[app]:
-            raise ValueError(f"Unlocked commit for {app}: {result[app]} != {locked[app]}")
-    return result
+        heads[app] = completed.stdout.strip()
+        if heads[app] != locked[app]:
+            unlocked[app] = [heads[app], locked[app]]
+    if unlocked and not allow_unlocked:
+        raise ValueError(f"Unlocked commits (pass --allow-unlocked to proceed): {unlocked}")
+    if unlocked:
+        print(f"WARNING: running on unlocked commits: {unlocked}")
+    return {"heads": heads, "unlocked": unlocked}
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", default=str(Path(__file__).with_name("P1S6R4-baseline.out.json")))
+    parser.add_argument("--allow-unlocked", action="store_true")
     args = parser.parse_args()
-    heads = commits()
+    heads = commits(args.allow_unlocked)
     merged, plain_keys = merged_dict()
-    missing, identity_counts = gaps(merged)
+    missing, identity_counts, whitelisted = gaps(merged)
     collision_groups = collisions(merged, plain_keys)
     surface, scope, missing_doctypes, original_missing = demo_surface(doctypes(), merged)
     demo_groups = {target: {"sources": sources, "visible": {
@@ -268,6 +290,7 @@ def main():
         "gaps": missing,
         "gap_counts": {app: len(items) for app, items in missing.items()},
         "identity_gap_counts": identity_counts,
+        "whitelisted": whitelisted,
         "collision_count": len(collision_groups),
         "collisions": collision_groups,
         "demo_collisions": demo_groups,
@@ -279,7 +302,7 @@ def main():
         "lg009_original_scope_missing": original_missing,
     }
     Path(args.out).write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(json.dumps({key: output[key] for key in ("commits", "gap_counts", "identity_gap_counts",
+    print(json.dumps({key: output[key] for key in ("commits", "gap_counts", "identity_gap_counts", "whitelisted",
         "collision_count", "demo_surface_count", "lg009_missing_doctypes", "lg009_original_scope_missing")},
         ensure_ascii=False, indent=2))
     print(f"demo collision groups: {len(demo_groups)}; official overrides: {len(output['official_overrides'])}")

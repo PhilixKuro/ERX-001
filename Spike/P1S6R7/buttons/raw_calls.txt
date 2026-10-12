@@ -1,0 +1,166 @@
+sales_order.js:90 | Update Items | grp= | add_custom_button(__("Update Items"), () => { erpnext.utils.update_child_items({ frm: frm, child_docname: "items", child_doctype: "Sales Order Detail", cannot_add_row: false, has_reserved_stock: frm.d
+sales_order.js:106 | Reserve | grp=Stock Reservation | add_custom_button( __("Reserve"), () => frm.events.create_stock_reservation_entries(frm), __("Stock Reservation") )
+sales_order.js:121 | Unreserve | grp=Stock Reservation | add_custom_button( __("Unreserve"), () => frm.events.cancel_stock_reservation_entries(frm), __("Stock Reservation") )
+sales_order.js:134 | Reserved Stock | grp=Stock Reservation | add_custom_button( __("Reserved Stock"), () => frm.events.show_reserved_stock(frm), __("Stock Reservation") )
+sales_order.js:188 | Purchase Order | grp=Get Items From | add_custom_button( __("Purchase Order"), () => { erpnext.utils.map_current_doc({ method: "erpnext.buying.doctype.purchase_order.purchase_order.make_inter_company_sales_order", source_doctype: "Purchas
+sales_order.js:946 | Update Items | grp= | add_custom_button(__("Update Items"), () => { erpnext.utils.update_child_items({ frm: this.frm, child_docname: "items", child_doctype: "Sales Order Detail", cannot_add_row: false, }); })
+sales_order.js:959 | Resume | grp=Status | add_custom_button( __("Resume"), function () { me.frm.cscript.update_status("Resume", "Draft"); }, __("Status") )
+sales_order.js:969 | Close | grp=Status | add_custom_button(__("Close"), () => this.close_sales_order(), __("Status"))
+sales_order.js:973 | Re-open | grp=Status | add_custom_button( __("Re-open"), function () { me.frm.cscript.update_status("Re-open", "Draft"); }, __("Status") )
+sales_order.js:994 | Hold | grp=Status | add_custom_button( __("Hold"), () => this.hold_sales_order(), __("Status") )
+sales_order.js:1000 | Close | grp=Status | add_custom_button( __("Close"), () => this.close_sales_order(), __("Status") )
+sales_order.js:1010 | Subcontracting Inward Order | grp=Create | add_custom_button( __("Subcontracting Inward Order"), () => { me.make_subcontracting_inward_order(); }, __("Create") )
+sales_order.js:1027 | Pick List | grp=Create | add_custom_button( __("Pick List"), () => this.create_pick_list(), __("Create") )
+sales_order.js:1047 | Delivery Note | grp=Create | add_custom_button( __("Delivery Note"), () => this.make_delivery_note_based_on_delivery_date(true), __("Create") )
+sales_order.js:1055 | Work Order | grp=Create | add_custom_button( __("Work Order"), () => this.make_work_order(), __("Create") )
+sales_order.js:1063 | Production Plan | grp=Create | add_custom_button( __("Production Plan"), () => this.make_production_plan(), __("Create") )
+sales_order.js:1077 | Sales Invoice | grp=Create | add_custom_button( __("Sales Invoice"), () => me.make_sales_invoice(), __("Create") )
+sales_order.js:1092 | Material Request | grp=Create | add_custom_button( __("Material Request"), () => this.make_material_request(), __("Create") )
+sales_order.js:1098 | Request for Raw Materials | grp=Create | add_custom_button( __("Request for Raw Materials"), () => this.make_raw_material_request(), __("Create") )
+sales_order.js:1111 | Purchase Order | grp=Create | add_custom_button( __("Purchase Order"), () => this.make_purchase_order(), __("Create") )
+sales_order.js:1121 | Maintenance Visit | grp=Create | add_custom_button( __("Maintenance Visit"), () => this.make_maintenance_visit(), __("Create") )
+sales_order.js:1128 | Maintenance Schedule | grp=Create | add_custom_button( __("Maintenance Schedule"), () => this.make_maintenance_schedule(), __("Create") )
+sales_order.js:1138 | Project | grp=Create | add_custom_button(__("Project"), () => this.make_project(), __("Create"))
+sales_order.js:1154 | Create | grp= | add_custom_button( button_label, function () { me.make_inter_company_order(); }, __("Create") )
+sales_order.js:1167 | Payment Request | grp=Create | add_custom_button( __("Payment Request"), () => this.make_payment_request_with_schedule(), __("Create") )
+sales_order.js:1175 | Payment | grp=Create | add_custom_button( __("Payment"), () => this.make_payment_entry(), __("Create") )
+sales_order.js:1191 | Quotation | grp=Get Items From | add_custom_button( __("Quotation"), function () { let d = erpnext.utils.map_current_doc({ method: "erpnext.selling.doctype.quotation.quotation.make_sales_order", source_doctype: "Quotation", target: m
+work_order.js:162 | Alternate Item | grp= | add_custom_button(__("Alternate Item"), () => { erpnext.utils.select_alternate_items({ frm: frm, child_docname: "required_items", warehouse_field: "source_warehouse", child_doctype: "Work Order Item",
+work_order.js:203 | Create Job Card | grp= | add_custom_button(__("Create Job Card"), () => { frm.trigger("make_job_card"); })
+work_order.js:212 | BOM | grp=Create | add_custom_button( __("BOM"), () => { frm.trigger("make_bom"); }, __("Create") )
+work_order.js:228 | Disassemble Order | grp=Create | add_custom_button( __("Disassemble Order"), () => { frm.trigger("make_disassembly_order"); }, __("Create") )
+work_order.js:237 | ? | grp= | add_custom_button_to_return_components"); frm.trigger("allow_alternative_item"); frm.trigger("hide_reserve_stock_button"); frm.trigger("toggle_items_editable"); frm.trigger("set_fg_warehouse_mandatory
+work_order.js:292 | ? | grp= | add_custom_button_to_return_components: function (frm)
+work_order.js:299 | Return Components | grp= | add_custom_button(__("Return Components"), function () { frm.trigger("create_stock_return_entry"); })
+work_order.js:764 | Close | grp=Status | add_custom_button( __("Close"), function () { frappe.confirm(__("Once the Work Order is Closed. It can't be resumed."), () => { erpnext.work_order.change_work_order_status(frm, "Closed"); }); }, __("S
+work_order.js:774 | Stop | grp=Status | add_custom_button( __("Stop"), function () { erpnext.work_order.change_work_order_status(frm, "Stopped"); }, __("Status") )
+work_order.js:782 | Re-open | grp=Status | add_custom_button( __("Re-open"), function () { erpnext.work_order.change_work_order_status(frm, "Resumed"); }, __("Status") )
+work_order.js:816 | Create Pick List | grp= | add_custom_button(__("Create Pick List"), function () { erpnext.work_order.create_pick_list(frm); })
+work_order.js:820 | Material Request | grp= | add_custom_button(__("Material Request"), function () { erpnext.work_order.make_material_request(frm); })
+work_order.js:824 | Start | grp= | add_custom_button(__("Start"), function () { erpnext.work_order.make_se(frm, "Material Transfer for Manufacture"); })
+work_order.js:837 | Additional Material Transfer | grp=Make | add_custom_button( __("Additional Material Transfer"), function () { let purpose = "Material Transfer for Manufacture"; erpnext.work_order .show_prompt_for_qty_input(frm, purpose, qty, 1) .then((data)
+work_order.js:883 | Material Consumption | grp=Make | add_custom_button( __("Material Consumption"), function () { const backflush_raw_materials_based_on = frm.doc.__onload.backflush_raw_materials_based_on; erpnext.work_order.make_consumption_se( frm, ba
+work_order.js:904 | Finish | grp= | add_custom_button(__("Finish"), function () { erpnext.work_order.make_se(frm, "Manufacture"); })
+work_order.js:919 | Finish | grp= | add_custom_button(__("Finish"), function () { erpnext.work_order.make_se(frm, "Manufacture"); })
+work_order.js:928 | Finish | grp= | add_custom_button(__("Finish"), function () { erpnext.work_order.make_se(frm, "Manufacture"); })
+work_order.js:944 | Reserve | grp=Stock Reservation | add_custom_button( __("Reserve"), () => erpnext.stock_reservation.make_entries(frm, "required_items"), __("Stock Reservation") )
+work_order.js:953 | Unreserve | grp=Stock Reservation | add_custom_button( __("Unreserve"), () => erpnext.stock_reservation.unreserve_stock(frm), __("Stock Reservation") )
+work_order.js:960 | Reserved Stock | grp=Stock Reservation | add_custom_button( __("Reserved Stock"), () => erpnext.stock_reservation.show_reserved_stock(frm, "required_items"), __("Stock Reservation") )
+purchase_order.js:105 | Return of Components | grp=Create | add_custom_button( __("Return of Components"), () => { frm.call({ method: "erpnext.controllers.subcontracting_controller.get_materials_from_supplier", freeze: true, freeze_message: __("Creating Stock 
+purchase_order.js:324 | Update Items | grp= | add_custom_button(__("Update Items"), () => { erpnext.utils.update_child_items({ frm: this.frm, child_docname: "items", child_doctype: "Purchase Order Detail", cannot_add_row: false, }); })
+purchase_order.js:337 | Hold | grp=Status | add_custom_button( __("Hold"), () => this.hold_purchase_order(), __("Status") )
+purchase_order.js:343 | Resume | grp=Status | add_custom_button( __("Resume"), () => this.unhold_purchase_order(), __("Status") )
+purchase_order.js:349 | Close | grp=Status | add_custom_button( __("Close"), () => this.close_purchase_order(), __("Status") )
+purchase_order.js:358 | Deliver (Dropship) | grp=Status | add_custom_button( __("Deliver (Dropship)"), this.delivered_by_supplier.bind(this), __("Status") )
+purchase_order.js:368 | Re-open | grp=Status | add_custom_button( __("Re-open"), () => this.unclose_purchase_order(), __("Status") )
+purchase_order.js:383 | Purchase Receipt | grp=Create | add_custom_button( __("Purchase Receipt"), () => { me.make_purchase_receipt(); }, __("Create") )
+purchase_order.js:393 | Material to Supplier | grp=Transfer | add_custom_button( __("Material to Supplier"), function () { me.make_stock_entry(); }, __("Transfer") )
+purchase_order.js:403 | Subcontracting Order | grp=Create | add_custom_button( __("Subcontracting Order"), () => { me.make_subcontracting_order(); }, __("Create") )
+purchase_order.js:416 | Purchase Invoice | grp=Create | add_custom_button( __("Purchase Invoice"), () => { me.make_purchase_invoice(); }, __("Create") )
+purchase_order.js:429 | Payment | grp=Create | add_custom_button( __("Payment"), () => this.make_payment_entry(), __("Create") )
+purchase_order.js:437 | Payment Request | grp=Create | add_custom_button( __("Payment Request"), function () { me.make_payment_request_with_schedule(); }, __("Create") )
+purchase_order.js:455 | Create | grp= | add_custom_button( button_label, function () { me.make_inter_company_order(me.frm); }, __("Create") )
+purchase_order.js:527 | Material Request | grp=Get Items From | add_custom_button( __("Material Request"), function () { erpnext.utils.map_current_doc({ method: "erpnext.stock.doctype.material_request.material_request.make_purchase_order", source_doctype: "Materia
+purchase_order.js:552 | Supplier Quotation | grp=Get Items From | add_custom_button( __("Supplier Quotation"), function () { erpnext.utils.map_current_doc({ method: "erpnext.buying.doctype.supplier_quotation.supplier_quotation.make_purchase_order", source_doctype: "
+purchase_order.js:575 | Update Rate as per Last Purchase | grp=Tools | add_custom_button( __("Update Rate as per Last Purchase"), function () { frappe.call({ method: "get_last_purchase_rate", doc: me.frm.doc, callback: function (r, rt) { me.frm.dirty(); me.frm.cscript.ca
+purchase_order.js:590 | Link to Material Request | grp= | add_custom_button( __("Link to Material Request"), function () { var my_items = []; for (var i in me.frm.doc.items) { if (!me.frm.doc.items[i].material_request) { my_items.push(me.frm.doc.items[i].ite
+purchase_receipt.js:44 | Debit Note | grp=Create | add_custom_button( __("Debit Note"), function () { frappe.model.open_mapped_doc({ method: "erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice", frm: cur_frm, }); }, __("Crea
+purchase_receipt.js:58 | Delivery Note | grp=Create | add_custom_button( __("Delivery Note"), function () { frappe.model.open_mapped_doc({ method: "erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_inter_company_delivery_note", frm: cur_frm, }
+purchase_receipt.js:87 | Landed Cost Voucher | grp=Create | add_custom_button( __("Landed Cost Voucher"), () => { frm.events.make_lcv(frm); }, __("Create") )
+purchase_receipt.js:96 | ? | grp= | add_custom_buttons(frm)
+purchase_receipt.js:115 | ? | grp= | add_custom_buttons: function (frm)
+purchase_receipt.js:117 | Purchase Invoice | grp=Get Items From | add_custom_button( __("Purchase Invoice"), function () { if (!frm.doc.supplier) { frappe.throw({ title: __("Mandatory"), message: __("Please Select a Supplier"), }); } erpnext.utils.map_current_doc({ 
+purchase_receipt.js:191 | Asset | grp=View | add_custom_button( __("Asset"), function () { frappe.route_options = { purchase_receipt: me.frm.doc.name, }; frappe.set_route("List", "Asset"); }, __("View") )
+purchase_receipt.js:202 | Asset Movement | grp=View | add_custom_button( __("Asset Movement"), function () { frappe.route_options = { reference_name: me.frm.doc.name, }; frappe.set_route("List", "Asset Movement"); }, __("View") )
+purchase_receipt.js:216 | Purchase Order | grp=Get Items From | add_custom_button( __("Purchase Order"), function () { if (!me.frm.doc.supplier) { frappe.throw({ title: __("Mandatory"), message: __("Please Select a Supplier"), }); } erpnext.utils.map_current_doc({
+purchase_receipt.js:250 | Close | grp=Status | add_custom_button(__("Close"), this.close_purchase_receipt, __("Status"))
+purchase_receipt.js:253 | Purchase Return | grp=Create | add_custom_button(__("Purchase Return"), this.make_purchase_return, __("Create"))
+purchase_receipt.js:255 | Make Stock Entry | grp=Create | add_custom_button( __("Make Stock Entry"), cur_frm.cscript["Make Stock Entry"], __("Create") )
+purchase_receipt.js:262 | Purchase Invoice | grp=Create | add_custom_button( __("Purchase Invoice"), this.make_purchase_invoice, __("Create") )
+purchase_receipt.js:268 | Sample Retention Stock Entry | grp=Create | add_custom_button( __("Sample Retention Stock Entry"), this.make_retention_stock_entry, __("Create") )
+purchase_receipt.js:279 | Reopen | grp=Status | add_custom_button(__("Reopen"), this.reopen_purchase_receipt, __("Status"))
+purchase_invoice.js:93 | Change Release Date | grp=Hold Invoice | add_custom_button( __("Change Release Date"), function () { me.change_release_date(); }, __("Hold Invoice") )
+purchase_invoice.js:100 | Unblock Invoice | grp=Create | add_custom_button( __("Unblock Invoice"), function () { me.unblock_invoice(); }, __("Create") )
+purchase_invoice.js:108 | Block Invoice | grp=Create | add_custom_button( __("Block Invoice"), function () { me.block_invoice(); }, __("Create") )
+purchase_invoice.js:124 | Payment | grp=Create | add_custom_button(__("Payment"), () => this.make_payment_entry(), __("Create"))
+purchase_invoice.js:130 | Return / Debit Note | grp=Create | add_custom_button( __("Return / Debit Note"), this.make_debit_note.bind(this), __("Create") )
+purchase_invoice.js:145 | Payment Request | grp=Create | add_custom_button( __("Payment Request"), function () { me.make_payment_request_with_schedule(); }, __("Create") )
+purchase_invoice.js:155 | Purchase Order | grp=Get Items From | add_custom_button( __("Purchase Order"), function () { erpnext.utils.map_current_doc({ method: "erpnext.buying.doctype.purchase_order.purchase_order.make_purchase_invoice", source_doctype: "Purchase O
+purchase_invoice.js:180 | Purchase Receipt | grp=Get Items From | add_custom_button( __("Purchase Receipt"), function () { erpnext.utils.map_current_doc({ method: "erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice", source_doctype: "Purch
+purchase_invoice.js:227 | Create | grp= | add_custom_button( "Inter Company Invoice", function () { me.make_inter_company_invoice(me.frm); }, __("Create") )
+purchase_invoice.js:631 | ? | grp= | add_custom_buttons(frm)
+purchase_invoice.js:640 | ? | grp= | add_custom_buttons: function (frm)
+purchase_invoice.js:642 | Purchase Receipt | grp=Create | add_custom_button( __("Purchase Receipt"), () => { frm.events.make_purchase_receipt(frm); }, __("Create") )
+purchase_invoice.js:652 | Purchase Receipt | grp=View | add_custom_button( __("Purchase Receipt"), () => { frappe.route_options = { purchase_invoice: frm.doc.name, }; frappe.set_route("List", "Purchase Receipt", "List"); }, __("View") )
+purchase_invoice.js:666 | Landed Cost Voucher | grp=Create | add_custom_button( __("Landed Cost Voucher"), () => { frm.events.make_lcv(frm); }, __("Create") )
+stock_entry.js:218 | Quality Inspection(s) | grp=Create | add_custom_button( __("Quality Inspection(s)"), () => { let transaction_controller = new erpnext.TransactionController({ frm: frm }); transaction_controller.make_quality_inspection(); }, __("Create") 
+stock_entry.js:322 | Material Request | grp=Create | add_custom_button( __("Material Request"), function () { frappe.model.with_doctype("Material Request", function () { var mr = frappe.model.get_new_doc("Material Request"); var items = frm.get_field("i
+stock_entry.js:358 | Alternate Item | grp= | add_custom_button(__("Alternate Item"), () => { erpnext.utils.select_alternate_items({ frm: frm, child_docname: "items", warehouse_field: "s_warehouse", child_doctype: "Stock Entry Detail", original_i
+stock_entry.js:381 | End Transit | grp= | add_custom_button(__("End Transit"), function () { frappe.model.open_mapped_doc({ method: "erpnext.stock.doctype.stock_entry.stock_entry.make_stock_in_entry", frm: frm, }); })
+stock_entry.js:390 | Received Stock Entries | grp=View | add_custom_button( __("Received Stock Entries"), function () { frappe.route_options = { outgoing_stock_entry: frm.doc.name, docstatus: ["!=", 2], }; frappe.set_route("List", "Stock Entry"); }, __("Vie
+stock_entry.js:405 | Disassemble | grp=Create | add_custom_button( __("Disassemble"), async function () { let available_qty = await frappe.xcall( "erpnext.manufacturing.doctype.work_order.work_order.get_disassembly_available_qty", { stock_entry_nam
+stock_entry.js:459 | Purchase Invoice | grp=Get Items From | add_custom_button( __("Purchase Invoice"), function () { erpnext.utils.map_current_doc({ method: "erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_stock_entry", source_doctype: "Purchas
+stock_entry.js:478 | Material Request | grp=Get Items From | add_custom_button( __("Material Request"), function () { const allowed_request_types = [ "Material Transfer", "Material Issue", "Customer Provided", ]; const depends_on_condition = "eval:doc.material_
+stock_entry.js:531 | Expired Batches | grp=Get Items From | add_custom_button( __("Expired Batches"), function () { frappe.call({ method: "erpnext.stock.doctype.stock_entry.stock_entry.get_expired_batch_items", freeze: true, callback: function (r) { if (!r.exc
+stock_entry.js:570 | Sample Retention Stock Entry | grp=Create | add_custom_button( __("Sample Retention Stock Entry"), function () { frm.trigger("make_retention_stock_entry"); }, __("Create") )
+stock_entry.js:600 | Transit Entry | grp=Get Items From | add_custom_button( __("Transit Entry"), function () { erpnext.utils.map_current_doc({ method: "erpnext.stock.doctype.stock_entry.stock_entry.make_stock_in_entry", source_doctype: "Stock Entry", target
+stock_entry.js:785 | Bill of Materials | grp=Get Items From | add_custom_button( __("Bill of Materials"), function () { frm.events.get_items_from_bom(frm); }, __("Get Items From") )
+stock_entry.js:1550 | Excise Invoice | grp=Create | add_custom_button( __("Excise Invoice"), function () { var excise = frappe.model.make_new_doc_and_get_name("Journal Entry"); excise = locals["Journal Entry"][excise]; excise.voucher_type = "Excise Ent
+delivery_note.js:88 | Credit Note | grp=Create | add_custom_button( __("Credit Note"), function () { frappe.model.open_mapped_doc({ method: "erpnext.stock.doctype.delivery_note.delivery_note.make_sales_invoice", frm: cur_frm, }); }, __("Create") )
+delivery_note.js:113 | Create | grp= | add_custom_button( __(button_label), function () { frappe.model.open_mapped_doc({ method: "erpnext.stock.doctype.delivery_note.delivery_note.make_inter_company_purchase_receipt", frm: frm, }); }, __("
+delivery_note.js:156 | Sales Order | grp=Get Items From | add_custom_button( __("Sales Order"), function () { if (!me.frm.doc.customer) { frappe.throw({ title: __("Mandatory"), message: __("Please Select a Customer"), }); } erpnext.utils.map_current_doc({ me
+delivery_note.js:198 | Pick List | grp=Get Items From | add_custom_button( __("Pick List"), function () { if (!me.frm.doc.customer) { frappe.throw({ title: __("Mandatory"), message: __("Please Select a Customer"), }); } erpnext.utils.map_current_doc({ meth
+delivery_note.js:245 | Shipment | grp=Create | add_custom_button( __("Shipment"), function () { me.make_shipment(); }, __("Create") )
+delivery_note.js:259 | Installation Note | grp=Create | add_custom_button( __("Installation Note"), function () { me.make_installation_note(); }, __("Create") )
+delivery_note.js:269 | Sales Return | grp=Create | add_custom_button( __("Sales Return"), function () { me.make_sales_return(); }, __("Create") )
+delivery_note.js:279 | Delivery Trip | grp=Create | add_custom_button( __("Delivery Trip"), function () { me.make_delivery_trip(); }, __("Create") )
+delivery_note.js:295 | Packing Slip | grp=Create | add_custom_button( __("Packing Slip"), function () { frappe.model.open_mapped_doc({ method: "erpnext.stock.doctype.delivery_note.delivery_note.make_packing_slip", frm: me.frm, }); }, __("Create") )
+delivery_note.js:321 | Close | grp=Status | add_custom_button( __("Close"), function () { me.close_delivery_note(); }, __("Status") )
+delivery_note.js:346 | Sales Invoice | grp=Create | add_custom_button( __("Sales Invoice"), function () { me.make_sales_invoice(); }, __("Create") )
+delivery_note.js:357 | Reopen | grp=Status | add_custom_button( __("Reopen"), function () { me.reopen_delivery_note(); }, __("Status") )
+sales_invoice.js:98 | Payment | grp=Create | add_custom_button(__("Payment"), () => this.make_payment_entry(), __("Create"))
+sales_invoice.js:110 | Return / Credit Note | grp=Create | add_custom_button( __("Return / Credit Note"), this.make_sales_return.bind(this), __("Create") )
+sales_invoice.js:128 | Delivery Note | grp=Create | add_custom_button( __("Delivery Note"), this.frm.cscript["Make Delivery Note"], __("Create") )
+sales_invoice.js:139 | Payment Request | grp=Create | add_custom_button( __("Payment Request"), function () { me.make_payment_request_with_schedule(); }, __("Create") )
+sales_invoice.js:147 | Invoice Discounting | grp=Create | add_custom_button( __("Invoice Discounting"), this.make_invoice_discounting.bind(this), __("Create") )
+sales_invoice.js:158 | Dunning | grp=Create | add_custom_button(__("Dunning"), this.make_dunning.bind(this), __("Create"))
+sales_invoice.js:163 | Maintenance Schedule | grp=Create | add_custom_button( __("Maintenance Schedule"), this.make_maintenance_schedule.bind(this), __("Create") )
+sales_invoice.js:181 | Create | grp= | add_custom_button( __(button_label), function () { me.make_inter_company_invoice(); }, __("Create") )
+sales_invoice.js:301 | Timesheet | grp=Get Timesheets | add_custom_button( __("Timesheet"), function () { let d = new frappe.ui.Dialog({ title: __("Fetch Timesheet"), fields: [ { label: __("From"), fieldname: "from_time", fieldtype: "Date", reqd: 1, }, { l
+sales_invoice.js:378 | Sales Order | grp=Get Items From | add_custom_button( __("Sales Order"), function () { erpnext.utils.map_current_doc({ method: "erpnext.selling.doctype.sales_order.sales_order.make_sales_invoice", source_doctype: "Sales Order", target:
+sales_invoice.js:402 | Quotation | grp=Get Items From | add_custom_button( __("Quotation"), function () { erpnext.utils.map_current_doc({ method: "erpnext.selling.doctype.quotation.quotation.make_sales_invoice", source_doctype: "Quotation", target: me.frm,
+sales_invoice.js:434 | Delivery Note | grp=Get Items From | add_custom_button( __("Delivery Note"), function () { if (!me.frm.doc.customer) { frappe.throw({ title: __("Mandatory"), message: __("Please Select a Customer"), }); } erpnext.utils.map_current_doc({ 
+production_plan.js:109 | Production Plan Summary | grp=View | add_custom_button( __("Production Plan Summary"), () => { frappe.set_route("query-report", "Production Plan Summary", { production_plan: frm.doc.name, }); }, __("View") )
+production_plan.js:123 | Re-open | grp=Status | add_custom_button( __("Re-open"), function () { frm.events.close_open_production_plan(frm, false); }, __("Status") )
+production_plan.js:131 | Close | grp=Status | add_custom_button( __("Close"), function () { frm.events.close_open_production_plan(frm, true); }, __("Status") )
+production_plan.js:143 | Work Order / Subcontract PO | grp=Create | add_custom_button( __("Work Order / Subcontract PO"), () => { frm.trigger("make_work_order"); }, __("Create") )
+production_plan.js:158 | Material Request | grp=Create | add_custom_button( __("Material Request"), () => { frm.trigger("make_material_request"); }, __("Create") )
+production_plan.js:268 | Reserve for Sub-assembly | grp=Stock Reservation | add_custom_button( __("Reserve for Sub-assembly"), () => erpnext.stock_reservation.make_entries(frm, "sub_assembly_items"), __("Stock Reservation") )
+production_plan.js:276 | Unreserve for Sub-assembly | grp=Stock Reservation | add_custom_button( __("Unreserve for Sub-assembly"), () => erpnext.stock_reservation.unreserve_stock(frm), __("Stock Reservation") )
+production_plan.js:282 | Reserved Stock for Sub-assembly | grp=Stock Reservation | add_custom_button( __("Reserved Stock for Sub-assembly"), () => erpnext.stock_reservation.show_reserved_stock(frm, "sub_assembly_items"), __("Stock Reservation") )
+production_plan.js:294 | Reserve for Raw Materials | grp=Stock Reservation | add_custom_button( __("Reserve for Raw Materials"), () => erpnext.stock_reservation.make_entries(frm, "mr_items"), __("Stock Reservation") )
+production_plan.js:302 | Unreserve for Raw Materials | grp=Stock Reservation | add_custom_button( __("Unreserve for Raw Materials"), () => erpnext.stock_reservation.unreserve_stock(frm), __("Stock Reservation") )
+production_plan.js:308 | Reserved Stock for Raw Materials | grp=Stock Reservation | add_custom_button( __("Reserved Stock for Raw Materials"), () => erpnext.stock_reservation.show_reserved_stock(frm, "mr_items"), __("Stock Reservation") )
+bom.js:225 | Update Cost | grp=Actions | add_custom_button( __("Update Cost"), function () { frm.events.update_cost(frm, true); }, __("Actions") )
+bom.js:233 | Browse BOM | grp=Actions | add_custom_button( __("Browse BOM"), function () { frappe.route_options = { bom: frm.doc.name, }; frappe.set_route("Tree", "BOM"); }, __("Actions") )
+bom.js:246 | New Version | grp=Actions | add_custom_button( __("New Version"), function () { let new_bom = frappe.model.copy_doc(frm.doc); frappe.set_route("Form", "BOM", new_bom.name); }, __("Actions") )
+bom.js:257 | Work Order | grp=Create | add_custom_button( __("Work Order"), function () { frm.trigger("make_work_order"); }, __("Create") )
+bom.js:266 | Variant BOM | grp=Create | add_custom_button( __("Variant BOM"), function () { frm.trigger("make_variant_bom"); }, __("Create") )
+bom.js:276 | Quality Inspection | grp=Create | add_custom_button( __("Quality Inspection"), function () { frm.trigger("make_quality_inspection"); }, __("Create") )
+bom.js:291 | Alternate Item | grp= | add_custom_button(__("Alternate Item"), () => { erpnext.utils.select_alternate_items({ frm: frm, child_docname: "items", warehouse_field: "source_warehouse", child_doctype: "BOM Item", original_item_f
+job_card.js:111 | Make Stock Entry | grp=Do you want to submit the stock entry? | add_custom_button(__("Make Stock Entry"), () => { frappe.confirm( __("Do you want to submit the stock entry?"), () => frm.events.make_manufacture_stock_entry(frm, 1), () => frm.events.make_manufacture
+job_card.js:220 | Material Request | grp=Create | add_custom_button( __("Material Request"), () => frm.trigger("make_material_request"), __("Create") )
+job_card.js:228 | Material Transfer | grp=Create | add_custom_button( __("Material Transfer"), () => frm.trigger("make_stock_entry"), __("Create") )
+job_card.js:419 | Make Subcontracting PO | grp= | add_custom_button(__("Make Subcontracting PO"), () => { frappe.model.open_mapped_doc({ method: "erpnext.manufacturing.doctype.job_card.job_card.make_subcontracting_po", frm: frm, }); })
+job_card.js:456 | Corrective Job Card | grp=Make | add_custom_button( __("Corrective Job Card"), () => { const operations = frm.doc.sub_operations .map((d) => d.sub_operation) .concat(frm.doc.operation); const fields = [ { fieldtype: "Link", label: __
+quotation.js:134 | Sales Order | grp=Create | add_custom_button(__("Sales Order"), () => this.make_sales_order(), __("Create"))
+quotation.js:136 | Update Items | grp= | add_custom_button(__("Update Items"), () => { erpnext.utils.update_child_items({ frm: this.frm, child_docname: "items", cannot_add_row: false, }); })
+quotation.js:146 | Set as Lost | grp= | add_custom_button(__("Set as Lost"), () => { this.frm.trigger("set_as_lost_dialog"); })
+quotation.js:153 | Opportunity | grp=Get Items From | add_custom_button( __("Opportunity"), function () { erpnext.utils.map_current_doc({ method: "erpnext.crm.doctype.opportunity.opportunity.make_quotation", source_doctype: "Opportunity", target: me.frm,
+payment_entry.js:255 | View Exchange Gain/Loss Journals | grp=Actions | add_custom_button( __("View Exchange Gain/Loss Journals"), function () { frappe.set_route("List", "Journal Entry", { voucher_type: "Exchange Gain Or Loss", reference_name: frm.doc.name, }); }, __("Act
+payment_entry.js:425 | Ledger | grp= | add_custom_button( __("Ledger"), function () { frappe.route_options = { voucher_no: frm.doc.name, from_date: frm.doc.posting_date, to_date: moment(frm.doc.modified).format("YYYY-MM-DD"), company: frm.
+transaction.js:436 | Quality Inspection(s) | grp=Create | add_custom_button( __("Quality Inspection(s)"), () => { me.make_quality_inspection(); }, __("Create") )
+transaction.js:733 | Send SMS | grp= | add_menu_item(__("Send SMS"), function () { me.send_sms(); })
+buying.js:324 | Product Bundle | grp=Get Items From | add_custom_button( __("Product Bundle"), function () { erpnext.buying.get_items_from_product_bundle(me.frm); }, __("Get Items From") )
+stock_controller.js:96 | Stock Ledger | grp=View | add_custom_button( __("Stock Ledger"), function () { frappe.route_options = { voucher_no: me.frm.doc.name, from_date: me.frm.doc.posting_date, to_date: moment(me.frm.doc.modified).format("YYYY-MM-DD")
+stock_controller.js:117 | Accounting Ledger | grp=View | add_custom_button( __("Accounting Ledger"), function () { frappe.route_options = { voucher_no: me.frm.doc.name, from_date: me.frm.doc.posting_date, to_date: moment(me.frm.doc.modified).format("YYYY-MM

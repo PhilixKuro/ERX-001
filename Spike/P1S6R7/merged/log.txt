@@ -1,0 +1,13 @@
+hrms-01 129 18:58
+erpnext-01 300 19:06 DuckDB 保留原名
+crm-01 293 19:08 ALLOW+4 品牌、7 键进白名单、1 条 QUALITY_EXCEPTIONS
+raven-01/02 595 19:18 7 条为过守卫丢意的恢复原意并进 QUALITY_EXCEPTIONS；5 个产品名移出进白名单
+insights-01/02 473 19:19 ALLOW+10 产品/格式名；4 条代码示例句进 QUALITY_EXCEPTIONS
+erpnext-02/03 599 19:23 DuckDB/pdfplumber/doctype_name 改回原名（ALLOW+pdfplumber、1 条例外）；Naming series 一条因占位符正则误判暂进白名单
+crm-02/03 364 19:31 11 条为躲守卫改写的品牌名恢复原名（ALLOW+8）；Frappé、Frappe Mail 两行进 QUALITY_EXCEPTIONS；7 个产品名／标识符进白名单
+frappe-01/02 erpnext-04/05 937 19:43 15 条为躲守卫改写的恢复原名或代码（ALLOW+Gravatar、8+8 条进例外）；22+1 个产品名／示例移出进白名单；Short-term Investments 撞法定列头改「短期投资类」；A16：官方保留原文的 15 键（含已并入 7 键）回落官方、进白名单
+gap_cleanup 19:49 10 行译文同源词删行进白名单；3 个字面反斜杠 n 键进白名单；Options: 补译（未进任何块）
+raven-03~06 1141 19:52 ALLOW+10 品牌；8 条代码／按键句进 QUALITY_EXCEPTIONS；13 个产品名进白名单
+buttons 8 20:00 TS-020 定稿 8 词（4 覆盖官方，依据按钮抽检 IT-010；全部进 NAMED_TERMS）
+sample-fix 18 20:12 抽检不可用 3 条改＋回扫 15 条（追溯调整一族）
+prune-restore 15 21:01 TS-018 误删的本 app 字面量取用键恢复（全量回归 test_known_entry_uses_wrapper_and_csv 红查出）

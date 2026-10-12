@@ -1,0 +1,101 @@
+﻿app,键,出处,译文,判定,不可用原因
+crm,Select an icon...,crm/frontend/src/components/Modals/ViewModal.vue:46,选择图标……,可用,意思与出处一致，术语合规
+crm,Nested Conditions,crm/frontend/src/components/ConditionsFilter/CFCondition.vue:99,嵌套条件,可用,意思与出处一致，术语合规
+crm,Select your ERPNext company to connect with,crm/frontend/src/components/Settings/ERPNextSettings.vue:155,选择要连接的 ERPNext 公司,可用,意思与出处一致，术语合规
+crm,Move Last Column to Next Section,crm/frontend/src/components/FieldLayoutEditor.vue:614,将最后一列移到下一区块,可用,意思与出处一致，术语合规
+crm,Import my existing data,crm/frontend/src/pages/PersonaForm.vue:121,导入我的现有数据,可用,意思与出处一致，术语合规
+crm,Auto-assign leads/deals to the right sales user based on predefined conditions,crm/frontend/src/components/Settings/AssignmentRules/AssignmentRules.vue:11,按预设条件将线索/商机自动分配给合适的销售人员,可用,意思与出处一致，术语合规
+crm,Assign conditions are invalid,crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:433,分配条件无效,可用,意思与出处一致，术语合规
+crm,No Priorities in the list,crm/frontend/src/components/Settings/Sla/SlaPriorityList.vue:86,列表中没有优先级,可用,意思与出处一致，术语合规
+crm,Section title,crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:112; crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:126,区块标题,可用,意思与出处一致，术语合规
+crm,Assign To Me,crm/frontend/src/components/AssignToBody.vue:67,分配给我,可用,意思与出处一致，术语合规
+crm,Add Mobile Number...,crm/frontend/src/pages/Contact.vue:352,添加手机号……,可用,意思与出处一致，术语合规
+crm,Move under {0},crm/frontend/src/components/Settings/Hierarchy/useDragDrop.js:100,移到 {0} 之下,可用,意思与出处一致，术语合规，占位符完整
+crm,Every 15 Minutes,crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.json,每 15 分钟,可用,意思与出处一致，术语合规
+erpnext,Users can make manufacture entry against Job Cards,erpnext/erpnext/manufacturing/doctype/bom/bom.json,用户可按生产任务单做完工入库,可用,意思与出处一致（物料清单「跟踪半成品」勾选项的说明），术语合规（生产任务单、完工入库）
+erpnext,There are {0} unreconciled transactions before {1}.,erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:980,{1} 之前有 {0} 笔未对账的流水。,可用,意思与出处一致，术语合规，占位符完整
+erpnext,Select at least one Item,erpnext/erpnext/stock/doctype/material_request/material_request.js:558; erpnext/erpnext/stock/doctype/material_request/material_request.py:713,请至少选择一个物料,可用,意思与出处一致，术语合规
+erpnext,"Company is required to load address, taxes, and payment terms. Set Company, then select {0} again.",erpnext/erpnext/public/js/utils/party.js:97,加载地址、税费与付款条款须先选公司。请设置公司后重新选择{0}。,可用,意思与出处一致，术语合规，占位符完整
+erpnext,Reposting Item and Warehouse,erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json,重过账物料与仓库,不可用,[意思错] 出处是「物料成本价追溯调整」单据里的区块标题，指正在追溯调整的物料与仓库；「重过账物料与仓库」读作动作短语，且本单据官方用词是「追溯调整」而非「重过账」，应为名词性标题。
+erpnext,Add a charge to the payment entry with the difference amount,erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:879,按差额在收付款凭证中添加一笔费用,可用,意思与出处一致，术语合规
+erpnext,<b>Row #{0}:</b> Bundle {1} in warehouse {2} has insufficient packed items:<br><div style='margin-top: 15px;'><ul style='line-height: 0.8;'>{3}</ul></div>,erpnext/erpnext/accounts/doctype/pos_invoice/pos_invoice.py:433,<b>第 {0} 行：</b>仓库 {2} 中套件 {1} 的组成物料不足：<br><div style='margin-top: 15px;'><ul style='line-height: 0.8;'>{3}</ul></div>,可用,意思与出处一致，套件／组成物料与官方用词一致，占位符 {0}-{3} 与 HTML 标签完整
+erpnext,Failed to set defaults,erpnext/erpnext/setup/setup_wizard/setup_wizard.py:27,默认值设置失败,可用,意思与出处一致，术语合规
+erpnext,"For example, if set to 4, the system will try to find matching transfer transactions in other banks 4 days before and after the transaction date. This is because transactions can clear on different days on different bank accounts.",erpnext/banking/src/components/features/Settings/Preferences.tsx:60,例如设为 4 时，系统会在交易日期前后 4 天内查找其他银行的匹配转账流水。这是因为同一笔交易在不同银行户头上的清算日期可能不同。,可用,意思与出处一致，「银行户头」为官方 Bank Account 用词，术语合规
+erpnext,Create Operation,erpnext/erpnext/manufacturing/onboarding_step/create_operations/create_operations.json,创建工序,可用,意思与出处一致，术语合规
+erpnext,Duplicate Serial Number Error,erpnext/erpnext/stock/serial_batch_bundle.py:1572,序列号重复错误,可用,意思与出处一致，术语合规
+erpnext,No transactions found for the given filters.,erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:277,没有符合筛选条件的流水。,可用,意思与出处一致，术语合规
+erpnext,{0} is not a valid {1} fieldname.,erpnext/erpnext/stock/utils.py:133,{0} 不是有效的{1}字段名。,可用,意思与出处一致，占位符完整，{1} 由代码传入字段类别名
+erpnext,Raw materials consumed qty will be validated based on FG BOM required qty,erpnext/erpnext/buying/doctype/buying_settings/buying_settings.json,按成品物料清单的需求数量校验原材料耗用数量,可用,意思与出处一致，术语合规
+erpnext,This is a formula based value.,erpnext/banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:466,这是基于公式计算的值。,可用,意思与出处一致，术语合规
+erpnext,"Indentation level: 0 = Main heading, 1 = Sub-category, 2 = Individual accounts, etc.",erpnext/erpnext/accounts/doctype/financial_report_row/financial_report_row.json,缩进级别：0 = 主标题，1 = 子类别，2 = 明细科目，依此类推。,可用,意思与出处一致，术语合规
+erpnext,Account is mandatory,erpnext/erpnext/accounts/doctype/budget/budget.py:150,科目必填,可用,意思与出处一致，术语合规
+erpnext,Cost Center is required,erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:1220,请填写成本中心,可用,意思与出处一致，术语合规
+erpnext,Grand Total must match sum of Payment References,erpnext/erpnext/accounts/doctype/payment_request/payment_request.py:126,总计必须等于各付款参考行金额之和,不可用,[术语] Payment Reference 是收付款申请里的子表（官方译名「付款凭据」），「付款参考行」另起别名，与表名对不上。
+erpnext,Please enter a valid Write Off Account,erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:721,请填写有效的销账科目,可用,意思与出处一致，术语合规
+erpnext,You can also add credit or debit values to pre-fill - these support both static values (like 200) or formulas (like transaction_amount * 0.25).,erpnext/banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:743,还可以预填贷方或借方金额，支持固定值（如 200）或公式（如 transaction_amount * 0.25）。,可用,意思与出处一致，术语合规
+erpnext,Missing Required Filter,erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py:250,缺少必填筛选条件,可用,意思与出处一致，术语合规
+erpnext,Employee {0} already has a linked user,erpnext/erpnext/setup/doctype/employee/employee.py:437,员工 {0} 已关联用户,可用,意思与出处一致，术语合规，占位符完整
+erpnext,Invalid Reading,erpnext/erpnext/stock/doctype/quality_inspection/quality_inspection.py:329,检验读数无效,可用,意思与出处一致，术语合规
+erpnext,Exchange rate {0} does not match the exchange rate of Purchase Receipt {1}. Use the same exchange rate as the Purchase Receipt or enable {2} in {3} to adjust the landed cost based on this invoice.,erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:357,汇率 {0} 与采购入库 {1} 的汇率不一致。请使用与采购入库相同的汇率，或在 {3} 中启用 {2}，按本发票调整到岸成本。,可用,意思与出处一致，术语合规，占位符完整
+erpnext,New revised budget created successfully,erpnext/erpnext/accounts/doctype/budget/budget.js:92,新修订预算创建成功,可用,意思与出处一致，术语合规
+erpnext,Row {0}: Operation time should be greater than 0 for operation {1},erpnext/erpnext/manufacturing/doctype/bom/bom.py:1329,第 {0} 行：工序 {1} 的工序时间应大于 0,可用,意思与出处一致，术语合规，占位符完整
+erpnext,Cannot repost more than {0} vouchers at once. Split them into multiple documents.,erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:96,一次最多重过账 {0} 张凭证，请拆分到多张单据。,可用,意思与出处一致，「重过账」为官方 Repost 用词，单据／凭证用法合规
+erpnext,Within 3 days,erpnext/banking/src/components/features/Settings/Preferences.tsx:72,3 天内,可用,意思与出处一致，术语合规
+erpnext,Created through Portal,erpnext/erpnext/crm/doctype/appointment/appointment.json,通过门户创建,可用,意思与出处一致，术语合规
+frappe,Show more,frappe/frappe/public/js/frappe/ui/toolbar/search.js:1016,显示更多,可用,意思与出处一致，术语合规
+frappe,Cannot register an empty XLSX style,frappe/frappe/utils/xlsxutils.py:152,不能注册空的 XLSX 样式,可用,意思与出处一致，术语合规
+frappe,Synced,frappe/frappe/core/doctype/duckdb_sync_item/duckdb_sync_item.json,已同步,可用,意思与出处一致，术语合规
+frappe,No other document types.,frappe/frappe/public/js/frappe/ui/toolbar/search.js:730,没有其他单据类型。,可用,意思与出处一致，术语合规
+frappe,No naming series defined,frappe/frappe/public/js/frappe/ui/naming_series.js:417,未定义单据编号模板,可用,意思与出处一致，「单据编号模板」与官方 Naming Series 常用译法一致
+frappe,Only CSV and Excel formats are supported for export,frappe/frappe/desk/query_report.py:524,导出只支持 CSV 和 Excel 格式,可用,意思与出处一致，术语合规
+frappe,Invalid or expired key,frappe/frappe/core/api/user_invitation.py:154,密钥无效或已过期,可用,意思与出处一致，术语合规
+hrms,No login methods are available. Please contact your administrator.,hrms/frontend/src/views/Login.vue:91,没有可用的登录方式，请联系管理员。,可用,意思与出处一致，术语合规
+hrms,Total Sanctioned Amount (Company Currency),hrms/hrms/hr/doctype/expense_claim/expense_claim.json,批准总金额（本币）,可用,意思与出处一致，术语合规
+hrms,Holiday List End,hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.json,假期列表结束日期,可用,意思与出处一致，术语合规
+hrms,Application Web Form Route,hrms/hrms/hr/doctype/job_opening/job_opening.json,申请网页表单路由,可用,意思与出处一致，术语合规
+hrms,Create Job Offer,hrms/hrms/hr/doctype/job_applicant/job_applicant.js:84,创建录用通知,可用,意思与出处一致，术语合规
+insights,Open in Desk,insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:65; insights/frontend/src2/workbook/WorkbookNavbarActions.vue:79,在工作台中打开,可用,意思与出处一致，术语合规
+insights,Enter filename,insights/frontend/src2/components/ExportDialog.vue:60,输入文件名,可用,意思与出处一致，术语合规
+insights,Alert Name,insights/frontend/src2/query/components/AlertSetupDialog.vue:144,预警名称,可用,意思与出处一致，术语合规
+insights,Sample data and workbook have been set up successfully,insights/frontend/src2/settings/GeneralSettings.vue:23,示例数据和工作簿已设置完成,可用,意思与出处一致，术语合规
+insights,No Tables Stored,insights/frontend/src2/data_store/DataStoreList.vue:57,暂无已存储的数据表,可用,意思与出处一致，术语合规
+insights,Execution Successful,insights/insights/insights/doctype/insights_query/insights_query.json,执行成功,可用,意思与出处一致，术语合规
+insights,Invitation Sent,insights/frontend/src2/settings/UsersSettings.vue:43; insights/frontend/src2/users/UserList.vue:43,邀请已发送,可用,意思与出处一致，术语合规
+insights,greater than,insights/frontend/src2/query/components/FormatRule.vue:167,大于,可用,意思与出处一致，术语合规
+insights,Dashboards shared with you will show up here.,insights/frontend/src2/dashboard/DashboardList.vue:80,分享给你的仪表板会显示在这里。,可用,意思与出处一致，「仪表板」与 Insights 既有译法一致
+raven,Links Table,raven/raven/raven_messaging/doctype/raven_message/raven_message.json,链接明细,可用,意思与出处一致（子表字段标签），按惯例译「明细」，术语合规
+raven,Hide link preview,raven/raven/raven_messaging/doctype/raven_message/raven_message.json,隐藏链接预览,可用,意思与出处一致，术语合规
+raven,Function {0} not found.,raven/raven/raven_integrations/doctype/raven_message_action/raven_message_action.py:56,未找到函数 {0}。,可用,意思与出处一致，术语合规，占位符完整
+raven,File Sources,raven/apps/web/src/components/features/settings/SettingsDialog.tsx:213; raven/apps/web/src/components/features/settings/panels/FileSources/FileSources.tsx:144; raven/apps/web/src/components/features/settings/panels/FileSources/FileSources.tsx:166; raven/raven/raven_bot/doctype/raven_bot/raven_bot.json,文件源,可用,意思与出处一致，术语合规
+raven,Schedule a reminder,raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageListView.tsx:134,设置定时提醒,可用,意思与出处一致，术语合规
+raven,Is Admin,raven/raven/raven/doctype/raven_workspace_member/raven_workspace_member.json; raven/raven/raven_channel_management/doctype/raven_channel_member/raven_channel_member.json,是否管理员,可用,意思与出处一致，术语合规
+raven,Your Profile,raven/apps/web/src/components/features/header/NavUserMenu/NavUserMenu.tsx:81,我的个人资料,可用,意思与出处一致，术语合规
+raven,Document Processors,raven/apps/web/src/components/features/settings/SettingsDialog.tsx:229; raven/apps/web/src/components/features/settings/panels/Agents/AgentForm.tsx:49; raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:106; raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:137,文档处理器,可用,意思与出处一致，术语合规
+raven,Sync Data to Raven Cloud,raven/apps/web/src/components/features/settings/panels/PushNotifications.tsx:172,同步数据到 Raven 云,可用,意思与出处一致，术语合规
+raven,No actions available,raven/apps/web/src/components/features/message/renderers/DocumentLinkRenderer.tsx:687,没有可用的操作,可用,意思与出处一致，术语合规
+raven,What would you like to ask?,raven/apps/web/src/components/features/ChatInput/CreatePollForm.tsx:194,您想问什么？,可用,意思与出处一致，术语合规
+raven,Meeting links from these sites show a join card in chat.,raven/apps/web/src/components/features/settings/panels/LinkSettingsAdminSection.tsx:175,来自这些站点的会议链接会在聊天中显示入会卡片。,可用,意思与出处一致，术语合规
+raven,No scheduled messages,raven/apps/web/src/components/features/schedule-send/ScheduledMessagesList.tsx:127,没有定时消息,可用,意思与出处一致，术语合规
+raven,Select what to delete. This can't be undone.,raven/apps/web/src/components/features/message/actions/dialogs/DeleteMessageDialog.tsx:95,请选择要删除的内容。此操作无法撤销。,可用,意思与出处一致，术语合规
+raven,Users added to Raven will show up here.,raven/apps/web/src/components/features/settings/panels/Users/Users.tsx:98,添加到 Raven 的用户会显示在这里。,可用,意思与出处一致，术语合规
+raven,Field {0} does not exist in {1}.,raven/raven/raven_integrations/doctype/raven_document_notification/raven_document_notification.py:112,{1} 中不存在字段 {0}。,可用,意思与出处一致，术语合规，占位符完整
+raven,Channels and lists,raven/apps/web/src/components/features/settings/panels/KeyboardShortcuts.tsx:64,频道与列表,可用,意思与出处一致，术语合规
+raven,Blurhash,raven/raven/raven_messaging/doctype/raven_message/raven_message.json,模糊占位哈希,可用,意思与出处一致（图片模糊占位字段），与官方既有译名一致
+raven,Shown in the toast after the action runs.,raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionForm.tsx:145,操作执行后在弹出提示中显示。,可用,意思与出处一致，术语合规
+raven,Link Doctype,raven/raven/raven_messaging/doctype/raven_message/raven_message.json,关联单据类型,可用,意思与出处一致，术语合规
+raven,Poll Option,raven/raven/raven_messaging/doctype/raven_poll_option/raven_poll_option.json,投票选项,可用,意思与出处一致，术语合规
+raven,Bot Functions,raven/raven/raven_bot/doctype/raven_bot/raven_bot.json,机器人函数,可用,意思与出处一致，术语合规
+raven,Discard changes,raven/apps/web/src/components/features/channel/CustomizeSidebar/CustomizeSidebarDialog.tsx:105,放弃更改,可用,意思与出处一致，术语合规
+raven,You appear to be offline. Raven will load as soon as you're back online.,raven/apps/web/src/components/layout/AppShell.tsx:141,您似乎已离线。恢复联网后 Raven 会立即加载。,可用,意思与出处一致，术语合规
+raven,Settings updated,raven/apps/web/src/components/features/settings/panels/AdminSettingsForm.tsx:79; raven/apps/web/src/components/features/settings/panels/LinkSettingsAdminSection.tsx:128; raven/apps/web/src/components/features/settings/panels/Preferences.tsx:55; raven/apps/web/src/components/features/settings/panels/QuietHoursAdminSection.tsx:184; raven/apps/web/src/hooks/useQuietHours.ts:62,设置已更新,可用,意思与出处一致，术语合规
+raven,In 1 hour,raven/apps/web/src/lib/timeUtils.ts:78,1 小时后,可用,意思与出处一致，术语合规
+raven,Raven Webhook,raven/raven/raven_integrations/doctype/raven_webhook/raven_webhook.json,Raven 网络钩子,可用,意思与出处一致，与官方既有译名「Raven 网络钩子」一致
+raven,Raven Poll,raven/raven/raven_messaging/doctype/raven_poll/raven_poll.json,Raven 投票,可用,意思与出处一致，术语合规
+raven,Static,raven/apps/web/src/components/features/settings/panels/DocumentNotifications/DocumentNotificationRecipientsTab.tsx:97; raven/apps/web/src/components/features/settings/panels/MessageActions/MessageActionFieldDialog.tsx:185; raven/raven/raven_integrations/doctype/raven_document_notification_recipients/raven_document_notification_recipients.json; raven/raven/raven_integrations/doctype/raven_message_action_fields/raven_message_action_fields.json,固定值,可用,意思与出处一致，术语合规
+raven,Vote Selection,raven/raven/raven_messaging/doctype/raven_poll_vote/raven_poll_vote.json,投票选项,不可用,[意思错] 出处是投票记录（Raven Poll Vote）里的子表，存投票人选中的选项；译成「投票选项」漏了 Selection 的意思，且与 Poll Option「投票选项」撞名，界面上无法区分。
+raven,Workspace renamed,raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceActionMenu.tsx:97,工作区已重命名,可用,意思与出处一致，术语合规
+raven,Useful for extracting information from documents before sending it to agents,raven/raven/raven/doctype/raven_settings/raven_settings.json,适用于在把文档发送给智能体之前从中提取信息,可用,意思与出处一致，术语合规
+raven,Scheduled Messages,raven/apps/web/src/App.tsx:130; raven/apps/web/src/components/features/schedule-send/ScheduledMessagesDialog.tsx:46; raven/apps/web/src/components/features/settings/SettingsDialog.tsx:181; raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageListView.tsx:107; raven/apps/web/src/components/features/settings/panels/ScheduledMessages/ScheduledMessageListView.tsx:125; raven/apps/web/src/components/layout/PrimarySidebar/PrimarySidebar.tsx:123,定时消息,可用,意思与出处一致，术语合规
+raven,"Find messages, files, links and polls. Type a query or pick a filter to start.",raven/apps/web/src/pages/search/Search.tsx:321,查找消息、文件、链接和投票。输入关键词或选择筛选条件即可开始。,可用,意思与出处一致，术语合规
+raven,Toggle italic on the selection.,raven/apps/web/src/components/features/settings/panels/KeyboardShortcuts.tsx:136,对选中内容切换斜体。,可用,意思与出处一致，术语合规
+raven,Custom Status,raven/raven/raven/doctype/raven_user/raven_user.json,自定义状态,可用,意思与出处一致，术语合规

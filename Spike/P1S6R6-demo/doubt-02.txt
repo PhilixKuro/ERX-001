@@ -1,0 +1,19 @@
+BOM Secondary Item	新词：Secondary Item（联产品、副产品、废料、附加成品的统称）定为「副产出」；物料清单子表名
+BOM Secondary Item Reference	新词：隐藏 Data 字段，存所引用的物料清单副产出行，译「行号」与「物料清单行号」一致
+Co-Product	新词：联产品
+By-Product	新词：副产品
+Additional Finished Good	新词：附加成品；与「成品件」略有出入，Select 选项求短
+% of Component Cost	新词：Valuation Type 的选项，与「成本价」「手工」并列；Component 按制造用语取「原材料」
+Components	新词：BOM 的 items 子表，取「原材料明细」；官方现译 Return Components → 原材料退回
+Cost Allocation	BOM 的 Currency 字段，为与 % Cost Allocation 区分加「金额」
+Grand Total (Company Currency	源词缺右括号（上游笔误），译文补齐为（本币）
+Convert to Ledger	官方现译「转换为分类账」不合仓库语境；与「转换为组」相对，取「转换为明细」
+Account Category	新词：Account Type 已是「科目类型」，Account Category 取「科目分类」以示区别
+Expenses Added To Stock Account	新词：与官方「采购费用科目」「采购费用备抵科目」成对
+Expenses Added To Stock Contra Account	新词：同上，Contra 取官方「备抵」
+Freeze stocks older than (days)	意译为「库存交易冻结天数」，原文（days）已含在「天数」里
+Ignore Tax Withholding Threshold	新词：Threshold 取「起扣额」
+Auto Reconciliation job trigger	Int 字段，描述为 1～59 分钟的间隔，意译为「运行间隔」
+Deliver (Dropship)	采购订单状态按钮，把直运订单标为供应商已交货；Drop Ship 官方为「直运」
+Child DocTypes	描述为会一并删除的子表，取「子表」
+Customer POS ID	保留 POS ID 两个缩写

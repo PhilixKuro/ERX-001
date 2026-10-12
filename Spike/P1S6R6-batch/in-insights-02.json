@@ -1,0 +1,1435 @@
+{
+ "group": "insights",
+ "items": [
+  {
+   "key": "No users to display.",
+   "refs": [
+    "insights/frontend/src2/settings/UsersSettings.vue:82",
+    "insights/frontend/src2/users/UserList.vue:81"
+   ],
+   "current": null,
+   "context": "\t\tshowTooltip: false,\n\t\temptyState: {\n\t\t\ttitle: __('No users.'),\n\t\t\tdescription: __('No users to display.'),\n\t\t\tbutton: session.user.is_admin\n\t\t\t\t? {\n\t\t\t\t\t\tlabel: __('Invite User'),"
+  },
+  {
+   "key": "No users.",
+   "refs": [
+    "insights/frontend/src2/settings/UsersSettings.vue:81",
+    "insights/frontend/src2/users/UserList.vue:80"
+   ],
+   "current": null,
+   "context": "\t\tselectable: false,\n\t\tshowTooltip: false,\n\t\temptyState: {\n\t\t\ttitle: __('No users.'),\n\t\t\tdescription: __('No users to display.'),\n\t\t\tbutton: session.user.is_admin\n\t\t\t\t? {"
+  },
+  {
+   "key": "No Workbooks",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookList.vue:115",
+    "insights/frontend/src2/workbook/WorkbookList.vue:194"
+   ],
+   "current": null,
+   "context": "\trowKey: 'name',\n\toptions: {\n\t\tshowTooltip: false,\n\t\tonRowClick,\n\t\t// actions are rendered via the ListEmptyState slot below — the built-in\n\t\t// supports only one button, and we want New + Library side by side\n\t\temptyState: {"
+  },
+  {
+   "key": "No workbooks created",
+   "refs": [
+    "insights/frontend/src2/home/HomeWorkbookList.vue:66"
+   ],
+   "current": null,
+   "context": "\t\t\t<!-- empty state -->\n\t\t\t<div v-else class=\"flex h-full w-full items-center justify-center\">\n\t\t\t\t<div class=\"flex flex-col items-center space-y-2\">\n\t\t\t\t\t<div class=\"text-lg text-gray-600\">{{ __('No workbooks created') }}</div>\n\t\t\t\t\t<div class=\"text-sm text-gray-600\">\n\t\t\t\t\t\t{{ __('Your workbooks will appear here. Create a new workbook to get started.') }}\n\t\t\t\t\t</div>"
+  },
+  {
+   "key": "No workbooks to display.",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookList.vue:116",
+    "insights/frontend/src2/workbook/WorkbookList.vue:200"
+   ],
+   "current": null,
+   "context": "\toptions: {\n\t\tshowTooltip: false,\n\t\tonRowClick,\n\t\t// actions are rendered via the ListEmptyState slot below — the built-in\n\t\t// supports only one button, and we want New + Library side by side\n\t\temptyState: {\n\t\t\ttitle: __('No Workbooks'),"
+  },
+  {
+   "key": "nodes",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookLineageDialog.vue:157"
+   ],
+   "current": null,
+   "context": "\t\t\t<!-- Toolbar -->\n\t\t\t<div class=\"mb-3 flex items-center gap-2\">\n\t\t\t\t<span class=\"text-sm text-gray-500\">\n\t\t\t\t\t{{ visibleNodes.length }} {{ __('nodes') }}, {{ visibleEdges.length }}\n\t\t\t\t\t{{ __('edges') }}\n\t\t\t\t</span>\n\t\t\t\t<div class=\"ml-auto\">"
+  },
+  {
+   "key": "not equals",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:166"
+   ],
+   "current": null,
+   "context": "\nconst operatorOptions = [\n\t{ label: __('equals'), value: '=' as ConditionalOperator },\n\t{ label: __('not equals'), value: '!=' as ConditionalOperator },\n\t{ label: __('greater than'), value: '>' as ConditionalOperator },\n\t{ label: __('greater than or equals'), value: '>=' as ConditionalOperator },\n\t{ label: __('less than'), value: '<' as ConditionalOperator },"
+  },
+  {
+   "key": "Notebook",
+   "refs": [
+    "insights/insights/insights/doctype/insights_notebook_page/insights_notebook_page.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"notebook\",\n   \"fieldtype\": \"Link\",\n   \"in_list_view\": 1,\n   \"label\": \"Notebook\",\n   \"options\": \"Insights Notebook\",\n   \"reqd\": 1\n  },"
+  },
+  {
+   "key": "Nothing here",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardList.vue:74",
+    "insights/frontend/src2/dashboard/DashboardList.vue:79",
+    "insights/frontend/src2/dashboard/DashboardList.vue:84"
+   ],
+   "current": null,
+   "context": "\t\t\t}\n\t\tcase 'created':\n\t\t\treturn {\n\t\t\t\ttitle: __('Nothing here'),\n\t\t\t\tsubtitle: __(\"You haven't created any dashboards yet.\"),\n\t\t\t}\n\t\tcase 'shared':"
+  },
+  {
+   "key": "Onboarding Complete",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"onboarding_complete\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Onboarding Complete\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Open in Desk",
+   "refs": [
+    "insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:65",
+    "insights/frontend/src2/workbook/WorkbookNavbarActions.vue:79"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => props.chart.copy(),\n\t},\n\t{\n\t\tlabel: __('Open in Desk'),\n\t\ticon: h(ExternalLink, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\tonClick: () => props.chart.openInDesk(),\n\t\tcondition: () => session.user.has_desk_access,"
+  },
+  {
+   "key": "Open Workbook",
+   "refs": [
+    "insights/frontend/src2/dashboard/Dashboard.vue:68",
+    "insights/frontend/src2/dashboard/DashboardList.vue:104"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t},\n\t\t\t\t\tcanOpenWorkbook\n\t\t\t\t\t\t? {\n\t\t\t\t\t\t\t\tlabel: __('Open Workbook'),\n\t\t\t\t\t\t\t\tvariant: 'outline',\n\t\t\t\t\t\t\t\ticon: 'external-link',\n\t\t\t\t\t\t\t\tonClick: openWorkbook,"
+  },
+  {
+   "key": "Overwrite",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import/insights_table_import.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"if_exists\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Action if table exists\",\n   \"options\": \"Fail\\nAppend\\nOverwrite\"\n  },\n  {\n   \"default\": \"Draft\","
+  },
+  {
+   "key": "Parquet File",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"parquet_file\",\n   \"fieldtype\": \"Text\",\n   \"label\": \"Parquet File\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Pending Execution",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "   \"read_only\": 1\n  },\n  {\n   \"default\": \"Pending Execution\",\n   \"fieldname\": \"status\",\n   \"fieldtype\": \"Select\",\n   \"hidden\": 1,"
+  },
+  {
+   "key": "Permissions updated",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookShareDialog.vue:82"
+   ],
+   "current": null,
+   "context": "\t\tJSON.stringify(permissionMap.value) === JSON.stringify(workbookPermissions.value) &&\n\t\torganizationAccess.value === originalOrganizationAccess.value\n\t)\n})\nfunction updatePermissions() {\n\tworkbook\n\t\t.updateSharePermissions({"
+  },
+  {
+   "key": "Persistent state storage for the script",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Column Break\"\n  },\n  {\n   \"description\": \"Persistent state storage for the script\",\n   \"fieldname\": \"state\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"State (JSON)\","
+  },
+  {
+   "key": "Pick Starting Data",
+   "refs": [
+    "insights/frontend/src2/query/components/source_selector/SourceSelectorDialog.vue:125"
+   ],
+   "current": null,
+   "context": "\t\t<template #body>\n\t\t\t<div class=\"relative flex pb-10\" :style=\"{ height: 'calc(100vh - 12rem)' }\">\n\t\t\t\t<TabbedSidebarLayout\n\t\t\t\t\t:title=\"__('Pick Starting Data')\"\n\t\t\t\t\t:tabs=\"tabGroups\"\n\t\t\t\t\tv-model:activeTab=\"activeTab\"\n\t\t\t\t/>"
+  },
+  {
+   "key": "Pivot",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:74",
+    "insights/insights/insights/doctype/insights_query_transform/insights_query_transform.json"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => (showSummarySelectorDialog.value = true),\n\t},\n\t{\n\t\tlabel: __('Pivot'),\n\t\tdescription: __('Spreading column values into separate columns'),\n\t\ticon: query_operation_types.pivot_wider.icon,\n\t\tonClick: () => (showPivotSelectorDialog.value = true),"
+  },
+  {
+   "key": "Please select a data source first",
+   "refs": [
+    "insights/frontend/src2/query/components/NativeQueryEditor.vue:29"
+   ],
+   "current": null,
+   "context": "function execute(force: boolean = false) {\n\tif (!data_source.value) {\n\t\tcreateToast({\n\t\t\ttitle: __('Please select a data source first'),\n\t\t\tvariant: 'error',\n\t\t})\n\t\treturn"
+  },
+  {
+   "key": "Please wait while we refresh the tables from your data source",
+   "refs": [
+    "insights/frontend/src2/query/components/source_selector/DataSourceTableList.vue:53"
+   ],
+   "current": null,
+   "context": "\tif (tableStore.updatingDataSourceTables) {\n\t\treturn {\n\t\t\ttitle: __('Refreshing Tables'),\n\t\t\tdescription: __('Please wait while we refresh the tables from your data source'),\n\t\t}\n\t}\n"
+  },
+  {
+   "key": "Position & Size",
+   "refs": [
+    "insights/insights/insights/doctype/insights_dashboard_item/insights_dashboard_item.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"layout\",\n   \"fieldtype\": \"JSON\",\n   \"in_list_view\": 1,\n   \"label\": \"Position & Size\"\n  },\n  {\n   \"fieldname\": \"item_type\","
+  },
+  {
+   "key": "PostgreSQL",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:49",
+    "insights/insights/insights/doctype/insights_data_source/insights_data_source.json",
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "\t\t},\n\t},\n\t{\n\t\tlabel: __('PostgreSQL'),\n\t\ticon: getDatabaseLogo('PostgreSQL'),\n\t\tdescription: __('Connect to PostgreSQL database'),\n\t\tonClick: () => {"
+  },
+  {
+   "key": "Prebuilt workbooks your installed apps bring to Insights. Import one to add it to your site's workbooks — everyone can use it.",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookTemplates.vue:77"
+   ],
+   "current": null,
+   "context": "\trouter.push(`/workbook/${template.imported_workbook}`)\n}\n\n// name of the template currently updating, so only its card's button spins\nconst updating = ref<string | null>(null)\n// a customized copy is confirmed before its edits are overwritten\nconst confirmTarget = ref<WorkbookTemplate | null>(null)"
+  },
+  {
+   "key": "Primary Key",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_link/insights_table_link.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"primary_key\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Primary Key\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Primary Key Column",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Stable key used to identify the latest version of each logical row during incremental upserts.\",\n   \"fieldname\": \"sync_primary_key_column\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Primary Key Column\",\n   \"mandatory_depends_on\": \"eval:doc.sync_mode == 'Incremental' && doc.sync_strategy == 'Update or Insert'\"\n  },\n  {"
+  },
+  {
+   "key": "Public Key",
+   "refs": [
+    "insights/insights/insights/doctype/insights_chart/insights_chart.json",
+    "insights/insights/insights/doctype/insights_dashboard/insights_dashboard.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"public_key\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Public Key\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Query Lineage",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookLineageDialog.vue:149"
+   ],
+   "current": null,
+   "context": "\t<Dialog\n\t\tv-model=\"show\"\n\t\t:options=\"{\n\t\t\ttitle: __('Query Lineage'),\n\t\t\tsize: '5xl',\n\t\t}\"\n\t>"
+  },
+  {
+   "key": "Query Result Limit",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"1000\",\n   \"fieldname\": \"query_result_limit\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Query Result Limit\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Quick Actions",
+   "refs": [
+    "insights/frontend/src2/home/HomeQuickActions.vue:21"
+   ],
+   "current": null,
+   "context": "\t\t\t<div class=\"rounded bg-gray-100 p-1\">\n\t\t\t\t<ArrowUpRight class=\"h-4 w-4 text-gray-700\" stroke-width=\"1.5\" />\n\t\t\t</div>\n\t\t\t<div class=\"text-lg\">{{  __('Quick Actions') }}</div>\n\t\t</div>\n\t\t<div class=\"mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4\">\n\t\t\t<div"
+  },
+  {
+   "key": "Ranking Condition",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:478"
+   ],
+   "current": null,
+   "context": "\t\t\t<template v-if=\"isRankRule\">\n\t\t\t\t<FormControl\n\t\t\t\t\ttype=\"select\"\n\t\t\t\t\t:placeholder=\"__('Ranking Condition')\"\n\t\t\t\t\t:label=\"'Rule'\"\n\t\t\t\t\t:modelValue=\"(format as rank_rules).operator\"\n\t\t\t\t\t:options=\"rankOperatorOptions\""
+  },
+  {
+   "key": "Ranking Rules",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:225"
+   ],
+   "current": null,
+   "context": "\tif (['Decimal', 'Number', 'Integer'].includes(columnType.value || '')) {\n\t\toptions.push(\n\t\t\t{ label: __('Value Rules'), value: 'cell_rules' },\n\t\t\t{ label: __('Ranking Rules'), value: 'rank_rules' },\n\t\t)\n\t}\n"
+  },
+  {
+   "key": "Red-Green",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:209"
+   ],
+   "current": null,
+   "context": "\nconst colorScaleOptions = [\n\t{\n\t\tlabel: __('Red-Green'),\n\t\tvalue: 'Red-Green',\n\t},\n\t{"
+  },
+  {
+   "key": "Referenced Query",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_reference/insights_query_reference.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"ref_query\",\n   \"fieldtype\": \"Link\",\n   \"in_list_view\": 1,\n   \"label\": \"Referenced Query\",\n   \"options\": \"Insights Query v3\",\n   \"read_only\": 1,\n   \"search_index\": 1"
+  },
+  {
+   "key": "Referencing Queries",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:84"
+   ],
+   "current": null,
+   "context": "  <h5 style=\"line-height: 24px; margin-bottom: 0px;\">${__(\"Usage\")}</h5>\n  <table class=\"table table-condensed table-bordered\" style=\"margin-top: 8px;\">\n    <tr><td>${__(\"Last Executed On\")}</td><td>${fmt_dt(\n\t\ts.last_executed_on,\n\t)}</td></tr>\n    <tr><td>${__(\"Execution Count\")}</td><td>${fmt_num(\n\t\ts.execution_count,"
+  },
+  {
+   "key": "Refresh Preview",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardList.vue:109"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => router.push(`/workbook/${dashboard.workbook}`),\n\t},\n\t{\n\t\tlabel: __('Refresh Preview'),\n\t\ticon: 'refresh-cw',\n\t\tloading: store.updatingPreviewImage,\n\t\tonClick: () => store.updatePreviewImage(dashboard.name),"
+  },
+  {
+   "key": "Refresh Stored Tables",
+   "refs": [
+    "insights/frontend/src2/query/components/QueryToolbar.vue:28"
+   ],
+   "current": null,
+   "context": "\n\tif (!query.doc.use_live_connection && session.user.is_admin) {\n\t\tactions.push({\n\t\t\tlabel: __('Refresh Stored Tables'),\n\t\t\ticon: h(RefreshCw, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\t\tonClick: query.refreshStoredTables,\n\t\t})"
+  },
+  {
+   "key": "Refresh Tables",
+   "refs": [
+    "insights/frontend/src2/query/components/source_selector/DataSourceTableList.vue:62",
+    "insights/frontend/src2/query/components/source_selector/DataSourceTableList.vue:87"
+   ],
+   "current": null,
+   "context": "\t\tdescription: __('Sync tables from your data source to get started'),\n\t\tbutton: {\n\t\t\tvariant: 'outline',\n\t\t\tlabel: __('Refresh Tables'),\n\t\t\tonClick: () => tableStore.updateDataSourceTables(props.data_source),\n\t\t},\n\t}"
+  },
+  {
+   "key": "Refreshing Tables",
+   "refs": [
+    "insights/frontend/src2/query/components/source_selector/DataSourceTableList.vue:52"
+   ],
+   "current": null,
+   "context": "const emptyState = computed(() => {\n\tif (tableStore.updatingDataSourceTables) {\n\t\treturn {\n\t\t\ttitle: __('Refreshing Tables'),\n\t\t\tdescription: __('Please wait while we refresh the tables from your data source'),\n\t\t}\n\t}"
+  },
+  {
+   "key": "Remove Sort",
+   "refs": [
+    "insights/frontend/src2/components/DataTableColumn.vue:30"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => props.onSortChange?.('desc'),\n\t},\n\t{\n\t\tlabel: __('Remove Sort'),\n\t\ticon: h(XIcon, { class: 'h-4 w-4 text-gray-700', strokeWidth: 1.5 }),\n\t\tonClick: () => props.onSortChange?.(''),\n\t},"
+  },
+  {
+   "key": "Reset Options",
+   "refs": [
+    "insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:49"
+   ],
+   "current": null,
+   "context": "\t\tonClick: () => props.chart.duplicate(),\n\t},\n\t{\n\t\tlabel: __('Reset Options'),\n\t\ticon: h(XIcon, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\tonClick: () => props.chart.resetConfig(),\n\t\tcondition: () => !props.chart.doc.read_only,"
+  },
+  {
+   "key": "Resolve Locations",
+   "refs": [
+    "insights/frontend/src2/charts/components/RegionMappingDialog.vue:194"
+   ],
+   "current": null,
+   "context": "<template>\n\t<Dialog\n\t\t:modelValue=\"modelValue\"\n\t\t:options=\"{ title: __('Resolve Locations'), size: '2xl' }\"\n\t\t@update:modelValue=\"emit('update:modelValue', $event)\"\n\t>\n\t\t<template #body-content>"
+  },
+  {
+   "key": "Resource Type",
+   "refs": [
+    "insights/insights/insights/doctype/insights_resource_permission/insights_resource_permission.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"resource_type\",\n   \"fieldtype\": \"Link\",\n   \"in_list_view\": 1,\n   \"label\": \"Resource Type\",\n   \"options\": \"DocType\",\n   \"reqd\": 1\n  },"
+  },
+  {
+   "key": "REST API",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Type\",\n   \"options\": \"Database\\nREST API\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Result Row Count",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"results_row_count\",\n   \"fieldtype\": \"Int\",\n   \"is_virtual\": 1,\n   \"label\": \"Result Row Count\",\n   \"read_only\": 1\n  }\n ],"
+  },
+  {
+   "key": "Results",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_result/insights_query_result.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"results\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Results\",\n   \"options\": \"JSON\",\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Results Row Count",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_result/insights_query_result.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"results_row_count\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Results Row Count\",\n   \"read_only\": 1\n  }\n ],"
+  },
+  {
+   "key": "Right Column",
+   "refs": [
+    "insights/frontend/src2/query/components/JoinSelectorDialog.vue:294",
+    "insights/insights/insights/doctype/insights_table_link_v3/insights_table_link_v3.json"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t<div class=\"flex h-7 flex-shrink-0 items-center font-mono\">=</div>\n\t\t\t\t\t\t\t\t<div class=\"flex-1\">\n\t\t\t\t\t\t\t\t\t<label class=\"mb-1 block text-xs text-gray-600\">{{\n\t\t\t\t\t\t\t\t\t\t__('Right Column')\n\t\t\t\t\t\t\t\t\t}}</label>\n\t\t\t\t\t\t\t\t\t<Combobox\n\t\t\t\t\t\t\t\t\t\t:placeholder=\"__('Column')\""
+  },
+  {
+   "key": "Right Table",
+   "refs": [
+    "insights/frontend/src2/query/components/JoinSelectorDialog.vue:260",
+    "insights/insights/insights/doctype/insights_table_link_v3/insights_table_link_v3.json"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<!-- Fields -->\n\t\t\t\t<div class=\"flex w-full flex-col gap-3 overflow-auto p-0.5 text-base\">\n\t\t\t\t\t<div class=\"flex flex-col gap-1.5\">\n\t\t\t\t\t\t<label class=\"block text-xs text-ink-gray-5\">{{ __('Right Table') }}</label>\n\t\t\t\t\t\t<Combobox\n\t\t\t\t\t\t\t:placeholder=\"__('Table')\"\n\t\t\t\t\t\t\t:open-on-focus=\"true\""
+  },
+  {
+   "key": "Row Limit",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.json",
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"row_limit\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Row Limit\",\n   \"non_negative\": 1,\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Row Size (KB)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"row_size\",\n   \"fieldtype\": \"Float\",\n   \"label\": \"Row Size (KB)\",\n   \"non_negative\": 1,\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Rows Imported",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"rows_imported\",\n   \"fieldtype\": \"Int\",\n   \"in_list_view\": 1,\n   \"label\": \"Rows Imported\",\n   \"non_negative\": 1,\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Rule Type",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:405"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<FormControl\n\t\t\t\t\ttype=\"select\"\n\t\t\t\t\t:label=\"'Rule Type'\"\n\t\t\t\t\t:placeholder=\"__('Rule Type')\"\n\t\t\t\t\t:modelValue=\"format.mode\"\n\t\t\t\t\t:options=\"ruleTypeOptions\"\n\t\t\t\t\t@update:modelValue=\"onRuleTypeChange($event)\""
+  },
+  {
+   "key": "Run {0} of {1}",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.js:37"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t__(\"Bulk Enqueue Progress\"),\n\t\t\t\t\t\t\t\tdata.current,\n\t\t\t\t\t\t\t\tdata.total,\n\t\t\t\t\t\t\t\t__(\"Run {0} of {1}\", [\n\t\t\t\t\t\t\t\t\tdata.current,\n\t\t\t\t\t\t\t\t\tdata.total,\n\t\t\t\t\t\t\t\t]),"
+  },
+  {
+   "key": "Sample data and workbook have been set up successfully",
+   "refs": [
+    "insights/frontend/src2/settings/GeneralSettings.vue:23"
+   ],
+   "current": null,
+   "context": "\t\tsession.user.has_demo_data = true\n\t\tcreateToast({\n\t\t\ttitle: __('Demo Data Ready'),\n\t\t\tmessage: __('Sample data and workbook have been set up successfully'),\n\t\t\tvariant: 'success',\n\t\t})\n\t} catch {"
+  },
+  {
+   "key": "Sample data with workbook has been set up successfully",
+   "refs": [
+    "insights/frontend/src2/components/DemoDataBanner.vue:27"
+   ],
+   "current": null,
+   "context": "\t\tsession.user.has_demo_data = true\n\t\tcreateToast({\n\t\t\ttitle: __('Demo Data Ready'),\n\t\t\tmessage: __('Sample data with workbook has been set up successfully'),\n\t\t\tvariant: 'success',\n\t\t})\n\t} catch {"
+  },
+  {
+   "key": "Save Variables",
+   "refs": [
+    "insights/frontend/src2/components/VariablesDialog.vue:133"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\tAdd Variable\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t\t<Button variant=\"solid\" @click=\"saveVariables\">\n\t\t\t\t\t\t\t{{ __('Save Variables') }}\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>"
+  },
+  {
+   "key": "Schedule (Cron)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Cron expression to schedule the script. Note: The scheduler checks for jobs every hour.\",\n   \"fieldname\": \"schedule\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Schedule (Cron)\"\n  },\n  {\n   \"fieldname\": \"column_break_3\","
+  },
+  {
+   "key": "Schema",
+   "refs": [
+    "insights/frontend/src2/data_source/ConnectPostgreSQLDialog.vue:57",
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "\t\tplaceholder: 'DB_1267891',\n\t\trequired: true,\n\t},\n\t{\n\t\tlabel: __('Schema'),\n\t\tname: 'schema',\n\t\ttype: 'text',"
+  },
+  {
+   "key": "Script Log",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"script_log\",\n   \"fieldtype\": \"Text\",\n   \"label\": \"Script Log\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Search by name",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardChartSelectorDialog.vue:85"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<FormControl\n\t\t\t\t\t\tclass=\"flex-1\"\n\t\t\t\t\t\tautocomplete=\"off\"\n\t\t\t\t\t\t:placeholder=\"__('Search by name')\"\n\t\t\t\t\t\tv-model=\"searchQuery\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<template #prefix>"
+  },
+  {
+   "key": "Search nodes\\u2026",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookLineageDialog.vue:163"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<div class=\"ml-auto\">\n\t\t\t\t\t<FormControl\n\t\t\t\t\t\tv-model=\"searchQuery\"\n\t\t\t\t\t\t:placeholder=\"__('Search nodes\\u2026')\"\n\t\t\t\t\t\tautocomplete=\"off\"\n\t\t\t\t\t>\n\t\t\t\t\t\t<template #prefix>"
+  },
+  {
+   "key": "Secrets",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"secrets\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Secrets\",\n   \"no_copy\": 1,\n   \"options\": \"Insights Secret Key\"\n  },"
+  },
+  {
+   "key": "Select a column",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardFilterEditor.vue:223"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t\t>\n\t\t\t\t\t\t\t\t\t\t<Autocomplete\n\t\t\t\t\t\t\t\t\t\t\tclass=\"min-w-[10rem]\"\n\t\t\t\t\t\t\t\t\t\t\t:placeholder=\"__('Select a column')\"\n\t\t\t\t\t\t\t\t\t\t\t:options=\"link.columns\"\n\t\t\t\t\t\t\t\t\t\t\t:modelValue=\"filter.links[link.name]\"\n\t\t\t\t\t\t\t\t\t\t\t@update:modelValue=\""
+  },
+  {
+   "key": "Select a data source",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:170"
+   ],
+   "current": null,
+   "context": "\t<SelectTypeDialog\n\t\tv-model=\"showNewSourceDialog\"\n\t\t:types=\"sourceTypes\"\n\t\t:title=\"__('Select a data source')\"\n\t/>\n\n\t<ConnectMariaDBDialog v-model=\"showNewMariaDBDialog\" />"
+  },
+  {
+   "key": "Select a table or query to start building your query",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:33"
+   ],
+   "current": null,
+   "context": "const operationButtons = [\n\t{\n\t\tlabel: __('Select Source'),\n\t\tdescription: __('Select a table or query to start building your query'),\n\t\ticon: query_operation_types.source.icon,\n\t\tonClick: () => (showSourceSelectorDialog.value = true),\n\t},"
+  },
+  {
+   "key": "Select an operation",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:145"
+   ],
+   "current": null,
+   "context": "\t\t<template #body-main=\"{ togglePopover, isOpen }\">\n\t\t\t<div v-if=\"isOpen\" class=\"flex flex-col p-1.5\">\n\t\t\t\t<span class=\"flex h-6 items-center px-2 text-p-xs text-gray-500\">\n\t\t\t\t\t{{ __('Select an operation') }}\n\t\t\t\t</span>\n\t\t\t\t<div class=\"grid grid-cols-2\">\n\t\t\t\t\t<Button"
+  },
+  {
+   "key": "Select Charts",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardChartSelectorDialog.vue:64"
+   ],
+   "current": null,
+   "context": "\t\tv-model=\"showDialog\"\n\t\t:options=\"{\n\t\t\tsize: 'sm',\n\t\t\ttitle: __('Select Charts'),\n\t\t\tactions: [\n\t\t\t\t{\n\t\t\t\t\tlabel: __('Add'),"
+  },
+  {
+   "key": "Select Columns to Add",
+   "refs": [
+    "insights/frontend/src2/query/components/JoinSelectorDialog.vue:363"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<label class=\"mb-1 block text-xs text-gray-600\">{{\n\t\t\t\t\t\t\t__('Select Columns to Add')\n\t\t\t\t\t\t}}</label>\n\t\t\t\t\t\t<MultiSelect\n\t\t\t\t\t\t\t:placeholder=\"__('Columns')\""
+  },
+  {
+   "key": "Select Join Type",
+   "refs": [
+    "insights/frontend/src2/query/components/JoinSelectorDialog.vue:335"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t</div>\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<label class=\"mb-1 block text-xs text-gray-600\">{{\n\t\t\t\t\t\t\t__('Select Join Type')\n\t\t\t\t\t\t}}</label>\n\t\t\t\t\t\t<div class=\"flex gap-2\">\n\t\t\t\t\t\t\t<div"
+  },
+  {
+   "key": "Select operator...",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardFilterEditor.vue:266"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t\t<div class=\"flex gap-2 items-start\">\n\t\t\t\t\t\t\t\t\t\t<FormControl\n\t\t\t\t\t\t\t\t\t\t\ttype=\"select\"\n\t\t\t\t\t\t\t\t\t\t\t:placeholder=\"__('Select operator...')\"\n\t\t\t\t\t\t\t\t\t\t\t:modelValue=\"filter.default_operator\"\n\t\t\t\t\t\t\t\t\t\t\t:options=\"defaultOperatorOptions\"\n\t\t\t\t\t\t\t\t\t\t\t@update:modelValue=\"onDefaultOperatorChange($event)\""
+  },
+  {
+   "key": "Select Source",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:32"
+   ],
+   "current": null,
+   "context": "\nconst operationButtons = [\n\t{\n\t\tlabel: __('Select Source'),\n\t\tdescription: __('Select a table or query to start building your query'),\n\t\ticon: query_operation_types.source.icon,\n\t\tonClick: () => (showSourceSelectorDialog.value = true),"
+  },
+  {
+   "key": "Select Table",
+   "refs": [
+    "insights/frontend/src2/query/components/UnionSelectorDialog.vue:126"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<div class=\"flex w-full flex-col gap-3 overflow-auto p-0.5 text-base\">\n\t\t\t\t\t<div>\n\t\t\t\t\t\t<label class=\"mb-1 block text-xs text-gray-600\">{{\n\t\t\t\t\t\t\t__('Select Table')\n\t\t\t\t\t\t}}</label>\n\t\t\t\t\t\t<Autocomplete\n\t\t\t\t\t\t\t:placeholder=\"__('Table')\""
+  },
+  {
+   "key": "Send Alert",
+   "refs": [
+    "insights/insights/insights/doctype/insights_alert/insights_alert.js:6"
+   ],
+   "current": null,
+   "context": "\nfrappe.ui.form.on(\"Insights Alert\", {\n\trefresh: function (frm) {\n\t\tfrm.add_custom_button(__(\"Send Alert\"), function () {\n\t\t\tfrappe.dom.freeze(__(\"Sending Alert...\"));\n\t\t\tfrm.call(\"send_alert\")\n\t\t\t\t.then(() => {"
+  },
+  {
+   "key": "Send alert when",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:197"
+   ],
+   "current": null,
+   "context": "\n\t\t\t\t<div class=\"flex flex-col\">\n\t\t\t\t\t<label class=\"mb-1.5 block text-xs text-ink-gray-5\">{{\n\t\t\t\t\t\t__('Send alert when')\n\t\t\t\t\t}}</label>\n\t\t\t\t\t<div class=\"flex gap-4\" v-if=\"!alert.doc.custom_condition\">\n\t\t\t\t\t\t<FormControl"
+  },
+  {
+   "key": "Send Invitation",
+   "refs": [
+    "insights/frontend/src2/settings/UsersSettings.vue:177",
+    "insights/frontend/src2/users/UserList.vue:178"
+   ],
+   "current": null,
+   "context": "\t\t\tsize: 'sm',\n\t\t\tactions: [\n\t\t\t\t{\n\t\t\t\t\tlabel: __('Send Invitation'),\n\t\t\t\t\tvariant: 'solid',\n\t\t\t\t\tdisabled: !areAllEmailsValid,\n\t\t\t\t\tloading: userStore.sendingInvitation,"
+  },
+  {
+   "key": "Send Test Alert",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:117"
+   ],
+   "current": null,
+   "context": "\t\t\tsize: '2xl',\n\t\t\tactions: [\n\t\t\t\t{\n\t\t\t\t\tlabel: __('Send Test Alert'),\n\t\t\t\t\tdisabled: !isValidAlert || alert.loading || alert.saving,\n\t\t\t\t\tloading: alert.loading,\n\t\t\t\t\tonClick: testSendAlert,"
+  },
+  {
+   "key": "Sending Alert...",
+   "refs": [
+    "insights/insights/insights/doctype/insights_alert/insights_alert.js:7"
+   ],
+   "current": null,
+   "context": "frappe.ui.form.on(\"Insights Alert\", {\n\trefresh: function (frm) {\n\t\tfrm.add_custom_button(__(\"Send Alert\"), function () {\n\t\t\tfrappe.dom.freeze(__(\"Sending Alert...\"));\n\t\t\tfrm.call(\"send_alert\")\n\t\t\t\t.then(() => {\n\t\t\t\t\tfrappe.dom.unfreeze();"
+  },
+  {
+   "key": "Set Insights v2 as default",
+   "refs": [
+    "insights/frontend/src2/components/UserDropdown.vue:70"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</div>\n\t\t\t\t<FormControl\n\t\t\t\t\ttype=\"checkbox\"\n\t\t\t\t\t:label=\"__('Set Insights v2 as default')\"\n\t\t\t\t\t:modelValue=\"session.user.default_version === 'v2'\"\n\t\t\t\t\t@update:modelValue=\"session.user.default_version = $event ? 'v2' : ''\"\n\t\t\t\t/>"
+  },
+  {
+   "key": "Set up alerts to get notified when a condition is met",
+   "refs": [
+    "insights/frontend/src2/query/components/QueryAlertsDialog.vue:77"
+   ],
+   "current": null,
+   "context": "\t\t},\n\t\temptyState: {\n\t\t\ttitle: __('No alerts'),\n\t\t\tdescription: __('Set up alerts to get notified when a condition is met'),\n\t\t\tbutton: {\n\t\t\t\tlabel: __('New Alert'),\n\t\t\t\tvariant: 'solid',"
+  },
+  {
+   "key": "Setup Alert",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:113"
+   ],
+   "current": null,
+   "context": "\t\tv-model=\"show\"\n\t\t:disableOutsideClickToClose=\"alert.isdirty || alert.islocal\"\n\t\t:options=\"{\n\t\t\ttitle: __('Setup Alert'),\n\t\t\tsize: '2xl',\n\t\t\tactions: [\n\t\t\t\t{"
+  },
+  {
+   "key": "Setup Demo Data",
+   "refs": [
+    "insights/frontend/src2/components/DemoDataBanner.vue:64"
+   ],
+   "current": null,
+   "context": "\t\t\t</button>\n\t\t</div>\n\t\t<Button\n\t\t\t:label=\"__('Setup Demo Data')\"\n\t\t\tvariant=\"subtle\"\n\t\t\t:loading=\"loading\"\n\t\t\t@click=\"setupDemoData\""
+  },
+  {
+   "key": "Setup Failed",
+   "refs": [
+    "insights/frontend/src2/components/DemoDataBanner.vue:32",
+    "insights/frontend/src2/settings/GeneralSettings.vue:28"
+   ],
+   "current": null,
+   "context": "\t\t})\n\t} catch {\n\t\tcreateToast({\n\t\t\ttitle: __('Setup Failed'),\n\t\t\tmessage: __('Failed to setup demo data'),\n\t\t\tvariant: 'error',\n\t\t})"
+  },
+  {
+   "key": "Share Chart",
+   "refs": [
+    "insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:38",
+    "insights/frontend/src2/charts/components/ChartShareDialog.vue:35"
+   ],
+   "current": null,
+   "context": "\t\tcondition: () => !!props.chartEl,\n\t},\n\t{\n\t\tlabel: __('Share Chart'),\n\t\ticon: h(Share2, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\tonClick: () => props.onShare(),\n\t\tcondition: () => !props.chart.doc.read_only,"
+  },
+  {
+   "key": "Share Dashboard",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardShareDialog.vue:83"
+   ],
+   "current": null,
+   "context": "\t<Dialog\n\t\tv-model=\"show\"\n\t\t:options=\"{\n\t\t\ttitle: __('Share Dashboard'),\n\t\t\tactions: [\n\t\t\t\t{\n\t\t\t\t\tlabel: __('Done'),"
+  },
+  {
+   "key": "Share Link",
+   "refs": [
+    "insights/insights/insights/doctype/insights_dashboard_v3/insights_dashboard_v3.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"share_link\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Share Link\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Show or hide columns from the table",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:39"
+   ],
+   "current": null,
+   "context": "\t},\n\t{\n\t\tlabel: __('Choose Columns'),\n\t\tdescription: __('Show or hide columns from the table'),\n\t\ticon: query_operation_types.select.icon,\n\t\tonClick: () => (showColumnsSelectorDialog.value = true),\n\t},"
+  },
+  {
+   "key": "Show Percentage",
+   "refs": [
+    "insights/frontend/src2/charts/components/FunnelChartConfigForm.vue:51"
+   ],
+   "current": null,
+   "context": "\t\t\t\tv-model=\"config.value_column\"\n\t\t\t\t:column-options=\"props.columnOptions\"\n\t\t\t/>\n\t\t\t<Toggle v-model=\"config.show_percentage\" :label=\"__('Show Percentage')\" />\n\t\t</div>\n\t</CollapsibleSection>\n</template>"
+  },
+  {
+   "key": "Site Database",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source/insights_data_source.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"is_site_db\",\n   \"fieldname\": \"is_site_db\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Site Database\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "sort_order",
+   "refs": [
+    "insights/insights/insights/doctype/insights_chart_v3/insights_chart_v3.json",
+    "insights/insights/insights/doctype/insights_query_v3/insights_query_v3.json"
+   ],
+   "current": null,
+   "context": "  \"workbook\",\n  \"query\",\n  \"data_query\",\n  \"sort_order\",\n  \"folder\",\n  \"column_break_mgwd\",\n  \"chart_type\","
+  },
+  {
+   "key": "Specific people can view",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardShareDialog.vue:114"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t\t\tvalue: 'organization',\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\t\t\tlabel: __('Specific people can view'),\n\t\t\t\t\t\t\t\t\t\tvalue: 'specific',\n\t\t\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t\t]\""
+  },
+  {
+   "key": "Spreading column values into separate columns",
+   "refs": [
+    "insights/frontend/src2/query/components/AddOperationPopover.vue:75"
+   ],
+   "current": null,
+   "context": "\t},\n\t{\n\t\tlabel: __('Pivot'),\n\t\tdescription: __('Spreading column values into separate columns'),\n\t\ticon: query_operation_types.pivot_wider.icon,\n\t\tonClick: () => (showPivotSelectorDialog.value = true),\n\t},"
+  },
+  {
+   "key": "SQLite",
+   "refs": [
+    "insights/insights/insights/doctype/insights_data_source/insights_data_source.json",
+    "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Database Type\",\n   \"options\": \"MariaDB\\nPostgreSQL\\nSQLite\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Stable key used to identify the latest version of each logical row during incremental upserts.",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"eval:doc.sync_mode == 'Incremental' && doc.sync_strategy == 'Update or Insert'\",\n   \"description\": \"Stable key used to identify the latest version of each logical row during incremental upserts.\",\n   \"fieldname\": \"sync_primary_key_column\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Primary Key Column\","
+  },
+  {
+   "key": "Start importing rows from this datetime onward (used on first sync only)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"eval:doc.sync_mode == 'Incremental'\",\n   \"description\": \"Start importing rows from this datetime onward (used on first sync only)\",\n   \"fieldname\": \"sync_from\",\n   \"fieldtype\": \"Datetime\",\n   \"label\": \"Sync From\""
+  },
+  {
+   "key": "Starting...",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.js:27"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t__(\"Bulk Enqueue Progress\"),\n\t\t\t\t\t\t0,\n\t\t\t\t\t\tvalues.run_count,\n\t\t\t\t\t\t__(\"Starting...\"),\n\t\t\t\t\t);\n\n\t\t\t\t\t// Listen for realtime progress updates"
+  },
+  {
+   "key": "starts with",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:176"
+   ],
+   "current": null,
+   "context": "const textOperatorOptions = [\n\t{ label: __('contains'), value: 'contains' as TextOperator },\n\t{ label: __('does not contain'), value: 'not_contains' as TextOperator },\n\t{ label: __('starts with'), value: 'starts_with' as TextOperator },\n\t{ label: __('ends with'), value: 'ends_with' as TextOperator },\n\t{ label: __('equals'), value: 'equals_text' as TextOperator },\n\t{ label: __('does not equal'), value: 'not_equals_text' as TextOperator },"
+  },
+  {
+   "key": "State (JSON)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Persistent state storage for the script\",\n   \"fieldname\": \"state\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"State (JSON)\",\n   \"no_copy\": 1,\n   \"options\": \"JSON\"\n  },"
+  },
+  {
+   "key": "Statistics — {0}",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:91"
+   ],
+   "current": null,
+   "context": "\t)}</td></tr>\n  </table>\n  <h5 style=\"line-height: 24px; margin-bottom: 0px;\">${__(\n\t\t\"Referencing Queries\",\n  )}</h5>\n  <ul style=\"padding-left:18px;margin:0\">${queries_html}</ul>\n</div>`;"
+  },
+  {
+   "key": "Stored",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json",
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"is_stored\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Stored\"\n  },\n  {\n   \"fieldname\": \"transforms\","
+  },
+  {
+   "key": "String",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_column/insights_table_column.json"
+   ],
+   "current": null,
+   "context": "   \"reqd\": 1\n  },\n  {\n   \"default\": \"String\",\n   \"fieldname\": \"type\",\n   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,"
+  },
+  {
+   "key": "Sum of...",
+   "refs": [
+    "insights/frontend/src2/charts/components/MeasurePicker.vue:137"
+   ],
+   "current": null,
+   "context": "\tmeasure.value = {\n\t\texpression: measureExpression.expression,\n\t\tmeasure_name: measureExpression.measure_name,\n\t\tdata_type: measureExpression.data_type,\n\t\tformat: measure.value.format,\n\t}\n\tshowMeasureDialog.value = false"
+  },
+  {
+   "key": "Switch to Desk",
+   "refs": [
+    "insights/frontend/src2/components/UserDropdown.vue:148"
+   ],
+   "current": null,
+   "context": "\n\tif (session.user.is_admin) {\n\t\tuserDropdownOptions.value.splice(userDropdownOptions.value.length - 2, 0, {\n\t\t\tlabel: __('Switch to Desk'),\n\t\t\ticon: h(ToggleRight),\n\t\t\tonClick: () => window.open('/app', '_blank'),\n\t\t})"
+  },
+  {
+   "key": "Switch to Insights v2",
+   "refs": [
+    "insights/frontend/src2/components/UserDropdown.vue:54",
+    "insights/frontend/src2/components/UserDropdown.vue:140"
+   ],
+   "current": null,
+   "context": "\t\t<Dialog\n\t\t\tv-model=\"showSwitchToV2Dialog\"\n\t\t\t:options=\"{\n\t\t\t\ttitle: __('Switch to Insights v2'),\n\t\t\t\tactions: [\n\t\t\t\t\t{\n\t\t\t\t\t\tlabel: __('Continue'),"
+  },
+  {
+   "key": "Sync From",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Start importing rows from this datetime onward (used on first sync only)\",\n   \"fieldname\": \"sync_from\",\n   \"fieldtype\": \"Datetime\",\n   \"label\": \"Sync From\"\n  },\n  {\n   \"description\": \"Last synced cursor value (set automatically)\","
+  },
+  {
+   "key": "Sync Mode",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"Full\",\n   \"fieldname\": \"sync_mode\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Sync Mode\",\n   \"options\": \"Full\\nIncremental\"\n  },\n  {"
+  },
+  {
+   "key": "Sync Strategy",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Choose how incremental sync writes rows: <b>Append Only</b> adds new rows, while <b>Update or Insert</b> updates matching keys and inserts new rows.\",\n   \"fieldname\": \"sync_strategy\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Sync Strategy\",\n   \"options\": \"Append Only\\nUpdate or Insert\"\n  },\n  {"
+  },
+  {
+   "key": "Sync tables from your data source to get started",
+   "refs": [
+    "insights/frontend/src2/query/components/source_selector/DataSourceTableList.vue:59"
+   ],
+   "current": null,
+   "context": "\n\treturn {\n\t\ttitle: __('No Tables Found'),\n\t\tdescription: __('Sync tables from your data source to get started'),\n\t\tbutton: {\n\t\t\tvariant: 'outline',\n\t\t\tlabel: __('Refresh Tables'),"
+  },
+  {
+   "key": "Table Imported",
+   "refs": [
+    "insights/frontend/src2/data_source/UploadCSVFileDialog.vue:64"
+   ],
+   "current": null,
+   "context": "\t})\n\t\t.then(() => {\n\t\t\tcreateToast({\n\t\t\t\ttitle: __('Table Imported'),\n\t\t\t\tmessage: __(`Table '{0}' imported successfully`, csvData.tablename),\n\t\t\t\tvariant: 'success',\n\t\t\t})"
+  },
+  {
+   "key": "Table Label",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_column/insights_query_column.json",
+    "insights/insights/insights/doctype/insights_table_import/insights_table_import.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"table_label\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Table Label\",\n   \"mandatory_depends_on\": \"!is_expression\"\n  },\n  {"
+  },
+  {
+   "key": "Table Name",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceTableList.vue:28",
+    "insights/frontend/src2/data_store/DataStoreList.vue:36",
+    "insights/insights/insights/doctype/insights_query_reference/insights_query_reference.json",
+    "insights/insights/insights/doctype/insights_table_import/insights_table_import.json",
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.json",
+    "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.json"
+   ],
+   "current": null,
+   "context": "const listOptions = ref({\n\tcolumns: [\n\t\t{\n\t\t\tlabel: __('Table Name'),\n\t\t\tkey: 'table_name',\n\t\t},\n\t],"
+  },
+  {
+   "key": "Table Restrictions",
+   "refs": [
+    "insights/insights/insights/doctype/insights_resource_permission/insights_resource_permission.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"table_restrictions\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Table Restrictions\"\n  }\n ],\n \"index_web_pages_for_search\": 1,"
+  },
+  {
+   "key": "Tables",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval: !doc.is_assisted_query && !doc.is_native_query && !doc.is_script_query\",\n   \"fieldname\": \"tables\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Tables\",\n   \"options\": \"Insights Query Table\"\n  },\n  {"
+  },
+  {
+   "key": "Team Name",
+   "refs": [
+    "insights/frontend/src2/settings/PermissionsSettings.vue:45",
+    "insights/insights/insights/doctype/insights_team/insights_team.json"
+   ],
+   "current": null,
+   "context": "const listOptions = ref({\n\tcolumns: [\n\t\t{\n\t\t\tlabel: __('Team Name'),\n\t\t\tkey: 'team_name',\n\t\t\tprefix(props: any) {\n\t\t\t\tconst team = props.row as Team"
+  },
+  {
+   "key": "Team Permissions",
+   "refs": [
+    "insights/insights/insights/doctype/insights_team/insights_team.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"team_permissions\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Team Permissions\",\n   \"options\": \"Insights Resource Permission\"\n  },\n  {"
+  },
+  {
+   "key": "Telegram",
+   "refs": [
+    "insights/insights/insights/doctype/insights_alert/insights_alert.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"channel\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Channel\",\n   \"options\": \"Email\\nTelegram\"\n  },\n  {\n   \"depends_on\": \"eval: doc.channel == \\\"Email\\\"\","
+  },
+  {
+   "key": "Telegram API Token",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"telegram_api_token\",\n   \"fieldtype\": \"Password\",\n   \"label\": \"Telegram API Token\"\n  },\n  {\n   \"fieldname\": \"query_section\","
+  },
+  {
+   "key": "Telegram Chat ID",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:188",
+    "insights/insights/insights/doctype/insights_alert/insights_alert.json"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t<FormControl\n\t\t\t\t\t\t\tv-if=\"alert.doc.channel === 'Telegram'\"\n\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\t:label=\"__('Telegram Chat ID')\"\n\t\t\t\t\t\t\tv-model=\"alert.doc.telegram_chat_id\"\n\t\t\t\t\t\t\t:placeholder=\"__('e.g. 123456789')\"\n\t\t\t\t\t\t/>"
+  },
+  {
+   "key": "Temporal column used to detect rows that changed since the last sync. Use <b>modified</b> for mutable tables and <b>creation</b> for append-only tables.",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"eval:doc.sync_mode == 'Incremental'\",\n   \"description\": \"Temporal column used to detect rows that changed since the last sync. Use <b>modified</b> for mutable tables and <b>creation</b> for append-only tables.\",\n   \"fieldname\": \"sync_cursor_column\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Cursor Column\","
+  },
+  {
+   "key": "Text Rules",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:230"
+   ],
+   "current": null,
+   "context": "\t}\n\n\tif (['String', 'Text'].includes(columnType.value || '')) {\n\t\toptions.push({ label: __('Text Rules'), value: 'text_rules' })\n\t}\n\n\tif (['Date', 'Datetime', 'Time'].includes(columnType.value || '')) {"
+  },
+  {
+   "key": "This column is not available as a filter on this dashboard",
+   "refs": [
+    "insights/insights/insights/doctype/insights_dashboard_v3/insights_dashboard_v3.py:93"
+   ],
+   "current": null,
+   "context": "        if not last_viewed_recently:\n            self.add_viewed(force=True)\n\n        if surface not in VIEW_SURFACES:\n            surface = \"shared\" if frappe.session.user == \"Guest\" else \"workbook\"\n        capture(\"dashboard_viewed\", interval=\"1d\", surface=surface)\n"
+  },
+  {
+   "key": "This FY",
+   "refs": [
+    "insights/frontend/src2/query/components/ColumnFilterTypeDate.vue:58"
+   ],
+   "current": null,
+   "context": "\t\t\tlabel: __('This Week'),\n\t\t\tvalue: 'Week',\n\t\t\tdescription: getRange(weekStart, weekStart.add(6, 'day')),\n\t\t},\n\t\t{\n\t\t\tlabel: __('This Month'),\n\t\t\tvalue: 'Month',"
+  },
+  {
+   "key": "This will delete all warehouse data for <b>{0}</b> and reset the sync bookmark. Are you sure?",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:15"
+   ],
+   "current": null,
+   "context": "\t\tfrm.add_custom_button(__(\"Import to Warehouse\"), function () {\n\t\t\tfrm.call(\"import_to_warehouse\").then(() => {\n\t\t\t\tfrappe.msgprint(__(\"Import job has been queued\"));\n\t\t\t});\n\t\t});\n\n\t\tif (frm.doc.stored) {"
+  },
+  {
+   "key": "Time Taken (Seconds)",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_execution_log/insights_query_execution_log.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"time_taken\",\n   \"fieldtype\": \"Float\",\n   \"label\": \"Time Taken (Seconds)\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Top N percent",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:201"
+   ],
+   "current": null,
+   "context": "const rankOperatorOptions = [\n\t{ label: __('Top N values'), value: 'top_n' as RankOperator },\n\t{ label: __('Bottom N values'), value: 'bottom_n' as RankOperator },\n\t{ label: __('Top N percent'), value: 'top_percent' as RankOperator },\n\t{ label: __('Bottom N percent'), value: 'bottom_percent' as RankOperator },\n\t{ label: __('Above average'), value: 'above_average' as RankOperator },\n\t{ label: __('Below average'), value: 'below_average' as RankOperator },"
+  },
+  {
+   "key": "Top N values",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:199"
+   ],
+   "current": null,
+   "context": "]\n\nconst rankOperatorOptions = [\n\t{ label: __('Top N values'), value: 'top_n' as RankOperator },\n\t{ label: __('Bottom N values'), value: 'bottom_n' as RankOperator },\n\t{ label: __('Top N percent'), value: 'top_percent' as RankOperator },\n\t{ label: __('Bottom N percent'), value: 'bottom_percent' as RankOperator },"
+  },
+  {
+   "key": "Total Sync Time",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:70"
+   ],
+   "current": null,
+   "context": "\t\ts.last_synced_on,\n\t)}</td></tr>\n    <tr><td>${__(\"Last Import Rows\")}</td><td>${fmt_num(\n\t\ts.last_import_rows,\n\t)}</td></tr>\n    <tr><td>${__(\"Last Import Duration\")}</td><td>${fmt_dur(\n\t\ts.last_import_duration,"
+  },
+  {
+   "key": "Total Syncs",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:69"
+   ],
+   "current": null,
+   "context": "    <tr><td>${__(\"Last Synced On\")}</td><td>${fmt_dt(\n\t\ts.last_synced_on,\n\t)}</td></tr>\n    <tr><td>${__(\"Last Import Rows\")}</td><td>${fmt_num(\n\t\ts.last_import_rows,\n\t)}</td></tr>\n    <tr><td>${__(\"Last Import Duration\")}</td><td>${fmt_dur("
+  },
+  {
+   "key": "Transform",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"transform_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Transform\"\n  },\n  {\n   \"fieldname\": \"section_break_18\","
+  },
+  {
+   "key": "Transforms",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"transforms\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Transforms\",\n   \"options\": \"Insights Query Transform\"\n  },\n  {"
+  },
+  {
+   "key": "Transpose",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_transform/insights_query_transform.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Type\",\n   \"options\": \"Pivot\\nUnpivot\\nTranspose\\nCumulativeSum\"\n  },\n  {\n   \"default\": \"{}\","
+  },
+  {
+   "key": "Try demo data",
+   "refs": [
+    "insights/frontend/src2/components/DemoDataBanner.vue:50"
+   ],
+   "current": null,
+   "context": "\t<div v-if=\"show\" class=\"flex flex-col gap-3 rounded-lg bg-white px-3 py-2.5 text-sm shadow-sm\">\n\t\t<div class=\"flex items-start justify-between\">\n\t\t\t<div class=\"flex flex-col gap-1\">\n\t\t\t\t<div class=\"font-medium text-p-base text-gray-900\">{{ __('Try demo data') }}</div>\n\t\t\t\t<div class=\"text-p-xs text-gray-600\">\n\t\t\t\t\tExplore with sample data and a pre-built workbook\n\t\t\t\t</div>"
+  },
+  {
+   "key": "Unexpected validation error",
+   "refs": [
+    "insights/frontend/src2/charts/components/NewMeasureSelectorDialog.vue:72"
+   ],
+   "current": null,
+   "context": "\t} catch (e) {\n\t\tconsole.error(e)\n\t\tvalidationState.value = 'unknown'\n\t\tvalidationErrors.value = [{ message: __('Unexpected validation error') }]\n\t}\n}\n"
+  },
+  {
+   "key": "Unique Count of...",
+   "refs": [
+    "insights/frontend/src2/charts/components/MeasurePicker.vue:141"
+   ],
+   "current": null,
+   "context": "\t\tformat: measure.value.format,\n\t}\n\tshowMeasureDialog.value = false\n}\n\nconst aggregationOptions: { label: string; value: AggregationType }[] = [\n\t{ label: __('Count of...'), value: 'count' },"
+  },
+  {
+   "key": "Unpivot",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_transform/insights_query_transform.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Type\",\n   \"options\": \"Pivot\\nUnpivot\\nTranspose\\nCumulativeSum\"\n  },\n  {\n   \"default\": \"{}\","
+  },
+  {
+   "key": "Update Alert",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:129"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tonClick: toggleAlert,\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\tlabel: alert.islocal ? __('Create Alert') : __('Update Alert'),\n\t\t\t\t\tvariant: 'solid',\n\t\t\t\t\tdisabled: !isValidAlert || !alert.isdirty || alert.saving || alert.loading,\n\t\t\t\t\tloading: alert.saving,"
+  },
+  {
+   "key": "Update or Insert",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"Append Only\",\n   \"depends_on\": \"eval:doc.sync_mode == 'Incremental'\",\n   \"description\": \"Choose how incremental sync writes rows: <b>Append Only</b> adds new rows, while <b>Update or Insert</b> updates matching keys and inserts new rows.\",\n   \"fieldname\": \"sync_strategy\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Sync Strategy\","
+  },
+  {
+   "key": "Update Table Links",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceTableList.vue:95"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t},\n\t\t\t\t\tdataSource?.is_frappe_db\n\t\t\t\t\t\t? {\n\t\t\t\t\t\t\t\tlabel: __('Update Table Links'),\n\t\t\t\t\t\t\t\tonClick: () => tableStore.updateTableLinks(props.name),\n\t\t\t\t\t\t\t\ticon: () =>\n\t\t\t\t\t\t\t\t\th(RefreshCcw, {"
+  },
+  {
+   "key": "Update Tables",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceTableList.vue:82"
+   ],
+   "current": null,
+   "context": "\t\t\t<Dropdown\n\t\t\t\t:options=\"[\n\t\t\t\t\t{\n\t\t\t\t\t\tlabel: __('Update Tables'),\n\t\t\t\t\t\tonClick: () =>\n\t\t\t\t\t\t\ttableStore\n\t\t\t\t\t\t\t\t.updateDataSourceTables(props.name)"
+  },
+  {
+   "key": "Upload a CSV or Excel file to create a new data source",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:78"
+   ],
+   "current": null,
+   "context": "\t{\n\t\tlabel: __('Upload CSV or Excel'),\n\t\ticon: <CSVIcon class=\"h-8 w-8\" />,\n\t\tdescription: __('Upload a CSV or Excel file to create a new data source'),\n\t\tonClick: () => {\n\t\t\tshowNewSourceDialog.value = false\n\t\t\tshowCSVFileUploadDialog.value = true"
+  },
+  {
+   "key": "Upload CSV or Excel",
+   "refs": [
+    "insights/frontend/src2/data_source/DataSourceList.vue:76"
+   ],
+   "current": null,
+   "context": "\t\t},\n\t},\n\t{\n\t\tlabel: __('Upload CSV or Excel'),\n\t\ticon: <CSVIcon class=\"h-8 w-8\" />,\n\t\tdescription: __('Upload a CSV or Excel file to create a new data source'),\n\t\tonClick: () => {"
+  },
+  {
+   "key": "Upload CSV/Excel/JSON File",
+   "refs": [
+    "insights/frontend/src2/data_source/UploadCSVFileDialog.vue:96"
+   ],
+   "current": null,
+   "context": "\t<Dialog\n\t\tv-model=\"show\"\n\t\t:options=\"{\n\t\t\ttitle: csvData.tablename ? __('Import Table') : __('Upload CSV/Excel/JSON File'),\n\t\t\tsize: fileUploaded ? '4xl' : '',\n\t\t}\"\n\t>"
+  },
+  {
+   "key": "Usage",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:75"
+   ],
+   "current": null,
+   "context": "    <tr><td>${__(\"Last Import Duration\")}</td><td>${fmt_dur(\n\t\ts.last_import_duration,\n\t)}</td></tr>\n    <tr><td>${__(\"Total Syncs\")}</td><td>${fmt_num(s.total_syncs)}</td></tr>\n    <tr><td>${__(\"Total Sync Time\")}</td><td>${fmt_dur(\n\t\ts.total_sync_time,\n\t)}</td></tr>"
+  },
+  {
+   "key": "Use Custom Condition",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:231"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t</div>\n\t\t\t\t\t<Checkbox\n\t\t\t\t\t\tclass=\"mt-1.5\"\n\t\t\t\t\t\t:label=\"__('Use Custom Condition')\"\n\t\t\t\t\t\tv-model=\"alert.doc.custom_condition\"\n\t\t\t\t\t/>\n\t\t\t\t</div>"
+  },
+  {
+   "key": "Use Live Connection",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_v3/insights_query_v3.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"use_live_connection\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Use Live Connection\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Use secure connection (SSL)?",
+   "refs": [
+    "insights/frontend/src2/data_source/ConnectClickhouseDialog.vue:69",
+    "insights/frontend/src2/data_source/ConnectMariaDBDialog.vue:69",
+    "insights/frontend/src2/data_source/ConnectPostgreSQLDialog.vue:77"
+   ],
+   "current": null,
+   "context": "\t\tplaceholder: '**********',\n\t\trequired: true,\n\t},\n\t{ label: __('Encrypt connection (SSL)'), name: 'use_ssl', type: 'checkbox' },\n]\n\nconst sources = useDataSourceStore()"
+  },
+  {
+   "key": "Validation failed",
+   "refs": [
+    "insights/frontend/src2/charts/components/NewMeasureSelectorDialog.vue:57"
+   ],
+   "current": null,
+   "context": "\n\t\tif (!res || !res.is_valid) {\n\t\t\tvalidationState.value = 'invalid'\n\t\t\tvalidationErrors.value = res?.errors || [{ message: __('Validation failed') }]\n\t\t\treturn\n\t\t}\n"
+  },
+  {
+   "key": "Value Rules",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:224"
+   ],
+   "current": null,
+   "context": "\n\tif (['Decimal', 'Number', 'Integer'].includes(columnType.value || '')) {\n\t\toptions.push(\n\t\t\t{ label: __('Value Rules'), value: 'cell_rules' },\n\t\t\t{ label: __('Ranking Rules'), value: 'rank_rules' },\n\t\t)\n\t}"
+  },
+  {
+   "key": "Variable Value",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_variable/insights_query_variable.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"variable_value\",\n   \"fieldtype\": \"Password\",\n   \"in_list_view\": 1,\n   \"label\": \"Variable Value\",\n   \"reqd\": 1\n  }\n ],"
+  },
+  {
+   "key": "Variables are used to store sensitive information such as API keys and credentials. They can be referenced and combined in your script just like any other variable. For eg.",
+   "refs": [
+    "insights/frontend/src2/components/VariablesDialog.vue:69"
+   ],
+   "current": null,
+   "context": "\n\t\t\t\t<p class=\"mb-5 text-p-base text-gray-600\">\n\t\t\t\t\t{{\n\t\t\t\t\t\t__(\n\t\t\t\t\t\t\t'Variables are used to store sensitive information such as API keys and credentials. They can be referenced and combined in your script just like any other variable. For eg.',\n\t\t\t\t\t\t)\n\t\t\t\t\t}}"
+  },
+  {
+   "key": "Vertical",
+   "refs": [
+    "insights/frontend/src2/charts/components/SankeyChartConfigForm.vue:61"
+   ],
+   "current": null,
+   "context": "\t\t\t\ttype=\"select\"\n\t\t\t\t:options=\"[\n\t\t\t\t\t{ label: __('Horizontal'), value: 'horizontal' },\n\t\t\t\t\t{ label: __('Vertical'), value: 'vertical' },\n\t\t\t\t]\"\n\t\t\t/>\n\t\t\t<FormControl"
+  },
+  {
+   "key": "Vertical Compact Layout",
+   "refs": [
+    "insights/insights/insights/doctype/insights_dashboard_v3/insights_dashboard_v3.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Automatically arrange cards vertically to fill empty spaces\",\n   \"fieldname\": \"vertical_compact_layout\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Vertical Compact Layout\"\n  }\n ],\n \"index_web_pages_for_search\": 1,"
+  },
+  {
+   "key": "View Lineage",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookNavbarActions.vue:54"
+   ],
+   "current": null,
+   "context": "\t\t\tplacement=\"right\"\n\t\t\t:options=\"[\n\t\t\t\t{\n\t\t\t\t\tlabel: __('View Lineage'),\n\t\t\t\t\ticon: GitFork,\n\t\t\t\t\tonClick: () => (showLineageDialog = true),\n\t\t\t\t},"
+  },
+  {
+   "key": "View SQL",
+   "refs": [
+    "insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:55",
+    "insights/frontend/src2/query/components/QueryToolbar.vue:40"
+   ],
+   "current": null,
+   "context": "\t\tcondition: () => !props.chart.doc.read_only,\n\t},\n\t{\n\t\tlabel: __('View SQL'),\n\t\ticon: h(Scroll, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),\n\t\tonClick: () => (showViewSQLDialog.value = true),\n\t},"
+  },
+  {
+   "key": "Warehouse data cleared",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js:22"
+   ],
+   "current": null,
+   "context": "\t\t\tfrm.add_custom_button(__(\"Clear Warehouse Data\"), function () {\n\t\t\t\tfrappe.confirm(\n\t\t\t\t\t__(\n\t\t\t\t\t\t\"This will delete all warehouse data for <b>{0}</b> and reset the sync bookmark. Are you sure?\",\n\t\t\t\t\t\t[table_label],\n\t\t\t\t\t),\n\t\t\t\t\t() => {"
+  },
+  {
+   "key": "Week Starts On",
+   "refs": [
+    "insights/insights/insights/doctype/insights_settings/insights_settings.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"Monday\",\n   \"fieldname\": \"week_starts_on\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Week Starts On\",\n   \"options\": \"Monday\\nTuesday\\nWednesday\\nThursday\\nFriday\\nSaturday\\nSunday\"\n  },\n  {"
+  },
+  {
+   "key": "Workbook",
+   "refs": [
+    "insights/insights/insights/doctype/insights_chart_v3/insights_chart_v3.json",
+    "insights/insights/insights/doctype/insights_dashboard_v3/insights_dashboard_v3.json",
+    "insights/insights/insights/doctype/insights_folder/insights_folder.json",
+    "insights/insights/insights/doctype/insights_query_v3/insights_query_v3.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Link\",\n   \"in_list_view\": 1,\n   \"in_standard_filter\": 1,\n   \"label\": \"Workbook\",\n   \"options\": \"Insights Workbook\",\n   \"reqd\": 1,\n   \"search_index\": 1"
+  },
+  {
+   "key": "Workbook Library",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookTemplates.vue:73"
+   ],
+   "current": null,
+   "context": "\nfunction openImported(template: WorkbookTemplate) {\n\t// usage is tracked centrally via `workbook_template_used` on workbook load,\n\t// which covers every open path (list, direct URL, here) — no event needed here\n\trouter.push(`/workbook/${template.imported_workbook}`)\n}\n"
+  },
+  {
+   "key": "Workbook template {0} does not exist",
+   "refs": [
+    "insights/insights/api/templates.py:108"
+   ],
+   "current": null,
+   "context": "    return registry\n\n\ndef _resolve_template(template_name: str) -> dict:\n    entry = _discover_templates().get(template_name)\n    if not entry:\n        frappe.throw(_(\"Workbook template {0} does not exist\").format(frappe.bold(template_name)))"
+  },
+  {
+   "key": "Workbook template {0} requires apps that are not installed: {1}",
+   "refs": [
+    "insights/insights/api/templates.py:271"
+   ],
+   "current": null,
+   "context": "\n\ndef _template_import_result(workbook_name: str) -> dict:\n    \"\"\"Workbook + its first dashboard, so the client can land on the dashboard.\"\"\"\n    first_dashboard = frappe.db.get_value(\n        \"Insights Dashboard v3\",\n        {\"workbook\": workbook_name},"
+  },
+  {
+   "key": "Workbooks",
+   "refs": [
+    "insights/frontend/src2/components/AppSidebar.vue:79",
+    "insights/frontend/src2/home/HomeWorkbookList.vue:36",
+    "insights/frontend/src2/workbook/WorkbookList.vue:142"
+   ],
+   "current": null,
+   "context": "\nconst settings = useSettings()\nconst is_fc_site = window.is_fc_site\n\n// `?settings=<tab>` opens the dialog on that tab. The settings live in a dialog\n// and not on a route, so this is the only way another app - v2 - can link into\n// one. The param is cleared, or a reload would reopen the dialog."
+  },
+  {
+   "key": "World Map",
+   "refs": [
+    "insights/frontend/src2/charts/components/MapChartConfigForm.vue:54"
+   ],
+   "current": null,
+   "context": ")\n\nconst map_options = [\n\t{ label: __('World Map'), value: 'world' },\n\t{ label: __('India'), value: 'india' },\n]\n"
+  },
+  {
+   "key": "Write Python code to fetch and transform data. Available globals:<br>• client: API client for the selected data source<br>• table: Write data to warehouse. Methods: insert(data, overwrite=False)<br>• state: Persist data between runs. Methods: get(key, default=None), set(key, value), delete(key), clear()<br>• secrets: Access secret keys. Methods: get(key)<br>• log(message): Log execution messages",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Section Break\"\n  },\n  {\n   \"description\": \"Write Python code to fetch and transform data. Available globals:<br>\\u2022 client: API client for the selected data source<br>\\u2022 table: Write data to warehouse. Methods: insert(data, overwrite=False)<br>\\u2022 state: Persist data between runs. Methods: get(key, default=None), set(key, value), delete(key), clear()<br>\\u2022 secrets: Access secret keys. Methods: get(key)<br>\\u2022 log(message): Log execution messages\",\n   \"fieldname\": \"script\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Script\","
+  },
+  {
+   "key": "You can use markdown to format the message. Use double asterisks (**) for bold text. You can use the following fields in the message:",
+   "refs": [
+    "insights/frontend/src2/query/components/AlertSetupDialog.vue:251"
+   ],
+   "current": null,
+   "context": "\n\t\t\t\t\t<div class=\"mt-2 text-p-sm text-gray-600\">\n\t\t\t\t\t\t{{\n\t\t\t\t\t\t\t__(\n\t\t\t\t\t\t\t\t'You can use markdown to format the message. Use double asterisks (**) for bold text. You can use the following fields in the message:',\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\t}}"
+  },
+  {
+   "key": "You do not have access to one of the linked queries",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_v3/insights_query_v3.py:349"
+   ],
+   "current": null,
+   "context": "\n        if hasattr(ibis_query, \"limit\"):\n            ibis_query = ibis_query.limit(100_000)\n\n        results, _ = execute_ibis_query(\n            ibis_query,\n            cache=False,"
+  },
+  {
+   "key": "You do not have permission to access this resource",
+   "refs": [
+    "insights/insights/decorators.py:26"
+   ],
+   "current": null,
+   "context": "    return role == \"Insights User\" and is_admin(user)\n\n\ndef check_role(role):\n    def decorator(function):\n        @wraps(function)\n        def wrapper(*args, **kwargs):"
+  },
+  {
+   "key": "You do not have permission to modify this workbook",
+   "refs": [
+    "insights/insights/api/workbooks.py:224",
+    "insights/insights/api/workbooks.py:243",
+    "insights/insights/api/workbooks.py:256",
+    "insights/insights/api/workbooks.py:284",
+    "insights/insights/api/workbooks.py:296",
+    "insights/insights/api/workbooks.py:310"
+   ],
+   "current": null,
+   "context": "            share_name=workbook_name,\n            user=permission[\"user\"],\n        )\n        doc.read = permission[\"read\"]\n        doc.write = permission[\"write\"]\n        doc.notify_by_email = 0\n        doc.save(ignore_permissions=True)"
+  },
+  {
+   "key": "You do not have permission to share this workbook",
+   "refs": [
+    "insights/insights/api/workbooks.py:120",
+    "insights/insights/api/workbooks.py:176"
+   ],
+   "current": null,
+   "context": "            \"share_doctype\": \"Insights Workbook\",\n            \"share_name\": [\"in\", names],\n            \"read\": 1,\n        },\n        fields=[\"share_name\", \"user\"],\n    )\n    for row in rows:"
+  },
+  {
+   "key": "You haven't created any dashboards yet.",
+   "refs": [
+    "insights/frontend/src2/dashboard/DashboardList.vue:75"
+   ],
+   "current": null,
+   "context": "\t\tcase 'created':\n\t\t\treturn {\n\t\t\t\ttitle: __('Nothing here'),\n\t\t\t\tsubtitle: __(\"You haven't created any dashboards yet.\"),\n\t\t\t}\n\t\tcase 'shared':\n\t\t\treturn {"
+  },
+  {
+   "key": "Your role does not have the export permission for queries. Contact your administrator.",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query_v3/insights_query_v3.py:234"
+   ],
+   "current": null,
+   "context": "        editors, and the query a chart mints from its config. So this method\n        reports a failure once, and the failure travels on unchanged.\n        \"\"\"\n        try:\n            return self._run(active_operation_idx, adhoc_filters, force, page, page_size)\n        except Exception as e:\n            self.capture_failure(e)"
+  },
+  {
+   "key": "Your workbooks will appear here. Create a new workbook to get started.",
+   "refs": [
+    "insights/frontend/src2/home/HomeWorkbookList.vue:68"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<div class=\"flex flex-col items-center space-y-2\">\n\t\t\t\t\t<div class=\"text-lg text-gray-600\">{{ __('No workbooks created') }}</div>\n\t\t\t\t\t<div class=\"text-sm text-gray-600\">\n\t\t\t\t\t\t{{ __('Your workbooks will appear here. Create a new workbook to get started.') }}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>"
+  },
+  {
+   "key": "{0} columns selected",
+   "refs": [
+    "insights/frontend/src2/query/components/ColumnsSelectorDialog.vue:120"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</div>\n\n\t\t\t\t<p class=\"flex-shrink-0 bg-white pt-1.5 text-sm text-gray-500\">\n\t\t\t\t\t{{ __('{0} columns selected', String(selectedColumns.length)) }}\n\t\t\t\t</p>\n\t\t\t</div>\n\t\t</template>"
+  },
+  {
+   "key": "{0} imported",
+   "refs": [
+    "insights/frontend/src2/workbook/WorkbookTemplates.vue:51"
+   ],
+   "current": null,
+   "context": "\nfunction importTemplate(template: WorkbookTemplate) {\n\timporting.value = template.name\n\tcall('insights.api.templates.create_workbook_from_template', {\n\t\ttemplate_name: template.name,\n\t})\n\t\t.then((result: { workbook: number; dashboard: string | null }) => {"
+  }
+ ]
+}

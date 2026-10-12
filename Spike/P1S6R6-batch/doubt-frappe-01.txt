@@ -1,0 +1,34 @@
+'<p><strong>{{ __("Condition Examples") }}:</strong></p>\n<pre><code class="language-python">doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</code></pre>\n'	只把冒号改成全角，其余是示例代码原样保留；“Condition Examples”由 Jinja 另行翻译
+'<p><strong>{{ __("Condition Examples") }}:</strong></p>\n<pre>doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>'	同上
+`doctype` and `fieldname` are required for deleting property setters.	源词含代码标识符 doctype/fieldname，因混排守卫改写为中文
+Authorization POST requests must use application/x-www-form-urlencoded	源词含 MIME 类型 application/x-www-form-urlencoded，因混排守卫改写为「URL 编码的表单格式」
+Delete Gravatar URLs	新词：Gravatar→全球通用头像（品牌名不在白名单，不能保留英文）
+DuckDB Sync	新词：DuckDB Sync→快照库同步（DuckDB 不在白名单；该单据类型把数据同步到快照报表用的 DuckDB 文件）
+DuckDB Sync Item	新词：同上
+Facebook	品牌名原样，与源词相同，基线可能仍计为缺口，建议进 UNTRANSLATED
+fairlogin	登录服务商名原样，同上
+Fingerprint	新词：Fingerprint→错误指纹（错误日志的去重指纹）
+found	源码按“数字 结果 已找到”拼接，中文语序无法完全理顺
+Frappe	品牌名原样，同上
+GitHub	品牌名原样，同上
+GMail	邮件服务名原样，同上
+Good	密码强度四档：太弱！／（一般）／良好／很强！
+InnoDB	数据库引擎名原样，同上
+jane@example.com	邮箱输入框占位示例，改成中文拼音示例
+Javascript	语言名原样（现译亦同），同上
+Jinja	模板语言名原样，同上
+Markdown	格式名原样（现译亦同），同上
+Noop Source	仅测试用的源词
+Office 365	产品名原样，同上
+OpenLDAP	产品名原样，同上
+Outlook.com	服务名原样，同上
+Provide a list of allowed Doctypes for file uploads. Each line should contain one allowed Doctype. If unset, uploads to all doctypes are allowed. Example: <br>User<br>Item<br>Quotation	示例里的 User/Item/Quotation 实际须填英文单据类型名；因混排守卫译成中文，可能误导填写
+Python	语言名原样，同上
+Security.txt	文件名原样，同上
+Sendgrid	服务名原样，同上
+Skype	产品名原样（现译亦同），同上
+Slug	新词：Slug→网址别名
+Snapshot Report	新词：Snapshot Report→快照报表
+SparkPost	服务名原样，同上
+Test_Folder	仅测试用的源词
+to open Awesome Bar	新词：Awesome Bar→智能搜索栏（官方无现译）

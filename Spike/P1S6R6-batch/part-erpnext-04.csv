@@ -1,0 +1,299 @@
+Prevents the system from automatically using the rate from the last purchase transaction when creating new purchase orders or transactions.,创建新的采购订单或其他业务单据时，系统不自动带出上次采购单价。
+Preview Transactions,预览流水
+Previous Imports,历史导入记录
+Previous Qty,变动前数量
+Price List & Currency,价格表与币种
+Price List {0} is disabled,价格表 {0} 已停用
+Price List {0} is not enabled for {1},价格表 {0} 未设为可用于{1}
+Process loss quantity cannot be negative.,制程损耗数量不能为负数。
+Process Period Closing Voucher,期末结账凭证任务
+Process Period Closing Voucher Detail,期末结账凭证任务明细
+Processing Date,处理日期
+Product Bundle Component,套件组成物料
+Product Bundle Parent,套件主物料
+Production Plan Quantity Exceeded,超出生产计划数量
+Profit and Loss Statement requires {0} to be synced to DuckDB,利润表需要先将 {0} 同步到 DuckDB
+Project Management,项目管理
+Projected On Hand,预计在手数量
+Projects Setup,项目初始化
+Protected DocType,受保护的单据类型
+Provisional liability account used for service items before invoice is received,收到发票前，服务类物料所用的暂估负债科目
+Purchase Invoice can be held after submitting.,采购发票提交后才能暂挂。
+Purchase Invoice Settings,采购发票设置
+Purchase Invoice without any outstanding amount cannot be held.,没有未结金额的采购发票不能暂挂。
+Purchase Orders Count,采购订单数
+Python expression evaluated on the server. Use doc.fieldname for the row and parent.fieldname for the parent document. When it evaluates to true the dimension becomes mandatory. Example: doc.t_warehouse and doc.qty > 0,在服务器端计算的 Python 表达式。用 doc.fieldname 引用当前行字段，用 parent.fieldname 引用父单据字段。表达式结果为真时，该库存辅助核算项变为必填。示例：doc.t_warehouse and doc.qty > 0
+Q1,第一季度
+Q2,第二季度
+Q3,第三季度
+Q4,第四季度
+Qty (As per BOM),数量（按物料清单）
+Qty To Manufacture in the job card cannot be greater than Qty To Manufacture in the work order for the operation {0}. <br><br><b>Solution: </b> Either you can reduce the Qty To Manufacture in the job card or set the 'Overproduction Percentage For Work Order' in the {1}.,工序 {0} 在生产任务单中的生产数量不能大于生产工单中该工序的生产数量。<br><br><b>解决方法：</b>减少生产任务单的生产数量，或在 {1} 中设置「工单超量入库百分比」。
+Quality Inspection is required for the item {0} before completing the job card {1},完成生产任务单 {1} 之前，物料 {0} 须先做质检
+Quality Inspection Not Configured,未配置质检
+Quality Inspection {0} is not submitted for the item: {1},物料 {1} 的质检单 {0} 未提交
+Quality Inspection {0} is rejected for the item: {1},物料 {1} 的质检单 {0} 判定不合格
+Quality Inspections,质检单
+Quantity Available,可用数量
+Quantity for Item {0} must be greater than zero and cannot exceed {1},物料 {0} 的数量必须大于 0，且不能超过 {1}
+Quantity for Item {0} must be greater than zero and cannot exceed {1},物料 {0} 的数量必须大于 0，且不能超过 {1},<b>${pending_qty}</b>
+Quantity is mandatory for the selected items.,所选物料必须填写数量。
+Quantity must be greater than zero,数量必须大于 0
+Quantity must be less than or equal to {0},数量必须小于或等于 {0}
+Rate at which document currency is converted to company currency,单据货币折算为本币的汇率
+Rate at which Price List Currency is converted to Company Currency,价格表货币折算为本币的汇率
+Raw materials consumed qty will be validated based on FG BOM required qty,按成品物料清单的需求数量校验原材料耗用数量
+Raw Materials Missing,缺少原材料
+Re-extracting,正在重新识别
+Read the docs,查看文档
+Recalculate Valuation Rate,重新计算成本价
+Received from,付款方
+Recommended Action,建议操作
+Reconciliation Failed,对账失败
+Reconciliation History,对账历史
+Reconciliation Type,对账类型
+Reconciling,正在对账
+"Record a bank journal entry for expenses, income or split transactions",登记银行凭证，用于费用、收入或拆分流水
+"Record a journal entry for expenses, income or split transactions",登记日记账凭证，用于费用、收入或拆分流水
+"Record a journal entry for expenses, income or split transactions.",登记日记账凭证，用于费用、收入或拆分流水。
+Record a payment against a customer or supplier,登记与客户或供应商的收付款
+Record a payment entry against a customer or supplier,登记与客户或供应商的收付款凭证
+Record a transfer between two bank accounts,登记两个银行账户之间的转账
+Record an internal transfer to another bank/credit card/cash account,登记转入其他银行、信用卡或现金账户的内部转账
+Record an internal transfer to another bank/credit card/cash account.,登记转入其他银行、信用卡或现金账户的内部转账。
+Record Payment,登记收付款
+Ref,流水号
+Ref.,流水号
+Reference date does not match the selected transaction,参考日期与所选流水不符
+Reference Date is required,请填写参考日期
+Reference date matches the selected transaction,参考日期与所选流水一致
+Reference does not match the selected transaction,参考号与所选流水不符
+Reference is required,请填写参考号
+Reference matches the selected transaction,参考号与所选流水一致
+Reference matches the selected transaction partially,参考号与所选流水部分一致
+Regex,正则表达式
+Related Item,关联物料
+Report Line Items,报表行
+Report Template,报表模板
+Repost Item Valuation restarted for selected failed records.,已为所选失败记录重新启动物料成本价追溯调整。
+Repost Only Accounting Ledgers,仅重过账会计分录
+Reposted,已重过账
+Reposting can be started only for submitted document.,只有已提交的单据才能开始重过账。
+Reposting cannot be started when status is {0}.,状态为 {0} 时不能开始重过账。
+Reposting for Item-Wh Completed {0}%,按物料与仓库重过账已完成 {0}%
+Reposting for Vouchers Completed {0}%,按凭证重过账已完成 {0}%
+Reposting is still in progress in background.,重过账仍在后台运行。
+Reposting Item and Warehouse,重过账物料与仓库
+Reposting Reference,重过账参照号
+Reposting Status,重过账状态
+Reposting Vouchers,重过账凭证
+Reposting Vouchers Progress,凭证重过账进度
+Reposting {0} {1},正在重过账 {0} {1}
+Reserved Batch Conflict,预留批次冲突
+Reset Clearing Date,重置清账日期
+Restart Failed Entries,重新启动失败记录
+Return Purchase Invoice cannot be held.,采购退货发票不能暂挂。
+Returned Quantity,已退回数量
+Reversal Journal Entries,冲销日记账凭证
+Reversal Of Exchange Rate Revaluation,汇率重估冲销
+Reverse Sign,反转正负号
+Reverse {0} already available in draft status: {1},已有草稿状态的冲销日记账凭证（{0}）：{1}
+Reversing Journals...,正在冲销日记账凭证……
+Review Accounts Settings,检查会计设置
+Review Buying Settings,检查采购设置
+Review Chart of Accounts,检查科目表
+"Review each page. In the Table view, map each column, click a row number to set/clear the header row, and exclude anything that is not transactions (ads, summaries).",逐页检查。在表格视图中为每列指定映射，点击行号可设为或取消表头行，并排除所有非流水内容（广告、汇总行）。
+Review Manufacturing Settings,检查生产设置
+Review Selling Settings,检查销售设置
+Review Stock Settings,检查库存设置
+Review System Settings,检查系统设置
+Revise Budget,修订预算
+Revision cancelled,已取消修订
+Revision Of,修订自
+Role allowed to bypass period restrictions.,可不受会计期间限制的角色。
+Row #{0}: % of Component Cost needs a BOM secondary item. Choose Valuation Rate or Manual for {1}.,第 {0} 行：「按原材料成本百分比」须有对应的物料清单副产出行。请为 {1} 选择「成本价」或「手工」。
+Row #{0}: '{1}' cannot be used to search items.,第 {0} 行：「{1}」不能用于搜索物料。
+Row #{0}: '{1}' does not match {2}.,第 {0} 行：「{1}」与 {2} 不符。
+Row #{0}: '{1}' is not a valid field of {2}.,第 {0} 行：「{1}」不是 {2} 的有效字段。
+Row #{0}: Cannot cancel this Manufacturing Stock Entry as quantity of Secondary Item {1} produced cannot be less than quantity delivered.,第 {0} 行：不能取消此完工入库单，联副产品 {1} 的产出数量不能少于已交货数量。
+Row #{0}: Cannot create entry with different taxable AND withholding document links.,第 {0} 行：不能创建计税单据与代扣单据均不同的记录。
+Row #{0}: Cannot delete item {1} which is already ordered against this Sales Order.,第 {0} 行：物料 {1} 已按此销售订单下单，不能删除。
+Row #{0}: Cannot transfer {1} {2} of Item {3}. Maximum transferable quantity is {4} {2}.,第 {0} 行：不能调拨物料 {3} 的 {1} {2}，最多可调拨 {4} {2}。
+Row #{0}: Could not find enough {1} entries to match. Remaining amount: {2},第 {0} 行：找不到足够的{1}记录进行匹配，剩余金额：{2}
+Row #{0}: Dates overlapping with other row in group {1},第 {0} 行：日期与组 {1} 中的其他行重叠
+Row #{0}: Expense account {1} is not valid for Purchase Invoice {2}. Only expense accounts from non-stock items are allowed.,第 {0} 行：费用科目 {1} 不适用于采购发票 {2}，只能选用非库存物料的费用科目。
+Row #{0}: FG / Semi FG Item is required for the operation {1} as 'Track Semi Finished Goods' is enabled.,第 {0} 行：已启用「跟踪半成品」，工序 {1} 须填写产成品/半成品物料。
+Row #{0}: Finished Good Item {1} cannot be added in the Secondary Items table.,第 {0} 行：成品物料 {1} 不能加入联副产品表。
+Row #{0}: Finished Good reference is mandatory for Secondary Item {1}.,第 {0} 行：联副产品 {1} 必须填写对应成品。
+Row #{0}: Frequency of Depreciation must be greater than zero,第 {0} 行：折旧频率必须大于 0
+Row #{0}: Item {1} cannot be transferred more than {2} against {3} {4},第 {0} 行：物料 {1} 按 {3} {4} 调拨的数量不能超过 {2}
+Row #{0}: Item {1} has no stock in warehouse {2}.,第 {0} 行：物料 {1} 在仓库 {2} 中没有库存。
+Row #{0}: Item {1} has zero rate but '{2}' is not enabled.,第 {0} 行：物料 {1} 单价为 0，但未启用「{2}」。
+"Row #{0}: Item {1} in warehouse {2}: Available {3}, Needed {4}.",第 {0} 行：物料 {1} 在仓库 {2} 中可用 {3}，需要 {4}。
+Row #{0}: Item {1} is already added with the same Type in the Secondary Items table.,第 {0} 行：物料 {1} 已以相同类型加入联副产品表。
+Row #{0}: Item {1} is not part of the source manufacture entry and cannot be added to this disassembly.,第 {0} 行：物料 {1} 不在源完工入库单中，不能加入本次拆解。
+"Row #{0}: Item {1} quantity ({2} in stock UOM) does not match the quantity derived from the source ({3}). Do not change the UOM, conversion factor or quantity of disassembly rows.",第 {0} 行：物料 {1} 的数量（按库存单位为 {2}）与按源单推算的数量（{3}）不符。请勿修改拆解行的单位、换算系数或数量。
+Row #{0}: Process Loss Percentage should be less than 100% for {1} Item {2},第 {0} 行：{1} 物料 {2} 的制程损耗比例必须小于 100%
+Row #{0}: Quantity must be greater than 0 for Item {1},第 {0} 行：物料 {1} 的数量必须大于 0
+Row #{0}: Reading {1} {2} is not a valid number in the {3} number format. Use {4} as the decimal separator.,第 {0} 行：读数 {1} {2} 不是有效的 {3} 数字格式，请用 {4} 作小数点。
+Row #{0}: Rejected Qty cannot be set for Secondary Item {1}.,第 {0} 行：联副产品 {1} 不能填写拒收数量。
+Row #{0}: Repair cost {1} exceeds available amount {2} for Purchase Invoice {3} and Account {4},第 {0} 行：维修费用 {1} 超出采购发票 {3} 科目 {4} 的可用金额 {2}
+Row #{0}: Secondary Item Qty cannot be zero,第 {0} 行：联副产品数量不能为 0
+Row #{0}: Source and Target Warehouse cannot be the same for Material Transfer,第 {0} 行：直接调拨的发料仓与收料仓不能相同
+"Row #{0}: Source, Target Warehouse and Inventory Dimensions cannot be the exact same for Material Transfer",第 {0} 行：直接调拨的发料仓、收料仓与库存辅助核算不能完全相同
+"Row #{0}: The operation {1} has 'Is Final Finished Good' checked, so its FG / Semi FG Item must be {2}.",第 {0} 行：工序 {1} 已勾选「是否最终产成品」，其产成品/半成品物料必须为 {2}。
+Row #{0}: Total Number of Depreciations must be greater than zero,第 {0} 行：总折旧期数必须大于 0
+Row #{0}: Warehouse {1} does not match with the warehouse {2} in Serial and Batch Bundle {3}.,第 {0} 行：仓库 {1} 与序列批次包 {3} 中的仓库 {2} 不符。
+Row #{0}: Withholding Amount {1} does not match calculated amount {2}.,第 {0} 行：代扣金额 {1} 与计算金额 {2} 不符。
+Row #{0}: {1} account is not of type {2},第 {0} 行：科目 {1} 的类型不是 {2}
+Row #{0}: {1} is mandatory for the Inventory Dimension {2}.,第 {0} 行：库存辅助核算 {2} 要求必填 {1}。
+Row #{0}:Quantity for Item {1} cannot be zero.,第 {0} 行：物料 {1} 的数量不能为 0。
+Row {0} in {1} {2}: Work Order quantity after process loss {3} exceeds the remaining allowed quantity {4}.,{1} {2} 第 {0} 行：扣除制程损耗后的生产工单数量 {3} 超出剩余允许数量 {4}。
+"Row {0}: Accounting Dimension {1} is mandatory for account {2}. Set it on this Taxes and Charges row, or on Item Row {3} ({4}).",第 {0} 行：科目 {2} 必须填写辅助核算 {1}。请在本税费行或物料行 {3}（{4}）中填写。
+Row {0}: Cannot sell item {1} from Sample Retention Warehouse {2},第 {0} 行：不能从样品仓 {2} 销售物料 {1}
+Row {0}: Expected Value After Useful Life cannot be negative,第 {0} 行：残值不能为负数
+Row {0}: Expense Account {1} is linked to company {2}. Please select an account belonging to company {3}.,第 {0} 行：费用科目 {1} 属于公司 {2}，请选择属于公司 {3} 的科目。
+Row {0}: Item {1} must be linked to a {2}.,第 {0} 行：物料 {1} 必须关联{2}。
+Row {0}: Operation time should be greater than 0 for operation {1},第 {0} 行：工序 {1} 的工序时间应大于 0
+Row {0}: Sales Invoice {1} is already created for {2},第 {0} 行：已为 {2} 创建销售发票 {1}
+Row {0}: Serial/Batch has been reset to values linked with Work Order {1} because the previously selected serial/batch does not belong to this Work Order.,第 {0} 行：原先所选序列号/批号不属于生产工单 {1}，已重置为该生产工单关联的序列号/批号。
+Row {0}: The entire expense amount for account {1} in {2} has already been allocated.,第 {0} 行：{2} 中科目 {1} 的费用金额已全部分摊。
+Row {0}: Transferred quantity cannot be greater than the requested quantity.,第 {0} 行：已调拨数量不能大于申请数量。
+Row {0}: Update Stock must be checked for item {1} because it is against Pick List {2}.,第 {0} 行：物料 {1} 来自拣货单 {2}，必须勾选「更新库存」。
+Row {0}: Warehouse is required,第 {0} 行：请填写仓库
+Row {0}: Warehouse {1} is linked to company {2}. Please select a warehouse belonging to company {3}.,第 {0} 行：仓库 {1} 属于公司 {2}，请选择属于公司 {3} 的仓库。
+Row {0}: {1} {2} is linked to company {3}. Please select a document belonging to company {4}.,第 {0} 行：{1} {2} 属于公司 {3}，请选择属于公司 {4} 的单据。
+Rule created successfully,规则创建成功
+Rule deleted.,规则已删除。
+Rule matched based on transaction description and other criteria.,按流水摘要及其他条件匹配到的规则。
+Rule name is required,请填写规则名称
+Rule priorities updated,规则优先级已更新
+Rule updated.,规则已更新。
+Rules evaluation completed,规则运行完成
+Rules evaluation started,规则已开始运行
+Rules to match against the transaction description,用于匹配流水摘要的规则
+Run on new transactions,对新流水运行
+Run Rules,运行规则
+Run rules automatically,自动运行规则
+Run rules on unreconciled transactions that haven't been evaluated yet,对尚未运行过规则的未对账流水运行规则
+Sales Order {0} is not available for production,销售订单 {0} 不可用于生产
+Same day,当天
+Save the currently opened form,保存当前打开的表单
+Sazhen,俄丈
+Schedule Name,计划名称
+Scheduled job disabled. Transactions will not be auto classified.,已停用后台定时任务，流水将不再自动归类。
+Scheduled job enabled. Transactions will be auto classified.,已启用后台定时任务，流水将自动归类。
+Scheduler is inactive. Reposting will only run once background jobs are processed.,后台任务调度未启动，重过账要等后台任务被处理后才会运行。
+Search account...,搜索科目……
+Search company...,搜索公司……
+Search transactions,搜索流水
+Secondary Items Cost Per Qty,联副产品单位成本
+Secondary Items Generated,已产出联副产品
+Select a bank account to reconcile,选择要对账的银行账户
+Select a Supplier for Item {0},请为物料 {0} 选择供应商
+Select a transaction to match and reconcile with vouchers,选择一条流水，与凭证匹配对账
+Select Account,选择科目
+Select all,全选
+Select at least one Item,请至少选择一个物料
+Select Company Address,选择公司地址
+Select date,选择日期
+Select Items to Receive,选择要收货的物料
+Select number of days,选择天数
+Select Payment Schedule,选择付款计划
+Select row {0},选择第 {0} 行
+Select Supplier for Items,为物料选择供应商
+Select the group first to filter the applicable withholding categories below.,请先选择代扣税款组，以筛选下方适用的代扣税款类别。
+Select the modules that you plan to implement,选择计划启用的模块
+Sell Qty,出售数量
+Sell quantity cannot exceed the asset quantity,出售数量不能超过资产数量
+Sell quantity cannot exceed the asset quantity. Asset {0} has only {1} item(s).,出售数量不能超过资产数量。资产 {0} 只有 {1} 件。
+Sell quantity must be greater than zero,出售数量必须大于 0
+Selling Setup,销售初始化
+Sending Email,正在发送邮件
+Separate columns for withdrawal and deposit,存入与支取分列
+Serial and Batch Bundle Exists,已存在序列批次包
+Serial and Batch Bundle {0} is submitted and its entries cannot be modified.,序列批次包 {0} 已提交，其明细不能修改。
+Serial and Batch No for Item Disabled,物料未启用序列号/批号
+Serial No Series Overlap,序列号模板重叠
+Serial No status sync has been queued. Reload the report after a few minutes.,序列号状态同步已加入队列，请几分钟后重新加载报表。
+Serial No {0} is not available in the selected inventory dimensions: {1},序列号 {0} 不在所选库存辅助核算中：{1}
+Serial Nos {0} are already Delivered. You cannot use them again in Manufacture / Repack entry.,序列号 {0} 已交货，不能再用于生产或重新包装单据。
+Set closing balance as per bank statement,按银行对账单设置期末余额
+Set incoming rate as zero for expired Batch,过期批次的入库单价设为 0
+Set Supplier for All Items,为全部物料设置供应商
+Set the clearance date for this voucher without reconciling with a bank transaction.,不与银行流水对账，直接设置此凭证的清账日期。
+Set this value to 0 to disable the feature.,设为 0 即停用此功能。
+Set up rules to automatically classify transactions. Drag and drop rules to reorder their priority.,设置规则自动归类流水。拖动规则可调整优先级。
+Set valuation rate for rejected Materials,为拒收物料设置成本价
+Setup Company,设置公司
+Setup Email Account,设置邮箱账号
+Setup Organization,组织初始化
+Setup Role Permissions,设置角色权限
+Setup Sales Taxes,设置销售税费
+Setup Sales taxes,设置销售税费
+Setup Warehouse,设置仓库
+Short-term Investments,短期投资类
+Short-term Provisions,短期预计负债
+Show Alternate UOM Balance,显示辅助单位结余
+Show availability of exploded items,显示底层物料可用量
+Show negative values as positive (for expenses in P&L),将负值显示为正值（用于损益表中的费用）
+Show Only Exact Amount,仅显示金额完全一致项
+Show pay button in Purchase Order portal,在采购订单门户显示付款按钮
+"Since you have enabled 'Track Semi Finished Goods', at least one operation must have 'Is Final Finished Good' checked. For that set the FG / Semi FG Item as {0} against an operation.",已启用「跟踪半成品」，至少一道工序须勾选「是否最终产成品」。请在某道工序上将产成品/半成品物料设为 {0}。
+"Since {0} has 'Update Stock' disabled, you cannot create repost item valuation against it",{0} 未勾选「更新库存」，不能为其创建物料成本价追溯调整
+Single Account,单一科目
+Skipped {0} DocType(s):<br>{1},已跳过 {0} 个单据类型：<br>{1}
+"SMS Settings.allowed_roles not found. Update the Frappe Framework app to a version that includes this field, then re-run bench migrate.",未找到「短信设置」的 allowed_roles 字段。请将 Frappe 框架升级到包含此字段的版本，然后重新运行 bench migrate。
+"Source Stock Entry {0} belongs to Work Order {1}, not {2}. Please use a manufacture entry from the same Work Order.",源物料移动 {0} 属于生产工单 {1}，而不是 {2}。请使用同一生产工单的完工入库单。
+Source Stock Entry {0} has no finished goods quantity,源物料移动 {0} 没有成品数量
+Source warehouse required for stock item {0},库存物料 {0} 必须填写发料仓
+"Spending for Account {0} ({1}) between {2} and {3} has already exceeded the new allocated budget. Spent: {4}, Budget: {5}",科目 {0}（{1}）在 {2} 至 {3} 期间的支出已超出新分配的预算。已支出：{4}，预算：{5}
+Spent,支出
+Split across {} accounts,分摊到 {} 个科目
+Split commission credit across multiple sales persons.,将佣金分摊给多名业务员。
+Start Date cannot be after End Date,开始日期不能晚于结束日期
+Started a background job to create {1} {0}. {2},已启动后台任务，创建 {1} 张{0}。{2}
+Starts With,开头是
+Starts with,开头是
+Statement Details,银行流水信息
+Statement File,银行流水文件
+Statement Import Instructions,银行流水导入说明
+Statement Of Accounts,科目明细账
+Statement PDF Password,银行流水 PDF 密码
+Statement Period,报表期间
+Stock account where inventory value for this item will be tracked,核算此物料存货价值的库存科目
+Stock and accounting values could not be reconciled by reposting for {0}.,重过账后，{0} 的库存与账务数值仍未能对平。
+Stock cannot be updated for Purchase Invoice {0} because a Purchase Receipt {1} has already been created for this transaction. Please disable the 'Update Stock' checkbox in the Purchase Invoice and save the invoice.,此业务已创建采购入库 {1}，采购发票 {0} 不能再更新库存。请取消勾选采购发票的「更新库存」并保存。
+Stock Closing Entry In Progress,库存结转分录处理中
+Stock Closing Entry Outdated,库存结转分录已过期
+Stock Closing Entry Required,需要库存结转分录
+Stock Closing Entry {0} belongs to a closed accounting period. Cancel the Period Closing Voucher {1} first.,库存结转分录 {0} 属于已关闭的会计期间，请先取消期末结账凭证 {1}。
+"Stock entries exist with the old account. Changing the account may lead to a mismatch between the warehouse closing balance and the account closing balance. The overall closing balance will still match, but not for the specific account.",已有使用原科目的库存交易。更换科目可能导致仓库期末余额与科目期末余额不一致：总的期末余额仍一致，但单个科目不一致。
+Stock Frozen,库存已冻结
+Stock Ledgers won’t be reposted.,不重过账库存台账。
+Stock not available to reserve for the Item {0} in Warehouse {1}.,仓库 {1} 中物料 {0} 没有可预留的库存。
+Stock Qty vs Batch Qty,库存数量与批次数量对比表
+Stock Reservation Entries created,已创建库存预留单
+Stock Setup,库存初始化
+"Stock transactions dated on or before {0} are frozen because the period is closed and the Stock Closing Entry {1} has been generated. To make changes, cancel the Period Closing Voucher first.",该期间已结账并已生成库存结转分录 {1}，{0} 及以前的库存交易已冻结。如需修改，请先取消期末结账凭证。
+Stock transactions were created or modified after the Stock Closing Entry {0} was generated. Regenerate it before submitting the Period Closing Voucher.,库存结转分录 {0} 生成后又有库存交易新增或修改，请重新生成后再提交期末结账凭证。
+Stock Update Not Allowed,不允许更新库存
+Stock Value by Item Group,按物料组统计的库存金额
+Stock Value Mismatch,库存金额不符
+Sub assembly item references are missing. Please fetch the sub assemblies and raw materials again.,缺少子装配件参照号，请重新获取子装配件与原材料。
+Subcontracting Finished Good,委外成品
+Subcontracting Inward Order Count,外包收货订单数
+Subcontracting Inward Order Secondary Item,外包收货订单联副产品
+Subcontracting Outward Order,委外订单
+Subcontracting Outward Order Count,委外订单数
+Subcontracting Service Item,委外加工费物料
+Subcontracting Setup,委外初始化
+Submitted Job Card cannot be processed.,已提交的生产任务单不能处理。
+Suggest creating a,建议创建
+Suggested,建议
+Suggested Transfer to {0},建议转账至 {0}
+Supplier Defaults,供应商默认值
+Supplier Quotation {0} already exists against Request for Quotation {1},询价单 {1} 已有供应商报价 {0}
+"Supplier's tax identification number (e.g. PAN, VAT, GST)",供应商的纳税识别号（如 PAN、VAT、GST）
+"Switch between light, dark, or system theme",在浅色、暗色或跟随系统主题之间切换
+Sync Serial No Status,同步序列号状态

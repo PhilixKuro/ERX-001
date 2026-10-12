@@ -1,0 +1,31 @@
+ Enable this if you want the bot to be able to process files like Excel sheets or data from Insights.\n                    <br>\n                    OpenAI Assistants run code in a sandboxed environment (on OpenAI servers) to do this.	源词首尾空格与 <br> 两侧缩进空白未照搬到译文（不影响显示）；Assistants 指 OpenAI 助手接口，译「OpenAI 助手」
+## Adding Users\n\nTo access Raven, users need to have the **Raven User** role.\n\nGo to the "Users" list and add the role to the users you want on Raven.	Raven User 是角色名，译「Raven 用户」；若站点角色名显示英文原样，提示中的角色名与界面不一致
+### Access the web and mobile apps\n\n\nRaven is available at <a href="/raven">**/raven**</a> for both web and mobile. On mobile, Raven can be installed as a PWA.	源词链接文字为路径 **/raven**，小写 raven 过不了混排守卫，改为「**此处**」，链接地址不变
+<p><strong>Condition Examples:</strong></p>\n<pre>doc.status=="Open"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>	整条保留原文：<pre> 内是示例代码（doc.status、nowdate() 等），译出「条件示例」后含中文即被混排守卫判为夹英文；如需译标题须先把该键加进 QUALITY_EXCEPTIONS
+a open channel:	与另一块的「Please understand that when you make」+频道名拼接，本条只译后半「设为开放频道后：」，前半须译成「请注意，将」之类才通顺
+a private channel:	同上，拼接句后半
+a public channel:	同上，拼接句后半
+A row blocks its whole domain. Tick Exact to block just that one URL - like "frappe.io" can be blocked without losing previews on "frappe.io/blog".	例句里的 frappe.io、frappe.io/blog 为小写域名，过不了混排守卫，改写为「某站点首页（如 Frappe 官网）……其博客页面」，意思保留但不再给出具体域名
+Access them by right clicking any message and selecting	与后接的 <strong>Actions</strong> 拼接成一句
+Add a Webhook Secret so Raven can sign requests. An X-Frappe-Webhook-Signature header (a base64 HMAC-SHA256 of the payload) is added before the request is sent. Do not share the secret publicly.	请求头名 X-Frappe-Webhook-Signature 含非白名单英文词，过不了混排守卫，只译作「一个签名请求头」，丢了具体头名；base64 写作 BASE64
+An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or temperature but not both.	新词：temperature→温度、nucleus sampling→核采样、token→词元；top_p 字段名因混排守卫未保留\nAn alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.\n\nWe generally recommend altering this or temperature but not both.	同上；本条是源码里的字面 \n\n，译文照留 
+and add your site to get an API Key and API Secret.	与前面链接「Create a Raven Cloud account」拼接；API Secret 官方现译也是「API密钥」，与 API Key 同名，本句并列出现，故写「API 私钥」区分
+and then add them here.	与另一块「Create functions in the」+按钮「function builder」拼接，本条承担「中创建函数，然后在此处添加。」，前半须译「请在」
+Apple Music	产品名原样保留（无中文，过守卫）；Apple 不在品牌白名单内，如需可登记 UNTRANSLATED
+Apple Podcasts	同上
+Archive channel	新词：Archive 官方现译「档案」不合动作语境，按 Unarchive=取消归档 取「归档」
+Are you sure you want to unarchive 	源词末尾空格照留，后接频道名与英文问号
+Auto Silent	新词：Quiet Hours Nudge 选项，自动静默（工作时间外发消息自动不提醒）
+Availability	新词：Availability 用户状态（在线/离开/勿扰/隐身），取「在线状态」
+Blurhash	新词：Blurhash 是图片模糊占位的编码，隐藏字段，取「模糊占位哈希」
+Builder	新词：函数参数编辑器在「可视化构建」与 JSON 之间切换的开关标签
+Can be HTML/Markdown/Plain Text. Support Jinja tags	Markdown 不在白名单，写作「MD 格式」
+Change to a {0} channel?	{0} 是 pendingType.toLowerCase()，运行时为英文 public/private/open，会中英夹杂，需改源码或先翻译
+Change to {0}	同上
+Channel changed to {0}	同上
+Chaos is a ladder.	《权力的游戏》台词，错误页标题，直译「混乱是阶梯。」
+characters remaining	前接剩余字数数字，读作「N 个字符可输入」
+Choose an existing document processor for this bot. Processors can be shared across multiple bots.	新词：Document Processor→文档处理器（Google 文档 AI 处理器）
+Close poll	新词：Poll→投票（名词），Close poll→结束投票
+Code Interpreter	新词：Code Interpreter→代码解释器（OpenAI 工具名）
+comments	前接数字，读作「N 条评论」

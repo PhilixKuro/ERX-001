@@ -1,0 +1,18 @@
+Process Period Closing Voucher	新词：Process Period Closing Voucher → 期末结账凭证任务（仿 glossary「收付款核销任务」）
+Profit and Loss Statement requires {0} to be synced to DuckDB	保留产品名 DuckDB（已在 ALLOW）
+Projected On Hand	新词：Projected On Hand → 预计在手数量
+Projects Setup	新词：××Setup（入门向导标题）→ ××初始化，避开 ××设置（Settings）；210、229、277、290 同
+Python expression evaluated on the server. Use doc.fieldname for the row and parent.fieldname for the parent document. When it evaluates to true the dimension becomes mandatory. Example: doc.t_warehouse and doc.qty > 0	示例代码 doc.fieldname、parent.fieldname、doc.t_warehouse and doc.qty > 0 与语言名 Python 照原样保留，find_mixed／find_word_by_word 会报（含 and），需登记 QUALITY_EXCEPTIONS
+Received from	Received from（收款时对方）→ 付款方；对应 Paid to 应译收款方
+Ref	新词：Ref／Ref.（银行流水参考号）→ 流水号，依 glossary Reference Header → 流水号列表头
+Reverse {0} already available in draft status: {1}	{0} 由代码填入英文 journals are / journal is，译文无法消化，界面仍会出现英文；建议上游改源码
+Row #{0}: Process Loss Percentage should be less than 100% for {1} Item {2}	{1} 为联副产品类型（Co-Product／By-Product）原值，显示效果取决于该值是否翻译
+Row #{0}: {1} account is not of type {2}	{2} 由代码填入英文 Temporary，界面会出现英文
+Row {0} in {1} {2}: Work Order quantity after process loss {3} exceeds the remaining allowed quantity {4}.	原文行号 {0} 在前；中文语序把单据 {1} {2} 前置
+Sazhen	新词：Sazhen → 俄丈（俄制长度单位；官方现译为英文原样，同组 Arshin 现译「阿尔申」音译），拿不准用意译还是音译
+Short-term Provisions	新词：Short-term Provisions → 短期预计负债（小企业会计准则无此科目，取意）
+Show availability of exploded items	新词：exploded items → 底层物料（依官方 Exploded Items 现译）
+Skype ID	原样显示，建议进白名单（Skype 品牌名不在 ALLOW，整条为品牌加 ID）
+SMS Settings.allowed_roles not found. Update the Frappe Framework app to a version that includes this field, then re-run bench migrate.	标识符 allowed_roles 与命令 bench migrate 照原样保留，find_mixed 会报，需登记 QUALITY_EXCEPTIONS
+Statement Of Accounts	新词：Statement Of Accounts（总账打印标题）→ 科目明细账；官方现译「财务报表」不合用处
+Subcontracting Service Item	新词：Subcontracting Service Item → 委外加工费物料（依官方「委外订单加工费明细」）

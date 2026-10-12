@@ -1,0 +1,26 @@
+Could not pin message	新词：Pin→置顶（消息置顶）；官方 Pinned 现译「已固定」用于视图，消息语境取「置顶」
+Could not snooze the reminder	新词：Snooze→推迟（提醒稍后再提醒）
+Create a Raven Cloud account	新词：Raven Cloud→Raven 云（推送通知中继服务），Cloud 不在白名单
+Create functions in the	与按钮「function builder」及另一块「and then add them here.」拼接，本条只译「请在」
+CRON Expression	CRON 写成全大写缩写；Cron expression 同
+Date of the month	新词：Event Frequency 选项，Date of the month→每月指定日，Every Day of the week→每周指定日
+Delete :{0}:?	:{0}: 是表情符号短代码写法，照留
+Document Parsing	新词：Document Parsing→文档解析（机器人表单页签）
+Document Processors	新词：Document Processor→文档处理器（Google 文档 AI），Document 此处指上传的文件而非单据
+Document Processors require Google Cloud APIs to be enabled in your Raven settings.	Google Cloud 的 Cloud 不在白名单，写作「Google 云」
+Due	提醒列表分组标题，与「Upcoming」相对，取「已到期」
+e.g. marketing, design-team, project-alpha	示例频道名为小写英文单词，过不了混排守卫，改为全大写 MARKETING 等；频道名规则允许大写字母，但与原示例风格不同，可改为中文示例需先确认频道名是否允许中文（规则只许字母数字连字符）
+e.g. party_parrot	表情符号名只许小写字母、数字、下划线，示例 party_parrot 无法中文化；加「例如：」后会被混排守卫判夹英文，故只留 party_parrot（无汉字，守卫不查），丢了「例如」
+Enable File Search	新词：File Search→文件检索（OpenAI 工具名）
+Enable Quiet Hours	新词：Quiet Hours→免打扰时段
+Enable this if you want the bot to be able to process files like Excel sheets or data from Insights.\n\nOpenAI Assistants run code in a sandboxed environment (on OpenAI servers) to do this.	本条是源码里的字面 \n\n，译文照留
+Enable this if you want the bot to be able to read PDF files and scan them.\n\nFile search enables the assistant with knowledge from files that you upload.\nOnce a file is uploaded, the assistant automatically decides when to retrieve content based on user requests.	同上，含三处字面 \n
+Environment	Raven 推送令牌的 Environment（Web/Mobile），取「运行环境」
+Esc to cancel	Esc 不在白名单，写作「ESC 键」
+eu	Google 处理器区域选项 eu→欧盟；同组 us 不在本块
+FCM Token	FCM 为全大写缩写，Token 沿官方「令牌」
+Figma	产品名原样（无汉字）；如需可登记 UNTRANSLATED
+File Sources	新词：File Sources→文件源（智能体可用的文件资料）
+For OpenAI: gpt-4o, gpt-4, etc. For Local LLM: use model name from /v1/models endpoint	源词含模型名 gpt-4o、gpt-4 与接口路径 /v1/models，小写过不了混排守卫；模型名改写为大写 GPT-4o、GPT-4（守卫通过），接口路径改写为「其模型列表接口」，丢了具体路径
+Frappe Cloud	推送通知服务选项，产品名原样（无汉字）
+Frappe Meet	Frappe Meet 是会议产品名，Meet 不在白名单，译「Frappe 会议」；同组 295、296 一致

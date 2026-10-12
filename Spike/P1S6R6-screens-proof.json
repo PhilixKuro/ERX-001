@@ -1,0 +1,111 @@
+{
+ "allow": {
+  "BOM": "行业通用物料清单缩写",
+  "CRM": "产品名称缩写",
+  "PDF": "文件格式",
+  "XLSX": "文件格式",
+  "UTF-8": "编码名",
+  "GB18030": "编码名",
+  "CNY": "币种代码",
+  "USD": "币种代码",
+  "INR": "币种代码",
+  "ERPNext": "产品名",
+  "Frappe": "产品名",
+  "Insights": "产品名",
+  "Raven": "产品名",
+  "HR": "产品模块缩写",
+  "Ctrl": "键名",
+  "AI": "产品能力缩写",
+  "Frappe China": "自有 app 产品名（整句匹配）",
+  "Administrator": "登录用户数据",
+  "HDTH": "演示公司的简称，用户数据",
+  "Asia/Kolkata": "既有站点时区配置值",
+  "ID": "用户标识缩写",
+  "POS": "销售终端通用缩写",
+  "CEFACT": "计量单位标准名称",
+  "ICG": "计量单位标准名称",
+  "IC013": "计量单位标准编号",
+  "IC010": "计量单位标准编号"
+ },
+ "data_selectors": [
+  {
+   "selector": ".sidebar-user-button,.avatar[title]",
+   "reason": "登录用户姓名与邮箱，属于用户数据"
+  },
+  {
+   "selector": "[data-fieldname='naming_series'] select",
+   "reason": "单号命名编码，保留原码"
+  },
+  {
+   "selector": ".system-timezone",
+   "reason": "站点时区配置数据，保留时区标识"
+  },
+  {
+   "selector": ".form-details",
+   "reason": "表单当前记录名称，包括单例 Global Defaults 的名称"
+  }
+ ],
+ "data_patterns": [
+  {
+   "pattern": "\\b(?:[A-Z]{2,}-)+(?:[A-Z0-9]+-)*\\d{3,}(?:-\\d+)?\\b",
+   "reason": "单据编号（编号规则生成，用户数据）"
+  },
+  {
+   "pattern": "\\bPO-JOB\\d+\\b|\\bBOM-\\S+",
+   "reason": "生产任务单与物料清单编号（用户数据）"
+  },
+  {
+   "pattern": "_?S6R6?\\S*",
+   "reason": "本轮造数前缀与测试公司简称（用户数据）"
+  }
+ ],
+ "default_data": {},
+ "trad_chars_file": "P1S6R6-trad-chars.json",
+ "variables": {
+  "company": {
+   "from": "Spike/P1S6R6-closed-loop-<site>.json 同名键（造数脚本写入；作 values.json 传入）"
+  }
+ },
+ "screens": [
+  {
+   "id": "proof-sidebar",
+   "stage": "反证",
+   "state": "list",
+   "route": "desk/company",
+   "sidebar": "Business Flow",
+   "wait_for": "cur_list?.doctype==='Company'",
+   "extract_root": ".body-sidebar",
+   "note": "自有侧栏加英文条目 Zzproof Entry"
+  },
+  {
+   "id": "proof-traditional",
+   "stage": "反证",
+   "state": "list",
+   "route": "desk/company",
+   "sidebar": null,
+   "wait_for": "cur_list?.doctype==='Company'",
+   "extract_root": ".body-sidebar",
+   "steps": [
+    {
+     "evaluate": "frappe.app.sidebar.setup(\"Business Flow\"); true",
+     "pause": 1500
+    }
+   ],
+   "note": "csv 把 Business Flow 改繁体"
+  },
+  {
+   "id": "proof-title",
+   "stage": "反证",
+   "state": "saved",
+   "route": "desk/company/{{company}}",
+   "sidebar": "Business Flow",
+   "wait_for": "window.cur_frm?.doctype===\"Company\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+   "steps": [
+    {
+     "evaluate": "cur_frm.page.wrapper[0].querySelector('.title-text').setAttribute('title','Save this document'); true"
+    }
+   ],
+   "note": "当前表单标题的 title 属性临时设英文（只改页面、不落库）"
+  }
+ ]
+}

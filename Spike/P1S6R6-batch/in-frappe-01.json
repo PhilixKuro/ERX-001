@@ -1,0 +1,2447 @@
+{
+ "group": "frappe",
+ "items": [
+  {
+   "key": "<p><strong>{{ __(\"Condition Examples\") }}:</strong></p>\n<pre><code class=\"language-python\">doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</code></pre>\n",
+   "refs": [
+    "frappe/frappe/email/doctype/notification/notification.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.condition_type===\\\"Python\\\"\",\n   \"fieldname\": \"html_7\",\n   \"fieldtype\": \"HTML\",\n   \"options\": \"<p><strong>{{ __(\\\"Condition Examples\\\") }}:</strong></p>\\n<pre><code class=\\\"language-python\\\">doc.status==\\\"Open\\\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\\n</code></pre>\\n\"\n  },\n  {\n   \"collapsible\": 1,"
+  },
+  {
+   "key": "<p><strong>{{ __(\"Condition Examples\") }}:</strong></p>\n<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>",
+   "refs": [
+    "frappe/frappe/integrations/doctype/webhook/webhook.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"html_condition\",\n   \"fieldtype\": \"HTML\",\n   \"options\": \"<p><strong>{{ __(\\\"Condition Examples\\\") }}:</strong></p>\\n<pre>doc.status==\\\"Open\\\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\\n</pre>\"\n  },\n  {\n   \"fieldname\": \"sb_webhook\","
+  },
+  {
+   "key": "`doctype` and `fieldname` are required for deleting property setters.",
+   "refs": [
+    "frappe/frappe/custom/doctype/property_setter/property_setter.py:154"
+   ],
+   "current": null,
+   "context": "\t\t\tcontinue\n\n\t\tif not filters.get(\"doc_type\") or not filters.get(\"field_name\"):\n\t\t\tfrappe.throw(_(\"`doctype` and `fieldname` are required for deleting property setters.\"))\n\n\t\tif bypass_hooks:\n\t\t\tfrappe.db.delete(\"Property Setter\", filters)"
+  },
+  {
+   "key": "A folder cannot have a File URL",
+   "refs": [
+    "frappe/frappe/core/doctype/file/file.py:122",
+    "frappe/frappe/core/doctype/file/file.py:174"
+   ],
+   "current": null,
+   "context": "\n\t\tif self.is_folder:\n\t\t\tif self.file_url:\n\t\t\t\tfrappe.throw(_(\"A folder cannot have a File URL\"))\n\t\t\treturn\n\n\t\tif self.flags.copy_from_existing_file:"
+  },
+  {
+   "key": "Active Directory",
+   "refs": [
+    "frappe/frappe/integrations/doctype/ldap_settings/ldap_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"ldap_directory_server\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Directory Server\",\n   \"options\": \"\\nActive Directory\\nOpenLDAP\\nCustom\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Add attachment",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/attachment_gallery.js:205"
+   ],
+   "current": null,
+   "context": "\t}\n\n\trender_upload_button($grid) {\n\t\tconst label = __(\"Add attachment\");\n\t\tconst $button = $(\n\t\t\t'<button type=\"button\" class=\"attachment-gallery-item attachment-gallery-upload\"></button>'\n\t\t)"
+  },
+  {
+   "key": "Add Series Prefix",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:26"
+   ],
+   "current": null,
+   "context": "\t\t\t\t{\n\t\t\t\t\tfieldtype: \"Table\",\n\t\t\t\t\tfieldname: \"naming_series_options\",\n\t\t\t\t\tlabel: __(\"Add Series Prefix\"),\n\t\t\t\t\treqd: 1,\n\t\t\t\t\tin_place_edit: true,\n\t\t\t\t\tdata: [],"
+  },
+  {
+   "key": "added {0} row(s) to {1}",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:609"
+   ],
+   "current": null,
+   "context": "\tchanges: list[dict] = []\n\n\tfor key, template in (\n\t\t(\"added\", _(\"added {0} row(s) to {1}\")),\n\t\t(\"removed\", _(\"removed {0} row(s) from {1}\")),\n\t):\n\t\tcounts: dict[str, int] = {}"
+  },
+  {
+   "key": "Allowed Doctypes for Guest Uploads",
+   "refs": [
+    "frappe/frappe/core/doctype/system_settings/system_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Provide a list of allowed Doctypes for file uploads. Each line should contain one allowed Doctype. If unset, uploads to all doctypes are allowed. Example: <br>User<br>Item<br>Quotation\",\n   \"fieldname\": \"allowed_doctypes_for_guest_uploads\",\n   \"fieldtype\": \"Small Text\",\n   \"label\": \"Allowed Doctypes for Guest Uploads\"\n  },\n  {\n   \"default\": \"Daily\","
+  },
+  {
+   "key": "Allowed special characters are '/' and '-'",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:86"
+   ],
+   "current": null,
+   "context": "\trender_help() {\n\t\tthis.dialog.get_field(\"naming_series_description\").$wrapper.html(`\n   \t\t\t <ul>\n\t\t\t\t<li>${__(\"Allowed special characters are '/' and '-'\")}</li>\n\t\t\t\t<li>\n\t\t\t\t\t${__(\n\t\t\t\t\t\t\"Optionally, set the number of digits in the series using dot (.) followed by hashes (#). For example, '.####' means that the series will have four digits. Default is five digits.\""
+  },
+  {
+   "key": "Allows printing or PDF download of documents.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:52"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Print\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows printing or PDF download of documents.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The print button is enabled for the user in the document.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows sharing document access with other users.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:77"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Share\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows sharing document access with other users.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can share document access with another user.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows the user to access reports related to the document.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:62"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Report\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to access reports related to the document.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"If the user has access to Employee and Report is enabled, they can view Employee-based reports.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows the user to create new documents.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:42"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Create\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to create new documents.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can create a new Item but cannot edit existing items.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows the user to delete documents.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:47"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Delete\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to delete documents.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can delete Draft / Cancelled documents.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows the user to edit existing records they have access to.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:37"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Write\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to edit existing records they have access to.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can update a customer or any other fields in an existing Sales Order but cannot create a new Sales Order.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows the user to email from the document.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:57"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Email\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to email from the document.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The email button is enabled for the user in the document.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows the user to export data from the Report view.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:67"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Export\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to export data from the Report view.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can export report data.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows the user to search and see records.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:27"
+   ],
+   "current": null,
+   "context": "\t\t\t<tbody>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Select\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to search and see records.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can select a Customer in Sales Order but cannot open the Customer master.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows the user to use Data Import tool to create / update records.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:72"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Import\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to use Data Import tool to create / update records.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can import new records or update existing data for the document.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows the user to view the document.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:32"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Read\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to view the document.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can view Sales Invoices but cannot modify any field values in them.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>"
+  },
+  {
+   "key": "Allows users to enable the mask property for any field of the respective doctype.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:82"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Mask\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows users to enable the mask property for any field of the respective doctype.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"If the user enables the mask property for the phone number field, the value will be displayed in a masked format (e.g., 811XXXXXXX).\") %}</td>\n\t\t\t\t</tr>\n\t\t\t</tbody>"
+  },
+  {
+   "key": "and {0} more",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:897"
+   ],
+   "current": null,
+   "context": "\t\t\tif (total > previewLim) {\n\t\t\t\tconst head = parts.slice(0, previewLim);\n\t\t\t\tconst moreN = total - previewLim;\n\t\t\t\tconst moreLbl = __(\"and {0} more\", [String(moreN)]);\n\t\t\t\tconst tailHint = ` <span class=\"global-search-field-more-hint\">${frappe.utils.escape_html(\n\t\t\t\t\tmoreLbl\n\t\t\t\t)}</span>`;"
+  },
+  {
+   "key": "App name is required.",
+   "refs": [
+    "frappe/frappe/integrations/frappe_providers/cloud_marketplace.py:108"
+   ],
+   "current": null,
+   "context": "def _clean(name: str) -> str:\n\tname = (name or \"\").strip()\n\tif not name:\n\t\tfrappe.throw(frappe._(\"App name is required.\"), frappe.ValidationError)\n\treturn name"
+  },
+  {
+   "key": "App that produced this notification; used to scope app-specific panels. Derived from the reference document when not set explicitly.",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_log/notification_log.json"
+   ],
+   "current": null,
+   "context": "   \"read_only\": 1\n  },\n  {\n   \"description\": \"App that produced this notification; used to scope app-specific panels. Derived from the reference document when not set explicitly.\",\n   \"fieldname\": \"app\",\n   \"fieldtype\": \"Select\",\n   \"in_standard_filter\": 1,"
+  },
+  {
+   "key": "App {} is not installed",
+   "refs": [
+    "frappe/frappe/apps.py:95"
+   ],
+   "current": null,
+   "context": "@frappe.whitelist()\ndef set_app_as_default(app_name: str):\n\tif app_name not in frappe.get_installed_apps():\n\t\tfrappe.throw(_(\"App {} is not installed\").format(frappe.bold(app_name)))\n\n\tif frappe.db.get_value(\"User\", frappe.session.user, \"default_app\") == app_name:\n\t\tfrappe.db.set_value(\"User\", frappe.session.user, \"default_app\", \"\")"
+  },
+  {
+   "key": "Apps Involved",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder/recorder.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"apps_involved\",\n   \"fieldtype\": \"Data\",\n   \"in_list_view\": 1,\n   \"label\": \"Apps Involved\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Are you sure you want to relink this communication?",
+   "refs": [
+    "frappe/frappe/core/doctype/communication/communication.js:166"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t? __(\"Are you sure you want to relink this communication to {0}?\", [\n\t\t\t\t\t\t\tvalues[\"reference_name\"],\n\t\t\t\t\t  ])\n\t\t\t\t\t: __(\"Are you sure you want to relink this communication?\");\n\t\t\t\tfrappe.confirm(\n\t\t\t\t\tmessage,\n\t\t\t\t\tfunction () {"
+  },
+  {
+   "key": "Are you sure you want to resend the invitation?",
+   "refs": [
+    "frappe/frappe/core/doctype/user_invitation/user_invitation.js:18"
+   ],
+   "current": null,
+   "context": "\t\t\treturn;\n\t\t}\n\t\tfrm.add_custom_button(__(\"Resend\"), () => {\n\t\t\tfrappe.confirm(__(\"Are you sure you want to resend the invitation?\"), () =>\n\t\t\t\tfrappe\n\t\t\t\t\t.call(\"frappe.core.api.user_invitation.resend_invitation\", {\n\t\t\t\t\t\tname: frm.doc.name,"
+  },
+  {
+   "key": "Attachment Gallery",
+   "refs": [
+    "frappe/frappe/core/doctype/docfield/docfield.json",
+    "frappe/frappe/custom/doctype/custom_field/custom_field.json",
+    "frappe/frappe/custom/doctype/customize_form_field/customize_form_field.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Type\",\n   \"oldfieldname\": \"fieldtype\",\n   \"oldfieldtype\": \"Select\",\n   \"options\": \"Autocomplete\\nAttach\\nAttach Image\\nAttachment Gallery\\nBarcode\\nButton\\nCheck\\nCode\\nColor\\nColumn Break\\nCurrency\\nData\\nDate\\nDatetime\\nDuration\\nDynamic Link\\nFloat\\nFold\\nGeolocation\\nHeading\\nHTML\\nHTML Editor\\nIcon\\nImage\\nInt\\nJSON\\nLink\\nLong Text\\nMarkdown Editor\\nPassword\\nPercent\\nPhone\\nRead Only\\nRating\\nSection Break\\nSelect\\nSignature\\nSmall Text\\nTab Break\\nTable\\nTable MultiSelect\\nText\\nText Editor\\nTime\",\n   \"reqd\": 1,\n   \"search_index\": 1\n  },"
+  },
+  {
+   "key": "Attachment Gallery filters must target File.",
+   "refs": [
+    "frappe/frappe/core/doctype/doctype/doctype.py:1765",
+    "frappe/frappe/desk/form/load.py:218"
+   ],
+   "current": null,
+   "context": "\t\tif docfield.fieldtype == \"Attachment Gallery\" and any(\n\t\t\tfilter_row[0] != \"File\" for filter_row in link_filters\n\t\t):\n\t\t\tfrappe.throw(_(\"Attachment Gallery filters must target File.\"))\n\n\tfields = meta.get(\"fields\")\n\tfieldname_list = [d.fieldname for d in fields]"
+  },
+  {
+   "key": "Attendee not found in this event.",
+   "refs": [
+    "frappe/frappe/desk/doctype/event/event.py:261"
+   ],
+   "current": null,
+   "context": "\t\t\tfrappe.db.set_value(\"Event Participants\", participant.name, \"attending\", status)\n\t\t\treturn\n\n\tfrappe.throw(_(\"Attendee not found in this event.\"))\n\n\n@frappe.whitelist()"
+  },
+  {
+   "key": "Attending",
+   "refs": [
+    "frappe/frappe/desk/doctype/event/event.json",
+    "frappe/frappe/desk/doctype/event_participants/event_participants.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"attending\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Attending\",\n   \"options\": \"\\nYes\\nNo\\nMaybe\"\n  }\n ],"
+  },
+  {
+   "key": "Authorization POST requests must use application/x-www-form-urlencoded",
+   "refs": [
+    "frappe/frappe/integrations/oauth2.py:98"
+   ],
+   "current": null,
+   "context": "\trequest_data = frappe.request.get_data(as_text=True) if frappe.request.method == \"POST\" else \"\"\n\tif request_data and frappe.request.mimetype != \"application/x-www-form-urlencoded\":\n\t\tfrappe.throw(\n\t\t\tfrappe._(\"Authorization POST requests must use application/x-www-form-urlencoded\"),\n\t\t\tfrappe.UnsupportedMediaType,\n\t\t)\n"
+  },
+  {
+   "key": "Auto repeat skipped. The owner cannot access the reference document.",
+   "refs": [
+    "frappe/frappe/automation/doctype/auto_repeat/auto_repeat.py:244"
+   ],
+   "current": null,
+   "context": "\t\t\tif not frappe.has_permission(\n\t\t\t\tself.reference_doctype, \"read\", self.reference_document, user=self.owner\n\t\t\t):\n\t\t\t\tself.log_error(_(\"Auto repeat skipped. The owner cannot access the reference document.\"))\n\t\t\t\treturn\n\n\t\t\tif self.generate_separate_documents_for_each_assignee and self.assignee:"
+  },
+  {
+   "key": "B:Number system",
+   "refs": [
+    "frappe/frappe/public/js/frappe/utils/number_systems.js:9"
+   ],
+   "current": null,
+   "context": "\t\t},\n\t\t{\n\t\t\tdivisor: 1.0e9,\n\t\t\tsymbol: __(\"B\", null, \"Number system\"),\n\t\t},\n\t\t{\n\t\t\tdivisor: 1.0e6,"
+  },
+  {
+   "key": "Back to sign in",
+   "refs": [
+    "frappe/frappe/www/login.html:188",
+    "frappe/frappe/www/update-password.html:92"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t<div class=\"text-center sign-up-message\">\n\t\t\t\t<a href=\"#login\">{{ _(\"Back to sign in\") }}</a>\n\t\t\t</div>\n\t\t</div>\n\t</section>"
+  },
+  {
+   "key": "Begin typing for results.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/awesomplete.js:8"
+   ],
+   "current": null,
+   "context": "\t\tsuper(input, options);\n\t\tthis.status.textContent = this.minChars\n\t\t\t? __(\"Type {0} or more characters for results.\", [this.minChars])\n\t\t\t: __(\"Begin typing for results.\");\n\t}\n\n\tevaluate() {"
+  },
+  {
+   "key": "Cannot change field type in {0}: some existing values cannot be converted to the new type",
+   "refs": [
+    "frappe/frappe/database/mariadb/schema.py:192"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\treturn\n\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\n\t\t\t\t\t\t\"Cannot change field type in {0}: some existing values cannot be converted to the new type\"\n\t\t\t\t\t).format(self.doctype),\n\t\t\t\t\ttitle=_(\"Incompatible Values\"),"
+  },
+  {
+   "key": "Cannot configure Core DocTypes for Global Search.",
+   "refs": [
+    "frappe/frappe/desk/doctype/global_search_settings/global_search_settings.py:176"
+   ],
+   "current": null,
+   "context": "\tif not doctype:\n\t\tfrappe.throw(_(\"Document Type is required\"))\n\tif frappe.get_meta(doctype).module == \"Core\":\n\t\tfrappe.throw(_(\"Cannot configure Core DocTypes for Global Search.\"))\n\n\tfields = frappe.parse_json(fields)\n\tmeta = frappe.get_meta(doctype)"
+  },
+  {
+   "key": "Cannot register an empty XLSX style",
+   "refs": [
+    "frappe/frappe/utils/xlsxutils.py:152"
+   ],
+   "current": null,
+   "context": "\t\tStyle dict uses xlsxwriter format properties.\n\t\t\"\"\"\n\t\tif not style:\n\t\t\tfrappe.throw(_(\"Cannot register an empty XLSX style\"))\n\n\t\tstyle_id = len(self.styles)\n\t\tself.styles.append(style)"
+  },
+  {
+   "key": "Category for the in-app notification. Used for filtering and per-user email preferences.",
+   "refs": [
+    "frappe/frappe/email/doctype/notification/notification.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"Alert\",\n   \"depends_on\": \"eval: doc.channel === 'System Notification' || doc.send_system_notification\",\n   \"description\": \"Category for the in-app notification. Used for filtering and per-user email preferences.\",\n   \"fieldname\": \"notification_type\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Notification Type\","
+  },
+  {
+   "key": "changed {0}",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:580"
+   ],
+   "current": null,
+   "context": "\t\treturn {\n\t\t\t\"fieldname\": fieldname,\n\t\t\t\"type\": \"diff\",\n\t\t\t\"prefix\": _(\"changed {0}\").format(label),\n\t\t\t\"from\": old_s,\n\t\t\t\"to\": new_s,\n\t\t}"
+  },
+  {
+   "key": "Check the Error Log for details.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/microtemplate.js:256"
+   ],
+   "current": null,
+   "context": "\t\t\tconst timed_out = [408, 502, 503, 504].includes(this.status);\n\n\t\t\tshow_pdf_error(\n\t\t\t\ttimed_out ? pdf_size_message() : __(\"Check the Error Log for details.\"),\n\t\t\t\tsuccess.currentTarget.response\n\t\t\t);\n\t\t\treturn;"
+  },
+  {
+   "key": "Choose which notification types are emailed to you. Unchecked types still show as in-app notifications.",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_settings/notification_settings.js:45"
+   ],
+   "current": null,
+   "context": "\t$(wrapper).empty();\n\t$(`\n\t\t<p class=\"text-muted small mb-2\">\n\t\t\t${__(\n\t\t\t\t\"Choose which notification types are emailed to you. Unchecked types still show as in-app notifications.\"\n\t\t\t)}\n\t\t</p>"
+  },
+  {
+   "key": "Clear all filters",
+   "refs": [
+    "frappe/frappe/public/js/frappe/list/base_list.js:1407"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t${__(\"Filter\")}\n\t\t\t\t\t<span>\n\t\t\t\t</button>\n\t\t\t\t<button class=\"btn btn-default btn-sm filter-x-button\" title=\"${__(\"Clear all filters\")}\">\n\t\t\t\t\t<span class=\"filter-icon button-icon\">\n\t\t\t\t\t\t${frappe.utils.icon(\"es-small-close\")}\n\t\t\t\t\t</span>"
+  },
+  {
+   "key": "Clear cache and reload",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/keyboard.js:281"
+   ],
+   "current": null,
+   "context": "\taction: function () {\n\t\tfrappe.ui.toolbar.clear_cache();\n\t},\n\tdescription: __(\"Clear cache and reload\"),\n});\n\nfrappe.ui.keys.key_map = {"
+  },
+  {
+   "key": "Clear Link",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/link.js:18"
+   ],
+   "current": null,
+   "context": "\t\t$(`<div class=\"link-field ui-front\" style=\"position: relative;\">\n\t\t\t<input type=\"text\" class=\"input-with-feedback form-control\">\n\t\t\t<span class=\"link-btn\">\n\t\t\t\t<a class=\"btn-clear\" style=\"display: inline-flex;\" title=\"${__(\"Clear Link\")}\">\n\t\t\t\t\t${frappe.utils.icon(\"close\", \"xs\", \"es-icon\")}\n\t\t\t\t</a>\n\t\t\t\t<a class=\"btn-open\" style=\"display: inline-flex;\" title=\"${__(\"Open Link\")}\">"
+  },
+  {
+   "key": "cleared {0}",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:573"
+   ],
+   "current": null,
+   "context": "\tif df.fieldtype in LONG_TEXT_FIELDTYPES:\n\t\treturn {\"fieldname\": fieldname, \"type\": \"phrase\", \"text\": _(\"updated {0}\").format(label)}\n\tif old_s and not new_s:\n\t\treturn {\"fieldname\": fieldname, \"type\": \"phrase\", \"text\": _(\"cleared {0}\").format(label)}\n\n\t# diff: the frontend lays out the value(s). `from` omitted ⇒ set-from-blank (no arrow)\n\tif old_s:"
+  },
+  {
+   "key": "Click below to accept your invitation and get started.",
+   "refs": [
+    "frappe/frappe/templates/emails/user_invitation.html:5"
+   ],
+   "current": null,
+   "context": "<p>{{ _(\"Hello,\") }}</p>\n<p>\n\t{{ _(\"You've been invited to join {0}.\").format(frappe.bold(title)) }}\n\t{{ _(\"Click below to accept your invitation and get started.\") }}\n</p>\n<p>\n\t<a href=\"{{ invite_link }}\" target=\"_blank\" class=\"btn btn-primary\">{{ _(\"Accept Invitation\") }}</a>"
+  },
+  {
+   "key": "Click the button below to complete your registration and set a new password.",
+   "refs": [
+    "frappe/frappe/templates/emails/new_user.html:10"
+   ],
+   "current": null,
+   "context": "\t{{_(\"A new account has been created for you at {0}.\").format(site_link)}}\n\t{{_(\"Your login ID is:\")}} <b>{{ user }}</b>\n</p>\n<p>{{_(\"Click the button below to complete your registration and set a new password.\")}}</p>\n<p>\n\t<a href=\"{{ link }}\" rel=\"nofollow\" class=\"btn btn-primary\">{{ _(\"Complete Registration\") }}</a>\n</p>"
+  },
+  {
+   "key": "Click the button below to sign in to your account. This link will expire in {0} minutes.",
+   "refs": [
+    "frappe/frappe/templates/emails/login_with_email_link.html:2"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"Log in to {0}\").format(app_name) }}</h1>\n<p>{{ _(\"Click the button below to sign in to your account. This link will expire in {0} minutes.\").format(minutes) }}</p>\n<p>\n\t<a href=\"{{ link or '#'}}\" class=\"btn btn-primary\">{{ _(\"Log In to {0}\").format(app_name) }}</a>\n</p>"
+  },
+  {
+   "key": "Cloud settings",
+   "refs": [
+    "frappe/frappe/desk/page/desktop/desktop.html:29",
+    "frappe/frappe/desk/page/desktop/desktop.html:30"
+   ],
+   "current": null,
+   "context": "        <div class=\"flex\" style=\"gap:16px; align-items: center;\">\n            <button\n                class=\"btn-reset nav-link text-muted desktop-cloud-settings hidden\"\n                title=\"{{ _(\"Cloud settings\") |e }}\"\n                aria-label=\"{{ _(\"Cloud settings\") |e }}\"\n            >\n                <svg class=\"icon icon-md\">"
+  },
+  {
+   "key": "Company Abbreviation (requires ERPNext to be installed)",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:108"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t<code>branch</code>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><code>.FY.</code> - ${__(\"Fiscal Year (requires ERPNext to be installed)\")}</li>\n\t\t\t\t\t<li><code>.ABBR.</code> - ${__(\"Company Abbreviation (requires ERPNext to be installed)\")}</li>\n\t\t\t\t</ul>\n       \t\t</li>\n    \t\t</ul>"
+  },
+  {
+   "key": "Complete your registration",
+   "refs": [
+    "frappe/frappe/templates/emails/new_user.html:1"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"Complete your registration\") }}</h1>\n<p>\n\t{{_(\"Hello\")}} {{ first_name | e }}{% if last_name %} {{ last_name | e }}{% endif %},\n</p>"
+  },
+  {
+   "key": "Configure",
+   "refs": [
+    "frappe/frappe/desk/doctype/global_search_doctype/global_search_doctype.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"configure\",\n   \"fieldtype\": \"Button\",\n   \"in_list_view\": 1,\n   \"label\": \"Configure\"\n  }\n ],\n \"istable\": 1,"
+  },
+  {
+   "key": "Configure search fields",
+   "refs": [
+    "frappe/frappe/desk/doctype/global_search_settings/global_search_settings.js:12"
+   ],
+   "current": null,
+   "context": "\t\t\tconst options = r.message || [];\n\n\t\t\tconst dialog = new frappe.ui.Dialog({\n\t\t\t\ttitle: __(\"Configure search fields\"),\n\t\t\t\tfields: [\n\t\t\t\t\t{\n\t\t\t\t\t\tfieldtype: \"HTML\","
+  },
+  {
+   "key": "Configure search settings",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:62"
+   ],
+   "current": null,
+   "context": "\n\tmake_global_search_settings_btn() {\n\t\tif (!frappe.model.can_read(\"Global Search Settings\")) return null;\n\t\tconst label = __(\"Configure search settings\");\n\t\treturn $(\n\t\t\t`<button type=\"button\" class=\"btn btn-ghost icon-btn btn-open-global-search-settings\">`\n\t\t)"
+  },
+  {
+   "key": "Could not generate PDF",
+   "refs": [
+    "frappe/frappe/public/js/frappe/microtemplate.js:223"
+   ],
+   "current": null,
+   "context": "\t}\n\n\tfrappe.msgprint({\n\t\ttitle: __(\"Could not generate PDF\"),\n\t\tmessage: message,\n\t\tindicator: \"red\",\n\t});"
+  },
+  {
+   "key": "Could not reach your server: {0}",
+   "refs": [
+    "frappe/frappe/integrations/frappe_providers/cloud_settings.py:62"
+   ],
+   "current": null,
+   "context": "\t\t\t\ttimeout=cint(frappe.conf.get(\"cloud_settings_timeout\")) or 30,\n\t\t\t)\n\t\texcept requests.RequestException as exc:\n\t\t\tfrappe.throw(_(\"Could not reach your server: {0}\").format(str(exc)), frappe.ValidationError)\n\n\t\tpayload = self._parse(response)\n\t\t# Some endpoints (e.g. the app registry) return a bare JSON list."
+  },
+  {
+   "key": "Couldn't open Cloud settings. Please try again.",
+   "refs": [
+    "frappe/frappe/desk/page/desktop/desktop.js:467",
+    "frappe/frappe/desk/page/desktop/desktop.js:477"
+   ],
+   "current": null,
+   "context": "\t\t\t// Pilot may be unreachable or the origin blocked; let the user retry.\n\t\t\tconsole.error(\"Cloud settings bundle failed to load\", error); // eslint-disable-line no-console\n\t\t\tfrappe.show_alert({\n\t\t\t\tmessage: __(\"Couldn't open Cloud settings. Please try again.\"),\n\t\t\t\tindicator: \"red\",\n\t\t\t});\n\t\t\treturn;"
+  },
+  {
+   "key": "Create a new document:Description of a list view shortcut",
+   "refs": [
+    "frappe/frappe/public/js/frappe/list/list_view.js:311"
+   ],
+   "current": null,
+   "context": "\n\t\t\t\t\treturn true;\n\t\t\t\t},\n\t\t\t\tdescription: __(\n\t\t\t\t\t\"Create a new document\",\n\t\t\t\t\tnull,\n\t\t\t\t\t\"Description of a list view shortcut\""
+  },
+  {
+   "key": "Create Account",
+   "refs": [
+    "frappe/frappe/templates/includes/login/login.js:152",
+    "frappe/frappe/templates/signup.html:18"
+   ],
+   "current": null,
+   "context": "\t\t$forms.find(\".form-group\").removeClass(\"invalid\").find(\".field-error\").text(\"\");\n\t\t$forms.find(\".login-error-banner\").hide();\n\t\t$(\".form-forgot .btn-forgot\").prop(\"disabled\", true).text({{ _(\"Send Link\") | tojson }});\n\t\t$(\".form-signup .btn-signup\").prop(\"disabled\", true).text({{ _(\"Create Account\") | tojson }});\n\t\t$(\".form-login-with-email-link .btn-login-with-email-link\").prop(\"disabled\", false).text({{ _(\"Send login link\") | tojson }});\n\t\t$(\".btn-login-option.btn-login-with-email-link\").prop(\"disabled\", false);\n\t\t$(\"section.for-login-with-email-link .login-success-banner\").hide();"
+  },
+  {
+   "key": "Current Series",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:248"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t\t<td colspan=\"2\"\n\t\t\t\t\t\t\t\tstyle=\"width: 75%; padding: 8px 12px; text-align: left; border-left: 1px solid var(--border-color);\">\n\t\t\t\t\t\t\t\t${__(\"Current Series\")}\n\t\t\t\t\t\t\t</td>\n\t\t\t\t\t\t</tr>\n\t\t\t\t\t</thead>"
+  },
+  {
+   "key": "Day of month",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:101"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<li><code>.YYYY.</code> - ${__(\"Year in 4 digits\")}</li>\n\t\t\t\t\t<li><code>.YY.</code> - ${__(\"Year in 2 digits\")}</li>\n\t\t\t\t\t<li><code>.MM.</code> - ${__(\"Month\")}</li>\n\t\t\t\t\t<li><code>.DD.</code> - ${__(\"Day of month\")}</li>\n\t\t\t\t\t<li><code>.WW.</code> - ${__(\"Week of the year\")}</li>\n\t\t\t\t\t<li>\n\t\t\t\t\t\t<code>.{fieldname}.</code> - ${__(\"fieldname on the document e.g.\")}"
+  },
+  {
+   "key": "DB Tables",
+   "refs": [
+    "frappe/frappe/core/doctype/duckdb_sync/duckdb_sync.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"db_tables\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"DB Tables\",\n   \"options\": \"DuckDB Sync Item\"\n  },\n  {"
+  },
+  {
+   "key": "Delete Gravatar URLs",
+   "refs": [
+    "frappe/frappe/public/js/frappe/legacy_gravatar_cleanup.js:13",
+    "frappe/frappe/public/js/frappe/legacy_gravatar_cleanup.js:39"
+   ],
+   "current": null,
+   "context": "\t}\n\n\tconst dialog = new frappe.ui.Dialog({\n\t\ttitle: __(\"Delete Gravatar URLs\"),\n\t\tfields: [\n\t\t\t{\n\t\t\t\tfieldname: \"message\","
+  },
+  {
+   "key": "Delete Row",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:177"
+   ],
+   "current": null,
+   "context": "\t\t\t\"insert-row-below\": __(\"Insert Row Below\"),\n\t\t\t\"insert-column-right\": __(\"Insert Column Right\"),\n\t\t\t\"insert-column-left\": __(\"Insert Column Left\"),\n\t\t\t\"delete-row\": __(\"Delete Row\"),\n\t\t\t\"delete-column\": __(\"Delete Column\"),\n\t\t\t\"delete-table\": __(\"Delete Table\"),\n\t\t};"
+  },
+  {
+   "key": "Delete Table",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:179"
+   ],
+   "current": null,
+   "context": "\t\t\t\"insert-column-left\": __(\"Insert Column Left\"),\n\t\t\t\"delete-row\": __(\"Delete Row\"),\n\t\t\t\"delete-column\": __(\"Delete Column\"),\n\t\t\t\"delete-table\": __(\"Delete Table\"),\n\t\t};\n\t\ttoolbar.container.querySelectorAll(\".ql-header .ql-picker-item\").forEach((item) => {\n\t\t\titem.setAttribute(\"data-label\", header_labels[item.dataset.value || \"\"]);"
+  },
+  {
+   "key": "Depth",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder_event/recorder_event.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"depth\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Depth\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Didn't receive the link?",
+   "refs": [
+    "frappe/frappe/www/login.html:219"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</div>\n\t\t\t\t<div class=\"page-card-actions\">\n\t\t\t\t\t<p class=\"resend-link\">\n\t\t\t\t\t\t{{ _(\"Didn't receive the link?\") }} <a href=\"#\" class=\"btn-resend-link\">{{ _(\"Resend\") }}</a>\n\t\t\t\t\t</p>\n\t\t\t\t\t<button class=\"btn btn-sm btn-primary btn-block btn-login btn-login-with-email-link\"\n\t\t\t\t\t\ttype=\"submit\">{{ _(\"Send login link\") }}</button>"
+  },
+  {
+   "key": "Disable Prepared Report Automation",
+   "refs": [
+    "frappe/frappe/core/doctype/report/report.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"If checked, <i>Prepared Report</i> will not be enabled automatically on slow runs.\",\n   \"fieldname\": \"disable_prepared_report_automation\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Disable Prepared Report Automation\"\n  },\n  {\n   \"fieldname\": \"section_break_tljw\","
+  },
+  {
+   "key": "Doc Values",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.json",
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.py:104"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"doc_values\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Doc Values\",\n   \"options\": \"JSON\"\n  },\n  {"
+  },
+  {
+   "key": "Doctype To Sync",
+   "refs": [
+    "frappe/frappe/core/doctype/doctype_to_sync/doctype_to_sync.json",
+    "frappe/frappe/core/doctype/report/report.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-06-18 11:21:56.316632\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Core\",\n \"name\": \"Doctype To Sync\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"row_format\": \"Dynamic\","
+  },
+  {
+   "key": "Document Name (ID)",
+   "refs": [
+    "frappe/frappe/desk/doctype/global_search_settings/global_search_settings.py:134"
+   ],
+   "current": null,
+   "context": "\n\toptions = [\n\t\t{\n\t\t\t\"label\": _(\"Document Name (ID)\"),\n\t\t\t\"value\": \"name\",\n\t\t\t\"checked\": bool(getattr(meta, \"show_name_in_global_search\", False)),\n\t\t}"
+  },
+  {
+   "key": "Document Type is required",
+   "refs": [
+    "frappe/frappe/desk/doctype/global_search_settings/global_search_settings.py:126",
+    "frappe/frappe/desk/doctype/global_search_settings/global_search_settings.py:174"
+   ],
+   "current": null,
+   "context": "\tand name is also included if show_name_in_global_search is set\n\t\"\"\"\n\tif not doctype:\n\t\tfrappe.throw(_(\"Document Type is required\"))\n\n\tfrappe.only_for(\"System Manager\")\n"
+  },
+  {
+   "key": "Domain is required.",
+   "refs": [
+    "frappe/frappe/integrations/frappe_providers/cloud_settings.py:406"
+   ],
+   "current": null,
+   "context": "def _clean_domain(domain: str) -> str:\n\tdomain = (domain or \"\").strip().lower()\n\tif not domain:\n\t\tfrappe.throw(_(\"Domain is required.\"), frappe.ValidationError)\n\treturn domain\n\n"
+  },
+  {
+   "key": "DuckDB Sync",
+   "refs": [
+    "frappe/frappe/core/doctype/duckdb_sync/duckdb_sync.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"db_tables\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"DB Tables\",\n   \"options\": \"DuckDB Sync Item\"\n  },\n  {\n   \"fieldname\": \"doc_type\","
+  },
+  {
+   "key": "DuckDB Sync Item",
+   "refs": [
+    "frappe/frappe/core/doctype/duckdb_sync_item/duckdb_sync_item.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-06-06 13:10:28.240122\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Core\",\n \"name\": \"DuckDB Sync Item\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"row_format\": \"Dynamic\","
+  },
+  {
+   "key": "Duration (ms)",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder_event/recorder_event.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"duration\",\n   \"fieldtype\": \"Float\",\n   \"in_list_view\": 1,\n   \"label\": \"Duration (ms)\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "e.g.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:134"
+   ],
+   "current": null,
+   "context": "\tput_placeholder(status_text) {\n\t\tlet $shell = $(frappe.render_template(\"search\")).addClass(\"hide\");\n\t\tconst tipLine =\n\t\t\t__(\"Use ampersand to match multiple terms\") + \" (\" + __(\"e.g.\") + \" Marie&John)\";\n\t\tconst awesomebarShortcut = frappe.utils.is_mac() ? \"⌘K\" : \"Ctrl+K\";\n\t\tconst awesomebarTipLine = `<span class=\"global-search-shortcut-key\">${frappe.utils.escape_html(\n\t\t\tawesomebarShortcut"
+  },
+  {
+   "key": "Edit Section",
+   "refs": [
+    "frappe/frappe/printing/page/print_format_builder/print_format_builder.js:414"
+   ],
+   "current": null,
+   "context": "\n\t\t\t// new dialog\n\t\t\tvar d = new frappe.ui.Dialog({\n\t\t\t\ttitle: __(\"Edit Section\"),\n\t\t\t\tfields: [\n\t\t\t\t\t{\n\t\t\t\t\t\tlabel: __(\"No of Columns\"),"
+  },
+  {
+   "key": "Edit {0} rows",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/grid.js:256"
+   ],
+   "current": null,
+   "context": "\t\t\t\tthis.duplicate_rows_button.text(__(\"Duplicate row\"));\n\t\t\t} else {\n\t\t\t\tthis.remove_rows_button.text(__(\"Delete {0} rows\", [num_selected_rows]));\n\t\t\t\tthis.edit_rows_button.text(__(\"Edit {0} rows\", [num_selected_rows]));\n\t\t\t\tthis.duplicate_rows_button.text(__(\"Duplicate {0} rows\", [num_selected_rows]));\n\t\t\t}\n"
+  },
+  {
+   "key": "Email everyone for <b>{0}</b> notifications? This adds it to every user's email preferences. Users can still opt out individually afterwards.",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_type/notification_type.js:16"
+   ],
+   "current": null,
+   "context": "\t\t\t__(\"Enable Email Notifications for All Users\"),\n\t\t\t() => {\n\t\t\t\tfrappe.confirm(\n\t\t\t\t\t__(\n\t\t\t\t\t\t\"Email everyone for <b>{0}</b> notifications? This adds it to every user's email preferences. Users can still opt out individually afterwards.\",\n\t\t\t\t\t\t[frm.doc.name]\n\t\t\t\t\t),"
+  },
+  {
+   "key": "Email is required.",
+   "refs": [
+    "frappe/frappe/templates/includes/login/login.js:24"
+   ],
+   "current": null,
+   "context": "\t\targs.pwd = $(\"#login_password\").val();\n\t\tlet hasError = false;\n\t\tif (!args.usr) {\n\t\t\tlogin.show_field_error(\"login_email\", {{ _(\"Email is required.\") | tojson }});\n\t\t\thasError = true;\n\t\t}\n\t\tif (!args.pwd) {"
+  },
+  {
+   "key": "Email me for these notification types",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_settings/notification_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"email_notification_types\",\n   \"fieldtype\": \"Table MultiSelect\",\n   \"hidden\": 1,\n   \"label\": \"Email me for these notification types\",\n   \"options\": \"Notification Type Preference\"\n  },\n  {"
+  },
+  {
+   "key": "Enable bulk edit for child table fields in Form view.",
+   "refs": [
+    "frappe/frappe/custom/doctype/customize_form/customize_form.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"1\",\n   \"depends_on\": \"istable\",\n   \"description\": \"Enable bulk edit for child table fields in Form view.\",\n   \"fieldname\": \"allow_bulk_edit\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow Bulk Edit\""
+  },
+  {
+   "key": "Enable bulk update of this field across child table rows.",
+   "refs": [
+    "frappe/frappe/core/doctype/doctype/doctype.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"1\",\n   \"depends_on\": \"istable\",\n   \"description\": \"Enable bulk update of this field across child table rows.\",\n   \"fieldname\": \"allow_bulk_edit\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow Bulk Edit\""
+  },
+  {
+   "key": "Enable Email Notifications for All Users",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_type/notification_type.js:13"
+   ],
+   "current": null,
+   "context": "\t\t}\n\n\t\tfrm.add_custom_button(\n\t\t\t__(\"Enable Email Notifications for All Users\"),\n\t\t\t() => {\n\t\t\t\tfrappe.confirm(\n\t\t\t\t\t__("
+  },
+  {
+   "key": "Enable Snapshot Reports",
+   "refs": [
+    "frappe/frappe/core/doctype/system_settings/system_settings.json"
+   ],
+   "current": null,
+   "context": "   \"documentation_url\": \"https://docs.frappe.io/framework/user/en/desk/reports/script-report#snapshot-reports\",\n   \"fieldname\": \"enable_snapshot_reports\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Snapshot Reports\"\n  },\n  {\n   \"default\": \"1\","
+  },
+  {
+   "key": "Enable the notification type before emailing it to users.",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_type/notification_type.py:92"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.throw(_(\"{0} does not exist\").format(frappe.bold(notification_type)))\n\n\tif not frappe.db.get_value(\"Notification Type\", notification_type, \"enabled\"):\n\t\tfrappe.throw(_(\"Enable the notification type before emailing it to users.\"))\n\n\tif notification_type in get_skip_email_types():\n\t\tfrappe.throw(_(\"{0} never sends email, so it cannot be enabled for users.\").format(notification_type))"
+  },
+  {
+   "key": "Enabling email for {0} across all users in the background.",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_type/notification_type.py:103"
+   ],
+   "current": null,
+   "context": "\t\tenqueue_after_commit=True,\n\t)\n\tfrappe.msgprint(\n\t\t_(\"Enabling email for {0} across all users in the background.\").format(\n\t\t\tfrappe.bold(notification_type)\n\t\t),\n\t\talert=True,"
+  },
+  {
+   "key": "Error validating \"Ignore User Permissions\"",
+   "refs": [
+    "frappe/frappe/desk/search.py:302"
+   ],
+   "current": null,
+   "context": "\ndef validate_ignore_user_permissions(form_doctype, link_fieldname, link_doctype):\n\tdef _throw(message):\n\t\tfrappe.throw(message, title=_('Error validating \"Ignore User Permissions\"'))\n\n\tmeta = frappe.get_meta(form_doctype)\n"
+  },
+  {
+   "key": "Event Notifications",
+   "refs": [
+    "frappe/frappe/desk/doctype/event_notifications/event_notifications.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2025-10-01 14:26:21.526868\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Desk\",\n \"name\": \"Event Notifications\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"row_format\": \"Dynamic\","
+  },
+  {
+   "key": "Examples:",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:112"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</ul>\n       \t\t</li>\n    \t\t</ul>\n    ${__(\"Examples:\")}\n    <ul>\n        <li>INV-</li>\n        <li>INV-10-</li>"
+  },
+  {
+   "key": "Existing Gravatar URLs may still be stored on User and Contact records. Do you want to delete these URLs now?",
+   "refs": [
+    "frappe/frappe/public/js/frappe/legacy_gravatar_cleanup.js:28"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t? __(\n\t\t\t\t\t\t\t\t\"Existing Gravatar URLs may still be stored on User, Contact, and Lead records. Do you want to delete these URLs now?\"\n\t\t\t\t\t\t  )\n\t\t\t\t\t\t: __(\n\t\t\t\t\t\t\t\t\"Existing Gravatar URLs may still be stored on User and Contact records. Do you want to delete these URLs now?\"\n\t\t\t\t\t\t  )\n\t\t\t\t}</p>`,"
+  },
+  {
+   "key": "Existing Gravatar URLs may still be stored on User, Contact, and Lead records. Do you want to delete these URLs now?",
+   "refs": [
+    "frappe/frappe/public/js/frappe/legacy_gravatar_cleanup.js:25"
+   ],
+   "current": null,
+   "context": "\t\t\t\t)}</a></p>\n\t\t\t\t<p>${\n\t\t\t\t\tfrappe.utils.get_installed_apps().includes(\"erpnext\")\n\t\t\t\t\t\t? __(\n\t\t\t\t\t\t\t\t\"Existing Gravatar URLs may still be stored on User, Contact, and Lead records. Do you want to delete these URLs now?\"\n\t\t\t\t\t\t  )\n\t\t\t\t\t\t: __("
+  },
+  {
+   "key": "Facebook",
+   "refs": [
+    "frappe/frappe/integrations/doctype/social_login_key/social_login_key.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"social_login_provider\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Social Login Provider\",\n   \"options\": \"Custom\\nFacebook\\nFrappe\\nGitHub\\nGoogle\\nOffice 365\\nSalesforce\\nfairlogin\\nKeycloak\",\n   \"set_only_once\": 1\n  },\n  {"
+  },
+  {
+   "key": "fairlogin",
+   "refs": [
+    "frappe/frappe/integrations/doctype/social_login_key/social_login_key.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"social_login_provider\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Social Login Provider\",\n   \"options\": \"Custom\\nFacebook\\nFrappe\\nGitHub\\nGoogle\\nOffice 365\\nSalesforce\\nfairlogin\\nKeycloak\",\n   \"set_only_once\": 1\n  },\n  {"
+  },
+  {
+   "key": "fieldname on the document e.g.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:104"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<li><code>.DD.</code> - ${__(\"Day of month\")}</li>\n\t\t\t\t\t<li><code>.WW.</code> - ${__(\"Week of the year\")}</li>\n\t\t\t\t\t<li>\n\t\t\t\t\t\t<code>.{fieldname}.</code> - ${__(\"fieldname on the document e.g.\")}\n\t\t\t\t\t\t<code>branch</code>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><code>.FY.</code> - ${__(\"Fiscal Year (requires ERPNext to be installed)\")}</li>"
+  },
+  {
+   "key": "Fieldtype of {0} in {1} cannot be changed from {2} to {3}",
+   "refs": [
+    "frappe/frappe/custom/doctype/custom_field/custom_field.py:199"
+   ],
+   "current": null,
+   "context": "\t\t\tand not CustomizeForm.allow_fieldtype_change(old_fieldtype, self.fieldtype)\n\t\t):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Fieldtype of {0} in {1} cannot be changed from {2} to {3}\").format(\n\t\t\t\t\tfrappe.bold(self.fieldname), self.dt, old_fieldtype, self.fieldtype\n\t\t\t\t)\n\t\t\t)"
+  },
+  {
+   "key": "Filters applied to Link queries and Attachment Gallery files.",
+   "refs": [
+    "frappe/frappe/core/doctype/docfield/docfield.json",
+    "frappe/frappe/custom/doctype/custom_field/custom_field.json",
+    "frappe/frappe/custom/doctype/customize_form_field/customize_form_field.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"eval:['Attachment Gallery', 'Link'].includes(doc.fieldtype)\",\n   \"description\": \"Filters applied to Link queries and Attachment Gallery files.\",\n   \"fieldname\": \"link_filters\",\n   \"fieldtype\": \"JSON\",\n   \"label\": \"Filters\""
+  },
+  {
+   "key": "Filters must be four-value rows with string doctypes, fields, and operators.",
+   "refs": [
+    "frappe/frappe/desk/form/load.py:216"
+   ],
+   "current": null,
+   "context": "\t\tor not all(isinstance(value, str) for value in filter_row[:3])\n\t\tfor filter_row in filters\n\t):\n\t\tfrappe.throw(_(\"Filters must be four-value rows with string doctypes, fields, and operators.\"))\n\tif any(filter_row[0] != \"File\" for filter_row in filters):\n\t\tfrappe.throw(_(\"Attachment Gallery filters must target File.\"))\n"
+  },
+  {
+   "key": "Fingerprint",
+   "refs": [
+    "frappe/frappe/core/doctype/error_log/error_log.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"fingerprint_stats\",\n   \"fieldtype\": \"HTML\",\n   \"label\": \"Fingerprint Stats\"\n  },\n  {\n   \"fieldname\": \"method\","
+  },
+  {
+   "key": "Fingerprint Stats",
+   "refs": [
+    "frappe/frappe/core/doctype/error_log/error_log.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"fingerprint_stats\",\n   \"fieldtype\": \"HTML\",\n   \"label\": \"Fingerprint Stats\"\n  },\n  {\n   \"fieldname\": \"method\","
+  },
+  {
+   "key": "First Seen",
+   "refs": [
+    "frappe/frappe/core/doctype/error_log/error_log.js:63"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tformat_number(stats.count, null, 0),\n\t\t\t\t\t`data-action=\"show-similar\" style=\"cursor: pointer;\"`\n\t\t\t\t)}\n\t\t\t\t${number_card(__(\"First Seen\"), frappe.datetime.comment_when(stats.first_seen))}\n\t\t\t\t${number_card(__(\"Last Seen\"), frappe.datetime.comment_when(stats.last_seen))}\n\t\t\t</div>\n\t\t\t<div class=\"fingerprint-timeline-wrapper\">"
+  },
+  {
+   "key": "First Used On",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"first_used_on\",\n   \"fieldtype\": \"Datetime\",\n   \"label\": \"First Used On\",\n   \"no_copy\": 1,\n   \"read_only\": 1\n  }"
+  },
+  {
+   "key": "Fiscal Year (requires ERPNext to be installed)",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:107"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t<code>.{fieldname}.</code> - ${__(\"fieldname on the document e.g.\")}\n\t\t\t\t\t\t<code>branch</code>\n\t\t\t\t\t</li>\n\t\t\t\t\t<li><code>.FY.</code> - ${__(\"Fiscal Year (requires ERPNext to be installed)\")}</li>\n\t\t\t\t\t<li><code>.ABBR.</code> - ${__(\"Company Abbreviation (requires ERPNext to be installed)\")}</li>\n\t\t\t\t</ul>\n       \t\t</li>"
+  },
+  {
+   "key": "Forgot password?",
+   "refs": [
+    "frappe/frappe/www/login.html:48"
+   ],
+   "current": null,
+   "context": "\t\t<p class=\"field-error\"></p>\n\t\t{% if not disable_user_pass_login %}\n\t\t<p class=\"forgot-password-message\">\n\t\t\t<a href=\"#forgot\">{{ _(\"Forgot password?\") }}</a>\n\t\t</p>\n\t\t{% endif %}\n\t</div>"
+  },
+  {
+   "key": "Forum",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/about.js:26"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t${frappe.utils.icon(\"github\", \"sm\")}\n\t\t\t\t\t</a>\n\t\t\t\t\t<a href=\"https://discuss.frappe.io\" target=\"_blank\" class=\"about-icon-btn\"\n\t\t\t\t\t\ttitle=\"${__(\"Forum\")}\">\n\t\t\t\t\t\t${frappe.utils.icon(\"message-circle\", \"sm\")}\n\t\t\t\t\t</a>\n\t\t\t\t</div>"
+  },
+  {
+   "key": "found",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:1157"
+   ],
+   "current": null,
+   "context": "\t\t\tlet no_of_results = this.$body.find(\".result\").length;\n\t\t\tconst cue_word = no_of_results === 1 ? __(\"result\") : __(\"results\");\n\t\t\tlet no_of_results_cue = $('<div class=\"results-status\">').text(\n\t\t\t\t`${no_of_results} ${cue_word} ${__(\"found\")}`\n\t\t\t);\n\t\t\tthis.$body.find(\".more-results:last\").append(no_of_results_cue);\n\t\t}"
+  },
+  {
+   "key": "Frappe",
+   "refs": [
+    "frappe/frappe/integrations/doctype/social_login_key/social_login_key.json",
+    "frappe/frappe/www/login.py:53",
+    "frappe/frappe/www/login.py:149"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"social_login_provider\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Social Login Provider\",\n   \"options\": \"Custom\\nFacebook\\nFrappe\\nGitHub\\nGoogle\\nOffice 365\\nSalesforce\\nfairlogin\\nKeycloak\",\n   \"set_only_once\": 1\n  },\n  {"
+  },
+  {
+   "key": "Frappe Framework Version",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/about.js:35"
+   ],
+   "current": null,
+   "context": "\t\t\t<div class=\"about-info-rows\">\n\t\t\t\t<div class=\"about-info-row\">\n\t\t\t\t\t<div class=\"about-info-content\">\n\t\t\t\t\t\t<div class=\"about-info-title\">${__(\"Frappe Framework Version\")}</div>\n\t\t\t\t\t\t<div class=\"about-info-sub\" id=\"about-framework-version\">\n\t\t\t\t\t\t\t${__(\"Loading...\")}\n\t\t\t\t\t\t</div>"
+  },
+  {
+   "key": "Frappe no longer uses Gravatar because it can disclose hashed email addresses to a third-party service. To fully stop this behavior, existing Gravatar image URLs must be deleted.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/legacy_gravatar_cleanup.js:18"
+   ],
+   "current": null,
+   "context": "\t\t\t{\n\t\t\t\tfieldname: \"message\",\n\t\t\t\tfieldtype: \"HTML\",\n\t\t\t\toptions: `<p>${__(\n\t\t\t\t\t\"Frappe no longer uses Gravatar because it can disclose hashed email addresses to a third-party service. To fully stop this behavior, existing Gravatar image URLs must be deleted.\"\n\t\t\t\t)} <a href=\"https://github.com/frappe/frappe/issues/39869\" target=\"_blank\">${__(\n\t\t\t\t\t\"Learn more\""
+  },
+  {
+   "key": "Full name is required.",
+   "refs": [
+    "frappe/frappe/templates/includes/login/login.js:53"
+   ],
+   "current": null,
+   "context": "\t\t\treturn false;\n\t\t}\n\t\tif (!args.full_name) {\n\t\t\tlogin.show_field_error(\"signup_fullname\", {{ _(\"Full name is required.\") | tojson }});\n\t\t\treturn false;\n\t\t}\n\t\tlogin.call(args);"
+  },
+  {
+   "key": "Generating PDF...",
+   "refs": [
+    "frappe/frappe/public/js/frappe/microtemplate.js:247"
+   ],
+   "current": null,
+   "context": "\txhr.responseType = \"arraybuffer\";\n\txhr.timeout = 10 * 60 * 1000;\n\n\tfrappe.dom?.freeze(__(\"Generating PDF...\"));\n\n\txhr.onload = function (success) {\n\t\tfrappe.dom?.unfreeze();"
+  },
+  {
+   "key": "GitHub",
+   "refs": [
+    "frappe/frappe/integrations/doctype/social_login_key/social_login_key.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"social_login_provider\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Social Login Provider\",\n   \"options\": \"Custom\\nFacebook\\nFrappe\\nGitHub\\nGoogle\\nOffice 365\\nSalesforce\\nfairlogin\\nKeycloak\",\n   \"set_only_once\": 1\n  },\n  {"
+  },
+  {
+   "key": "GMail",
+   "refs": [
+    "frappe/frappe/email/doctype/email_account/email_account.json"
+   ],
+   "current": null,
+   "context": "   \"hide_days\": 1,\n   \"hide_seconds\": 1,\n   \"label\": \"Service\",\n   \"options\": \"\\nFrappe Mail\\nGMail\\nSendgrid\\nSparkPost\\nYahoo Mail\\nOutlook.com\\nYandex.Mail\"\n  },\n  {\n   \"depends_on\": \"eval: doc.service != \\\"Frappe Mail\\\"\","
+  },
+  {
+   "key": "Go to Access Control section",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form/web_form.js:394",
+    "frappe/frappe/website/doctype/web_form/web_form.js:398"
+   ],
+   "current": null,
+   "context": "\t\t!frm.doc.key_required\n\t) {\n\t\tconst go_to_access_fields = `\n\t\t\t<code class=\"pointer\" title=\"${__(\"Go to Access Control section\")}\">\n\t\t\t\t${__(\"Login Required\")}\n\t\t\t</code>\n\t\t\t${__(\"or\")}"
+  },
+  {
+   "key": "Good",
+   "refs": [
+    "frappe/frappe/www/update-password.html:288"
+   ],
+   "current": null,
+   "context": "\t\tvar strength_map = {\n\t\t\tred:    { label: \"{{ _('Poor!') }}\",   percentage: 25  },\n\t\t\torange: { label: \"{{ _('Average') }}\", percentage: 50  },\n\t\t\tblue:   { label: \"{{ _('Good') }}\",    percentage: 75  },\n\t\t\tgreen:  { label: \"{{ _('Great!') }}\",  percentage: 100 },\n\t\t};\n"
+  },
+  {
+   "key": "Google Calender",
+   "refs": [
+    "frappe/frappe/workspace_sidebar/integrations.json"
+   ],
+   "current": null,
+   "context": "   \"icon\": \"\",\n   \"indent\": 0,\n   \"keep_closed\": 0,\n   \"label\": \"Google Calender\",\n   \"link_to\": \"Google Calendar\",\n   \"link_type\": \"DocType\",\n   \"show_arrow\": 0,"
+  },
+  {
+   "key": "Gravatar URL deletion has been queued.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/legacy_gravatar_cleanup.js:54"
+   ],
+   "current": null,
+   "context": "\t\t\t\t.then((message) => {\n\t\t\t\t\tif (message === \"queued\") {\n\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\tmessage: __(\"Gravatar URL deletion has been queued.\"),\n\t\t\t\t\t\t\tindicator: \"blue\",\n\t\t\t\t\t\t});\n\t\t\t\t\t} else if (message === \"skipped\") {"
+  },
+  {
+   "key": "Gravatar URLs will not be deleted.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/legacy_gravatar_cleanup.js:59"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t});\n\t\t\t\t\t} else if (message === \"skipped\") {\n\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\tmessage: __(\"Gravatar URLs will not be deleted.\"),\n\t\t\t\t\t\t\tindicator: \"green\",\n\t\t\t\t\t\t});\n\t\t\t\t\t}"
+  },
+  {
+   "key": "Great!",
+   "refs": [
+    "frappe/frappe/www/update-password.html:289"
+   ],
+   "current": null,
+   "context": "\t\t\tred:    { label: \"{{ _('Poor!') }}\",   percentage: 25  },\n\t\t\torange: { label: \"{{ _('Average') }}\", percentage: 50  },\n\t\t\tblue:   { label: \"{{ _('Good') }}\",    percentage: 75  },\n\t\t\tgreen:  { label: \"{{ _('Great!') }}\",  percentage: 100 },\n\t\t};\n\n\t\tvar container = $('.password-strength-container');"
+  },
+  {
+   "key": "Guests are not allowed to upload files for {0} Doctype",
+   "refs": [
+    "frappe/frappe/handler.py:141"
+   ],
+   "current": null,
+   "context": "\t\t\t\tallowed_docs = [doc.strip() for doc in allowed_docs if doc.strip()]\n\t\t\t\tif allowed_docs and target_doctype not in allowed_docs:\n\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t_(\"Guests are not allowed to upload files for {0} Doctype\").format(target_doctype),\n\t\t\t\t\t\tfrappe.PermissionError,\n\t\t\t\t\t)\n\t\telse:"
+  },
+  {
+   "key": "Handlers",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder_event/recorder_event.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"handlers\",\n   \"fieldtype\": \"Small Text\",\n   \"label\": \"Handlers\",\n   \"read_only\": 1\n  }\n ],"
+  },
+  {
+   "key": "Heading 1",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:164"
+   ],
+   "current": null,
+   "context": "\t\t// quill renders data-label (set here) in place of its hardcoded CSS labels\n\t\tconst header_labels = {\n\t\t\t\"\": __(\"Normal\"),\n\t\t\t1: __(\"Heading 1\"),\n\t\t\t2: __(\"Heading 2\"),\n\t\t\t3: __(\"Heading 3\"),\n\t\t\t4: __(\"Heading 4\"),"
+  },
+  {
+   "key": "Heading 2",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:165"
+   ],
+   "current": null,
+   "context": "\t\tconst header_labels = {\n\t\t\t\"\": __(\"Normal\"),\n\t\t\t1: __(\"Heading 1\"),\n\t\t\t2: __(\"Heading 2\"),\n\t\t\t3: __(\"Heading 3\"),\n\t\t\t4: __(\"Heading 4\"),\n\t\t\t5: __(\"Heading 5\"),"
+  },
+  {
+   "key": "Heading 3",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:166"
+   ],
+   "current": null,
+   "context": "\t\t\t\"\": __(\"Normal\"),\n\t\t\t1: __(\"Heading 1\"),\n\t\t\t2: __(\"Heading 2\"),\n\t\t\t3: __(\"Heading 3\"),\n\t\t\t4: __(\"Heading 4\"),\n\t\t\t5: __(\"Heading 5\"),\n\t\t\t6: __(\"Heading 6\"),"
+  },
+  {
+   "key": "Heading 4",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:167"
+   ],
+   "current": null,
+   "context": "\t\t\t1: __(\"Heading 1\"),\n\t\t\t2: __(\"Heading 2\"),\n\t\t\t3: __(\"Heading 3\"),\n\t\t\t4: __(\"Heading 4\"),\n\t\t\t5: __(\"Heading 5\"),\n\t\t\t6: __(\"Heading 6\"),\n\t\t};"
+  },
+  {
+   "key": "Heading 5",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:168"
+   ],
+   "current": null,
+   "context": "\t\t\t2: __(\"Heading 2\"),\n\t\t\t3: __(\"Heading 3\"),\n\t\t\t4: __(\"Heading 4\"),\n\t\t\t5: __(\"Heading 5\"),\n\t\t\t6: __(\"Heading 6\"),\n\t\t};\n\t\tconst table_labels = {"
+  },
+  {
+   "key": "Heading 6",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:169"
+   ],
+   "current": null,
+   "context": "\t\t\t3: __(\"Heading 3\"),\n\t\t\t4: __(\"Heading 4\"),\n\t\t\t5: __(\"Heading 5\"),\n\t\t\t6: __(\"Heading 6\"),\n\t\t};\n\t\tconst table_labels = {\n\t\t\t\"insert-table\": __(\"Insert Table\"),"
+  },
+  {
+   "key": "Headline of the in-app notification. Falls back to Subject if left blank. Supports Jinja.",
+   "refs": [
+    "frappe/frappe/email/doctype/notification/notification.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"eval: doc.channel === 'System Notification' || doc.send_system_notification\",\n   \"description\": \"Headline of the in-app notification. Falls back to Subject if left blank. Supports Jinja.\",\n   \"fieldname\": \"notification_title\",\n   \"fieldtype\": \"Data\",\n   \"ignore_xss_filter\": 1,"
+  },
+  {
+   "key": "If checked, <i>Prepared Report</i> will not be enabled automatically on slow runs.",
+   "refs": [
+    "frappe/frappe/core/doctype/report/report.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"depends_on\": \"eval:doc.report_type === \\\"Script Report\\\"\",\n   \"description\": \"If checked, <i>Prepared Report</i> will not be enabled automatically on slow runs.\",\n   \"fieldname\": \"disable_prepared_report_automation\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Disable Prepared Report Automation\""
+  },
+  {
+   "key": "If enabled, the web form can only be used with a <i>Key</i> from a corresponding <b>Web Form Request</b>.",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form/web_form.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"If enabled, the web form can only be used with a <i>Key</i> from a corresponding <b>Web Form Request</b>.\",\n   \"fieldname\": \"key_required\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Key required\""
+  },
+  {
+   "key": "If the user enables the mask property for the phone number field, the value will be displayed in a masked format (e.g., 811XXXXXXX).",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:83"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Mask\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows users to enable the mask property for any field of the respective doctype.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"If the user enables the mask property for the phone number field, the value will be displayed in a masked format (e.g., 811XXXXXXX).\") %}</td>\n\t\t\t\t</tr>\n\t\t\t</tbody>\n\t\t</table>"
+  },
+  {
+   "key": "If the user has access to Employee and Report is enabled, they can view Employee-based reports.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:63"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Report\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to access reports related to the document.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"If the user has access to Employee and Report is enabled, they can view Employee-based reports.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Export\") %}</td>"
+  },
+  {
+   "key": "If this email is registered with us, a download link will be sent to it.",
+   "refs": [
+    "frappe/frappe/website/web_form/request_data/request_data.json"
+   ],
+   "current": null,
+   "context": " \"show_attachments\": 0,\n \"show_list\": 0,\n \"show_sidebar\": 0,\n \"success_message\": \"If this email is registered with us, a download link will be sent to it.\",\n \"success_url\": \"/desk\",\n \"title\": \"Request Data\",\n \"web_form_fields\": ["
+  },
+  {
+   "key": "If you did not request a password reset, please ignore this email. Your password will remain unchanged.",
+   "refs": [
+    "frappe/frappe/templates/emails/password_reset.html:6"
+   ],
+   "current": null,
+   "context": "<p>{{_(\"We received a request to reset the password for your account. Click the button below to set a new password.\")}}</p>\n<p><a class=\"btn btn-primary\" href=\"{{ link }}\">{{_(\"Reset Password\")}}</a></p>\n<div class=\"callout callout-warning\">\n\t{{_(\"If you did not request a password reset, please ignore this email. Your password will remain unchanged.\")}}\n</div>\n<p>\n\t{{_(\"Thank you\")}},<br>"
+  },
+  {
+   "key": "If you did not request this code, you can safely ignore this email.",
+   "refs": [
+    "frappe/frappe/templates/emails/verification_code.html:4"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"Verification code\") }}</h1>\n<p>{{ _(\"Use the code below to complete your sign-in.\") }}</p>\n<div class=\"verification-code\">{{ code }}</div>\n<p class=\"text-muted text-small\">{{ _(\"If you did not request this code, you can safely ignore this email.\") }}</p>"
+  },
+  {
+   "key": "If you didn't request this link, you can ignore this email. Someone may have entered your email address by mistake.",
+   "refs": [
+    "frappe/frappe/templates/emails/login_with_email_link.html:6"
+   ],
+   "current": null,
+   "context": "<p>\n\t<a href=\"{{ link or '#'}}\" class=\"btn btn-primary\">{{ _(\"Log In to {0}\").format(app_name) }}</a>\n</p>\n<p class=\"text-muted text-small\">{{ _(\"If you didn't request this link, you can ignore this email. Someone may have entered your email address by mistake.\") }}</p>"
+  },
+  {
+   "key": "In {0}, {1} is required in every row.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/save.js:223"
+   ],
+   "current": null,
+   "context": "\n\t\t\tif (rows.length === te.total_rows) {\n\t\t\t\tlines.push(\n\t\t\t\t\t__(\"In {0}, {1} is required in every row.\", [te.label, field_label.bold()])\n\t\t\t\t);\n\t\t\t} else if (rows.length === 1) {\n\t\t\t\tlines.push("
+  },
+  {
+   "key": "In {0}, {1} is required in row {2}.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/save.js:229"
+   ],
+   "current": null,
+   "context": "\t\t\t\tlines.push(\n\t\t\t\t\t__(\"In {0}, {1} is required in row {2}.\", [\n\t\t\t\t\t\tte.label,\n\t\t\t\t\t\tfield_label.bold(),\n\t\t\t\t\t\trows[0],\n\t\t\t\t\t])\n\t\t\t\t);"
+  },
+  {
+   "key": "In {0}, {1} is required in rows {2}.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/save.js:238"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t__(\"In {0}, {1} is required in rows {2}.\", [\n\t\t\t\t\t\tte.label,\n\t\t\t\t\t\tfield_label.bold(),\n\t\t\t\t\t\tfrappe.utils.comma_and(ranges),\n\t\t\t\t\t])\n\t\t\t\t);\n\t\t\t} else {"
+  },
+  {
+   "key": "In {0}, {1} is required in {2} rows.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/save.js:245"
+   ],
+   "current": null,
+   "context": "\t\t\t\tlines.push(\n\t\t\t\t\t__(\"In {0}, {1} is required in {2} rows.\", [\n\t\t\t\t\t\tte.label,\n\t\t\t\t\t\tfield_label.bold(),\n\t\t\t\t\t\trows.length,\n\t\t\t\t\t])\n\t\t\t\t);"
+  },
+  {
+   "key": "Incompatible Values",
+   "refs": [
+    "frappe/frappe/database/mariadb/schema.py:195"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t_(\n\t\t\t\t\t\t\"Cannot change field type in {0}: some existing values cannot be converted to the new type\"\n\t\t\t\t\t).format(self.doctype),\n\t\t\t\t\ttitle=_(\"Incompatible Values\"),\n\t\t\t\t)\n\n\t\t\traise"
+  },
+  {
+   "key": "InnoDB",
+   "refs": [
+    "frappe/frappe/core/doctype/doctype/doctype.json"
+   ],
+   "current": null,
+   "context": " \"description\": \"DocType is a Table / Form in the application.\",\n \"doctype\": \"DocType\",\n \"document_type\": \"Document\",\n \"engine\": \"InnoDB\",\n \"field_order\": [\n  \"form_builder_tab\",\n  \"form_builder\","
+  },
+  {
+   "key": "Insert Column Left",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:176"
+   ],
+   "current": null,
+   "context": "\t\t\t\"insert-row-above\": __(\"Insert Row Above\"),\n\t\t\t\"insert-row-below\": __(\"Insert Row Below\"),\n\t\t\t\"insert-column-right\": __(\"Insert Column Right\"),\n\t\t\t\"insert-column-left\": __(\"Insert Column Left\"),\n\t\t\t\"delete-row\": __(\"Delete Row\"),\n\t\t\t\"delete-column\": __(\"Delete Column\"),\n\t\t\t\"delete-table\": __(\"Delete Table\"),"
+  },
+  {
+   "key": "Insert Column Right",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:175"
+   ],
+   "current": null,
+   "context": "\t\t\t\"insert-table\": __(\"Insert Table\"),\n\t\t\t\"insert-row-above\": __(\"Insert Row Above\"),\n\t\t\t\"insert-row-below\": __(\"Insert Row Below\"),\n\t\t\t\"insert-column-right\": __(\"Insert Column Right\"),\n\t\t\t\"insert-column-left\": __(\"Insert Column Left\"),\n\t\t\t\"delete-row\": __(\"Delete Row\"),\n\t\t\t\"delete-column\": __(\"Delete Column\"),"
+  },
+  {
+   "key": "Insert Row Above",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:173"
+   ],
+   "current": null,
+   "context": "\t\t};\n\t\tconst table_labels = {\n\t\t\t\"insert-table\": __(\"Insert Table\"),\n\t\t\t\"insert-row-above\": __(\"Insert Row Above\"),\n\t\t\t\"insert-row-below\": __(\"Insert Row Below\"),\n\t\t\t\"insert-column-right\": __(\"Insert Column Right\"),\n\t\t\t\"insert-column-left\": __(\"Insert Column Left\"),"
+  },
+  {
+   "key": "Insert Row Below",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:174"
+   ],
+   "current": null,
+   "context": "\t\tconst table_labels = {\n\t\t\t\"insert-table\": __(\"Insert Table\"),\n\t\t\t\"insert-row-above\": __(\"Insert Row Above\"),\n\t\t\t\"insert-row-below\": __(\"Insert Row Below\"),\n\t\t\t\"insert-column-right\": __(\"Insert Column Right\"),\n\t\t\t\"insert-column-left\": __(\"Insert Column Left\"),\n\t\t\t\"delete-row\": __(\"Delete Row\"),"
+  },
+  {
+   "key": "Insert Table",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/text_editor.js:172"
+   ],
+   "current": null,
+   "context": "\t\t\t6: __(\"Heading 6\"),\n\t\t};\n\t\tconst table_labels = {\n\t\t\t\"insert-table\": __(\"Insert Table\"),\n\t\t\t\"insert-row-above\": __(\"Insert Row Above\"),\n\t\t\t\"insert-row-below\": __(\"Insert Row Below\"),\n\t\t\t\"insert-column-right\": __(\"Insert Column Right\"),"
+  },
+  {
+   "key": "Interval",
+   "refs": [
+    "frappe/frappe/desk/doctype/event_notifications/event_notifications.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"interval\",\n   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Interval\"\n  },\n  {\n   \"fieldname\": \"time\","
+  },
+  {
+   "key": "Invalid action",
+   "refs": [
+    "frappe/frappe/utils/legacy_gravatar_cleanup.py:82"
+   ],
+   "current": null,
+   "context": "\t\t)\n\t\treturn \"queued\"\n\n\tfrappe.throw(_(\"Invalid action\"))\n\n\ndef delete_gravatar_image_urls():"
+  },
+  {
+   "key": "Invalid aggregate function: {0}",
+   "refs": [
+    "frappe/frappe/desk/reportview.py:237",
+    "frappe/frappe/desk/reportview.py:240"
+   ],
+   "current": null,
+   "context": "def _validate_group_by_args(group_by: dict, doctype: str):\n\traw_func = group_by.get(\"aggregate_function\")\n\tif not isinstance(raw_func, str):\n\t\tfrappe.throw(_(\"Invalid aggregate function: {0}\").format(raw_func), frappe.DataError)\n\tfunc = raw_func.lower()\n\tif func not in SUPPORTED_AGGREGATE_FUNCTIONS:\n\t\tfrappe.throw(_(\"Invalid aggregate function: {0}\").format(func), frappe.DataError)"
+  },
+  {
+   "key": "Invalid backup path",
+   "refs": [
+    "frappe/frappe/utils/response.py:289"
+   ],
+   "current": null,
+   "context": "\trequested_path = frappe.get_site_path(\"private\", \"backups\", filename)\n\tis_safe = check_path_safety(base_path=backup_path, requested_path=requested_path)\n\tif not is_safe:\n\t\tfrappe.throw(_(\"Invalid backup path\"), frappe.PermissionError)\n\n\treturn send_private_file(path)\n"
+  },
+  {
+   "key": "Invalid credentials, try again.",
+   "refs": [
+    "frappe/frappe/templates/includes/login/login.js:328"
+   ],
+   "current": null,
+   "context": "\t\t\t\t}\n\t\t\t}\n\t\t},\n\t\t401: get_error_handler({{ _(\"Invalid credentials, try again.\") | tojson }}),\n\t\t417: get_error_handler({{ _(\"Oops! Something went wrong.\") | tojson }}),\n\t\t429: get_error_handler({{ _(\"Too many requests. Please try again later.\") | tojson }}),\n\t\t500: get_error_handler({{ _(\"Something went wrong.\") | tojson }}),"
+  },
+  {
+   "key": "Invalid Filters for field {0}. Filters must be a list of filters, where each filter is a list with four values: doctype, fieldname, operator, and value.",
+   "refs": [
+    "frappe/frappe/core/doctype/doctype/doctype.py:1757"
+   ],
+   "current": null,
+   "context": "\t\t\tnot isinstance(filter_row, list) or len(filter_row) != 4 for filter_row in link_filters\n\t\t):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Invalid Filters for field {0}. Filters must be a list of filters, where each filter is a list with four values: doctype, fieldname, operator, and value.\"\n\t\t\t\t).format(frappe.bold(docfield.label or docfield.fieldname))\n\t\t\t)"
+  },
+  {
+   "key": "Invalid Filters for field {0}. Filters must be valid JSON.",
+   "refs": [
+    "frappe/frappe/core/doctype/doctype/doctype.py:1748"
+   ],
+   "current": null,
+   "context": "\t\t\tlink_filters = json.loads(link_filters_value)\n\t\texcept (TypeError, ValueError):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Invalid Filters for field {0}. Filters must be valid JSON.\").format(\n\t\t\t\t\tfrappe.bold(docfield.label or docfield.fieldname)\n\t\t\t\t)\n\t\t\t)"
+  },
+  {
+   "key": "Invalid format. Supported formats are {0}",
+   "refs": [
+    "frappe/frappe/utils/preview.py:34"
+   ],
+   "current": null,
+   "context": "\ndef get_image_format(format: str) -> str:\n\tif format not in SUPPORTED_FORMATS:\n\t\tfrappe.throw(_(\"Invalid format. Supported formats are {0}\").format(\", \".join(SUPPORTED_FORMATS)))\n\treturn \"jpeg\" if format == \"jpg\" else format  # Chrome captures jpeg/webp natively\n\n"
+  },
+  {
+   "key": "Invalid JSON",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.py:84"
+   ],
+   "current": null,
+   "context": "\ttry:\n\t\tvalues = json.loads(json_string)\n\texcept json.JSONDecodeError:\n\t\tfrappe.throw(_(\"Invalid JSON\"))\n\n\tif not isinstance(values, dict):\n\t\tfrappe.throw(_(\"JSON value must be an object\"))"
+  },
+  {
+   "key": "Invalid or expired key",
+   "refs": [
+    "frappe/frappe/core/api/user_invitation.py:154"
+   ],
+   "current": null,
+   "context": "\thashed_key = frappe.utils.sha256_hash(key)\n\tinvitation_name = frappe.db.get_value(\"User Invitation\", filters={\"key\": hashed_key})\n\tif not invitation_name:\n\t\tfrappe.throw(title=_(\"Error\"), msg=_(\"Invalid or expired key\"))\n\tinvitation = frappe.get_doc(\"User Invitation\", invitation_name)\n\n\t# accept invitation"
+  },
+  {
+   "key": "Invalid Package Name",
+   "refs": [
+    "frappe/frappe/core/doctype/package_import/package_import.py:49"
+   ],
+   "current": null,
+   "context": "\t\traw_name = attachment.file_name.split(\".\", 1)[0].rsplit(\"-\", 1)[0]\n\t\tpackage_name = re.sub(r\"[^a-zA-Z0-9_-]\", \"\", raw_name)\n\t\tif not package_name:\n\t\t\tfrappe.throw(frappe._(\"Invalid Package Name\"))\n\n\t\tif not os.path.exists(frappe.get_site_path(\"packages\")):\n\t\t\tos.makedirs(frappe.get_site_path(\"packages\"))"
+  },
+  {
+   "key": "Invalid Web Form Request",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form/web_form.py:520",
+    "frappe/frappe/website/doctype/web_form/web_form.py:988",
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.py:133",
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.py:145"
+   ],
+   "current": null,
+   "context": "\t\t\t# submission; for multi-response forms a row is appended per submission.\n\t\t\t# Without this check, a key holder could read, edit, or delete arbitrary\n\t\t\t# documents of the Web Form's DocType by supplying any docname.\n\t\t\tfrappe.throw(_(\"Invalid Web Form Request\"), frappe.PermissionError)\n\t\treturn web_form_request\n\n\tdef load_form_data(self, context, web_form_request=None):"
+  },
+  {
+   "key": "Invitation cancelled",
+   "refs": [
+    "frappe/frappe/templates/emails/user_invitation_cancelled.html:1"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"Invitation cancelled\") }}</h1>\n<p>{{ _(\"Hello,\") }}</p>\n<p>{{ _(\"Your invitation to join {0} has been cancelled by the site administrator.\").format(frappe.bold(title)) }}</p>\n<p>{{ _(\"If this was a mistake or you need access again, please reach out to your team.\") }}</p>"
+  },
+  {
+   "key": "Invitation expired",
+   "refs": [
+    "frappe/frappe/templates/emails/user_invitation_expired.html:1"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"Invitation expired\") }}</h1>\n<p>{{ _(\"Hello,\") }}</p>\n<p>{{ _(\"Your invitation to join {0} has expired.\").format(frappe.bold(title)) }}</p>\n<p>{{ _(\"You can ask your team to resend the invitation if you'd still like to join.\") }}</p>"
+  },
+  {
+   "key": "Invitation resent",
+   "refs": [
+    "frappe/frappe/core/doctype/user_invitation/user_invitation.js:25"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\tapp_name: frm.doc.app_name,\n\t\t\t\t\t})\n\t\t\t\t\t.then(() => {\n\t\t\t\t\t\tfrappe.msgprint(__(\"Invitation resent\"));\n\t\t\t\t\t})\n\t\t\t\t\t.catch((err) => {\n\t\t\t\t\t\tfrappe.msgprint({"
+  },
+  {
+   "key": "jane@example.com",
+   "refs": [
+    "frappe/frappe/templates/signup.html:12",
+    "frappe/frappe/www/login.html:20",
+    "frappe/frappe/www/login.html:173",
+    "frappe/frappe/www/login.html:208"
+   ],
+   "current": null,
+   "context": "        <div class=\"form-group\">\n            <label class=\"form-label sr-only\" for=\"signup_email\">{{ _(\"Email\") }}</label>\n            <input type=\"email\" id=\"signup_email\" class=\"form-control\"\n                placeholder=\"{{ _('jane@example.com') }}\" required autocomplete=\"username\">\n            <p class=\"field-error\"></p>\n        </div>\n    </div>"
+  },
+  {
+   "key": "Javascript",
+   "refs": [
+    "frappe/frappe/core/doctype/report/report.json",
+    "frappe/frappe/desk/doctype/custom_html_block/custom_html_block.json",
+    "frappe/frappe/website/doctype/web_page/web_page.json",
+    "frappe/frappe/website/doctype/website_script/website_script.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"JavaScript Format: frappe.query_reports['REPORTNAME'] = {}\",\n   \"fieldname\": \"javascript\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Javascript\",\n   \"options\": \"Javascript\"\n  },\n  {"
+  },
+  {
+   "key": "Jinja",
+   "refs": [
+    "frappe/frappe/printing/doctype/print_format/print_format.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Section Break\"\n  },\n  {\n   \"default\": \"Jinja\",\n   \"depends_on\": \"custom_format\",\n   \"fieldname\": \"print_format_type\",\n   \"fieldtype\": \"Select\","
+  },
+  {
+   "key": "JSON value must be an object",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.py:87"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.throw(_(\"Invalid JSON\"))\n\n\tif not isinstance(values, dict):\n\t\tfrappe.throw(_(\"JSON value must be an object\"))\n\n\treturn values\n"
+  },
+  {
+   "key": "Keep Gravatar URLs",
+   "refs": [
+    "frappe/frappe/public/js/frappe/legacy_gravatar_cleanup.js:40"
+   ],
+   "current": null,
+   "context": "\t\t\t\toptions: [\n\t\t\t\t\t\"\",\n\t\t\t\t\t{ label: __(\"Delete Gravatar URLs\"), value: \"delete_gravatar_urls\" },\n\t\t\t\t\t{ label: __(\"Keep Gravatar URLs\"), value: \"keep_gravatar_urls\" },\n\t\t\t\t],\n\t\t\t\treqd: 1,\n\t\t\t},"
+  },
+  {
+   "key": "Key Required",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form/web_form.js:399"
+   ],
+   "current": null,
+   "context": "\t\t\t</code>\n\t\t\t${__(\"or\")}\n\t\t\t<code class=\"pointer\" title=\"${__(\"Go to Access Control section\")}\">\n\t\t\t\t${__(\"Key Required\")}\n\t\t\t</code>\n\t\t`;\n\t\tlet message = __("
+  },
+  {
+   "key": "Key required",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form/web_form.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"If enabled, the web form can only be used with a <i>Key</i> from a corresponding <b>Web Form Request</b>.\",\n   \"fieldname\": \"key_required\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Key required\"\n  }\n ],\n \"icon\": \"icon-edit\","
+  },
+  {
+   "key": "Last Edited By You",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/sidebar/form_sidebar.js:151"
+   ],
+   "current": null,
+   "context": "\t\t\t.html(\n\t\t\t\tget_user_message(\n\t\t\t\t\tthis.frm.doc.modified_by,\n\t\t\t\t\t__(\"Last Edited By You\", null),\n\t\t\t\t\t__(\"Last Edited By {0}\", [get_user_link(this.frm.doc.modified_by)])\n\t\t\t\t) +\n\t\t\t\t\t\" <br> \" +"
+  },
+  {
+   "key": "Last Edited By {0}",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/sidebar/form_sidebar.js:152"
+   ],
+   "current": null,
+   "context": "\t\t\t\tget_user_message(\n\t\t\t\t\tthis.frm.doc.modified_by,\n\t\t\t\t\t__(\"Last Edited By You\", null),\n\t\t\t\t\t__(\"Last Edited By {0}\", [get_user_link(this.frm.doc.modified_by)])\n\t\t\t\t) +\n\t\t\t\t\t\" <br> \" +\n\t\t\t\t\t(cint(frappe.boot.user.show_absolute_datetime_in_timeline) ||"
+  },
+  {
+   "key": "Last Seen",
+   "refs": [
+    "frappe/frappe/core/doctype/error_log/error_log.js:64"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t`data-action=\"show-similar\" style=\"cursor: pointer;\"`\n\t\t\t\t)}\n\t\t\t\t${number_card(__(\"First Seen\"), frappe.datetime.comment_when(stats.first_seen))}\n\t\t\t\t${number_card(__(\"Last Seen\"), frappe.datetime.comment_when(stats.last_seen))}\n\t\t\t</div>\n\t\t\t<div class=\"fingerprint-timeline-wrapper\">\n\t\t\t\t<div class=\"fingerprint-stat-label\">${__(\"Occurrences (last 30 days)\")}</div>"
+  },
+  {
+   "key": "Let's setup your account.",
+   "refs": [
+    "frappe/frappe/www/login.html:151"
+   ],
+   "current": null,
+   "context": "\t{%- endif -%}\n\t<section class='for-signup {{ \"signup-disabled\" if disable_signup else \"\" }}'>\n\t\t<div class=\"login-content page-card\">\n\t\t\t{{ logo_section(_('Sign Up'), _(\"Let's setup your account.\")) }}\n\t\t\t{%- if not disable_signup -%}\n\t\t\t{{ signup_form_template }}\n\t\t\t{%- else -%}"
+  },
+  {
+   "key": "Loading error stats...",
+   "refs": [
+    "frappe/frappe/core/doctype/error_log/error_log.js:25"
+   ],
+   "current": null,
+   "context": "\nfunction render_fingerprint_stats(frm) {\n\tconst wrapper = frm.get_field(\"fingerprint_stats\").$wrapper;\n\twrapper.empty().append(`<div class=\"text-muted\">${__(\"Loading error stats...\")}</div>`);\n\n\tfrappe.call({\n\t\tmethod: \"frappe.core.doctype.error_log.error_log.get_fingerprint_stats\","
+  },
+  {
+   "key": "Log In to {0}",
+   "refs": [
+    "frappe/frappe/templates/emails/login_with_email_link.html:4"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"Log in to {0}\").format(app_name) }}</h1>\n<p>{{ _(\"Click the button below to sign in to your account. This link will expire in {0} minutes.\").format(minutes) }}</p>\n<p>\n\t<a href=\"{{ link or '#'}}\" class=\"btn btn-primary\">{{ _(\"Log In to {0}\").format(app_name) }}</a>\n</p>\n<p class=\"text-muted text-small\">{{ _(\"If you didn't request this link, you can ignore this email. Someone may have entered your email address by mistake.\") }}</p>"
+  },
+  {
+   "key": "Log in to {0}",
+   "refs": [
+    "frappe/frappe/templates/emails/login_with_email_link.html:1"
+   ],
+   "current": null,
+   "context": "<h1 class=\"email-header-title\">{{ _(\"Log in to {0}\").format(app_name) }}</h1>\n<p>{{ _(\"Click the button below to sign in to your account. This link will expire in {0} minutes.\").format(minutes) }}</p>\n<p>\n\t<a href=\"{{ link or '#'}}\" class=\"btn btn-primary\">{{ _(\"Log In to {0}\").format(app_name) }}</a>"
+  },
+  {
+   "key": "Login or a request key is required to see web form list view. Enable {0} to see list settings",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form/web_form.js:402"
+   ],
+   "current": null,
+   "context": "\t\t\t\t${__(\"Key Required\")}\n\t\t\t</code>\n\t\t`;\n\t\tlet message = __(\n\t\t\t\"Login or a request key is required to see web form list view. Enable {0} to see list settings\",\n\t\t\t[go_to_access_fields]\n\t\t);"
+  },
+  {
+   "key": "Login with password",
+   "refs": [
+    "frappe/frappe/www/login.html:224"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<button class=\"btn btn-sm btn-primary btn-block btn-login btn-login-with-email-link\"\n\t\t\t\t\t\ttype=\"submit\">{{ _(\"Send login link\") }}</button>\n\t\t\t\t\t<a href=\"#login\" class=\"btn btn-sm btn-default btn-block btn-login-option\">\n\t\t\t\t\t\t{{ _(\"Login with password\") }}</a>\n\t\t\t\t</div>\n\t\t\t</form>\n\t\t\t{%- if not disable_signup -%}"
+  },
+  {
+   "key": "Malformed Address Header",
+   "refs": [
+    "frappe/frappe/email/receive.py:520"
+   ],
+   "current": null,
+   "context": "\t\t\tdecoded_addr_spec = parse_addr(decoded)[1]\n\t\t\tif decoded_addr_spec and decoded.strip() == decoded_addr_spec:\n\t\t\t\tfrappe.log_error(\n\t\t\t\t\ttitle=_(\"Malformed Address Header\"),\n\t\t\t\t\tmessage=_(\"Rejected malformed encoded address header with synthesized '@': {0}\").format(\n\t\t\t\t\t\trepr(raw_email)\n\t\t\t\t\t),"
+  },
+  {
+   "key": "Markdown",
+   "refs": [
+    "frappe/frappe/email/doctype/notification/notification.json",
+    "frappe/frappe/website/doctype/web_page/web_page.js:95",
+    "frappe/frappe/website/doctype/web_page/web_page.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Send To All Assignees\"\n  },\n  {\n   \"default\": \"Markdown\",\n   \"depends_on\": \"is_standard\",\n   \"fieldname\": \"message_type\",\n   \"fieldtype\": \"Select\","
+  },
+  {
+   "key": "Max Zip Extract Size (MB)",
+   "refs": [
+    "frappe/frappe/core/doctype/system_settings/system_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Maximum total size a ZIP archive is allowed to expand to when extracted.\",\n   \"fieldname\": \"max_zip_extract_size\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Max Zip Extract Size (MB)\",\n   \"non_negative\": 1\n  }\n ],"
+  },
+  {
+   "key": "Maximum total size a ZIP archive is allowed to expand to when extracted.",
+   "refs": [
+    "frappe/frappe/core/doctype/system_settings/system_settings.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Sync In Batches\"\n  },\n  {\n   \"description\": \"Maximum total size a ZIP archive is allowed to expand to when extracted.\",\n   \"fieldname\": \"max_zip_extract_size\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Max Zip Extract Size (MB)\","
+  },
+  {
+   "key": "Maybe",
+   "refs": [
+    "frappe/frappe/desk/doctype/event/event.json",
+    "frappe/frappe/desk/doctype/event_participants/event_participants.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"attending\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Attending\",\n   \"options\": \"\\nYes\\nNo\\nMaybe\"\n  }\n ],\n \"grid_page_length\": 50,"
+  },
+  {
+   "key": "Meaning of Different Permission Types",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:14"
+   ],
+   "current": null,
+   "context": "\t\t<li>{%= __(\"As a best practice, do not assign the same set of permission rule to different Roles. Instead, set multiple Roles to the same User.\") %}</li>\n\t</ol>\n\t<hr>\n\t<h4>{%= __(\"Meaning of Different Permission Types\") %}:</h4>\n\t<ol>\n\t\t<table class=\"table table-bordered\" cellpadding=\"8\" cellspacing=\"0\" style=\"width:95%\">\n\t\t\t<thead>"
+  },
+  {
+   "key": "Module changed to {0}. Files in the previous module were not moved and remain at {1}, remove or relocate them manually.",
+   "refs": [
+    "frappe/frappe/core/doctype/doctype/doctype.py:879"
+   ],
+   "current": null,
+   "context": "\t\t\treturn\n\n\t\tfrappe.msgprint(\n\t\t\t_(\n\t\t\t\t\"Module changed to {0}. Files in the previous module were not moved and remain at {1}, remove or relocate them manually.\"\n\t\t\t).format(frappe.bold(self.module), frappe.bold(str(old_path))),\n\t\t\talert=True,"
+  },
+  {
+   "key": "Naming Series updated",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:216"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tthis.dialog.fields_dict.naming_series_options.grid.refresh();\n\n\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\tmessage: __(\"Naming Series updated\"),\n\t\t\t\t\t\tindicator: \"green\",\n\t\t\t\t\t});\n\t\t\t\t\tthis.dialog.hide();"
+  },
+  {
+   "key": "Need Workspace Manager role to edit public workspaces.",
+   "refs": [
+    "frappe/frappe/desk/doctype/workspace/workspace.py:367"
+   ],
+   "current": null,
+   "context": "\tdoc = frappe.get_doc(\"Workspace\", name)\n\n\tif doc.get(\"public\") and not is_workspace_manager():\n\t\tfrappe.throw(_(\"Need Workspace Manager role to edit public workspaces.\"))\n\telif not doc.get(\"public\") and doc.get(\"for_user\") != frappe.session.user and not is_workspace_manager():\n\t\tfrappe.throw(\n\t\t\t_(\"Need Workspace Manager role to edit private workspace of other users.\"),"
+  },
+  {
+   "key": "No attachments",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/attachment_gallery.js:55"
+   ],
+   "current": null,
+   "context": "\t\tconst can_add = this.can_add_attachment();\n\n\t\tif (!attachments.length && !can_add) {\n\t\t\tthis.render_empty_state(__(\"No attachments\"));\n\t\t\treturn;\n\t\t}\n"
+  },
+  {
+   "key": "No editable fields available for bulk edit.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/grid.js:1153"
+   ],
+   "current": null,
+   "context": "\t\t\tis_field_editable(field_doc)\n\t\t);\n\t\tif (!editable_fields.length) {\n\t\t\tfrappe.msgprint(__(\"No editable fields available for bulk edit.\"));\n\t\t\treturn;\n\t\t}\n"
+  },
+  {
+   "key": "No naming series defined",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:417"
+   ],
+   "current": null,
+   "context": "\n\t\t\tthis.frm.doc[field] = series_list.length\n\t\t\t\t? series_list.join(\"\\n\")\n\t\t\t\t: __(\"No naming series defined\");\n\t\t\tthis.frm.refresh_field(field);\n\t\t});\n\t}"
+  },
+  {
+   "key": "No other document types.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:730"
+   ],
+   "current": null,
+   "context": "\t\t\t\thtml += row(dt, __(dt), \"pin\");\n\t\t\t});\n\t\t} else {\n\t\t\thtml += `<div class=\"global-search-more-empty text-muted\">${__(\n\t\t\t\t\"No other document types.\"\n\t\t\t)}</div>`;\n\t\t}"
+  },
+  {
+   "key": "No pinned document types.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:718"
+   ],
+   "current": null,
+   "context": "\t\t\t\thtml += row(dt, __(dt), \"unpin\");\n\t\t\t});\n\t\t} else {\n\t\t\thtml += `<div class=\"global-search-more-empty text-muted\">${__(\n\t\t\t\t\"No pinned document types.\"\n\t\t\t)}</div>`;\n\t\t}"
+  },
+  {
+   "key": "Noop Source",
+   "refs": [
+    "frappe/frappe/tests/test_translate.py:84"
+   ],
+   "current": null,
+   "context": "\n\tdef test_noop_preserves_source_string(self):\n\t\tfrappe.local.lang = \"de\"\n\t\tmessage = N_(\"Noop Source\")\n\n\t\tself.assertIs(type(message), str)\n\t\tself.assertEqual(message, \"Noop Source\")"
+  },
+  {
+   "key": "Not configured",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:358"
+   ],
+   "current": null,
+   "context": "\n\tseries_list_background(series_list) {\n\t\tif (!series_list.length) {\n\t\t\treturn `<span class=\"text-muted\">${__(\"Not configured\")}</span>`;\n\t\t}\n\n\t\tconst badge_class = this.get_current_badge_class();"
+  },
+  {
+   "key": "Not Used",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request_list.js:13"
+   ],
+   "current": null,
+   "context": "\t\t} else if (doc.expires_on && expires_on < now) {\n\t\t\treturn [__(\"Expired\"), \"red\", `expires_on,is,set|expires_on,<,${now_string}`];\n\t\t} else {\n\t\t\treturn [__(\"Not Used\"), \"gray\", `first_used_on,is,not set`];\n\t\t}\n\t},\n};"
+  },
+  {
+   "key": "Notification Message",
+   "refs": [
+    "frappe/frappe/email/doctype/notification/notification.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"notification_message\",\n   \"fieldtype\": \"Small Text\",\n   \"ignore_xss_filter\": 1,\n   \"label\": \"Notification Message\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Notification Title",
+   "refs": [
+    "frappe/frappe/email/doctype/notification/notification.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"notification_title\",\n   \"fieldtype\": \"Data\",\n   \"ignore_xss_filter\": 1,\n   \"label\": \"Notification Title\",\n   \"mandatory_depends_on\": \"eval: doc.channel === 'System Notification'\"\n  },\n  {"
+  },
+  {
+   "key": "Notification Type",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_type/notification_type.json",
+    "frappe/frappe/desk/doctype/notification_type_preference/notification_type_preference.json",
+    "frappe/frappe/email/doctype/notification/notification.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-06-09 00:00:00.000000\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Desk\",\n \"name\": \"Notification Type\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Notification Type Preference",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_type_preference/notification_type_preference.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-06-10 00:00:00.000000\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Desk\",\n \"name\": \"Notification Type Preference\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"sort_field\": \"creation\","
+  },
+  {
+   "key": "Number of Events",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder/recorder.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"number_of_events\",\n   \"fieldtype\": \"Int\",\n   \"in_list_view\": 1,\n   \"label\": \"Number of Events\"\n  },\n  {\n   \"fieldname\": \"column_break_qo53\","
+  },
+  {
+   "key": "Occurrences (last 30 days)",
+   "refs": [
+    "frappe/frappe/core/doctype/error_log/error_log.js:67"
+   ],
+   "current": null,
+   "context": "\t\t\t\t${number_card(__(\"Last Seen\"), frappe.datetime.comment_when(stats.last_seen))}\n\t\t\t</div>\n\t\t\t<div class=\"fingerprint-timeline-wrapper\">\n\t\t\t\t<div class=\"fingerprint-stat-label\">${__(\"Occurrences (last 30 days)\")}</div>\n\t\t\t\t<div class=\"fingerprint-timeline\"></div>\n\t\t\t</div>\n\t\t</div>"
+  },
+  {
+   "key": "Office 365",
+   "refs": [
+    "frappe/frappe/integrations/doctype/social_login_key/social_login_key.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"social_login_provider\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Social Login Provider\",\n   \"options\": \"Custom\\nFacebook\\nFrappe\\nGitHub\\nGoogle\\nOffice 365\\nSalesforce\\nfairlogin\\nKeycloak\",\n   \"set_only_once\": 1\n  },\n  {"
+  },
+  {
+   "key": "Only CSV and Excel formats are supported for export",
+   "refs": [
+    "frappe/frappe/desk/query_report.py:524"
+   ],
+   "current": null,
+   "context": "\telse:\n\t\tfrappe.throw(\n\t\t\ttitle=_(\"Unsupported file format: {0}\").format(file_format_type),\n\t\t\tmsg=_(\"Only CSV and Excel formats are supported for export\"),\n\t\t)\n\n\tif include_filters:"
+  },
+  {
+   "key": "Only pending invitations can be resent",
+   "refs": [
+    "frappe/frappe/core/api/user_invitation.py:124"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.throw(title=_(\"Error\"), msg=_(\"Invitation not found\"))\n\n\tif invitation.status != \"Pending\":\n\t\tfrappe.throw(title=_(\"Error\"), msg=_(\"Only pending invitations can be resent\"))\n\n\tinvitation.send_invitation_mail()\n"
+  },
+  {
+   "key": "Only users with one of these roles can send SMS. Leave empty to allow only System Manager.",
+   "refs": [
+    "frappe/frappe/core/doctype/sms_settings/sms_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Section Break\"\n  },\n  {\n   \"description\": \"Only users with one of these roles can send SMS. Leave empty to allow only System Manager.\",\n   \"fieldname\": \"allowed_roles\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Allowed Roles\","
+  },
+  {
+   "key": "Open Frappe CRM",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/sidebar/sidebar.js:112"
+   ],
+   "current": null,
+   "context": "\t\tconst installed_app = (frappe.boot.apps_data.apps || []).find((app) => app.name === \"crm\");\n\t\tif (installed_app && installed_app.route) {\n\t\t\tconst title = __(\"Switch to CRM\");\n\t\t\tconst message = __(\"Open Frappe CRM\");\n\t\t\tthis.promotional_banners.push({\n\t\t\t\ttitle,\n\t\t\t\tmessage,"
+  },
+  {
+   "key": "Open Frappe Helpdesk",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/sidebar/sidebar.js:149"
+   ],
+   "current": null,
+   "context": "\t\t);\n\t\tif (installed_app && installed_app.route) {\n\t\t\tconst title = __(\"Switch to Helpdesk\");\n\t\t\tconst message = __(\"Open Frappe Helpdesk\");\n\t\t\tthis.promotional_banners.push({\n\t\t\t\ttitle,\n\t\t\t\tmessage,"
+  },
+  {
+   "key": "Open Global Search",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/keyboard.js:228"
+   ],
+   "current": null,
+   "context": "\taction: function (e) {\n\t\treturn frappe.search.open_global_search_from_navbar_shortcut?.(e);\n\t},\n\tdescription: __(\"Open Global Search\"),\n\tignore_inputs: true,\n});\n"
+  },
+  {
+   "key": "Open Source applications for the web.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/about.js:15"
+   ],
+   "current": null,
+   "context": "\t\t`<div class=\"about-body\">\n\t\t\t<div class=\"about-frappe-section\">\n\t\t\t<img src=\"/assets/frappe/images/frappe-comp-logo.svg\" alt=\"Frappe\" class=\"about-frappe-wordmark\">\n\t\t\t\t<p class=\"about-tagline\">${__(\"Open Source applications for the web.\")}</p>\n\t\t\t\t<div class=\"about-social-btns\">\n\t\t\t\t\t<a href=\"https://frappe.io/\" target=\"_blank\" class=\"about-icon-btn\"\n\t\t\t\t\t\ttitle=\"${__(\"Website\")}\">"
+  },
+  {
+   "key": "OpenLDAP",
+   "refs": [
+    "frappe/frappe/integrations/doctype/ldap_settings/ldap_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"ldap_directory_server\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Directory Server\",\n   \"options\": \"\\nActive Directory\\nOpenLDAP\\nCustom\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Optional body of the in-app notification. Supports Jinja.",
+   "refs": [
+    "frappe/frappe/email/doctype/notification/notification.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"eval: doc.channel === 'System Notification' || doc.send_system_notification\",\n   \"description\": \"Optional body of the in-app notification. Supports Jinja.\",\n   \"fieldname\": \"notification_message\",\n   \"fieldtype\": \"Small Text\",\n   \"ignore_xss_filter\": 1,"
+  },
+  {
+   "key": "Or copy and paste this link:",
+   "refs": [
+    "frappe/frappe/templates/emails/new_user.html:21"
+   ],
+   "current": null,
+   "context": "</p>\n{% endif %}\n<p class=\"text-muted text-small\">\n\t{{_(\"Or copy and paste this link:\")}} <a href=\"{{ link }}\">{{ link }}</a>\n</p>"
+  },
+  {
+   "key": "Ordered timeline of document lifecycle methods and doc_events handlers that ran during this request, attributed to the app(s) that hook them.",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder/recorder.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Timeline\"\n  },\n  {\n   \"description\": \"Ordered timeline of document lifecycle methods and doc_events handlers that ran during this request, attributed to the app(s) that hook them.\",\n   \"fieldname\": \"timeline\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Timeline\","
+  },
+  {
+   "key": "Outlook.com",
+   "refs": [
+    "frappe/frappe/email/doctype/email_account/email_account.json"
+   ],
+   "current": null,
+   "context": "   \"hide_days\": 1,\n   \"hide_seconds\": 1,\n   \"label\": \"Service\",\n   \"options\": \"\\nFrappe Mail\\nGMail\\nSendgrid\\nSparkPost\\nYahoo Mail\\nOutlook.com\\nYandex.Mail\"\n  },\n  {\n   \"depends_on\": \"eval: doc.service != \\\"Frappe Mail\\\"\","
+  },
+  {
+   "key": "Package contains disallowed path entry",
+   "refs": [
+    "frappe/frappe/core/doctype/package_import/package_import.py:65"
+   ],
+   "current": null,
+   "context": "\t\t\t\tmember_path = os.path.join(extract_path, member.name)\n\t\t\t\tis_safe = check_path_safety(extract_path, member_path)\n\t\t\t\tif not is_safe:\n\t\t\t\t\tfrappe.throw(frappe._(\"Package contains disallowed path entry\"))\n\n\t\t\ttar.extractall(path=extract_path, filter=\"data\")\n"
+  },
+  {
+   "key": "Permission",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:19"
+   ],
+   "current": null,
+   "context": "\t\t<table class=\"table table-bordered\" cellpadding=\"8\" cellspacing=\"0\" style=\"width:95%\">\n\t\t\t<thead>\n\t\t\t\t<tr>\n\t\t\t\t\t<th>{%= __(\"Permission\") %}</th>\n\t\t\t\t\t<th>{%= __(\"Description\") %}</th>\n\t\t\t\t\t<th>{%= __(\"Example\") %}</th>\n\t\t\t\t</tr>"
+  },
+  {
+   "key": "Pin",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:700",
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:702"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\"Unpin\"\n\t\t\t\t)}\" aria-label=\"${__(\"Unpin\")}\">${unpin_icon}</button>`;\n\t\t\t} else if (action === \"pin\") {\n\t\t\t\tpin_btn = `<button type=\"button\" class=\"btn btn-xs btn-default global-search-pin-btn\" data-pin-action=\"add\" data-doctype=\"${esc}\" title=\"${__(\n\t\t\t\t\t\"Pin\"\n\t\t\t\t)}\" aria-label=\"${__(\"Pin\")}\">${pin_icon}</button>`;\n\t\t\t}"
+  },
+  {
+   "key": "Please add at least one naming series.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:180"
+   ],
+   "current": null,
+   "context": "\t\t}\n\n\t\tif (!naming_series_options) {\n\t\t\tfrappe.msgprint(__(\"Please add at least one naming series.\"));\n\t\t\treturn;\n\t\t}\n"
+  },
+  {
+   "key": "Please check your email.",
+   "refs": [
+    "frappe/frappe/www/login.html:202"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n\t\t\t\t\t\t\t<use href=\"#es-line-alert-circle\"></use>\n\t\t\t\t\t\t</svg>\n\t\t\t\t\t\t<span>{{ _(\"Please check your email.\") }}</span>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"form-group\">\n\t\t\t\t\t\t<label class=\"form-label\" for=\"login_with_email_link_email\">{{ _(\"Email\") }}</label>"
+  },
+  {
+   "key": "Please enter a valid email.",
+   "refs": [
+    "frappe/frappe/templates/includes/login/login.js:49"
+   ],
+   "current": null,
+   "context": "\t\targs.redirect_to = frappe.utils.sanitise_redirect(frappe.utils.get_url_arg(\"redirect-to\"));\n\t\targs.full_name = frappe.utils.xss_sanitise(($(\"#signup_fullname\").val() || \"\").trim());\n\t\tif (!args.email || !validate_email(args.email)) {\n\t\t\tlogin.show_field_error(\"signup_email\", {{ _(\"Please enter a valid email.\") | tojson }});\n\t\t\treturn false;\n\t\t}\n\t\tif (!args.full_name) {"
+  },
+  {
+   "key": "Please enter your email, we'll send you password reset link",
+   "refs": [
+    "frappe/frappe/www/login.html:166"
+   ],
+   "current": null,
+   "context": "\n\t<section class='for-forgot'>\n\t\t<div class=\"login-content page-card\">\n\t\t\t{{ logo_section(_('Forgot Password?'), _(\"Please enter your email, we'll send you password reset link\")) }}\n\t\t\t<form class=\"form-signin form-forgot hide\" role=\"form\" novalidate>\n\t\t\t\t<div class=\"page-card-body\">\n\t\t\t\t\t<div class=\"form-group\">"
+  },
+  {
+   "key": "Please fill the following mandatory fields before saving:",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/save.js:256"
+   ],
+   "current": null,
+   "context": "\tif (lines.length) {\n\t\tfrappe.msgprint({\n\t\t\tmessage:\n\t\t\t\t__(\"Please fill the following mandatory fields before saving:\") +\n\t\t\t\t\"<br><br><ul><li>\" +\n\t\t\t\tlines.join(\"</li><li>\") +\n\t\t\t\t\"</li></ul>\","
+  },
+  {
+   "key": "Please select a transaction.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:175"
+   ],
+   "current": null,
+   "context": "\t\t\t.join(\"\\n\");\n\n\t\tif (!this.current_doctype) {\n\t\t\tfrappe.msgprint(__(\"Please select a transaction.\"));\n\t\t\treturn;\n\t\t}\n"
+  },
+  {
+   "key": "Please select Document Type first.",
+   "refs": [
+    "frappe/frappe/desk/doctype/global_search_settings/global_search_settings.js:113"
+   ],
+   "current": null,
+   "context": "\tconfigure: function (frm, cdt, cdn) {\n\t\tconst row = frappe.get_doc(cdt, cdn);\n\t\tif (!row.document_type) {\n\t\t\tfrappe.msgprint(__(\"Please select Document Type first.\"));\n\t\t\treturn;\n\t\t}\n\t\tfrappe.model.with_doctype(row.document_type, () => {"
+  },
+  {
+   "key": "Poor!",
+   "refs": [
+    "frappe/frappe/www/update-password.html:286"
+   ],
+   "current": null,
+   "context": "\n\twindow.set_strength_indicator = function(color, feedback) {\n\t\tvar strength_map = {\n\t\t\tred:    { label: \"{{ _('Poor!') }}\",   percentage: 25  },\n\t\t\torange: { label: \"{{ _('Average') }}\", percentage: 50  },\n\t\t\tblue:   { label: \"{{ _('Good') }}\",    percentage: 75  },\n\t\t\tgreen:  { label: \"{{ _('Great!') }}\",  percentage: 100 },"
+  },
+  {
+   "key": "Provide a list of allowed Doctypes for file uploads. Each line should contain one allowed Doctype. If unset, uploads to all doctypes are allowed. Example: <br>User<br>Item<br>Quotation",
+   "refs": [
+    "frappe/frappe/core/doctype/system_settings/system_settings.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"eval:doc.allow_guests_to_upload_files == 1\",\n   \"description\": \"Provide a list of allowed Doctypes for file uploads. Each line should contain one allowed Doctype. If unset, uploads to all doctypes are allowed. Example: <br>User<br>Item<br>Quotation\",\n   \"fieldname\": \"allowed_doctypes_for_guest_uploads\",\n   \"fieldtype\": \"Small Text\",\n   \"label\": \"Allowed Doctypes for Guest Uploads\""
+  },
+  {
+   "key": "Python",
+   "refs": [
+    "frappe/frappe/desk/doctype/system_console/system_console.json",
+    "frappe/frappe/email/doctype/notification/notification.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"console\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Console\",\n   \"options\": \"Python\"\n  },\n  {\n   \"fieldname\": \"output\","
+  },
+  {
+   "key": "Queries",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder_event/recorder_event.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"queries\",\n   \"fieldtype\": \"Int\",\n   \"in_list_view\": 1,\n   \"label\": \"Queries\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Raw HTML can be used only with Email Templates having 'Use HTML' checked. Proceeding with plain text email.",
+   "refs": [
+    "frappe/frappe/core/doctype/communication/email.py:101"
+   ],
+   "current": null,
+   "context": "\t\tand not frappe.get_cached_value(\"Email Template\", email_template, \"use_html\")\n\t):\n\t\twarn(\n\t\t\t_(\n\t\t\t\t\"Raw HTML can be used only with Email Templates having 'Use HTML' checked. \"\n\t\t\t\t\"Proceeding with plain text email.\"\n\t\t\t),"
+  },
+  {
+   "key": "Raw Method",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder_event/recorder_event.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"method\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Raw Method\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Receive an email for notifications of these types. Remove a type to stop its emails (in-app notifications are unaffected).",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_settings/notification_settings.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"enable_email_notifications\",\n   \"description\": \"Receive an email for notifications of these types. Remove a type to stop its emails (in-app notifications are unaffected).\",\n   \"fieldname\": \"email_notification_types\",\n   \"fieldtype\": \"Table MultiSelect\",\n   \"hidden\": 1,"
+  },
+  {
+   "key": "Recipient & Status",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_log/notification_log.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"recipient_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Recipient & Status\"\n  },\n  {\n   \"fieldname\": \"for_user\","
+  },
+  {
+   "key": "Recorder Event",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder_event/recorder_event.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-08-04 11:18:44.372615\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Core\",\n \"name\": \"Recorder Event\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"sort_field\": \"creation\","
+  },
+  {
+   "key": "Redact Message After Send",
+   "refs": [
+    "frappe/frappe/email/doctype/email_queue/email_queue.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Replace the message body with a placeholder once the email has been sent, so that sensitive content like password reset links is not retained in the queue.\",\n   \"fieldname\": \"redact_message_after_send\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Redact Message After Send\",\n   \"read_only\": 1\n  }\n ],"
+  },
+  {
+   "key": "Rejected malformed encoded address header with synthesized '@': {0}",
+   "refs": [
+    "frappe/frappe/email/receive.py:521"
+   ],
+   "current": null,
+   "context": "\t\t\tif decoded_addr_spec and decoded.strip() == decoded_addr_spec:\n\t\t\t\tfrappe.log_error(\n\t\t\t\t\ttitle=_(\"Malformed Address Header\"),\n\t\t\t\t\tmessage=_(\"Rejected malformed encoded address header with synthesized '@': {0}\").format(\n\t\t\t\t\t\trepr(raw_email)\n\t\t\t\t\t),\n\t\t\t\t)"
+  },
+  {
+   "key": "removed {0} row(s) from {1}",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:610"
+   ],
+   "current": null,
+   "context": "\n\tfor key, template in (\n\t\t(\"added\", _(\"added {0} row(s) to {1}\")),\n\t\t(\"removed\", _(\"removed {0} row(s) from {1}\")),\n\t):\n\t\tcounts: dict[str, int] = {}\n\t\tfor table_fieldname, _row in data.get(key, []):"
+  },
+  {
+   "key": "Replace the message body with a placeholder once the email has been sent, so that sensitive content like password reset links is not retained in the queue.",
+   "refs": [
+    "frappe/frappe/email/doctype/email_queue/email_queue.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Replace the message body with a placeholder once the email has been sent, so that sensitive content like password reset links is not retained in the queue.\",\n   \"fieldname\": \"redact_message_after_send\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Redact Message After Send\","
+  },
+  {
+   "key": "Request to your server failed.",
+   "refs": [
+    "frappe/frappe/integrations/frappe_providers/cloud_settings.py:69"
+   ],
+   "current": null,
+   "context": "\t\tif response.ok and (isinstance(payload, list) or not payload.get(\"error\")):\n\t\t\treturn payload\n\t\tfrappe.throw(\n\t\t\tself._error_message(payload) or response.text or _(\"Request to your server failed.\"),\n\t\t\t# The exception class reaches the browser as `exc_type`, which is how the\n\t\t\t# UI knows a conflict needs the \"open migrations\" action rather than a retry.\n\t\t\tCloudMigrationConflictError"
+  },
+  {
+   "key": "Resend",
+   "refs": [
+    "frappe/frappe/core/doctype/user_invitation/user_invitation.js:17",
+    "frappe/frappe/www/login.html:219"
+   ],
+   "current": null,
+   "context": "\t\tif (frm.doc.__islocal || frm.doc.status !== \"Pending\") {\n\t\t\treturn;\n\t\t}\n\t\tfrm.add_custom_button(__(\"Resend\"), () => {\n\t\t\tfrappe.confirm(__(\"Are you sure you want to resend the invitation?\"), () =>\n\t\t\t\tfrappe\n\t\t\t\t\t.call(\"frappe.core.api.user_invitation.resend_invitation\", {"
+  },
+  {
+   "key": "Rules for configuring series",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:57"
+   ],
+   "current": null,
+   "context": "\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\tfieldtype: \"Section Break\",\n\t\t\t\t\tlabel: __(\"Rules for configuring series\"),\n\t\t\t\t\tcollapsible: 1,\n\t\t\t\t},\n\t\t\t\t{"
+  },
+  {
+   "key": "Save the document to attach files.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/attachment_gallery.js:30"
+   ],
+   "current": null,
+   "context": "\t\tif (this.frm.doc.__islocal) {\n\t\t\tthis.$gallery.empty();\n\t\t\tthis.image_thumbnails = new Map();\n\t\t\tthis.render_empty_state(__(\"Save the document to attach files.\"));\n\t\t\treturn;\n\t\t}\n"
+  },
+  {
+   "key": "Search fields updated.",
+   "refs": [
+    "frappe/frappe/desk/doctype/global_search_settings/global_search_settings.js:45"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t} else {\n\t\t\t\t\t\t\t\tdialog.hide();\n\t\t\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\t\t\tmessage: __(\"Search fields updated.\"),\n\t\t\t\t\t\t\t\t\tindicator: \"green\",\n\t\t\t\t\t\t\t\t});\n\t\t\t\t\t\t\t\tif (frm) {"
+  },
+  {
+   "key": "Security.txt",
+   "refs": [
+    "frappe/frappe/core/doctype/security_settings/security_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"securitytxt_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Security.txt\"\n  },\n  {\n   \"description\": \"Date after which this security.txt should be considered stale. Expires timestamp is converted to UTC.\","
+  },
+  {
+   "key": "Send Acknowledgement Email",
+   "refs": [
+    "frappe/frappe/website/doctype/contact_us_settings/contact_us_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Send an acknowledgement email to the email address entered in the contact form.\",\n   \"fieldname\": \"send_acknowledgement_email\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Send Acknowledgement Email\"\n  }\n ],\n \"icon\": \"fa fa-cog\","
+  },
+  {
+   "key": "Send an acknowledgement email to the email address entered in the contact form.",
+   "refs": [
+    "frappe/frappe/website/doctype/contact_us_settings/contact_us_settings.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"1\",\n   \"description\": \"Send an acknowledgement email to the email address entered in the contact form.\",\n   \"fieldname\": \"send_acknowledgement_email\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Send Acknowledgement Email\""
+  },
+  {
+   "key": "Send Link",
+   "refs": [
+    "frappe/frappe/templates/includes/login/login.js:151",
+    "frappe/frappe/www/login.html:184"
+   ],
+   "current": null,
+   "context": "\t\t$forms.find(\".page-card-body\").removeClass(\"invalid\");\n\t\t$forms.find(\".form-group\").removeClass(\"invalid\").find(\".field-error\").text(\"\");\n\t\t$forms.find(\".login-error-banner\").hide();\n\t\t$(\".form-forgot .btn-forgot\").prop(\"disabled\", true).text({{ _(\"Send Link\") | tojson }});\n\t\t$(\".form-signup .btn-signup\").prop(\"disabled\", true).text({{ _(\"Create Account\") | tojson }});\n\t\t$(\".form-login-with-email-link .btn-login-with-email-link\").prop(\"disabled\", false).text({{ _(\"Send login link\") | tojson }});\n\t\t$(\".btn-login-option.btn-login-with-email-link\").prop(\"disabled\", false);"
+  },
+  {
+   "key": "Sendgrid",
+   "refs": [
+    "frappe/frappe/email/doctype/email_account/email_account.json"
+   ],
+   "current": null,
+   "context": "   \"hide_days\": 1,\n   \"hide_seconds\": 1,\n   \"label\": \"Service\",\n   \"options\": \"\\nFrappe Mail\\nGMail\\nSendgrid\\nSparkPost\\nYahoo Mail\\nOutlook.com\\nYandex.Mail\"\n  },\n  {\n   \"depends_on\": \"eval: doc.service != \\\"Frappe Mail\\\"\","
+  },
+  {
+   "key": "Sequence",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder_event/recorder_event.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"seq\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Sequence\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Server is busy. Please try again in a few seconds.",
+   "refs": [
+    "frappe/frappe/concurrency_limiter.py:115"
+   ],
+   "current": null,
+   "context": "\t\t\t\tretry_after = max(1, int(wait_timeout))\n\t\t\t\tif (headers := getattr(frappe.local, \"response_headers\", None)) is not None:\n\t\t\t\t\theaders.set(\"Retry-After\", str(retry_after))\n\t\t\t\texc = ServiceUnavailableError(frappe._(\"Server is busy. Please try again in a few seconds.\"))\n\t\t\t\texc.retry_after = retry_after\n\t\t\t\traise exc\n"
+  },
+  {
+   "key": "set {0} to",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:587"
+   ],
+   "current": null,
+   "context": "\treturn {\n\t\t\"fieldname\": fieldname,\n\t\t\"type\": \"diff\",\n\t\t\"prefix\": _(\"set {0} to\").format(label),\n\t\t\"to\": new_s,\n\t}\n"
+  },
+  {
+   "key": "set {0} to {1} in row #{2}",
+   "refs": [
+    "frappe/frappe/desk/form/activity.py:644"
+   ],
+   "current": null,
+   "context": "\t\t\t\tcontinue\n\t\t\tchanges.append(\n\t\t\t\tformat_phrase_change(\n\t\t\t\t\t_(\"set {0} to {1} in row #{2}\").format(\n\t\t\t\t\t\t_(cdf.label or cfield),\n\t\t\t\t\t\ttruncate_value(cnew),\n\t\t\t\t\t\trow_index + 1,"
+  },
+  {
+   "key": "Show Board",
+   "refs": [
+    "frappe/frappe/desk/doctype/kanban_board/kanban_board.js:10"
+   ],
+   "current": null,
+   "context": "\t},\n\trefresh: function (frm) {\n\t\tif (frm.is_new()) return;\n\t\tfrm.add_custom_button(__(\"Show Board\"), function () {\n\t\t\tfrappe.set_route(\"List\", frm.doc.reference_doctype, \"Kanban\", frm.doc.name);\n\t\t});\n\t},"
+  },
+  {
+   "key": "Show keyboard shortcuts",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/keyboard.js:237"
+   ],
+   "current": null,
+   "context": "\taction: function () {\n\t\tfrappe.ui.keys.show_keyboard_shortcut_dialog();\n\t},\n\tdescription: __(\"Show keyboard shortcuts\"),\n});\n\nfrappe.ui.keys.on(\"escape\", function (e) {"
+  },
+  {
+   "key": "Show more",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:1016"
+   ],
+   "current": null,
+   "context": "\t\t\t\t})\n\t\t\t\t\t.attr(\"data-fetch-type\", \"Global\")\n\t\t\t\t\t.attr(\"data-category\", dt_esc)\n\t\t\t\t\t.text(__(\"Show more\"));\n\t\t\t\tconst $wrap = $('<div class=\"global-search-summary-show-more\">').append($btn);\n\t\t\t\t$result_section.find(\".result-body\").append($wrap);\n\t\t\t}"
+  },
+  {
+   "key": "Show Similar Errors",
+   "refs": [
+    "frappe/frappe/core/doctype/error_log/error_log.js:9"
+   ],
+   "current": null,
+   "context": "\t\tfrm.disable_save();\n\n\t\tif (frm.doc.fingerprint) {\n\t\t\tfrm.add_custom_button(__(\"Show Similar Errors\"), function () {\n\t\t\t\tfrappe.set_route(\"List\", \"Error Log\", { fingerprint: frm.doc.fingerprint });\n\t\t\t});\n\t\t\trender_fingerprint_stats(frm);"
+  },
+  {
+   "key": "Sign In",
+   "refs": [
+    "frappe/frappe/www/login.html:98",
+    "frappe/frappe/www/login.html:120",
+    "frappe/frappe/www/login.html:136",
+    "frappe/frappe/www/login.html:195"
+   ],
+   "current": null,
+   "context": "\t\t{% if title %}\n\t\t<h4>{{ _(title) }}</h4>\n\t\t{% else %}\n\t\t<h4>{{ _('Sign In') }}</h4>\n\t\t{% endif %}\n\t\t{% if subtitle %}\n\t\t<p class=\"page-card-subtitle\">{{ _(subtitle) }}</p>"
+  },
+  {
+   "key": "Sign Up",
+   "refs": [
+    "frappe/frappe/www/login.html:151"
+   ],
+   "current": null,
+   "context": "\t{%- endif -%}\n\t<section class='for-signup {{ \"signup-disabled\" if disable_signup else \"\" }}'>\n\t\t<div class=\"login-content page-card\">\n\t\t\t{{ logo_section(_('Sign Up'), _(\"Let's setup your account.\")) }}\n\t\t\t{%- if not disable_signup -%}\n\t\t\t{{ signup_form_template }}\n\t\t\t{%- else -%}"
+  },
+  {
+   "key": "Skype",
+   "refs": [
+    "frappe/frappe/website/doctype/contact_us_settings/contact_us_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"skype\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Skype\"\n  },\n  {\n   \"default\": \"1\","
+  },
+  {
+   "key": "Slug",
+   "refs": [
+    "frappe/frappe/website/doctype/utm_campaign/utm_campaign.json",
+    "frappe/frappe/website/doctype/utm_medium/utm_medium.json",
+    "frappe/frappe/website/doctype/utm_source/utm_source.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"slug\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Slug\",\n   \"unique\": 1\n  }\n ],"
+  },
+  {
+   "key": "Snapshot Report",
+   "refs": [
+    "frappe/frappe/core/doctype/report/report.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"snapshot_report\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Snapshot Report\"\n  }\n ],\n \"idx\": 1,"
+  },
+  {
+   "key": "Snapshot Reports",
+   "refs": [
+    "frappe/frappe/core/doctype/system_settings/system_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"snapshot_reports_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Snapshot Reports\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "SparkPost",
+   "refs": [
+    "frappe/frappe/email/doctype/email_account/email_account.json"
+   ],
+   "current": null,
+   "context": "   \"hide_days\": 1,\n   \"hide_seconds\": 1,\n   \"label\": \"Service\",\n   \"options\": \"\\nFrappe Mail\\nGMail\\nSendgrid\\nSparkPost\\nYahoo Mail\\nOutlook.com\\nYandex.Mail\"\n  },\n  {\n   \"depends_on\": \"eval: doc.service != \\\"Frappe Mail\\\"\","
+  },
+  {
+   "key": "Standard reports can only be created in developer mode.",
+   "refs": [
+    "frappe/frappe/core/doctype/report/report.py:449"
+   ],
+   "current": null,
+   "context": "\t\t\tor frappe.flags.in_install\n\t\t\tor frappe.flags.in_import\n\t\t):\n\t\t\tfrappe.throw(_(\"Standard reports can only be created in developer mode.\"))\n\n\t@frappe.whitelist()\n\tdef toggle_disable(self, disable: bool):"
+  },
+  {
+   "key": "Supported Variables:",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/naming_series.js:96"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\"You can also use variables in the series name by putting them between (.) dots\"\n\t\t\t)}\n            <br>\n            ${__(\"Supported Variables:\")}\n\t\t\t\t<ul>\n\t\t\t\t\t<li><code>.YYYY.</code> - ${__(\"Year in 4 digits\")}</li>\n\t\t\t\t\t<li><code>.YY.</code> - ${__(\"Year in 2 digits\")}</li>"
+  },
+  {
+   "key": "Switch theme",
+   "refs": [
+    "frappe/frappe/public/js/frappe/desk.js:96"
+   ],
+   "current": null,
+   "context": "\tsetup_theme() {\n\t\tfrappe.ui.keys.add_shortcut({\n\t\t\tshortcut: \"shift+ctrl+g\",\n\t\t\tdescription: __(\"Switch theme\"),\n\t\t\taction: () => {\n\t\t\t\tif (frappe.theme_switcher && frappe.theme_switcher.dialog.is_visible) {\n\t\t\t\t\tfrappe.theme_switcher.hide();"
+  },
+  {
+   "key": "Switch to CRM",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/sidebar/sidebar.js:111"
+   ],
+   "current": null,
+   "context": "\t\t// if CRM is installed on the site, link to the route configured via add_to_apps_screen\n\t\tconst installed_app = (frappe.boot.apps_data.apps || []).find((app) => app.name === \"crm\");\n\t\tif (installed_app && installed_app.route) {\n\t\t\tconst title = __(\"Switch to CRM\");\n\t\t\tconst message = __(\"Open Frappe CRM\");\n\t\t\tthis.promotional_banners.push({\n\t\t\t\ttitle,"
+  },
+  {
+   "key": "Sync Data",
+   "refs": [
+    "frappe/frappe/core/doctype/duckdb_sync/duckdb_sync.js:23"
+   ],
+   "current": null,
+   "context": "\t\t\t\t},\n\t\t\t\tcallback: function (r) {\n\t\t\t\t\tif (r.message) {\n\t\t\t\t\t\tfrm.add_custom_button(__(\"Sync Data\"), function () {\n\t\t\t\t\t\t\tfrappe.call({\n\t\t\t\t\t\t\t\tmethod: \"frappe.core.doctype.duckdb_sync.duckdb_sync.start_data_sync\",\n\t\t\t\t\t\t\t\targs: {"
+  },
+  {
+   "key": "Sync In Batches",
+   "refs": [
+    "frappe/frappe/core/doctype/system_settings/system_settings.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval: doc.enable_snapshot_reports\",\n   \"fieldname\": \"sync_in_batch\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Sync In Batches\"\n  },\n  {\n   \"description\": \"Maximum total size a ZIP archive is allowed to expand to when extracted.\","
+  },
+  {
+   "key": "Sync Timeout (Seconds)",
+   "refs": [
+    "frappe/frappe/core/doctype/system_settings/system_settings.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval: doc.enable_snapshot_reports\",\n   \"fieldname\": \"sync_timeout\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Sync Timeout (Seconds)\"\n  },\n  {\n   \"fieldname\": \"snapshot_reports_section\","
+  },
+  {
+   "key": "Synced",
+   "refs": [
+    "frappe/frappe/core/doctype/duckdb_sync_item/duckdb_sync_item.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"synced\",\n   \"fieldtype\": \"Check\",\n   \"in_list_view\": 1,\n   \"label\": \"Synced\"\n  }\n ],\n \"grid_page_length\": 50,"
+  },
+  {
+   "key": "T:Number system",
+   "refs": [
+    "frappe/frappe/public/js/frappe/utils/number_systems.js:5"
+   ],
+   "current": null,
+   "context": "\tdefault: [\n\t\t{\n\t\t\tdivisor: 1.0e12,\n\t\t\tsymbol: __(\"T\", null, \"Number system\"),\n\t\t},\n\t\t{\n\t\t\tdivisor: 1.0e9,"
+  },
+  {
+   "key": "Task id is required.",
+   "refs": [
+    "frappe/frappe/integrations/frappe_providers/cloud_settings.py:267"
+   ],
+   "current": null,
+   "context": "\t_assert_access()\n\ttask_id = (task_id or \"\").strip()\n\tif not task_id:\n\t\tfrappe.throw(_(\"Task id is required.\"), frappe.ValidationError)\n\ttry:\n\t\tclient = PilotClient()\n\t\t# Site-scoped task route: a site token can read its own install/uninstall"
+  },
+  {
+   "key": "Test_Folder",
+   "refs": [
+    "frappe/frappe/core/doctype/file/test_file.py:464"
+   ],
+   "current": null,
+   "context": "\t\tresult3 = self.get_folder(\"d3\", \"Home/d1/d2\")\n\t\tself.assertEqual(result3.name, \"Home/d1/d2/d3\")\n\t\tresult4 = self.get_folder(\"d4\", \"Home/d1/d2/d3\")\n\t\t_file = frappe.get_doc(\n\t\t\t{\n\t\t\t\t\"doctype\": \"File\",\n\t\t\t\t\"file_name\": \"folder_copy.txt\","
+  },
+  {
+   "key": "Thank you for reaching out to us. We will get back to you at the earliest.",
+   "refs": [
+    "frappe/frappe/www/contact.py:48"
+   ],
+   "current": null,
+   "context": "\t\t\tfrappe.sendmail(recipients=forward_to_email, reply_to=sender, content=message, subject=subject)\n\n\t\tif frappe.get_single_value(\"Contact Us Settings\", \"send_acknowledgement_email\"):\n\t\t\treply = _(\"Thank you for reaching out to us. We will get back to you at the earliest.\")\n\t\t\tfrappe.sendmail(\n\t\t\t\trecipients=sender,\n\t\t\t\tcontent=f\"<div style='white-space: pre-wrap'>{reply}</div>\","
+  },
+  {
+   "key": "The default value for the Check field {0} must be either '0' or '1'",
+   "refs": [
+    "frappe/frappe/core/doctype/doctype/doctype.py:1433"
+   ],
+   "current": null,
+   "context": "\t\t\tdefault_value = cstr(d.default).strip()\n\t\t\tif default_value not in (\"0\", \"1\"):\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"The default value for the Check field {0} must be either '0' or '1'\").format(\n\t\t\t\t\t\tfrappe.bold(d.label or d.fieldname)\n\t\t\t\t\t)\n\t\t\t\t)"
+  },
+  {
+   "key": "The email button is enabled for the user in the document.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:58"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Email\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to email from the document.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The email button is enabled for the user in the document.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Report\") %}</td>"
+  },
+  {
+   "key": "The print button is enabled for the user in the document.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:53"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Print\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows printing or PDF download of documents.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The print button is enabled for the user in the document.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Email\") %}</td>"
+  },
+  {
+   "key": "The report may be too large to render in a single request. Narrow the filters and try again, or use Print and save as PDF from your browser.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/microtemplate.js:209"
+   ],
+   "current": null,
+   "context": "}\n\nfunction pdf_size_message() {\n\treturn __(\n\t\t\"The report may be too large to render in a single request. Narrow the filters and try again, or use Print and save as PDF from your browser.\"\n\t);\n}"
+  },
+  {
+   "key": "The request could not be completed. Check your connection and try again.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/microtemplate.js:286"
+   ],
+   "current": null,
+   "context": "\txhr.onerror = function () {\n\t\tfrappe.dom?.unfreeze();\n\t\tshow_pdf_error(\n\t\t\t__(\"The request could not be completed. Check your connection and try again.\")\n\t\t);\n\t};\n"
+  },
+  {
+   "key": "The user can create a new Item but cannot edit existing items.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:43"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Create\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to create new documents.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can create a new Item but cannot edit existing items.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Delete\") %}</td>"
+  },
+  {
+   "key": "The user can delete Draft / Cancelled documents.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:48"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Delete\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to delete documents.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can delete Draft / Cancelled documents.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Print\") %}</td>"
+  },
+  {
+   "key": "The user can export report data.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:68"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Export\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to export data from the Report view.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can export report data.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Import\") %}</td>"
+  },
+  {
+   "key": "The user can import new records or update existing data for the document.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:73"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Import\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to use Data Import tool to create / update records.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can import new records or update existing data for the document.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Share\") %}</td>"
+  },
+  {
+   "key": "The user can select a Customer in Sales Order but cannot open the Customer master.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:28"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Select\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to search and see records.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can select a Customer in Sales Order but cannot open the Customer master.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Read\") %}</td>"
+  },
+  {
+   "key": "The user can share document access with another user.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:78"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Share\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows sharing document access with other users.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can share document access with another user.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Mask\") %}</td>"
+  },
+  {
+   "key": "The user can update a customer or any other fields in an existing Sales Order but cannot create a new Sales Order.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:38"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Write\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to edit existing records they have access to.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can update a customer or any other fields in an existing Sales Order but cannot create a new Sales Order.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Create\") %}</td>"
+  },
+  {
+   "key": "The user can view Sales Invoices but cannot modify any field values in them.",
+   "refs": [
+    "frappe/frappe/core/page/permission_manager/permission_manager_help.html:33"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Read\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to view the document.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can view Sales Invoices but cannot modify any field values in them.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Write\") %}</td>"
+  },
+  {
+   "key": "This is a snapshot report generated {0}.",
+   "refs": [
+    "frappe/frappe/public/js/frappe/views/reports/query_report.js:802"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\tthis.show_status(`\n\t\t\t\t\t\t<div class=\"indicator orange pl-1\">\n\t\t\t\t\t\t\t<span>\n\t\t\t\t\t\t\t\t${__(\"This is a snapshot report generated {0}.\", [pretty_diff])}\n\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t`);"
+  },
+  {
+   "key": "This Web Form Request has already been used",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.py:59"
+   ],
+   "current": null,
+   "context": "\n\tdef validate_key(self, *, allow_used=False):\n\t\tif self.first_used_on and not allow_used:\n\t\t\tfrappe.throw(_(\"This Web Form Request has already been used\"), frappe.exceptions.LinkExpired)\n\n\t\tif self.expires_on and get_datetime(self.expires_on) < now_datetime():\n\t\t\tfrappe.throw(_(\"This Web Form Request has expired\"), frappe.exceptions.LinkExpired)"
+  },
+  {
+   "key": "This Web Form Request has expired",
+   "refs": [
+    "frappe/frappe/website/doctype/web_form_request/web_form_request.py:62"
+   ],
+   "current": null,
+   "context": "\t\t\tfrappe.throw(_(\"This Web Form Request has already been used\"), frappe.exceptions.LinkExpired)\n\n\t\tif self.expires_on and get_datetime(self.expires_on) < now_datetime():\n\t\t\tfrappe.throw(_(\"This Web Form Request has expired\"), frappe.exceptions.LinkExpired)\n\n\tdef get_web_form_values(self):\n\t\treturn parse_json_object(self.web_form_values)"
+  },
+  {
+   "key": "to open Awesome Bar",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/search.js:138"
+   ],
+   "current": null,
+   "context": "\t\tconst awesomebarShortcut = frappe.utils.is_mac() ? \"⌘K\" : \"Ctrl+K\";\n\t\tconst awesomebarTipLine = `<span class=\"global-search-shortcut-key\">${frappe.utils.escape_html(\n\t\t\tawesomebarShortcut\n\t\t)}</span> ${frappe.utils.escape_html(__(\"to open Awesome Bar\"))}`;\n\t\tconst show_ampersand_empty_tip =\n\t\t\tstatus_text === __(\"Search for anything\") &&\n\t\t\tthis.search === this.searches[\"global_search\"];"
+  },
+  {
+   "key": "to open Global Search",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/toolbar/awesome_bar.js:61"
+   ],
+   "current": null,
+   "context": "\t\t\t\t</span>\n\t\t\t\t<span class=\"help-item-navigate\">\n\t\t\t\t\t<span class=\"help-item help-item-escape\">${frappe.utils.is_mac() ? \"⌘G\" : \"Ctrl+G\"}</span>\n\t\t\t\t\t<span>${__(\"to open Global Search\")}</span>\n\t\t\t\t</span>\n\t\t\t</div>\n\t\t</div>`;"
+  },
+  {
+   "key": "Too many requests. Please try again later.",
+   "refs": [
+    "frappe/frappe/templates/includes/login/login.js:330"
+   ],
+   "current": null,
+   "context": "\t\t},\n\t\t401: get_error_handler({{ _(\"Invalid credentials, try again.\") | tojson }}),\n\t\t417: get_error_handler({{ _(\"Oops! Something went wrong.\") | tojson }}),\n\t\t429: get_error_handler({{ _(\"Too many requests. Please try again later.\") | tojson }}),\n\t\t500: get_error_handler({{ _(\"Something went wrong.\") | tojson }}),\n\t};\n"
+  },
+  {
+   "key": "Trigger primary action",
+   "refs": [
+    "frappe/frappe/public/js/frappe/ui/keyboard.js:210"
+   ],
+   "current": null,
+   "context": "\t\te.preventDefault();\n\t\treturn false;\n\t},\n\tdescription: __(\"Trigger primary action\"),\n\tignore_inputs: true,\n});\n"
+  },
+  {
+   "key": "Type Name",
+   "refs": [
+    "frappe/frappe/desk/doctype/notification_type/notification_type.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"type_name\",\n   \"fieldtype\": \"Data\",\n   \"in_list_view\": 1,\n   \"label\": \"Type Name\",\n   \"reqd\": 1,\n   \"unique\": 1\n  },"
+  }
+ ]
+}

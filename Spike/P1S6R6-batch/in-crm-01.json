@@ -1,0 +1,2447 @@
+{
+ "group": "crm",
+ "items": [
+  {
+   "key": "%John%",
+   "refs": [
+    "crm/frontend/src/components/Filter.vue:626"
+   ],
+   "current": null,
+   "context": "    if (typeNumber.includes(f.field.fieldtype)) {\n      return __('%100%')\n    }\n    return __('%John%')\n  } else if (f.operator === 'is' || f.operator === 'is not') {\n    return __('Set')\n  } else if (f.operator === 'timespan') {"
+  },
+  {
+   "key": "A lead sync source is already enabled for this Facebook Lead Form!",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.py:49"
+   ],
+   "current": null,
+   "context": "\t\t)\n\n\t\tif already_active:\n\t\t\tfrappe.throw(frappe._(\"A lead sync source is already enabled for this Facebook Lead Form!\"))\n\n\tdef before_insert(self):\n\t\tif self.type == \"Facebook\" and self.access_token:"
+  },
+  {
+   "key": "A section can have up to {0} columns",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:1089",
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:1231"
+   ],
+   "current": null,
+   "context": "\nfunction addColumn(cols) {\n  if (cols.length >= MAX_COLUMNS) {\n    toast.info(__('A section can have up to {0} columns', [MAX_COLUMNS]))\n    return\n  }\n  cols.push(newColumn())"
+  },
+  {
+   "key": "A {0} cannot report to a {1}",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/useDragDrop.js:69"
+   ],
+   "current": null,
+   "context": "    if (!canDrop(src, target)) {\n      toast.error(\n        src.role_rank < target.role_rank\n          ? __('A {0} cannot report to a {1}', [\n              src.role_label,\n              target.role_label,\n            ])"
+  },
+  {
+   "key": "Accept Call",
+   "refs": [
+    "crm/frontend/src/components/Telephony/TwilioCallUI.vue:155"
+   ],
+   "current": null,
+   "context": "        variant=\"solid\"\n        theme=\"green\"\n        class=\"pulse relative !h-6 !w-6 rounded-full animate-pulse text-ink-base\"\n        :tooltip=\"__('Accept Call')\"\n        :icon=\"PhoneIcon\"\n        @click.stop=\"acceptIncomingCall\"\n      />"
+  },
+  {
+   "key": "Access Denied",
+   "refs": [
+    "crm/frontend/src/pages/NotPermitted.vue:7"
+   ],
+   "current": null,
+   "context": "  >\n    <div class=\"text-center max-w-md\">\n      <h1 class=\"text-ink-gray-5 text-4xl-semibold\">\n        {{ __('Access Denied') }}\n      </h1>\n      <div class=\"border-t w-full my-[15px]\" />\n      <p class=\"text-ink-gray-4 text-p-base\">"
+  },
+  {
+   "key": "Access token is required",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/lead_sync_source/facebook.py:145"
+   ],
+   "current": null,
+   "context": "@frappe.whitelist()\ndef fetch_and_store_pages_from_facebook(access_token: str) -> list[dict]:\n\tif not access_token:\n\t\tfrappe.throw(frappe._(\"Access token is required\"))\n\n\taccount_details = get_fb_account_details(access_token)\n\tif not account_details.get(\"id\"):"
+  },
+  {
+   "key": "Account Info & Security",
+   "refs": [
+    "crm/frontend/src/components/Settings/Profile/ProfileSettings.vue:91"
+   ],
+   "current": null,
+   "context": "      </div>\n      <div>\n        <div class=\"text-base-semibold text-ink-gray-9\">\n          {{ __('Account Info & Security') }}\n        </div>\n        <div class=\"flex items-center justify-between mt-6\">\n          <div class=\"flex flex-col gap-1\">"
+  },
+  {
+   "key": "Activity Timeline",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"activity_timeline_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Activity Timeline\"\n  },\n  {\n   \"default\": \"Relative\","
+  },
+  {
+   "key": "Add ({0})",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:162",
+    "crm/frontend/src/components/Settings/Hierarchy/HierarchyRow.vue:85"
+   ],
+   "current": null,
+   "context": "      :title=\"__('Add Users')\"\n      :actions=\"[\n        {\n          label: __('Add ({0})', [dialogSelected.length]),\n          variant: 'solid',\n          disabled: !dialogSelected.length,\n          loading: saving,"
+  },
+  {
+   "key": "Add a Condition",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRulesSection.vue:20"
+   ],
+   "current": null,
+   "context": "    \"\n  >\n    <span class=\"lucide-plus h-4\" aria-hidden=\"true\" />\n    {{ __('Add a Condition') }}\n  </div>\n  <div class=\"flex items-center justify-between mt-2\">\n    <div v-if=\"conditions.length > 0\" class=\"\">"
+  },
+  {
+   "key": "Add a Custom Condition",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaAssignmentConditions.vue:15"
+   ],
+   "current": null,
+   "context": "    @click=\"conditions.push(['', '', ''])\"\n  >\n    <span class=\"lucide-plus h-4\" aria-hidden=\"true\" />\n    {{ __('Add a Custom Condition') }}\n  </div>\n  <div class=\"flex items-center justify-between mt-2\">\n    <Dropdown"
+  },
+  {
+   "key": "Add a description to help people fill out this form",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:69"
+   ],
+   "current": null,
+   "context": "                  ref=\"descInput\"\n                  v-model=\"form.description\"\n                  :placeholder=\"\n                    __('Add a description to help people fill out this form')\n                  \"\n                  rows=\"1\"\n                  class=\"mt-2 w-full resize-none border-0 bg-transparent p-0 text-base leading-relaxed text-ink-gray-6 placeholder:text-ink-gray-4 focus:outline-none focus:ring-0\""
+  },
+  {
+   "key": "Add a name for your source",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/leadSyncSourceConfig.js:25"
+   ],
+   "current": null,
+   "context": "    name: 'name',\n    label: __('Name'),\n    type: 'text',\n    placeholder: __('Add a name for your source'),\n  },\n  {\n    name: 'access_token',"
+  },
+  {
+   "key": "Add a Task",
+   "refs": [
+    "crm/frontend/src/components/Telephony/ExotelCallUI.vue:188"
+   ],
+   "current": null,
+   "context": "          <Button\n            class=\"bg-surface-gray-9 text-ink-base hover:bg-surface-gray-8\"\n            size=\"md\"\n            :tooltip=\"__('Add a Task')\"\n            :icon=\"TaskIcon\"\n            @click=\"showTaskWindow\"\n          />"
+  },
+  {
+   "key": "Add Condition",
+   "refs": [
+    "crm/frontend/src/components/ConditionsFilter/CFConditions.vue:26",
+    "crm/frontend/src/components/ConditionsFilter/CFConditions.vue:68",
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRulesSection.vue:28",
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRulesSection.vue:65",
+    "crm/frontend/src/components/Settings/Sla/SlaAssignmentConditions.vue:26",
+    "crm/frontend/src/components/Settings/Sla/SlaAssignmentConditions.vue:63"
+   ],
+   "current": null,
+   "context": "    <div v-if=\"props.isChild\" class=\"flex\">\n      <Dropdown v-slot=\"{ open }\" :options=\"dropdownOptions\">\n        <Button\n          :disabled=\"props.disableAddCondition\"\n          :label=\"__('Add Condition')\"\n          icon-left=\"lucide-plus\"\n          :icon-right=\"open ? 'chevron-up' : 'chevron-down'\""
+  },
+  {
+   "key": "Add Condition Group",
+   "refs": [
+    "crm/frontend/src/components/ConditionsFilter/CFConditions.vue:77",
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRulesSection.vue:71",
+    "crm/frontend/src/components/Settings/Sla/SlaAssignmentConditions.vue:69"
+   ],
+   "current": null,
+   "context": "      },\n    },\n  ]\n  if (props.level < 3) {\n    options.push({\n      label: __('Add Condition Group'),\n      onClick: () => {"
+  },
+  {
+   "key": "Add CRM Product",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_product/crm_product_list.js:3"
+   ],
+   "current": null,
+   "context": "frappe.listview_settings[\"CRM Product\"] = {\n  onload(listview) {\n    listview.page.set_primary_action(__(\"Add CRM Product\"), async () => {\n      const enabled = await frappe.db.get_single_value(\n        \"ERPNext CRM Settings\",\n        \"enabled\""
+  },
+  {
+   "key": "Add direct reports",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/HierarchyRow.vue:63"
+   ],
+   "current": null,
+   "context": "      >\n        <Popover placement=\"bottom-end\" @update:show=\"popoverOpen = $event\">\n          <template #target=\"{ togglePopover }\">\n            <Tooltip :text=\"__('Add direct reports')\">\n              <Button\n                variant=\"ghost\"\n                size=\"sm\""
+  },
+  {
+   "key": "Add Email",
+   "refs": [
+    "crm/frontend/src/components/Settings/Profile/UserEmailSettings.vue:99"
+   ],
+   "current": null,
+   "context": "              <Button\n                class=\"!bg-surface-elevation-2\"\n                variant=\"outline\"\n                :label=\"__('Add Email')\"\n                iconLeft=\"plus\"\n                @click=\"setOpen(!open)\"\n              />"
+  },
+  {
+   "key": "Add fields to see them here.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:634"
+   ],
+   "current": null,
+   "context": "                </div>\n              </div>\n              <div v-if=\"!inputFieldCount\" class=\"text-sm text-ink-gray-4\">\n                {{ __('Add fields to see them here.') }}\n              </div>\n              <div class=\"mt-1 flex justify-end gap-2.5\">\n                <Button"
+  },
+  {
+   "key": "Add Mobile Number...",
+   "refs": [
+    "crm/frontend/src/pages/Contact.vue:352"
+   ],
+   "current": null,
+   "context": "}\n\nconst fieldPlaceholderMap = {\n  mobile_no: __('Add Mobile Number...'),\n  company_name: __('Add Organization...'),\n}\n"
+  },
+  {
+   "key": "Add Note",
+   "refs": [
+    "crm/frontend/src/components/Modals/CallLogDetailModal.vue:20"
+   ],
+   "current": null,
+   "context": "                  hideLabel: true,\n                  items: [\n                    {\n                      label: note ? __('Edit Note') : __('Add Note'),\n                      icon: NoteIcon,\n                      onClick: () => showNote(note),\n                    },"
+  },
+  {
+   "key": "Add Organization...",
+   "refs": [
+    "crm/frontend/src/pages/Contact.vue:353"
+   ],
+   "current": null,
+   "context": "\nconst fieldPlaceholderMap = {\n  mobile_no: __('Add Mobile Number...'),\n  company_name: __('Add Organization...'),\n}\n\nconst { getFormattedCurrency } = getMeta('CRM Deal')"
+  },
+  {
+   "key": "Add Sample Data",
+   "refs": [
+    "crm/frontend/src/pages/Welcome.vue:24"
+   ],
+   "current": null,
+   "context": "            {{ __('Start with sample 10 leads') }}\n          </div>\n        </div>\n        <Button variant=\"outline\" :label=\"__('Add Sample Data')\" />\n      </div>\n      <div\n        class=\"flex flex-col px-6 pt-13 pb-7 justify-between bg-surface-gray-1 rounded-2xl items-center space-y-2 size-56\""
+  },
+  {
+   "key": "Add Task",
+   "refs": [
+    "crm/frontend/src/components/Modals/CallLogDetailModal.vue:25"
+   ],
+   "current": null,
+   "context": "                      onClick: () => showNote(note),\n                    },\n                    {\n                      label: task ? __('Edit Task') : __('Add Task'),\n                      icon: TaskIcon,\n                      onClick: () => showTask(task),\n                    },"
+  },
+  {
+   "key": "Add time targets around support milestones like first response",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyView.vue:219"
+   ],
+   "current": null,
+   "context": "            </span>\n            <span class=\"text-p-sm text-ink-gray-6\">\n              {{\n                __(\n                  'Add time targets around support milestones like first response',\n                )\n              }}"
+  },
+  {
+   "key": "Add User",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:36"
+   ],
+   "current": null,
+   "context": "          @click=\"toggleEnable(true)\"\n        />\n        <Button\n          :label=\"__('Add User')\"\n          icon-left=\"lucide-plus\"\n          variant=\"solid\"\n          @click=\"openAddDialog()\""
+  },
+  {
+   "key": "Add Users",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:159"
+   ],
+   "current": null,
+   "context": "    </Teleport>\n    <Dialog\n      v-model:open=\"showAddDialog\"\n      :title=\"__('Add Users')\"\n      :actions=\"[\n        {\n          label: __('Add ({0})', [dialogSelected.length]),"
+  },
+  {
+   "key": "Add, edit, and manage sources for automatic lead syncing to your CRM",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/LeadSyncSources.vue:12"
+   ],
+   "current": null,
+   "context": "        </h2>\n        <p class=\"text-p-base text-ink-gray-6\">\n          {{\n            __(\n              'Add, edit, and manage sources for automatic lead syncing to your CRM',\n            )\n          }}"
+  },
+  {
+   "key": "All available priorities have already been added",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaPriorityList.vue:205"
+   ],
+   "current": null,
+   "context": "  )\n\n  if (availablePriorities.length === 0) {\n    toast.error(__('All available priorities have already been added'))\n    return\n  }\n"
+  },
+  {
+   "key": "Allowed domains",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:470"
+   ],
+   "current": null,
+   "context": "              <div>\n                <div class=\"flex flex-col gap-1\">\n                  <span class=\"text-lg-semibold text-ink-gray-8\">{{\n                    __('Allowed domains')\n                  }}</span>\n                  <span class=\"text-p-sm text-ink-gray-6\">\n                    {{"
+  },
+  {
+   "key": "An SLA set as default cannot be disabled",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyList.vue:254",
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyView.vue:385"
+   ],
+   "current": null,
+   "context": "\nconst onToggle = (sla) => {\n  if (sla.default) {\n    toast.error(__('An SLA set as default cannot be disabled'))\n    return\n  }\n  slaPolicyListResource.setValue.submit("
+  },
+  {
+   "key": "Another CRM",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:64"
+   ],
+   "current": null,
+   "context": "      { label: __('Salesforce'), value: 'salesforce' },\n      { label: __('Zoho CRM'), value: 'zoho' },\n      { label: __('Pipedrive'), value: 'pipedrive' },\n      { label: __('Another CRM'), value: 'other_crm' },\n      { label: __('Other'), value: 'other' },\n    ],\n  },"
+  },
+  {
+   "key": "Any failed lead syncs will show up here",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/FailureLogs.vue:69"
+   ],
+   "current": null,
+   "context": "      resizeColumn: false,\n      emptyState: {\n        title: __('No Failure Logs Found'),\n        description: __('Any failed lead syncs will show up here'),\n      },\n      onRowClick: (row) => {\n        selectedLog = row"
+  },
+  {
+   "key": "Appearance",
+   "refs": [
+    "crm/frontend/src/components/Settings/PreferencesSettings.vue:16"
+   ],
+   "current": null,
+   "context": "        <div class=\"flex items-center justify-between\">\n          <div class=\"flex gap-2 items-center\">\n            <div class=\"text-base-semibold text-ink-gray-9\">\n              {{ __('Appearance') }}\n            </div>\n          </div>\n        </div>"
+  },
+  {
+   "key": "Are you sure you want to clear demo data? This action cannot be undone.",
+   "refs": [
+    "crm/frontend/src/composables/demoData.js:21"
+   ],
+   "current": null,
+   "context": "  const clearDemoData = () => {\n    $dialog({\n      title: __('Clear Demo Data'),\n      message: __(\n        'Are you sure you want to clear demo data? This action cannot be undone.',\n      ),\n      actions: ["
+  },
+  {
+   "key": "Are you sure you want to remove this tab and all its content?",
+   "refs": [
+    "crm/frontend/src/components/FieldLayoutEditor.vue:428"
+   ],
+   "current": null,
+   "context": "        }\n        $dialog({\n          title: __('Remove Tab'),\n          message: __(\n            'Are you sure you want to remove this tab and all its content?',\n          ),\n          variant: 'danger',"
+  },
+  {
+   "key": "Assign condition is required",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:430"
+   ],
+   "current": null,
+   "context": "        assignmentRuleErrors.value.assignCondition =\n          assignmentRuleData.value.assignConditionJson?.length > 0\n            ? ''\n            : __('Assign condition is required')\n\n        if (!validateConditions(assignmentRuleData.value.assignConditionJson)) {\n          assignmentRuleErrors.value.assignConditionError = __("
+  },
+  {
+   "key": "Assign conditions are invalid",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:433"
+   ],
+   "current": null,
+   "context": "            : __('Assign condition is required')\n\n        if (!validateConditions(assignmentRuleData.value.assignConditionJson)) {\n          assignmentRuleErrors.value.assignConditionError = __(\n            'Assign conditions are invalid',\n          )\n        } else {"
+  },
+  {
+   "key": "Assign To Me",
+   "refs": [
+    "crm/frontend/src/components/AssignToBody.vue:67"
+   ],
+   "current": null,
+   "context": "        class=\"text-base text-ink-gray-5 cursor-pointer select-none\"\n        @click=\"assignToMe = !assignToMe\"\n      >\n        {{ __('Assign To Me') }}\n      </div>\n      <Switch v-model=\"assignToMe\" @click.stop />\n    </div>"
+  },
+  {
+   "key": "Assignment Cleared Successfully",
+   "refs": [
+    "crm/frontend/src/components/ListBulkActions.vue:152"
+   ],
+   "current": null,
+   "context": "            names: JSON.stringify(Array.from(selections)),\n            ignore_permissions: true,\n          }).then(() => {\n            toast.success(__('Assignment Cleared Successfully'))\n            reload(unselectAll)\n            close()\n          })"
+  },
+  {
+   "key": "Assignment Condition",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:145",
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:600",
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:601"
+   ],
+   "current": null,
+   "context": "      <div>\n        <div class=\"flex flex-col gap-1\">\n          <span class=\"text-lg-semibold text-ink-gray-8\">{{\n            __('Assignment Condition')\n          }}</span>\n          <div class=\"flex items-center justify-between gap-6\">\n            <span class=\"text-p-sm text-ink-gray-6\">"
+  },
+  {
+   "key": "Assignment conditions",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyView.vue:104"
+   ],
+   "current": null,
+   "context": "        <div>\n          <div class=\"flex flex-col gap-1\">\n            <span class=\"text-lg-semibold text-ink-gray-8\">{{\n              __('Assignment conditions')\n            }}</span>\n            <span class=\"text-p-sm text-ink-gray-6\">\n              {{ __('Choose which leads/deals are affected by this policy.') }}"
+  },
+  {
+   "key": "Assignment conditions are invalid or corrupt, recreate the conditions.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyView.vue:306"
+   ],
+   "current": null,
+   "context": "      condition_json = JSON.parse(data.condition_json || '[]')\n    } catch {\n      toast.error(\n        __(\n          'Assignment conditions are invalid or corrupt, recreate the conditions.',\n        ),\n      )"
+  },
+  {
+   "key": "Assignment Days are required",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:466"
+   ],
+   "current": null,
+   "context": "        assignmentRuleErrors.value.assignmentDays =\n          assignmentRuleData.value.assignmentDays?.length > 0\n            ? ''\n            : __('Assignment Days are required')\n        break\n      default:\n        break"
+  },
+  {
+   "key": "Assignment rule created",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:696"
+   ],
+   "current": null,
+   "context": "          capture('assignment_rule_created', {\n            doctype: assignmentRuleData.value.documentType,\n          })\n          toast.success(__('Assignment rule created'))\n        })\n      updateStep('view', data)\n    },"
+  },
+  {
+   "key": "Assignment rule deleted",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleListItem.vue:126"
+   ],
+   "current": null,
+   "context": "    onSuccess: () => {\n      assignmentRulesList.reload()\n      isConfirmingDelete.value = false\n      toast.success(__('Assignment rule deleted'))\n    },\n    auto: true,\n  })"
+  },
+  {
+   "key": "Assignment rule duplicated",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleListItem.vue:158"
+   ],
+   "current": null,
+   "context": "    },\n    onSuccess: (data) => {\n      assignmentRulesList.reload()\n      toast.success(__('Assignment rule duplicated'))\n      duplicateDialog.value.show = false\n      duplicateDialog.value.name = ''\n      updateStep('view', data)"
+  },
+  {
+   "key": "Assignment rule updated",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:778"
+   ],
+   "current": null,
+   "context": "    getAssignmentRuleData.reload()\n  }\n  isLoading.value = false\n  toast.success(__('Assignment rule updated'))\n}\n\nwatch("
+  },
+  {
+   "key": "Assignment rule {0} updated",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleListItem.vue:191"
+   ],
+   "current": null,
+   "context": "    },\n    onSuccess: () => {\n      assignmentRulesList.reload()\n      toast.success(__('Assignment rule {0} updated', [fieldName || key]))\n    },\n    auto: true,\n  })"
+  },
+  {
+   "key": "At least one priority is required",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/utils.js:116"
+   ],
+   "current": null,
+   "context": "          !Array.isArray(slaData.value.priorities) ||\n          slaData.value.priorities.length === 0\n        ) {\n          slaDataErrors.value.priorities = __(\n            'At least one priority is required',\n          )\n        } else {"
+  },
+  {
+   "key": "At least one valid workday with a day, start time, and end time is required",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/utils.js:204"
+   ],
+   "current": null,
+   "context": "        )\n\n        if (!validWorkdays?.length) {\n          slaDataErrors.value.working_hours = __(\n            'At least one valid workday with a day, start time, and end time is required',\n          )\n        } else {"
+  },
+  {
+   "key": "Attach file…",
+   "refs": [
+    "crm/frontend/src/components/Controls/AttachControl.vue:14"
+   ],
+   "current": null,
+   "context": "      aria-hidden=\"true\"\n    />\n    <span class=\"whitespace-nowrap text-ink-gray-4\">{{\n      __('Attach file…')\n    }}</span>\n  </div>\n"
+  },
+  {
+   "key": "Auto Create Customer",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:270"
+   ],
+   "current": null,
+   "context": "              <div class=\"flex items-center justify-between py-3 px-2\">\n                <div class=\"flex flex-col\">\n                  <div class=\"text-p-base-medium text-ink-gray-7 truncate\">\n                    {{ __('Auto Create Customer') }}\n                  </div>\n                  <div class=\"text-p-sm text-ink-gray-5 truncate\">\n                    {{"
+  },
+  {
+   "key": "Auto update Expected Deal Value",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Automatically update \\\"Expected Deal Value\\\" based on the total value of associated products in a deal\",\n   \"fieldname\": \"auto_update_expected_deal_value\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Auto update Expected Deal Value\"\n  },\n  {\n   \"default\": \"1\","
+  },
+  {
+   "key": "Auto-assign leads/deals to the right sales user based on predefined conditions",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRules.vue:11"
+   ],
+   "current": null,
+   "context": "        </h2>\n        <p class=\"text-p-base text-ink-gray-6\">\n          {{\n            __(\n              'Auto-assign leads/deals to the right sales user based on predefined conditions',\n            )\n          }}"
+  },
+  {
+   "key": "Automatically sets Communication Status to “Open” for the lead or deal when a new communication is created. Applies only when SLA is enabled",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Automatically sets communication status to “Open” for the lead or deal when a new communication is created. Applies only when SLA is enabled",
+   "refs": [
+    "crm/frontend/src/components/Settings/GeneralSettings.vue:64"
+   ],
+   "current": null,
+   "context": "          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{\n              __(\n                'Automatically sets communication status to “Open” for the lead or deal when a new communication is created. Applies only when SLA is enabled',\n              )\n            }}"
+  },
+  {
+   "key": "Automatically sets Communication Status to “Replied” for the lead or deal when a response is received. Applies only when SLA is enabled",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Automatically sets communication status to “Replied” for the lead or deal when a response is received. Applies only when SLA is enabled",
+   "refs": [
+    "crm/frontend/src/components/Settings/GeneralSettings.vue:42"
+   ],
+   "current": null,
+   "context": "          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{\n              __(\n                'Automatically sets communication status to “Replied” for the lead or deal when a response is received. Applies only when SLA is enabled',\n              )\n            }}"
+  },
+  {
+   "key": "Back to All Logs",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/FailureLogs.vue:9"
+   ],
+   "current": null,
+   "context": "        icon-left=\"lucide-chevron-left\"\n        @click=\"selectedLog = null\"\n      >\n        {{ __('Back to All Logs') }}\n      </Button>\n      <Button\n        v-if=\"logDoc?.document?.retrySync && selectedLog.type != 'Synced'\""
+  },
+  {
+   "key": "Back to previous question",
+   "refs": [
+    "crm/frontend/src/components/Questionnaire.vue:94"
+   ],
+   "current": null,
+   "context": "  progress: (n, total) => __('Step {0} of {1}', [n, total]),\n  complete: (pct) => __('{0}% complete', [pct]),\n  selectMultiple: __('Select all that apply'),\n  back: __('Back to previous question'),\n  next: __('Next question'),\n  finish: __('Finish'),\n  skip: __('Skip for now'),"
+  },
+  {
+   "key": "Background Sync Frequency",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.json",
+    "crm/frontend/src/components/Settings/LeadSyncing/LeadSyncSourceForm.vue:83"
+   ],
+   "current": null,
+   "context": "   \"default\": \"Hourly\",\n   \"fieldname\": \"background_sync_frequency\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Background Sync Frequency\",\n   \"options\": \"Every 5 Minutes\\nEvery 10 Minutes\\nEvery 15 Minutes\\nHourly\\nDaily\\nMonthly\",\n   \"reqd\": 1\n  }"
+  },
+  {
+   "key": "Basic settings for this form.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:302"
+   ],
+   "current": null,
+   "context": "                    __('Form details')\n                  }}</span>\n                  <span class=\"text-p-sm text-ink-gray-6\">{{\n                    __('Basic settings for this form.')\n                  }}</span>\n                </div>\n                <div class=\"mt-3.5 flex flex-col gap-4\">"
+  },
+  {
+   "key": "Bidirectional Product Sync",
+   "refs": [
+    "crm/crm/fcrm/doctype/erpnext_crm_settings/erpnext_crm_settings.json",
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:216"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:doc.enabled && !doc.is_erpnext_in_different_site\",\n   \"fieldname\": \"sync_products\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Bidirectional Product Sync\"\n  },\n  {\n   \"fieldname\": \"section_break_jnbn\","
+  },
+  {
+   "key": "Bulk operation is enqueued in background. Failures, if any, are recorded in Error Log.",
+   "refs": [
+    "crm/frontend/src/components/Modals/EditValueModal.vue:218"
+   ],
+   "current": null,
+   "context": "    emit('reload')\n    if (!Array.isArray(failed)) {\n      toast.info(\n        __(\n          'Bulk operation is enqueued in background. Failures, if any, are recorded in Error Log.',\n        ),\n      )"
+  },
+  {
+   "key": "Call connected, but the call log could not be saved. Please contact your administrator.",
+   "refs": [
+    "crm/frontend/src/components/Telephony/ExotelCallUI.vue:401"
+   ],
+   "current": null,
+   "context": "\n      if (callDetails.call_log_creation_failed) {\n        toast.warning(\n          __(\n            'Call connected, but the call log could not be saved. Please contact your administrator.',\n          ),\n        )"
+  },
+  {
+   "key": "Call log not found",
+   "refs": [
+    "crm/crm/integrations/api.py:259",
+    "crm/crm/integrations/twilio/api.py:174",
+    "crm/crm/integrations/twilio/api.py:192"
+   ],
+   "current": null,
+   "context": "\tread the recording's duration (shows 0:00) or seek within it.\n\t\"\"\"\n\tif not call_log_name or not frappe.db.exists(\"CRM Call Log\", call_log_name):\n\t\tfrappe.throw(_(\"Call log not found\"), frappe.DoesNotExistError)\n\n\tlog = frappe.get_doc(\"CRM Call Log\", call_log_name)\n\tlog.check_permission(\"read\")"
+  },
+  {
+   "key": "Can't retry sync for this without source!",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/failed_lead_sync_log/failed_lead_sync_log.py:28"
+   ],
+   "current": null,
+   "context": "\t@frappe.whitelist()\n\tdef retry_sync(self):\n\t\tif not self.source:\n\t\t\tfrappe.throw(frappe._(\"Can't retry sync for this without source!\"))\n\n\t\tsource = frappe.get_cached_doc(\"Lead Sync Source\", self.source)\n\t\tif source.type != \"Facebook\":"
+  },
+  {
+   "key": "Cannot assign this role",
+   "refs": [
+    "crm/crm/api/user.py:147"
+   ],
+   "current": null,
+   "context": "\tis_system_manager = \"System Manager\" in frappe.get_roles()\n\n\tif new_role not in [\"System Manager\", \"Sales Manager\", \"Sales User\"]:\n\t\tfrappe.throw(_(\"Cannot assign this role\"))\n\n\tuser_doc = frappe.get_doc(\"User\", user)\n\ttarget_roles = [d.role for d in user_doc.roles]"
+  },
+  {
+   "key": "Cannot convert a lead with status {0}",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_lead/crm_lead.py:510"
+   ],
+   "current": null,
+   "context": "\t\"\"\"Convert a Lead into a Deal.\n\n\t`if_converted` decides what an already-converted Lead does: \"Create\" (the interactive\n\tdefault) makes another Deal, \"Return Existing\" replays the first one - which is what makes\n\tan automation retry idempotent - and \"Fail\" refuses.\n\t\"\"\"\n\tvalidate_conversion_access(lead, doc)"
+  },
+  {
+   "key": "Cannot delete: linked ERPNext Item {0} is referenced by a Quotation. Remove the reference or delete the Item in ERPNext first.",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_product/crm_product.py:81"
+   ],
+   "current": null,
+   "context": "\t\t\tself.erpnext_item_code,\n\t\t):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Cannot delete: linked ERPNext Item {0} is referenced by a Quotation. \"\n\t\t\t\t\t\"Remove the reference or delete the Item in ERPNext first.\"\n\t\t\t\t).format(self.erpnext_item_code)"
+  },
+  {
+   "key": "Cannot invite for this role",
+   "refs": [
+    "crm/crm/api/__init__.py:122"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.throw(_(\"You are not allowed to invite Sales Managers\"), frappe.PermissionError)\n\n\tif role not in [\"System Manager\", \"Sales Manager\", \"Sales User\"]:\n\t\tfrappe.throw(_(\"Cannot invite for this role\"), frappe.PermissionError)\n\n\tif not emails:\n\t\treturn"
+  },
+  {
+   "key": "Cannot move a manager under one of their own reports",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/useDragDrop.js:73"
+   ],
+   "current": null,
+   "context": "              src.role_label,\n              target.role_label,\n            ])\n          : __('Cannot move a manager under one of their own reports'),\n      )\n      return\n    }"
+  },
+  {
+   "key": "Cannot rename: an unrelated {0} '{1}' already exists on the other side. Resolve manually first.",
+   "refs": [
+    "crm/crm/integrations/erpnext/utils.py:72"
+   ],
+   "current": null,
+   "context": "\t\texisting_link = frappe.db.get_value(other_doctype, newdn, other_link_field)\n\t\tif existing_link != olddn:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Cannot rename: an unrelated {0} '{1}' already exists on the \"\n\t\t\t\t\t\"other side. Resolve manually first.\"\n\t\t\t\t).format(other_doctype, newdn)"
+  },
+  {
+   "key": "Capture leads and deals from public forms you embed on your website.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:11"
+   ],
+   "current": null,
+   "context": "        </h2>\n        <p class=\"text-p-base text-ink-gray-6\">\n          {{\n            __(\n              'Capture leads and deals from public forms you embed on your website.',\n            )\n          }}"
+  },
+  {
+   "key": "Capture leads with a form",
+   "refs": [
+    "crm/frontend/src/components/Layouts/AppSidebar.vue:534"
+   ],
+   "current": null,
+   "context": "          }\n        },\n      }\n      showIntermediateModal.value = true\n    },\n  },\n  {"
+  },
+  {
+   "key": "Capture my first lead",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:122"
+   ],
+   "current": null,
+   "context": "    optional: true,\n    options: [\n      { label: __('Import my existing data'), value: 'import_data' },\n      { label: __('Capture my first lead'), value: 'capture_lead' },\n      { label: __('Set up my sales pipeline'), value: 'setup_pipeline' },\n      { label: __('Organize my contacts'), value: 'organize_contacts' },\n      { label: __('Invite my team'), value: 'invite_team' },"
+  },
+  {
+   "key": "Capturing Leads",
+   "refs": [
+    "crm/frontend/src/components/Layouts/AppSidebar.vue:760"
+   ],
+   "current": null,
+   "context": "  {\n    title: __('Frappe CRM mobile'),\n    opened: false,\n    subArticles: [\n      { name: 'mobile-app-installation', title: __('Mobile App Installation') },\n    ],\n  },"
+  },
+  {
+   "key": "Change & remove fields",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:1386"
+   ],
+   "current": null,
+   "context": "    variant: 'danger',\n    actions: [\n      {\n        label: __('Change & remove fields'),\n        variant: 'solid',\n        theme: 'red',\n        onClick: (close) => {"
+  },
+  {
+   "key": "Change form type?",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:1378"
+   ],
+   "current": null,
+   "context": "    return\n  }\n  $dialog({\n    title: __('Change form type?'),\n    message: __(\n      \"Switching to {0} will remove {1} field(s) that don't exist on {0}. This can't be undone.\",\n      [docLabel(newDt), wouldDrop],"
+  },
+  {
+   "key": "Change language of the application.",
+   "refs": [
+    "crm/frontend/src/components/Settings/PreferencesSettings.vue:60"
+   ],
+   "current": null,
+   "context": "              {{ __('Language') }}\n            </span>\n            <span class=\"text-p-sm text-ink-gray-6\">\n              {{ __('Change language of the application.') }}\n            </span>\n          </div>\n          <Link v-model=\"user.doc.language\" doctype=\"Language\" class=\"w-40\" />"
+  },
+  {
+   "key": "Change Photo",
+   "refs": [
+    "crm/frontend/src/components/Settings/Profile/ProfileSettings.vue:162"
+   ],
+   "current": null,
+   "context": "\nconst profileTooltipText = computed(() => {\n  if (isHoveringRemove.value) return __('Remove Photo')\n  return user.doc.user_image ? __('Change Photo') : __('Upload Photo')\n})\n\nconst fullNameRef = useTemplateRef('fullNameRef')"
+  },
+  {
+   "key": "Change timezone of the application.",
+   "refs": [
+    "crm/frontend/src/components/Settings/PreferencesSettings.vue:71"
+   ],
+   "current": null,
+   "context": "              {{ __('Timezone') }}\n            </span>\n            <span class=\"text-p-sm text-ink-gray-6\">\n              {{ __('Change timezone of the application.') }}\n            </span>\n          </div>\n          <Combobox"
+  },
+  {
+   "key": "Change your account password for security.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Profile/ProfileSettings.vue:117"
+   ],
+   "current": null,
+   "context": "              {{ __('Password') }}\n            </span>\n            <span class=\"text-p-sm text-ink-gray-6\">\n              {{ __('Change your account password for security.') }}\n            </span>\n          </div>\n          <Button"
+  },
+  {
+   "key": "Choose how long this SLA policy will be active.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyView.vue:171"
+   ],
+   "current": null,
+   "context": "              {{ __('Valid From') }}\n            </span>\n            <span class=\"text-p-sm text-ink-gray-6\">\n              {{ __('Choose how long this SLA policy will be active.') }}\n            </span>\n          </div>\n          <div class=\"mt-3.5 flex gap-5 flex-col md:flex-row\">"
+  },
+  {
+   "key": "Choose how you want to use the application by setting your preferences.",
+   "refs": [
+    "crm/frontend/src/components/Settings/PreferencesSettings.vue:6"
+   ],
+   "current": null,
+   "context": "    v-if=\"user.doc\"\n    :title=\"__('Preferences')\"\n    :description=\"\n      __(\n        'Choose how you want to use the application by setting your preferences.',\n      )\n    \""
+  },
+  {
+   "key": "Choose the email service provider you want to configure.",
+   "refs": [
+    "crm/frontend/src/components/Settings/EmailAdd.vue:9"
+   ],
+   "current": null,
+   "context": "        {{ __('Setup Email') }}\n      </h2>\n      <p class=\"text-sm text-ink-gray-5\">\n        {{ __('Choose the email service provider you want to configure.') }}\n      </p>\n    </div>\n    <!-- email service provider selection -->"
+  },
+  {
+   "key": "Choose which leads/deals are affected by this policy.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyView.vue:107"
+   ],
+   "current": null,
+   "context": "              __('Assignment conditions')\n            }}</span>\n            <span class=\"text-p-sm text-ink-gray-6\">\n              {{ __('Choose which leads/deals are affected by this policy.') }}\n            </span>\n          </div>\n          <div class=\"mt-3\">"
+  },
+  {
+   "key": "Clear All Filters",
+   "refs": [
+    "crm/frontend/src/components/Filter.vue:21",
+    "crm/frontend/src/components/Filter.vue:151"
+   ],
+   "current": null,
+   "context": "        </Button>\n        <Button\n          v-if=\"filters?.size\"\n          :tooltip=\"__('Clear All Filters')\"\n          class=\"rounded-l-none border-l\"\n          icon=\"lucide-x\"\n          @click.stop=\"clearfilter(close)\""
+  },
+  {
+   "key": "Click to rename",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FieldCard.vue:28"
+   ],
+   "current": null,
+   "context": "      <div\n        v-else\n        class=\"group/label flex min-w-0 flex-1 cursor-text items-center\"\n        :title=\"__('Click to rename')\"\n        @click=\"beginEdit\"\n      >\n        <span"
+  },
+  {
+   "key": "Close my first deal",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:126"
+   ],
+   "current": null,
+   "context": "      { label: __('Set up my sales pipeline'), value: 'setup_pipeline' },\n      { label: __('Organize my contacts'), value: 'organize_contacts' },\n      { label: __('Invite my team'), value: 'invite_team' },\n      { label: __('Close my first deal'), value: 'close_deal' },\n      { label: __('Just exploring'), value: 'exploring' },\n    ],\n  },"
+  },
+  {
+   "key": "Collaborating with my team",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:100"
+   ],
+   "current": null,
+   "context": "        label: __('Managing contacts and companies'),\n        value: 'managing_contacts',\n      },\n      { label: __('Collaborating with my team'), value: 'team_collaboration' },\n      { label: __('Reporting & forecasting'), value: 'reporting_forecasting' },\n      { label: __('Replacing my current CRM'), value: 'replacing_crm' },\n      { label: __('Other'), value: 'other' },"
+  },
+  {
+   "key": "Comment sent",
+   "refs": [
+    "crm/frontend/src/components/CommunicationArea.vue:298"
+   ],
+   "current": null,
+   "context": "  const sending = sendComment()\n  toast.promise(sending, {\n    loading: __('Sending comment...'),\n    success: __('Comment sent'),\n    error: (e) => e?.messages?.[0] || __('Failed to send comment!'),\n  })\n  try {"
+  },
+  {
+   "key": "Company in ERPNext site",
+   "refs": [
+    "crm/crm/fcrm/doctype/erpnext_crm_settings/erpnext_crm_settings.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"enabled\",\n   \"fieldname\": \"erpnext_company\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Company in ERPNext site\",\n   \"mandatory_depends_on\": \"enabled\"\n  },\n  {"
+  },
+  {
+   "key": "Company name is required",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:791"
+   ],
+   "current": null,
+   "context": "  let error = ''\n\n  if (!erpnextCRMSettingsResource.doc.erpnext_company) {\n    error = __('Company name is required')\n  } else if (\n    erpnextCRMSettingsResource.doc.create_customer_on_status_change &&\n    !erpnextCRMSettingsResource.doc.deal_status"
+  },
+  {
+   "key": "Conditional logic",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FieldCard.vue:118"
+   ],
+   "current": null,
+   "context": "      <div class=\"space-y-3 border-t border-outline-gray-2 pt-3\">\n        <div class=\"flex items-center gap-1.5\">\n          <span class=\"text-base text-ink-gray-5\">{{\n            __('Conditional logic')\n          }}</span>\n          <Tooltip\n            :text=\""
+  },
+  {
+   "key": "Configure default settings for your CRM system, including default currency, date formats, and other system-wide preferences to ensure consistency across your system.",
+   "refs": [
+    "crm/frontend/src/components/Settings/DefaultsSettings.vue:10"
+   ],
+   "current": null,
+   "context": "        </h2>\n        <p class=\"text-p-base text-ink-gray-6\">\n          {{\n            __(\n              'Configure default settings for your CRM system, including default currency, date formats, and other system-wide preferences to ensure consistency across your system.',\n            )\n          }}"
+  },
+  {
+   "key": "Configure general settings for your application",
+   "refs": [
+    "crm/frontend/src/components/Settings/GeneralSettings.vue:8"
+   ],
+   "current": null,
+   "context": "        {{ __('General Settings') }}\n      </h2>\n      <p class=\"text-p-base text-ink-gray-6\">\n        {{ __('Configure general settings for your application') }}\n      </p>\n    </div>\n"
+  },
+  {
+   "key": "Configure how your dashboard calculates, formats, and displays key metrics, including forecasting, deal values, and currency settings",
+   "refs": [
+    "crm/frontend/src/components/Settings/DashboardSettings.vue:10"
+   ],
+   "current": null,
+   "context": "        </h2>\n        <p class=\"text-p-base text-ink-gray-6\">\n          {{\n            __(\n              'Configure how your dashboard calculates, formats, and displays key metrics, including forecasting, deal values, and currency settings',\n            )\n          }}"
+  },
+  {
+   "key": "Configure telephony settings for your CRM",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:18"
+   ],
+   "current": null,
+   "context": "          />\n        </h2>\n        <p class=\"text-p-base text-ink-gray-6\">\n          {{ __('Configure telephony settings for your CRM') }}\n        </p>\n      </div>\n      <div class=\"flex item-center space-x-2 w-3/12 justify-end\">"
+  },
+  {
+   "key": "Configure the exchange rate provider for your CRM",
+   "refs": [
+    "crm/frontend/src/components/Settings/DashboardSettings.vue:102"
+   ],
+   "current": null,
+   "context": "            {{ __('Exchange Rate Provider') }}\n          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{ __('Configure the exchange rate provider for your CRM') }}\n          </div>\n        </div>\n        <div class=\"flex items-center gap-2\">"
+  },
+  {
+   "key": "Configure your brand name, logo and favicon",
+   "refs": [
+    "crm/frontend/src/components/Settings/BrandSettings.vue:10"
+   ],
+   "current": null,
+   "context": "          {{ __('Brand Settings') }}\n        </h2>\n        <p class=\"text-p-base text-ink-gray-6\">\n          {{ __('Configure your brand name, logo and favicon') }}\n        </p>\n      </div>\n      <div class=\"flex item-center space-x-2 w-3/12 justify-end\">"
+  },
+  {
+   "key": "Configure your Exotel telephony integration settings here",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:202"
+   ],
+   "current": null,
+   "context": "          </span>\n          <span class=\"text-p-sm text-ink-gray-6\">\n            {{\n              __('Configure your Exotel telephony integration settings here')\n            }}\n          </span>\n        </div>"
+  },
+  {
+   "key": "Configure your Twilio telephony integration settings here",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:175"
+   ],
+   "current": null,
+   "context": "          </span>\n          <span class=\"text-p-sm text-ink-gray-6\">\n            {{\n              __('Configure your Twilio telephony integration settings here')\n            }}\n          </span>\n        </div>"
+  },
+  {
+   "key": "Confirm Overwrite",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:635",
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyView.vue:412"
+   ],
+   "current": null,
+   "context": "    if (isOldSla.value && useNewUI.value) {\n      showConfirmDialog.value = {\n        show: true,\n        title: __('Confirm Overwrite'),\n        message: __(\n          'Your old condition will be overwritten. Are you sure you want to save?',\n        ),"
+  },
+  {
+   "key": "Connect ERPNext to Frappe CRM",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:436"
+   ],
+   "current": null,
+   "context": "            <ERPNextIcon class=\"size-7.5 text-ink-gray-5\" />\n            <div class=\"flex flex-col items-center gap-1.5 text-center\">\n              <span class=\"text-lg-medium text-ink-gray-8\">\n                {{ __('Connect ERPNext to Frappe CRM') }}\n              </span>\n              <span class=\"text-center text-p-base text-ink-gray-6\">\n                {{"
+  },
+  {
+   "key": "Connect your Email",
+   "refs": [
+    "crm/frontend/src/pages/Welcome.vue:35"
+   ],
+   "current": null,
+   "context": "            {{ __('Sync your Contacts, Email and Calendars') }}\n          </div>\n        </div>\n        <Button variant=\"outline\" :label=\"__('Connect your Email')\" />\n      </div>\n    </div>\n    <Button"
+  },
+  {
+   "key": "Contact already exists with {0}",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_lead/crm_lead.py:303"
+   ],
+   "current": null,
+   "context": "\t\t\tvalue = \"{0}: {1}\".format(text, data)\n\n\t\t\tcontact = frappe.db.get_value(doctype, name, \"parent\")\n\n\t\t\tif throw:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"Contact already exists with {0}\").format(value),"
+  },
+  {
+   "key": "Contact Image Updated",
+   "refs": [
+    "crm/frontend/src/pages/MobileContact.vue:273"
+   ],
+   "current": null,
+   "context": "  contact.doc.image = file?.file_url || ''\n  contact.save.submit(null, {\n    onSuccess: () => {\n      toast.success(__('Contact Image Updated'))\n    },\n  })\n}"
+  },
+  {
+   "key": "Contact sales",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:99"
+   ],
+   "current": null,
+   "context": "          v-model=\"draft.title\"\n          type=\"text\"\n          :label=\"__('Title')\"\n          :placeholder=\"__('Contact sales')\"\n          @input=\"onTitleInput\"\n        />\n        <FormControl"
+  },
+  {
+   "key": "contact-sales",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:117"
+   ],
+   "current": null,
+   "context": "            <span class=\"shrink-0 text-ink-gray-4\">/crm-form/</span>\n            <input\n              v-model=\"draft.route\"\n              :placeholder=\"__('contact-sales')\"\n              class=\"min-w-0 flex-1 border-0 bg-transparent p-0 text-base text-ink-gray-8 placeholder:text-ink-gray-4 focus:outline-none focus:ring-0\"\n              @input=\"routeEdited = true\"\n            />"
+  },
+  {
+   "key": "Controls how numbers are displayed (e.g., commas, decimal separators)",
+   "refs": [
+    "crm/frontend/src/components/Settings/DefaultsSettings.vue:75"
+   ],
+   "current": null,
+   "context": "          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{\n              __(\n                'Controls how numbers are displayed (e.g., commas, decimal separators)',\n              )\n            }}"
+  },
+  {
+   "key": "Converted Successfully",
+   "refs": [
+    "crm/frontend/src/components/ListBulkActions.vue:94"
+   ],
+   "current": null,
+   "context": "            call('crm.fcrm.doctype.crm_lead.crm_lead.convert_to_deal', {\n              lead: name,\n            }).then(() => {\n              toast.success(__('Converted Successfully'))\n              list.value.reload()\n              unselectAll()\n              close()"
+  },
+  {
+   "key": "converted the lead to this deal",
+   "refs": [
+    "crm/crm/api/activities.py:53"
+   ],
+   "current": null,
+   "context": "\tcreation_text = _(\"created this deal\")\n\n\tif lead:\n\t\tcreation_text = _(\"converted the lead to this deal\")\n\t\t# a user can have access to the deal but not the lead it came from, so\n\t\t# skip the lead's history instead of failing the whole timeline\n\t\tif frappe.has_permission(\"CRM Lead\", \"read\", lead):"
+  },
+  {
+   "key": "Copied to Clipboard",
+   "refs": [
+    "crm/frontend/src/utils/index.js:426"
+   ],
+   "current": null,
+   "context": "    document.body.removeChild(input)\n  }\n  function showSuccessAlert() {\n    toast.success(__('Copied to Clipboard'))\n  }\n}\n"
+  },
+  {
+   "key": "Copy",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:449"
+   ],
+   "current": null,
+   "context": "                      />\n                      <button\n                        class=\"absolute right-2 top-2 flex text-ink-gray-5 transition-colors hover:text-ink-gray-8\"\n                        :title=\"__('Copy')\"\n                        @click=\"\n                          copyToClipboard(iframeSnippet),\n                            capture('form_embed_copied', {"
+  },
+  {
+   "key": "Copy link",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:394",
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:273"
+   ],
+   "current": null,
+   "context": "                    <template #suffix>\n                      <button\n                        class=\"flex text-ink-gray-5 transition-colors hover:text-ink-gray-8\"\n                        :title=\"__('Copy link')\"\n                        @click=\"\n                          copyToClipboard(publicUrl),\n                            capture('form_embed_copied', { embed_type: 'link' })"
+  },
+  {
+   "key": "Could not create document",
+   "refs": [
+    "crm/frontend/src/components/Modals/DoctypeModal.vue:125"
+   ],
+   "current": null,
+   "context": "      error.value = __('Mandatory field error: {0}', [fieldName])\n      return\n    }\n    error.value = err.messages?.[0] || __('Could not create document')\n  },\n})\n"
+  },
+  {
+   "key": "Could not create form",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:230"
+   ],
+   "current": null,
+   "context": "    toast.success(__('Form created'))\n  } catch (e) {\n    createError.value =\n      e?.messages?.[0] || e?.message || __('Could not create form')\n  } finally {\n    creating.value = false\n  }"
+  },
+  {
+   "key": "Could not create the Frappe CRM custom fields on {0} automatically. If it is running the latest ERPNext, enable <b>Frappe CRM Data Synchronization</b> in its CRM Settings, Otherwise check the Error Log.",
+   "refs": [
+    "crm/crm/fcrm/doctype/erpnext_crm_settings/erpnext_crm_settings.py:157"
+   ],
+   "current": null,
+   "context": "\t\t\t\tf\"Could not create custom fields on remote ERPNext site: {self.erpnext_site_url}\",\n\t\t\t)\n\t\t\tfrappe.msgprint(\n\t\t\t\t_(\n\t\t\t\t\t\"Could not create the Frappe CRM custom fields on {0} automatically. \"\n\t\t\t\t\t\"If it is running the latest ERPNext, enable <b>Frappe CRM Data Synchronization</b> \"\n\t\t\t\t\t\"in its CRM Settings, Otherwise check the Error Log.\""
+  },
+  {
+   "key": "Could not grant guest access.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:860"
+   ],
+   "current": null,
+   "context": "      toast.success(__('Guests can now select {0} records.', [doctype]))\n    }\n  } catch (e) {\n    toast.error(e?.messages?.[0] || __('Could not grant guest access.'))\n  } finally {\n    grantingSelect[doctype] = false\n  }"
+  },
+  {
+   "key": "Could not remove.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/useRemoveNode.js:16"
+   ],
+   "current": null,
+   "context": "      toast.success(__('Removed from hierarchy.'))\n      nodes.reload()\n    } catch (e) {\n      toast.error(e?.messages?.[0] || __('Could not remove.'))\n    }\n  }\n"
+  },
+  {
+   "key": "Could not save",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:1521"
+   ],
+   "current": null,
+   "context": "    return true\n  } catch (e) {\n    if (!silent)\n      toast.error(e?.messages?.[0] || e?.message || __('Could not save'))\n    return false\n  } finally {\n    saving.value = false"
+  },
+  {
+   "key": "Could not save, try again",
+   "refs": [
+    "crm/frontend/src/components/PrimaryDropdownItem.vue:181",
+    "crm/frontend/src/components/PrimaryDropdownItem.vue:188"
+   ],
+   "current": null,
+   "context": "    )\n    // A failed save stays editable instead of showing the value as saved\n    if (!saved) {\n      errorMessage.value = __('Could not save, try again')\n      nextTick(() => inputRef.value?.el?.focus())\n      return\n    }"
+  },
+  {
+   "key": "Could not update document",
+   "refs": [
+    "crm/frontend/src/components/Modals/DoctypeModal.vue:147"
+   ],
+   "current": null,
+   "context": "      show.value = false\n    },\n    onError: (err) => {\n      error.value = err.messages?.[0] || __('Could not update document')\n    },\n  })\n}"
+  },
+  {
+   "key": "Could not update form",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:247"
+   ],
+   "current": null,
+   "context": "    toast.success(value ? __('Form published') : __('Form unpublished'))\n  } catch (e) {\n    forms.reload()\n    toast.error(e?.messages?.[0] || __('Could not update form'))\n  }\n}\n"
+  },
+  {
+   "key": "Could not update report to",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:473"
+   ],
+   "current": null,
+   "context": "    toast.success(__('Updated reports to'))\n    nodes.reload()\n  } catch (e) {\n    toast.error(e?.messages?.[0] || __('Could not update report to'))\n  }\n}\n"
+  },
+  {
+   "key": "Create customer in ERPNext when the deal status is changed",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:274"
+   ],
+   "current": null,
+   "context": "                  </div>\n                  <div class=\"text-p-sm text-ink-gray-5 truncate\">\n                    {{\n                      __(\n                        'Create customer in ERPNext when the deal status is changed',\n                      )\n                    }}"
+  },
+  {
+   "key": "Create form",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:130"
+   ],
+   "current": null,
+   "context": "      <Button\n        class=\"w-full\"\n        variant=\"solid\"\n        :label=\"__('Create form')\"\n        :loading=\"creating\"\n        @click=\"createForm\"\n      />"
+  },
+  {
+   "key": "Create Lead from Incoming Emails",
+   "refs": [
+    "crm/frontend/src/components/Settings/emailConfig.js:58"
+   ],
+   "current": null,
+   "context": "    ),\n  },\n  {\n    label: __('Create Lead from Incoming Emails'),\n    name: 'create_lead_from_incoming_email',\n    type: 'checkbox',\n    description: __("
+  },
+  {
+   "key": "Create New Holiday List",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaHolidays.vue:66"
+   ],
+   "current": null,
+   "context": "            <Button\n              class=\"w-full !justify-start !text-ink-gray-5\"\n              variant=\"ghost\"\n              :label=\"__('Create New Holiday List')\"\n              icon-left=\"lucide-plus\"\n              @click=\"createNewHolidayList()\"\n            />"
+  },
+  {
+   "key": "Create New Template",
+   "refs": [
+    "crm/frontend/src/components/Modals/WhatsappTemplateSelectorModal.vue:20"
+   ],
+   "current": null,
+   "context": "          </template>\n        </TextInput>\n        <Button\n          :label=\"__('Create New Template')\"\n          variant=\"solid\"\n          @click=\"newWhatsappTemplate\"\n        >"
+  },
+  {
+   "key": "Create one to start capturing leads.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:38"
+   ],
+   "current": null,
+   "context": "      <EmptyState\n        v-else-if=\"forms.data?.length === 0\"\n        :title=\"__('No web forms yet')\"\n        :description=\"__('Create one to start capturing leads.')\"\n        :icon=\"h(LucideTextCursorInput)\"\n      />\n      <div v-else class=\"w-full\">"
+  },
+  {
+   "key": "Create products as Items in ERPNext",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_product/crm_product.js:12",
+    "crm/crm/fcrm/doctype/crm_product/crm_product_list.js:10",
+    "crm/frontend/src/composables/document.js:32"
+   ],
+   "current": null,
+   "context": "      .then((enabled) => {\n        if (!enabled) return;\n        frappe.show_alert({\n          message: __(\"Create products as Items in ERPNext\"),\n          indicator: \"blue\",\n        });\n        frappe.set_route(\"Form\", \"Item\", \"new\");"
+  },
+  {
+   "key": "Create quotation button on deal page and auto customer creation on deal status change will be disabled. Are you sure?",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:661"
+   ],
+   "current": null,
+   "context": "  if (value) {\n    $dialog({\n      title: __('Disable ERPNext Integration'),\n      message: __(\n        'Create quotation button on deal page and auto customer creation on deal status change will be disabled. Are you sure?',\n      ),\n      actions: ["
+  },
+  {
+   "key": "created this deal",
+   "refs": [
+    "crm/crm/api/activities.py:50"
+   ],
+   "current": null,
+   "context": "\tnotes = []\n\ttasks = []\n\tattachments = []\n\tcreation_text = _(\"created this deal\")\n\n\tif lead:\n\t\tcreation_text = _(\"converted the lead to this deal\")"
+  },
+  {
+   "key": "created this lead",
+   "refs": [
+    "crm/crm/api/activities.py:205"
+   ],
+   "current": null,
+   "context": "\t\t\t\"activity_type\": \"creation\",\n\t\t\t\"creation\": doc[0],\n\t\t\t\"owner\": doc[1],\n\t\t\t\"data\": _(\"created this lead\"),\n\t\t\t\"is_lead\": True,\n\t\t}\n\t]"
+  },
+  {
+   "key": "CRM Product Sync Issue",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_product_sync_issue/crm_product_sync_issue.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-05-27 09:22:48.995255\",\n \"modified_by\": \"Administrator\",\n \"module\": \"FCRM\",\n \"name\": \"CRM Product Sync Issue\",\n \"naming_rule\": \"Autoincrement\",\n \"owner\": \"Administrator\",\n \"permissions\": [],"
+  },
+  {
+   "key": "CRM Rolling Response Time",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_rolling_response_time/crm_rolling_response_time.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-02-23 12:10:20.656031\",\n \"modified_by\": \"Administrator\",\n \"module\": \"FCRM\",\n \"name\": \"CRM Rolling Response Time\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"row_format\": \"Dynamic\","
+  },
+  {
+   "key": "CRM Sales Hierarchy",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_sales_hierarchy/crm_sales_hierarchy.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Link\",\n   \"hidden\": 1,\n   \"label\": \"Old Parent\",\n   \"options\": \"CRM Sales Hierarchy\"\n  },\n  {\n   \"fieldname\": \"reports_to\","
+  },
+  {
+   "key": "CSV imports",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:81"
+   ],
+   "current": null,
+   "context": "      { label: __('Phone calls'), value: 'phone_calls' },\n      { label: __('Referrals'), value: 'referrals' },\n      { label: __('Walk-ins'), value: 'walk_ins' },\n      { label: __('CSV imports'), value: 'csv_imports' },\n      { label: __('Other'), value: 'other' },\n    ],\n  },"
+  },
+  {
+   "key": "Current icon",
+   "refs": [
+    "crm/frontend/src/components/Modals/ViewModal.vue:35"
+   ],
+   "current": null,
+   "context": "            <div\n              v-if=\"currentIsEmoji\"\n              class=\"grid size-8 shrink-0 place-items-center rounded bg-surface-gray-3 text-lg leading-none\"\n              :title=\"__('Current icon')\"\n            >\n              {{ view.icon }}\n            </div>"
+  },
+  {
+   "key": "Current Password",
+   "refs": [
+    "crm/frontend/src/components/Modals/ChangePasswordModal.vue:8"
+   ],
+   "current": null,
+   "context": "        <div>\n          <Password\n            v-model=\"currentPassword\"\n            :placeholder=\"__('Current Password')\"\n            maxLength=\"50\"\n          >\n            <template #prefix>"
+  },
+  {
+   "key": "Custom Actions",
+   "refs": [
+    "crm/frontend/src/components/Layouts/AppSidebar.vue:790"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Custom Branding",
+   "refs": [
+    "crm/frontend/src/components/Layouts/AppSidebar.vue:740"
+   ],
+   "current": null,
+   "context": "    title: __('Customization'),\n    opened: false,\n    subArticles: [\n      { name: 'custom-fields', title: __('Custom Fields') },\n      { name: 'custom-actions', title: __('Custom Actions') },\n      { name: 'custom-statuses', title: __('Custom Statuses') },\n      { name: 'custom-list-actions', title: __('Custom List Actions') },"
+  },
+  {
+   "key": "Custom Fields",
+   "refs": [
+    "crm/frontend/src/components/Layouts/AppSidebar.vue:789"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Custom List Actions",
+   "refs": [
+    "crm/frontend/src/components/Layouts/AppSidebar.vue:792"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Custom Statuses",
+   "refs": [
+    "crm/frontend/src/components/Layouts/AppSidebar.vue:791"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Dashboard Currency",
+   "refs": [
+    "crm/frontend/src/components/Settings/DashboardSettings.vue:70"
+   ],
+   "current": null,
+   "context": "      <div class=\"flex items-center justify-between gap-8 py-3 px-2\">\n        <div class=\"flex flex-col\">\n          <div class=\"text-p-base-medium text-ink-gray-7 truncate\">\n            {{ __('Dashboard Currency') }}\n          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{"
+  },
+  {
+   "key": "Dashboard number cards & charts will show currency in the selected format. Once set, cannot be edited.",
+   "refs": [
+    "crm/frontend/src/components/Settings/DashboardSettings.vue:74"
+   ],
+   "current": null,
+   "context": "          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{\n              __(\n                'Dashboard number cards & charts will show currency in the selected format. Once set, cannot be edited.',\n              )\n            }}"
+  },
+  {
+   "key": "Dashboard settings updated successfully",
+   "refs": [
+    "crm/frontend/src/components/Settings/DashboardSettings.vue:224"
+   ],
+   "current": null,
+   "context": "      }\n    },\n    onSuccess: () => {\n      toast.success(__('Dashboard settings updated successfully'))\n\n      if (route.name === 'Deal') {\n        send('reload-deal-sections')"
+  },
+  {
+   "key": "Deal status is required",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:796"
+   ],
+   "current": null,
+   "context": "    erpnextCRMSettingsResource.doc.create_customer_on_status_change &&\n    !erpnextCRMSettingsResource.doc.deal_status\n  ) {\n    error = __('Deal status is required')\n  }\n\n  if (error) {"
+  },
+  {
+   "key": "Declined",
+   "refs": [
+    "crm/frontend/src/utils/callLog.js:66"
+   ],
+   "current": null,
+   "context": "export const statusLabelMap = {\n  Completed: __('Completed'),\n  Initiated: __('Initiated'),\n  Busy: __('Declined'),\n  Failed: __('Failed'),\n  Queued: __('Queued'),\n  Canceled: __('Canceled'),"
+  },
+  {
+   "key": "Default calling medium for logged-in user",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:41"
+   ],
+   "current": null,
+   "context": "            {{ __('Default Medium') }}\n          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{ __('Default calling medium for logged-in user') }}\n          </div>\n        </div>\n        <div class=\"flex items-center gap-1\">"
+  },
+  {
+   "key": "Default Sending & Inbox",
+   "refs": [
+    "crm/frontend/src/components/Settings/EmailAccountCard.vue:36"
+   ],
+   "current": null,
+   "context": "    props.emailAccount.default_incoming &&\n    props.emailAccount.default_outgoing\n  ) {\n    return __('Default Sending & Inbox')\n  } else if (props.emailAccount.default_incoming) {\n    return __('Default Inbox')\n  } else if (props.emailAccount.default_outgoing) {"
+  },
+  {
+   "key": "Default value",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:272"
+   ],
+   "current": null,
+   "context": "                          type=\"text\"\n                          size=\"sm\"\n                          :modelValue=\"h.default\"\n                          :placeholder=\"__('Default value')\"\n                          @update:modelValue=\"\n                            (v) => ((h.default = v), markDirty())\n                          \""
+  },
+  {
+   "key": "Defines the default currency for all records, can be overridden at the field level",
+   "refs": [
+    "crm/frontend/src/components/Settings/DefaultsSettings.vue:35"
+   ],
+   "current": null,
+   "context": "          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{\n              __(\n                'Defines the default currency for all records, can be overridden at the field level',\n              )\n            }}"
+  },
+  {
+   "key": "Delete Contact",
+   "refs": [
+    "crm/frontend/src/pages/MobileContact.vue:280"
+   ],
+   "current": null,
+   "context": "\nasync function deleteContact() {\n  $dialog({\n    title: __('Delete Contact'),\n    message: __('Are you sure you want to delete this contact?'),\n    actions: [\n      {"
+  },
+  {
+   "key": "Delete Invitation",
+   "refs": [
+    "crm/frontend/src/components/Settings/InviteUserPage.vue:79"
+   ],
+   "current": null,
+   "context": "              </div>\n              <div>\n                <Button\n                  :tooltip=\"__('Delete Invitation')\"\n                  icon=\"lucide-x\"\n                  variant=\"ghost\"\n                  :loading=\""
+  },
+  {
+   "key": "Delete Only User",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:222"
+   ],
+   "current": null,
+   "context": "                @click=\"confirmRemove('cascade')\"\n              />\n              <Button\n                :label=\"__('Delete Only User')\"\n                icon-left=\"lucide-unlock\"\n                variant=\"subtle\"\n                :loading=\"removing === 'reassign'\""
+  },
+  {
+   "key": "Delete Organization",
+   "refs": [
+    "crm/frontend/src/pages/MobileOrganization.vue:275"
+   ],
+   "current": null,
+   "context": "\nasync function deleteOrganization() {\n  $dialog({\n    title: __('Delete Organization'),\n    message: __('Are you sure you want to delete this organization?'),\n    actions: [\n      {"
+  },
+  {
+   "key": "Deleting note...",
+   "refs": [
+    "crm/frontend/src/components/Activities/NoteArea.vue:75"
+   ],
+   "current": null,
+   "context": "      name,\n    }),\n    {\n      loading: __('Deleting note...'),\n      success: __('Note deleted'),\n      error: __('Failed to delete note'),\n    },"
+  },
+  {
+   "key": "Demo data restored successfully.",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.js:58"
+   ],
+   "current": null,
+   "context": "\t\t\tprimary_action: () => {\n\t\t\t\tfrm.call(\"restore_demo_data\", { force: false }, () => {\n\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\tmessage: __(\"Demo data restored successfully.\"),\n\t\t\t\t\t\tindicator: \"green\"\n\t\t\t\t\t});\n\t\t\t\t});"
+  },
+  {
+   "key": "Detail",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_product_sync_issue/crm_product_sync_issue.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"detail\",\n   \"fieldtype\": \"Small Text\",\n   \"label\": \"Detail\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Detected On",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_product_sync_issue/crm_product_sync_issue.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"now\",\n   \"fieldname\": \"detected_on\",\n   \"fieldtype\": \"Datetime\",\n   \"label\": \"Detected On\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Disable ERPNext Integration",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:660"
+   ],
+   "current": null,
+   "context": "const toggleEnable = (value) => {\n  if (value) {\n    $dialog({\n      title: __('Disable ERPNext Integration'),\n      message: __(\n        'Create quotation button on deal page and auto customer creation on deal status change will be disabled. Are you sure?',\n      ),"
+  },
+  {
+   "key": "Disable Sales Hierarchy",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:310"
+   ],
+   "current": null,
+   "context": "function toggleEnable(currentlyEnabled) {\n  if (currentlyEnabled) {\n    $dialog({\n      title: __('Disable Sales Hierarchy'),\n      message: __(\n        'Lead and deal visibility will no longer be restricted by the reporting tree. Are you sure?',\n      ),"
+  },
+  {
+   "key": "Discard Changes",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/ExotelSettings.vue:25",
+    "crm/frontend/src/components/Settings/Telephony/TwilioSettings.vue:25"
+   ],
+   "current": null,
+   "context": "      <div v-if=\"exotel.doc?.enabled && !exotel.get.loading\" class=\"flex gap-2\">\n        <Button\n          v-if=\"isDirty\"\n          :label=\"__('Discard Changes')\"\n          variant=\"subtle\"\n          @click=\"exotel.reload()\"\n        />"
+  },
+  {
+   "key": "Dismissed",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_product_sync_issue/crm_product_sync_issue.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"dismissed\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Dismissed\"\n  }\n ],\n \"index_web_pages_for_search\": 1,"
+  },
+  {
+   "key": "Display format for dates across the system",
+   "refs": [
+    "crm/frontend/src/components/Settings/DefaultsSettings.vue:114"
+   ],
+   "current": null,
+   "context": "            {{ __('Date Format') }}\n          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{ __('Display format for dates across the system') }}\n          </div>\n        </div>\n        <div>"
+  },
+  {
+   "key": "Doctype is required",
+   "refs": [
+    "crm/crm/api/doc.py:810"
+   ],
+   "current": null,
+   "context": "\tfrom frappe.desk.reportview import delete_bulk\n\n\tif not doctype:\n\t\tfrappe.throw(_(\"Doctype is required\"))\n\n\tif not items:\n\t\tfrappe.throw(_(\"Items are required\"))"
+  },
+  {
+   "key": "Document created successfully",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:261"
+   ],
+   "current": null,
+   "context": "    isNewDoc.value = false\n    telephonyAgent.doc = data\n    telephonyAgent.originalDoc = JSON.parse(JSON.stringify(data))\n    toast.success(__('Document created successfully'))\n  },\n  onError: (err) => {\n    err.messages?.forEach((msg) => toast.error(msg))"
+  },
+  {
+   "key": "Document ID, not the full name",
+   "refs": [
+    "crm/frontend/src/components/Filter.vue:240"
+   ],
+   "current": null,
+   "context": "            suffix: () =>\n              h('span', {\n                class: 'lucide-id-card size-4 shrink-0 text-ink-gray-5',\n                title: __('Document ID, not the full name'),\n              }),\n          },\n        }"
+  },
+  {
+   "key": "Draft preview — only you can see this. Publish the form to make it public.",
+   "refs": [
+    "crm/crm/www/crm_form.html:176"
+   ],
+   "current": null,
+   "context": "    {% if draft_preview %}\n    <div class=\"draft-banner\">\n      <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z\"/><path d=\"M12 9v4\"/><path d=\"M12 17h.01\"/></svg>\n      <span>{{ _(\"Draft preview — only you can see this. Publish the form to make it public.\") }}</span>\n    </div>\n    {% endif %}\n    <div class=\"card\">"
+  },
+  {
+   "key": "Drag & Drop files here or upload from",
+   "refs": [
+    "crm/frontend/src/components/FilesUploader/FilesUploaderArea.vue:24"
+   ],
+   "current": null,
+   "context": "    >\n      <div v-if=\"!isDragging\" class=\"flex flex-col gap-3\">\n        <div class=\"text-center text-ink-gray-5\">\n          {{ __('Drag & Drop files here or upload from') }}\n        </div>\n        <div\n          class=\"grid grid-flow-col justify-center gap-4 text-center text-base\""
+  },
+  {
+   "key": "Drag a section or a field here to get started",
+   "refs": [
+    "crm/frontend/src/components/FieldLayoutEditor.vue:251"
+   ],
+   "current": null,
+   "context": "            v-if=\"tab.sections.length === 0\"\n            class=\"flex items-center justify-center min-h-20 text-sm text-ink-gray-4 pointer-events-none select-none\"\n          >\n            {{ __('Drag a section or a field here to get started') }}\n          </div>\n        </template>\n      </Draggable>"
+  },
+  {
+   "key": "Drop the form into your own website.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:423"
+   ],
+   "current": null,
+   "context": "                    __('Embed')\n                  }}</span>\n                  <span class=\"text-p-sm text-ink-gray-6\">{{\n                    __('Drop the form into your own website.')\n                  }}</span>\n                </div>\n"
+  },
+  {
+   "key": "Dropdown items",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"dropdown_items_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Dropdown items\"\n  },\n  {\n   \"fieldname\": \"brand_name\","
+  },
+  {
+   "key": "Duplicate SLA Policy",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyList.vue:112"
+   ],
+   "current": null,
+   "context": "            />\n            <Dialog\n              v-model:open=\"duplicateDialog.show\"\n              :title=\"__('Duplicate SLA Policy')\"\n            >\n              <template #default>\n                <div class=\"flex flex-col gap-4\">"
+  },
+  {
+   "key": "Duplicate Template",
+   "refs": [
+    "crm/frontend/src/components/Settings/EmailTemplate/NewEmailTemplate.vue:10"
+   ],
+   "current": null,
+   "context": "          variant=\"ghost\"\n          icon-left=\"lucide-chevron-left\"\n          :label=\"\n            templateData?.name ? __('Duplicate Template') : __('New Template')\n          \"\n          size=\"md\"\n          class=\"cursor-pointer hover:bg-transparent focus:bg-transparent focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:none active:bg-transparent active:outline-none active:ring-0 active:ring-offset-0 active:text-ink-gray-5 text-2xl-semibold hover:opacity-70 !pr-0 !max-w-96 !justify-start\""
+  },
+  {
+   "key": "Duplicate Workday found: {0}. Each Workday should be unique.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/utils.js:223"
+   ],
+   "current": null,
+   "context": "          if (duplicateWorkdays.length > 0) {\n            slaDataErrors.value.working_hours = __(\n              `Duplicate Workday found: {0}. Each Workday should be unique.`,\n              [duplicateWorkdays.join(', ')],\n            )\n            return slaDataErrors.value\n          } else {"
+  },
+  {
+   "key": "Edit field",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FieldCard.vue:63"
+   ],
+   "current": null,
+   "context": "      </Tooltip>\n      <Button\n        variant=\"ghost\"\n        :tooltip=\"expanded ? __('Collapse') : __('Edit field')\"\n        @click=\"$emit('toggle')\"\n      >\n        <template #icon>"
+  },
+  {
+   "key": "Edit Grid Fields",
+   "refs": [
+    "crm/frontend/src/components/Controls/Grid.vue:57"
+   ],
+   "current": null,
+   "context": "        </div>\n        <div class=\"flex items-center justify-center w-12 shrink-0\">\n          <Button\n            :tooltip=\"__('Edit Grid Fields')\"\n            class=\"rounded !bg-surface-gray-2 border-0 !text-ink-gray-5\"\n            variant=\"outline\"\n            icon=\"lucide-settings\""
+  },
+  {
+   "key": "Edit Response & Resolution",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/EditResponseResolutionModal.vue:2"
+   ],
+   "current": null,
+   "context": "<template>\n  <Dialog v-model:open=\"dialog\" :title=\"__('Edit Response & Resolution')\">\n    <template #default>\n      <div class=\"flex flex-col gap-4\">\n        <FormControl"
+  },
+  {
+   "key": "Edit Row",
+   "refs": [
+    "crm/frontend/src/components/Controls/Grid.vue:420"
+   ],
+   "current": null,
+   "context": "              </div>\n              <div\n                class=\"edit-row flex items-center justify-center w-12 shrink-0\"\n              >\n                <Button\n                  :tooltip=\"__('Edit Row')\"\n                  class=\"rounded border-0 !text-ink-gray-7\""
+  },
+  {
+   "key": "Edit Workday",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/WorkDayModal.vue:4"
+   ],
+   "current": null,
+   "context": "<template>\n  <Dialog\n    v-model:open=\"dialog.show\"\n    :title=\"__('Edit Workday')\"\n    @after-leave=\"resetForm\"\n  >\n    <template #default>"
+  },
+  {
+   "key": "Email account created successfully",
+   "refs": [
+    "crm/frontend/src/components/Settings/EmailAdd.vue:145"
+   ],
+   "current": null,
+   "context": "    }\n  },\n  onSuccess: () => {\n    toast.success(__('Email account created successfully'))\n    emit('update:step', 'email-list')\n  },\n  onError: () => {"
+  },
+  {
+   "key": "Email account updated successfully",
+   "refs": [
+    "crm/frontend/src/components/Settings/EmailEdit.vue:211"
+   ],
+   "current": null,
+   "context": "\nfunction succesHandler() {\n  emit('update:step', 'email-list')\n  toast.success(__('Email account updated successfully'))\n}\n\nfunction errorHandler() {"
+  },
+  {
+   "key": "email already exists",
+   "refs": [
+    "crm/frontend/src/components/Controls/MultiSelectEmailInput.vue:266",
+    "crm/frontend/src/components/Controls/MultiSelectUserInput.vue:241"
+   ],
+   "current": null,
+   "context": "            values.value.push(value)\n          }\n        } else {\n          info.value = __('email already exists')\n        }\n      }\n    })"
+  },
+  {
+   "key": "Email Communication",
+   "refs": [
+    "crm/frontend/src/components/Layouts/AppSidebar.vue:777"
+   ],
+   "current": null,
+   "context": null
+  },
+  {
+   "key": "Email From Lead",
+   "refs": [
+    "crm/frontend/src/components/EmailEditor.vue:212"
+   ],
+   "current": null,
+   "context": "  placeholder: { type: String, default: null },\n  editable: { type: Boolean, default: true },\n  doctype: { type: String, default: 'CRM Lead' },\n  subject: { type: String, default: __('Email From Lead') },\n  editorProps: { type: Object, default: () => ({}) },\n  submitButtonProps: { type: Object, default: () => ({}) },\n  discardButtonProps: { type: Object, default: () => ({}) },"
+  },
+  {
+   "key": "Email sent",
+   "refs": [
+    "crm/frontend/src/components/CommunicationArea.vue:276"
+   ],
+   "current": null,
+   "context": "  const sending = sendMail()\n  toast.promise(sending, {\n    loading: __('Sending email...'),\n    success: __('Email sent'),\n    error: (e) => e?.messages?.[0] || __('Failed to send email!'),\n  })\n  try {"
+  },
+  {
+   "key": "Email settings updated successfully",
+   "refs": [
+    "crm/frontend/src/components/Settings/Profile/UserEmailSettings.vue:180"
+   ],
+   "current": null,
+   "context": "function update() {\n  user.save.submit(null, {\n    onSuccess: () => {\n      toast.success(__('Email settings updated successfully'))\n    },\n  })\n}"
+  },
+  {
+   "key": "Emails & Signature",
+   "refs": [
+    "crm/frontend/src/components/Settings/Profile/ProfileSettings.vue:96"
+   ],
+   "current": null,
+   "context": "        <div class=\"flex items-center justify-between mt-6\">\n          <div class=\"flex flex-col gap-1\">\n            <span class=\"text-base-medium text-ink-gray-8\">\n              {{ __('Emails & Signature') }}\n            </span>\n            <span class=\"text-p-sm text-ink-gray-6\">\n              {{"
+  },
+  {
+   "key": "Embed",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:420"
+   ],
+   "current": null,
+   "context": "              <div>\n                <div class=\"flex flex-col gap-1\">\n                  <span class=\"text-lg-semibold text-ink-gray-8\">{{\n                    __('Embed')\n                  }}</span>\n                  <span class=\"text-p-sm text-ink-gray-6\">{{\n                    __('Drop the form into your own website.')"
+  },
+  {
+   "key": "Enable call recording for incoming and outgoing calls",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/ExotelSettings.vue:90",
+    "crm/frontend/src/components/Settings/Telephony/TwilioSettings.vue:97"
+   ],
+   "current": null,
+   "context": "              </div>\n              <div class=\"text-p-sm text-ink-gray-5 truncate\">\n                {{\n                  __('Enable call recording for incoming and outgoing calls')\n                }}\n              </div>\n            </div>"
+  },
+  {
+   "key": "Enable Exotel integration to make and receive calls directly from your CRM",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/ExotelSettings.vue:112"
+   ],
+   "current": null,
+   "context": "              </span>\n              <span class=\"text-center text-p-base text-ink-gray-6\">\n                {{\n                  __(\n                    'Enable Exotel integration to make and receive calls directly from your CRM',\n                  )\n                }}"
+  },
+  {
+   "key": "Enable Sales Hierarchy",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:62"
+   ],
+   "current": null,
+   "context": "        <lucide-network class=\"size-7.5 text-ink-gray-5\" />\n        <div class=\"flex flex-col items-center gap-1.5 text-center\">\n          <span class=\"text-lg-medium text-ink-gray-8\">\n            {{ __('Enable Sales Hierarchy') }}\n          </span>\n          <span class=\"text-center text-p-base text-ink-gray-6\">\n            {{ __('Restrict visibility using a reporting tree') }}"
+  },
+  {
+   "key": "Enable Sales Hierarchy Permissions",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Restrict Lead and Deal visibility based on the Sales Hierarchy tree. Managers can see all records owned by or assigned to their reports.\",\n   \"fieldname\": \"enable_sales_hierarchy\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Sales Hierarchy Permissions\"\n  },\n  {\n   \"fieldname\": \"currency\","
+  },
+  {
+   "key": "Enable the integration to create quotations and more in ERPNext.",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:440"
+   ],
+   "current": null,
+   "context": "              </span>\n              <span class=\"text-center text-p-base text-ink-gray-6\">\n                {{\n                  __(\n                    'Enable the integration to create quotations and more in ERPNext.',\n                  )\n                }}"
+  },
+  {
+   "key": "Enable Twilio integration to make and receive calls directly from your CRM",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TwilioSettings.vue:119"
+   ],
+   "current": null,
+   "context": "              </span>\n              <span class=\"text-center text-p-base text-ink-gray-6\">\n                {{\n                  __(\n                    'Enable Twilio integration to make and receive calls directly from your CRM',\n                  )\n                }}"
+  },
+  {
+   "key": "End time is required",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/WorkDayModal.vue:189"
+   ],
+   "current": null,
+   "context": "    errors.start_time = __('Start time is required')\n  }\n  if (!workDayData.end_time) {\n    errors.end_time = __('End time is required')\n  }\n  if (!workDayData.start_time || !workDayData.end_time) {\n    return false"
+  },
+  {
+   "key": "End time must be after start time",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/WorkDayModal.vue:204"
+   ],
+   "current": null,
+   "context": "  const endTotalMinutes = endHours * 60 + endMinutes\n\n  if (endTotalMinutes <= startTotalMinutes) {\n    errors.end_time = __('End time must be after start time')\n    return false\n  }\n"
+  },
+  {
+   "key": "End time must be after start time for: {0}",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/utils.js:262"
+   ],
+   "current": null,
+   "context": "          if (invalidTimeRanges.length > 0) {\n            slaDataErrors.value.working_hours = __(\n              `End time must be after start time for: {0}`,\n              [invalidTimeRanges.join(', ')],\n            )\n          } else {\n            slaDataErrors.value.working_hours = ''"
+  },
+  {
+   "key": "Enter a valid phone number",
+   "refs": [
+    "crm/frontend/src/components/FieldLayout/Field.vue:301",
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:88",
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:119",
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:150"
+   ],
+   "current": null,
+   "context": "      :description=\"field.description\"\n      :error=\"\n        Boolean(data[field.fieldname]) && !validatePhone(data[field.fieldname])\n          ? __('Enter a valid phone number')\n          : undefined\n      \"\n      @change=\"fieldChange($event.target.value, field)\""
+  },
+  {
+   "key": "Enter Access Key",
+   "refs": [
+    "crm/frontend/src/components/Settings/DashboardSettings.vue:160"
+   ],
+   "current": null,
+   "context": "            v-model=\"settings.doc.access_key\"\n            type=\"text\"\n            class=\"w-44\"\n            :placeholder=\"__('Enter Access Key')\"\n            :disabled=\"!settings.doc?.currency\"\n          />\n        </div>"
+  },
+  {
+   "key": "Enter Access Token",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/LeadSyncSourceForm.vue:91"
+   ],
+   "current": null,
+   "context": "              type=\"password\"\n              required=\"true\"\n              :label=\"__('Access Token')\"\n              :placeholder=\"__('Enter Access Token')\"\n            >\n              <template #suffix>\n                <a"
+  },
+  {
+   "key": "Enter Brand Name",
+   "refs": [
+    "crm/frontend/src/components/Settings/BrandSettings.vue:41"
+   ],
+   "current": null,
+   "context": "            v-model=\"settings.doc.brand_name\"\n            type=\"text\"\n            size=\"md\"\n            :placeholder=\"__('Enter Brand Name')\"\n          />\n        </div>\n      </div>"
+  },
+  {
+   "key": "Enter Exotel Number",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:115"
+   ],
+   "current": null,
+   "context": "          <FormControl\n            v-model=\"telephonyAgent.doc.exotel_number\"\n            class=\"flex-1 truncate w-44 p-1\"\n            :placeholder=\"__('Enter Exotel Number')\"\n            :error=\"\n              Boolean(telephonyAgent.doc.exotel_number) &&\n              !validatePhone(telephonyAgent.doc.exotel_number)"
+  },
+  {
+   "key": "Enter Personal Mobile Number",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:146"
+   ],
+   "current": null,
+   "context": "          <FormControl\n            v-model=\"telephonyAgent.doc.mobile_no\"\n            class=\"flex-1 truncate w-44 p-1\"\n            :placeholder=\"__('Enter Personal Mobile Number')\"\n            :error=\"\n              Boolean(telephonyAgent.doc.mobile_no) &&\n              !validatePhone(telephonyAgent.doc.mobile_no)"
+  },
+  {
+   "key": "Enter Source Name",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/LeadSyncSourceForm.vue:74"
+   ],
+   "current": null,
+   "context": "              type=\"text\"\n              required=\"true\"\n              :label=\"__('Source Name')\"\n              :placeholder=\"__('Enter Source Name')\"\n            />\n\n            <FormControl"
+  },
+  {
+   "key": "Enter Twilio Number",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:84"
+   ],
+   "current": null,
+   "context": "          <FormControl\n            v-model=\"telephonyAgent.doc.twilio_number\"\n            class=\"flex-1 truncate w-44 p-1\"\n            :placeholder=\"__('Enter Twilio Number')\"\n            :error=\"\n              Boolean(telephonyAgent.doc.twilio_number) &&\n              !validatePhone(telephonyAgent.doc.twilio_number)"
+  },
+  {
+   "key": "Enter your Facebook Access Token",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/leadSyncSourceConfig.js:31"
+   ],
+   "current": null,
+   "context": "    name: 'access_token',\n    label: __('Access Token'),\n    type: 'password',\n    placeholder: __('Enter your Facebook Access Token'),\n  },\n]"
+  },
+  {
+   "key": "Enter your personal mobile number used by Exotel to make calls",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:136"
+   ],
+   "current": null,
+   "context": "          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{\n              __(\n                'Enter your personal mobile number used by Exotel to make calls',\n              )\n            }}"
+  },
+  {
+   "key": "ERPNext custom fields not created",
+   "refs": [
+    "crm/crm/fcrm/doctype/erpnext_crm_settings/erpnext_crm_settings.py:162"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\"If it is running the latest ERPNext, enable <b>Frappe CRM Data Synchronization</b> \"\n\t\t\t\t\t\"in its CRM Settings, Otherwise check the Error Log.\"\n\t\t\t\t).format(self.erpnext_site_url),\n\t\t\t\ttitle=_(\"ERPNext custom fields not created\"),\n\t\t\t\tindicator=\"orange\",\n\t\t\t)\n"
+  },
+  {
+   "key": "ERPNext integration is active. Create an Item in ERPNext and it will appear in CRM Product automatically.",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_product/crm_product.py:42"
+   ],
+   "current": null,
+   "context": "\t\t\treturn\n\t\tif should_push_to_erpnext():\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"ERPNext integration is active. Create an Item in ERPNext and it will appear in CRM Product automatically.\"\n\t\t\t\t),\n\t\t\t\ttitle=_(\"Use ERPNext to Create Products\"),"
+  },
+  {
+   "key": "ERPNext integration must be enabled on the same site",
+   "refs": [
+    "crm/crm/fcrm/doctype/erpnext_crm_settings/erpnext_crm_settings.py:221"
+   ],
+   "current": null,
+   "context": "\t@frappe.whitelist()\n\tdef run_product_sync(self):\n\t\tif not self.enabled or self.is_erpnext_in_different_site:\n\t\t\tfrappe.throw(_(\"ERPNext integration must be enabled on the same site\"))\n\t\tfrom crm.fcrm.doctype.crm_product.reconcile_job import enqueue_reconciliation\n\n\t\tenqueue_reconciliation()"
+  },
+  {
+   "key": "ERPNext is not installed on this site either install it or enter the URL of your ERPNext site to connect",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:71"
+   ],
+   "current": null,
+   "context": "              placeholder=\"https://erpnext.example.com\"\n              required\n              :description=\"\n                __(\n                  'ERPNext is not installed on this site either install it or enter the URL of your ERPNext site to connect',\n                )\n              \""
+  },
+  {
+   "key": "ERPNext Items always sync into CRM Products. Turn this on to also sync CRM Product changes back to ERPNext Items.",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:220"
+   ],
+   "current": null,
+   "context": "                  </div>\n                  <div class=\"text-p-sm text-ink-gray-5\">\n                    {{\n                      __(\n                        'ERPNext Items always sync into CRM Products. Turn this on to also sync CRM Product changes back to ERPNext Items.',\n                      )\n                    }}"
+  },
+  {
+   "key": "Error creating lead sync source",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/LeadSyncSourceForm.vue:294"
+   ],
+   "current": null,
+   "context": "        docResource.value = getSourceDocResource(newDoc.name)\n      },\n      onError(error) {\n        toast.error(error.messages[0] || __('Error creating lead sync source'))\n      },\n    },\n  )"
+  },
+  {
+   "key": "Error creating lead: {0}",
+   "refs": [
+    "crm/frontend/src/components/Modals/CallLogDetailModal.vue:370"
+   ],
+   "current": null,
+   "context": "    })\n    .catch((err) => {\n      toast.error(\n        __('Error creating lead: {0}', [err.messages?.[0] || err.message]),\n      )\n    })\n}"
+  },
+  {
+   "key": "Error syncing lead",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/FailureLogs.vue:139"
+   ],
+   "current": null,
+   "context": "            e.message ||\n              (e.messages ?? e.messages[0]) ||\n              e.exc_type ||\n              __('Error syncing lead'),\n          )\n        },\n      },"
+  },
+  {
+   "key": "Error syncing leads",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/LeadSyncSourceForm.vue:386"
+   ],
+   "current": null,
+   "context": "        },\n        onError(e) {\n          toast.error(\n            (e.messages ?? e.messages[0]) || __('Error syncing leads'),\n          )\n        },\n      },"
+  },
+  {
+   "key": "Error updating lead sync source",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/LeadSyncSourceForm.vue:275"
+   ],
+   "current": null,
+   "context": "        mappingFormDocResource.value.document.save.submit()\n      },\n      onError(e) {\n        toast.error(e.messages[0] || __('Error updating lead sync source'))\n      },\n    },\n  )"
+  },
+  {
+   "key": "Every 10 Minutes",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"background_sync_frequency\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Background Sync Frequency\",\n   \"options\": \"Every 5 Minutes\\nEvery 10 Minutes\\nEvery 15 Minutes\\nHourly\\nDaily\\nMonthly\",\n   \"reqd\": 1\n  }\n ],"
+  },
+  {
+   "key": "Every 15 Minutes",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"background_sync_frequency\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Background Sync Frequency\",\n   \"options\": \"Every 5 Minutes\\nEvery 10 Minutes\\nEvery 15 Minutes\\nHourly\\nDaily\\nMonthly\",\n   \"reqd\": 1\n  }\n ],"
+  },
+  {
+   "key": "Every 5 Minutes",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"background_sync_frequency\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Background Sync Frequency\",\n   \"options\": \"Every 5 Minutes\\nEvery 10 Minutes\\nEvery 15 Minutes\\nHourly\\nDaily\\nMonthly\",\n   \"reqd\": 1\n  }\n ],"
+  },
+  {
+   "key": "Exact",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json",
+    "crm/frontend/src/components/Settings/GeneralSettings.vue:140"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"crm_timeline_timestamp_format\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Timeline Timestamp Format\",\n   \"options\": \"Relative\\nExact\"\n  },\n  {\n   \"default\": \"Oldest First\","
+  },
+  {
+   "key": "exchangerate-api",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"service_provider\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Service Provider\",\n   \"options\": \"frankfurter.app\\nfawazahmed-exchange-api\\nexchangerate.host\\nexchangerate-api\"\n  },\n  {\n   \"depends_on\": \"eval:doc.service_provider == 'exchangerate.host';\","
+  },
+  {
+   "key": "Exotel",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_call_log/crm_call_log.json",
+    "crm/crm/fcrm/doctype/crm_telephony_agent/crm_telephony_agent.json",
+    "crm/frontend/src/components/Layouts/AppSidebar.vue:801",
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:52",
+    "crm/frontend/src/components/Settings/Telephony/TelephonySettings.vue:198"
+   ],
+   "current": null,
+   "context": "   \"in_list_view\": 1,\n   \"in_standard_filter\": 1,\n   \"label\": \"Telephony Medium\",\n   \"options\": \"\\nManual\\nTwilio\\nExotel\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Exotel Integration Disabled",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/ExotelSettings.vue:108"
+   ],
+   "current": null,
+   "context": "            <div class=\"flex flex-col items-center gap-1.5 text-center\">\n              <PhoneIcon class=\"size-7.5 text-ink-gray-7\" />\n              <span class=\"text-lg-medium text-ink-gray-8\">\n                {{ __('Exotel Integration Disabled') }}\n              </span>\n              <span class=\"text-center text-p-base text-ink-gray-6\">\n                {{"
+  },
+  {
+   "key": "Exotel Settings",
+   "refs": [
+    "crm/frontend/src/components/Settings/Telephony/ExotelSettings.vue:8"
+   ],
+   "current": null,
+   "context": "        <Button\n          variant=\"ghost\"\n          icon-left=\"lucide-chevron-left\"\n          :label=\"__('Exotel Settings')\"\n          size=\"md\"\n          class=\"cursor-pointer -ml-4 hover:bg-transparent focus:bg-transparent focus:outline-none focus:ring-0 focus:ring-offset-0 focus-visible:none active:bg-transparent active:outline-none active:ring-0 active:ring-offset-0 active:text-ink-gray-5 text-2xl-semibold hover:opacity-70 !pr-0 !max-w-96 !justify-start\"\n          @click=\"emit('updateStep', 'telephony-settings')\""
+  },
+  {
+   "key": "Expected closure date is required.",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_deal/crm_deal.py:259"
+   ],
+   "current": null,
+   "context": "\t\t\tif not self.expected_deal_value or self.expected_deal_value == 0:\n\t\t\t\tfrappe.throw(_(\"Expected deal value is required.\"), frappe.MandatoryError)\n\t\t\tif not self.expected_closure_date:\n\t\t\t\tfrappe.throw(_(\"Expected closure date is required.\"), frappe.MandatoryError)\n\n\tdef validate_lost_reason(self):\n\t\t\"\"\""
+  },
+  {
+   "key": "Expected deal value is required.",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_deal/crm_deal.py:257"
+   ],
+   "current": null,
+   "context": "\t\tself.update_expected_deal_value()\n\t\tif frappe.db.get_single_value(\"FCRM Settings\", \"enable_forecasting\"):\n\t\t\tif not self.expected_deal_value or self.expected_deal_value == 0:\n\t\t\t\tfrappe.throw(_(\"Expected deal value is required.\"), frappe.MandatoryError)\n\t\t\tif not self.expected_closure_date:\n\t\t\t\tfrappe.throw(_(\"Expected closure date is required.\"), frappe.MandatoryError)\n"
+  },
+  {
+   "key": "Facebook Form ID",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_lead/crm_lead.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"facebook_form_id\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Facebook Form ID\"\n  },\n  {\n   \"fieldname\": \"section_break_kikl\","
+  },
+  {
+   "key": "Facebook Lead Form",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/facebook_lead_form/facebook_lead_form.json",
+    "crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"questions\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Questions\",\n   \"options\": \"Facebook Lead Form Question\"\n  }\n ],\n \"grid_page_length\": 50,"
+  },
+  {
+   "key": "Facebook Lead Form Question",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/facebook_lead_form_question/facebook_lead_form_question.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-02-23 12:44:57.712174\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Lead Syncing\",\n \"name\": \"Facebook Lead Form Question\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"row_format\": \"Dynamic\","
+  },
+  {
+   "key": "Facebook Lead ID",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_lead/crm_lead.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"facebook_lead_id\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Facebook Lead ID\",\n   \"unique\": 1\n  },\n  {"
+  },
+  {
+   "key": "Facebook Page",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/facebook_page/facebook_page.json",
+    "crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-02-23 12:45:31.760295\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Lead Syncing\",\n \"name\": \"Facebook Page\",\n \"naming_rule\": \"By fieldname\",\n \"owner\": \"Administrator\",\n \"permissions\": ["
+  },
+  {
+   "key": "Facebook/Instagram Ads",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:74"
+   ],
+   "current": null,
+   "context": "    multiple: true,\n    options: [\n      { label: __('Website forms'), value: 'website_forms' },\n      { label: __('Facebook/Instagram Ads'), value: 'meta_ads' },\n      { label: __('Google Ads'), value: 'google_ads' },\n      { label: __('WhatsApp'), value: 'whatsapp' },\n      { label: __('Email'), value: 'email' },"
+  },
+  {
+   "key": "Failed Lead Sync Log",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/failed_lead_sync_log/failed_lead_sync_log.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-02-23 12:45:12.218952\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Lead Syncing\",\n \"name\": \"Failed Lead Sync Log\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {"
+  },
+  {
+   "key": "Failed to add reaction to the message",
+   "refs": [
+    "crm/frontend/src/components/Activities/WhatsAppArea.vue:247"
+   ],
+   "current": null,
+   "context": "    },\n    onError(error) {\n      toast.error(\n        error.messages?.[0] || __('Failed to add reaction to the message'),\n      )\n    },\n  })"
+  },
+  {
+   "key": "Failed to Add Users",
+   "refs": [
+    "crm/frontend/src/components/Modals/AddExistingUserModal.vue:109"
+   ],
+   "current": null,
+   "context": "    users.reload()\n  },\n  onError: (error) => {\n    toast.error(error.messages[0] || __('Failed to Add Users'))\n  },\n})\n</script>"
+  },
+  {
+   "key": "Failed to create email account: invalid credentials",
+   "refs": [
+    "crm/frontend/src/components/Settings/EmailAdd.vue:149"
+   ],
+   "current": null,
+   "context": "    emit('update:step', 'email-list')\n  },\n  onError: () => {\n    error.value = __('Failed to create email account: invalid credentials')\n  },\n})\n"
+  },
+  {
+   "key": "Failed to delete comment",
+   "refs": [
+    "crm/frontend/src/components/Activities/CommentArea.vue:144"
+   ],
+   "current": null,
+   "context": "    })\n    emit('reload')\n  } catch {\n    toast.error(__('Failed to delete comment'))\n  }\n}\n</script>"
+  },
+  {
+   "key": "Failed to delete lead sync source",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/LeadSyncSources.vue:178"
+   ],
+   "current": null,
+   "context": "      toast.success(__('Lead sync source deleted successfully'))\n    },\n    onError: (error) => {\n      toast.error(error.messages[0] || __('Failed to delete lead sync source'))\n    },\n  })\n}"
+  },
+  {
+   "key": "Failed to delete note",
+   "refs": [
+    "crm/frontend/src/components/Activities/NoteArea.vue:77"
+   ],
+   "current": null,
+   "context": "    {\n      loading: __('Deleting note...'),\n      success: __('Note deleted'),\n      error: __('Failed to delete note'),\n    },\n  )\n  notes.value?.reload()"
+  },
+  {
+   "key": "Failed to load fields layout",
+   "refs": [
+    "crm/frontend/src/components/Modals/FieldLayoutDialog.vue:172"
+   ],
+   "current": null,
+   "context": "    },\n    onError: () => {\n      loading.value = false\n      error.value = __('Failed to load fields layout')\n    },\n  })\n}"
+  },
+  {
+   "key": "Failed to load file-based form controller: {0}",
+   "refs": [
+    "crm/frontend/src/data/script.js:150"
+   ],
+   "current": null,
+   "context": "        }\n      } catch (err) {\n        console.error(\n          __('Failed to load file-based form controller: {0}', [err]),\n        )\n      }\n    }"
+  },
+  {
+   "key": "Failed to save settings",
+   "refs": [
+    "crm/frontend/src/components/Settings/DefaultsSettings.vue:169",
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:510"
+   ],
+   "current": null,
+   "context": "      toast.success(__('Settings updated successfully'))\n    },\n    onError(error) {\n      const message = error?.messages?.[0] || __('Failed to save settings')\n      toast.error(message)\n    },\n  })"
+  },
+  {
+   "key": "Failed to save workday: {0}",
+   "refs": [
+    "crm/frontend/src/components/Settings/Sla/WorkDayModal.vue:265"
+   ],
+   "current": null,
+   "context": "\n    dialog.value.show = false\n  } catch (error) {\n    toast.error(__('Failed to save workday: {0}', [error.message || error]))\n  }\n}\n"
+  },
+  {
+   "key": "Failed to send comment!",
+   "refs": [
+    "crm/frontend/src/components/CommunicationArea.vue:299"
+   ],
+   "current": null,
+   "context": "  toast.promise(sending, {\n    loading: __('Sending comment...'),\n    success: __('Comment sent'),\n    error: (e) => e?.messages?.[0] || __('Failed to send comment!'),\n  })\n  try {\n    await sending"
+  },
+  {
+   "key": "Failed to send WhatsApp message",
+   "refs": [
+    "crm/frontend/src/components/Activities/WhatsAppBox.vue:144"
+   ],
+   "current": null,
+   "context": "    auto: true,\n    onSuccess: () => whatsapp.value.reload(),\n    onError: (error) => {\n      toast.error(error.messages?.[0] || __('Failed to send WhatsApp message'))\n    },\n  })\n}"
+  },
+  {
+   "key": "Failed to start sync",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:501"
+   ],
+   "current": null,
+   "context": "        productSyncStatus.submit()\n      },\n      onError(error) {\n        toast.error(error?.messages?.[0] || __('Failed to start sync'))\n      },\n    },\n  },"
+  },
+  {
+   "key": "Failed to update comment",
+   "refs": [
+    "crm/frontend/src/components/Activities/CommentArea.vue:130"
+   ],
+   "current": null,
+   "context": "    editing.value = false\n    emit('reload')\n  } catch {\n    toast.error(__('Failed to update comment'))\n  } finally {\n    saving.value = false\n  }"
+  },
+  {
+   "key": "Failed to update email account: invalid credentials",
+   "refs": [
+    "crm/frontend/src/components/Settings/EmailEdit.vue:216"
+   ],
+   "current": null,
+   "context": "\nfunction errorHandler() {\n  loading.value = false\n  error.value = __('Failed to update email account: invalid credentials')\n}\n</script>"
+  },
+  {
+   "key": "Failed to update setting",
+   "refs": [
+    "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:290"
+   ],
+   "current": null,
+   "context": "  auto: true,\n  setValue: {\n    onError(error) {\n      toast.error(error?.messages?.[0] || __('Failed to update setting'))\n    },\n  },\n})"
+  },
+  {
+   "key": "Failed to update source",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/LeadSyncSources.vue:163"
+   ],
+   "current": null,
+   "context": "        )\n      },\n      onError: (error) => {\n        toast.error(error.messages[0] || __('Failed to update source'))\n        // Revert the change if there was an error\n        source.enabled = !source.enabled\n      },"
+  },
+  {
+   "key": "Failure Logs",
+   "refs": [
+    "crm/frontend/src/components/Settings/LeadSyncing/LeadSyncSourceForm.vue:204"
+   ],
+   "current": null,
+   "context": "\n  if (!isLocal.value) {\n    tabList.push({\n      label: __('Failure Logs'),\n      icon: RefreshIcon,\n    })\n  }"
+  },
+  {
+   "key": "fawazahmed-exchange-api",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"service_provider\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Service Provider\",\n   \"options\": \"frankfurter.app\\nfawazahmed-exchange-api\\nexchangerate.host\\nexchangerate-api\"\n  },\n  {\n   \"depends_on\": \"eval:doc.service_provider == 'exchangerate.host';\","
+  },
+  {
+   "key": "Following up consistently",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:91"
+   ],
+   "current": null,
+   "context": "    multiple: true,\n    options: [\n      { label: __('Capturing leads'), value: 'capturing_leads' },\n      { label: __('Following up consistently'), value: 'following_up' },\n      {\n        label: __('Keeping my pipeline organized'),\n        value: 'pipeline_organized',"
+  },
+  {
+   "key": "Form created",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:227"
+   ],
+   "current": null,
+   "context": "    showCreate.value = false\n    emit('open', doc.name)\n    forms.reload()\n    toast.success(__('Form created'))\n  } catch (e) {\n    createError.value =\n      e?.messages?.[0] || e?.message || __('Could not create form')"
+  },
+  {
+   "key": "Form deleted",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:258"
+   ],
+   "current": null,
+   "context": "async function deleteForm(form) {\n  await call('crm.api.form.delete_form', { name: form.name })\n  forms.reload()\n  toast.success(__('Form deleted'))\n}\n\nfunction rowOptions(form) {"
+  },
+  {
+   "key": "Form details",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:299"
+   ],
+   "current": null,
+   "context": "              <div>\n                <div class=\"flex flex-col gap-1\">\n                  <span class=\"text-lg-semibold text-ink-gray-8\">{{\n                    __('Form details')\n                  }}</span>\n                  <span class=\"text-p-sm text-ink-gray-6\">{{\n                    __('Basic settings for this form.')"
+  },
+  {
+   "key": "Form Name",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/facebook_lead_form/facebook_lead_form.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"form_name\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Form Name\"\n  },\n  {\n   \"fieldname\": \"section_break_iqhq\","
+  },
+  {
+   "key": "Form published",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:244"
+   ],
+   "current": null,
+   "context": "    })\n    form.published = value ? 1 : 0\n    if (value) capture('form_published', { source: 'list' })\n    toast.success(value ? __('Form published') : __('Form unpublished'))\n  } catch (e) {\n    forms.reload()\n    toast.error(e?.messages?.[0] || __('Could not update form'))"
+  },
+  {
+   "key": "Form title",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:61",
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:536"
+   ],
+   "current": null,
+   "context": "              <div class=\"mb-5 px-1\">\n                <input\n                  v-model=\"form.title\"\n                  :placeholder=\"__('Form title')\"\n                  class=\"w-full border-0 bg-transparent p-0 text-2xl font-semibold leading-tight text-ink-gray-9 placeholder:text-ink-gray-4 focus:outline-none focus:ring-0\"\n                  @input=\"onTitleInput\"\n                />"
+  },
+  {
+   "key": "Form unpublished",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:244"
+   ],
+   "current": null,
+   "context": "    })\n    form.published = value ? 1 : 0\n    if (value) capture('form_published', { source: 'list' })\n    toast.success(value ? __('Form published') : __('Form unpublished'))\n  } catch (e) {\n    forms.reload()\n    toast.error(e?.messages?.[0] || __('Could not update form'))"
+  },
+  {
+   "key": "Form updated",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:1014"
+   ],
+   "current": null,
+   "context": "async function saveNow() {\n  if (!dirty.value || saving.value) return\n  const ok = await save()\n  if (ok) toast.success(__('Form updated'))\n}\n// with autosave gone, warn before leaving the editor with unsaved changes\n// (same $dialog pattern as the Assignment Rule page)"
+  },
+  {
+   "key": "Forms",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormsList.vue:7",
+    "crm/frontend/src/components/Settings/Settings.vue:202"
+   ],
+   "current": null,
+   "context": "    <div class=\"flex justify-between px-2 pt-2\">\n      <div class=\"flex flex-col gap-1 w-9/12\">\n        <h2 class=\"flex gap-2 text-2xl-semibold leading-none h-5\">\n          {{ __('Forms') }}\n        </h2>\n        <p class=\"text-p-base text-ink-gray-6\">\n          {{"
+  },
+  {
+   "key": "Forms can only map to: {0}",
+   "refs": [
+    "crm/crm/api/form.py:246",
+    "crm/crm/api/form.py:255",
+    "crm/crm/api/form.py:440"
+   ],
+   "current": null,
+   "context": "def get_form_fields(document_type: str) -> list[dict]:\n\t\"\"\"Mappable fields of a target DocType, for the builder's field picker.\"\"\"\n\tif document_type not in ALLOWED_DOCTYPES:\n\t\tfrappe.throw(_(\"Forms can only map to: {0}\").format(\", \".join(ALLOWED_DOCTYPES)))\n\treturn _mappable_fields(document_type)\n\n"
+  },
+  {
+   "key": "FROM",
+   "refs": [
+    "crm/frontend/src/components/EmailEditor.vue:16"
+   ],
+   "current": null,
+   "context": "          v-if=\"from.length\"\n          class=\"mx-4 flex items-center gap-2 border-t pt-2.5 h-10\"\n        >\n          <span class=\"text-xs text-ink-gray-4\">{{ __('FROM') }}:</span>\n          <FormControl\n            v-model=\"fromEmail\"\n            type=\"select\""
+  },
+  {
+   "key": "From Number",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_call_log/crm_call_log.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Data\",\n   \"in_list_view\": 1,\n   \"in_standard_filter\": 1,\n   \"label\": \"From Number\",\n   \"options\": \"Phone\",\n   \"reqd\": 1\n  },"
+  },
+  {
+   "key": "Go to Invite Page",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssigneeSearch.vue:158"
+   ],
+   "current": null,
+   "context": "    variant: 'solid',\n    actions: [\n      {\n        label: __('Go to Invite Page'),\n        variant: 'solid',\n        onClick: (close) => {\n          activeSettingsPage.value = 'Invite User'"
+  },
+  {
+   "key": "Google Ads",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:75"
+   ],
+   "current": null,
+   "context": "    options: [\n      { label: __('Website forms'), value: 'website_forms' },\n      { label: __('Facebook/Instagram Ads'), value: 'meta_ads' },\n      { label: __('Google Ads'), value: 'google_ads' },\n      { label: __('WhatsApp'), value: 'whatsapp' },\n      { label: __('Email'), value: 'email' },\n      { label: __('Phone calls'), value: 'phone_calls' },"
+  },
+  {
+   "key": "Grant Access",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FieldCard.vue:174"
+   ],
+   "current": null,
+   "context": "            size=\"sm\"\n            variant=\"outline\"\n            :loading=\"granting\"\n            :label=\"__('Grant Access')\"\n            @click=\"$emit('grant-guest')\"\n          />\n        </div>"
+  },
+  {
+   "key": "Greater than",
+   "refs": [
+    "crm/frontend/src/components/Filter.vue:393"
+   ],
+   "current": null,
+   "context": "      ...[\n        { label: __('Equals'), value: 'equals' },\n        { label: __('Not equals'), value: 'not equals' },\n        { label: __('Greater than'), value: '>' },\n        { label: __('Less than'), value: '<' },\n        { label: __('Greater than or equal to'), value: '>=' },\n        { label: __('Less than or equal to'), value: '<=' },"
+  },
+  {
+   "key": "Greater than or equal to",
+   "refs": [
+    "crm/frontend/src/components/Filter.vue:395"
+   ],
+   "current": null,
+   "context": "        { label: __('Not equals'), value: 'not equals' },\n        { label: __('Greater than'), value: '>' },\n        { label: __('Less than'), value: '<' },\n        { label: __('Greater than or equal to'), value: '>=' },\n        { label: __('Less than or equal to'), value: '<=' },\n        { label: __('Is'), value: 'is' },\n      ],"
+  },
+  {
+   "key": "Guests can now select {0} records.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:857"
+   ],
+   "current": null,
+   "context": "      // records are now guest-visible — refresh the preview dropdown\n      delete linkOptions[doctype]\n      ensureLinkOptions(doctype)\n      toast.success(__('Guests can now select {0} records.', [doctype]))\n    }\n  } catch (e) {\n    toast.error(e?.messages?.[0] || __('Could not grant guest access.'))"
+  },
+  {
+   "key": "Guests can't see {0} records. Grant select access to list them publicly.",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FieldCard.vue:164"
+   ],
+   "current": null,
+   "context": "        <div class=\"flex min-w-0 flex-col items-start gap-2\">\n          <p class=\"text-p-sm text-ink-gray-7\">\n            {{\n              __(\n                \"Guests can't see {0} records. Grant select access to list them publicly.\",\n                [field.options],\n              )"
+  },
+  {
+   "key": "Hang Up",
+   "refs": [
+    "crm/frontend/src/components/Telephony/TwilioCallUI.vue:63"
+   ],
+   "current": null,
+   "context": "          />\n          <Button\n            class=\"rounded-full bg-surface-red-7 hover:bg-surface-red-8 rotate-[135deg] text-ink-base\"\n            :tooltip=\"__('Hang Up')\"\n            :icon=\"PhoneIcon\"\n            @click=\"hangUpCall\"\n          />"
+  },
+  {
+   "key": "Helper text under the field (optional)",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FieldCard.vue:112"
+   ],
+   "current": null,
+   "context": "        type=\"text\"\n        size=\"sm\"\n        :label=\"__('Description')\"\n        :placeholder=\"__('Helper text under the field (optional)')\"\n      />\n      <!-- conditional logic: show / require / lock this field based on other answers -->\n      <div class=\"space-y-3 border-t border-outline-gray-2 pt-3\">"
+  },
+  {
+   "key": "Hidden required fields",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:231"
+   ],
+   "current": null,
+   "context": "                  class=\"mb-2 flex items-center gap-1.5 text-base-medium text-ink-gray-7\"\n                >\n                  <LucideEyeOff class=\"h-3.5 w-3.5 text-ink-gray-5\" />\n                  {{ __('Hidden required fields') }}\n                </div>\n                <div class=\"rounded bg-surface-gray-2 p-2.5\">\n                  <p class=\"mb-2.5 text-p-sm text-ink-gray-5\">"
+  },
+  {
+   "key": "How are you managing your sales today?",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:56"
+   ],
+   "current": null,
+   "context": "const questions = computed(() => [\n  {\n    key: 'current_solution',\n    title: __('How are you managing your sales today?'),\n    options: [\n      { label: __('This is my first CRM'), value: 'first_crm' },\n      { label: __('Spreadsheets'), value: 'spreadsheets' },"
+  },
+  {
+   "key": "How do new leads usually come to you?",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:70"
+   ],
+   "current": null,
+   "context": "  },\n  {\n    key: 'lead_sources',\n    title: __('How do new leads usually come to you?'),\n    multiple: true,\n    options: [\n      { label: __('Website forms'), value: 'website_forms' },"
+  },
+  {
+   "key": "How many people will use Frappe CRM?",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:108"
+   ],
+   "current": null,
+   "context": "  },\n  {\n    key: 'team_size',\n    title: __('How many people will use Frappe CRM?'),\n    options: [\n      { label: __('Just me'), value: 'just_me' },\n      { label: __('2–5'), value: '2_5' },"
+  },
+  {
+   "key": "How timestamps are shown in the activity timeline for all users",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"Relative\",\n   \"description\": \"How timestamps are shown in the activity timeline for all users\",\n   \"fieldname\": \"crm_timeline_timestamp_format\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Timeline Timestamp Format\","
+  },
+  {
+   "key": "https://example.com/thank-you",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:349"
+   ],
+   "current": null,
+   "context": "                      v-model=\"form.redirect_url\"\n                      type=\"text\"\n                      :label=\"__('Redirect URL')\"\n                      :placeholder=\"__('https://example.com/thank-you')\"\n                      @input=\"markDirty\"\n                    />\n                    <p class=\"mt-1.5 text-p-sm text-ink-gray-5\">"
+  },
+  {
+   "key": "HubSpot",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:60"
+   ],
+   "current": null,
+   "context": "    options: [\n      { label: __('This is my first CRM'), value: 'first_crm' },\n      { label: __('Spreadsheets'), value: 'spreadsheets' },\n      { label: __('HubSpot'), value: 'hubspot' },\n      { label: __('Salesforce'), value: 'salesforce' },\n      { label: __('Zoho CRM'), value: 'zoho' },\n      { label: __('Pipedrive'), value: 'pipedrive' },"
+  },
+  {
+   "key": "I understand, add conditions",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:199",
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:283",
+    "crm/frontend/src/components/Settings/Sla/SlaPolicyView.vue:151"
+   ],
+   "current": null,
+   "context": "              }}\n            </span>\n            <Button\n              :label=\"__('I understand, add conditions')\"\n              variant=\"subtle\"\n              theme=\"gray\"\n              @click=\"useNewUI = true\""
+  },
+  {
+   "key": "If enabled, a lead will be automatically created when an incoming email is received from an unknown contact.",
+   "refs": [
+    "crm/frontend/src/components/Settings/emailConfig.js:61"
+   ],
+   "current": null,
+   "context": "    label: __('Create Lead from Incoming Emails'),\n    name: 'create_lead_from_incoming_email',\n    type: 'checkbox',\n    description: __(\n      'If enabled, a lead will be automatically created when an incoming email is received from an unknown contact.',\n    ),\n    condition: (state) => state.enable_incoming,"
+  },
+  {
+   "key": "If enabled, all replies to your company (eg: replies@yourcompany.com) will come to this account. Note: Only one account can be default incoming.",
+   "refs": [
+    "crm/frontend/src/components/Settings/emailConfig.js:45"
+   ],
+   "current": null,
+   "context": "    label: __('Default Incoming'),\n    name: 'default_incoming',\n    type: 'checkbox',\n    description: __(\n      'If enabled, all replies to your company (eg: replies@yourcompany.com) will come to this account. Note: Only one account can be default incoming.',\n    ),\n  },"
+  },
+  {
+   "key": "If enabled, emails will be pulled from this account.",
+   "refs": [
+    "crm/frontend/src/components/Settings/emailConfig.js:31"
+   ],
+   "current": null,
+   "context": "    label: __('Enable Incoming'),\n    name: 'enable_incoming',\n    type: 'checkbox',\n    description: __('If enabled, emails will be pulled from this account.'),\n  },\n  {\n    label: __('Enable Outgoing'),"
+  },
+  {
+   "key": "iframe",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:431"
+   ],
+   "current": null,
+   "context": "                  <!-- iframe (isolated) -->\n                  <div>\n                    <div class=\"mb-1 text-base text-ink-gray-5\">\n                      {{ __('iframe') }}\n                    </div>\n                    <p class=\"mb-2 text-p-sm text-ink-gray-5\">\n                      {{"
+  },
+  {
+   "key": "Import my existing data",
+   "refs": [
+    "crm/frontend/src/pages/PersonaForm.vue:121"
+   ],
+   "current": null,
+   "context": "    title: __('What would you like to accomplish first?'),\n    optional: true,\n    options: [\n      { label: __('Import my existing data'), value: 'import_data' },\n      { label: __('Capture my first lead'), value: 'capture_lead' },\n      { label: __('Set up my sales pipeline'), value: 'setup_pipeline' },\n      { label: __('Organize my contacts'), value: 'organize_contacts' },"
+  },
+  {
+   "key": "Incorrect current password. Please try again.",
+   "refs": [
+    "crm/crm/api/user.py:32"
+   ],
+   "current": null,
+   "context": "\t\tcheck_password(user, old_password)\n\texcept frappe.AuthenticationError:\n\t\ttracker.add_failure_attempt()\n\t\tfrappe.throw(_(\"Incorrect current password. Please try again.\"))\n\telse:\n\t\ttracker.add_success_attempt()\n"
+  },
+  {
+   "key": "Invalid access token provided for Facebook.",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/lead_sync_source/facebook.py:149"
+   ],
+   "current": null,
+   "context": "\n\taccount_details = get_fb_account_details(access_token)\n\tif not account_details.get(\"id\"):\n\t\tfrappe.throw(frappe._(\"Invalid access token provided for Facebook.\"))\n\n\turl = get_fb_graph_api_url(\"/me/accounts\")\n\tpages = make_get_request(url, params={\"access_token\": access_token}).get(\"data\", [])"
+  },
+  {
+   "key": "Invalid Email or Password",
+   "refs": [
+    "crm/frontend/src/stores/session.js:22"
+   ],
+   "current": null,
+   "context": "  const login = createResource({\n    url: 'login',\n    onError() {\n      throw new Error(__('Invalid Email or Password'))\n    },\n    onSuccess() {\n      user.value = sessionUser()"
+  }
+ ]
+}

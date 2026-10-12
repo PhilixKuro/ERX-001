@@ -1,0 +1,28 @@
+Ollama	整条为品牌产品名，原样显示，建议进白名单
+OpenAI	整条为品牌名，原样显示，建议进白名单
+Raven	整条为产品名，原样显示，建议进白名单
+Reddit	整条为品牌名，原样显示，建议进白名单
+Reddit post	含品牌名 Reddit（不在混排 ALLOW 内），需登记例外
+parameter to True.	含原样代码／示例（参数值 True），需登记例外；与 06 块「You can send markdown formatted text to a channel by setting the」+代码 markdown 拼接，前半宜译「要向频道发送 Markdown 格式的文本，可将」
+parameters.	与 06 块「You can send a message with a link to any document in the system by setting the」+代码 link_doctype+「and」+代码 link_document 拼接，本条只承担句末「参数。」
+Pressing Enter will add a new line. Use Ctrl / ⌘ + Enter to send your message.	含原样按键名 Ctrl，需登记例外；Enter 译「回车键」
+Pressing Enter will immediately send your message. Use Shift+Enter to add a new line.	含原样按键名 Shift，需登记例外；Enter 译「回车键」
+Please understand that when you archive	后接 <strong>频道名</strong>:，读作「请注意，归档 频道名：」，下接列表
+Please understand that when you make	与 01 块「a public/private/open channel:」（设为公开频道后：）拼接，读作「请注意，将 频道名 设为公开频道后：」
+points	链接预览卡片中 Hacker News 帖子的得分，前接数字，读作「N 分」
+Quickly import {0}s?	源词 {0}s 为英文复数写法，中文不需要复数，去掉 s
+Nudge	新词：Quiet Hours Nudge 选项，Nudge→提示；同组 No Nudge=不提示、Auto Silent=自动静默
+Quiet Hours Nudge	新词：免打扰时段提示
+Reasoning Effort	新词：Reasoning Effort（OpenAI o 系列模型参数）→推理强度；同组 low/medium/high=低/中/高
+Reaction Escaped	新词：存表情回应转义值的隐藏字段，取「表情回应（转义）」
+OpenAI Vector Store ID	新词：Vector Store→向量存储（OpenAI 文件检索用）
+OpenAI Thread ID	OpenAI 助手接口中的会话线程；按 Raven 用词 Thread=话题 取「OpenAI 话题 ID」
+OpenAI Compatible	新词：本地 LLM 服务商选项，取「OpenAI 兼容服务」
+Raven Scheduler Event	新词：Raven 的定时发送事件（非 Frappe 后台任务事件），取「Raven 定时事件」
+Raven Poll Vote Selection	新词：投票记录的所选项子表，取「Raven 投票所选项」
+Read by	已读回执抽屉标题，下面列出已读的人，取「已读人员」
+Request URL is required	沿官方 Request URL→请求URL（无空格）
+Request URL should not exceed 140 characters	沿官方 Request URL→请求URL（无空格）
+Recent Activity	侧边栏频道排序选项，与「按字母顺序」并列；取「最近动态」
+Nothing in progress	提醒列表「进行中」页签的空状态标题
+Open until {0}	投票截止时间徽标，{0} 为日期时间

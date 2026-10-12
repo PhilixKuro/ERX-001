@@ -1,0 +1,4 @@
+02 'General Ledger requires {0} to be synced to DuckDB' => '会计总账报表需要先将 {0} 同步到分析数据库'
+03 'Invalid CSV format. Expected column: doctype_name' => 'CSV 格式无效，缺少单据类型名称列'
+03 "Naming series '{0}' for DocType '{1}' does not contain standard '.' or '{{' separator. Using fallback extraction." => "单据类型「{1}」的编号模板「{0}」不含标准的「.」或「{{' separator. Using fallback extraction."
+03 "PDF statement support requires the 'pdfplumber' library to be installed." => 'PDF 对账单功能需要在服务器上安装 PDF 解析库。'

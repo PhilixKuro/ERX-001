@@ -1,4 +1,4 @@
-"""Reproduce the 100-row review of newly filled, non-demo S6 gaps."""
+"""S6 分层抽检 100 条（R6 方案 TS-021 第 5 步改：种子 20261011，总体取 R6 批量档 Spike/P1S6R6-batch/part-*.csv 的行，译文取当前 zh.csv）。"""
 from __future__ import annotations
 import argparse
 import csv
@@ -10,48 +10,30 @@ import subprocess
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SEED = 20261009
+SEED = 20261011
 SPEC = importlib.util.spec_from_file_location("baseline", ROOT / "Spike/P1S6R4-baseline.py")
 baseline = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(baseline)
 
 def population():
-    frozen = json.loads((ROOT / "Spike/P1S6R4-baseline.out.json").read_text(encoding="utf-8"))
-    app_repo = ROOT / "frappe-bench/apps/frappe_china"
-    original = subprocess.run(
-        ["git", "-C", str(app_repo), "show", frozen["commits"]["frappe_china"] + ":frappe_china/translations/zh.csv"],
-        check=True, capture_output=True, encoding="utf-8",
-    ).stdout
-    before = {}
-    for app in baseline.APPS[:-1]:
-        before.update(baseline.parse_csv(baseline.app_path(app) / "translations/zh.csv"))
-        for entry in baseline.parse_po(baseline.app_path(app) / "locale/zh.po"):
-            if entry["str"]:
-                before[baseline.entry_key(entry)] = entry["str"]
-    for row in csv.reader(io.StringIO(original)):
-        key = row[0] + (":" + row[2] if len(row) == 3 and row[2] else "")
-        before[key] = row[1]
-    current = {}
-    with (baseline.app_path("frappe_china") / "translations/zh.csv").open(encoding="utf-8-sig", newline="") as handle:
-        for row in csv.reader(handle):
-            if len(row) in (2, 3):
-                key = row[0] + (":" + row[2] if len(row) == 3 and row[2] else "")
-                current[key] = row[1].strip()
+    """总体：批量档各块并入 zh.csv 的行，按 in 块的 app 分层；出处取 in 块的 refs。"""
+    current = baseline.parse_csv(baseline.app_path("frappe_china") / "translations/zh.csv")
+    whitelist = {key.replace("\\n", "\n") for key in baseline.untranslated()}
     result = {}
-    for app in baseline.APPS[:-1]:
-        rows = {}
-        for entry in baseline.parse_po(baseline.app_path(app) / "locale/main.pot"):
-            key = baseline.entry_key(entry)
-            old = before.get(key) or before.get(entry["id"])
-            target = current.get(key) or current.get(entry["id"])
-            if entry["id"] in frozen["demo_surface"] or not target:
-                continue
-            if old and old != entry["id"]:
-                continue
-            refs = [f"frappe-bench/apps/{app}/{ref}" for ref in entry["refs"]]
-            rows[key] = (key, refs, target)
-        result[app] = [rows[key] for key in sorted(rows)]
-    return result
+    for block in sorted((ROOT / "Spike/P1S6R6-batch").glob("in-*.json")):
+        data = json.loads(block.read_text(encoding="utf-8"))
+        part = block.with_name(block.name.replace("in-", "part-")).with_suffix(".csv")
+        if not part.exists():
+            raise ValueError(f"batch block not translated yet: {part.name}")
+        for item in data["items"]:
+            key = item["key"].replace("\\n", "\n")  # 与 Frappe 读 csv 同
+            if key in whitelist:
+                continue  # 进了白名单（品牌名、标识符、官方保留原文）的不在总体内
+            target = current.get(key)
+            if target is None:
+                raise ValueError(f"batch key not in zh.csv: {item['key']!r}")
+            result.setdefault(data["group"], []).append((item["key"], item["refs"], target))
+    return {app: sorted(rows) for app, rows in result.items()}
 
 def stratified_sample(batch, n=100, floor=5):
     apps = sorted(batch)
@@ -74,7 +56,7 @@ def stratified_sample(batch, n=100, floor=5):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--out", type=Path, default=ROOT / "Spike/P1S6R4-sample.out.csv")
+    parser.add_argument("--out", type=Path, default=ROOT / "Spike/P1S6R6-sample.out.csv")
     args = parser.parse_args()
     batch = population()
     selected, quotas = stratified_sample(batch)
@@ -84,7 +66,7 @@ def main():
         for app, (key, refs, target) in selected:
             writer.writerow([app, key, "; ".join(refs), target, "待审", ""])
     report = {"seed": SEED, "rows": len(selected), "population": {app: len(rows) for app, rows in batch.items()}, "quotas": quotas}
-    (ROOT / "Spike/P1S6R4-sample-meta.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (ROOT / "Spike/P1S6R6-sample-meta.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, ensure_ascii=False))
 
 if __name__ == "__main__":

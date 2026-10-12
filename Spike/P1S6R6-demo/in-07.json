@@ -1,0 +1,392 @@
+{
+ "group": "raven",
+ "items": [
+  {
+   "key": "AI Settings",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/AINotEnabledCallout.tsx:39"
+   ],
+   "current": null,
+   "context": "                    className=\"underline underline-offset-2 font-medium\"\n                    onClick={() => setOpenTab(\"ai-settings\")}\n                >\n                    {_(\"AI Settings\")}\n                </span>\n            </AlertTitle>\n        </Alert>"
+  },
+  {
+   "key": "Channels",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/ChannelList.tsx:80"
+   ],
+   "current": null,
+   "context": "    // score, not on section order. Browsing keeps the labeled section.\n    if (text) return <>{rows}</>\n\n    return <CommandGroup heading={_(\"Channels\")}>{rows}</CommandGroup>\n}\n\nexport default ChannelList"
+  },
+  {
+   "key": "Command Menu",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:99"
+   ],
+   "current": null,
+   "context": "                aria-describedby={undefined}\n            >\n                <DialogHeader className=\"sr-only\">\n                    <DialogTitle>{_(\"Command Menu\")}</DialogTitle>\n                    <DialogDescription>{_(\"Search or type a command\")}</DialogDescription>\n                </DialogHeader>\n                <CommandPalette />"
+  },
+  {
+   "key": "Command menu",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:82"
+   ],
+   "current": null,
+   "context": "        return (\n            <Drawer open={open} onOpenChange={setOpen}>\n                <DrawerContent className=\"h-[90vh] flex flex-col\">\n                <DrawerTitle className=\"sr-only\">{_(\"Command menu\")}</DrawerTitle>\n                    <DrawerDescription className=\"sr-only\">{_(\"Search or type a command\")}</DrawerDescription>\n                    <div className=\"flex-1 overflow-hidden flex flex-col min-h-0\">\n                        <CommandPalette inDrawer />"
+  },
+  {
+   "key": "Commands",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandList.tsx:72"
+   ],
+   "current": null,
+   "context": "    // (see CommandPalette). Browsing keeps the labeled section.\n    if (text) return <>{rows}</>\n\n    return <CommandGroup heading={_(\"Commands\")}>{rows}</CommandGroup>\n}\n\nexport default QuickActions"
+  },
+  {
+   "key": "Copied!",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:144"
+   ],
+   "current": null,
+   "context": "                    tabIndex={0}\n                    onClick={copyText}\n                    onKeyDown={(e) => { if (e.key === \"Enter\" || e.key === \" \") { e.preventDefault(); copyText() } }}\n                    aria-label={copied ? _(\"Copied!\") : _(\"Copy to clipboard\")}\n                    aria-live=\"polite\"\n                    className=\"group inline-flex cursor-pointer items-center gap-1.5 rounded outline-none\"\n                >"
+  },
+  {
+   "key": "Copy to clipboard",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:144",
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:159"
+   ],
+   "current": null,
+   "context": "                    tabIndex={0}\n                    onClick={copyText}\n                    onKeyDown={(e) => { if (e.key === \"Enter\" || e.key === \" \") { e.preventDefault(); copyText() } }}\n                    aria-label={copied ? _(\"Copied!\") : _(\"Copy to clipboard\")}\n                    aria-live=\"polite\"\n                    className=\"group inline-flex cursor-pointer items-center gap-1.5 rounded outline-none\"\n                >"
+  },
+  {
+   "key": "Direct Messages",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:245"
+   ],
+   "current": null,
+   "context": "                                templateWithText={_(\"Search for {0} in {1}\")}\n                                templateNoText={_(\"Search in {0}\")}\n                                entity={\n                                    <span className=\"font-medium text-ink-gray-8 shrink-0 whitespace-nowrap\">{_(\"Direct Messages\")}</span>\n                                }\n                            />\n                        ) : ("
+  },
+  {
+   "key": "Dynamic Instructions",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:55"
+   ],
+   "current": null,
+   "context": "        <div className=\"flex flex-col gap-4\">\n            <SwitchFormField\n                name=\"dynamic_instructions\"\n                label={_(\"Dynamic Instructions\")}\n                formDescription={_(\"Dynamic Instructions allow you to embed Jinja tags in your instruction to the bot. Instructions would be different based on the user who is calling the bot or the data in your system as they are computed every time the bot is called.\")}\n            />\n            {isDynamic"
+  },
+  {
+   "key": "Dynamic Instructions allow you to embed Jinja tags in your instruction to the bot. Instructions would be different based on the user who is calling the bot or the data in your system as they are computed every time the bot is called.",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:56"
+   ],
+   "current": null,
+   "context": "            <SwitchFormField\n                name=\"dynamic_instructions\"\n                label={_(\"Dynamic Instructions\")}\n                formDescription={_(\"Dynamic Instructions allow you to embed Jinja tags in your instruction to the bot. Instructions would be different based on the user who is calling the bot or the data in your system as they are computed every time the bot is called.\")}\n            />\n            {isDynamic\n                ? <DynamicInstructionField allowUsingTemplate={allowUsingTemplate} instructionRequired={instructionRequired} autoFocus={autoFocus} />"
+  },
+  {
+   "key": "Editor",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:72"
+   ],
+   "current": null,
+   "context": "    return (\n        <div className=\"flex flex-col gap-4\">\n            <TabsButton value={view} size=\"md\" onValueChange={(value) => setView(value as \"editor\" | \"preview\")} aria-label={_(\"Instruction view\")}>\n                <TabsButtonItem value=\"editor\">{_(\"Editor\")}</TabsButtonItem>\n                <TabsButtonItem value=\"preview\">{_(\"Preview\")}</TabsButtonItem>\n            </TabsButton>\n            {view === \"editor\""
+  },
+  {
+   "key": "Failed to copy to clipboard",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:131"
+   ],
+   "current": null,
+   "context": "                window.clearTimeout(resetTimer.current)\n                resetTimer.current = window.setTimeout(() => setCopied(false), 1000)\n            })\n            .catch(() => toast.error(_(\"Failed to copy to clipboard\")))\n    }\n\n    return ("
+  },
+  {
+   "key": "Go to",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/NavigationList.tsx:106"
+   ],
+   "current": null,
+   "context": "    return (\n        <>\n            {workspaceRows && <CommandGroup heading={_(\"Workspaces\")}>{workspaceRows}</CommandGroup>}\n            <CommandGroup heading={_(\"Go to\")}>{gotoRows}</CommandGroup>\n        </>\n    )\n}"
+  },
+  {
+   "key": "Google APIs are not enabled. Please enable them in Raven Settings",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/GoogleAPINotEnabledCallout.tsx:29"
+   ],
+   "current": null,
+   "context": "    }\n\n    const message = !hasGoogleApis\n        ? _(\"Google APIs are not enabled. Please enable them in Raven Settings\")\n        : _(\"No Google Project ID is set. Please set a Project ID in Raven Settings\")\n\n    return ("
+  },
+  {
+   "key": "Here are some variables you can use in your instruction. Simply copy by clicking on the variable.",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:80"
+   ],
+   "current": null,
+   "context": "                : <InstructionPreview view={view} />}\n            <Separator className=\"w-full\" />\n            <p className=\"text-p-base text-ink-gray-6\">\n                {_(\"Here are some variables you can use in your instruction. Simply copy by clicking on the variable.\")}\n                <br />\n                {_(\"You can also use standard Jinja variables available in the system.\")}\n            </p>"
+  },
+  {
+   "key": "Import from Template",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:257"
+   ],
+   "current": null,
+   "context": "    return (\n        <Popover onOpenChange={() => setSelectedTemplate(\"\")}>\n            <PopoverTrigger asChild>\n                <Button type=\"button\" variant=\"ghost\" size=\"sm\">{_(\"Import from Template\")}</Button>\n            </PopoverTrigger>\n            <PopoverContent align=\"end\" className=\"w-[300px]\">\n                <div className=\"flex flex-col gap-6\">"
+  },
+  {
+   "key": "Instruction is required",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:209"
+   ],
+   "current": null,
+   "context": "            <Textarea\n                id=\"instruction\"\n                {...register(\"instruction\", {\n                    required: instructionRequired ? _(\"Instruction is required\") : false,\n                    validate: (value) => {\n                        if (!isDynamic && value?.includes(\"{{\")) {\n                            return _(\"You cannot include Jinja tags without enabling dynamic instructions.\")"
+  },
+  {
+   "key": "Instruction view",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:71"
+   ],
+   "current": null,
+   "context": "\n    return (\n        <div className=\"flex flex-col gap-4\">\n            <TabsButton value={view} size=\"md\" onValueChange={(value) => setView(value as \"editor\" | \"preview\")} aria-label={_(\"Instruction view\")}>\n                <TabsButtonItem value=\"editor\">{_(\"Editor\")}</TabsButtonItem>\n                <TabsButtonItem value=\"preview\">{_(\"Preview\")}</TabsButtonItem>\n            </TabsButton>"
+  },
+  {
+   "key": "No AI providers are configured. Please configure at least one provider in",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/AINotEnabledCallout.tsx:26"
+   ],
+   "current": null,
+   "context": "\n    const message = !isAIEnabled\n        ? _(\"Raven AI is not enabled. Please enable it in\")\n        : _(\"No AI providers are configured. Please configure at least one provider in\")\n\n    return (\n        <Alert theme=\"blue\">"
+  },
+  {
+   "key": "No Google Project ID is set. Please set a Project ID in Raven Settings",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/GoogleAPINotEnabledCallout.tsx:30"
+   ],
+   "current": null,
+   "context": "\n    const message = !hasGoogleApis\n        ? _(\"Google APIs are not enabled. Please enable them in Raven Settings\")\n        : _(\"No Google Project ID is set. Please set a Project ID in Raven Settings\")\n\n    return (\n        <Alert theme=\"blue\">"
+  },
+  {
+   "key": "No templates found",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:264"
+   ],
+   "current": null,
+   "context": "                    {error && <ErrorBanner error={error} />}\n                    <div className=\"flex flex-col gap-2\">\n                        <Label>{_(\"Select a template\")}</Label>\n                        {data && data.length === 0 && <p className=\"text-p-sm text-ink-gray-5\">{_(\"No templates found\")}</p>}\n                        <RadioGroup value={selectedTemplate} onValueChange={setSelectedTemplate} className=\"max-h-96 overflow-y-auto gap-2\">\n                            {data?.map((t) => (\n                                <div key={t.name} className=\"flex items-center gap-2 rounded-md border border-outline-gray-2 px-3 py-2.5 md:py-1.5\">"
+  },
+  {
+   "key": "Nothing to preview",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:181"
+   ],
+   "current": null,
+   "context": "        <div className=\"rounded-md border border-outline-gray-2 bg-surface-gray-2 px-3 py-2\">\n            {hasContent\n                ? <p className=\"text-sm whitespace-pre-wrap\">{data?.message}</p>\n                : <p className=\"text-sm text-ink-gray-5\">{_(\"Nothing to preview\")}</p>}\n        </div>\n    )\n}"
+  },
+  {
+   "key": "Raven AI is not enabled. Please enable it in",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/AINotEnabledCallout.tsx:25"
+   ],
+   "current": null,
+   "context": "    }\n\n    const message = !isAIEnabled\n        ? _(\"Raven AI is not enabled. Please enable it in\")\n        : _(\"No AI providers are configured. Please configure at least one provider in\")\n\n    return ("
+  },
+  {
+   "key": "Search anywhere",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:271"
+   ],
+   "current": null,
+   "context": "                            <ScopedLabel\n                                text={text}\n                                templateWithText={_(\"Search for {0} anywhere\")}\n                                templateNoText={_(\"Search anywhere\")}\n                            />\n                        </CommandItem>\n                    )}"
+  },
+  {
+   "key": "Search for {0} anywhere",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:270"
+   ],
+   "current": null,
+   "context": "                            <TextSearch className=\"shrink-0\" />\n                            <ScopedLabel\n                                text={text}\n                                templateWithText={_(\"Search for {0} anywhere\")}\n                                templateNoText={_(\"Search anywhere\")}\n                            />\n                        </CommandItem>"
+  },
+  {
+   "key": "Search for {0} in DMs with {1}",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:233"
+   ],
+   "current": null,
+   "context": "                        ) : peerUser ? (\n                            <ScopedLabel\n                                text={text}\n                                templateWithText={_(\"Search for {0} in DMs with {1}\")}\n                                templateNoText={_(\"Search in DMs with {0}\")}\n                                entity={\n                                    <span className=\"font-medium text-ink-gray-8 shrink-0 whitespace-nowrap\">{peerUser.first_name || peerUser.name}</span>"
+  },
+  {
+   "key": "Search for {0} in {1}",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:221",
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:242"
+   ],
+   "current": null,
+   "context": "                        {channel ? (\n                            <ScopedLabel\n                                text={text}\n                                templateWithText={_(\"Search for {0} in {1}\")}\n                                templateNoText={_(\"Search in {0}\")}\n                                entity={\n                                    <span className=\"shrink-0 whitespace-nowrap inline-flex items-center gap-0.5\">"
+  },
+  {
+   "key": "Search in DMs with {0}",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:234"
+   ],
+   "current": null,
+   "context": "                            <ScopedLabel\n                                text={text}\n                                templateWithText={_(\"Search for {0} in DMs with {1}\")}\n                                templateNoText={_(\"Search in DMs with {0}\")}\n                                entity={\n                                    <span className=\"font-medium text-ink-gray-8 shrink-0 whitespace-nowrap\">{peerUser.first_name || peerUser.name}</span>\n                                }"
+  },
+  {
+   "key": "Search in {0}",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:222",
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:243"
+   ],
+   "current": null,
+   "context": "                            <ScopedLabel\n                                text={text}\n                                templateWithText={_(\"Search for {0} in {1}\")}\n                                templateNoText={_(\"Search in {0}\")}\n                                entity={\n                                    <span className=\"shrink-0 whitespace-nowrap inline-flex items-center gap-0.5\">\n                                        <ChannelIcon type={channel.type} className=\"h-4 w-4 shrink-0\" />"
+  },
+  {
+   "key": "Select a template",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:263"
+   ],
+   "current": null,
+   "context": "                <div className=\"flex flex-col gap-6\">\n                    {error && <ErrorBanner error={error} />}\n                    <div className=\"flex flex-col gap-2\">\n                        <Label>{_(\"Select a template\")}</Label>\n                        {data && data.length === 0 && <p className=\"text-p-sm text-ink-gray-5\">{_(\"No templates found\")}</p>}\n                        <RadioGroup value={selectedTemplate} onValueChange={setSelectedTemplate} className=\"max-h-96 overflow-y-auto gap-2\">\n                            {data?.map((t) => ("
+  },
+  {
+   "key": "Set status to {0}",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandList.tsx:34"
+   ],
+   "current": null,
+   "context": "        // \"dnd\" lands directly on the right one.\n        ...AVAILABILITY_OPTIONS.map((option) => ({\n            value: `set-status-${option.value}`,\n            label: _('Set status to {0}', [option.label]),\n            icon: <div className='size-4 flex items-center justify-center'><span className={cn('size-2 rounded-full', getStatusIndicatorColor(option.value))} /></div>,\n            keywords: ['status', 'availability', option.value, ...(option.value === 'Do not disturb' ? ['dnd'] : [])],\n            action: () => setAvailability(option.value),"
+  },
+  {
+   "key": "Switch to Dark Mode",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandList.tsx:22"
+   ],
+   "current": null,
+   "context": "    const items = useMemo(() => [\n        {\n            value: 'toggle-theme',\n            label: isDark ? _('Switch to Light Mode') : _('Switch to Dark Mode'),\n            icon: isDark\n                ? <Sun className=\"h-4 w-4\" />\n                : <Moon className=\"h-4 w-4\" />,"
+  },
+  {
+   "key": "Switch to Light Mode",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandList.tsx:22"
+   ],
+   "current": null,
+   "context": "    const items = useMemo(() => [\n        {\n            value: 'toggle-theme',\n            label: isDark ? _('Switch to Light Mode') : _('Switch to Dark Mode'),\n            icon: isDark\n                ? <Sun className=\"h-4 w-4\" />\n                : <Moon className=\"h-4 w-4\" />,"
+  },
+  {
+   "key": "The company of the employee (value in Employee DocType)",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:41"
+   ],
+   "current": null,
+   "context": "    { variable: \"user_id\", description: _(\"The ID of the user\") },\n    { variable: \"company\", description: _(\"The default company in the system\") },\n    { variable: \"employee_id\", description: _(\"The ID of the employee\") },\n    { variable: \"employee_company\", description: _(\"The company of the employee (value in Employee DocType)\") },\n    { variable: \"department\", description: _(\"The department of the employee\") },\n    { variable: \"lang\", description: _(\"The current user language\") },\n]"
+  },
+  {
+   "key": "The current user language",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:43"
+   ],
+   "current": null,
+   "context": "    { variable: \"employee_id\", description: _(\"The ID of the employee\") },\n    { variable: \"employee_company\", description: _(\"The company of the employee (value in Employee DocType)\") },\n    { variable: \"department\", description: _(\"The department of the employee\") },\n    { variable: \"lang\", description: _(\"The current user language\") },\n]\n\nexport const InstructionField = ({ allowUsingTemplate, instructionRequired, autoFocus }: Props) => {"
+  },
+  {
+   "key": "The default company in the system",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:39"
+   ],
+   "current": null,
+   "context": "    { variable: \"full_name\", description: _(\"The full name of the user\") },\n    { variable: \"email\", description: _(\"The email of the user\") },\n    { variable: \"user_id\", description: _(\"The ID of the user\") },\n    { variable: \"company\", description: _(\"The default company in the system\") },\n    { variable: \"employee_id\", description: _(\"The ID of the employee\") },\n    { variable: \"employee_company\", description: _(\"The company of the employee (value in Employee DocType)\") },\n    { variable: \"department\", description: _(\"The department of the employee\") },"
+  },
+  {
+   "key": "The department of the employee",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:42"
+   ],
+   "current": null,
+   "context": "    { variable: \"company\", description: _(\"The default company in the system\") },\n    { variable: \"employee_id\", description: _(\"The ID of the employee\") },\n    { variable: \"employee_company\", description: _(\"The company of the employee (value in Employee DocType)\") },\n    { variable: \"department\", description: _(\"The department of the employee\") },\n    { variable: \"lang\", description: _(\"The current user language\") },\n]\n"
+  },
+  {
+   "key": "The email of the user",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:37"
+   ],
+   "current": null,
+   "context": "const variables = [\n    { variable: \"first_name\", description: _(\"The first name of the user\") },\n    { variable: \"full_name\", description: _(\"The full name of the user\") },\n    { variable: \"email\", description: _(\"The email of the user\") },\n    { variable: \"user_id\", description: _(\"The ID of the user\") },\n    { variable: \"company\", description: _(\"The default company in the system\") },\n    { variable: \"employee_id\", description: _(\"The ID of the employee\") },"
+  },
+  {
+   "key": "The first name of the user",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:35"
+   ],
+   "current": null,
+   "context": "}\n\nconst variables = [\n    { variable: \"first_name\", description: _(\"The first name of the user\") },\n    { variable: \"full_name\", description: _(\"The full name of the user\") },\n    { variable: \"email\", description: _(\"The email of the user\") },\n    { variable: \"user_id\", description: _(\"The ID of the user\") },"
+  },
+  {
+   "key": "The full name of the user",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:36"
+   ],
+   "current": null,
+   "context": "\nconst variables = [\n    { variable: \"first_name\", description: _(\"The first name of the user\") },\n    { variable: \"full_name\", description: _(\"The full name of the user\") },\n    { variable: \"email\", description: _(\"The email of the user\") },\n    { variable: \"user_id\", description: _(\"The ID of the user\") },\n    { variable: \"company\", description: _(\"The default company in the system\") },"
+  },
+  {
+   "key": "The ID of the employee",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:40"
+   ],
+   "current": null,
+   "context": "    { variable: \"email\", description: _(\"The email of the user\") },\n    { variable: \"user_id\", description: _(\"The ID of the user\") },\n    { variable: \"company\", description: _(\"The default company in the system\") },\n    { variable: \"employee_id\", description: _(\"The ID of the employee\") },\n    { variable: \"employee_company\", description: _(\"The company of the employee (value in Employee DocType)\") },\n    { variable: \"department\", description: _(\"The department of the employee\") },\n    { variable: \"lang\", description: _(\"The current user language\") },"
+  },
+  {
+   "key": "The ID of the user",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:38"
+   ],
+   "current": null,
+   "context": "    { variable: \"first_name\", description: _(\"The first name of the user\") },\n    { variable: \"full_name\", description: _(\"The full name of the user\") },\n    { variable: \"email\", description: _(\"The email of the user\") },\n    { variable: \"user_id\", description: _(\"The ID of the user\") },\n    { variable: \"company\", description: _(\"The default company in the system\") },\n    { variable: \"employee_id\", description: _(\"The ID of the employee\") },\n    { variable: \"employee_company\", description: _(\"The company of the employee (value in Employee DocType)\") },"
+  },
+  {
+   "key": "to open",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:317"
+   ],
+   "current": null,
+   "context": "                </span>\n                <span className=\"flex items-center gap-1\">\n                    <Kbd aria-hidden className={cn(FOOTER_KBD, \"px-1\")}><KeyboardMetaKeyIcon /><span className=\"text-xs\">K</span></Kbd>\n                    <span className=\"ml-1\">{_(\"to open\")}</span>\n                </span>\n            </div>\n        </div>"
+  },
+  {
+   "key": "to search",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:313"
+   ],
+   "current": null,
+   "context": "            <div className=\"flex items-center gap-4\">\n                <span className=\"flex items-center gap-1\">\n                    <Kbd aria-hidden className={cn(FOOTER_KBD, \"px-1\")}><KeyboardMetaKeyIcon /><span className=\"text-xs\">G</span></Kbd>\n                    <span className=\"ml-1\">{_(\"to search\")}</span>\n                </span>\n                <span className=\"flex items-center gap-1\">\n                    <Kbd aria-hidden className={cn(FOOTER_KBD, \"px-1\")}><KeyboardMetaKeyIcon /><span className=\"text-xs\">K</span></Kbd>"
+  },
+  {
+   "key": "You are an assistant running on an ERP. The current user's name is {{ first_name }} and the current company is {{ company }}.",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:194"
+   ],
+   "current": null,
+   "context": "    const isDynamic = useWatch({ control, name: \"dynamic_instructions\" })\n\n    const placeholder = isDynamic\n        ? _(\"You are an assistant running on an ERP. The current user's name is {{ first_name }} and the current company is {{ company }}.\")\n        : _(\"You are an assistant running on an ERP. You can answer questions about the company.\")\n\n    return ("
+  },
+  {
+   "key": "You are an assistant running on an ERP. You can answer questions about the company.",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:195"
+   ],
+   "current": null,
+   "context": "\n    const placeholder = isDynamic\n        ? _(\"You are an assistant running on an ERP. The current user's name is {{ first_name }} and the current company is {{ company }}.\")\n        : _(\"You are an assistant running on an ERP. You can answer questions about the company.\")\n\n    return (\n        <div className=\"flex flex-col gap-1.5\">"
+  },
+  {
+   "key": "You can also use standard Jinja variables available in the system.",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:82"
+   ],
+   "current": null,
+   "context": "            <p className=\"text-p-base text-ink-gray-6\">\n                {_(\"Here are some variables you can use in your instruction. Simply copy by clicking on the variable.\")}\n                <br />\n                {_(\"You can also use standard Jinja variables available in the system.\")}\n            </p>\n            <Table>\n                <TableHeader>"
+  },
+  {
+   "key": "You cannot include Jinja tags without enabling dynamic instructions.",
+   "refs": [
+    "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/InstructionField.tsx:212"
+   ],
+   "current": null,
+   "context": "                    required: instructionRequired ? _(\"Instruction is required\") : false,\n                    validate: (value) => {\n                        if (!isDynamic && value?.includes(\"{{\")) {\n                            return _(\"You cannot include Jinja tags without enabling dynamic instructions.\")\n                        }\n                        return true\n                    }"
+  }
+ ]
+}

@@ -1,0 +1,132 @@
+##### erpnext/erpnext/selling/doctype/sales_order/sales_order.js
+refresh@75
+    154: erpnext.selling.doctype.sales_order.sales_order.get_stock_reservation_status -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:2131
+get_items_from_internal_purchase_order@183
+    192: erpnext.buying.doctype.purchase_order.purchase_order.make_inter_company_sales_order -> erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:1004
+callback@523
+    538: erpnext.stock.doctype.stock_reservation_entry.stock_reservation_entry.get_stock_reservation_entries_for_voucher -> erpnext/erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:1837
+get_subcontracting_boms_for_finished_goods@781
+    783: erpnext.subcontracting.doctype.subcontracting_bom.subcontracting_bom.get_subcontracting_boms_for_finished_goods -> erpnext/erpnext/subcontracting/doctype/subcontracting_bom/subcontracting_bom.py:87
+get_subcontracting_boms_for_service_item@790
+    792: erpnext.subcontracting.doctype.subcontracting_bom.subcontracting_bom.get_subcontracting_boms_for_service_item -> erpnext/erpnext/subcontracting/doctype/subcontracting_bom/subcontracting_bom.py:106
+refresh@934
+    1195: erpnext.selling.doctype.quotation.quotation.make_sales_order -> erpnext/erpnext/selling/doctype/quotation/quotation.py:377
+create_pick_list@1242
+    1244: erpnext.selling.doctype.sales_order.sales_order.create_pick_list -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1968
+make_work_order@1249
+    1252: erpnext.selling.doctype.sales_order.sales_order.get_work_order_items -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:2067
+make_production_plan@1370
+    1372: erpnext.selling.doctype.sales_order.sales_order.make_production_plan -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1864
+make_material_request@1385
+    1387: erpnext.selling.doctype.sales_order.sales_order.make_material_request -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1043
+make_raw_material_request@1403
+    1406: erpnext.selling.doctype.sales_order.sales_order.get_work_order_items -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:2067
+primary_action@1482
+    1485: erpnext.selling.doctype.sales_order.sales_order.make_raw_material_request -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1901
+make_delivery_note@1578
+    1580: erpnext.selling.doctype.sales_order.sales_order.make_delivery_note -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1172
+make_sales_invoice@1591
+    1593: erpnext.selling.doctype.sales_order.sales_order.make_sales_invoice -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1356
+make_maintenance_schedule@1598
+    1600: erpnext.selling.doctype.sales_order.sales_order.make_maintenance_schedule -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1565
+make_project@1605
+    1607: erpnext.selling.doctype.sales_order.sales_order.make_project -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1145
+make_inter_company_order@1612
+    1614: erpnext.selling.doctype.sales_order.sales_order.make_inter_company_purchase_order -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1961
+make_maintenance_visit@1619
+    1621: erpnext.selling.doctype.sales_order.sales_order.make_maintenance_visit -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1591
+primary_action@1713
+    1735: erpnext.selling.doctype.sales_order.sales_order.make_purchase_order -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1655
+primary_action@1812
+    1815: frappe.desk.form.utils.add_comment -> frappe/frappe/desk/form/utils.py:27
+update_status@1837
+    1842: erpnext.selling.doctype.sales_order.sales_order.update_status -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:624
+make_subcontracting_inward_order@1853
+    1855: erpnext.selling.doctype.sales_order.sales_order.make_subcontracting_inward_order -> erpnext/erpnext/selling/doctype/sales_order/sales_order.py:2136
+##### erpnext/erpnext/manufacturing/doctype/work_order/work_order.js
+onload@105
+    120: erpnext.manufacturing.doctype.work_order.work_order.check_if_scrap_warehouse_mandatory -> erpnext/erpnext/manufacturing/doctype/work_order/work_order.py:2690
+create_stock_return_entry@306
+    308: erpnext.manufacturing.doctype.work_order.work_order.make_stock_return_entry -> erpnext/erpnext/manufacturing/doctype/work_order/work_order.py:3161
+get_data@389
+    400: erpnext.manufacturing.doctype.work_order.work_order.make_job_card -> erpnext/erpnext/manufacturing/doctype/work_order/work_order.py:2841
+make_disassembly_order@456
+    464: erpnext.manufacturing.doctype.work_order.work_order.make_stock_entry -> erpnext/erpnext/manufacturing/doctype/work_order/work_order.py:2709
+production_item@590
+    593: erpnext.manufacturing.doctype.work_order.work_order.get_item_details -> erpnext/erpnext/manufacturing/doctype/work_order/work_order.py:2532
+source_warehouse@681
+    687: erpnext.stock.utils.get_latest_stock_qty -> erpnext/erpnext/stock/utils.py:177
+item_code@704
+    709: erpnext.stock.doctype.item.item.get_item_details -> erpnext/erpnext/stock/doctype/item/item.py:1461
+workstation@736
+    740: frappe.client.get -> frappe/frappe/client.py:95
+set_default_warehouse@992
+    996: erpnext.manufacturing.doctype.work_order.work_order.get_default_warehouse -> erpnext/erpnext/manufacturing/doctype/work_order/work_order.py:2791
+make_material_request@1191
+    1193: erpnext.manufacturing.doctype.work_order.work_order.make_material_request -> erpnext/erpnext/manufacturing/doctype/work_order/work_order.py:3127
+make_consumption_se@1219
+    1232: erpnext.manufacturing.doctype.work_order.work_order.make_stock_entry -> erpnext/erpnext/manufacturing/doctype/work_order/work_order.py:2709
+##### erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js
+get_materials_from_supplier@93
+    109: erpnext.controllers.subcontracting_controller.get_materials_from_supplier -> erpnext/erpnext/controllers/subcontracting_controller.py:1572
+get_subcontracting_boms_for_finished_goods@150
+    152: erpnext.subcontracting.doctype.subcontracting_bom.subcontracting_bom.get_subcontracting_boms_for_finished_goods -> erpnext/erpnext/subcontracting/doctype/subcontracting_bom/subcontracting_bom.py:87
+get_subcontracting_boms_for_service_item@159
+    161: erpnext.subcontracting.doctype.subcontracting_bom.subcontracting_bom.get_subcontracting_boms_for_service_item -> erpnext/erpnext/subcontracting/doctype/subcontracting_bom/subcontracting_bom.py:106
+make_stock_entry@481
+    483: erpnext.controllers.subcontracting_controller.make_rm_stock_entry -> erpnext/erpnext/controllers/subcontracting_controller.py:1384
+make_inter_company_order@495
+    497: erpnext.buying.doctype.purchase_order.purchase_order.make_inter_company_sales_order -> erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:1004
+make_purchase_receipt@502
+    504: erpnext.buying.doctype.purchase_order.purchase_order.make_purchase_receipt -> erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:800
+make_purchase_invoice@510
+    512: erpnext.buying.doctype.purchase_order.purchase_order.make_purchase_invoice -> erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:869
+make_subcontracting_order@517
+    519: erpnext.buying.doctype.purchase_order.purchase_order.make_subcontracting_order -> erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:1011
+add_from_mappers@525
+    531: erpnext.stock.doctype.material_request.material_request.make_purchase_order -> erpnext/erpnext/stock/doctype/material_request/material_request.py:592
+    556: erpnext.buying.doctype.supplier_quotation.supplier_quotation.make_purchase_order -> erpnext/erpnext/buying/doctype/supplier_quotation/supplier_quotation.py:244
+callback@581
+    600: erpnext.buying.utils.get_linked_material_requests -> erpnext/erpnext/buying/utils.py:127
+primary_action@704
+    709: frappe.desk.form.utils.add_comment -> frappe/frappe/desk/form/utils.py:27
+cur_frm.cscript.update_status@850
+    852: erpnext.buying.doctype.purchase_order.purchase_order.update_status -> erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:469
+##### erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js
+refresh@38
+    48: erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice -> erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1521
+    62: erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_inter_company_delivery_note -> erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1756
+make_lcv@99
+    101: erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_lcv -> erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1766
+add_custom_buttons@115
+    127: erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_purchase_receipt -> erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:2130
+refresh@179
+    226: erpnext.buying.doctype.purchase_order.purchase_order.make_purchase_receipt -> erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:800
+make_purchase_invoice@285
+    287: erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice -> erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1521
+make_purchase_return@292
+    314: erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_return_against_rejected_warehouse -> erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1676
+make_retention_stock_entry@345
+    347: erpnext.stock.doctype.stock_entry.stock_entry.move_sample_to_retention_warehouse -> erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py:4321
+cur_frm.cscript.update_status@384
+    387: erpnext.stock.doctype.purchase_receipt.purchase_receipt.update_purchase_receipt_status -> erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1690
+cur_frm.cscript._make_purchase_return@450
+    452: erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_return -> erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1683
+    459: erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_stock_entry -> erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1696
+    468: erpnext.stock.doctype.stock_entry.stock_entry.validate_sample_quantity -> erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py:4661
+##### erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js
+refresh@77
+    159: erpnext.buying.doctype.purchase_order.purchase_order.make_purchase_invoice -> erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:869
+    184: erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice -> erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1521
+credit_to@393
+    397: frappe.client.get_value -> frappe/frappe/client.py:121
+make_inter_company_invoice@413
+    415: erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_inter_company_sales_invoice -> erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:2123
+make_debit_note@473
+    475: erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_debit_note -> erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:2098
+make_lcv@676
+    678: erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_lcv -> erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1766
+make_purchase_receipt@721
+    723: erpnext.accounts.doctype.purchase_invoice.purchase_invoice.make_purchase_receipt -> erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:2130
+company@729
+    735: erpnext.accounts.party.get_party_account -> erpnext/erpnext/accounts/party.py:435

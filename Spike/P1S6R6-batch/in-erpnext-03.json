@@ -1,0 +1,2441 @@
+{
+ "group": "erpnext",
+ "items": [
+  {
+   "key": "Income Account Validation Error",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/dunning_type/dunning_type.py:86"
+   ],
+   "current": null,
+   "context": "\t\tif msg:\n\t\t\tfrappe.msgprint(\n\t\t\t\tmsg,\n\t\t\t\ttitle=_(\"Income Account Validation Error\"),\n\t\t\t\tas_list=True,\n\t\t\t\traise_exception=frappe.ValidationError,\n\t\t\t)"
+  },
+  {
+   "key": "Income and Expense",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_profile/pos_profile.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"income_and_expense_account\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Income and Expense\"\n  },\n  {\n   \"fieldname\": \"column_break_byzk\","
+  },
+  {
+   "key": "Income from this item will be recognized over a period of months instead of all at once. Eg: annual subscription paid upfront.",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/item/item.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Income from this item will be recognized over a period of months instead of all at once. Eg: annual subscription paid upfront.\",\n   \"fieldname\": \"enable_deferred_revenue\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable Deferred Revenue\""
+  },
+  {
+   "key": "Incoming Bills",
+   "refs": [
+    "erpnext/erpnext/accounts/workspace/invoicing/invoicing.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Profit and Loss\"\n  }\n ],\n \"content\": \"[{\\\"id\\\":\\\"nDhfcJYbKH\\\",\\\"type\\\":\\\"chart\\\",\\\"data\\\":{\\\"chart_name\\\":\\\"Profit and Loss\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"VVvJ1lUcfc\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Outgoing Bills\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"Vlj2FZtlHV\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Incoming Bills\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"VVVjQVAhPf\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Incoming Payment\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"DySNdlysIW\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Outgoing Payment\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"tHb3yxthkR\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><b>Reports &amp; Masters</b></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"DnNtsmxpty\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Accounting Masters\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"nKKr6fjgjb\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Payments\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"KlqilF5R_V\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Tax Masters\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"jTUy8LB0uw\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Cost Center and Budgeting\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"Wn2lhs7WLn\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Multi Currency\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"PAQMqqNkBM\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Banking\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"kxhoaiqdLq\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Opening and Closing\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"q0MAlU2j_Z\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Subscription Management\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"ptm7T6Hwu-\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Share Management\\\",\\\"col\\\":4}}]\",\n \"creation\": \"2020-03-02 15:41:59.515192\",\n \"custom_blocks\": [],\n \"docstatus\": 0,"
+  },
+  {
+   "key": "Incoming Payment",
+   "refs": [
+    "erpnext/erpnext/accounts/workspace/invoicing/invoicing.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Profit and Loss\"\n  }\n ],\n \"content\": \"[{\\\"id\\\":\\\"nDhfcJYbKH\\\",\\\"type\\\":\\\"chart\\\",\\\"data\\\":{\\\"chart_name\\\":\\\"Profit and Loss\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"VVvJ1lUcfc\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Outgoing Bills\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"Vlj2FZtlHV\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Incoming Bills\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"VVVjQVAhPf\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Incoming Payment\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"DySNdlysIW\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Outgoing Payment\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"tHb3yxthkR\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><b>Reports &amp; Masters</b></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"DnNtsmxpty\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Accounting Masters\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"nKKr6fjgjb\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Payments\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"KlqilF5R_V\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Tax Masters\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"jTUy8LB0uw\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Cost Center and Budgeting\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"Wn2lhs7WLn\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Multi Currency\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"PAQMqqNkBM\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Banking\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"kxhoaiqdLq\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Opening and Closing\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"q0MAlU2j_Z\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Subscription Management\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"ptm7T6Hwu-\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Share Management\\\",\\\"col\\\":4}}]\",\n \"creation\": \"2020-03-02 15:41:59.515192\",\n \"custom_blocks\": [],\n \"docstatus\": 0,"
+  },
+  {
+   "key": "Incorrect Account",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py:196"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\tfrappe.bold(company),\n\t\t\t\t\t\tfrappe.bold(self.company),\n\t\t\t\t\t),\n\t\t\t\t\ttitle=_(\"Incorrect Account\"),\n\t\t\t\t\texc=IncorrectCompanyValidationError,\n\t\t\t\t)\n"
+  },
+  {
+   "key": "Incorrect Company",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py:144"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\tfrappe.bold(company),\n\t\t\t\t\t\tfrappe.bold(self.company),\n\t\t\t\t\t),\n\t\t\t\t\ttitle=_(\"Incorrect Company\"),\n\t\t\t\t\texc=IncorrectCompanyValidationError,\n\t\t\t\t)\n"
+  },
+  {
+   "key": "Incorrect Inventory Dimension",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/stock_ledger_entry/stock_ledger_entry.py:216"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t_(\"Serial No {0} is not available in the selected inventory dimensions: {1}\").format(\n\t\t\t\t\t\tfrappe.bold(serial_no), frappe.bold(\", \".join(mismatches))\n\t\t\t\t\t),\n\t\t\t\t\ttitle=_(\"Incorrect Inventory Dimension\"),\n\t\t\t\t\texc=SerialNoInventoryDimensionError,\n\t\t\t\t)\n"
+  },
+  {
+   "key": "Incorrect Stock Asset Account in {0}",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.py:303"
+   ],
+   "current": null,
+   "context": "\t\tfor voucher_type, voucher_no, warehouse, account in misconfigured\n\t)\n\n\tsubject = _(\"Incorrect Stock Asset Account in {0}\").format(company)\n\tmessage = (\n\t\t_(\"Stock and accounting values could not be reconciled by reposting for {0}.\").format(\n\t\t\tfrappe.bold(company)"
+  },
+  {
+   "key": "Incorrectly Cleared",
+   "refs": [
+    "erpnext/banking/src/pages/BankReconciliation.tsx:112"
+   ],
+   "current": null,
+   "context": "                    <TabsTrigger value=\"Bank Reconciliation Statement\"><ScrollTextIcon /> {_(\"Reconciliation Statement\")}</TabsTrigger>\n                    <TabsTrigger value=\"Bank Transactions\"><ListIcon />{_(\"Transactions\")}</TabsTrigger>\n                    <TabsTrigger value=\"Bank Clearance Summary\"><CheckCircleIcon />{_(\"Clearance Summary\")}</TabsTrigger>\n                    <TabsTrigger value=\"Incorrectly Cleared Entries\"><AlertTriangleIcon /> {_(\"Incorrectly Cleared\")}</TabsTrigger>\n                </TabsList>}\n            </div>\n            {selectedBankAccount && <BankAccountBalancePanel />}"
+  },
+  {
+   "key": "Incorrectly cleared entries as per the report.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/IncorrectlyClearedEntries.tsx:202"
+   ],
+   "current": null,
+   "context": "\n        {data && data.message.result.length > 0 && (\n            <div className=\"flex min-h-0 flex-1 flex-col space-y-2\">\n                <p className=\"shrink-0 text-ink-gray-5 text-sm\">{_(\"Incorrectly cleared entries as per the report.\")}</p>\n                <ListView\n                    data={data.message.result}\n                    columns={incorrectlyClearedColumns}"
+  },
+  {
+   "key": "Indent Level",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_row/financial_report_row.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"indentation_level\",\n   \"fieldtype\": \"Int\",\n   \"in_list_view\": 1,\n   \"label\": \"Indent Level\"\n  },\n  {\n   \"description\": \"How this line gets its data\","
+  },
+  {
+   "key": "Indentation level: 0 = Main heading, 1 = Sub-category, 2 = Individual accounts, etc.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_row/financial_report_row.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"columns\": 1,\n   \"description\": \"Indentation level: 0 = Main heading, 1 = Sub-category, 2 = Individual accounts, etc.\",\n   \"fieldname\": \"indentation_level\",\n   \"fieldtype\": \"Int\",\n   \"in_list_view\": 1,"
+  },
+  {
+   "key": "Insufficient Stock for Product Bundle Items",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_invoice/pos_invoice.py:441"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\tfrappe.bold(d.warehouse),\n\t\t\t\t\t\t\t\t\"<br>\".join(error_msgs),\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\ttitle=_(\"Insufficient Stock for Product Bundle Items\"),\n\t\t\t\t\t\t\texc=ProductBundleStockValidationError,\n\t\t\t\t\t\t)\n"
+  },
+  {
+   "key": "Interest Expense",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:132",
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:218"
+   ],
+   "current": null,
+   "context": "\t\t\t\t_(\"Utility Expenses\"): {\"account_category\": \"Operating Expenses\"},\n\t\t\t\t_(\"Write Off\"): {\"account_category\": \"Operating Expenses\"},\n\t\t\t\t_(\"Exchange Gain/Loss\"): {\"account_category\": \"Operating Expenses\"},\n\t\t\t\t_(\"Interest Expense\"): {\"account_category\": \"Finance Costs\"},\n\t\t\t\t_(\"Bank Charges\"): {\"account_category\": \"Finance Costs\"},\n\t\t\t\t_(\"Gain/Loss on Asset Disposal\"): {\"account_category\": \"Other Operating Income\"},\n\t\t\t\t_(\"Impairment\"): {\"account_category\": \"Operating Expenses\"},"
+  },
+  {
+   "key": "Interest Income",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:146",
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:243"
+   ],
+   "current": null,
+   "context": "\t\t\t\t_(\"Service\"): {\"account_category\": \"Revenue from Operations\"},\n\t\t\t},\n\t\t\t_(\"Indirect Income\"): {\n\t\t\t\t_(\"Interest Income\"): {\"account_category\": \"Investment Income\"},\n\t\t\t\t_(\"Interest on Fixed Deposits\"): {\"account_category\": \"Investment Income\"},\n\t\t\t\t\"is_group\": 1,\n\t\t\t},"
+  },
+  {
+   "key": "Interest on Fixed Deposits",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:147",
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:244"
+   ],
+   "current": null,
+   "context": "\t\t\t},\n\t\t\t_(\"Indirect Income\"): {\n\t\t\t\t_(\"Interest Income\"): {\"account_category\": \"Investment Income\"},\n\t\t\t\t_(\"Interest on Fixed Deposits\"): {\"account_category\": \"Investment Income\"},\n\t\t\t\t\"is_group\": 1,\n\t\t\t},\n\t\t\t\"root_type\": \"Income\","
+  },
+  {
+   "key": "Internal Customer Already Exists",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer/customer.py:272"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tinternal_customer_link,\n\t\t\t\t\tfrappe.bold(self.represents_company),\n\t\t\t\t),\n\t\t\t\ttitle=_(\"Internal Customer Already Exists\"),\n\t\t\t)\n\n\tdef on_update(self):"
+  },
+  {
+   "key": "Internal Customer {0} already exists for {1}. Disable it to make this Customer internal.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer/customer.py:266"
+   ],
+   "current": null,
+   "context": "\t\tif internal_customer:\n\t\t\tinternal_customer_link = get_link_to_form(\"Customer\", internal_customer)\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Internal Customer {0} already exists for {1}. Disable it to make this Customer internal.\"\n\t\t\t\t).format(\n\t\t\t\t\tinternal_customer_link,"
+  },
+  {
+   "key": "Internal notes about this customer. Not visible on transactions or the portal.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer/customer.json"
+   ],
+   "current": null,
+   "context": "   \"show_description_on_click\": 1\n  },\n  {\n   \"description\": \"Internal notes about this customer. Not visible on transactions or the portal.\",\n   \"fieldname\": \"customer_details\",\n   \"fieldtype\": \"Text\",\n   \"label\": \"Customer Details\","
+  },
+  {
+   "key": "Internal Supplier Already Exists",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/supplier/supplier.py:193"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tinternal_supplier_link,\n\t\t\t\t\tfrappe.bold(self.represents_company),\n\t\t\t\t),\n\t\t\t\ttitle=_(\"Internal Supplier Already Exists\"),\n\t\t\t)\n\n\tdef create_primary_contact(self):"
+  },
+  {
+   "key": "Internal Supplier {0} already exists for {1}. Disable it to make this Supplier internal.",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/supplier/supplier.py:187"
+   ],
+   "current": null,
+   "context": "\t\tif internal_supplier:\n\t\t\tinternal_supplier_link = get_link_to_form(\"Supplier\", internal_supplier)\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Internal Supplier {0} already exists for {1}. Disable it to make this Supplier internal.\"\n\t\t\t\t).format(\n\t\t\t\t\tinternal_supplier_link,"
+  },
+  {
+   "key": "Invalid Accounting Dimension",
+   "refs": [
+    "erpnext/erpnext/accounts/report/budget_variance_report/budget_variance_report.py:412"
+   ],
+   "current": null,
+   "context": "\tdimensions = [d.get(\"document_type\") for d in get_dimensions(with_cost_center_and_project=True)[0]]\n\tif filters.get(\"budget_against\") and filters.get(\"budget_against\") not in dimensions:\n\t\tfrappe.throw(\n\t\t\ttitle=_(\"Invalid Accounting Dimension\"),\n\t\t\tmsg=_(\"{0} is not a valid Accounting Dimension.\").format(\n\t\t\t\tfrappe.bold(filters.get(\"budget_against\"))\n\t\t\t),"
+  },
+  {
+   "key": "Invalid Bank Account",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:92",
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:499"
+   ],
+   "current": null,
+   "context": "\t\tif not is_company_account:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"The bank account is not a company account. Please select a company account\"),\n\t\t\t\ttitle=_(\"Invalid Bank Account\"),\n\t\t\t)\n\n\t\tif disabled:"
+  },
+  {
+   "key": "Invalid Company Field",
+   "refs": [
+    "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:227"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t_(\"Field '{0}' is not a valid Company link field for DocType {1}\").format(\n\t\t\t\t\t\t\titem.company_field, item.doctype_name\n\t\t\t\t\t\t),\n\t\t\t\t\t\ttitle=_(\"Invalid Company Field\"),\n\t\t\t\t\t)\n\n\tdef _is_any_doctype_in_deletion_list(self, doctypes_list):"
+  },
+  {
+   "key": "Invalid CSV format. Expected column: doctype_name",
+   "refs": [
+    "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:509"
+   ],
+   "current": null,
+   "context": "\t\treader = csv.DictReader(StringIO(csv_content))\n\n\t\tif \"doctype_name\" not in (reader.fieldnames or []):\n\t\t\tfrappe.throw(_(\"Invalid CSV format. Expected column: doctype_name\"))\n\n\t\tself.doctypes_to_delete = []\n\t\tprotected = _get_protected_doctypes_internal()"
+  },
+  {
+   "key": "Invalid Customer Group",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer/customer.py:385"
+   ],
+   "current": null,
+   "context": "\t\tif is_group:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Cannot select a Group type Customer Group. Please select a non-group Customer Group.\"),\n\t\t\t\ttitle=_(\"Invalid Customer Group\"),\n\t\t\t)\n\n\tdef validate_credit_limit_on_change(self):"
+  },
+  {
+   "key": "Invalid debit/credit formula: {0}",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:38",
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:41",
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:49",
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:52"
+   ],
+   "current": null,
+   "context": "\t\treturn\n\n\tif any(operator in stripped for operator in PYTHON_ONLY_OPERATORS):\n\t\tfrappe.throw(_(\"Invalid debit/credit formula: {0}\").format(formula))\n\n\tif not _is_expr_eval_formula(stripped):\n\t\tfrappe.throw(_(\"Invalid debit/credit formula: {0}\").format(formula))"
+  },
+  {
+   "key": "Invalid Disassembly Item",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py:1131"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\"Row #{0}: Item {1} is not part of the source manufacture entry and cannot be \"\n\t\t\t\t\t\t\"added to this disassembly.\"\n\t\t\t\t\t).format(row.idx, frappe.bold(row.item_code)),\n\t\t\t\t\ttitle=_(\"Invalid Disassembly Item\"),\n\t\t\t\t)\n\n\t\t\tif abs(flt(row.transfer_qty, precision) - flt(expected, precision)) > tolerance:"
+  },
+  {
+   "key": "Invalid Disassembly Quantity",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py:1097",
+    "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py:1146"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\"to disassemble ({1}). Do not change the UOM, conversion factor or quantity of the \"\n\t\t\t\t\t\"finished good row.\"\n\t\t\t\t).format(flt(fg_stock_qty, precision), flt(fg_completed_qty, precision)),\n\t\t\t\ttitle=_(\"Invalid Disassembly Quantity\"),\n\t\t\t)\n\n\tdef validate_materials_against_source(self):"
+  },
+  {
+   "key": "Invalid Discount Amount",
+   "refs": [
+    "erpnext/erpnext/controllers/taxes_and_totals.py:900"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tdiscount_amount=self.doc.get_formatted(\"discount_amount\"),\n\t\t\t\t\ttotal_before_discount=self.doc.get_formatted(\"grand_total\"),\n\t\t\t\t),\n\t\t\t\ttitle=_(\"Invalid Discount Amount\"),\n\t\t\t)\n\n\tdef apply_discount_amount(self):"
+  },
+  {
+   "key": "Invalid Document Type {0}",
+   "refs": [
+    "erpnext/erpnext/selling/report/sales_analytics/sales_analytics.py:548"
+   ],
+   "current": null,
+   "context": "\t\tself.depth_map = frappe._dict()\n\n\t\tif not frappe.db.exists(\"DocType\", self.filters.doc_type):\n\t\t\tfrappe.throw(_(\"Invalid Document Type {0}\").format(self.filters.doc_type))\n\n\t\tself.group_entries = frappe.db.sql(\n\t\t\tf\"\"\" select * from (select \"Order Types\" as name, 0 as lft,"
+  },
+  {
+   "key": "Invalid File Type",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:207"
+   ],
+   "current": null,
+   "context": "\t\tif extension not in (\".csv\", \".xlsx\", \".xls\"):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Import template should be of type .csv, .xlsx, .xls or .pdf\"),\n\t\t\t\ttitle=_(\"Invalid File Type\"),\n\t\t\t)\n\n\t\tif extension == \".csv\":"
+  },
+  {
+   "key": "Invalid file URL",
+   "refs": [
+    "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:1069"
+   ],
+   "current": null,
+   "context": "\tdoc.check_permission(\"write\")\n\n\tif not file_url or \"..\" in file_url:\n\t\tfrappe.throw(_(\"Invalid file URL\"))\n\n\ttry:\n\t\tfile_doc = frappe.get_doc(\"File\", {\"file_url\": file_url})"
+  },
+  {
+   "key": "Invalid filter formula. Please check the syntax.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_template.js:87"
+   ],
+   "current": null,
+   "context": "\t\t\telse if (parsed.and) saved_filters = parsed.and;\n\t\t} catch (e) {\n\t\t\tfrappe.show_alert({\n\t\t\t\tmessage: __(\"Invalid filter formula. Please check the syntax.\"),\n\t\t\t\tindicator: \"red\",\n\t\t\t});\n\t\t}"
+  },
+  {
+   "key": "Invalid JSON format: {0}",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:443"
+   ],
+   "current": null,
+   "context": "\t\t\t\tValidationIssue(\n\t\t\t\t\tmessage=_(\"[{0}] {1}\", context=\"Financial Report Template\").format(\n\t\t\t\t\t\tget_formula_field_label(\"Account Data\"),\n\t\t\t\t\t\t_(\"Invalid JSON format: {0}\").format(str(e)),\n\t\t\t\t\t),\n\t\t\t\t\trow_idx=row.idx,\n\t\t\t\t)"
+  },
+  {
+   "key": "Invalid line reference format: '{0}'. Must start with letter and contain only letters, numbers, underscores, and hyphens",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:159"
+   ],
+   "current": null,
+   "context": "\t\t\tif not re.match(r\"^[A-Za-z][A-Za-z0-9_-]*$\", ref_code):\n\t\t\t\tresult.add_error(\n\t\t\t\t\tValidationIssue(\n\t\t\t\t\t\tmessage=_(\n\t\t\t\t\t\t\t\"Invalid line reference format: '{0}'. Must start with letter and contain only letters, numbers, underscores, and hyphens\"\n\t\t\t\t\t\t).format(ref_code),\n\t\t\t\t\t\trow_idx=row.idx,"
+  },
+  {
+   "key": "Invalid operator '{0}'",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:472"
+   ],
+   "current": null,
+   "context": "\t\t\t\treturn _(\"Field '{0}' is not a valid Account field\").format(frappe.utils.escape_html(field))\n\n\t\t\tif operator.casefold() not in OPERATOR_MAP:\n\t\t\t\treturn _(\"Invalid operator '{0}'\").format(operator)\n\n\t\t\tif operator in [\"in\", \"not in\"] and not isinstance(value, list):\n\t\t\t\treturn _(\"Operator '{0}' requires a list value\").format(operator)"
+  },
+  {
+   "key": "Invalid parameter. 'dn' should be of type str",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/payment_request/payment_request.py:587"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.throw(_(\"Payment Requests cannot be created against: {0}\").format(frappe.bold(args.dt)))\n\n\tif args.dn and not isinstance(args.dn, str):\n\t\tfrappe.throw(_(\"Invalid parameter. 'dn' should be of type str\"))\n\n\tfrappe.has_permission(\"Payment Request\", \"create\", throw=True)\n\tfrappe.has_permission(args.dt, \"read\", args.dn, throw=True)"
+  },
+  {
+   "key": "Invalid POS Field",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_settings/pos_settings.py:111"
+   ],
+   "current": null,
+   "context": "\n\t\t\tif not df or not is_valid_invoice_field(df):\n\t\t\t\tfrappe.throw(\n\t\t\t\t\ttitle=_(\"Invalid POS Field\"),\n\t\t\t\t\tmsg=_(\"Row #{0}: '{1}' is not a valid field of {2}.\").format(\n\t\t\t\t\t\tfield.idx, frappe.bold(field.fieldname or \"\"), frappe.bold(_(self.invoice_type))\n\t\t\t\t\t),"
+  },
+  {
+   "key": "Invalid POS Fields",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_settings/pos_settings.js:55"
+   ],
+   "current": null,
+   "context": "\t\tif (!invalid_fields.length) return;\n\n\t\tfrappe.msgprint({\n\t\t\ttitle: __(\"Invalid POS Fields\"),\n\t\t\tindicator: \"orange\",\n\t\t\tmessage: __(\"The following rows are not valid fields of {0} and have to be removed: {1}\", [\n\t\t\t\tfrm.doc.invoice_type.bold(),"
+  },
+  {
+   "key": "Invalid POS Search Field",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_settings/pos_settings.py:140",
+    "erpnext/erpnext/accounts/doctype/pos_settings/pos_settings.py:148"
+   ],
+   "current": null,
+   "context": "\n\t\t\tif not df:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\ttitle=_(\"Invalid POS Search Field\"),\n\t\t\t\t\tmsg=_(\"Row #{0}: '{1}' cannot be used to search items.\").format(\n\t\t\t\t\t\tfield.idx, frappe.bold(field.fieldname or \"\")\n\t\t\t\t\t),"
+  },
+  {
+   "key": "Invalid Reading",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/quality_inspection/quality_inspection.py:329"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\tfrappe.bold(number_format.string),\n\t\t\t\t\t\t\tfrappe.bold(decimal_str),\n\t\t\t\t\t\t),\n\t\t\t\t\t\ttitle=_(\"Invalid Reading\"),\n\t\t\t\t\t)\n\n\tdef set_status_based_on_acceptance_values(self, reading):"
+  },
+  {
+   "key": "Invalid regex pattern.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:143"
+   ],
+   "current": null,
+   "context": "\t\t\t\ttry:\n\t\t\t\t\tre.compile(rule.value)\n\t\t\t\texcept re.error:\n\t\t\t\t\tfrappe.throw(_(\"Invalid regex pattern.\"))\n\n\t\tif self.bank_entry_type == \"Single Account\":\n\t\t\taccount_company = frappe.get_cached_value(\"Account\", self.account, \"company\")"
+  },
+  {
+   "key": "Invalid Source and Target Warehouse",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py:1398",
+    "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py:1420"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t\t_(\n\t\t\t\t\t\t\t\t\t\"Row #{0}: Source and Target Warehouse cannot be the same for Material Transfer\"\n\t\t\t\t\t\t\t\t).format(item.idx),\n\t\t\t\t\t\t\t\ttitle=_(\"Invalid Source and Target Warehouse\"),\n\t\t\t\t\t\t\t)\n\t\t\t\t\t\telse:\n\t\t\t\t\t\t\tdifference_found = False"
+  },
+  {
+   "key": "Invalid Tree Type {0}",
+   "refs": [
+    "erpnext/erpnext/selling/report/sales_analytics/sales_analytics.py:526"
+   ],
+   "current": null,
+   "context": "\t\t\t\"Supplier Group\": \"parent_supplier_group\",\n\t\t}\n\t\tif self.filters.tree_type not in parent_field_map:\n\t\t\tfrappe.throw(_(\"Invalid Tree Type {0}\").format(self.filters.tree_type))\n\n\t\tparent = parent_field_map[self.filters.tree_type]\n"
+  },
+  {
+   "key": "Invalid Upload",
+   "refs": [
+    "erpnext/erpnext/edi/doctype/code_list/code_list_import.py:37"
+   ],
+   "current": null,
+   "context": "\texcept RemoteGenericodeUrlNotAllowedError:\n\t\tfrappe.throw(\n\t\t\t_(\"Importing Code Lists from remote URLs is not allowed.\"),\n\t\t\ttitle=_(\"Invalid Upload\"),\n\t\t)\n\texcept CodeListSelectionMismatchError:\n\t\tfrappe.throw(_(\"The uploaded file does not match the selected Code List.\"))"
+  },
+  {
+   "key": "Invalid value {0} for 'Based On'",
+   "refs": [
+    "erpnext/erpnext/accounts/report/inactive_sales_items/inactive_sales_items.py:99"
+   ],
+   "current": null,
+   "context": "\titem_details_map = {}\n\n\tif filters[\"based_on\"] not in (\"Sales Order\", \"Sales Invoice\"):\n\t\tfrappe.throw(_(\"Invalid value {0} for 'Based On'\").format(filters[\"based_on\"]))\n\n\tparent = frappe.qb.DocType(filters[\"based_on\"])\n\tchild_doctype = \"Sales Order Item\" if filters[\"based_on\"] == \"Sales Order\" else \"Sales Invoice Item\""
+  },
+  {
+   "key": "Invalid value {0} for 'Doctype'",
+   "refs": [
+    "erpnext/erpnext/selling/report/inactive_customers/inactive_customers.py:20"
+   ],
+   "current": null,
+   "context": "\tdoctype = filters.get(\"doctype\")\n\n\tif doctype not in (\"Sales Order\", \"Sales Invoice\"):\n\t\tfrappe.throw(_(\"Invalid value {0} for 'Doctype'\").format(doctype))\n\n\tif cint(days_since_last_order) <= 0:\n\t\tfrappe.throw(_(\"'Days Since Last Order' must be greater than or equal to zero\"))"
+  },
+  {
+   "key": "Invite Users",
+   "refs": [
+    "erpnext/erpnext/setup/onboarding_step/invite_users/invite_users.json"
+   ],
+   "current": null,
+   "context": "{\n \"action\": \"Create Entry\",\n \"action_label\": \"Invite Users\",\n \"creation\": \"2026-02-24 18:04:21.585575\",\n \"docstatus\": 0,\n \"doctype\": \"Onboarding Step\","
+  },
+  {
+   "key": "Invoice is not blocked. Block the invoice to change the release date.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:1985"
+   ],
+   "current": null,
+   "context": "\t\tself.check_permission(\"write\")\n\n\t\tif not self.on_hold:\n\t\t\tfrappe.throw(_(\"Invoice is not blocked. Block the invoice to change the release date.\"))\n\n\t\tself.release_date = release_date\n\t\tself.validate_block_invoice()"
+  },
+  {
+   "key": "Invoice No",
+   "refs": [
+    "erpnext/banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:246",
+    "erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:683"
+   ],
+   "current": null,
+   "context": "                            <TableHeader>\n                                <TableRow>\n                                    <TableHead>{_(\"Document\")}</TableHead>\n                                    <TableHead>{_(\"Invoice No\")}</TableHead>\n                                    <TableHead>{_(\"Due Date\")}</TableHead>\n                                    <TableHead className='text-end'>{_(\"Grand Total\")}</TableHead>\n                                    <TableHead className='text-end'>{_(\"Allocated\")}</TableHead>"
+  },
+  {
+   "key": "Is Credit Card",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_account/bank_account.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"If checked, journal entries made using bank reconciliation will be of type \\\"Credit Card Entry\\\"\",\n   \"fieldname\": \"is_credit_card\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Credit Card\"\n  }\n ],\n \"grid_page_length\": 50,"
+  },
+  {
+   "key": "Is Delivery Note required to create Sales Invoice?",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/selling_settings/selling_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"dn_required\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Is Delivery Note required to create Sales Invoice?\",\n   \"options\": \"No\\nYes\"\n  },\n  {"
+  },
+  {
+   "key": "Is Half Day",
+   "refs": [
+    "erpnext/erpnext/setup/doctype/holiday/holiday.json",
+    "erpnext/erpnext/setup/doctype/holiday_list/holiday_list.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Check\",\n   \"in_list_view\": 1,\n   \"in_preview\": 1,\n   \"label\": \"Is Half Day\"\n  }\n ],\n \"idx\": 1,"
+  },
+  {
+   "key": "Is Purchase Order required for Purchase Invoice & Receipt creation?",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/buying_settings/buying_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"po_required\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Is Purchase Order required for Purchase Invoice & Receipt creation?\",\n   \"options\": \"No\\nYes\"\n  },\n  {"
+  },
+  {
+   "key": "Is Purchase Receipt required for Purchase Invoice creation?",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/buying_settings/buying_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"pr_required\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Is Purchase Receipt required for Purchase Invoice creation?\",\n   \"options\": \"No\\nYes\"\n  },\n  {"
+  },
+  {
+   "key": "Is Rule Evaluated",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction/bank_transaction.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"0\",\n   \"fieldname\": \"is_rule_evaluated\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Rule Evaluated\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Is Sales Order required to create Sales Invoice/Delivery Note?",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/selling_settings/selling_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"so_required\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Is Sales Order required to create Sales Invoice/Delivery Note?\",\n   \"options\": \"No\\nYes\"\n  },\n  {"
+  },
+  {
+   "key": "Issue a debit note against an existing Sales Invoice to adjust the rate. The quantity will be retained from the original invoice.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0\",\n   \"depends_on\": \"eval: !doc.is_return\",\n   \"description\": \"Issue a debit note against an existing Sales Invoice to adjust the rate. The quantity will be retained from the original invoice.\",\n   \"fieldname\": \"is_debit_note\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Rate Adjustment Entry (Debit Note)\""
+  },
+  {
+   "key": "It takes into account all the transactions that have been posted and subtracts the transactions that have not cleared yet.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankBalance.tsx:138"
+   ],
+   "current": null,
+   "context": "                        <Paragraph className=\"mt-2 text-p-sm\">\n                            {_(\"This is what the system expects the closing balance to be in your bank statement.\")}\n                            <br />\n                            {_(\"It takes into account all the transactions that have been posted and subtracts the transactions that have not cleared yet.\")}\n                            <br />\n                            {_(\"If your bank statement shows a different closing balance, it is because all transactions have not reconciled yet.\")}\n                            <br /><br />"
+  },
+  {
+   "key": "It's all good!",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/IncorrectlyClearedEntries.tsx:221"
+   ],
+   "current": null,
+   "context": "                    <PartyPopper />\n                </EmptyMedia>\n                <EmptyHeader>\n                    <EmptyTitle>{_(\"It's all good!\")}</EmptyTitle>\n                    <EmptyDescription>{_(\"There are no entries in the system where the clearance date is before the posting date.\")}</EmptyDescription>\n                </EmptyHeader>\n            </Empty>"
+  },
+  {
+   "key": "Italic Text",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_row/financial_report_row.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Italic text for subtotals or notes\",\n   \"fieldname\": \"italic_text\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Italic Text\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Italic text for subtotals or notes",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_row/financial_report_row.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Italic text for subtotals or notes\",\n   \"fieldname\": \"italic_text\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Italic Text\""
+  },
+  {
+   "key": "Item Out of Stock",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_invoice/pos_invoice.py:452"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t_(\"Row #{0}: Item {1} has no stock in warehouse {2}.\").format(\n\t\t\t\t\t\t\t\td.idx, item_code, warehouse\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\ttitle=_(\"Item Out of Stock\"),\n\t\t\t\t\t\t)\n\t\t\t\t\telif is_stock_item and flt(availability) < flt(d.stock_qty):\n\t\t\t\t\t\tfrappe.throw("
+  },
+  {
+   "key": "Item Price added for {0} in Price List - {1}",
+   "refs": [
+    "erpnext/erpnext/stock/get_item_details.py:1234",
+    "erpnext/erpnext/stock/get_item_details.py:1258"
+   ],
+   "current": null,
+   "context": "\t\t\t)\n\t\t\titem_price.insert()\n\t\t\tfrappe.msgprint(\n\t\t\t\t_(\"Item Price added for {0} in Price List - {1}\").format(\n\t\t\t\t\tget_link_to_form(\"Item\", ctx.item_code), ctx.price_list\n\t\t\t\t),\n\t\t\t\talert=True,"
+  },
+  {
+   "key": "Item Price created at rate {0}",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/item/item.py:185"
+   ],
+   "current": null,
+   "context": "\t\t\t\tself.add_price(default.default_price_list)\n\n\t\t\tfrappe.msgprint(\n\t\t\t\t_(\"Item Price created at rate {0}\").format(\n\t\t\t\t\tfrappe.format(self.standard_rate, {\"fieldtype\": \"Currency\"})\n\t\t\t\t),\n\t\t\t\tindicator=\"green\","
+  },
+  {
+   "key": "Item rates have been updated based on the selected Buying Price List {0}",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/material_request/material_request.py:265"
+   ],
+   "current": null,
+   "context": "\t\t\t\titem.db_set({\"rate\": rate, \"amount\": flt(rate * item.qty, item.precision(\"amount\"))})\n\n\t\tfrappe.msgprint(\n\t\t\t_(\"Item rates have been updated based on the selected Buying Price List {0}\").format(\n\t\t\t\tself.buying_price_list\n\t\t\t),\n\t\t\talert=True,"
+  },
+  {
+   "key": "Item Where Used",
+   "refs": [
+    "erpnext/erpnext/stock/report/item_where_used/item_where_used.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-06-05 00:00:00.000000\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Stock\",\n \"name\": \"Item Where Used\",\n \"owner\": \"Administrator\",\n \"ref_doctype\": \"Item\",\n \"report_name\": \"Item Where Used\","
+  },
+  {
+   "key": "Item Wise Tax Details do not match with Taxes and Charges at the following rows:",
+   "refs": [
+    "erpnext/erpnext/controllers/taxes_and_totals.py:574"
+   ],
+   "current": null,
+   "context": "\n\t\tif invalid_rows:\n\t\t\tmessage = (\n\t\t\t\t_(\"Item Wise Tax Details do not match with Taxes and Charges at the following rows:\")\n\t\t\t\t+ \"<br>\"\n\t\t\t\t+ \"<br>\".join(invalid_rows)\n\t\t\t)"
+  },
+  {
+   "key": "Item with name {0} not found in the Purchase Order",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:618"
+   ],
+   "current": null,
+   "context": "\n\t\t\tif not item:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"Item with name {0} not found in the Purchase Order\").format(frappe.bold(d.get(\"name\")))\n\t\t\t\t)\n\n\t\t\tif not item.delivered_by_supplier:"
+  },
+  {
+   "key": "Item {0} added multiple times under the same parent item {1} at rows {2} and {3}",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.py:95"
+   ],
+   "current": null,
+   "context": "\t\t\tkey = (row.item_code, row.fg_reference_id)\n\t\t\tif key in item_map:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\n\t\t\t\t\t\t\"Item {0} added multiple times under the same parent item {1} at rows {2} and {3}\"\n\t\t\t\t\t).format(bold(row.item_code), bold(row.fg_item), item_map[key], row.idx),\n\t\t\t\t\ttitle=_(\"Duplicate Item Under Same Parent\"),"
+  },
+  {
+   "key": "Item {0} cannot be ordered more than once",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/material_request/material_request.py:727"
+   ],
+   "current": null,
+   "context": "\t\titem_link = get_link_to_form(\"Item\", row.item_code)\n\n\t\tif row.material_request_item in requested_items:\n\t\t\tfrappe.throw(_(\"Item {0} cannot be ordered more than once\").format(item_link))\n\n\t\trequested_items.add(row.material_request_item)\n"
+  },
+  {
+   "key": "Item {0} has no changes in delivered quantity. Please unselect the row if you do not wish to update its quantity.",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:637"
+   ],
+   "current": null,
+   "context": "\n\t\t\tif not d.get(\"qty_change\"):\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\n\t\t\t\t\t\t\"Item {0} has no changes in delivered quantity. Please unselect the row if you do not wish to update its quantity.\"\n\t\t\t\t\t).format(frappe.bold(item.item_code))\n\t\t\t\t)"
+  },
+  {
+   "key": "Item {0} is not a drop ship item. Only drop ship items can have Delivered Qty updated.",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:623"
+   ],
+   "current": null,
+   "context": "\n\t\t\tif not item.delivered_by_supplier:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\n\t\t\t\t\t\t\"Item {0} is not a drop ship item. Only drop ship items can have Delivered Qty updated.\"\n\t\t\t\t\t).format(frappe.bold(item.item_code))\n\t\t\t\t)"
+  },
+  {
+   "key": "Item {0} is not a template item.",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/item/item.py:867"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\"Item\", self.variant_of, [\"has_variants\", \"variant_based_on\"]\n\t\t\t)\n\t\t\tif not has_variants:\n\t\t\t\tfrappe.throw(_(\"Item {0} is not a template item.\").format(frappe.bold(self.variant_of)))\n\n\t\t\tif based_on == \"Item Attribute\":\n\t\t\t\tprevious_doc = self.get_doc_before_save()"
+  },
+  {
+   "key": "Item {0}: Ordered qty {1} {2} exceeds the minimum order qty {3} {2} by {4} {2} due to purchase UOM rounding.",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:360"
+   ],
+   "current": null,
+   "context": "\t\t\toverage = flt(qty) - min_order_qty\n\t\t\tif min_order_qty and flt(overage, precision) > 0 and overage < step:\n\t\t\t\tfrappe.toast(\n\t\t\t\t\t_(\n\t\t\t\t\t\t\"Item {0}: Ordered qty {1} {2} exceeds the minimum order qty {3} {2} by {4} {2} due to purchase UOM rounding.\"\n\t\t\t\t\t).format(\n\t\t\t\t\t\titem_code,"
+  },
+  {
+   "key": "Items not found.",
+   "refs": [
+    "erpnext/erpnext/selling/page/point_of_sale/pos_item_selector.js:110"
+   ],
+   "current": null,
+   "context": "\tset_items_not_found_banner() {\n\t\tthis.$items_container.removeClass(this.item_display_class);\n\t\tthis.$items_container.addClass(\"items-not-found\");\n\t\tthis.$items_container.html(__(\"Items not found.\"));\n\t}\n\n\trender_item_list_column_header() {"
+  },
+  {
+   "key": "Job Card On Hold",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/job_card/job_card.py:887"
+   ],
+   "current": null,
+   "context": "\t\t\t\t_(\n\t\t\t\t\t\"Cannot submit Job Card {0} while it is On Hold. Please resume and complete the job before submission.\"\n\t\t\t\t).format(get_link_to_form(\"Job Card\", self.name)),\n\t\t\t\ttitle=_(\"Job Card On Hold\"),\n\t\t\t)\n\n\tdef validate_time_logs_present(self):"
+  },
+  {
+   "key": "Job Card {0}: As per the sequence of the operations in the work order {1}, submit the manufacturing entry for the operation {2} before the operation {3}.",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/job_card/job_card.py:1489"
+   ],
+   "current": null,
+   "context": "\n\t\tif not manufactured_qty:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Job Card {0}: As per the sequence of the operations in the work order {1}, submit the manufacturing entry for the operation {2} before the operation {3}.\"\n\t\t\t\t).format(\n\t\t\t\t\tbold(self.name),"
+  },
+  {
+   "key": "Job Worker Currency",
+   "refs": [
+    "erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"supplier_currency\",\n   \"fieldtype\": \"Link\",\n   \"hidden\": 1,\n   \"label\": \"Job Worker Currency\",\n   \"no_copy\": 1,\n   \"options\": \"Currency\",\n   \"read_only\": 1"
+  },
+  {
+   "key": "Journal Template Accounts",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:395"
+   ],
+   "current": null,
+   "context": "\n    return <div className=\"flex flex-col gap-2\">\n        <div className=\"flex justify-between gap-2\">\n            <Label>{_(\"Journal Template Accounts\")}<span className=\"text-ink-red-3\">*</span></Label>\n            <Button variant=\"outline\" type=\"button\" onClick={() => setIsConfigureAccountsModalOpen(true)}><Settings /> {_(\"Configure Accounts\")}</Button>\n        </div>\n"
+  },
+  {
+   "key": "Last Synced Transaction",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankPicker.tsx:131"
+   ],
+   "current": null,
+   "context": "            </div>\n\n            <span title={_(\"GL Account\")} className={cn(\"text-ellipsis line-clamp-1 text-sm text-ink-gray-6\")}>{bank.account}</span>\n            {bank.last_integration_date && <span className=\"text-xs text-ink-gray-5\">{_(\"Last Synced Transaction\")}: {getTimeago(bank.last_integration_date)}</span>}\n        </div>\n\n    </div >"
+  },
+  {
+   "key": "Learn Asset",
+   "refs": [
+    "erpnext/erpnext/assets/onboarding_step/learn_asset/learn_asset.json"
+   ],
+   "current": null,
+   "context": "{\n \"action\": \"View Docs\",\n \"action_label\": \"Learn Asset\",\n \"creation\": \"2026-02-23 21:00:47.254648\",\n \"docstatus\": 0,\n \"doctype\": \"Onboarding Step\","
+  },
+  {
+   "key": "Learn Subcontracting",
+   "refs": [
+    "erpnext/erpnext/subcontracting/onboarding_step/learn_subcontracting/learn_subcontracting.json"
+   ],
+   "current": null,
+   "context": "{\n \"action\": \"View Docs\",\n \"action_label\": \"Learn Subcontracting\",\n \"creation\": \"2026-02-23 22:28:56.357254\",\n \"docstatus\": 0,\n \"doctype\": \"Onboarding Step\","
+  },
+  {
+   "key": "Leave blank to use the password already saved for this bank account (if any). It is stored encrypted and reused for future statements.",
+   "refs": [
+    "erpnext/banking/src/pages/BankStatementImporter.tsx:138"
+   ],
+   "current": null,
+   "context": "                                className=\"max-w-sm\"\n                            />\n                            <p data-slot=\"form-description\" className={cn(\"text-ink-gray-5 text-p-sm\")}>\n                                {_(\"Leave blank to use the password already saved for this bank account (if any). It is stored encrypted and reused for future statements.\")}\n                            </p>\n                        </div>}\n                    </div>}"
+  },
+  {
+   "key": "Ledger Type",
+   "refs": [
+    "erpnext/erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.py:151"
+   ],
+   "current": null,
+   "context": "\t\t\t\"width\": \"80\",\n\t\t},\n\t\t{\n\t\t\t\"label\": _(\"Ledger Type\"),\n\t\t\t\"fieldname\": \"ledger_type\",\n\t\t\t\"fieldtype\": \"Data\",\n\t\t},"
+  },
+  {
+   "key": "Ledgers Posted",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"vouchers_posted\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Ledgers Posted\",\n   \"no_copy\": 1,\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Line Reference",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_row/financial_report_row.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"reference_code\",\n   \"fieldtype\": \"Data\",\n   \"in_list_view\": 1,\n   \"label\": \"Line Reference\"\n  },\n  {\n   \"description\": \"Text displayed on the financial statement (e.g., 'Total Revenue', 'Cash and Cash Equivalents')\","
+  },
+  {
+   "key": "Line references undefined in {0}: {1}",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:296"
+   ],
+   "current": null,
+   "context": "\t\t\t\trow_idx = self._get_row_idx(ref_code)\n\t\t\t\tresult.add_error(\n\t\t\t\t\tValidationIssue(\n\t\t\t\t\t\tmessage=_(\"Line references undefined in {0}: {1}\").format(\n\t\t\t\t\t\t\tget_formula_field_label(\"Calculated Amount\"), \", \".join(undefined)\n\t\t\t\t\t\t),\n\t\t\t\t\t\trow_idx=row_idx,"
+  },
+  {
+   "key": "Logical condition must have exactly one operator",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:480"
+   ],
+   "current": null,
+   "context": "\t\t# logical condition: {\"and\": [condition1, condition2]}\n\t\telif isinstance(filter_config, dict):\n\t\t\tif len(filter_config) != 1:\n\t\t\t\treturn _(\"Logical condition must have exactly one operator\")\n\n\t\t\top = next(iter(filter_config.keys())).lower()\n\t\t\tif op not in [\"and\", \"or\"]:"
+  },
+  {
+   "key": "Logical conditions need at least 1 sub-condition",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:488"
+   ],
+   "current": null,
+   "context": "\n\t\t\tconditions = filter_config[next(iter(filter_config.keys()))]\n\t\t\tif not isinstance(conditions, list) or len(conditions) < 1:\n\t\t\t\treturn _(\"Logical conditions need at least 1 sub-condition\")\n\n\t\t\t# recursive\n\t\t\tfor condition in conditions:"
+  },
+  {
+   "key": "Logical operators must be 'and' or 'or'",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:484"
+   ],
+   "current": null,
+   "context": "\n\t\t\top = next(iter(filter_config.keys())).lower()\n\t\t\tif op not in [\"and\", \"or\"]:\n\t\t\t\treturn _(\"Logical operators must be 'and' or 'or'\")\n\n\t\t\tconditions = filter_config[next(iter(filter_config.keys()))]\n\t\t\tif not isinstance(conditions, list) or len(conditions) < 1:"
+  },
+  {
+   "key": "Long-term Provisions",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:183",
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:318"
+   ],
+   "current": null,
+   "context": "\t\t\t\t},\n\t\t\t},\n\t\t\t_(\"Non-Current Liabilities\"): {\n\t\t\t\t_(\"Long-term Provisions\"): {\"account_category\": \"Long-term Provisions\"},\n\t\t\t\t_(\"Employee Benefits Obligation\"): {\"account_category\": \"Other Non-current Liabilities\"},\n\t\t\t\t\"is_group\": 1,\n\t\t\t},"
+  },
+  {
+   "key": "Loyalty scheme this customer earns points under. Auto-assigned if a matching program exists.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer/customer.json"
+   ],
+   "current": null,
+   "context": "   \"show_description_on_click\": 1\n  },\n  {\n   \"description\": \"Loyalty scheme this customer earns points under. Auto-assigned if a matching program exists.\",\n   \"fieldname\": \"loyalty_program\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Loyalty Program\","
+  },
+  {
+   "key": "Maintain same rate throughout sales cycle",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/selling_settings/selling_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Warn or stop if Item rate is changed in Delivery Notes and Sales Invoices generated from a Sales Order.\",\n   \"fieldname\": \"maintain_same_sales_rate\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Maintain same rate throughout sales cycle\"\n  },\n  {\n   \"bold\": 1,"
+  },
+  {
+   "key": "Maintain same rate throughout the purchase  cycle",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/buying_settings/buying_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Warn or stop if Item rate is changed in Purchase Invoice or Purchase Receipt generated from a Purchase Order.\",\n   \"fieldname\": \"maintain_same_rate\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Maintain same rate throughout the purchase  cycle\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Manage sales partner's and sales team's commissions",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/selling_settings/selling_settings.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Manage sales partner's and sales team's commissions\",\n   \"fieldname\": \"enable_tracking_sales_commissions\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Enable tracking sales commissions\""
+  },
+  {
+   "key": "Mandatory Depends On (Backend)",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Python expression evaluated on the server. Use doc.fieldname for the row and parent.fieldname for the parent document. When it evaluates to true the dimension becomes mandatory. Example: doc.t_warehouse and doc.qty > 0\",\n   \"fieldname\": \"mandatory_depends_on_backend\",\n   \"fieldtype\": \"Small Text\",\n   \"label\": \"Mandatory Depends On (Backend)\"\n  },\n  {\n   \"fieldname\": \"column_break_niy2u\","
+  },
+  {
+   "key": "Manufactured Items Value",
+   "refs": [
+    "erpnext/erpnext/manufacturing/workspace/manufacturing/manufacturing.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Produced Quantity\"\n  }\n ],\n \"content\": \"[{\\\"id\\\":\\\"csBCiDglCE\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><b>Your Shortcuts</b></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"V1e9RbPfQ1\\\",\\\"type\\\":\\\"chart\\\",\\\"data\\\":{\\\"chart_name\\\":\\\"Produced Quantity\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"WeKMsoeisv\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Open Work Orders\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"NPjL4YMLXd\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"WIP Work Orders\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"TsAK7EGwg3\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Manufactured Items Value\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"bN_6tHS-Ct\\\",\\\"type\\\":\\\"spacer\\\",\\\"data\\\":{\\\"col\\\":12}},{\\\"id\\\":\\\"yVEFZMqVwd\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><b>Reports &amp; Masters</b></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"rwrmsTI58-\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Production\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"6dnsyX-siZ\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Bill of Materials\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"m5puAHoHWB\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Subcontracting\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"CIq-v5f5KC\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Reports\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"8RRiQeYr0G\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Tools\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"Pu8z7-82rT\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Settings\\\",\\\"col\\\":4}}]\",\n \"creation\": \"2020-03-02 17:11:37.032604\",\n \"custom_blocks\": [],\n \"docstatus\": 0,"
+  },
+  {
+   "key": "Manufactured Qty (including Process Loss)",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/work_order/work_order.py:838"
+   ],
+   "current": null,
+   "context": "\t\t\tif flt(qty_to_validate, precision) > flt(completed_qty, precision):\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"{0} ({1}) cannot be greater than planned quantity ({2}) in Work Order {3}\").format(\n\t\t\t\t\t\t_(\"Manufactured Qty (including Process Loss)\")\n\t\t\t\t\t\tif purpose == \"Manufacture\"\n\t\t\t\t\t\telse _(self.meta.get_label(fieldname)),\n\t\t\t\t\t\tflt(qty_to_validate, precision),"
+  },
+  {
+   "key": "Manufacturing Setup",
+   "refs": [
+    "erpnext/erpnext/manufacturing/module_onboarding/manufacturing_onboarding/manufacturing_onboarding.json"
+   ],
+   "current": null,
+   "context": "   \"step\": \"Review Manufacturing Settings\"\n  }\n ],\n \"title\": \"Manufacturing Setup\"\n}"
+  },
+  {
+   "key": "Maps To",
+   "refs": [
+    "erpnext/banking/src/pages/BankStatementImporter.tsx:177",
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log_column_map/bank_statement_import_log_column_map.json"
+   ],
+   "current": null,
+   "context": "                <TableHeader>\n                    <TableRow>\n                        <TableHead>{_(\"Column Name\")}</TableHead>\n                        <TableHead>{_(\"Maps To\")}</TableHead>\n                        <TableHead>{_(\"Description\")}</TableHead>\n                    </TableRow>\n                </TableHeader>"
+  },
+  {
+   "key": "Mark as Closed",
+   "refs": [
+    "erpnext/erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Column Break\"\n  },\n  {\n   \"default\": \"Mark as Closed\",\n   \"fieldname\": \"action_for_expired_unverified_appointments\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Action for Expired Unverified Appointments\","
+  },
+  {
+   "key": "Mark if this customer represents an internal company. Enables inter-company transactions.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer/customer.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Mark if this customer represents an internal company. Enables inter-company transactions.\",\n   \"fieldname\": \"is_internal_customer\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Is Internal Customer\""
+  },
+  {
+   "key": "Match",
+   "refs": [
+    "erpnext/banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:302"
+   ],
+   "current": null,
+   "context": "    'bank_entry': _(\"Bank Entry\"),\n    'payment': _(\"Payment\"),\n    'transfer': _(\"Transfer\"),\n    'match': _(\"Match\"),\n}\n\nconst CancelActionLogItem = ({ item, type, timestamp, bank }: { item: ActionLogItem, type: ActionLogType['type'], timestamp: number, bank?: SelectedBank | null }) => {"
+  },
+  {
+   "key": "Match and Reconcile",
+   "refs": [
+    "erpnext/banking/src/pages/BankReconciliation.tsx:108"
+   ],
+   "current": null,
+   "context": "            <div className=\"flex min-w-0 flex-1 flex-col justify-between gap-3\">\n                <BankPicker />\n                {selectedBankAccount && <TabsList>\n                    <TabsTrigger value=\"Match and Reconcile\"><ShuffleIcon /> {_(\"Match and Reconcile\")}</TabsTrigger>\n                    <TabsTrigger value=\"Bank Reconciliation Statement\"><ScrollTextIcon /> {_(\"Reconciliation Statement\")}</TabsTrigger>\n                    <TabsTrigger value=\"Bank Transactions\"><ListIcon />{_(\"Transactions\")}</TabsTrigger>\n                    <TabsTrigger value=\"Bank Clearance Summary\"><CheckCircleIcon />{_(\"Clearance Summary\")}</TabsTrigger>"
+  },
+  {
+   "key": "Match or Create",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:62"
+   ],
+   "current": null,
+   "context": "            </div>\n            <Separator orientation=\"vertical\" className=\"self-stretch\" />\n            <div className=\"flex min-h-0 flex-1 flex-col px-1\">\n                <H4 className=\"shrink-0 text-sm font-medium\">{_(\"Match or Create\")}</H4>\n                <VouchersSection />\n            </div>\n        </div>"
+  },
+  {
+   "key": "Matched",
+   "refs": [
+    "erpnext/banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:73",
+    "erpnext/erpnext/accounts/doctype/bank_transaction_payments/bank_transaction_payments.json"
+   ],
+   "current": null,
+   "context": "    const label = useMemo(() => {\n        switch (action.type) {\n            case 'match':\n                return _(\"Matched\")\n            case 'payment':\n                if (action.isBulk) {\n                    return _(\"Bulk Payment\")"
+  },
+  {
+   "key": "Matched by rule",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:368"
+   ],
+   "current": null,
+   "context": "\n                        {transaction.matched_transaction_rule && <Badge\n                            theme=\"violet\"\n                            title={_(\"Matched by rule\")}>\n                            <ZapIcon className=\"w-4 h-4\" /> {transaction.matched_transaction_rule}</Badge>}\n                    </div>\n                    <span className=\"text-sm wrap-anywhere\" title={transaction.description}>{transaction.description}</span>"
+  },
+  {
+   "key": "Matched date",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankRecDateFilter.tsx:231"
+   ],
+   "current": null,
+   "context": "                    <CommandInput placeholder={_(\"e.g. Last 3 weeks, Q1, May 2025\")} onValueChange={setValue} value={value} />\n                    <CommandList ref={listRef} className='max-h-80'>\n                        {showParsedOption && parsedOption && (\n                            <CommandGroup heading={_(\"Matched date\")}>\n                                <CommandItem\n                                    value='parsed-date-range'\n                                    className='flex justify-between'"
+  },
+  {
+   "key": "Matched Transaction Rule",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction/bank_transaction.json"
+   ],
+   "current": null,
+   "context": "   \"allow_on_submit\": 1,\n   \"fieldname\": \"matched_transaction_rule\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Matched Transaction Rule\",\n   \"options\": \"Bank Transaction Rule\",\n   \"read_only\": 1\n  }"
+  },
+  {
+   "key": "Matching Rules",
+   "refs": [
+    "erpnext/banking/src/components/features/Settings/SettingsDialogContent.tsx:32"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t/>\n\t\t\t\t\t<SettingsTabItem\n\t\t\t\t\t\ticon={<ZapIcon />}\n\t\t\t\t\t\tlabel={_(\"Matching Rules\")}\n\t\t\t\t\t\tvalue=\"rules\"\n\t\t\t\t\t/>\n\t\t\t\t\t<SettingsTabItem"
+  },
+  {
+   "key": "Material Request already created for the ordered quantity",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/sales_order/sales_order.py:1141"
+   ],
+   "current": null,
+   "context": "\tif doc and doc.items:\n\t\treturn doc\n\telse:\n\t\tfrappe.throw(_(\"Material Request already created for the ordered quantity\"))\n\n\n@frappe.whitelist()"
+  },
+  {
+   "key": "Maximum Amount",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:64"
+   ],
+   "current": null,
+   "context": "\n            <CurrencyFormField\n                name='max_amount'\n                label={_(\"Maximum Amount\")}\n            />\n        </div>\n"
+  },
+  {
+   "key": "Maximum discount % allowed when selling this item. Eg: if set to 20%, a discount greater than 20% cannot be applied in sales transactions.",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/item/item.json"
+   ],
+   "current": null,
+   "context": "   \"width\": \"50%\"\n  },\n  {\n   \"description\": \"Maximum discount % allowed when selling this item. Eg: if set to 20%, a discount greater than 20% cannot be applied in sales transactions.\",\n   \"fieldname\": \"max_discount\",\n   \"fieldtype\": \"Float\",\n   \"label\": \"Max Discount (%)\","
+  },
+  {
+   "key": "Maximum Producible Items",
+   "refs": [
+    "erpnext/erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.py:82",
+    "erpnext/erpnext/manufacturing/report/bom_stock_analysis/bom_stock_analysis.py:151"
+   ],
+   "current": null,
+   "context": "\n\tdata.append(\n\t\t{\n\t\t\t\"item\": _(\"Maximum Producible Items\"),\n\t\t\t\"description\": min_producible,\n\t\t\t\"from_bom_no\": \"\",\n\t\t\t\"manufacturer\": \"\","
+  },
+  {
+   "key": "Messaging CRM Campaign",
+   "refs": [
+    "erpnext/erpnext/setup/install.py:131"
+   ],
+   "current": null,
+   "context": "\t\t{\n\t\t\t\"UTM Campaign\": [\n\t\t\t\t{\n\t\t\t\t\t\"label\": _(\"Messaging CRM Campaign\"),\n\t\t\t\t\t\"fieldname\": \"crm_campaign\",\n\t\t\t\t\t\"fieldtype\": \"Link\",\n\t\t\t\t\t\"options\": \"Campaign\","
+  },
+  {
+   "key": "Method '{0}' must be whitelisted and permit GET requests",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:550"
+   ],
+   "current": null,
+   "context": "\t\t\tif isinstance(e, frappe.PermissionError):\n\t\t\t\tmessage = _(\"[{0}] {1}\", context=\"Financial Report Template\").format(\n\t\t\t\t\tget_formula_field_label(row.data_source),\n\t\t\t\t\t_(\"Method '{0}' must be whitelisted and permit GET requests\").format(api_path),\n\t\t\t\t)\n\t\t\telse:\n\t\t\t\tmessage = _(\"Could not validate {0}: {1}\").format("
+  },
+  {
+   "key": "Method {0} is not allowed to be run on a Job Card.",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/workstation/workstation.py:546"
+   ],
+   "current": null,
+   "context": "def update_job_card(job_card: str, method: str, **kwargs):\n\tif method not in ALLOWED_JOB_CARD_METHODS:\n\t\tfrappe.throw(\n\t\t\t_(\"Method {0} is not allowed to be run on a Job Card.\").format(bold(method)),\n\t\t\tfrappe.PermissionError,\n\t\t\ttitle=_(\"Not Allowed\"),\n\t\t)"
+  },
+  {
+   "key": "Method {0} must permit GET requests",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:25"
+   ],
+   "current": null,
+   "context": "\n\tif \"GET\" not in frappe.allowed_http_methods_for_whitelisted_func.get(method, ()):\n\t\tfrappe.throw(\n\t\t\t_(\"Method {0} must permit GET requests\").format(frappe.bold(api_path)),\n\t\t\tfrappe.PermissionError,\n\t\t\ttitle=_(\"Method Not Allowed\"),\n\t\t)"
+  },
+  {
+   "key": "Min amount cannot be greater than max amount.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:104"
+   ],
+   "current": null,
+   "context": "\tdef validate(self):\n\t\tif self.min_amount and self.max_amount:\n\t\t\tif self.min_amount > self.max_amount:\n\t\t\t\tfrappe.throw(_(\"Min amount cannot be greater than max amount.\"))\n\n\t\tif self.classify_as == \"Payment Entry\":\n\t\t\tif not self.party_type:"
+  },
+  {
+   "key": "Minimum Amount",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:59"
+   ],
+   "current": null,
+   "context": "        <div className=\"grid grid-cols-2 gap-2 pt-1\">\n            <CurrencyFormField\n                name='min_amount'\n                label={_(\"Minimum Amount\")}\n            />\n\n            <CurrencyFormField"
+  },
+  {
+   "key": "Minimum quantity should be as per Stock UOM\n\n",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/item/item.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"default\": \"0.00\",\n   \"depends_on\": \"is_stock_item\",\n   \"description\": \"Minimum quantity should be as per Stock UOM\\n\\n\",\n   \"fieldname\": \"min_order_qty\",\n   \"fieldtype\": \"Float\",\n   \"label\": \"Minimum Order Qty\","
+  },
+  {
+   "key": "Minimum stock level to maintain as a buffer. Used to calculate recommended reorder level: Reorder Level = Safety Stock + (Average Daily Consumption × Lead Time).",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/item/item.json"
+   ],
+   "current": null,
+   "context": "   \"oldfieldtype\": \"Currency\"\n  },\n  {\n   \"description\": \"Minimum stock level to maintain as a buffer. Used to calculate recommended reorder level: Reorder Level = Safety Stock + (Average Daily Consumption × Lead Time).\",\n   \"fieldname\": \"safety_stock\",\n   \"fieldtype\": \"Float\",\n   \"label\": \"Safety Stock\","
+  },
+  {
+   "key": "Miscellaneous",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_profile/pos_profile.json",
+    "erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"section_break_19\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Miscellaneous\"\n  },\n  {\n   \"fieldname\": \"selling_price_list\","
+  },
+  {
+   "key": "Missing Accounting Dimension",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/landed_cost_voucher/landed_cost_voucher.py:262"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\titem.idx,\n\t\t\t\t\t\t\tfrappe.bold(item.item_code),\n\t\t\t\t\t\t),\n\t\t\t\t\t\ttitle=_(\"Missing Accounting Dimension\"),\n\t\t\t\t\t)\n\n\tdef get_receipt_dimension(self, receipts, item, fieldname):"
+  },
+  {
+   "key": "Missing Company",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py:1035"
+   ],
+   "current": null,
+   "context": "@frappe.whitelist()\ndef get_filtered_accounts(company: str, account_rows: str | list):\n\tif not company:\n\t\tfrappe.throw(_(\"Company is required\"), title=_(\"Missing Company\"))\n\n\tfrappe.has_permission(\"Financial Report Template\", ptype=\"read\", throw=True)\n\tfrappe.has_permission(\"Company\", doc=company, throw=True)"
+  },
+  {
+   "key": "Missing Dependency",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:961"
+   ],
+   "current": null,
+   "context": "\texcept ImportError:\n\t\tfrappe.throw(\n\t\t\t_(\"PDF statement support requires the 'pdfplumber' library to be installed.\"),\n\t\t\ttitle=_(\"Missing Dependency\"),\n\t\t)\n\n\tfrom pypdf import PdfReader"
+  },
+  {
+   "key": "Missing Parameter",
+   "refs": [
+    "erpnext/erpnext/setup/doctype/employee/employee.py:574"
+   ],
+   "current": null,
+   "context": "\t4. User ID\n\t\"\"\"\n\tif not employee:\n\t\tfrappe.throw(msg=_(\"Employee is required\"), title=_(\"Missing Parameter\"))\n\n\tfrappe.has_permission(\"Employee\", \"read\", employee, throw=True)\n"
+  },
+  {
+   "key": "Missing Required Filter",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py:250"
+   ],
+   "current": null,
+   "context": "\t\tfor filter_key in required_filters:\n\t\t\tif not filters.get(filter_key):\n\t\t\t\tfrappe.throw(\n\t\t\t\t\ttitle=_(\"Missing Required Filter\"),\n\t\t\t\t\tmsg=_(\"Missing required filter: {0}\").format(\n\t\t\t\t\t\tfrappe.bold(filter_labels.get(filter_key, filter_key))\n\t\t\t\t\t),"
+  },
+  {
+   "key": "Missing required filter: {0}",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_engine.py:251"
+   ],
+   "current": null,
+   "context": "\t\t\tif not filters.get(filter_key):\n\t\t\t\tfrappe.throw(\n\t\t\t\t\ttitle=_(\"Missing Required Filter\"),\n\t\t\t\t\tmsg=_(\"Missing required filter: {0}\").format(\n\t\t\t\t\t\tfrappe.bold(filter_labels.get(filter_key, filter_key))\n\t\t\t\t\t),\n\t\t\t\t)"
+  },
+  {
+   "key": "Missing Warehouse",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/pick_list/pick_list.py:176"
+   ],
+   "current": null,
+   "context": "\t\t\tif not location.warehouse:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"Row {0}: Warehouse is required\").format(location.idx),\n\t\t\t\t\ttitle=_(\"Missing Warehouse\"),\n\t\t\t\t\texc=MissingWarehouseValidationError,\n\t\t\t\t)\n"
+  },
+  {
+   "key": "Module (for Export)",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_template.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval:frappe.boot.developer_mode\",\n   \"fieldname\": \"module\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Module (for Export)\",\n   \"options\": \"Module Def\"\n  },\n  {"
+  },
+  {
+   "key": "Most Customers have a unique Tax ID that is fetched into selling transactions. Enable this setting if you do not want Customer Tax IDs to appear in sales transactions.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/selling_settings/selling_settings.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Most Customers have a unique Tax ID that is fetched into selling transactions. Enable this setting if you do not want Customer Tax IDs to appear in sales transactions.\",\n   \"fieldname\": \"hide_tax_id\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Hide Customer's Tax ID from sales transactions\","
+  },
+  {
+   "key": "Multiple Accounts",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"bank_entry_type\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Bank Entry Type\",\n   \"options\": \"Single Account\\nMultiple Accounts\"\n  },\n  {\n   \"fieldname\": \"section_break_zdro\","
+  },
+  {
+   "key": "Multiple Accounts (Journal Template)",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:284"
+   ],
+   "current": null,
+   "context": "                }}\n            >\n                <SelectItem value=\"Single Account\">{_(\"Single Account\")}</SelectItem>\n                <SelectItem value=\"Multiple Accounts\">{_(\"Multiple Accounts (Journal Template)\")}</SelectItem>\n            </SelectFormField>)}\n\n"
+  },
+  {
+   "key": "Naming series '{0}' for DocType '{1}' does not contain standard '.' or '{{' separator. Using fallback extraction.",
+   "refs": [
+    "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:950"
+   ],
+   "current": null,
+   "context": "\t\t\t# Fallback for unexpected patterns (shouldn't happen with valid Frappe naming series)\n\t\t\tfrappe.log_error(\n\t\t\t\ttitle=_(\"Unexpected Naming Series Pattern\"),\n\t\t\t\tmessage=_(\n\t\t\t\t\t\"Naming series '{0}' for DocType '{1}' does not contain standard '.' or '{{' separator. Using fallback extraction.\"\n\t\t\t\t).format(naming_series, doctype_name),\n\t\t\t)"
+  },
+  {
+   "key": "Negative Batch Report",
+   "refs": [
+    "erpnext/erpnext/stock/report/negative_batch_report/negative_batch_report.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-02-17 11:34:59.106045\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Stock\",\n \"name\": \"Negative Batch Report\",\n \"owner\": \"Administrator\",\n \"prepared_report\": 0,\n \"ref_doctype\": \"Serial and Batch Bundle\","
+  },
+  {
+   "key": "New Fiscal Year - {0}",
+   "refs": [
+    "erpnext/erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html:1"
+   ],
+   "current": null,
+   "context": "<h4>{{ _(\"New Fiscal Year - {0}\").format(doc.name) }}</h4>\n\n<p>{{ _(\"A new fiscal year has been automatically created.\") }}</p>\n"
+  },
+  {
+   "key": "New Journal Entry will be posted for the difference amount. The Posting Date can be modified.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js:337"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t},\n\t\t\t\t\t{\n\t\t\t\t\t\tfieldtype: \"HTML\",\n\t\t\t\t\t\toptions: __(\n\t\t\t\t\t\t\t\"New Journal Entry will be posted for the difference amount. The Posting Date can be modified.\"\n\t\t\t\t\t\t).bold(),\n\t\t\t\t\t},"
+  },
+  {
+   "key": "New revised budget created successfully",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/budget/budget.js:92"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\targs: { budget_name: frm.doc.name },\n\t\t\t\t\tcallback: function (r) {\n\t\t\t\t\t\tif (r.message) {\n\t\t\t\t\t\t\tfrappe.msgprint(__(\"New revised budget created successfully\"));\n\t\t\t\t\t\t\tfrappe.set_route(\"Form\", \"Budget\", r.message);\n\t\t\t\t\t\t}\n\t\t\t\t\t},"
+  },
+  {
+   "key": "New Rule",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/Rules/CreateNewRule.tsx:68"
+   ],
+   "current": null,
+   "context": "                }\n            >\n                <SettingsPanelTitle>\n                    {_(\"New Rule\")}\n                </SettingsPanelTitle>\n                <SettingsPanelDescription>\n                    {_(\"Create a new rule to automatically classify transactions.\")}"
+  },
+  {
+   "key": "New Sales Invoices are blocked when the customer's overdue amount exceeds this. Requires 'Restrict Customer Over Billing' in Accounts Settings.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer_credit_limit/customer_credit_limit.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"columns\": 3,\n   \"description\": \"New Sales Invoices are blocked when the customer's overdue amount exceeds this. Requires 'Restrict Customer Over Billing' in Accounts Settings.\",\n   \"fieldname\": \"overdue_billing_threshold\",\n   \"fieldtype\": \"Currency\",\n   \"hidden\": 1,"
+  },
+  {
+   "key": "No <strong>Account Data</strong> row found",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_template.js:155"
+   ],
+   "current": null,
+   "context": "\tconst account_rows = template_rows.filter((row) => row.data_source === \"Account Data\");\n\n\tif (account_rows.length === 0) {\n\t\tfrappe.show_alert(__(\"No <strong>Account Data</strong> row found\"));\n\t\treturn;\n\t}\n"
+  },
+  {
+   "key": "No account set",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.py:298"
+   ],
+   "current": null,
+   "context": "\t\t\tvoucher_type,\n\t\t\tget_link_to_form(voucher_type, voucher_no),\n\t\t\twarehouse,\n\t\t\taccount or _(\"No account set\"),\n\t\t)\n\t\tfor voucher_type, voucher_no, warehouse, account in misconfigured\n\t)"
+  },
+  {
+   "key": "No accounts configured",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/Rules/RuleForm.tsx:413"
+   ],
+   "current": null,
+   "context": "                    <TableRow>\n                        <TableCell colSpan={3} className=\"text-center\">\n                            <div className=\"py-2 flex flex-col gap-2 items-center\">\n                                <span>{_(\"No accounts configured\")}</span>\n                                <Button variant=\"subtle\" type=\"button\" onClick={() => setIsConfigureAccountsModalOpen(true)}>{_(\"Configure Accounts\")}</Button>\n                            </div>\n                        </TableCell>"
+  },
+  {
+   "key": "No accounts found.",
+   "refs": [
+    "erpnext/banking/src/components/common/AccountsDropdown.tsx:162"
+   ],
+   "current": null,
+   "context": "                <Command shouldFilter={false} className=\"w-full\">\n                    <CommandInput placeholder={_(\"Search account...\")} onValueChange={setSearch} value={search} />\n                    <CommandList ref={listRef}>\n                        <CommandEmpty>{_(\"No accounts found.\")}</CommandEmpty>\n\n                        {recommendedAccounts.length > 0 && (\n                            <CommandGroup heading={_(\"Search Results\")}>"
+  },
+  {
+   "key": "No active item prices found.",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/item/item_prices.html:135"
+   ],
+   "current": null,
+   "context": "{% } else { %}\n\n<div style=\"text-align: center; padding: 40px 20px; color: var(--text-muted); border: 1px dashed var(--border-color); border-radius: var(--border-radius-md); margin-bottom: 14px;\">\n\t<p style=\"margin-bottom: 12px;\">{{ __(\"No active item prices found.\") }}</p>\n\t<button class=\"btn btn-sm btn-default add-price-btn\">{{ __(\"+ Add Price\") }}</button>\n</div>\n"
+  },
+  {
+   "key": "No availability of slots are found. Please add on Appointment Booking Settings.",
+   "refs": [
+    "erpnext/erpnext/crm/doctype/appointment/appointment.py:104"
+   ],
+   "current": null,
+   "context": "\tdef validate_slot_timing(self):\n\t\tsettings = get_booking_settings()\n\t\tif not settings.availability_of_slots:\n\t\t\tfrappe.throw(_(\"No availability of slots are found. Please add on Appointment Booking Settings.\"))\n\n\t\tscheduled_time = get_datetime(self.scheduled_time)\n\t\tday_of_week = WEEKDAYS[scheduled_time.weekday()]"
+  },
+  {
+   "key": "No bank accounts found",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankPicker.tsx:63"
+   ],
+   "current": null,
+   "context": "                <LandmarkIcon />\n            </EmptyMedia>\n            <EmptyHeader>\n                <EmptyTitle>{_(\"No bank accounts found\")}</EmptyTitle>\n                <EmptyDescription>{_(\"You have not added any bank accounts to your company.\")}</EmptyDescription>\n            </EmptyHeader>\n            <EmptyContent>"
+  },
+  {
+   "key": "No bank statements imported yet",
+   "refs": [
+    "erpnext/banking/src/pages/BankStatementImporter.tsx:285"
+   ],
+   "current": null,
+   "context": "                        <EmptyMedia>\n                            <ListIcon />\n                        </EmptyMedia>\n                        <EmptyTitle>{_(\"No bank statements imported yet\")}</EmptyTitle>\n                    </EmptyHeader>\n                </Empty>}\n        </div>"
+  },
+  {
+   "key": "No bank transactions found",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankTransactionList.tsx:289"
+   ],
+   "current": null,
+   "context": "                    <ListIcon />\n                </EmptyMedia>\n                <EmptyHeader>\n                    <EmptyTitle>{_(\"No bank transactions found\")}</EmptyTitle>\n                    <EmptyDescription>{_(\"There are no transactions in the system for the selected bank account and dates that match the filters.\")}</EmptyDescription>\n                </EmptyHeader>\n                {data && data.message.length === 0 ? <EmptyContent>"
+  },
+  {
+   "key": "No company found.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/CompanySelector.tsx:79"
+   ],
+   "current": null,
+   "context": "            <Command value={selectedCompany}>\n                {options.length > 5 && <CommandInput placeholder={_(\"Search company...\")} className=\"h-9\" />}\n                <CommandList>\n                    <CommandEmpty>{_(\"No company found.\")}</CommandEmpty>\n                    <CommandGroup>\n                        {options.map((option: string) => (\n                            <CommandItem"
+  },
+  {
+   "key": "No DocTypes in To Delete list. Please generate or import the list before submitting.",
+   "refs": [
+    "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:767"
+   ],
+   "current": null,
+   "context": "\t\t\t# Use To Delete list if available (new behavior)\n\t\t\tif not self.doctypes_to_delete:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"No DocTypes in To Delete list. Please generate or import the list before submitting.\"),\n\t\t\t\t\ttitle=_(\"Empty To Delete List\"),\n\t\t\t\t)\n\t\t\ttables = self.get_all_child_doctypes()"
+  },
+  {
+   "key": "No email found for {0} {1}",
+   "refs": [
+    "erpnext/erpnext/crm/doctype/email_campaign/email_campaign.py:164"
+   ],
+   "current": null,
+   "context": "\t\tif not email_id:\n\t\t\tfrappe.log_error(\n\t\t\t\ttitle=_(\"Email Campaign Error\"),\n\t\t\t\tmessage=_(\"No email found for {0} {1}\").format(campaign_for, recipient),\n\t\t\t)\n\t\t\treturn\n\t\trecipient_list = [email_id]"
+  },
+  {
+   "key": "No entries found",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankClearanceSummary.tsx:236",
+    "erpnext/banking/src/components/features/BankReconciliation/BankReconciliationStatement.tsx:227"
+   ],
+   "current": null,
+   "context": "                    <ReceiptTextIcon />\n                </EmptyMedia>\n                <EmptyHeader>\n                    <EmptyTitle>{_(\"No entries found\")}</EmptyTitle>\n                    <EmptyDescription>{_(\"There are no accounting entries in the system for the selected account and dates.\")}</EmptyDescription>\n                </EmptyHeader>\n            </Empty>"
+  },
+  {
+   "key": "No entries with a payment document in this list.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankReconciliationStatement.tsx:216"
+   ],
+   "current": null,
+   "context": "                    className=\"min-h-0 flex-1\"\n                    maxHeight=\"none\"\n                    scrollAreaClassName=\"flex-1\"\n                    emptyState={_(\"No entries with a payment document in this list.\")}\n                />\n            </div>\n        )}"
+  },
+  {
+   "key": "No file uploaded or URL provided.",
+   "refs": [
+    "erpnext/erpnext/edi/doctype/code_list/code_list_import.py:73"
+   ],
+   "current": null,
+   "context": "\n\tfile_url = frappe.local.uploaded_file_url\n\tif not file_url:\n\t\traise frappe.ValidationError(_(\"No file uploaded or URL provided.\"))\n\n\tif not is_local_file_url(file_url):\n\t\traise RemoteGenericodeUrlNotAllowedError"
+  },
+  {
+   "key": "No invoice linked",
+   "refs": [
+    "erpnext/banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:236"
+   ],
+   "current": null,
+   "context": "            <HoverCardTrigger>\n                <div className={cn('flex items-center gap-2 text-ink-gray-5 text-sm', className)}>\n                    <ReceiptTextIcon className='w-4 h-4' />\n                    <span className='text-sm cursor-pointer hover:underline underline-offset-4'>{invoices.length === 0 ? _(\"No invoice linked\") : invoices.length === 1 ? _(\"1 invoice\") : _(\"{} invoices\", [invoices.length.toString()])}</span>\n                </div>\n            </HoverCardTrigger>\n            <HoverCardContent className='w-full p-2' align='end'>"
+  },
+  {
+   "key": "No Match",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:915"
+   ],
+   "current": null,
+   "context": "                                <Tooltip>\n                                    <TooltipTrigger>\n                                        <Badge theme={referenceMatchesFull ? \"green\" : referenceMatchesPartial ? \"orange\" : \"red\"} variant={referenceMatchesFull || referenceMatchesPartial ? \"subtle\" : \"outline\"}>\n                                            {referenceMatchesFull ? `${_(\"Complete Match\")}` : referenceMatchesPartial ? `${_(\"Partial Match\")}` : `${_(\"No Match\")}`}</Badge>\n                                    </TooltipTrigger>\n                                    <TooltipContent side=\"top\">\n                                        {referenceMatchesFull ? `${_(\"Reference matches the selected transaction\")}` : referenceMatchesPartial ? `${_(\"Reference matches the selected transaction partially\")}` : `${_(\"Reference does not match the selected transaction\")}`}"
+  },
+  {
+   "key": "No of Items to Repost",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"total_reposting_count\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"No of Items to Repost\",\n   \"no_copy\": 1,\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "No of Parallel Reposting (Per Item)",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"eval: doc.item_based_reposting === 1 && doc.enable_parallel_reposting === 1\",\n   \"fieldname\": \"no_of_parallel_reposting\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"No of Parallel Reposting (Per Item)\"\n  },\n  {\n   \"fieldname\": \"section_break_dxuf\","
+  },
+  {
+   "key": "No page image is available for this page.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankStatementImporter/PDF/PDFTableEditor.tsx:289"
+   ],
+   "current": null,
+   "context": "    if (!pageImage) {\n        return (\n            <Paragraph className=\"text-p-sm text-ink-gray-5\">\n                {_('No page image is available for this page.')}\n            </Paragraph>\n        )\n    }"
+  },
+  {
+   "key": "No recipients found for campaign {0}",
+   "refs": [
+    "erpnext/erpnext/crm/doctype/email_campaign/email_campaign.py:172"
+   ],
+   "current": null,
+   "context": "\tif not recipient_list:\n\t\tfrappe.log_error(\n\t\t\ttitle=_(\"Email Campaign Error\"),\n\t\t\tmessage=_(\"No recipients found for campaign {0}\").format(campaign_name),\n\t\t)\n\t\treturn\n"
+  },
+  {
+   "key": "No reconciliation actions found",
+   "refs": [
+    "erpnext/banking/src/components/features/ActionLog/ActionLogDialogBody.tsx:59"
+   ],
+   "current": null,
+   "context": "                <HistoryIcon />\n            </EmptyMedia>\n            <EmptyHeader>\n                <EmptyTitle>{_(\"No reconciliation actions found\")}</EmptyTitle>\n                <EmptyDescription>{_(\"You have not performed any reconciliations in this session yet.\")}</EmptyDescription>\n            </EmptyHeader>\n        </Empty>}"
+  },
+  {
+   "key": "No rows to display.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankClearanceSummary.tsx:226",
+    "erpnext/banking/src/components/features/BankReconciliation/IncorrectlyClearedEntries.tsx:210"
+   ],
+   "current": null,
+   "context": "                className=\"min-h-0 flex-1\"\n                maxHeight=\"none\"\n                scrollAreaClassName=\"flex-1\"\n                emptyState={_(\"No rows to display.\")}\n            />\n        ) : null}\n"
+  },
+  {
+   "key": "No rules setup yet",
+   "refs": [
+    "erpnext/banking/src/components/features/Settings/Rules/RuleList.tsx:201"
+   ],
+   "current": null,
+   "context": "                        <ZapIcon />\n                    </EmptyMedia>\n                    <EmptyHeader>\n                        <EmptyTitle>{_(\"No rules setup yet\")}</EmptyTitle>\n                        <EmptyDescription>{_(\"Configure rules to save time when reconciling transactions.\")}</EmptyDescription>\n                    </EmptyHeader>\n"
+  },
+  {
+   "key": "No stock available for this batch.",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/batch/batch.js:85"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t}\n\n\t\t\t\t\tif (!r.message || r.message.length === 0) {\n\t\t\t\t\t\tfrm.dashboard.add_comment(__(\"No stock available for this batch.\"), \"Blue\", true);\n\t\t\t\t\t\treturn;\n\t\t\t\t\t}\n"
+  },
+  {
+   "key": "No Tables Detected",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:1012"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\"Could not detect any tables in this PDF. It may be a scanned or image-based\"\n\t\t\t\t\" statement, which is not supported (no OCR).\"\n\t\t\t),\n\t\t\ttitle=_(\"No Tables Detected\"),\n\t\t)\n\n\treturn tables"
+  },
+  {
+   "key": "No tables were extracted from this PDF.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankStatementImporter/PDF/PDFTableEditor.tsx:165"
+   ],
+   "current": null,
+   "context": "        return (\n            <div className=\"p-4\">\n                <Paragraph className=\"text-p-sm text-ink-gray-5\">\n                    {_('No tables were extracted from this PDF.')}\n                </Paragraph>\n            </div>\n        )"
+  },
+  {
+   "key": "No Tax withholding account set for Company {0} in Tax Withholding Category {1}.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/tax_withholding_category/tax_withholding_category.py:108"
+   ],
+   "current": null,
+   "context": "\t\t\t\treturn row.account\n\n\t\tfrappe.throw(\n\t\t\t_(\"No Tax withholding account set for Company {0} in Tax Withholding Category {1}.\").format(\n\t\t\t\tfrappe.bold(company), frappe.bold(self.name)\n\t\t\t)\n\t\t)"
+  },
+  {
+   "key": "No transaction selected",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankEntryModalContent.tsx:41",
+    "erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:48",
+    "erpnext/banking/src/components/features/BankReconciliation/TransferModalContent.tsx:40"
+   ],
+   "current": null,
+   "context": "\n    if (!selectedTransaction || !selectedBankAccount || selectedTransaction.length === 0) {\n        return <div className='p-4'>\n            <span className='text-center'>{_(\"No transaction selected\")}</span>\n        </div>\n    }\n"
+  },
+  {
+   "key": "No transactions found for the given filters.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:277"
+   ],
+   "current": null,
+   "context": "\n        {results.length === 0 && <NoTransactionsFoundBanner\n            onClearFilters={hasFilters ? onClearFilters : undefined}\n            text={hasFilters ? _(\"No transactions found for the given filters.\") : _(\"No unreconciled transactions found\")}\n            description={hasFilters ? _(\"Try adjusting your search or filter criteria.\") : _(\"Import your bank statement to get started.\")} />}\n\n        <VirtualizedListBody"
+  },
+  {
+   "key": "No unreconciled transactions found",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:277"
+   ],
+   "current": null,
+   "context": "\n        {results.length === 0 && <NoTransactionsFoundBanner\n            onClearFilters={hasFilters ? onClearFilters : undefined}\n            text={hasFilters ? _(\"No transactions found for the given filters.\") : _(\"No unreconciled transactions found\")}\n            description={hasFilters ? _(\"Try adjusting your search or filter criteria.\") : _(\"Import your bank statement to get started.\")} />}\n\n        <VirtualizedListBody"
+  },
+  {
+   "key": "No vouchers found for this transaction",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:815"
+   ],
+   "current": null,
+   "context": "            </EmptyMedia>\n            <EmptyHeader>\n\n                <EmptyTitle>{_(\"No vouchers found for this transaction\")}</EmptyTitle>\n            </EmptyHeader>\n        </Empty>}\n        <VirtualizedListBody"
+  },
+  {
+   "key": "Non Completed Tasks",
+   "refs": [
+    "erpnext/erpnext/projects/workspace/projects/projects.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Completed Projects\"\n  }\n ],\n \"content\": \"[{\\\"id\\\":\\\"7Mbx6I5JUf\\\",\\\"type\\\":\\\"spacer\\\",\\\"data\\\":{\\\"col\\\":12}},{\\\"id\\\":\\\"fVYsju6dB9\\\",\\\"type\\\":\\\"chart\\\",\\\"data\\\":{\\\"chart_name\\\":\\\"Completed Projects\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"67w8up7H_0\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Open Projects\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"IFEYSadaYc\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Non Completed Tasks\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"VqbqxA0YL1\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Working Hours\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"oGhjvYjfv-\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><b>Reports &amp; Masters</b></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"TdsgJyG3EI\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Projects\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"nIc0iyvf1T\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Time Tracking\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"8G1if4jsQ7\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Reports\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"o7qTNRXZI8\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Settings\\\",\\\"col\\\":4}}]\",\n \"creation\": \"2020-03-02 15:46:04.874669\",\n \"custom_blocks\": [],\n \"docstatus\": 0,"
+  },
+  {
+   "key": "Non-Current Liabilities",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:182",
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:317"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t_(\"Bank Overdraft Account\"): {\"account_category\": \"Short-term Borrowings\"},\n\t\t\t\t},\n\t\t\t},\n\t\t\t_(\"Non-Current Liabilities\"): {\n\t\t\t\t_(\"Long-term Provisions\"): {\"account_category\": \"Long-term Provisions\"},\n\t\t\t\t_(\"Employee Benefits Obligation\"): {\"account_category\": \"Other Non-current Liabilities\"},\n\t\t\t\t\"is_group\": 1,"
+  },
+  {
+   "key": "Non-phantom BOM cannot be created for non-stock item {0}.",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.js:117",
+    "erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.py:109"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\t);\n\t\t\t\t\t\t} else if (!r.message.is_stock_item && !values.is_phantom) {\n\t\t\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t\t\t__(\"Non-phantom BOM cannot be created for non-stock item {0}.\", [\n\t\t\t\t\t\t\t\t\tvalues.item_code,\n\t\t\t\t\t\t\t\t])\n\t\t\t\t\t\t\t);"
+  },
+  {
+   "key": "Normal Balances",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"section_normal_balances\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Normal Balances\"\n  },\n  {\n   \"fieldname\": \"section_opening_balances\","
+  },
+  {
+   "key": "Not Cleared",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankClearanceSummary.tsx:190"
+   ],
+   "current": null,
+   "context": "                        <div className=\"flex min-w-0 flex-wrap items-center gap-2\">\n                            <Badge theme=\"red\">\n                                <XCircle />\n                                {_(\"Not Cleared\")}\n                            </Badge>\n                            <SetClearanceDateButton\n                                voucher={r}"
+  },
+  {
+   "key": "Not permitted to update Serial No",
+   "refs": [
+    "erpnext/erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.py:114"
+   ],
+   "current": null,
+   "context": "@frappe.whitelist(methods=[\"POST\"])\ndef sync_serial_no_status(warehouse: str, item_code: str | None = None):\n\tif not frappe.has_permission(\"Serial No\", \"write\"):\n\t\tfrappe.throw(_(\"Not permitted to update Serial No\"), frappe.PermissionError)\n\n\twarehouse = cstr(warehouse)\n\titem_code = cstr(item_code) if item_code else None"
+  },
+  {
+   "key": "Not Reconciled",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankTransactionList.tsx:125"
+   ],
+   "current": null,
+   "context": "                        return (\n                            <Badge theme=\"red\">\n                                <XCircle />\n                                {_(\"Not Reconciled\")}\n                            </Badge>\n                        )\n                    }"
+  },
+  {
+   "key": "Nothing to order from the selected rows",
+   "refs": [
+    "erpnext/erpnext/manufacturing/report/material_requirements_planning_report/material_requirements_planning_report.py:1336"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.msgprint(\n\t\t\t_(\"Nothing to order, the selected rows are already covered by stock or existing orders\")\n\t\t\tif covered_rows\n\t\t\telse _(\"Nothing to order from the selected rows\")\n\t\t)\n\t\treturn\n"
+  },
+  {
+   "key": "Nothing to order, the selected rows are already covered by stock or existing orders",
+   "refs": [
+    "erpnext/erpnext/manufacturing/report/material_requirements_planning_report/material_requirements_planning_report.py:1334"
+   ],
+   "current": null,
+   "context": "\n\tif not purchase_orders and not work_orders:\n\t\tfrappe.msgprint(\n\t\t\t_(\"Nothing to order, the selected rows are already covered by stock or existing orders\")\n\t\t\tif covered_rows\n\t\t\telse _(\"Nothing to order from the selected rows\")\n\t\t)"
+  },
+  {
+   "key": "Number of days to consider for matching transfers across bank accounts",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"3\",\n   \"description\": \"Number of days to consider for matching transfers across bank accounts\",\n   \"fieldname\": \"transfer_match_days\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Match transfers within 'N' days\","
+  },
+  {
+   "key": "Number of days to match transfers",
+   "refs": [
+    "erpnext/banking/src/components/features/Settings/Preferences.tsx:58",
+    "erpnext/banking/src/components/features/Settings/Preferences.tsx:148"
+   ],
+   "current": null,
+   "context": "\n                    <div className=\"flex justify-between items-center gap-8 py-3\">\n                        <div className=\"flex flex-col\">\n                            <Label htmlFor=\"transfer_match_days\" className=\"text-p-base text-ink-gray-6\">{_(\"Number of days to match transfers\")}</Label>\n                            <p className=\"text-p-sm text-ink-gray-5\">\n                                {_(\"For example, if set to 4, the system will try to find matching transfer transactions in other banks 4 days before and after the transaction date. This is because transactions can clear on different days on different bank accounts.\")}\n                            </p>"
+  },
+  {
+   "key": "Number of Transactions",
+   "refs": [
+    "erpnext/banking/src/components/features/BankStatementImporter/CSV/StatementDetails.tsx:180",
+    "erpnext/banking/src/pages/BankStatementImporter.tsx:254",
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json"
+   ],
+   "current": null,
+   "context": "                            )}\n                        </TableRow>\n                        <TableRow>\n                            <TableHead>{_(\"Number of Transactions\")}</TableHead>\n                            <TableCell>{data.doc.number_of_transactions}</TableCell>\n                        </TableRow>\n                        <TableRow>"
+  },
+  {
+   "key": "Numbers this customer uses to identify your company in their own system.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer/customer.json"
+   ],
+   "current": null,
+   "context": "   \"no_copy\": 1\n  },\n  {\n   \"description\": \"Numbers this customer uses to identify your company in their own system.\",\n   \"fieldname\": \"supplier_numbers\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Supplier Numbers\","
+  },
+  {
+   "key": "On hold",
+   "refs": [
+    "erpnext/erpnext/projects/doctype/project/project.json",
+    "erpnext/erpnext/projects/doctype/project/project_list.js:8"
+   ],
+   "current": null,
+   "context": "   \"no_copy\": 1,\n   \"oldfieldname\": \"status\",\n   \"oldfieldtype\": \"Select\",\n   \"options\": \"Open\\nOn hold\\nCompleted\\nCancelled\",\n   \"search_index\": 1\n  },\n  {"
+  },
+  {
+   "key": "On save, the Excluded Fee will be converted to an Included Fee.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction/bank_transaction.json"
+   ],
+   "current": null,
+   "context": "   \"options\": \"currency\"\n  },\n  {\n   \"description\": \"On save, the Excluded Fee will be converted to an Included Fee.\",\n   \"fieldname\": \"excluded_fee\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Excluded Fee\","
+  },
+  {
+   "key": "Onboarding for Stock!",
+   "refs": [
+    "erpnext/erpnext/selling/module_onboarding/stock_onboarding/stock_onboarding.json"
+   ],
+   "current": null,
+   "context": "   \"step\": \"Create Stock Entry\"\n  }\n ],\n \"title\": \"Onboarding for Stock!\"\n}"
+  },
+  {
+   "key": "Only CSV files are allowed",
+   "refs": [
+    "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:1083"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.throw(_(\"File does not belong to this Transaction Deletion Record\"))\n\n\tif not file_doc.file_name or not file_doc.file_name.lower().endswith(\".csv\"):\n\t\tfrappe.throw(_(\"Only CSV files are allowed\"))\n\n\tfile_path = file_doc.get_full_path()\n"
+  },
+  {
+   "key": "Only if the PDF is password protected",
+   "refs": [
+    "erpnext/banking/src/pages/BankStatementImporter.tsx:134"
+   ],
+   "current": null,
+   "context": "                                autoComplete=\"off\"\n                                value={password}\n                                onChange={(e) => setPassword(e.target.value)}\n                                placeholder={_(\"Only if the PDF is password protected\")}\n                                className=\"max-w-sm\"\n                            />\n                            <p data-slot=\"form-description\" className={cn(\"text-ink-gray-5 text-p-sm\")}>"
+  },
+  {
+   "key": "Only one of Deposit or Withdrawal should be non-zero when applying an Excluded Fee.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction/bank_transaction.py:350"
+   ],
+   "current": null,
+   "context": "\t\t# Enforce directionality\n\t\tif flt(self.deposit) > 0 and flt(self.withdrawal) > 0:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Only one of Deposit or Withdrawal should be non-zero when applying an Excluded Fee.\")\n\t\t\t)\n\n\t\tif flt(self.deposit) > 0:"
+  },
+  {
+   "key": "Only one operation can have 'Is Final Finished Good' checked when 'Track Semi Finished Goods' is enabled.",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/bom/bom.py:358"
+   ],
+   "current": null,
+   "context": "\n\t\tif fg_items and len(fg_items) > 1:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Only one operation can have 'Is Final Finished Good' checked when 'Track Semi Finished Goods' is enabled.\"\n\t\t\t\t),\n\t\t\t)"
+  },
+  {
+   "key": "Only works for Purchase Receipt, Purchase Invoice and Stock Entry",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Only works for Purchase Receipt, Purchase Invoice and Stock Entry\",\n   \"fieldname\": \"recalculate_valuation_rate\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Recalculate Valuation Rate\","
+  },
+  {
+   "key": "Open the settings dialog",
+   "refs": [
+    "erpnext/banking/src/components/features/Settings/KeyboardShortcuts.tsx:63"
+   ],
+   "current": null,
+   "context": "        action: {\n            icon: <SettingsIcon />,\n            label: _(\"Settings\"),\n            description: _(\"Open the settings dialog\")\n        }\n    }\n]"
+  },
+  {
+   "key": "Open {0} in a new tab",
+   "refs": [
+    "erpnext/banking/src/components/features/BankStatementImporter/CSV/StatementDetails.tsx:343"
+   ],
+   "current": null,
+   "context": "                                                            </Button>\n                                                        </TooltipTrigger>\n                                                        <TooltipContent>\n                                                            {_(\"Open {0} in a new tab\", [transaction.name])}\n                                                        </TooltipContent>\n                                                    </Tooltip>\n"
+  },
+  {
+   "key": "Opening Balance = Start of period, Closing Balance = End of period, Period Movement = Net change during period",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_row/financial_report_row.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"eval:doc.data_source == 'Account Data'\",\n   \"description\": \"Opening Balance = Start of period, Closing Balance = End of period, Period Movement = Net change during period\",\n   \"fieldname\": \"balance_type\",\n   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,"
+  },
+  {
+   "key": "Opening Purchase Invoice(s) have been created.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.js:36"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\tconst message =\n\t\t\t\t\t\t\t\tfrm.doc.invoice_type == \"Sales\"\n\t\t\t\t\t\t\t\t\t? __(\"Opening Sales Invoice(s) have been created.\")\n\t\t\t\t\t\t\t\t\t: __(\"Opening Purchase Invoice(s) have been created.\");\n\t\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\t\tmessage: message,\n\t\t\t\t\t\t\t\tindicator: \"green\","
+  },
+  {
+   "key": "Opening Sales Invoice(s) have been created.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/opening_invoice_creation_tool/opening_invoice_creation_tool.js:35"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\tfrm.refresh_fields();\n\t\t\t\t\t\t\tconst message =\n\t\t\t\t\t\t\t\tfrm.doc.invoice_type == \"Sales\"\n\t\t\t\t\t\t\t\t\t? __(\"Opening Sales Invoice(s) have been created.\")\n\t\t\t\t\t\t\t\t\t: __(\"Opening Purchase Invoice(s) have been created.\");\n\t\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\t\tmessage: message,"
+  },
+  {
+   "key": "Operator '{0}' requires a list value",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:475"
+   ],
+   "current": null,
+   "context": "\t\t\t\treturn _(\"Invalid operator '{0}'\").format(operator)\n\n\t\t\tif operator in [\"in\", \"not in\"] and not isinstance(value, list):\n\t\t\t\treturn _(\"Operator '{0}' requires a list value\").format(operator)\n\n\t\t# logical condition: {\"and\": [condition1, condition2]}\n\t\telif isinstance(filter_config, dict):"
+  },
+  {
+   "key": "Optional. Used with Financial Report Template",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/account/account_tree.js:165"
+   ],
+   "current": null,
+   "context": "\t\t\tlabel: __(\"Account Category\"),\n\t\t\toptions: frappe.get_meta(\"Account\").fields.filter((d) => d.fieldname == \"account_category\")[0]\n\t\t\t\t.options,\n\t\t\tdescription: __(\"Optional. Used with Financial Report Template\"),\n\t\t},\n\t\t{\n\t\t\tfieldtype: \"Float\","
+  },
+  {
+   "key": "Outgoing Bills",
+   "refs": [
+    "erpnext/erpnext/accounts/workspace/invoicing/invoicing.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Profit and Loss\"\n  }\n ],\n \"content\": \"[{\\\"id\\\":\\\"nDhfcJYbKH\\\",\\\"type\\\":\\\"chart\\\",\\\"data\\\":{\\\"chart_name\\\":\\\"Profit and Loss\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"VVvJ1lUcfc\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Outgoing Bills\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"Vlj2FZtlHV\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Incoming Bills\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"VVVjQVAhPf\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Incoming Payment\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"DySNdlysIW\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Outgoing Payment\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"tHb3yxthkR\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><b>Reports &amp; Masters</b></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"DnNtsmxpty\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Accounting Masters\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"nKKr6fjgjb\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Payments\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"KlqilF5R_V\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Tax Masters\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"jTUy8LB0uw\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Cost Center and Budgeting\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"Wn2lhs7WLn\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Multi Currency\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"PAQMqqNkBM\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Banking\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"kxhoaiqdLq\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Opening and Closing\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"q0MAlU2j_Z\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Subscription Management\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"ptm7T6Hwu-\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Share Management\\\",\\\"col\\\":4}}]\",\n \"creation\": \"2020-03-02 15:41:59.515192\",\n \"custom_blocks\": [],\n \"docstatus\": 0,"
+  },
+  {
+   "key": "Outgoing Payment",
+   "refs": [
+    "erpnext/erpnext/accounts/workspace/invoicing/invoicing.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Profit and Loss\"\n  }\n ],\n \"content\": \"[{\\\"id\\\":\\\"nDhfcJYbKH\\\",\\\"type\\\":\\\"chart\\\",\\\"data\\\":{\\\"chart_name\\\":\\\"Profit and Loss\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"VVvJ1lUcfc\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Outgoing Bills\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"Vlj2FZtlHV\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Incoming Bills\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"VVVjQVAhPf\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Incoming Payment\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"DySNdlysIW\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Outgoing Payment\\\",\\\"col\\\":3}},{\\\"id\\\":\\\"tHb3yxthkR\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><b>Reports &amp; Masters</b></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"DnNtsmxpty\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Accounting Masters\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"nKKr6fjgjb\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Payments\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"KlqilF5R_V\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Tax Masters\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"jTUy8LB0uw\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Cost Center and Budgeting\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"Wn2lhs7WLn\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Multi Currency\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"PAQMqqNkBM\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Banking\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"kxhoaiqdLq\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Opening and Closing\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"q0MAlU2j_Z\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Subscription Management\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"ptm7T6Hwu-\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Share Management\\\",\\\"col\\\":4}}]\",\n \"creation\": \"2020-03-02 15:41:59.515192\",\n \"custom_blocks\": [],\n \"docstatus\": 0,"
+  },
+  {
+   "key": "Outstanding Checks and Deposits to clear",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankReconciliationStatement.tsx:297"
+   ],
+   "current": null,
+   "context": "        </StatContainer>\n\n        <StatContainer>\n            <StatLabel>{_(\"Outstanding Checks and Deposits to clear\")}</StatLabel>\n            <StatValue className=\"font-numeric\">{formatCurrency(outstandingChecksDebit - outstandingChecksCredit, currency)}</StatValue>\n        </StatContainer>\n"
+  },
+  {
+   "key": "Over Order Allowance (%)",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/buying_settings/buying_settings.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"The percentage by which you are allowed to order more on a Purchase Order than the quantity requested on the originating Material Request. For example, if the Material Request has 100 units and the allowance is 10%, you can order up to 110 units\",\n   \"fieldname\": \"over_order_allowance\",\n   \"fieldtype\": \"Float\",\n   \"label\": \"Over Order Allowance (%)\"\n  },\n  {\n   \"fieldname\": \"column_break_kdcm\","
+  },
+  {
+   "key": "Overdue Limit Crossed",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer/customer.py:720"
+   ],
+   "current": null,
+   "context": "\t\t\tfmt_money(overdue_amount, currency=company_currency),\n\t\t\tfmt_money(threshold, currency=company_currency),\n\t\t),\n\t\ttitle=_(\"Overdue Limit Crossed\"),\n\t)\n\n"
+  },
+  {
+   "key": "Overdue Limit crossed for customer {0}. Overdue amount {1} exceeds the allowed limit {2}.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer/customer.py:715"
+   ],
+   "current": null,
+   "context": "\n\tcompany_currency = frappe.get_cached_value(\"Company\", company, \"default_currency\")\n\tfrappe.throw(\n\t\t_(\"Overdue Limit crossed for customer {0}. Overdue amount {1} exceeds the allowed limit {2}.\").format(\n\t\t\tcustomer,\n\t\t\tfmt_money(overdue_amount, currency=company_currency),\n\t\t\tfmt_money(threshold, currency=company_currency),"
+  },
+  {
+   "key": "Override the default payable / advance accounts on a per-company basis. Leave blank to use each company's defaults from Company settings.",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/supplier/supplier.json"
+   ],
+   "current": null,
+   "context": "   \"read_only\": 1\n  },\n  {\n   \"description\": \"Override the default payable / advance accounts on a per-company basis. Leave blank to use each company's defaults from Company settings.\",\n   \"fieldname\": \"accounts\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Per-Company Accounts\","
+  },
+  {
+   "key": "Ownership",
+   "refs": [
+    "erpnext/erpnext/assets/doctype/asset/asset.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"asset_owner_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Ownership\"\n  },\n  {\n   \"fieldname\": \"column_break_yeds\","
+  },
+  {
+   "key": "P&L Closing Balance",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"p_l_closing_balance\",\n   \"fieldtype\": \"JSON\",\n   \"label\": \"P&L Closing Balance\",\n   \"no_copy\": 1\n  },\n  {"
+  },
+  {
+   "key": "Page preview",
+   "refs": [
+    "erpnext/banking/src/components/features/BankStatementImporter/PDF/PDFTableEditor.tsx:302"
+   ],
+   "current": null,
+   "context": "                </Paragraph>\n            )}\n            <div ref={containerRef} className=\"relative w-full overflow-auto rounded border border-outline-gray-2 bg-surface-gray-1\">\n                <img src={pageImage} alt={_('Page preview')} className=\"w-full\" />\n                {pageTables.map(({ table, index }, position) => {\n                    const color = OVERLAY_COLORS[position % OVERLAY_COLORS.length]\n                    return ("
+  },
+  {
+   "key": "Paid From",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/TransferModalContent.tsx:315"
+   ],
+   "current": null,
+   "context": "                        <div className='flex-1'>\n                            <AccountFormField\n                                name=\"paid_from\"\n                                label={_(\"Paid From\")}\n                                account_type={['Bank', 'Cash']}\n                                readOnly={isWithdrawal}\n                                filterFunction={(account) => account.name !== selectedBankAccount.account}"
+  },
+  {
+   "key": "Paid From (GL Account)",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:620"
+   ],
+   "current": null,
+   "context": "    } else {\n        return <AccountFormField\n            name='paid_from'\n            label={_(\"Paid From (GL Account)\")}\n            isRequired\n            rules={{\n                required: 'Paid From is required',"
+  },
+  {
+   "key": "Paid From and Paid To accounts must be different for an Internal Transfer.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.py:637"
+   ],
+   "current": null,
+   "context": "\n\tdef validate_internal_transfer_accounts(self):\n\t\tif self.payment_type == \"Internal Transfer\" and self.paid_from and self.paid_from == self.paid_to:\n\t\t\tfrappe.throw(_(\"Paid From and Paid To accounts must be different for an Internal Transfer.\"))\n\n\tdef validate_party_details(self):\n\t\tif self.party and not frappe.db.exists(self.party_type, self.party):"
+  },
+  {
+   "key": "Paid To",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/TransferModalContent.tsx:329"
+   ],
+   "current": null,
+   "context": "                        <div className='flex-1'>\n                            <AccountFormField\n                                name=\"paid_to\"\n                                label={_(\"Paid To\")}\n                                account_type={['Bank', 'Cash']}\n                                isRequired\n                                readOnly={!isWithdrawal}"
+  },
+  {
+   "key": "Paid to",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:404"
+   ],
+   "current": null,
+   "context": "                <div className='grid grid-cols-2 gap-4 items-start'>\n                    <SelectedTransactionDetails transaction={selectedTransaction} />\n                    <div className='flex flex-col gap-2'>\n                        <H4 className=\"text-base\">{isWithdrawal ? _(\"Paid to\") : _(\"Received from\")}</H4>\n                        <div className='grid grid-cols-4 gap-4'>\n                            <div className=\"col-span-1\">\n                                <PartyTypeFormField"
+  },
+  {
+   "key": "Paid To (GL Account)",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:608"
+   ],
+   "current": null,
+   "context": "    if (isWithdrawal) {\n        return <AccountFormField\n            name='paid_to'\n            label={_(\"Paid To (GL Account)\")}\n            isRequired\n            rules={{\n                required: 'Paid To is required',"
+  },
+  {
+   "key": "Parent Task {0} must be a Group Task",
+   "refs": [
+    "erpnext/erpnext/projects/doctype/task/task.py:210"
+   ],
+   "current": null,
+   "context": "\t\tif self.parent_task:\n\t\t\tif not frappe.db.get_value(\"Task\", self.parent_task, \"is_group\"):\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"Parent Task {0} must be a Group Task\").format(\n\t\t\t\t\t\tget_link_to_form(\"Task\", self.parent_task)\n\t\t\t\t\t),\n\t\t\t\t\tParentIsGroupError,"
+  },
+  {
+   "key": "Partial Match",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:915",
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:946"
+   ],
+   "current": null,
+   "context": "                                <Tooltip>\n                                    <TooltipTrigger>\n                                        <Badge theme={referenceMatchesFull ? \"green\" : referenceMatchesPartial ? \"orange\" : \"red\"} variant={referenceMatchesFull || referenceMatchesPartial ? \"subtle\" : \"outline\"}>\n                                            {referenceMatchesFull ? `${_(\"Complete Match\")}` : referenceMatchesPartial ? `${_(\"Partial Match\")}` : `${_(\"No Match\")}`}</Badge>\n                                    </TooltipTrigger>\n                                    <TooltipContent side=\"top\">\n                                        {referenceMatchesFull ? `${_(\"Reference matches the selected transaction\")}` : referenceMatchesPartial ? `${_(\"Reference matches the selected transaction partially\")}` : `${_(\"Reference does not match the selected transaction\")}`}"
+  },
+  {
+   "key": "Partially Reposted",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.json"
+   ],
+   "current": null,
+   "context": "   \"in_standard_filter\": 1,\n   \"label\": \"Status\",\n   \"no_copy\": 1,\n   \"options\": \"\\nQueued\\nIn Progress\\nPartially Reposted\\nCompleted\\nFailed\\nCancelled\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Party account is required to create a payment entry.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:114"
+   ],
+   "current": null,
+   "context": "\t\t\t\tfrappe.throw(_(\"Party is required create a payment entry.\"))\n\n\t\t\tif not self.account:\n\t\t\t\tfrappe.throw(_(\"Party account is required to create a payment entry.\"))\n\n\t\tif self.classify_as == \"Bank Entry\":\n\t\t\tif not self.bank_entry_type or self.bank_entry_type == \"Single Account\":"
+  },
+  {
+   "key": "Party Account No.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log_column_map/bank_statement_import_log_column_map.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Maps To\",\n   \"options\": \"Do not import\\nDate\\nWithdrawal\\nDeposit\\nAmount\\nDescription\\nReference\\nTransaction Type\\nDebit/Credit\\nBalance\\nIncluded Fee\\nExcluded Fee\\nParty Name/Account Holder\\nParty Account No.\\nParty IBAN\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Party IBAN",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log_column_map/bank_statement_import_log_column_map.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Maps To\",\n   \"options\": \"Do not import\\nDate\\nWithdrawal\\nDeposit\\nAmount\\nDescription\\nReference\\nTransaction Type\\nDebit/Credit\\nBalance\\nIncluded Fee\\nExcluded Fee\\nParty Name/Account Holder\\nParty Account No.\\nParty IBAN\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Party ID",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/opening_invoice_creation_tool_item/opening_invoice_creation_tool_item.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"party\",\n   \"fieldtype\": \"Dynamic Link\",\n   \"in_list_view\": 1,\n   \"label\": \"Party ID\",\n   \"mandatory_depends_on\": \"eval: !parent.create_missing_party\",\n   \"options\": \"party_type\"\n  },"
+  },
+  {
+   "key": "Party is required",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:189",
+    "erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:199"
+   ],
+   "current": null,
+   "context": "                            isRequired\n                            rules={{\n                                onChange: onPartyChange,\n                                required: _('Party is required')\n                            }}\n                            // Show the party name if it's different from the party - usually the case when a naming series is used\n                            formDescription={party_name !== party ? party_name : undefined}"
+  },
+  {
+   "key": "Party Name/Account Holder",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log_column_map/bank_statement_import_log_column_map.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Maps To\",\n   \"options\": \"Do not import\\nDate\\nWithdrawal\\nDeposit\\nAmount\\nDescription\\nReference\\nTransaction Type\\nDebit/Credit\\nBalance\\nIncluded Fee\\nExcluded Fee\\nParty Name/Account Holder\\nParty Account No.\\nParty IBAN\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "Party type is required to create a payment entry.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:108"
+   ],
+   "current": null,
+   "context": "\n\t\tif self.classify_as == \"Payment Entry\":\n\t\t\tif not self.party_type:\n\t\t\t\tfrappe.throw(_(\"Party type is required to create a payment entry.\"))\n\n\t\t\tif not self.party:\n\t\t\t\tfrappe.throw(_(\"Party is required create a payment entry.\"))"
+  },
+  {
+   "key": "Password Required",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:977"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\"This PDF is password protected. Please set the correct statement password on the\"\n\t\t\t\t\t\" Bank Account and try again.\"\n\t\t\t\t),\n\t\t\t\ttitle=_(\"Password Required\"),\n\t\t\t)\n\n\ttext_settings = {\"vertical_strategy\": \"text\", \"horizontal_strategy\": \"text\"}"
+  },
+  {
+   "key": "Password used to open password-protected PDF statements for this account. Stored encrypted.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_account/bank_account.json"
+   ],
+   "current": null,
+   "context": "   \"length\": 30\n  },\n  {\n   \"description\": \"Password used to open password-protected PDF statements for this account. Stored encrypted.\",\n   \"fieldname\": \"statement_password\",\n   \"fieldtype\": \"Password\",\n   \"label\": \"Statement PDF Password\""
+  },
+  {
+   "key": "Payment Entry Created",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:342"
+   ],
+   "current": null,
+   "context": "                    }\n                ]\n            })\n            toast.success(_(\"Payment Entry Created\"), {\n                duration: 4000,\n                closeButton: true,\n                action: {"
+  },
+  {
+   "key": "Payment Link couldn't be sent.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/payment_request/payment_request.py:434"
+   ],
+   "current": null,
+   "context": "\t\t\tand self.payment_channel != \"Phone\"\n\t\t\tand self.status not in [\"Initiated\", \"Paid\"]\n\t\t):\n\t\t\tfrappe.throw(_(\"Payment Link couldn't be sent.\"))\n\n\t\tself.send_email()\n"
+  },
+  {
+   "key": "Payment methods refreshed. Please review before proceeding.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.py:3104"
+   ],
+   "current": null,
+   "context": "\n\tif mop_refetched:\n\t\tfrappe.toast(\n\t\t\t_(\"Payment methods refreshed. Please review before proceeding.\"),\n\t\t\tindicator=\"orange\",\n\t\t)\n"
+  },
+  {
+   "key": "Payment Recorded",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/RecordPaymentModalContent.tsx:117"
+   ],
+   "current": null,
+   "context": "                }\n            })\n\n            toast.success(_(\"Payment Recorded\"), {\n                duration: 4000,\n                closeButton: true,\n            })"
+  },
+  {
+   "key": "Payment Requests made from Sales / Purchase Invoice will be put in Draft explicitly",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"1\",\n   \"description\": \"Payment Requests made from Sales / Purchase Invoice will be put in Draft explicitly\",\n   \"fieldname\": \"create_pr_in_draft_status\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Create payment requests in Draft status\""
+  },
+  {
+   "key": "Payment Schedule based Payment Requests cannot be created because a Payment Entry already exists for this document.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/payment_request/payment_request.py:606"
+   ],
+   "current": null,
+   "context": "\t# If any Payment Entry exists, schedule-based PRs are not allowed.\n\tif selected_payment_schedules and get_existing_payment_entry(ref_doc.name):\n\t\tfrappe.throw(\n\t\t\t_(\n\t\t\t\t\"Payment Schedule based Payment Requests cannot be created because a Payment Entry already exists for this document.\"\n\t\t\t)\n\t\t)"
+  },
+  {
+   "key": "Payment Schedules",
+   "refs": [
+    "erpnext/erpnext/public/js/controllers/transaction.js:538"
+   ],
+   "current": null,
+   "context": "\t\t\t\t{\n\t\t\t\t\tfieldtype: \"Table\",\n\t\t\t\t\tfieldname: \"payment_schedules\",\n\t\t\t\t\tlabel: __(\"Payment Schedules\"),\n\t\t\t\t\tcannot_add_rows: true,\n\t\t\t\t\tcannot_delete_rows: true,\n\t\t\t\t\tin_place_edit: false,"
+  },
+  {
+   "key": "PCV Paused",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.js:35"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t},\n\t\t\t\t}).then((r) => {\n\t\t\t\t\tif (!r.exc) {\n\t\t\t\t\t\tfrappe.show_alert(__(\"PCV Paused\"));\n\t\t\t\t\t\tfrm.reload_doc();\n\t\t\t\t\t}\n\t\t\t\t});"
+  },
+  {
+   "key": "PCV Resumed",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.js:53"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t},\n\t\t\t\t}).then((r) => {\n\t\t\t\t\tif (!r.exc) {\n\t\t\t\t\t\tfrappe.show_alert(__(\"PCV Resumed\"));\n\t\t\t\t\t\tfrm.reload_doc();\n\t\t\t\t\t}\n\t\t\t\t});"
+  },
+  {
+   "key": "PDF Password",
+   "refs": [
+    "erpnext/banking/src/pages/BankStatementImporter.tsx:127"
+   ],
+   "current": null,
+   "context": "                        />\n\n                        {isPdf && <div className=\"flex flex-col gap-2\">\n                            <Label htmlFor=\"pdf-password\">{_(\"PDF Password\")}</Label>\n                            <Input\n                                id=\"pdf-password\"\n                                type=\"password\""
+  },
+  {
+   "key": "PDF statement support requires the 'pdfplumber' library to be installed.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:960"
+   ],
+   "current": null,
+   "context": "\t\timport pdfplumber\n\texcept ImportError:\n\t\tfrappe.throw(\n\t\t\t_(\"PDF statement support requires the 'pdfplumber' library to be installed.\"),\n\t\t\ttitle=_(\"Missing Dependency\"),\n\t\t)\n"
+  },
+  {
+   "key": "PDF Tables",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Per-table extraction data for PDF statements (rows, bbox, page image, column mapping). Edited via the banking app.\",\n   \"fieldname\": \"pdf_tables\",\n   \"fieldtype\": \"JSON\",\n   \"label\": \"PDF Tables\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Pending quantity cannot be greater than the for quantity.",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/job_card/job_card.py:1669"
+   ],
+   "current": null,
+   "context": "\t\t\tfrappe.throw(_(\"Process loss quantity cannot be negative.\"))\n\n\t\tif flt(kwargs.pending_qty) and flt(kwargs.pending_qty) > self.for_quantity:\n\t\t\tfrappe.throw(_(\"Pending quantity cannot be greater than the for quantity.\"))\n\n\t\tself.validate_completion_qty_split(kwargs)\n"
+  },
+  {
+   "key": "Pending quantity cannot be negative.",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/job_card/job_card.py:1663"
+   ],
+   "current": null,
+   "context": "\n\tdef validate_complete_job_card_qty(self, kwargs):\n\t\tif flt(kwargs.pending_qty) and flt(kwargs.pending_qty) < 0:\n\t\t\tfrappe.throw(_(\"Pending quantity cannot be negative.\"))\n\n\t\tif flt(kwargs.process_loss_qty) and flt(kwargs.process_loss_qty) < 0:\n\t\t\tfrappe.throw(_(\"Process loss quantity cannot be negative.\"))"
+  },
+  {
+   "key": "Per-table extraction data for PDF statements (rows, bbox, page image, column mapping). Edited via the banking app.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.json"
+   ],
+   "current": null,
+   "context": "   \"options\": \"Bank Statement Import Log Column Map\"\n  },\n  {\n   \"description\": \"Per-table extraction data for PDF statements (rows, bbox, page image, column mapping). Edited via the banking app.\",\n   \"fieldname\": \"pdf_tables\",\n   \"fieldtype\": \"JSON\",\n   \"label\": \"PDF Tables\","
+  },
+  {
+   "key": "Percentage by which over-billing is allowed against a Sales/Purchase Order for this item. If not set, value from Accounts Settings will be used.",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/item/item.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"eval:!doc.__islocal && !doc.is_fixed_asset\",\n   \"description\": \"Percentage by which over-billing is allowed against a Sales/Purchase Order for this item. If not set, value from Accounts Settings will be used.\",\n   \"fieldname\": \"over_billing_allowance\",\n   \"fieldtype\": \"Float\",\n   \"label\": \"Over Billing Allowance (%)\","
+  },
+  {
+   "key": "Percentage by which over-delivery or over-receipt is allowed against a Sales/Purchase Order for this item. If not set, value from Stock Settings will be used.",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/item/item.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"depends_on\": \"eval:!doc.__islocal && !doc.is_fixed_asset\",\n   \"description\": \"Percentage by which over-delivery or over-receipt is allowed against a Sales/Purchase Order for this item. If not set, value from Stock Settings will be used.\",\n   \"fieldname\": \"over_delivery_receipt_allowance\",\n   \"fieldtype\": \"Float\",\n   \"label\": \"Over Delivery/Receipt Allowance (%)\","
+  },
+  {
+   "key": "Period Closing Voucher {0} GL Entry Cancellation Failed",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:627"
+   ],
+   "current": null,
+   "context": "\texcept Exception as e:\n\t\tfrappe.db.rollback()\n\t\tfrappe.log_error(\n\t\t\ttitle=_(\"Period Closing Voucher {0} GL Entry Cancellation Failed\").format(voucher_no)\n\t\t)\n\t\tfrappe.db.set_value(\n\t\t\tvoucher_type,"
+  },
+  {
+   "key": "Period Closing Voucher {0} GL Entry Processing Failed",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.py:606"
+   ],
+   "current": null,
+   "context": "\t\tfrappe.db.set_value(doc.doctype, doc.name, \"gle_processing_status\", \"Completed\")\n\texcept Exception as e:\n\t\tfrappe.db.rollback()\n\t\tfrappe.log_error(title=_(\"Period Closing Voucher {0} GL Entry Processing Failed\").format(doc.name))\n\t\tfrappe.db.set_value(\n\t\t\tdoc.doctype,\n\t\t\tdoc.name,"
+  },
+  {
+   "key": "Period Movement (Debits - Credits)",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_row/financial_report_row.json"
+   ],
+   "current": null,
+   "context": "   \"in_list_view\": 1,\n   \"label\": \"Balance Type\",\n   \"mandatory_depends_on\": \"eval:doc.data_source == 'Account Data'\",\n   \"options\": \"\\nOpening Balance\\nClosing Balance\\nPeriod Movement (Debits - Credits)\"\n  },\n  {\n   \"fieldname\": \"column_break_hxqu\","
+  },
+  {
+   "key": "Permission Denied",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:73",
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:77",
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:83"
+   ],
+   "current": null,
+   "context": "\tdef validate(self):\n\t\tif not frappe.has_permission(\"Bank Transaction\", \"write\"):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"You do not have permission to import bank transactions\"), title=_(\"Permission Denied\")\n\t\t\t)\n\t\tif not frappe.has_permission(\"Bank Transaction\", \"create\"):\n\t\t\tfrappe.throw("
+  },
+  {
+   "key": "Personalizing your setup",
+   "refs": [
+    "erpnext/erpnext/setup/setup_wizard/setup_wizard.py:33"
+   ],
+   "current": null,
+   "context": "\t\t\t],\n\t\t},\n\t\t{\n\t\t\t\"status\": _(\"Personalizing your setup\"),\n\t\t\t\"fail_msg\": _(\"Failed to personalize your setup\"),\n\t\t\t\"tasks\": [\n\t\t\t\t{\"fn\": capture_user_persona, \"args\": args, \"fail_msg\": _(\"Failed to personalize your setup\")}"
+  },
+  {
+   "key": "Phantom BOM cannot be created for stock item {0}.",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.js:113",
+    "erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.py:106"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tif (r.message) {\n\t\t\t\t\t\tif (r.message.is_stock_item && values.is_phantom) {\n\t\t\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t\t\t__(\"Phantom BOM cannot be created for stock item {0}.\", [values.item_code])\n\t\t\t\t\t\t\t);\n\t\t\t\t\t\t} else if (!r.message.is_stock_item && !values.is_phantom) {\n\t\t\t\t\t\t\tfrappe.throw("
+  },
+  {
+   "key": "Phantom Item is mandatory",
+   "refs": [
+    "erpnext/erpnext/public/js/bom_configurator/bom_configurator.bundle.js:438"
+   ],
+   "current": null,
+   "context": "\n\t\t\tif (!bom_item.item_code) {\n\t\t\t\tfrappe.throw(\n\t\t\t\t\tphantom ? __(\"Phantom Item is mandatory\") : __(\"Sub Assembly Item is mandatory\")\n\t\t\t\t);\n\t\t\t}\n"
+  },
+  {
+   "key": "Planned End Date cannot be before Planned Start Date",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/work_order/work_order.py:304"
+   ],
+   "current": null,
+   "context": "\tdef validate_dates(self):\n\t\tif self.planned_start_date and self.planned_end_date:\n\t\t\tif get_datetime(self.planned_end_date) < get_datetime(self.planned_start_date):\n\t\t\t\tfrappe.throw(_(\"Planned End Date cannot be before Planned Start Date\"))\n\n\t\tif self.actual_start_date and self.actual_end_date:\n\t\t\tif self.actual_end_date < self.actual_start_date:"
+  },
+  {
+   "key": "Please add a valid Holiday List on Appointment Booking Settings.",
+   "refs": [
+    "erpnext/erpnext/crm/doctype/appointment/appointment.py:96"
+   ],
+   "current": null,
+   "context": "\t\tholiday_list = get_booking_settings().holiday_list\n\n\t\tif not holiday_list:\n\t\t\tfrappe.throw(_(\"Please add a valid Holiday List on Appointment Booking Settings.\"))\n\n\t\tif is_holiday(holiday_list, getdate(self.scheduled_time)):\n\t\t\tfrappe.throw(_(\"Appointment cannot be scheduled on a holiday.\"))"
+  },
+  {
+   "key": "Please add an account for the Bank Entry rule.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:119"
+   ],
+   "current": null,
+   "context": "\t\tif self.classify_as == \"Bank Entry\":\n\t\t\tif not self.bank_entry_type or self.bank_entry_type == \"Single Account\":\n\t\t\t\tif not self.account:\n\t\t\t\t\tfrappe.throw(_(\"Please add an account for the Bank Entry rule.\"))\n\t\t\telif self.bank_entry_type == \"Multiple Accounts\":\n\t\t\t\tif not self.accounts:\n\t\t\t\t\tfrappe.throw(_(\"Please configure accounts for the Bank Entry rule.\"))"
+  },
+  {
+   "key": "Please add atleast one user on Allowed Users to allow Data Synchronization from Frappe CRM site.",
+   "refs": [
+    "erpnext/erpnext/crm/doctype/crm_settings/crm_settings.py:53"
+   ],
+   "current": null,
+   "context": "\tdef validate_allowed_users(self):\n\t\tif self.enable_frappe_crm_data_synchronization and not (is_crm_installed() or self.allowed_users):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Please add atleast one user on Allowed Users to allow Data Synchronization from Frappe CRM site.\"\n\t\t\t\t)\n\t\t\t)"
+  },
+  {
+   "key": "Please capitalize this asset before submitting.",
+   "refs": [
+    "erpnext/erpnext/assets/doctype/asset/asset.js:86",
+    "erpnext/erpnext/assets/doctype/asset/asset.py:253"
+   ],
+   "current": null,
+   "context": "\n\tbefore_submit: function (frm) {\n\t\tif (frm.doc.asset_type == \"Composite Asset\" && !frm.has_active_capitalization) {\n\t\t\tfrappe.throw(__(\"Please capitalize this asset before submitting.\"));\n\t\t}\n\t},\n"
+  },
+  {
+   "key": "Please check the 'Activate Serial and Batch No for Item' checkbox in the {0} to make Serial and Batch Bundle for the item.",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:150"
+   ],
+   "current": null,
+   "context": "\tdef validate_allow_to_set_serial_batch(self):\n\t\tif not frappe.db.get_single_value(\"Stock Settings\", \"enable_serial_and_batch_no_for_item\"):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Please check the 'Activate Serial and Batch No for Item' checkbox in the {0} to make Serial and Batch Bundle for the item.\"\n\t\t\t\t).format(get_link_to_form(\"Stock Settings\", \"Stock Settings\")),\n\t\t\t\ttitle=_(\"Serial and Batch No for Item Disabled\"),"
+  },
+  {
+   "key": "Please configure accounts for the Bank Entry rule.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_transaction_rule/bank_transaction_rule.py:122"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tfrappe.throw(_(\"Please add an account for the Bank Entry rule.\"))\n\t\t\telif self.bank_entry_type == \"Multiple Accounts\":\n\t\t\t\tif not self.accounts:\n\t\t\t\t\tfrappe.throw(_(\"Please configure accounts for the Bank Entry rule.\"))\n\n\t\t\t\t# Last row should not have any debit or credit set, since it will be computed via formula\n\t\t\t\tfor index, account in enumerate(self.accounts):"
+  },
+  {
+   "key": "Please enter a valid Write Off Account",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:721"
+   ],
+   "current": null,
+   "context": "\t\t)\n\n\t\tif not doc or doc.report_type != \"Profit and Loss\" or doc.is_group or doc.company != self.company:\n\t\t\tthrow(_(\"Please enter a valid Write Off Account\"))\n\n\tdef validate_write_off_cost_center(self):\n\t\tif not self.write_off_cost_center:"
+  },
+  {
+   "key": "Please enter a valid Write Off Cost Center",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:732"
+   ],
+   "current": null,
+   "context": "\t\t)\n\n\t\tif not doc or doc.is_group or doc.company != self.company:\n\t\t\tthrow(_(\"Please enter a valid Write Off Cost Center\"))\n\n\tdef check_prev_docstatus(self):\n\t\tfor d in self.get(\"items\"):"
+  },
+  {
+   "key": "Please enter Batch No",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:694"
+   ],
+   "current": null,
+   "context": "\t\t\t)\n\t\t\tif row.use_serial_batch_fields and self.purpose == \"Stock Reconciliation\":\n\t\t\t\tif has_batch_no and not row.batch_no:\n\t\t\t\t\traise frappe.ValidationError(_(\"Please enter Batch No\"))\n\t\t\t\tif has_serial_no and not row.serial_no:\n\t\t\t\t\traise frappe.ValidationError(_(\"Please enter Serial No\"))\n"
+  },
+  {
+   "key": "Please enter Serial No",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.py:696"
+   ],
+   "current": null,
+   "context": "\t\t\t\tif has_batch_no and not row.batch_no:\n\t\t\t\t\traise frappe.ValidationError(_(\"Please enter Batch No\"))\n\t\t\t\tif has_serial_no and not row.serial_no:\n\t\t\t\t\traise frappe.ValidationError(_(\"Please enter Serial No\"))\n\n\t\t# using try except to catch all validation msgs and display together\n"
+  },
+  {
+   "key": "Please fill up the Availability of Slots table to enable Appointment Scheduling.",
+   "refs": [
+    "erpnext/erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.py:57"
+   ],
+   "current": null,
+   "context": "\tdef validate_availability_of_slots(self):\n\t\tif not self.availability_of_slots:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Please fill up the Availability of Slots table to enable Appointment Scheduling.\")\n\t\t\t)\n\n\t\tformat_string = \"%Y-%m-%d %H:%M:%S\""
+  },
+  {
+   "key": "Please first set Full Name, Email and Phone for the user",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/shipment/shipment.js:280"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t__(\"Full Name, Email or Phone/Mobile of the user are mandatory to continue.\") +\n\t\t\t\t\t\t\t\"</br>\" +\n\t\t\t\t\t\t\t__(\"Please first set Full Name, Email and Phone for the user\") +\n\t\t\t\t\t\t\t` <a href=\"/app/user/${frappe.session.user}\">${frappe.session.user}</a>`\n\t\t\t\t\t);\n\t\t\t\t}"
+  },
+  {
+   "key": "Please generate To Delete list before submitting",
+   "refs": [
+    "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.py:272"
+   ],
+   "current": null,
+   "context": "\t\t\t)\n\n\t\tif not self.doctypes_to_delete and not self.doctypes_to_be_ignored:\n\t\t\tfrappe.throw(_(\"Please generate To Delete list before submitting\"))\n\n\t\tif not self.doctypes_to_be_ignored:\n\t\t\tself.populate_doctypes_to_be_ignored_table()"
+  },
+  {
+   "key": "Please review the details below and click the 'Import' button to proceed.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankStatementImporter/CSV/StatementDetails.tsx:130"
+   ],
+   "current": null,
+   "context": "                            {_(\"We've auto-detected the details of the statement file.\")}\n                        </span><br />\n                            <span>\n                                {_(\"Please review the details below and click the 'Import' button to proceed.\")}\n                            </span>\n                        </Paragraph>\n                    </div>"
+  },
+  {
+   "key": "Please review the {0} configuration and complete any required financial setup activities.",
+   "refs": [
+    "erpnext/erpnext/accounts/notification/notification_for_new_fiscal_year/notification_for_new_fiscal_year.html:43"
+   ],
+   "current": null,
+   "context": "<p>{{ _(\"The fiscal year has been automatically created in a Disabled state to maintain consistency with the previous fiscal year's status.\") }}</p>\n{% endif %}\n\n<p>{{ _(\"Please review the {0} configuration and complete any required financial setup activities.\").format(frappe.utils.get_link_to_form(\"Fiscal Year\", doc.name, frappe.bold(\"Fiscal Year\"))) }}</p>"
+  },
+  {
+   "key": "Please select a bank account to view the bank clearance summary.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankClearanceSummary.tsx:35"
+   ],
+   "current": null,
+   "context": "    const dates = useAtomValue(bankRecDateAtom)\n\n    if (!bankAccount) {\n        return <MissingFiltersBanner text={_(\"Please select a bank account to view the bank clearance summary.\")} />\n    }\n\n    if (!dates) {"
+  },
+  {
+   "key": "Please select a bank account to view the bank reconciliation statement.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankReconciliationStatement.tsx:28"
+   ],
+   "current": null,
+   "context": "    const dates = useAtomValue(bankRecDateAtom)\n\n    if (!bankAccount) {\n        return <MissingFiltersBanner text={_(\"Please select a bank account to view the bank reconciliation statement.\")} />\n    }\n\n    if (!dates) {"
+  },
+  {
+   "key": "Please select a bank and set the date range",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankTransactionList.tsx:32"
+   ],
+   "current": null,
+   "context": "    const dates = useAtomValue(bankRecDateAtom)\n\n    if (!selectedBank || !dates) {\n        return <MissingFiltersBanner text={_(\"Please select a bank and set the date range\")} />\n    }\n\n    return <>"
+  },
+  {
+   "key": "Please select a company.",
+   "refs": [
+    "erpnext/erpnext/selling/report/sales_partner_commission_summary/sales_partner_commission_summary.py:53"
+   ],
+   "current": null,
+   "context": "\t\t\tfrappe.throw(_(\"DocType can be one of them {0}\").format(comma_or(SALES_TRANSACTION_DOCTYPES)))\n\n\t\tif not self.filters.get(\"company\"):\n\t\t\tfrappe.throw(_(\"Please select a company.\"))\n\n\t\tif (\n\t\t\tself.filters.get(\"from_date\")"
+  },
+  {
+   "key": "Please select a Holiday List to enable Appointment Scheduling.",
+   "refs": [
+    "erpnext/erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.py:81"
+   ],
+   "current": null,
+   "context": "\n\tdef validate_holiday_list(self):\n\t\tif not self.holiday_list:\n\t\t\tfrappe.throw(_(\"Please select a Holiday List to enable Appointment Scheduling.\"))\n\n\t\thl_from_date, hl_to_date = frappe.get_cached_value(\n\t\t\t\"Holiday List\", self.holiday_list, [\"from_date\", \"to_date\"]"
+  },
+  {
+   "key": "Please select a valid {0}",
+   "refs": [
+    "erpnext/erpnext/accounts/report/accounts_receivable/accounts_receivable.py:1388"
+   ],
+   "current": null,
+   "context": "\t\tvalues = [d.strip() for d in values.split(\",\") if d.strip()]\n\n\tif not values:\n\t\tfrappe.throw(_(\"Please select a valid {0}\").format(_(doctype)))\n\n\tall_values = []\n\tfor d in values:"
+  },
+  {
+   "key": "Please select a warehouse first.",
+   "refs": [
+    "erpnext/erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.js:9"
+   ],
+   "current": null,
+   "context": "\t\treport.page.add_inner_button(__(\"Sync Serial No Status\"), () => {\n\t\t\tconst warehouse = report.get_filter_value(\"warehouse\");\n\t\t\tif (!warehouse) {\n\t\t\t\tfrappe.msgprint(__(\"Please select a warehouse first.\"));\n\t\t\t\treturn;\n\t\t\t}\n"
+  },
+  {
+   "key": "Please select at least one attribute value",
+   "refs": [
+    "erpnext/erpnext/controllers/item_variant.py:348"
+   ],
+   "current": null,
+   "context": "\t\tvariants = args\n\tvariants = {key: values for key, values in variants.items() if values}\n\tif not variants:\n\t\tfrappe.throw(_(\"Please select at least one attribute value\"))\n\n\ttotal_variants = 1\n\tfor key in variants:"
+  },
+  {
+   "key": "Please select at least one item to update delivered quantity.",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.py:611"
+   ],
+   "current": null,
+   "context": "\t@frappe.whitelist()\n\tdef update_dropship_received_qty(self, data: list[dict]):\n\t\tif not data:\n\t\t\tfrappe.throw(_(\"Please select at least one item to update delivered quantity.\"))\n\n\t\tfor d in data:\n\t\t\titem = next((item for item in self.items if item.name == d.get(\"name\")), None)"
+  },
+  {
+   "key": "Please select at least one row with difference value",
+   "refs": [
+    "erpnext/erpnext/stock/report/stock_qty_vs_batch_qty/stock_qty_vs_batch_qty.js:51"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t},\n\t\t\t\t\t});\n\t\t\t\t} else {\n\t\t\t\t\tfrappe.msgprint(__(\"Please select at least one row with difference value\"));\n\t\t\t\t}\n\t\t\t});\n\t\t}"
+  },
+  {
+   "key": "Please select at least one schedule.",
+   "refs": [
+    "erpnext/erpnext/public/js/controllers/transaction.js:590"
+   ],
+   "current": null,
+   "context": "\n\t\t\t\tif (!selected.length) {\n\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\tmessage: __(\"Please select at least one schedule.\"),\n\t\t\t\t\t\tindicator: \"orange\",\n\t\t\t\t\t});\n\t\t\t\t\treturn;"
+  },
+  {
+   "key": "Please select dates to view the bank clearance summary.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankClearanceSummary.tsx:39"
+   ],
+   "current": null,
+   "context": "    }\n\n    if (!dates) {\n        return <MissingFiltersBanner text={_(\"Please select dates to view the bank clearance summary.\")} />\n    }\n\n    return <BankClearanceSummaryView />"
+  },
+  {
+   "key": "Please select dates to view the bank reconciliation statement.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankReconciliationStatement.tsx:32"
+   ],
+   "current": null,
+   "context": "    }\n\n    if (!dates) {\n        return <MissingFiltersBanner text={_(\"Please select dates to view the bank reconciliation statement.\")} />\n    }\n\n    return <BankReconciliationStatementView />"
+  },
+  {
+   "key": "Please set a primary email ID for the Contact {0}",
+   "refs": [
+    "erpnext/erpnext/crm/doctype/email_campaign/email_campaign.py:70"
+   ],
+   "current": null,
+   "context": "\t\tcontact = frappe.db.get_value(\"Contact\", self.recipient, [\"email_id\", \"full_name\"], as_dict=True)\n\t\tif contact and not contact.email_id:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Please set a primary email ID for the Contact {0}\").format(frappe.bold(contact.full_name))\n\t\t\t)\n\n\tdef validate_email_campaign_already_exists(self):"
+  },
+  {
+   "key": "Please set actual demand or sales forecast to generate Material Requirements Planning Report.",
+   "refs": [
+    "erpnext/erpnext/manufacturing/doctype/master_production_schedule/master_production_schedule.js:68"
+   ],
+   "current": null,
+   "context": "\t\t\tfrm.add_custom_button(__(\"View MRP\"), () => {\n\t\t\t\tif (!frm.doc.items?.length && !frm.doc.sales_forecast) {\n\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t__(\n\t\t\t\t\t\t\t\"Please set actual demand or sales forecast to generate Material Requirements Planning Report.\"\n\t\t\t\t\t\t)\n\t\t\t\t\t);"
+  },
+  {
+   "key": "Please set company on the Document before requesting for invoices.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/invoice_discounting/invoice_discounting.py:322"
+   ],
+   "current": null,
+   "context": "\tfilters = frappe._dict(frappe.parse_json(filters))\n\n\tif not filters.get(\"company\"):\n\t\tfrappe.throw(_(\"Please set company on the Document before requesting for invoices.\"))\n\n\tfrappe.has_permission(\"Company\", doc=filters.get(\"company\"), throw=True)\n\tfrappe.has_permission(\"Invoice Discounting\", throw=True)"
+  },
+  {
+   "key": "Please set {0} in Company {1} or in the Item Defaults of Item {2}",
+   "refs": [
+    "erpnext/erpnext/controllers/buying_controller.py:337",
+    "erpnext/erpnext/controllers/stock_controller.py:935"
+   ],
+   "current": null,
+   "context": "\t\tfor field in fields:\n\t\t\tif not details.get(field):\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"Please set {0} in Company {1} or in the Item Defaults of Item {2}\").format(\n\t\t\t\t\t\tfrappe.bold(_(frappe.unscrub(field))), self.company, item_code\n\t\t\t\t\t)\n\t\t\t\t)"
+  },
+  {
+   "key": "POS Configurations",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_profile/pos_profile.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"pos_configurations_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"POS Configurations\"\n  },\n  {\n   \"fieldname\": \"price_list_and_currency_section\","
+  },
+  {
+   "key": "POS Item Details",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_profile/pos_profile.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"pos_item_details_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"POS Item Details\"\n  },\n  {\n   \"fieldname\": \"column_break_hwfg\","
+  },
+  {
+   "key": "POS Item Selector",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_profile/pos_profile.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"pos_item_selector_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"POS Item Selector\"\n  },\n  {\n   \"fieldname\": \"column_break_rpny\","
+  },
+  {
+   "key": "POS Profile {0} cannot be disabled as there are ongoing POS sessions.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/pos_profile/pos_profile.py:113"
+   ],
+   "current": null,
+   "context": "\t\t\tand frappe.db.exists(\"POS Opening Entry\", {\"pos_profile\": self.name, \"status\": \"Open\"})\n\t\t):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"POS Profile {0} cannot be disabled as there are ongoing POS sessions.\").format(\n\t\t\t\t\tfrappe.bold(self.name)\n\t\t\t\t)\n\t\t\t)"
+  },
+  {
+   "key": "Posting date does not match the selected transaction",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:899"
+   ],
+   "current": null,
+   "context": "\n                            <div className=\"flex flex-col gap-1 min-w-24\">\n                                <div className=\"text-xs text-ink-gray-6\">{_(\"Posted On\")}</div>\n                                <div className=\"text-base font-medium flex items-center gap-1\">{formatDate(voucher.posting_date)} {postingDateMatches ? <MatchBadge matchType=\"full\" label={_(\"Posting date matches the selected transaction\")} /> : <MatchBadge matchType=\"none\" label={_(\"Posting date does not match the selected transaction\")} />}</div>\n                            </div>\n\n                            {voucher.reference_date && <div className=\"flex flex-col gap-1 min-w-24\">"
+  },
+  {
+   "key": "Posting date is required",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.py:100"
+   ],
+   "current": null,
+   "context": "\t\t\tself.posting_time = nowtime()\n\n\t\tif not self.posting_date:\n\t\t\tfrappe.throw(_(\"Posting date is required\"))\n\n\tdef reset_repost_only_accounting_ledgers(self):\n\t\tif self.repost_only_accounting_ledgers and self.based_on != \"Transaction\":"
+  },
+  {
+   "key": "Posting date matches the selected transaction",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:899"
+   ],
+   "current": null,
+   "context": "\n                            <div className=\"flex flex-col gap-1 min-w-24\">\n                                <div className=\"text-xs text-ink-gray-6\">{_(\"Posted On\")}</div>\n                                <div className=\"text-base font-medium flex items-center gap-1\">{formatDate(voucher.posting_date)} {postingDateMatches ? <MatchBadge matchType=\"full\" label={_(\"Posting date matches the selected transaction\")} /> : <MatchBadge matchType=\"none\" label={_(\"Posting date does not match the selected transaction\")} />}</div>\n                            </div>\n\n                            {voucher.reference_date && <div className=\"flex flex-col gap-1 min-w-24\">"
+  },
+  {
+   "key": "Pre-filled on payment entries for this customer. Must be a company account.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/customer/customer.json"
+   ],
+   "current": null,
+   "context": "   \"reqd\": 1\n  },\n  {\n   \"description\": \"Pre-filled on payment entries for this customer. Must be a company account.\",\n   \"fieldname\": \"default_bank_account\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Company Bank Account\","
+  },
+  {
+   "key": "Preferences updated",
+   "refs": [
+    "erpnext/banking/src/components/features/Settings/Preferences.tsx:33"
+   ],
+   "current": null,
+   "context": "            },\n            revalidate: false,\n        }).then(() => {\n            toast.success(_(\"Preferences updated\"), {\n                dismissible: true,\n                duration: 500,\n            })"
+  },
+  {
+   "key": "Prepaid Expenses",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts.py:34",
+    "erpnext/erpnext/accounts/doctype/account/chart_of_accounts/verified/standard_chart_of_accounts_with_account_number.py:51"
+   ],
+   "current": null,
+   "context": "\t\t\t\t_(\"Securities and Deposits\"): {\n\t\t\t\t\t_(\"Earnest Money\"): {\"account_category\": \"Other Current Assets\"}\n\t\t\t\t},\n\t\t\t\t_(\"Prepaid Expenses\"): {\"account_category\": \"Other Current Assets\"},\n\t\t\t\t_(\"Short-term Investments\"): {\"account_category\": \"Short-term Investments\"},\n\t\t\t\t_(\"Stock Assets\"): {\n\t\t\t\t\t_(\"Stock In Hand\"): {\"account_type\": \"Stock\", \"account_category\": \"Stock Assets\"},"
+  },
+  {
+   "key": "Prevents the automatic reservation of stock quantities from sales orders when processing sales returns.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/selling_settings/selling_settings.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Prevents the automatic reservation of stock quantities from sales orders when processing sales returns.\",\n   \"fieldname\": \"dont_reserve_sales_order_qty_on_sales_return\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Don't reserve Sales Order qty on sales return\""
+  }
+ ]
+}

@@ -1,0 +1,1071 @@
+{
+ "group": "hrms",
+ "items": [
+  {
+   "key": "<hr>",
+   "refs": [
+    "hrms/hrms/hr/doctype/employee_attendance_tool/employee_attendance_tool.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"horizontal_break\",\n   \"fieldtype\": \"HTML\",\n   \"label\": \"Horizontal Break\",\n   \"options\": \"<hr>\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "<table class='table table-bordered'><tr><th>{0}</th><th>{1}</th></tr>",
+   "refs": [
+    "hrms/hrms/public/js/utils/index.js:166"
+   ],
+   "current": null,
+   "context": "\t\t\t]);\n\t\t\tmessage += __(\n\t\t\t\t\"<table class='table table-bordered'><tr><th>{0}</th><th>{1}</th></tr>\",\n\t\t\t\t[__(\"Employee\"), doctype],\n\t\t\t);\n\t\t\tfor (const d of success) {\n\t\t\t\tmessage += `<tr><td>${d.employee}</td><td>${d.doc}</td></tr>`;"
+  },
+  {
+   "key": "A Job Requisition already exists for {0} requested by {1} for the same department.<br> Do you want to continue?",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_requisition/job_requisition.js:101"
+   ],
+   "current": null,
+   "context": "\t\t\tfrappe.confirm(\n\t\t\t\t__(\n\t\t\t\t\t\"A Job Requisition already exists for {0} requested by {1} for the same department.<br> Do you want to continue?\",\n\t\t\t\t\t[frm.doc.designation.bold(), frm.doc.requested_by.bold()],\n\t\t\t\t),\n\t\t\t\t() => {\n\t\t\t\t\tfrm.duplicate_confirmed = true;"
+  },
+  {
+   "key": "action",
+   "refs": [
+    "hrms/hrms/hr/doctype/attendance_request/attendance_request.py:46"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t[\n\t\t\t\t\t\tformat_date(warning[\"date\"]),\n\t\t\t\t\t\t_(warning[\"reason\"]),\n\t\t\t\t\t\t_(warning[\"action\"]),\n\t\t\t\t\t]\n\t\t\t\t)\n\t\t\tfrappe.msgprint("
+  },
+  {
+   "key": "Advance Account is mandatory. Please set the {0} in the Company {1} and submit this document.",
+   "refs": [
+    "hrms/hrms/hr/doctype/employee_advance/employee_advance.py:51"
+   ],
+   "current": null,
+   "context": "\t\t\t\t)\n\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Advance Account is mandatory. Please set the {0} in the Company {1} and submit this document.\"\n\t\t\t\t).format(\n\t\t\t\t\tget_link_to_form("
+  },
+  {
+   "key": "Advance Account Required",
+   "refs": [
+    "hrms/hrms/hr/doctype/employee_advance/employee_advance.py:47"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\tget_link_to_form(\"Employee Advance\", self.name + \"#advance_account\", _(\"here\")),\n\t\t\t\t\t\tget_link_to_form(\"Employee\", self.employee + \"#salary_information\", self.employee),\n\t\t\t\t\t),\n\t\t\t\t\ttitle=_(\"Advance Account Required\"),\n\t\t\t\t)\n\n\t\t\tfrappe.throw("
+  },
+  {
+   "key": "Advance Account {} currency should be same as Salary Currency of Employee {}. Please select same currency Advance Account",
+   "refs": [
+    "hrms/hrms/hr/doctype/employee_advance/employee_advance.py:94"
+   ],
+   "current": null,
+   "context": "\t\t\taccount_currency = frappe.db.get_value(\"Account\", self.advance_account, \"account_currency\")\n\t\t\tif self.currency != account_currency:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\n\t\t\t\t\t\t\"Advance Account {} currency should be same as Salary Currency of Employee {}. Please select same currency Advance Account\"\n\t\t\t\t\t).format(frappe.bold(self.advance_account), frappe.bold(self.employee))\n\t\t\t\t)"
+  },
+  {
+   "key": "All Exchange Gain/Loss amount of {0} has been booked through {1}",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim/expense_claim.py:414"
+   ],
+   "current": null,
+   "context": "\t\tfor advance in self.advances:\n\t\t\tif advance.exchange_rate and advance.base_allocated_amount and self.base_total_advance_amount:\n\t\t\t\tallocated_amount_in_adv_exchange_rate = flt(advance.allocated_amount) * flt(\n\t\t\t\t\tadvance.exchange_rate\n\t\t\t\t)\n\t\t\t\tper_advance_gain_loss += flt(\n\t\t\t\t\t(advance.base_allocated_amount - allocated_amount_in_adv_exchange_rate),"
+  },
+  {
+   "key": "Allocated Amount (Company Currency)",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim_advance/expense_claim_advance.json"
+   ],
+   "current": null,
+   "context": "   \"columns\": 2,\n   \"fieldname\": \"base_allocated_amount\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Allocated Amount (Company Currency)\",\n   \"no_copy\": 1,\n   \"oldfieldname\": \"allocated_amount\",\n   \"oldfieldtype\": \"Currency\","
+  },
+  {
+   "key": "Allocated Via",
+   "refs": [
+    "hrms/hrms/hr/doctype/earned_leave_schedule/earned_leave_schedule.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"in_preview\": 1,\n   \"label\": \"Allocated Via\",\n   \"options\": \"\\nScheduler\\nLeave Policy Assignment\\nManually\",\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Allocation Date",
+   "refs": [
+    "hrms/hrms/hr/doctype/earned_leave_schedule/earned_leave_schedule.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"allocation_date\",\n   \"fieldtype\": \"Date\",\n   \"in_list_view\": 1,\n   \"label\": \"Allocation Date\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Allocation was skipped due to exceeding annual allocation set in leave policy",
+   "refs": [
+    "hrms/hrms/hr/utils.py:437"
+   ],
+   "current": null,
+   "context": "\t\t\tOverAllocationError,\n\t\t)\n\n\tif e_leave_type.max_leaves_allowed:\n\t\tleaves_quota = flt(e_leave_type.max_leaves_allowed - allocation.total_leaves_allocated, precision)\n\t\tif leaves_quota <= 0:\n\t\t\tfrappe.throw("
+  },
+  {
+   "key": "Allocation was skipped due to maximum leave allocation limit set in leave type. Please increase the limit and retry failed allocation.",
+   "refs": [
+    "hrms/hrms/hr/utils.py:445"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\"Allocation was skipped due to maximum leave allocation limit set in leave type. Please increase the limit and retry failed allocation.\"\n\t\t\t\t),\n\t\t\t\tOverAllocationError,\n\t\t\t)\n\t\telse:\n\t\t\tif leaves_quota < earned_leaves:\n\t\t\t\tearned_leaves = leaves_quota"
+  },
+  {
+   "key": "Allow Leave Application After (Calendar Days)",
+   "refs": [
+    "hrms/hrms/hr/doctype/leave_type/leave_type.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Minimum calendar days required since Date of Joining to apply for this leave\",\n   \"fieldname\": \"applicable_after\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Allow Leave Application After (Calendar Days)\"\n  },\n  {\n   \"fieldname\": \"max_continuous_days_allowed\","
+  },
+  {
+   "key": "Annual CTC",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_profile_card.html:123"
+   ],
+   "current": null,
+   "context": "                    {{ annual_ctc }}\n                </div>\n                <div class=\"mt-1 text-small no-wrap\">\n                   {{_(\"Annual CTC\")}}\n                </div>\n\t\t    </div>\n"
+  },
+  {
+   "key": "Application Web Form Route",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_opening/job_opening.json"
+   ],
+   "current": null,
+   "context": "   \"description\": \"Route to the custom Job Application Webform\",\n   \"fieldname\": \"job_application_route\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Application Web Form Route\"\n  },\n  {\n   \"default\": \"0\","
+  },
+  {
+   "key": "Assignment Date: ",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_profile_card.html:108"
+   ],
+   "current": null,
+   "context": "            <div class=\"text-small\">\n            <div style=\"white-space: nowrap; margin-right: 4px;\"> {{_(\"Salary Structure: \") + salary_structure}}</div>\n            {% if income_tax_slab %}<div style=\"white-space: nowrap;\">{{_(\"Income Tax Slab: \") + income_tax_slab}}</div>{% endif %}\n            <div style=\"white-space: nowrap;\">{{ _(\"Assignment Date: \") + assignment_date}} </div>\n            </div>\n\t\t</div>\n\t</div>"
+  },
+  {
+   "key": "Assignment start date cannot be outside holiday list dates",
+   "refs": [
+    "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.py:48"
+   ],
+   "current": null,
+   "context": "\t\t)\n\t\tassignment_start_date = getdate(self.from_date)\n\t\tif (assignment_start_date < holiday_list_start) or (assignment_start_date > holiday_list_end):\n\t\t\tfrappe.throw(_(\"Assignment start date cannot be outside holiday list dates\"))"
+  },
+  {
+   "key": "Assignment Starts From",
+   "refs": [
+    "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"from_date\",\n   \"fieldtype\": \"Date\",\n   \"label\": \"Assignment Starts From\",\n   \"reqd\": 1\n  }\n ],"
+  },
+  {
+   "key": "Attempted",
+   "refs": [
+    "hrms/hrms/hr/doctype/earned_leave_schedule/earned_leave_schedule.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"attempted\",\n   \"fieldtype\": \"Check\",\n   \"hidden\": 1,\n   \"label\": \"Attempted\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Attendance marked successfully.",
+   "refs": [
+    "hrms/hrms/hr/doctype/attendance/attendance.py:372"
+   ],
+   "current": null,
+   "context": "\n\tif company and (mismatched := [e for e, c in company_map.items() if c != company]):\n\t\tfrappe.throw(\n\t\t\t_(\"Employee {0} does not belong to Company {1}\").format(\n\t\t\t\t\", \".join(frappe.bold(e) for e in mismatched), frappe.bold(company)\n\t\t\t)\n\t\t)"
+  },
+  {
+   "key": "Automatic Leave Allocation has failed for the following Earned Leaves: {0}. Please check {1} for more details.",
+   "refs": [
+    "hrms/hrms/hr/utils.py:498"
+   ],
+   "current": null,
+   "context": "\t\t\t\"Automatic Leave Allocation has failed for the following Earned Leaves: {0}. Please check {1} for more details.\"\n\t\t).format(allocations, get_link_to_form(\"Error Log\", label=\"Error Log List\")),\n\t)\n\n\n@frappe.whitelist()\ndef get_monthly_earned_leave("
+  },
+  {
+   "key": "Base, Variable & Leave Encashment",
+   "refs": [
+    "hrms/hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"section_break_7\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Base, Variable & Leave Encashment\"\n  },\n  {\n   \"fetch_from\": \"grade.default_base_pay\","
+  },
+  {
+   "key": "Benefit Application",
+   "refs": [
+    "hrms/hrms/workspace_sidebar/tax_&_benefits.json"
+   ],
+   "current": null,
+   "context": "   \"icon\": \"criticize\",\n   \"indent\": 0,\n   \"keep_closed\": 0,\n   \"label\": \"Benefit Application\",\n   \"link_to\": \"Employee Benefit Application\",\n   \"link_type\": \"DocType\",\n   \"show_arrow\": 0,"
+  },
+  {
+   "key": "Benefit Claim",
+   "refs": [
+    "hrms/hrms/workspace_sidebar/tax_&_benefits.json"
+   ],
+   "current": null,
+   "context": "   \"icon\": \"list-todo\",\n   \"indent\": 0,\n   \"keep_closed\": 0,\n   \"label\": \"Benefit Claim\",\n   \"link_to\": \"Employee Benefit Claim\",\n   \"link_type\": \"DocType\",\n   \"show_arrow\": 0,"
+  },
+  {
+   "key": "Boarding Status",
+   "refs": [
+    "hrms/hrms/hr/doctype/employee_onboarding/employee_onboarding.json"
+   ],
+   "current": null,
+   "context": "   \"default\": \"Pending\",\n   \"fieldname\": \"boarding_status\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Boarding Status\",\n   \"options\": \"Pending\\nIn Process\\nCompleted\",\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Bulk attendance marking is already in progress for employee {0}. You can monitor the job status {1}",
+   "refs": [
+    "hrms/hrms/hr/doctype/attendance/attendance.py:366"
+   ],
+   "current": null,
+   "context": "\n\tif denied := [e for e in employees if e not in company_map]:\n\t\tfrappe.throw(\n\t\t\t_(\"You do not have access to Employee {0}\").format(\", \".join(frappe.bold(e) for e in denied)),\n\t\t\tfrappe.PermissionError,\n\t\t)\n"
+  },
+  {
+   "key": "Bulk attendance marking is queued with a background job. It may take a while. You can monitor the job status {0}",
+   "refs": [
+    "hrms/hrms/hr/doctype/attendance/attendance.py:362"
+   ],
+   "current": null,
+   "context": "\taccessible = frappe.get_list(\n\t\t\"Employee\", filters={\"name\": [\"in\", employees]}, fields=[\"name\", \"company\"], limit=0\n\t)\n\tcompany_map = {d.name: d.company for d in accessible}\n\n\tif denied := [e for e in employees if e not in company_map]:\n\t\tfrappe.throw("
+  },
+  {
+   "key": "Cannot allocate more leaves due to maximum leave allocation limit of {0} in leave policy assignment",
+   "refs": [
+    "hrms/hrms/hr/doctype/leave_allocation/leave_allocation.py:452"
+   ],
+   "current": null,
+   "context": "\t\t\tif new_allocation > max_leaves_allowed and max_leaves_allowed > 0:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\tmsg=_(\n\t\t\t\t\t\t\"Cannot allocate more leaves due to maximum leaves allowed limit of {0} in {1} leave type.\"\n\t\t\t\t\t).format(frappe.bold(max_leaves_allowed), frappe.bold(self.leave_type)),\n\t\t\t\t\ttitle=_(\"Retry Failed\"),\n\t\t\t\t)"
+  },
+  {
+   "key": "Cannot allocate more leaves due to maximum leaves allowed limit of {0} in {1} leave type.",
+   "refs": [
+    "hrms/hrms/hr/doctype/leave_allocation/leave_allocation.py:444"
+   ],
+   "current": null,
+   "context": "\n\t\tfor allocation in failed_allocations:\n\t\t\tnew_allocation = flt(self.total_leaves_allocated) + flt(allocation[\"number_of_leaves\"])\n\n\t\t\tnew_allocation_without_cf = flt(self.get_existing_leave_count()) + flt(\n\t\t\t\tallocation[\"number_of_leaves\"]\n\t\t\t)"
+  },
+  {
+   "key": "Changed the Status for Other Half from {0} to {1} via Attendance Request as the status is Half Day",
+   "refs": [
+    "hrms/hrms/hr/doctype/attendance_request/attendance_request.py:171"
+   ],
+   "current": null,
+   "context": "\t\t\telif status == \"Half Day\" and doc.half_day_status == \"Absent\" and self.half_day:\n\t\t\t\told_half_day_status = doc.half_day_status\n\t\t\t\tdoc.db_set({\"half_day_status\": \"Present\", \"attendance_request\": self.name})\n\t\t\t\ttext = _(\n\t\t\t\t\t\"Changed the Status for Other Half from {0} to {1} via Attendance Request as the status is Half Day\"\n\t\t\t\t).format(frappe.bold(old_half_day_status), frappe.bold(\"Present\"))\n\t\t\t\tdoc.add_comment(comment_type=\"Info\", text=text)"
+  },
+  {
+   "key": "Choose how the hourly overtime amount is calculated:\n<ol style=\"padding-left:15px\"><li>Fixed Hourly Rate: A fixed, manually entered hourly rate.</li>\n<li>Salary Component-Based:\n\n(Sum of selected component amounts) ÷ (Payment Days) ÷ (Standard Daily Hours)</li></ol>",
+   "refs": [
+    "hrms/hrms/hr/doctype/overtime_type/overtime_type.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"Salary Component Based\",\n   \"description\": \"Choose how the hourly overtime amount is calculated:\\n<ol style=\\\"padding-left:15px\\\"><li>Fixed Hourly Rate: A fixed, manually entered hourly rate.</li>\\n<li>Salary Component-Based:\\n\\n(Sum of selected component amounts) \\u00f7 (Payment Days) \\u00f7 (Standard Daily Hours)</li></ol>\",\n   \"fieldname\": \"overtime_calculation_method\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Overtime Amount Calculation\","
+  },
+  {
+   "key": "Create Job Offer",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_applicant/job_applicant.js:84"
+   ],
+   "current": null,
+   "context": "\t\t\t\tfrm.add_custom_button(__(\"Schedule Interview\"), () => {\n\t\t\t\t\tfrm.events.show_schedule_interview_dialog(frm);\n\t\t\t\t});\n\t\t\t}\n\t\t}\n\n\t\tif (!frm.doc.__islocal && frm.doc.status == \"Accepted\") {"
+  },
+  {
+   "key": "CTC Missing for Employee",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_ctc_break_up.py:61"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\"Salary Structure Assignment\",\n\t\t\t\t\t\tself.salary_structure_assignment,\n\t\t\t\t\t\t\"Salary Structure Assignment\",\n\t\t\t\t\t),\n\t\t\t\t),\n\t\t\t\ttitle=_(\"CTC Missing for Employee\"),\n\t\t\t)"
+  },
+  {
+   "key": "Duplicate Assignment",
+   "refs": [
+    "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.py:39"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tget_link_to_form(\"Holiday List Assignment\", holiday_list),\n\t\t\t\t),\n\t\t\t\tDuplicateAssignment,\n\t\t\t\ttitle=_(\"Duplicate Assignment\"),\n\t\t\t)\n\n\tdef validate_assignment_start_date(self):"
+  },
+  {
+   "key": "Earned Leave Schedule",
+   "refs": [
+    "hrms/hrms/hr/doctype/earned_leave_schedule/earned_leave_schedule.json",
+    "hrms/hrms/hr/doctype/leave_allocation/leave_allocation.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2025-11-14 14:12:01.503330\",\n \"modified_by\": \"Administrator\",\n \"module\": \"HR\",\n \"name\": \"Earned Leave Schedule\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"row_format\": \"Dynamic\","
+  },
+  {
+   "key": "Employee Advance Account",
+   "refs": [
+    "hrms/hrms/patches/v16_0/create_custom_field_for_employee_advance_in_employee_master.py:11",
+    "hrms/hrms/setup.py:273"
+   ],
+   "current": null,
+   "context": "\t\t{\n\t\t\t\"fieldname\": \"employee_advance_account\",\n\t\t\t\"fieldtype\": \"Link\",\n\t\t\t\"label\": _(\"Employee Advance Account\"),\n\t\t\t\"options\": \"Account\",\n\t\t\t\"insert_after\": \"salary_mode\",\n\t\t},"
+  },
+  {
+   "key": "Employee Company",
+   "refs": [
+    "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"employee_company\",\n   \"fieldtype\": \"Link\",\n   \"hidden\": 1,\n   \"label\": \"Employee Company\",\n   \"options\": \"Company\",\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Employee CTC Break-up",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_ctc_break_up.json",
+    "hrms/hrms/workspace_sidebar/payroll.json"
+   ],
+   "current": null,
+   "context": " \"modified\": \"2026-06-05 13:31:09.038894\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Payroll\",\n \"name\": \"Employee CTC Break-up\",\n \"owner\": \"Administrator\",\n \"prepared_report\": 0,\n \"ref_doctype\": \"Salary Slip\","
+  },
+  {
+   "key": "Employee Exit",
+   "refs": [
+    "hrms/hrms/overrides/dashboard_overrides.py:25"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\"items\": [\n\t\t\t\t\t\"Employee Onboarding\",\n\t\t\t\t\t\"Employee Transfer\",\n\t\t\t\t\t\"Employee Promotion\",\n\t\t\t\t\t\"Employee Grievance\",\n\t\t\t\t],\n\t\t\t},"
+  },
+  {
+   "key": "Employee Hours Utilization",
+   "refs": [
+    "hrms/hrms/workspace_sidebar/shift_&_attendance.json"
+   ],
+   "current": null,
+   "context": "   \"icon\": \"\",\n   \"indent\": 0,\n   \"keep_closed\": 0,\n   \"label\": \"Employee Hours Utilization\",\n   \"link_to\": \"Employee Hours Utilization Based On Timesheet\",\n   \"link_type\": \"Report\",\n   \"show_arrow\": 0,"
+  },
+  {
+   "key": "Employee not found",
+   "refs": [
+    "hrms/hrms/api/__init__.py:84"
+   ],
+   "current": null,
+   "context": "@frappe.whitelist()\ndef get_reports_to_employee_name(employee: str) -> str:\n\treports_to = frappe.db.get_value(\n\t\t\"Employee\", {\"user_id\": frappe.session.user, \"status\": \"Active\"}, \"reports_to\"\n\t)\n\tif not reports_to or reports_to != employee:\n\t\tfrappe.throw(_(\"Not permitted\"), frappe.PermissionError)"
+  },
+  {
+   "key": "Employee Referral {0} already exists for email: {1}",
+   "refs": [
+    "hrms/hrms/hr/doctype/employee_referral/employee_referral.py:26"
+   ],
+   "current": null,
+   "context": "\t\t\t\"Employee Referral\", {\"name\": (\"!=\", self.name), \"email\": self.email, \"docstatus\": (\"!=\", 2)}\n\t\t):\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Employee Referral {0} already exists for email: {1}\").format(\n\t\t\t\t\tget_link_to_form(\"Employee Referral\", referral), frappe.bold(self.email)\n\t\t\t\t),\n\t\t\t\tfrappe.DuplicateEntryError,"
+  },
+  {
+   "key": "Employees on leave this month",
+   "refs": [
+    "hrms/hrms/hr/workspace/leaves/leaves.json"
+   ],
+   "current": null,
+   "context": "{\n \"app\": \"hrms\",\n \"charts\": [],\n \"content\": \"[{\\\"id\\\":\\\"jk-EYIaS51\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Employees on leave today\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"PbGeXHd7Rt\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Employees on leave this month\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"XiEIWA4fuD\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Holidays in this month\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"d_Tfw7CrG_\\\",\\\"type\\\":\\\"spacer\\\",\\\"data\\\":{\\\"col\\\":12}},{\\\"id\\\":\\\"IzQ_B9PEiJ\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><b>Masters &amp; Reports</b></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"UZU5aC1En3\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Setup\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"gBEhmJgb_7\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Allocation\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"rtrjT9ZnNs\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Application\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"xHXxbkgNg3\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Reports\\\",\\\"col\\\":4}}]\",\n \"creation\": \"2022-08-20 16:06:26.672497\",\n \"custom_blocks\": [],\n \"docstatus\": 0,"
+  },
+  {
+   "key": "Employees on leave today",
+   "refs": [
+    "hrms/hrms/hr/workspace/leaves/leaves.json"
+   ],
+   "current": null,
+   "context": "{\n \"app\": \"hrms\",\n \"charts\": [],\n \"content\": \"[{\\\"id\\\":\\\"jk-EYIaS51\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Employees on leave today\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"PbGeXHd7Rt\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Employees on leave this month\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"XiEIWA4fuD\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Holidays in this month\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"d_Tfw7CrG_\\\",\\\"type\\\":\\\"spacer\\\",\\\"data\\\":{\\\"col\\\":12}},{\\\"id\\\":\\\"IzQ_B9PEiJ\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><b>Masters &amp; Reports</b></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"UZU5aC1En3\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Setup\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"gBEhmJgb_7\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Allocation\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"rtrjT9ZnNs\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Application\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"xHXxbkgNg3\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Reports\\\",\\\"col\\\":4}}]\",\n \"creation\": \"2022-08-20 16:06:26.672497\",\n \"custom_blocks\": [],\n \"docstatus\": 0,"
+  },
+  {
+   "key": "Enter Interview Type",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_applicant/job_applicant.js:123"
+   ],
+   "current": null,
+   "context": "\t\tif (frm.doc.__islocal) return;\n\n\t\t$(\"div\").remove(\".form-dashboard-section.custom\");\n\t\tfrappe.call({\n\t\t\tmethod: \"hrms.hr.doctype.job_applicant.job_applicant.get_interview_details\",\n\t\t\targs: {\n\t\t\t\tjob_applicant: frm.doc.name,"
+  },
+  {
+   "key": "Enter your email address and we'll send you a link to reset your password.",
+   "refs": [
+    "hrms/frontend/src/views/ForgotPassword.vue:22"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<div class=\"bg-white grow overflow-y-auto\">\n\t\t\t\t\t\t<form class=\"flex flex-col space-y-4 p-4\" @submit.prevent=\"sendPasswordReset\">\n\t\t\t\t\t\t\t<p class=\"text-sm leading-5 text-gray-600\">\n\t\t\t\t\t\t\t\t{{ __(\"Enter your email address and we'll send you a link to reset your password.\") }}\n\t\t\t\t\t\t\t</p>\n\t\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\t\t:label=\"__('Email') + ' *'\""
+  },
+  {
+   "key": "Exchange rate of Payment Entry against Employee Advance",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim_advance/expense_claim_advance.json"
+   ],
+   "current": null,
+   "context": "   \"width\": \"120px\"\n  },\n  {\n   \"description\": \"Exchange rate of Payment Entry against Employee Advance\",\n   \"fieldname\": \"exchange_rate\",\n   \"fieldtype\": \"Float\",\n   \"label\": \"Exchange Rate\","
+  },
+  {
+   "key": "Exemption Declaration",
+   "refs": [
+    "hrms/hrms/workspace_sidebar/tax_&_benefits.json"
+   ],
+   "current": null,
+   "context": "   \"icon\": \"badge-alert\",\n   \"indent\": 0,\n   \"keep_closed\": 0,\n   \"label\": \"Exemption Declaration\",\n   \"link_to\": \"Employee Tax Exemption Declaration\",\n   \"link_type\": \"DocType\",\n   \"show_arrow\": 0,"
+  },
+  {
+   "key": "Exemption Submission Proof",
+   "refs": [
+    "hrms/hrms/workspace_sidebar/tax_&_benefits.json"
+   ],
+   "current": null,
+   "context": "   \"icon\": \"liabilities\",\n   \"indent\": 0,\n   \"keep_closed\": 0,\n   \"label\": \"Exemption Submission Proof\",\n   \"link_to\": \"Employee Tax Exemption Proof Submission\",\n   \"link_type\": \"DocType\",\n   \"show_arrow\": 0,"
+  },
+  {
+   "key": "Expenses Settings",
+   "refs": [
+    "hrms/hrms/hr/doctype/hr_settings/hr_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"expenses_settings_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Expenses Settings\"\n  },\n  {\n   \"fieldname\": \"employee_settings_section\","
+  },
+  {
+   "key": "Failed to send reset link",
+   "refs": [
+    "hrms/frontend/src/views/ForgotPassword.vue:83"
+   ],
+   "current": null,
+   "context": "\t\trouter.replace({ name: \"Login\" })\n\t},\n\tonError(error) {\n\t\terrorMessage.value = error.messages?.[0] || __(\"Failed to send reset link\")\n\t},\n})\n"
+  },
+  {
+   "key": "Failure of Automatic Allocation of Earned Leaves",
+   "refs": [
+    "hrms/hrms/hr/utils.py:497"
+   ],
+   "current": null,
+   "context": "\t\tmessage=_(\n\t\t\t\"Automatic Leave Allocation has failed for the following Earned Leaves: {0}. Please check {1} for more details.\"\n\t\t).format(allocations, get_link_to_form(\"Error Log\", label=\"Error Log List\")),\n\t)\n\n\n@frappe.whitelist()"
+  },
+  {
+   "key": "Failure Reason",
+   "refs": [
+    "hrms/hrms/hr/doctype/earned_leave_schedule/earned_leave_schedule.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"failure_reason\",\n   \"fieldtype\": \"Small Text\",\n   \"label\": \"Failure Reason\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Formula/Amount",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_ctc_break_up.py:228"
+   ],
+   "current": null,
+   "context": "\n\tdef calculate_percent_of_ctc(self, amount):\n\t\treturn flt(amount * 100 / self.ctc, 2)\n\n\tdef get_per_cycle_ctc(self):\n\t\treturn flt(self.ctc / self.cycle_multiplier, 2)\n"
+  },
+  {
+   "key": "From and to dates are mandatory for recurring type additional salaries.",
+   "refs": [
+    "hrms/hrms/payroll/doctype/additional_salary/additional_salary.py:115"
+   ],
+   "current": null,
+   "context": "\t\tdate_of_joining, relieving_date = frappe.db.get_value(\n\t\t\t\"Employee\", self.employee, [\"date_of_joining\", \"relieving_date\"]\n\t\t)\n\n\t\tself.validate_from_to_dates(\"from_date\", \"to_date\")\n\n\t\tif self.is_recurring and not (self.from_date and self.to_date):"
+  },
+  {
+   "key": "Gain Loss Account",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim/expense_claim.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"total_exchange_gain_loss\",\n   \"fieldname\": \"gain_loss_account\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Gain Loss Account\",\n   \"options\": \"Account\"\n  },\n  {"
+  },
+  {
+   "key": "Holiday List Assignment",
+   "refs": [
+    "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.json",
+    "hrms/hrms/workspace_sidebar/leaves.json"
+   ],
+   "current": null,
+   "context": "   \"fieldtype\": \"Link\",\n   \"label\": \"Amended From\",\n   \"no_copy\": 1,\n   \"options\": \"Holiday List Assignment\",\n   \"print_hide\": 1,\n   \"read_only\": 1,\n   \"search_index\": 1"
+  },
+  {
+   "key": "Holiday List Assignment for {0} already exists for date {1}: {2}",
+   "refs": [
+    "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.py:33"
+   ],
+   "current": null,
+   "context": "\n\t\tif holiday_list:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Holiday List Assignment for {0} already exists for date {1}: {2}\").format(\n\t\t\t\t\tself.assigned_to,\n\t\t\t\t\tformat_date(self.from_date),\n\t\t\t\t\tget_link_to_form(\"Holiday List Assignment\", holiday_list),"
+  },
+  {
+   "key": "Holiday List End",
+   "refs": [
+    "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"holiday_list_end\",\n   \"fieldtype\": \"Date\",\n   \"is_virtual\": 1,\n   \"label\": \"Holiday List End\"\n  },\n  {\n   \"fieldname\": \"from_date\","
+  },
+  {
+   "key": "Holiday List Start",
+   "refs": [
+    "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"holiday_list_start\",\n   \"fieldtype\": \"Date\",\n   \"is_virtual\": 1,\n   \"label\": \"Holiday List Start\"\n  },\n  {\n   \"fieldname\": \"holiday_list_end\","
+  },
+  {
+   "key": "Holidays in this month",
+   "refs": [
+    "hrms/hrms/hr/workspace/leaves/leaves.json"
+   ],
+   "current": null,
+   "context": "{\n \"app\": \"hrms\",\n \"charts\": [],\n \"content\": \"[{\\\"id\\\":\\\"jk-EYIaS51\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Employees on leave today\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"PbGeXHd7Rt\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Employees on leave this month\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"XiEIWA4fuD\\\",\\\"type\\\":\\\"number_card\\\",\\\"data\\\":{\\\"number_card_name\\\":\\\"Holidays in this month\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"d_Tfw7CrG_\\\",\\\"type\\\":\\\"spacer\\\",\\\"data\\\":{\\\"col\\\":12}},{\\\"id\\\":\\\"IzQ_B9PEiJ\\\",\\\"type\\\":\\\"header\\\",\\\"data\\\":{\\\"text\\\":\\\"<span class=\\\\\\\"h4\\\\\\\"><b>Masters &amp; Reports</b></span>\\\",\\\"col\\\":12}},{\\\"id\\\":\\\"UZU5aC1En3\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Setup\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"gBEhmJgb_7\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Allocation\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"rtrjT9ZnNs\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Application\\\",\\\"col\\\":4}},{\\\"id\\\":\\\"xHXxbkgNg3\\\",\\\"type\\\":\\\"card\\\",\\\"data\\\":{\\\"card_name\\\":\\\"Reports\\\",\\\"col\\\":4}}]\",\n \"creation\": \"2022-08-20 16:06:26.672497\",\n \"custom_blocks\": [],\n \"docstatus\": 0,"
+  },
+  {
+   "key": "Include Shift Attendance Without Checkins",
+   "refs": [
+    "hrms/hrms/hr/report/shift_attendance/shift_attendance.js:64"
+   ],
+   "current": null,
+   "context": "\t\t},\n\t\t{\n\t\t\tfieldname: \"early_exit\",\n\t\t\tlabel: __(\"Early Exit\"),\n\t\t\tfieldtype: \"Check\",\n\t\t},\n\t\t{"
+  },
+  {
+   "key": "Income Tax Slab: ",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_profile_card.html:107"
+   ],
+   "current": null,
+   "context": "            {% endif %}\n            <div class=\"text-small\">\n            <div style=\"white-space: nowrap; margin-right: 4px;\"> {{_(\"Salary Structure: \") + salary_structure}}</div>\n            {% if income_tax_slab %}<div style=\"white-space: nowrap;\">{{_(\"Income Tax Slab: \") + income_tax_slab}}</div>{% endif %}\n            <div style=\"white-space: nowrap;\">{{ _(\"Assignment Date: \") + assignment_date}} </div>\n            </div>\n\t\t</div>"
+  },
+  {
+   "key": "Interview Type Name",
+   "refs": [
+    "hrms/hrms/hr/doctype/interview_type/interview_type.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"interview_type_name\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Interview Type Name\",\n   \"unique\": 1\n  }\n ],"
+  },
+  {
+   "key": "Interview Type {0} is only applicable for the Designation {1}",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_applicant/job_applicant.py:96"
+   ],
+   "current": null,
+   "context": "\t\t\t\t):\n\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t_(\"You have already applied for this position.\"),\n\t\t\t\t\t\texc=DuplicationError,\n\t\t\t\t\t\ttitle=_(\"Duplicate Application\"),\n\t\t\t\t\t)\n"
+  },
+  {
+   "key": "Interview Type {0} is only for Designation {1}. Job Applicant has applied for the role {2}",
+   "refs": [
+    "hrms/hrms/hr/doctype/interview/interview.py:79"
+   ],
+   "current": null,
+   "context": "\t\tif self.designation:\n\t\t\tif self.designation != applicant_designation:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\n\t\t\t\t\t\t\"Interview Type {0} is only for Designation {1}. Job Applicant has applied for the role {2}\"\n\t\t\t\t\t).format(self.interview_type, frappe.bold(self.designation), applicant_designation),\n\t\t\t\t\texc=DuplicateInterviewRoundError,"
+  },
+  {
+   "key": "Invalid employee filter: {0}",
+   "refs": [
+    "hrms/hrms/api/roster.py:31"
+   ],
+   "current": null,
+   "context": "def _validate_employee_filters(employee_filters: dict[str, str]) -> None:\n\tfor key in employee_filters:\n\t\tif key not in ALLOWED_EMPLOYEE_FILTERS:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Invalid employee filter: {0}\").format(frappe.bold(key)),\n\t\t\t\tfrappe.PermissionError,\n\t\t\t)"
+  },
+  {
+   "key": "Invalid shift filter: {0}",
+   "refs": [
+    "hrms/hrms/api/roster.py:40"
+   ],
+   "current": null,
+   "context": "def _validate_shift_filters(shift_filters: dict[str, str]) -> None:\n\tfor key in shift_filters:\n\t\tif key not in ALLOWED_SHIFT_FILTERS:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Invalid shift filter: {0}\").format(frappe.bold(key)),\n\t\t\t\tfrappe.PermissionError,\n\t\t\t)"
+  },
+  {
+   "key": "Is Allocated",
+   "refs": [
+    "hrms/hrms/hr/doctype/earned_leave_schedule/earned_leave_schedule.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"is_allocated\",\n   \"fieldtype\": \"Check\",\n   \"in_list_view\": 1,\n   \"label\": \"Is Allocated\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Job Applicants are not allowed to appear twice for the same Interview Type. Interview {0} already scheduled for Job Applicant {1}",
+   "refs": [
+    "hrms/hrms/hr/doctype/interview/interview.py:66"
+   ],
+   "current": null,
+   "context": "\n\t\tif duplicate_interview:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"Job Applicants are not allowed to appear twice for the same Interview Type. Interview {0} already scheduled for Job Applicant {1}\"\n\t\t\t\t).format(\n\t\t\t\t\tfrappe.bold(get_link_to_form(\"Interview\", duplicate_interview)),"
+  },
+  {
+   "key": "Job Opening Template",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_opening/job_opening.json",
+    "hrms/hrms/hr/doctype/job_opening_template/job_opening_template.json",
+    "hrms/hrms/workspace_sidebar/recruitment.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"job_opening_template\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Job Opening Template\",\n   \"options\": \"Job Opening Template\"\n  },\n  {"
+  },
+  {
+   "key": "Job Portal",
+   "refs": [
+    "hrms/hrms/workspace_sidebar/recruitment.json"
+   ],
+   "current": null,
+   "context": "   \"icon\": \"web\",\n   \"indent\": 0,\n   \"keep_closed\": 0,\n   \"label\": \"Job Portal\",\n   \"link_type\": \"URL\",\n   \"show_arrow\": 0,\n   \"type\": \"Link\","
+  },
+  {
+   "key": "johndoe@mail.com",
+   "refs": [
+    "hrms/frontend/src/views/Login.vue:46"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t<form v-if=\"!user_pass_login_disabled.data\" class=\"flex flex-col space-y-4\" @submit.prevent=\"submit\">\n\t\t\t\t\t\t<Input\n\t\t\t\t\t\t\t:label=\"__('Email')\"\n\t\t\t\t\t\t\t:placeholder=\"__('johndoe@mail.com')\"\n\t\t\t\t\t\t\tv-model=\"email\"\n\t\t\t\t\t\t\ttype=\"text\"\n\t\t\t\t\t\t\tautocomplete=\"username\""
+  },
+  {
+   "key": "Leave allocation is skipped for {0}, because number of leaves to be allocated is 0.",
+   "refs": [
+    "hrms/hrms/hr/doctype/leave_policy_assignment/leave_policy_assignment.py:130"
+   ],
+   "current": null,
+   "context": "\t\t)\n\n\t\tif new_leaves_allocated == 0 and not leave_details.is_earned_leave:\n\t\t\ttext = _(\n\t\t\t\t\"Leave allocation is skipped for {0}, because number of leaves to be allocated is 0.\"\n\t\t\t).format(frappe.bold(leave_details.name))\n"
+  },
+  {
+   "key": "Leave Balance Summary",
+   "refs": [
+    "hrms/hrms/workspace_sidebar/leaves.json"
+   ],
+   "current": null,
+   "context": "   \"icon\": \"\",\n   \"indent\": 0,\n   \"keep_closed\": 0,\n   \"label\": \"Leave Balance Summary\",\n   \"link_to\": \"Employee Leave Balance Summary\",\n   \"link_type\": \"Report\",\n   \"show_arrow\": 0,"
+  },
+  {
+   "key": "Leave Settings",
+   "refs": [
+    "hrms/hrms/hr/doctype/hr_settings/hr_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"leave_settings_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Leave Settings\"\n  },\n  {\n   \"fieldname\": \"hiring_settings_section\","
+  },
+  {
+   "key": "Mandatory fields required in {0}",
+   "refs": [
+    "hrms/hrms/payroll/doctype/payroll_entry/payroll_entry.js:213"
+   ],
+   "current": null,
+   "context": "\t\t\tlet error_fields = [];\n\t\t\tlet mandatory_fields = [\"company\", \"payroll_frequency\", \"start_date\", \"end_date\"];\n\n\t\t\tlet message = __(\"Mandatory fields required in {0}\", [__(frm.doc.doctype)]);\n\n\t\t\tmandatory_fields.forEach((field) => {\n\t\t\t\tif (!frm.doc[field]) {"
+  },
+  {
+   "key": "Manually",
+   "refs": [
+    "hrms/hrms/hr/doctype/earned_leave_schedule/earned_leave_schedule.json"
+   ],
+   "current": null,
+   "context": "   \"in_list_view\": 1,\n   \"in_preview\": 1,\n   \"label\": \"Allocated Via\",\n   \"options\": \"\\nScheduler\\nLeave Policy Assignment\\nManually\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Minimum calendar days required since Date of Joining to apply for this leave",
+   "refs": [
+    "hrms/hrms/hr/doctype/leave_type/leave_type.json"
+   ],
+   "current": null,
+   "context": "   \"label\": \"Maximum Leave Allocation Allowed per Leave Period\"\n  },\n  {\n   \"description\": \"Minimum calendar days required since Date of Joining to apply for this leave\",\n   \"fieldname\": \"applicable_after\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Allow Leave Application After (Calendar Days)\""
+  },
+  {
+   "key": "Missing value for filters",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_ctc_break_up.py:312"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\"salary_structure\": self.salary_structure,\n\t\t\t\t\"per_cycle\": self.payroll_frequency,\n\t\t\t\t\"annual_ctc\": self.format_currency(self.ctc),\n\t\t\t\t\"per_cycle_ctc\": self.format_currency(self.get_per_cycle_ctc()),\n\t\t\t\t\"per_cycle_gross_pay\": self.format_currency(self.gross_pay),\n\t\t\t\t\"per_cycle_net_pay\": self.format_currency(self.net_pay),\n\t\t\t\t\"assignment_date\": frappe.utils.global_date_format(self.assignment_date, \"long\"),"
+  },
+  {
+   "key": "New passwords do not match",
+   "refs": [
+    "hrms/frontend/src/views/ChangePassword.vue:112"
+   ],
+   "current": null,
+   "context": "\t}\n\n\tif (newPassword.value !== confirmPassword.value) {\n\t\tchangePasswordError.value = __(\"New passwords do not match\")\n\t\treturn\n\t}\n"
+  },
+  {
+   "key": "No attendance records to create due to following reasons",
+   "refs": [
+    "hrms/hrms/hr/doctype/attendance_request/attendance_request.py:50"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t]\n\t\t\t\t)\n\t\t\tfrappe.msgprint(\n\t\t\t\ttitle=_(\"No attendance records to create due to following reasons\"),\n\t\t\t\tmsg=message_table,\n\t\t\t\tas_table=True,\n\t\t\t\traise_exception=True,"
+  },
+  {
+   "key": "No Bank/Cash Account found for currency {0}. Please create one under company {1}.",
+   "refs": [
+    "hrms/hrms/hr/doctype/employee_advance/employee_advance.py:356"
+   ],
+   "current": null,
+   "context": "\n\tif not account and mode_of_payment:\n\t\tfrom erpnext.accounts.doctype.sales_invoice.sales_invoice import get_bank_cash_account\n\n\t\taccount = get_bank_cash_account(mode_of_payment, company).get(\"account\")\n\n\tif not account:"
+  },
+  {
+   "key": "No Holiday List was found for Employee {0} or their company {1} for date {2}. Please assign through {3}",
+   "refs": [
+    "hrms/hrms/utils/holiday_list.py:107"
+   ],
+   "current": null,
+   "context": "\t\t\tfor holiday_list_range in sorted(holiday_list_ranges, key=lambda r: r[\"from_date\"])\n\t\t\tfor holiday in holidays_by_list.get(holiday_list_range[\"holiday_list\"], [])\n\t\t\tif getdate(holiday_list_range[\"from_date\"])\n\t\t\t<= getdate(holiday.holiday_date)\n\t\t\t<= getdate(holiday_list_range[\"to_date\"])\n\t\t]\n\t\tif holidays:"
+  },
+  {
+   "key": "No login methods are available. Please contact your administrator.",
+   "refs": [
+    "hrms/frontend/src/views/Login.vue:91"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t</div>\n\t\t\t\t\t</template>\n\n\t\t\t\t\t<div v-else-if=\"user_pass_login_disabled.data\" class=\"text-center text-gray-600 py-8\">{{ __(\"No login methods are available. Please contact your administrator.\") }}</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<Dialog v-model=\"otp.showDialog\">"
+  },
+  {
+   "key": "Number of Leaves",
+   "refs": [
+    "hrms/hrms/hr/doctype/earned_leave_schedule/earned_leave_schedule.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"number_of_leaves\",\n   \"fieldtype\": \"Float\",\n   \"in_list_view\": 1,\n   \"label\": \"Number of Leaves\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Open Resume in New Tab",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_applicant/job_applicant.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"open_resume_button\",\n   \"fieldtype\": \"Button\",\n   \"hidden\": 1,\n   \"label\": \"Open Resume in New Tab\"\n  }\n ],\n \"icon\": \"fa fa-user\","
+  },
+  {
+   "key": "Overwrite Salary Structure Amount is disabled as the Salary Component: {0} not part of the Salary Structure: {1}",
+   "refs": [
+    "hrms/hrms/payroll/doctype/additional_salary/additional_salary.py:71"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\"salary_component\": self.salary_component,\n\t\t\t\t},\n\t\t\t)\n\n\t\t\tif not is_structure_component:\n\t\t\t\tself.overwrite_salary_structure_amount = 0\n\t\t\t\tfrappe.msgprint("
+  },
+  {
+   "key": "Password reset link has been sent to your email.",
+   "refs": [
+    "hrms/frontend/src/views/ForgotPassword.vue:74"
+   ],
+   "current": null,
+   "context": "\tonSuccess() {\n\t\ttoast({\n\t\t\ttitle: __(\"Success\"),\n\t\t\ttext: __(\"Password reset link has been sent to your email.\"),\n\t\t\ticon: \"check-circle\",\n\t\t\tposition: \"bottom-center\",\n\t\t\ticonClasses: \"text-green-500\","
+  },
+  {
+   "key": "Pay Details",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_opening/job_opening.json",
+    "hrms/hrms/hr/doctype/job_opening_template/job_opening_template.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"pay_details_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Pay Details\"\n  },\n  {\n   \"fieldname\": \"column_break_pfir\","
+  },
+  {
+   "key": "Payroll date is mandatory for non-recurring type additional salaries.",
+   "refs": [
+    "hrms/hrms/payroll/doctype/additional_salary/additional_salary.py:117"
+   ],
+   "current": null,
+   "context": "\t\t)\n\n\t\tself.validate_from_to_dates(\"from_date\", \"to_date\")\n\n\t\tif self.is_recurring and not (self.from_date and self.to_date):\n\t\t\tfrappe.throw(_(\"From and to dates are mandatory for recurring type additional salaries.\"))\n\t\telif (not self.is_recurring) and (not self.payroll_date):"
+  },
+  {
+   "key": "Percent of CTC (%)",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_ctc_break_up.py:251"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\"fieldtype\": \"Data\",\n\t\t\t\t\"width\": 300,\n\t\t\t\t\"fixed\": 1,\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"label\": _(\"Type\"),\n\t\t\t\t\"fieldname\": \"type\","
+  },
+  {
+   "key": "Please enter a valid email address",
+   "refs": [
+    "hrms/frontend/src/views/ForgotPassword.vue:109"
+   ],
+   "current": null,
+   "context": "\t}\n\n\tif (!isValidEmail(emailValue)) {\n\t\terrorMessage.value = __(\"Please enter a valid email address\")\n\t\treturn\n\t}\n"
+  },
+  {
+   "key": "Please enter your email address",
+   "refs": [
+    "hrms/frontend/src/views/ForgotPassword.vue:104"
+   ],
+   "current": null,
+   "context": "\tconst emailValue = (email.value || \"\").trim()\n\n\tif (!emailValue) {\n\t\terrorMessage.value = __(\"Please enter your email address\")\n\t\treturn\n\t}\n"
+  },
+  {
+   "key": "Please fill all fields",
+   "refs": [
+    "hrms/frontend/src/views/ChangePassword.vue:107"
+   ],
+   "current": null,
+   "context": "\nfunction submitPasswordChange() {\n\tif (!currentPassword.value || !newPassword.value || !confirmPassword.value) {\n\t\tchangePasswordError.value = __(\"Please fill all fields\")\n\t\treturn\n\t}\n"
+  },
+  {
+   "key": "Please set cost to company(CTC) for employee {0} in the {1}",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_ctc_break_up.py:53"
+   ],
+   "current": null,
+   "context": "\t\tself.total_gross_earnings = []\n\n\tdef validate_ctc(self):\n\t\tif not self.ctc:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Please set cost to company(CTC) for employee {0} in the {1}\").format(\n\t\t\t\t\tfrappe.bold(self.employee),"
+  },
+  {
+   "key": "Please set employee's total cost to company to see CTC breakup.",
+   "refs": [
+    "hrms/hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.js:78"
+   ],
+   "current": null,
+   "context": "\t\t\t\tif (!frm.doc.ctc) {\n\t\t\t\t\tfrm.scroll_to_field(\"ctc\");\n\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t__(\"Please set employee's total cost to company to see CTC breakup.\"),\n\t\t\t\t\t);\n\t\t\t\t}\n\t\t\t\tfrappe.set_route(\"query-report\", \"Employee CTC Break-up\", {"
+  },
+  {
+   "key": "Please set the Advance Account {0} or in {1}",
+   "refs": [
+    "hrms/hrms/hr/doctype/employee_advance/employee_advance.py:43"
+   ],
+   "current": null,
+   "context": "\n\t\t\tif not same_currency:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"Please set the Advance Account {0} or in {1}\").format(\n\t\t\t\t\t\tget_link_to_form(\"Employee Advance\", self.name + \"#advance_account\", _(\"here\")),\n\t\t\t\t\t\tget_link_to_form(\"Employee\", self.employee + \"#salary_information\", self.employee),\n\t\t\t\t\t),"
+  },
+  {
+   "key": "Please set {0} to get CTC report",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_ctc_break_up.py:311"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\"image\": image,\n\t\t\t\t\"salary_structure\": self.salary_structure,\n\t\t\t\t\"per_cycle\": self.payroll_frequency,\n\t\t\t\t\"annual_ctc\": self.format_currency(self.ctc),\n\t\t\t\t\"per_cycle_ctc\": self.format_currency(self.get_per_cycle_ctc()),\n\t\t\t\t\"per_cycle_gross_pay\": self.format_currency(self.gross_pay),\n\t\t\t\t\"per_cycle_net_pay\": self.format_currency(self.net_pay),"
+  },
+  {
+   "key": "reason",
+   "refs": [
+    "hrms/hrms/hr/doctype/attendance_request/attendance_request.py:45"
+   ],
+   "current": null,
+   "context": "\t\t\t\tmessage_table.append(\n\t\t\t\t\t[\n\t\t\t\t\t\tformat_date(warning[\"date\"]),\n\t\t\t\t\t\t_(warning[\"reason\"]),\n\t\t\t\t\t\t_(warning[\"action\"]),\n\t\t\t\t\t]\n\t\t\t\t)"
+  },
+  {
+   "key": "Retry Failed",
+   "refs": [
+    "hrms/hrms/hr/doctype/leave_allocation/leave_allocation.py:447",
+    "hrms/hrms/hr/doctype/leave_allocation/leave_allocation.py:455"
+   ],
+   "current": null,
+   "context": "\n\t\t\tnew_allocation_without_cf = flt(self.get_existing_leave_count()) + flt(\n\t\t\t\tallocation[\"number_of_leaves\"]\n\t\t\t)\n\n\t\t\tif new_allocation > max_leaves_allowed and max_leaves_allowed > 0:\n\t\t\t\tfrappe.throw("
+  },
+  {
+   "key": "Retry Failed Allocations",
+   "refs": [
+    "hrms/hrms/hr/doctype/leave_allocation/leave_allocation.json"
+   ],
+   "current": null,
+   "context": "   \"fieldname\": \"retry_failed_allocations\",\n   \"fieldtype\": \"Button\",\n   \"hidden\": 1,\n   \"label\": \"Retry Failed Allocations\"\n  }\n ],\n \"icon\": \"fa fa-ok\","
+  },
+  {
+   "key": "Retry Successful",
+   "refs": [
+    "hrms/hrms/hr/doctype/leave_allocation/leave_allocation.js:191"
+   ],
+   "current": null,
+   "context": "\t\t\tfreeze: true,\n\t\t\tfreeze_message: __(\"Retrying allocations\"),\n\t\t\tcallback: function (r) {\n\t\t\t\tfrappe.show_alert({\n\t\t\t\t\tmessage: __(\"Retry Successful\"),\n\t\t\t\t\tindicator: \"green\",\n\t\t\t\t});"
+  },
+  {
+   "key": "Retrying allocations",
+   "refs": [
+    "hrms/hrms/hr/doctype/leave_allocation/leave_allocation.js:188"
+   ],
+   "current": null,
+   "context": "\t\t\tmethod: \"retry_failed_allocations\",\n\t\t\tdoc: frm.doc,\n\t\t\targs: { failed_allocations },\n\t\t\tfreeze: true,\n\t\t\tfreeze_message: __(\"Retrying allocations\"),\n\t\t\tcallback: function (r) {\n\t\t\t\tfrappe.show_alert({"
+  },
+  {
+   "key": "Salary Structure: ",
+   "refs": [
+    "hrms/hrms/payroll/report/employee_ctc_break_up/employee_profile_card.html:106"
+   ],
+   "current": null,
+   "context": "                <span class=\"text-small\" style=\"white-space: nowrap;\">{{designation}}</span>\n            {% endif %}\n            <div class=\"text-small\">\n            <div style=\"white-space: nowrap; margin-right: 4px;\"> {{_(\"Salary Structure: \") + salary_structure}}</div>\n            {% if income_tax_slab %}<div style=\"white-space: nowrap;\">{{_(\"Income Tax Slab: \") + income_tax_slab}}</div>{% endif %}\n            <div style=\"white-space: nowrap;\">{{ _(\"Assignment Date: \") + assignment_date}} </div>\n            </div>"
+  },
+  {
+   "key": "Sanctioned Amount (Company Currency)",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim_detail/expense_claim_detail.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"base_sanctioned_amount\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Sanctioned Amount (Company Currency)\",\n   \"oldfieldname\": \"sanctioned_amount\",\n   \"oldfieldtype\": \"Currency\",\n   \"options\": \"Company:company:default_currency\","
+  },
+  {
+   "key": "See CTC Break-up",
+   "refs": [
+    "hrms/hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.js:73"
+   ],
+   "current": null,
+   "context": "\t\tfrm.page.set_inner_btn_group_as_primary(__(\"Create\"));\n\n\t\tfrm.add_custom_button(\n\t\t\t__(\"See CTC Break-up\"),\n\t\t\tfunction () {\n\t\t\t\tif (!frm.doc.ctc) {\n\t\t\t\t\tfrm.scroll_to_field(\"ctc\");"
+  },
+  {
+   "key": "Select if any of the days selected for request are holidays",
+   "refs": [
+    "hrms/hrms/hr/doctype/attendance_request/attendance_request.json"
+   ],
+   "current": null,
+   "context": "  },\n  {\n   \"default\": \"0\",\n   \"description\": \"Select if any of the days selected for request are holidays\",\n   \"fieldname\": \"include_holidays\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Include Holidays\""
+  },
+  {
+   "key": "Select Interview Type First",
+   "refs": [
+    "hrms/hrms/hr/doctype/interview/interview.js:209"
+   ],
+   "current": null,
+   "context": "\n\tjob_applicant: function (frm) {\n\t\tif (!frm.doc.interview_type) {\n\t\t\tfrm.set_value(\"job_applicant\", \"\");\n\t\t\tfrappe.throw(__(\"Select Interview Type First\"));\n\t\t}\n"
+  },
+  {
+   "key": "Selected employee advance is not of employee {0}",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim/expense_claim.js:595"
+   ],
+   "current": null,
+   "context": "\t\t\tthis.frm.refresh_fields();\n\t\t\treturn;\n\t\t}\n\n\t\tif (!d.expense_type) {\n\t\t\treturn;\n\t\t}"
+  },
+  {
+   "key": "Selected employee advance is not of employee {}",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim/expense_claim.py:492"
+   ],
+   "current": null,
+   "context": "\n\t\tfor d in self.get(\"expenses\"):\n\t\t\tself.round_floats_in(d)\n\n\t\t\tif self.approval_status == \"Rejected\":\n\t\t\t\td.sanctioned_amount = 0.0\n"
+  },
+  {
+   "key": "Send Reset Link",
+   "refs": [
+    "hrms/frontend/src/views/ForgotPassword.vue:45"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\t\t\tvariant=\"solid\"\n\t\t\t\t\t\t\t@click=\"sendPasswordReset\"\n\t\t\t\t\t\t>\n\t\t\t\t\t\t\t{{ __(\"Send Reset Link\") }}\n\t\t\t\t\t\t</Button>\n\t\t\t\t\t</div>\n\t\t\t\t</div>"
+  },
+  {
+   "key": "Shift and Attendance",
+   "refs": [
+    "hrms/hrms/hr/doctype/hr_settings/hr_settings.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"shift_and_attendance_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Shift and Attendance\"\n  },\n  {\n   \"fieldname\": \"tenure_tab\","
+  },
+  {
+   "key": "Shortlist",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_applicant/job_applicant.js:56"
+   ],
+   "current": null,
+   "context": "\t\t\t\t<embed\n\t\t\t\tstyle=\"background:#323639;\"\n\t\t\t\twidth=\"100%\"\n\t\t\t\theight=\"1000px\"\n\t\t\t\tsrc=\"${src_url}\" type=\"application/pdf\"\n\t\t\t\t>\n\t\t\t</object>"
+  },
+  {
+   "key": "Shortlisted",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_applicant/job_applicant.json"
+   ],
+   "current": null,
+   "context": "   \"in_list_view\": 1,\n   \"in_standard_filter\": 1,\n   \"label\": \"Status\",\n   \"options\": \"Open\\nReplied\\nShortlisted\\nRejected\\nHold\\nAccepted\",\n   \"reqd\": 1\n  },\n  {"
+  },
+  {
+   "key": "There are multiple shifts assigned to the employee for the same period. Please mention the shift",
+   "refs": [
+    "hrms/hrms/hr/doctype/attendance_request/attendance_request.py:64"
+   ],
+   "current": null,
+   "context": "\t\t\t\tself.shift = shifts[0]\n\t\t\telse:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\n\t\t\t\t\t\t\"There are multiple shifts assigned to the employee for the same period. Please mention the shift\"\n\t\t\t\t\t)\n\t\t\t\t)"
+  },
+  {
+   "key": "There is no Salary Structure assigned to {0}. First assign a Salary Structure.",
+   "refs": [
+    "hrms/hrms/payroll/doctype/additional_salary/additional_salary.py:53",
+    "hrms/hrms/payroll/doctype/employee_incentive/employee_incentive.py:20",
+    "hrms/hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.py:241"
+   ],
+   "current": null,
+   "context": "\t\t\t},\n\t\t\t\"salary_structure\",\n\t\t\torder_by=\"from_date desc\",\n\t\t)\n\n\t\tif not salary_structure:\n\t\t\tfrappe.throw("
+  },
+  {
+   "key": "Today {0} completed {1} {2} at our Company! 🎉",
+   "refs": [
+    "hrms/hrms/controllers/employee_reminders.py:241"
+   ],
+   "current": null,
+   "context": "\n\tnames_grouped_by_years = {}\n\n\tfor person in anniversary_persons:\n\t\t# Number of years completed at the company\n\t\tcompleted_years = getdate().year - person[\"date_of_joining\"].year\n\t\tnames_grouped_by_years.setdefault(completed_years, []).append(person[\"name\"])"
+  },
+  {
+   "key": "Total Advance Amount (Company Currency)",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim/expense_claim.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"base_total_advance_amount\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Total Advance Amount (Company Currency)\",\n   \"options\": \"Company:company:default_currency\",\n   \"read_only\": 1\n  },"
+  },
+  {
+   "key": "Total Claimed Amount (Company Currency)",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim/expense_claim.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"base_total_claimed_amount\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Total Claimed Amount (Company Currency)\",\n   \"no_copy\": 1,\n   \"oldfieldname\": \"total_claimed_amount\",\n   \"oldfieldtype\": \"Currency\","
+  },
+  {
+   "key": "Total Cost To Company (CTC)",
+   "refs": [
+    "hrms/hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.json"
+   ],
+   "current": null,
+   "context": "   \"allow_on_submit\": 1,\n   \"fieldname\": \"ctc\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Total Cost To Company (CTC)\",\n   \"read_only\": 1\n  },\n  {"
+  },
+  {
+   "key": "Total Exchange Gain/Loss",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim/expense_claim.json"
+   ],
+   "current": null,
+   "context": "   \"depends_on\": \"total_exchange_gain_loss\",\n   \"fieldname\": \"total_exchange_gain_loss\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Total Exchange Gain/Loss\",\n   \"options\": \"Company:company:default_currency\",\n   \"read_only\": 1\n  }"
+  },
+  {
+   "key": "Total Sanctioned Amount (Company Currency)",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim/expense_claim.json"
+   ],
+   "current": null,
+   "context": "  {\n   \"fieldname\": \"base_total_sanctioned_amount\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Total Sanctioned Amount (Company Currency)\",\n   \"no_copy\": 1,\n   \"oldfieldname\": \"total_sanctioned_amount\",\n   \"oldfieldtype\": \"Currency\","
+  },
+  {
+   "key": "Unclaimed Amount (Company Currency)",
+   "refs": [
+    "hrms/hrms/hr/doctype/expense_claim_advance/expense_claim_advance.json"
+   ],
+   "current": null,
+   "context": "   \"columns\": 2,\n   \"fieldname\": \"base_unclaimed_amount\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Unclaimed Amount (Company Currency)\",\n   \"no_copy\": 1,\n   \"oldfieldname\": \"advance_amount\",\n   \"oldfieldtype\": \"Currency\","
+  },
+  {
+   "key": "Updated Status for Other Half from {0} to {1} for date {2} in the attendance record {3}",
+   "refs": [
+    "hrms/hrms/hr/doctype/attendance_request/attendance_request.py:177"
+   ],
+   "current": null,
+   "context": "\t\t\t\tdoc.add_comment(comment_type=\"Info\", text=text)\n\n\t\t\t\tfrappe.msgprint(\n\t\t\t\t\t_(\n\t\t\t\t\t\t\"Updated Status for Other Half from {0} to {1} for date {2} in the attendance record {3}\"\n\t\t\t\t\t).format(\n\t\t\t\t\t\tfrappe.bold(old_half_day_status),"
+  },
+  {
+   "key": "View Job Offer",
+   "refs": [
+    "hrms/hrms/hr/doctype/job_applicant/job_applicant.js:78"
+   ],
+   "current": null,
+   "context": "\t\t\t\t\tfrm.set_value(\"status\", \"Rejected\");\n\t\t\t\t\tfrm.save();\n\t\t\t\t\tfrm.refresh();\n\t\t\t\t});\n\t\t\t}\n\t\t\tif (frm.doc.status !== \"Rejected\" && frm.doc.status !== \"Accepted\") {\n\t\t\t\tfrm.add_custom_button(__(\"Schedule Interview\"), () => {"
+  },
+  {
+   "key": "years",
+   "refs": [
+    "hrms/hrms/controllers/employee_reminders.py:265"
+   ],
+   "current": null,
+   "context": "def send_work_anniversary_reminder(\n\trecipients,\n\treminder_text,\n\tanniversary_persons,\n\tmessage,\n\tsender=None,\n):"
+  },
+  {
+   "key": "Your password has been updated.",
+   "refs": [
+    "hrms/frontend/src/views/ChangePassword.vue:85"
+   ],
+   "current": null,
+   "context": "\tonSuccess() {\n\t\ttoast({\n\t\t\ttitle: __(\"Success\"),\n\t\t\ttext: __(\"Your password has been updated.\"),\n\t\t\ticon: \"check-circle\",\n\t\t\tposition: \"bottom-center\",\n\t\t\ticonClasses: \"text-green-500\","
+  },
+  {
+   "key": "{0} applicable after {1} calendar days",
+   "refs": [
+    "hrms/hrms/hr/doctype/leave_application/leave_application.py:162"
+   ],
+   "current": null,
+   "context": "\t\t\tif leave_type.applicable_after > 0:\n\t\t\t\tdate_of_joining = frappe.db.get_value(\"Employee\", self.employee, \"date_of_joining\")\n\t\t\t\tnumber_of_days = date_diff(getdate(self.from_date), date_of_joining)\n\t\t\t\tif number_of_days >= 0:\n\t\t\t\t\tif number_of_days < leave_type.applicable_after:\n\t\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t\t_(\"{0} applicable after {1} calendar days\").format("
+  },
+  {
+   "key": "{0} completed {1} {2}",
+   "refs": [
+    "hrms/hrms/controllers/employee_reminders.py:253"
+   ],
+   "current": null,
+   "context": "\t\tfor years, person_names in names_grouped_by_years.items()\n\t]\n\n\t# converts [\"Jim\", \"Rim\", \"Dim\"] to Jim, Rim & Dim\n\tanniversary_person = comma_sep(person_names_with_years, _(\"{0} & {1}\"), False)\n\treturn _(\"Today {0} at our Company! 🎉\").format(_(anniversary_person))\n"
+  },
+  {
+   "key": "{0}. Check error log for more details.",
+   "refs": [
+    "hrms/hrms/hr/utils.py:470"
+   ],
+   "current": null,
+   "context": "\tearned_leave_schedule = qb.DocType(\"Earned Leave Schedule\")\n\ttoday = getdate(frappe.flags.current_date) or getdate()\n\n\tqb.update(earned_leave_schedule).where(\n\t\t(earned_leave_schedule.parent == allocation_name) & (earned_leave_schedule.allocation_date == today)\n\t).set(earned_leave_schedule.attempted, 1).set(earned_leave_schedule.failed, 1).set(\n\t\tearned_leave_schedule.failure_reason, text"
+  }
+ ]
+}

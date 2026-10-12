@@ -1,0 +1,24 @@
+Wikipedia	原样显示，建议进白名单：链接预览服务商下拉选项，整条源词就是品牌名，未写进 csv
+YouTube Music	原样显示，建议进白名单：链接预览服务商下拉选项，整条源词就是产品名，未写进 csv
+Vimeo video player	品牌名 Vimeo 不在混排白名单（ALLOW），译文「Vimeo 视频播放器」会报中英夹杂；建议把 Vimeo 加进 ALLOW 或登记例外
+YouTube playlist player	同上，YouTube 不在 ALLOW；建议加进 ALLOW 或登记例外
+YouTube video player	同上
+Zoom meeting	同上，Zoom 不在 ALLOW；建议加进 ALLOW 或登记例外
+us	Google 文档处理器区域选项，与前块 eu→欧盟 对应，取「美国」
+Upcoming	提醒列表分组标题，与 Due=已到期 相对，取「待提醒」
+Unsave	新词：取消「保存消息」（书签），取「取消保存」，与 Save=保存 一致
+User has a role profile set. Please set the role to Raven User manually.	Role Profile 官方现译「岗位」，沿用
+Use Google Document/Vision AI to parse documents	Document AI、Vision AI 是 Google 云产品名，AI 为全大写缩写，译「Google 文档 AI/视觉 AI」
+View Server Scripts	Server Script 官方现译「Python脚本」，与 05 块一致写「Python 脚本」
+You have ventured too far beyond the wall.	《权力的游戏》台词（404 页），意译「您已越过长城，走得太远了。」
+You can send a direct message to a user by calling the	与后接代码 send_direct_message 及另一块「method and setting the user_id parameter…」拼接，本条只译前半「如需向用户发送私信，请调用」
+You can send a message with a link to any document in the system by setting the	与后接代码 link_doctype、「and」、link_document 拼接，本条只译「如需发送带有系统中任意单据链接的消息，请设置」
+You can send markdown formatted text to a channel by setting the	与后接代码 markdown 及另一块「parameter to True.」拼接，本条只译「如需向频道发送 Markdown 格式的文本，请将」，后半须译成「参数设为 True。」才通顺
+You can also use functions like	后接代码 {{ frappe.utils.today() }} 与 Jinja 文档链接
+You can use Jinja to resolve a recipient — e.g.	后接代码示例 frappe.db.get_value(...)
+Upload your own or download from	后接链接文字 Emoji.gg（站点名，原样）
+{0} added {1} and	与后接可点开的「{0} others」拼接，读作「张三 添加了 李四、王五 和 其他 3 人」
+{0} and {1} more	{0} 是已列出的名称（逗号拼接），{1} 是剩余数量，译「{0} 及另外 {1} 项」
+You: {0}	侧边栏最后一条消息预览前缀，取「我：{0}」
+Writes	新词：函数列表列名，标示函数是否需要写入权限，取「可写入」
+Validation	新词：消息操作字段的校验类型（邮箱/电话/网址），取「校验」

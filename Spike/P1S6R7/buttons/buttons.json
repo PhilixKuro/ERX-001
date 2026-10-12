@@ -1,0 +1,955 @@
+[
+ {
+  "source": "Save",
+  "current": "保存",
+  "calls": [
+   "frappe/public/js/frappe/form/toolbar.js:775（status=Save）",
+   "frappe/public/js/frappe/form/toolbar.js:828（click 映射）",
+   "frappe/public/js/frappe/form/toolbar.js:845（set_primary_action(__(status))）"
+  ],
+  "does": "frappe/public/js/frappe/form/form.js:803 save → frappe/public/js/frappe/form/save.js:22 → frappe/desk/form/save.py:16 savedocs，docstatus=0 → doc.save()（frappe/desk/form/save.py:43）：保存草稿写库",
+  "verdict": "一致",
+  "final": "保存"
+ },
+ {
+  "source": "Submit",
+  "current": "提交",
+  "calls": [
+   "frappe/public/js/frappe/form/toolbar.js:770",
+   "frappe/public/js/frappe/form/toolbar.js:831",
+   "frappe/public/js/frappe/form/toolbar.js:845"
+  ],
+  "does": "frappe/public/js/frappe/form/form.js:898 savesubmit（确认框）→ save('Submit') → frappe/desk/form/save.py:16 savedocs，docstatus=1 → doc.submit()（frappe/desk/form/save.py:41）：提交",
+  "verdict": "一致",
+  "final": "提交"
+ },
+ {
+  "source": "Update",
+  "current": "更新",
+  "calls": [
+   "frappe/public/js/frappe/form/toolbar.js:779",
+   "frappe/public/js/frappe/form/toolbar.js:834",
+   "frappe/public/js/frappe/form/toolbar.js:845"
+  ],
+  "does": "已提交单据改了「提交后可改」字段时出现；frappe/public/js/frappe/form/form.js:803 save('Update') → frappe/desk/form/save.py:16 savedocs，docstatus 仍为 1 → doc.submit() 路径写回（frappe/desk/form/save.py:41）",
+  "verdict": "一致",
+  "final": "更新"
+ },
+ {
+  "source": "Cancel",
+  "current": "取消",
+  "calls": [
+   "frappe/public/js/frappe/form/toolbar.js:781",
+   "frappe/public/js/frappe/form/toolbar.js:808（set_secondary_action(__(status))）"
+  ],
+  "does": "frappe/public/js/frappe/form/form.js:943 savecancel（先查已提交的关联单，可连带取消）→ frappe/public/js/frappe/form/form.js:1043 _cancel → frappe/public/js/frappe/form/save.js:57 → frappe/desk/form/save.py:55 cancel → doc.cancel()：docstatus=2",
+  "verdict": "一致",
+  "final": "取消"
+ },
+ {
+  "source": "Amend",
+  "current": "修订",
+  "calls": [
+   "frappe/public/js/frappe/form/toolbar.js:783",
+   "frappe/public/js/frappe/form/toolbar.js:837",
+   "frappe/public/js/frappe/form/toolbar.js:845",
+   "frappe/public/js/frappe/form/toolbar.js:747（已修订过时置灰）"
+  ],
+  "does": "frappe/public/js/frappe/form/form.js:1130 amend_doc → frappe/public/js/frappe/form/form.js:1440 copy_doc：复制已取消单为新草稿，写 amended_from；返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "修订"
+ },
+ {
+  "source": "Delete",
+  "current": "删除",
+  "calls": [
+   "frappe/public/js/frappe/form/toolbar.js:508（page.add_menu_item）"
+  ],
+  "does": "frappe/public/js/frappe/form/form.js:1123 savetrash → frappe/public/js/frappe/model/model.js:695 delete_doc（确认框）→ frappe/client.py:297 delete → frappe/model/delete_doc.py:24 delete_doc：物理删除",
+  "verdict": "一致",
+  "final": "删除"
+ },
+ {
+  "source": "Close",
+  "current": "关闭",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:969",
+   "erpnext/selling/doctype/sales_order/sales_order.js:1000",
+   "erpnext/manufacturing/doctype/work_order/work_order.js:764",
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:349",
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:250",
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:321",
+   "erpnext/manufacturing/doctype/production_plan/production_plan.js:131"
+  ],
+  "does": "销售订单 erpnext/selling/doctype/sales_order/sales_order.js:1834 → erpnext/selling/doctype/sales_order/sales_order.js:1837 → erpnext/selling/doctype/sales_order/sales_order.py:1895 → erpnext/selling/doctype/sales_order/sales_order.py:624 set_status(Closed)；工单 erpnext/manufacturing/doctype/work_order/work_order.js:1245 → erpnext/manufacturing/doctype/work_order/work_order.py:2875 close_work_order；采购订单 erpnext/buying/doctype/purchase_order/purchase_order.js:733 → erpnext/buying/doctype/purchase_order/purchase_order.py:997 → erpnext/buying/doctype/purchase_order/purchase_order.py:469；采购入库 erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:337 → erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1690；发货单 erpnext/stock/doctype/delivery_note/delivery_note.js:424 → erpnext/stock/doctype/delivery_note/delivery_note.js:432 → erpnext/stock/doctype/delivery_note/delivery_note.py:1173；生产计划 erpnext/manufacturing/doctype/production_plan/production_plan.js:317 → erpnext/manufacturing/doctype/production_plan/production_plan.py:700 set_status(close=True) db_set Closed（706）。均把单据状态写成「已关闭」",
+  "verdict": "一致",
+  "final": "关闭"
+ },
+ {
+  "source": "Re-open",
+  "current": "重新打开",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:973",
+   "erpnext/manufacturing/doctype/work_order/work_order.js:782",
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:368",
+   "erpnext/manufacturing/doctype/production_plan/production_plan.js:123"
+  ],
+  "does": "销售订单 update_status('Re-open','Draft') → erpnext/selling/doctype/sales_order/sales_order.py:624 重算状态；采购订单 erpnext/buying/doctype/purchase_order/purchase_order.js:729 → erpnext/buying/doctype/purchase_order/purchase_order.py:469（Submitted）；工单（仅已停止时出现）erpnext/manufacturing/doctype/work_order/work_order.js:1245 → erpnext/manufacturing/doctype/work_order/work_order.py:2803 stop_unstop(Resumed)；生产计划 erpnext/manufacturing/doctype/production_plan/production_plan.py:700(close=False)。撤销关闭／停止状态",
+  "verdict": "一致",
+  "final": "重新打开"
+ },
+ {
+  "source": "Reopen",
+  "current": "重新打开",
+  "calls": [
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:279",
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:357"
+  ],
+  "does": "采购入库 erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:341 → erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1690(Submitted)；发货单 erpnext/stock/doctype/delivery_note/delivery_note.js:428 → erpnext/stock/doctype/delivery_note/delivery_note.py:1173(Submitted)：撤销关闭",
+  "verdict": "一致",
+  "final": "重新打开"
+ },
+ {
+  "source": "Hold",
+  "current": "暂挂",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:994",
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:337"
+  ],
+  "does": "erpnext/selling/doctype/sales_order/sales_order.js:1801 / erpnext/buying/doctype/purchase_order/purchase_order.js:693：弹框填原因 → frappe/desk/form/utils.py:27 add_comment 写评论 → update_status('Hold','On Hold') → erpnext/selling/doctype/sales_order/sales_order.py:624 / erpnext/buying/doctype/purchase_order/purchase_order.py:469：状态置「暂挂」",
+  "verdict": "一致",
+  "final": "暂挂"
+ },
+ {
+  "source": "Resume",
+  "current": "恢复",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:959",
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:343"
+  ],
+  "does": "销售订单 update_status('Resume','Draft') → erpnext/selling/doctype/sales_order/sales_order.py:624；采购订单 erpnext/buying/doctype/purchase_order/purchase_order.js:689 → erpnext/buying/doctype/purchase_order/purchase_order.py:469：从暂挂恢复，状态重算",
+  "verdict": "一致",
+  "final": "恢复"
+ },
+ {
+  "source": "Stop",
+  "current": "停止",
+  "calls": [
+   "erpnext/manufacturing/doctype/work_order/work_order.js:774"
+  ],
+  "does": "erpnext/manufacturing/doctype/work_order/work_order.js:1245 change_work_order_status → erpnext/manufacturing/doctype/work_order/work_order.py:2803 stop_unstop(Stopped)：工单状态置「已停止」",
+  "verdict": "一致",
+  "final": "停止"
+ },
+ {
+  "source": "Reserve",
+  "current": "预留",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:106",
+   "erpnext/manufacturing/doctype/work_order/work_order.js:944"
+  ],
+  "does": "销售订单 erpnext/selling/doctype/sales_order/sales_order.js:256 弹框 → erpnext/selling/doctype/sales_order/sales_order.js:412 → erpnext/selling/doctype/sales_order/sales_order.py:856 → erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:1580：按订单行建库存预留单；工单 erpnext/public/js/stock_reservation.js:4 make_entries → erpnext/public/js/stock_reservation.js:188 reserve_stock → erpnext/manufacturing/doctype/work_order/work_order.py:2425 make_stock_reservation_entries：为工单所需原材料（required_items）建库存预留单并 db_set 状态（2456）",
+  "verdict": "一致",
+  "final": "预留"
+ },
+ {
+  "source": "Unreserve",
+  "current": "取消预留",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:121",
+   "erpnext/manufacturing/doctype/work_order/work_order.js:953"
+  ],
+  "does": "销售订单 erpnext/selling/doctype/sales_order/sales_order.js:457 → erpnext/selling/doctype/sales_order/sales_order.js:517 → erpnext/selling/doctype/sales_order/sales_order.py:876 → erpnext/stock/doctype/stock_reservation_entry/stock_reservation_entry.py:1787 cancel_stock_reservation_entries；工单 erpnext/public/js/stock_reservation.js:216 → erpnext/public/js/stock_reservation.js:264 → erpnext/manufacturing/doctype/work_order/work_order.py:2460：取消所选库存预留单",
+  "verdict": "一致",
+  "final": "取消预留"
+ },
+ {
+  "source": "Reserve for Sub-assembly",
+  "current": "子装配件预留",
+  "calls": [
+   "erpnext/manufacturing/doctype/production_plan/production_plan.js:268"
+  ],
+  "does": "erpnext/public/js/stock_reservation.js:4 → erpnext/public/js/stock_reservation.js:188 → erpnext/manufacturing/doctype/production_plan/production_plan.py:2356 make_stock_reservation_entries(sub_assembly_items)：为子装配件建库存预留单",
+  "verdict": "一致",
+  "final": "子装配件预留"
+ },
+ {
+  "source": "Unreserve for Sub-assembly",
+  "current": "取消子装配件预留",
+  "calls": [
+   "erpnext/manufacturing/doctype/production_plan/production_plan.js:276"
+  ],
+  "does": "erpnext/public/js/stock_reservation.js:216 → erpnext/public/js/stock_reservation.js:264 → erpnext/manufacturing/doctype/production_plan/production_plan.py:2393 cancel_stock_reservation_entries",
+  "verdict": "一致",
+  "final": "取消子装配件预留"
+ },
+ {
+  "source": "Reserve for Raw Materials",
+  "current": "原材料预留",
+  "calls": [
+   "erpnext/manufacturing/doctype/production_plan/production_plan.js:294"
+  ],
+  "does": "erpnext/public/js/stock_reservation.js:4 → erpnext/public/js/stock_reservation.js:188 → erpnext/manufacturing/doctype/production_plan/production_plan.py:2356(mr_items)：为原材料建库存预留单",
+  "verdict": "一致",
+  "final": "原材料预留"
+ },
+ {
+  "source": "Unreserve for Raw Materials",
+  "current": "取消原材料预留",
+  "calls": [
+   "erpnext/manufacturing/doctype/production_plan/production_plan.js:302"
+  ],
+  "does": "erpnext/public/js/stock_reservation.js:216 → erpnext/public/js/stock_reservation.js:264 → erpnext/manufacturing/doctype/production_plan/production_plan.py:2393 cancel_stock_reservation_entries",
+  "verdict": "一致",
+  "final": "取消原材料预留"
+ },
+ {
+  "source": "Update Items",
+  "current": "订单变更",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:90",
+   "erpnext/selling/doctype/sales_order/sales_order.js:946",
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:324",
+   "erpnext/selling/doctype/quotation/quotation.js:136"
+  ],
+  "does": "erpnext/public/js/utils.js:713 update_child_items 弹框 → erpnext/public/js/utils.js:1020 → erpnext/controllers/accounts_controller.py:4004 update_child_qty_rate：改已提交单据的明细行（数量、单价、交期，可增行）并 parent.save()（4345）。报价单上同样出现（erpnext/selling/doctype/quotation/quotation.js:136）",
+  "verdict": "不一致",
+  "final": "变更明细"
+ },
+ {
+  "source": "Update Rate as per Last Purchase",
+  "current": "用最新采购单价更新价格主数据",
+  "calls": [
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:575（Tools 组）"
+  ],
+  "does": "frappe.call doc 方法 → erpnext/buying/doctype/purchase_order/purchase_order.py:419 get_last_purchase_rate：把本采购订单各行单价改为最近采购价，frm.dirty 后待用户保存；不改物料或价目表",
+  "verdict": "不一致",
+  "final": "按最近采购价更新单价"
+ },
+ {
+  "source": "Payment",
+  "current": "收付款",
+  "calls": [
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:98",
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:124",
+   "erpnext/selling/doctype/sales_order/sales_order.js:1175",
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:429"
+  ],
+  "does": "erpnext/public/js/controllers/transaction.js:2788 make_payment_entry → erpnext/public/js/controllers/transaction.js:2798 → erpnext/public/js/controllers/transaction.js:3031 get_method_for_payment → erpnext/accounts/doctype/payment_entry/payment_entry.py:2898 get_payment_entry：建收付款凭证草稿（3070 返回、不保存），方向由 payment_entry.py:3299 set_payment_type 定：销售订单／销售发票=收款，采购订单／采购发票=付款",
+  "verdict": "一致",
+  "final": "收付款"
+ },
+ {
+  "source": "Payment Request",
+  "current": "收付款申请",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1167",
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:437",
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:145",
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:139"
+  ],
+  "does": "erpnext/public/js/controllers/transaction.js:502 make_payment_request_with_schedule → 弹框 erpnext/public/js/controllers/transaction.js:584 → erpnext/accounts/doctype/payment_request/payment_request.py:579 make_payment_request：insert（776/779），默认即 submit（780；会计设置勾「草稿」时不提交）",
+  "verdict": "一致",
+  "final": "收付款申请"
+ },
+ {
+  "source": "Start",
+  "current": "开始",
+  "calls": [
+   "erpnext/manufacturing/doctype/work_order/work_order.js:824"
+  ],
+  "does": "erpnext/manufacturing/doctype/work_order/work_order.js:1159 make_se(purpose='Material Transfer for Manufacture') → erpnext/manufacturing/doctype/work_order/work_order.py:2709 make_stock_entry（建 Stock Entry 并 as_dict 返回，2767，不保存）：建「工单发料」库存凭证草稿，不启动工单",
+  "verdict": "不一致（不可分，保留）",
+  "final": "开始"
+ },
+ {
+  "source": "Finish",
+  "current": "完工",
+  "calls": [
+   "erpnext/manufacturing/doctype/work_order/work_order.js:904",
+   "erpnext/manufacturing/doctype/work_order/work_order.js:919",
+   "erpnext/manufacturing/doctype/work_order/work_order.js:928"
+  ],
+  "does": "erpnext/manufacturing/doctype/work_order/work_order.js:1159 make_se(purpose='Manufacture') → erpnext/manufacturing/doctype/work_order/work_order.py:2709 make_stock_entry（建 Stock Entry 并 as_dict 返回，2767，不保存）：建「完工入库」库存凭证草稿",
+  "verdict": "一致",
+  "final": "完工"
+ },
+ {
+  "source": "Additional Material Transfer",
+  "current": "超领调拨",
+  "calls": [
+   "erpnext/manufacturing/doctype/work_order/work_order.js:837（Make 组）"
+  ],
+  "does": "erpnext/manufacturing/doctype/work_order/work_order.js:1093 弹框填数量 → erpnext/manufacturing/doctype/work_order/work_order.js:844 xcall → erpnext/manufacturing/doctype/work_order/work_order.py:2709 make_stock_entry（建 Stock Entry 并 as_dict 返回，2767，不保存），is_additional_transfer_entry=1：建超出计划量的工单发料草稿",
+  "verdict": "一致",
+  "final": "超领调拨"
+ },
+ {
+  "source": "Material Consumption",
+  "current": "工单耗用",
+  "calls": [
+   "erpnext/manufacturing/doctype/work_order/work_order.js:883（Make 组）"
+  ],
+  "does": "erpnext/manufacturing/doctype/work_order/work_order.js:1219 make_consumption_se → erpnext/manufacturing/doctype/work_order/work_order.py:2709 make_stock_entry（建 Stock Entry 并 as_dict 返回，2767，不保存），purpose='Material Consumption for Manufacture'：建工单耗用草稿",
+  "verdict": "一致",
+  "final": "工单耗用"
+ },
+ {
+  "source": "Return Components",
+  "current": "原材料退回",
+  "calls": [
+   "erpnext/manufacturing/doctype/work_order/work_order.js:299"
+  ],
+  "does": "erpnext/manufacturing/doctype/work_order/work_order.js:306 → erpnext/manufacturing/doctype/work_order/work_order.py:3161 make_stock_return_entry：建 is_return 的工单发料退回草稿（未耗用原材料退回）",
+  "verdict": "一致",
+  "final": "原材料退回"
+ },
+ {
+  "source": "Disassemble Order",
+  "current": "工单拆解",
+  "calls": [
+   "erpnext/manufacturing/doctype/work_order/work_order.js:228（Create 组）"
+  ],
+  "does": "erpnext/manufacturing/doctype/work_order/work_order.js:456 弹框 → erpnext/manufacturing/doctype/work_order/work_order.py:2709 make_stock_entry（建 Stock Entry 并 as_dict 返回，2767，不保存），purpose='Disassemble'：建拆解库存凭证草稿",
+  "verdict": "一致",
+  "final": "工单拆解"
+ },
+ {
+  "source": "Disassemble",
+  "current": "工单拆解",
+  "calls": [
+   "erpnext/stock/doctype/stock_entry/stock_entry.js:405（Create 组）"
+  ],
+  "does": "erpnext/stock/doctype/stock_entry/stock_entry.js:405 内 xcall → erpnext/manufacturing/doctype/work_order/work_order.py:2709 make_stock_entry（建 Stock Entry 并 as_dict 返回，2767，不保存），purpose='Disassemble'：由完工入库单建拆解草稿",
+  "verdict": "一致",
+  "final": "工单拆解"
+ },
+ {
+  "source": "Create Job Card",
+  "current": "创建生产任务单",
+  "calls": [
+   "erpnext/manufacturing/doctype/work_order/work_order.js:203"
+  ],
+  "does": "erpnext/manufacturing/doctype/work_order/work_order.js:321 弹框选工序 → erpnext/manufacturing/doctype/work_order/work_order.js:400 → erpnext/manufacturing/doctype/work_order/work_order.py:2841 make_job_card → erpnext/manufacturing/doctype/work_order/work_order.py:2968 create_job_card(auto_create) insert（3014）：直接建生产任务单",
+  "verdict": "一致",
+  "final": "创建生产任务单"
+ },
+ {
+  "source": "Create Pick List",
+  "current": "创建拣货单",
+  "calls": [
+   "erpnext/manufacturing/doctype/work_order/work_order.js:816"
+  ],
+  "does": "erpnext/manufacturing/doctype/work_order/work_order.js:1198 → erpnext/manufacturing/doctype/work_order/work_order.py:3031 create_pick_list：建拣货单草稿",
+  "verdict": "一致",
+  "final": "创建拣货单"
+ },
+ {
+  "source": "BOM",
+  "current": "物料清单",
+  "calls": [
+   "erpnext/manufacturing/doctype/work_order/work_order.js:212（Create 组）"
+  ],
+  "does": "erpnext/manufacturing/doctype/work_order/work_order.js:443 → erpnext/manufacturing/doctype/work_order/work_order.py:1987 make_bom：按已完工入库耗用建新 BOM（new_doc，不保存）",
+  "verdict": "一致",
+  "final": "物料清单"
+ },
+ {
+  "source": "Work Order",
+  "current": "生产工单",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1055",
+   "erpnext/manufacturing/doctype/bom/bom.js:257"
+  ],
+  "does": "销售订单 erpnext/selling/doctype/sales_order/sales_order.js:1249 → erpnext/selling/doctype/sales_order/sales_order.py:2067 取可生产行 → 弹框 → erpnext/selling/doctype/sales_order/sales_order.js:1334 → erpnext/selling/doctype/sales_order/sales_order.py:1830 make_work_orders：直接 insert 工单（1854）；BOM erpnext/manufacturing/doctype/bom/bom.js:332 → erpnext/manufacturing/doctype/work_order/work_order.py:2593 make_work_order：返回未保存工单（2632）",
+  "verdict": "一致",
+  "final": "生产工单"
+ },
+ {
+  "source": "Work Order / Subcontract PO",
+  "current": "生产工单 / 委外采购订单",
+  "calls": [
+   "erpnext/manufacturing/doctype/production_plan/production_plan.js:143"
+  ],
+  "does": "erpnext/manufacturing/doctype/production_plan/production_plan.js:329 → erpnext/manufacturing/doctype/production_plan/production_plan.py:773 make_work_order → erpnext/manufacturing/doctype/production_plan/production_plan.py:925 create_work_order insert（947）＋ erpnext/manufacturing/doctype/production_plan/production_plan.py:864 委外采购订单：按计划批量建工单与委外采购订单",
+  "verdict": "一致",
+  "final": "生产工单 / 委外采购订单"
+ },
+ {
+  "source": "Production Plan",
+  "current": "生产计划",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1063"
+  ],
+  "does": "erpnext/selling/doctype/sales_order/sales_order.js:1370 → frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/selling/doctype/sales_order/sales_order.py:1864 make_production_plan：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "生产计划"
+ },
+ {
+  "source": "Material Request",
+  "current": "物料需求",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1092",
+   "erpnext/manufacturing/doctype/work_order/work_order.js:820",
+   "erpnext/manufacturing/doctype/production_plan/production_plan.js:158",
+   "erpnext/manufacturing/doctype/job_card/job_card.js:220",
+   "erpnext/stock/doctype/stock_entry/stock_entry.js:322",
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:527（取物料来源，筛掉）",
+   "erpnext/stock/doctype/stock_entry/stock_entry.js:478（取物料来源，筛掉）"
+  ],
+  "does": "销售订单 erpnext/selling/doctype/sales_order/sales_order.js:1385 → erpnext/selling/doctype/sales_order/sales_order.py:1043、工单 erpnext/manufacturing/doctype/work_order/work_order.js:1191 → erpnext/manufacturing/doctype/work_order/work_order.py:3127、生产任务单 erpnext/manufacturing/doctype/job_card/job_card.js:830 → erpnext/manufacturing/doctype/job_card/job_card.py:1866：经 open_mapped_doc 建物料需求草稿；生产计划 erpnext/manufacturing/doctype/production_plan/production_plan.js:340 确认框 → erpnext/manufacturing/doctype/production_plan/production_plan.js:352 → erpnext/manufacturing/doctype/production_plan/production_plan.py:962 make_material_request：save（1028），选「是」再 submit（1030）；库存凭证 erpnext/stock/doctype/stock_entry/stock_entry.js:322 前端 new_doc 物料需求草稿",
+  "verdict": "一致",
+  "final": "物料需求"
+ },
+ {
+  "source": "Request for Raw Materials",
+  "current": "原材料物料需求",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1098"
+  ],
+  "does": "erpnext/selling/doctype/sales_order/sales_order.js:1403 → 弹框 erpnext/selling/doctype/sales_order/sales_order.js:1482 → erpnext/selling/doctype/sales_order/sales_order.py:1901 make_raw_material_request：insert（1953）并 submit（1956）物料需求",
+  "verdict": "一致",
+  "final": "原材料物料需求"
+ },
+ {
+  "source": "Make Stock Entry",
+  "current": "创建物料移动",
+  "calls": [
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:255",
+   "erpnext/manufacturing/doctype/job_card/job_card.js:111"
+  ],
+  "does": "采购入库 erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:457 → frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1696：物料移动草稿；生产任务单 erpnext/manufacturing/doctype/job_card/job_card.js:111 确认框 → erpnext/manufacturing/doctype/job_card/job_card.js:120 → erpnext/manufacturing/doctype/job_card/job_card.py:1736 make_stock_entry_for_semi_fg_item：建半成品入库，选「是」submit（1770）否则 save（1772）",
+  "verdict": "一致",
+  "final": "创建物料移动"
+ },
+ {
+  "source": "Material Transfer",
+  "current": "直接调拨",
+  "calls": [
+   "erpnext/manufacturing/doctype/job_card/job_card.js:228（Create 组）"
+  ],
+  "does": "erpnext/manufacturing/doctype/job_card/job_card.js:838 → frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/manufacturing/doctype/job_card/job_card.py:1897 make_stock_entry：purpose='Material Transfer for Manufacture'（1919），即工单发料草稿",
+  "verdict": "不一致（不可分，保留）",
+  "final": "直接调拨"
+ },
+ {
+  "source": "Make Subcontracting PO",
+  "current": "创建外协采购订单",
+  "calls": [
+   "erpnext/manufacturing/doctype/job_card/job_card.js:419"
+  ],
+  "does": "frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/manufacturing/doctype/job_card/job_card.py:1782 make_subcontracting_po：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "创建外协采购订单"
+ },
+ {
+  "source": "Corrective Job Card",
+  "current": "返工生产任务单",
+  "calls": [
+   "erpnext/manufacturing/doctype/job_card/job_card.js:456（Make 组）"
+  ],
+  "does": "erpnext/manufacturing/doctype/job_card/job_card.js:494 → erpnext/manufacturing/doctype/job_card/job_card.py:2024 make_corrective_job_card：建返工生产任务单草稿",
+  "verdict": "一致",
+  "final": "返工生产任务单"
+ },
+ {
+  "source": "Update Cost",
+  "current": "更新成本",
+  "calls": [
+   "erpnext/manufacturing/doctype/bom/bom.js:225（Actions 组）"
+  ],
+  "does": "erpnext/manufacturing/doctype/bom/bom.js:567 update_cost(save=true) → erpnext/manufacturing/doctype/bom/bom.py:677：重算 BOM 成本并保存（已提交也写回）",
+  "verdict": "一致",
+  "final": "更新成本"
+ },
+ {
+  "source": "New Version",
+  "current": "新版本",
+  "calls": [
+   "erpnext/manufacturing/doctype/bom/bom.js:246（Actions 组）"
+  ],
+  "does": "frappe.model.copy_doc（frappe/public/js/frappe/model/create_new.js:281）复制本 BOM 为新草稿",
+  "verdict": "一致",
+  "final": "新版本"
+ },
+ {
+  "source": "Variant BOM",
+  "current": "变体BOM",
+  "calls": [
+   "erpnext/manufacturing/doctype/bom/bom.js:266（Create 组）"
+  ],
+  "does": "erpnext/manufacturing/doctype/bom/bom.js:360 → erpnext/manufacturing/doctype/bom/bom.py:2036 make_variant_bom：建变体 BOM 草稿",
+  "verdict": "一致",
+  "final": "变体BOM"
+ },
+ {
+  "source": "Quality Inspection(s)",
+  "current": "质检单",
+  "calls": [
+   "erpnext/public/js/controllers/transaction.js:436",
+   "erpnext/stock/doctype/stock_entry/stock_entry.js:218"
+  ],
+  "does": "erpnext/public/js/controllers/transaction.js:2846 make_quality_inspection 弹框 → erpnext/public/js/controllers/transaction.js:2925 → erpnext/controllers/stock_controller.py:2412 make_quality_inspections：逐行 save 质检单（2447）",
+  "verdict": "一致",
+  "final": "质检单"
+ },
+ {
+  "source": "Quality Inspection",
+  "current": "质检单",
+  "calls": [
+   "erpnext/manufacturing/doctype/bom/bom.js:276（Create 组）"
+  ],
+  "does": "erpnext/manufacturing/doctype/bom/bom.js:560 → erpnext/stock/doctype/quality_inspection/quality_inspection.py:537：质检单草稿",
+  "verdict": "一致",
+  "final": "质检单"
+ },
+ {
+  "source": "Sales Order",
+  "current": "销售订单",
+  "calls": [
+   "erpnext/selling/doctype/quotation/quotation.js:134（Create）",
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:156（取物料来源，筛掉）",
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:378（取物料来源，筛掉）"
+  ],
+  "does": "报价单 erpnext/selling/doctype/quotation/quotation.js:190 → frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/selling/doctype/quotation/quotation.py:377 make_sales_order：返回未保存的新单并跳到其表单，点保存才落库。另两处在「取物料来源」组：erpnext/public/js/utils.js:1044 map_current_doc → frappe/model/mapper.py:37 map_docs → erpnext/selling/doctype/sales_order/sales_order.py:1172 / erpnext/selling/doctype/sales_order/sales_order.py:1356，把销售订单行带入当前草稿，不建新单",
+  "verdict": "一致",
+  "final": "销售订单"
+ },
+ {
+  "source": "Delivery Note",
+  "current": "销售出库",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1047（Create）",
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:128（Create）",
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:58（Create，公司间）",
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:434（取物料来源，筛掉）"
+  ],
+  "does": "销售订单 erpnext/selling/doctype/sales_order/sales_order.js:1515 → erpnext/selling/doctype/sales_order/sales_order.js:1578 → erpnext/selling/doctype/sales_order/sales_order.py:1172；销售发票 erpnext/accounts/doctype/sales_invoice/sales_invoice.js:733 → erpnext/accounts/doctype/sales_invoice/sales_invoice.py:2507；采购入库（内部供应商）→ erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1756 make_inter_company_delivery_note：均经 open_mapped_doc，返回未保存的新单并跳到其表单，点保存才落库。erpnext/accounts/doctype/sales_invoice/sales_invoice.js:434 是取物料来源 → erpnext/stock/doctype/delivery_note/delivery_note.py:834 带入当前发票",
+  "verdict": "一致",
+  "final": "销售出库"
+ },
+ {
+  "source": "Sales Invoice",
+  "current": "销售发票",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1077",
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:346"
+  ],
+  "does": "销售订单 erpnext/selling/doctype/sales_order/sales_order.js:1591 → erpnext/selling/doctype/sales_order/sales_order.py:1356；发货单 erpnext/stock/doctype/delivery_note/delivery_note.js:384 → erpnext/stock/doctype/delivery_note/delivery_note.py:834：经 open_mapped_doc，返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "销售发票"
+ },
+ {
+  "source": "Pick List",
+  "current": "拣货单",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1027（Create）",
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:198（取物料来源，筛掉）"
+  ],
+  "does": "erpnext/selling/doctype/sales_order/sales_order.js:1242 → erpnext/selling/doctype/sales_order/sales_order.py:1968 create_pick_list：返回未保存的新单并跳到其表单，点保存才落库；erpnext/stock/doctype/delivery_note/delivery_note.js:198 → erpnext/stock/doctype/pick_list/pick_list.py:1405 带入当前发货单",
+  "verdict": "一致",
+  "final": "拣货单"
+ },
+ {
+  "source": "Credit Note",
+  "current": "红字发票",
+  "calls": [
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:88"
+  ],
+  "does": "退货发货单上 → frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/stock/doctype/delivery_note/delivery_note.py:834 make_sales_invoice：建退货（is_return）销售发票草稿，即红字发票",
+  "verdict": "一致",
+  "final": "红字发票"
+ },
+ {
+  "source": "Return / Credit Note",
+  "current": "退款/贷记单",
+  "calls": [
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:110"
+  ],
+  "does": "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:600 → erpnext/accounts/doctype/sales_invoice/sales_invoice.py:2556 make_sales_return → erpnext/controllers/sales_and_purchase_return.py:446 make_return_doc：建退货销售发票（红字发票）草稿",
+  "verdict": "不一致",
+  "final": "退货/红字发票"
+ },
+ {
+  "source": "Sales Return",
+  "current": "销售退货",
+  "calls": [
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:269"
+  ],
+  "does": "erpnext/stock/doctype/delivery_note/delivery_note.js:398 → erpnext/stock/doctype/delivery_note/delivery_note.py:1166 → erpnext/controllers/sales_and_purchase_return.py:446：建退货发货单草稿",
+  "verdict": "一致",
+  "final": "销售退货"
+ },
+ {
+  "source": "Project",
+  "current": "项目",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1138"
+  ],
+  "does": "erpnext/selling/doctype/sales_order/sales_order.js:1605 → erpnext/selling/doctype/sales_order/sales_order.py:1145 make_project：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "项目"
+ },
+ {
+  "source": "Maintenance Visit",
+  "current": "维护巡修",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1121"
+  ],
+  "does": "erpnext/selling/doctype/sales_order/sales_order.js:1619 → erpnext/selling/doctype/sales_order/sales_order.py:1591：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "维护巡修"
+ },
+ {
+  "source": "Maintenance Schedule",
+  "current": "维护巡修计划",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1128",
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:163"
+  ],
+  "does": "erpnext/selling/doctype/sales_order/sales_order.js:1598 → erpnext/selling/doctype/sales_order/sales_order.py:1565；erpnext/accounts/doctype/sales_invoice/sales_invoice.js:231 → erpnext/accounts/doctype/sales_invoice/sales_invoice.py:2490：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "维护巡修计划"
+ },
+ {
+  "source": "Subcontracting Inward Order",
+  "current": "外包收货订单",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1010"
+  ],
+  "does": "erpnext/selling/doctype/sales_order/sales_order.js:1853 → erpnext/selling/doctype/sales_order/sales_order.py:2136：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "外包收货订单"
+ },
+ {
+  "source": "Purchase Order",
+  "current": "采购订单",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1111（Create）",
+   "erpnext/selling/doctype/sales_order/sales_order.js:188（取物料来源，筛掉）",
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:155（取物料来源，筛掉）",
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:216（取物料来源，筛掉）"
+  ],
+  "does": "销售订单 erpnext/selling/doctype/sales_order/sales_order.js:1626 弹框选供应商 → erpnext/selling/doctype/sales_order/sales_order.js:1735 → erpnext/selling/doctype/sales_order/sales_order.py:1655 make_purchase_order：直接 insert 采购订单（1805）。其余三处是取物料来源：erpnext/public/js/utils.js:1044 map_current_doc → frappe/model/mapper.py:37 map_docs → erpnext/buying/doctype/purchase_order/purchase_order.py:1004 / erpnext/buying/doctype/purchase_order/purchase_order.py:869 / erpnext/buying/doctype/purchase_order/purchase_order.py:800，带入当前草稿",
+  "verdict": "一致",
+  "final": "采购订单"
+ },
+ {
+  "source": "Internal Purchase Order",
+  "current": "内部采购订单",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1151（button_label，erpnext/selling/doctype/sales_order/sales_order.js:1154 加按钮）"
+  ],
+  "does": "erpnext/selling/doctype/sales_order/sales_order.js:1612 → erpnext/selling/doctype/sales_order/sales_order.py:1961 make_inter_company_purchase_order：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "内部采购订单"
+ },
+ {
+  "source": "Inter Company Purchase Order",
+  "current": "公司间采购订单",
+  "calls": [
+   "erpnext/selling/doctype/sales_order/sales_order.js:1152（同上）"
+  ],
+  "does": "erpnext/selling/doctype/sales_order/sales_order.js:1612 → erpnext/selling/doctype/sales_order/sales_order.py:1961：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "公司间采购订单"
+ },
+ {
+  "source": "Dunning",
+  "current": "催款",
+  "calls": [
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:158"
+  ],
+  "does": "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:224 → erpnext/accounts/doctype/sales_invoice/sales_invoice.py:3161 create_dunning：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "催款"
+ },
+ {
+  "source": "Invoice Discounting",
+  "current": "应收账款融资(发票贴现)",
+  "calls": [
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:147"
+  ],
+  "does": "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:217 → erpnext/accounts/doctype/sales_invoice/sales_invoice.py:3054：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "应收账款融资(发票贴现)"
+ },
+ {
+  "source": "Internal Purchase Invoice",
+  "current": null,
+  "calls": [
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:178（button_label，erpnext/accounts/doctype/sales_invoice/sales_invoice.js:181 __(button_label)）"
+  ],
+  "does": "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:521 → erpnext/accounts/doctype/sales_invoice/sales_invoice.py:2650 make_inter_company_purchase_invoice：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "不一致（缺译）",
+  "final": "内部采购发票"
+ },
+ {
+  "source": "Inter Company Purchase Invoice",
+  "current": null,
+  "calls": [
+   "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:179（同上）"
+  ],
+  "does": "erpnext/accounts/doctype/sales_invoice/sales_invoice.js:521 → erpnext/accounts/doctype/sales_invoice/sales_invoice.py:2650：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "不一致（缺译）",
+  "final": "公司间采购发票"
+ },
+ {
+  "source": "Shipment",
+  "current": "运单",
+  "calls": [
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:245"
+  ],
+  "does": "erpnext/stock/doctype/delivery_note/delivery_note.js:368 → erpnext/stock/doctype/delivery_note/delivery_note.py:1085：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "运单"
+ },
+ {
+  "source": "Installation Note",
+  "current": "安装通知单",
+  "calls": [
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:259"
+  ],
+  "does": "erpnext/stock/doctype/delivery_note/delivery_note.js:391 → erpnext/stock/doctype/delivery_note/delivery_note.py:1002：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "安装通知单"
+ },
+ {
+  "source": "Delivery Trip",
+  "current": "配送单",
+  "calls": [
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:279"
+  ],
+  "does": "erpnext/stock/doctype/delivery_note/delivery_note.js:405 → erpnext/stock/doctype/delivery_note/delivery_note.py:972：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "配送单"
+ },
+ {
+  "source": "Packing Slip",
+  "current": "装箱单",
+  "calls": [
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:295"
+  ],
+  "does": "frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/stock/doctype/delivery_note/delivery_note.py:1030：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "装箱单"
+ },
+ {
+  "source": "Internal Purchase Receipt",
+  "current": null,
+  "calls": [
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:110（button_label，erpnext/stock/doctype/delivery_note/delivery_note.js:113 __(button_label)）"
+  ],
+  "does": "frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/stock/doctype/delivery_note/delivery_note.py:1180 make_inter_company_purchase_receipt：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "不一致（缺译）",
+  "final": "内部采购入库"
+ },
+ {
+  "source": "Inter Company Purchase Receipt",
+  "current": null,
+  "calls": [
+   "erpnext/stock/doctype/delivery_note/delivery_note.js:111（同上）"
+  ],
+  "does": "frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/stock/doctype/delivery_note/delivery_note.py:1180：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "不一致（缺译）",
+  "final": "公司间采购入库"
+ },
+ {
+  "source": "Purchase Receipt",
+  "current": "采购入库",
+  "calls": [
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:383（Create）",
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:642（Create）",
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:180（取物料来源，筛掉）",
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:652（View，筛掉）"
+  ],
+  "does": "采购订单 erpnext/buying/doctype/purchase_order/purchase_order.js:502 → erpnext/buying/doctype/purchase_order/purchase_order.py:800；采购发票 erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:721 → erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:2130：经 open_mapped_doc，返回未保存的新单并跳到其表单，点保存才落库。erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:180 带入当前发票；erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:652 跳采购入库列表",
+  "verdict": "一致",
+  "final": "采购入库"
+ },
+ {
+  "source": "Purchase Invoice",
+  "current": "采购发票",
+  "calls": [
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:416（Create）",
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:262（Create）",
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:117（取物料来源，筛掉）",
+   "erpnext/stock/doctype/stock_entry/stock_entry.js:459（取物料来源，筛掉）"
+  ],
+  "does": "采购订单 erpnext/buying/doctype/purchase_order/purchase_order.js:510 → erpnext/buying/doctype/purchase_order/purchase_order.py:869；采购入库 erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:285 → erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1521：返回未保存的新单并跳到其表单，点保存才落库。另两处取物料来源 → erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:2130 / erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:2105，带入当前草稿",
+  "verdict": "一致",
+  "final": "采购发票"
+ },
+ {
+  "source": "Debit Note",
+  "current": "采购红字发票",
+  "calls": [
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:44"
+  ],
+  "does": "退货采购入库上 → frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1521 make_purchase_invoice：建退货采购发票草稿，即采购红字发票",
+  "verdict": "一致",
+  "final": "采购红字发票"
+ },
+ {
+  "source": "Return / Debit Note",
+  "current": "退款/借记单",
+  "calls": [
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:130"
+  ],
+  "does": "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:473 → erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:2098 make_debit_note → erpnext/controllers/sales_and_purchase_return.py:446 make_return_doc：建退货采购发票（采购红字发票）草稿",
+  "verdict": "不一致",
+  "final": "退货/采购红字发票"
+ },
+ {
+  "source": "Purchase Return",
+  "current": "采购退货",
+  "calls": [
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:253"
+  ],
+  "does": "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:292（有拒收行时询问）→ erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1676 或 erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:450 → erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1683 → erpnext/controllers/sales_and_purchase_return.py:446：建退货采购入库草稿",
+  "verdict": "一致",
+  "final": "采购退货"
+ },
+ {
+  "source": "Landed Cost Voucher",
+  "current": "到岸成本凭证",
+  "calls": [
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:87",
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:666"
+  ],
+  "does": "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:99 / erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:676 → erpnext/stock/doctype/purchase_receipt/purchase_receipt.py:1766 make_lcv：new_doc 到岸成本凭证，不保存",
+  "verdict": "一致",
+  "final": "到岸成本凭证"
+ },
+ {
+  "source": "Sample Retention Stock Entry",
+  "current": "留样物料移动",
+  "calls": [
+   "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:268",
+   "erpnext/stock/doctype/stock_entry/stock_entry.js:570"
+  ],
+  "does": "erpnext/stock/doctype/purchase_receipt/purchase_receipt.js:345 / erpnext/stock/doctype/stock_entry/stock_entry.js:683 → erpnext/stock/doctype/stock_entry/stock_entry.py:4321 move_sample_to_retention_warehouse：先 save 批次序列包（4381），再返回未保存的留样物料移动",
+  "verdict": "一致",
+  "final": "留样物料移动"
+ },
+ {
+  "source": "Subcontracting Order",
+  "current": "委外订单",
+  "calls": [
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:403"
+  ],
+  "does": "erpnext/buying/doctype/purchase_order/purchase_order.js:517 → erpnext/buying/doctype/purchase_order/purchase_order.py:1011 make_subcontracting_order（前端不传 save/submit）：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "委外订单"
+ },
+ {
+  "source": "Material to Supplier",
+  "current": "发往供应商物料",
+  "calls": [
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:393（Transfer 组）"
+  ],
+  "does": "erpnext/buying/doctype/purchase_order/purchase_order.js:481 → erpnext/controllers/subcontracting_controller.py:1384 make_rm_stock_entry：建「委外发料」物料移动草稿",
+  "verdict": "一致",
+  "final": "发往供应商物料"
+ },
+ {
+  "source": "Return of Components",
+  "current": "委外原材料退回",
+  "calls": [
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:105（Create 组）"
+  ],
+  "does": "erpnext/buying/doctype/purchase_order/purchase_order.js:93 → erpnext/controllers/subcontracting_controller.py:1572 get_materials_from_supplier → erpnext/controllers/subcontracting_controller.py:1524：建委外原材料退回（is_return）草稿",
+  "verdict": "一致",
+  "final": "委外原材料退回"
+ },
+ {
+  "source": "Deliver (Dropship)",
+  "current": "直运交货",
+  "calls": [
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:358（Status 组）"
+  ],
+  "does": "erpnext/buying/doctype/purchase_order/purchase_order.js:737 弹框填数量 → erpnext/buying/doctype/purchase_order/purchase_order.js:819 → erpnext/buying/doctype/purchase_order/purchase_order.py:609 update_dropship_received_qty：db_set 各行 received_qty（657）并 set_status（665）",
+  "verdict": "一致",
+  "final": "直运交货"
+ },
+ {
+  "source": "Block Invoice",
+  "current": "冻结发票",
+  "calls": [
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:108"
+  ],
+  "does": "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:248 → erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:266 弹框 → erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:296 → erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:1967：db_set on_hold=1、原因、解冻日（1973）",
+  "verdict": "一致",
+  "final": "冻结发票"
+ },
+ {
+  "source": "Unblock Invoice",
+  "current": "取消发票冻结",
+  "calls": [
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:100"
+  ],
+  "does": "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:241 → erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:1976：db_set on_hold=0（1978）",
+  "verdict": "一致",
+  "final": "取消发票冻结"
+ },
+ {
+  "source": "Change Release Date",
+  "current": "更改解除冻结日期",
+  "calls": [
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:93（Hold Invoice 组）"
+  ],
+  "does": "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:252 → erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:344 → erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:1981：db_set release_date（1990）",
+  "verdict": "一致",
+  "final": "更改解除冻结日期"
+ },
+ {
+  "source": "Internal Sales Order",
+  "current": "内部销售订单",
+  "calls": [
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:452（button_label，erpnext/buying/doctype/purchase_order/purchase_order.js:455 加按钮）"
+  ],
+  "does": "erpnext/buying/doctype/purchase_order/purchase_order.js:495 → erpnext/buying/doctype/purchase_order/purchase_order.py:1004 make_inter_company_sales_order：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "内部销售订单"
+ },
+ {
+  "source": "Inter Company Sales Order",
+  "current": "公司间销售订单",
+  "calls": [
+   "erpnext/buying/doctype/purchase_order/purchase_order.js:453（同上）"
+  ],
+  "does": "erpnext/buying/doctype/purchase_order/purchase_order.js:495 → erpnext/buying/doctype/purchase_order/purchase_order.py:1004：返回未保存的新单并跳到其表单，点保存才落库",
+  "verdict": "一致",
+  "final": "公司间销售订单"
+ },
+ {
+  "source": "Inter Company Invoice",
+  "current": null,
+  "calls": [
+   "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:228（字面串，未包 __()）"
+  ],
+  "does": "erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js:413 → erpnext/accounts/doctype/purchase_invoice/purchase_invoice.py:2123 make_inter_company_sales_invoice：建对方公司的销售发票草稿",
+  "verdict": "不一致（未包 __()，csv 无效）",
+  "final": "公司间销售发票"
+ },
+ {
+  "source": "Set as Lost",
+  "current": "设置为未成交",
+  "calls": [
+   "erpnext/selling/doctype/quotation/quotation.js:146"
+  ],
+  "does": "erpnext/public/js/utils/sales_common.js:588 set_as_lost_dialog → quotation.py:265 declare_enquiry_lost：db_set status=Lost（273）并记原因",
+  "verdict": "一致",
+  "final": "设置为未成交"
+ },
+ {
+  "source": "End Transit",
+  "current": "在途入库",
+  "calls": [
+   "erpnext/stock/doctype/stock_entry/stock_entry.js:381"
+  ],
+  "does": "frappe/public/js/frappe/model/create_new.js:325 open_mapped_doc → frappe/model/mapper.py:13 make_mapped_doc → erpnext/stock/doctype/stock_entry/stock_entry.py:4402 make_stock_in_entry：建在途入库物料移动草稿",
+  "verdict": "一致",
+  "final": "在途入库"
+ }
+]

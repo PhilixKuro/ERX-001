@@ -1,0 +1,784 @@
+{
+ "group": "crm",
+ "items": [
+  {
+   "key": "(required)",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Controls/Link.vue:12"
+   ],
+   "current": null,
+   "context": "      {{ __(attrs.label) }}\n      <template v-if=\"required\">\n        <span class=\"select-none text-ink-red-6\" aria-hidden=\"true\">*</span>\n        <span class=\"sr-only\">{{ __('(required)') }}</span>\n      </template>\n    </label>\n    <Autocomplete"
+  },
+  {
+   "key": "Add Chart",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:2"
+   ],
+   "current": null,
+   "context": "<template>\n  <Dialog v-model:open=\"show\" :title=\"__('Add Chart')\" @close=\"show = false\">\n    <template #default>\n      <div class=\"flex flex-col gap-4\">\n        <FormControl"
+  },
+  {
+   "key": "An Error Occurred",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:460"
+   ],
+   "current": null,
+   "context": "        ? __('Document Not Found')\n        : __('Error Occurred'),\n    )\n    errorMessage.value = __(err.messages?.[0] || __('An Error Occurred'))\n  } else {\n    errorTitle.value = ''\n    errorMessage.value = ''"
+  },
+  {
+   "key": "Are you sure you want to delete \"{0}\" view?",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/ViewControls.vue:1387"
+   ],
+   "current": null,
+   "context": "          onClick: () =>\n            $dialog({\n              title: __('Delete View'),\n              message: __('Are you sure you want to delete \"{0}\" view?', [\n                _view.label,\n              ]),\n              variant: 'danger',"
+  },
+  {
+   "key": "Are you sure you want to delete {0} - {1}?",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/DeleteLinkedDocModal.vue:55"
+   ],
+   "current": null,
+   "context": "          </div>\n          <div v-if=\"linkedDocs?.length == 0\" class=\"text-ink-gray-5 text-base\">\n            {{\n              __('Are you sure you want to delete {0} - {1}?', [\n                props.doctype,\n                props.docname,\n              ])"
+  },
+  {
+   "key": "Attach a File",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:115",
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:169"
+   ],
+   "current": null,
+   "context": "            />\n\n            <Button\n              :tooltip=\"__('Attach a File')\"\n              :icon=\"AttachmentIcon\"\n              @click=\"showFilesUploader = true\"\n            />"
+  },
+  {
+   "key": "Avg Deal Value",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:77"
+   ],
+   "current": null,
+   "context": "  { label: __('Avg Ongoing Deal Value'), value: 'average_ongoing_deal_value' },\n  { label: __('Won Deals'), value: 'won_deals' },\n  { label: __('Avg Won Deal Value'), value: 'average_won_deal_value' },\n  { label: __('Avg Deal Value'), value: 'average_deal_value' },\n  {\n    label: __('Avg Time to Close a Lead'),\n    value: 'average_time_to_close_a_lead',"
+  },
+  {
+   "key": "Avg Ongoing Deal Value",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:74"
+   ],
+   "current": null,
+   "context": "const numberCharts = [\n  { label: __('Total Leads'), value: 'total_leads' },\n  { label: __('Ongoing Deals'), value: 'ongoing_deals' },\n  { label: __('Avg Ongoing Deal Value'), value: 'average_ongoing_deal_value' },\n  { label: __('Won Deals'), value: 'won_deals' },\n  { label: __('Avg Won Deal Value'), value: 'average_won_deal_value' },\n  { label: __('Avg Deal Value'), value: 'average_deal_value' },"
+  },
+  {
+   "key": "Avg Time to Close a Deal",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:83"
+   ],
+   "current": null,
+   "context": "    value: 'average_time_to_close_a_lead',\n  },\n  {\n    label: __('Avg Time to Close a Deal'),\n    value: 'average_time_to_close_a_deal',\n  },\n]"
+  },
+  {
+   "key": "Avg Time to Close a Lead",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:79"
+   ],
+   "current": null,
+   "context": "  { label: __('Avg Won Deal Value'), value: 'average_won_deal_value' },\n  { label: __('Avg Deal Value'), value: 'average_deal_value' },\n  {\n    label: __('Avg Time to Close a Lead'),\n    value: 'average_time_to_close_a_lead',\n  },\n  {"
+  },
+  {
+   "key": "Avg Won Deal Value",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:76"
+   ],
+   "current": null,
+   "context": "  { label: __('Ongoing Deals'), value: 'ongoing_deals' },\n  { label: __('Avg Ongoing Deal Value'), value: 'average_ongoing_deal_value' },\n  { label: __('Won Deals'), value: 'won_deals' },\n  { label: __('Avg Won Deal Value'), value: 'average_won_deal_value' },\n  { label: __('Avg Deal Value'), value: 'average_deal_value' },\n  {\n    label: __('Avg Time to Close a Lead'),"
+  },
+  {
+   "key": "Axis Chart",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:22",
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:66"
+   ],
+   "current": null,
+   "context": "          v-if=\"chartType === 'axis_chart'\"\n          v-model=\"axisChart\"\n          type=\"select\"\n          :label=\"__('Axis Chart')\"\n          :options=\"axisCharts\"\n        />\n        <FormControl"
+  },
+  {
+   "key": "Back to File Upload",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/FilesUploader/FilesUploader.vue:25"
+   ],
+   "current": null,
+   "context": "            v-if=\"\n              filesUploaderArea?.showWebLink || filesUploaderArea?.showCamera\n            \"\n            :label=\"isMobileView ? __('Back') : __('Back to File Upload')\"\n            iconLeft=\"arrow-left\"\n            @click=\"\n              () => {"
+  },
+  {
+   "key": "Be the first to add one.",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:762"
+   ],
+   "current": null,
+   "context": "      'No emails found in your inbox. New messages will appear here soon.',\n    )\n  } else if (title.value == 'Comments') {\n    description = __('Be the first to add one.')\n  } else if (title.value == 'Data') {\n    description = __('No data fields have been added yet.')\n  } else if (title.value == 'Calls') {"
+  },
+  {
+   "key": "Cannot convert a lost lead to deal",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:39"
+   ],
+   "current": null,
+   "context": "      </Dropdown>\n      <Tooltip\n        :disabled=\"!isLeadConversionDisabled\"\n        :text=\"__('Cannot convert a lost lead to deal')\"\n      >\n        <div class=\"inline-flex\">\n          <Button"
+  },
+  {
+   "key": "Contact Added",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:884"
+   ],
+   "current": null,
+   "context": "  })\n  if (d) {\n    dealContacts.reload()\n    toast.success(__('Contact Added'))\n  }\n}\n"
+  },
+  {
+   "key": "Contact Already Added",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:874"
+   ],
+   "current": null,
+   "context": "\nasync function addContact(contact) {\n  if (dealContacts.data?.find((c) => c.name === contact)) {\n    toast.error(__('Contact Already Added'))\n    return\n  }\n"
+  },
+  {
+   "key": "Contact Removed",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:895"
+   ],
+   "current": null,
+   "context": "  })\n  if (d) {\n    dealContacts.reload()\n    toast.success(__('Contact Removed'))\n  }\n}\n"
+  },
+  {
+   "key": "Customer Created Successfully",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:511"
+   ],
+   "current": null,
+   "context": "\nonMounted(async () => {\n  $socket.on('crm_customer_created', () => {\n    toast.success(__('Customer Created Successfully'))\n  })\n  if (document.doc) await triggerOnRender()\n  markVisited(props.dealId)"
+  },
+  {
+   "key": "Deals by Ongoing & Won Stage",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:93"
+   ],
+   "current": null,
+   "context": "  { label: __('Sales Trend'), value: 'sales_trend' },\n  { label: __('Forecasted Revenue'), value: 'forecasted_revenue' },\n  { label: __('Funnel Conversion'), value: 'funnel_conversion' },\n  { label: __('Deals by Ongoing & Won Stage'), value: 'deals_by_stage_axis' },\n  { label: __('Lost Deal Reasons'), value: 'lost_deal_reasons' },\n  { label: __('Deals by Territory'), value: 'deals_by_territory' },\n  { label: __('Deals by Salesperson'), value: 'deals_by_salesperson' },"
+  },
+  {
+   "key": "Deals by Salesperson",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:96"
+   ],
+   "current": null,
+   "context": "  { label: __('Deals by Ongoing & Won Stage'), value: 'deals_by_stage_axis' },\n  { label: __('Lost Deal Reasons'), value: 'lost_deal_reasons' },\n  { label: __('Deals by Territory'), value: 'deals_by_territory' },\n  { label: __('Deals by Salesperson'), value: 'deals_by_salesperson' },\n]\n\nconst donutChart = ref('deals_by_stage_donut')"
+  },
+  {
+   "key": "Deals by Source",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:103"
+   ],
+   "current": null,
+   "context": "const donutCharts = [\n  { label: __('Deals by Stage'), value: 'deals_by_stage_donut' },\n  { label: __('Leads by Source'), value: 'leads_by_source' },\n  { label: __('Deals by Source'), value: 'deals_by_source' },\n]\n\nasync function addChart() {"
+  },
+  {
+   "key": "Deals by Stage",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:101"
+   ],
+   "current": null,
+   "context": "\nconst donutChart = ref('deals_by_stage_donut')\nconst donutCharts = [\n  { label: __('Deals by Stage'), value: 'deals_by_stage_donut' },\n  { label: __('Leads by Source'), value: 'leads_by_source' },\n  { label: __('Deals by Source'), value: 'deals_by_source' },\n]"
+  },
+  {
+   "key": "Deals by Territory",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:95"
+   ],
+   "current": null,
+   "context": "  { label: __('Funnel Conversion'), value: 'funnel_conversion' },\n  { label: __('Deals by Ongoing & Won Stage'), value: 'deals_by_stage_axis' },\n  { label: __('Lost Deal Reasons'), value: 'lost_deal_reasons' },\n  { label: __('Deals by Territory'), value: 'deals_by_territory' },\n  { label: __('Deals by Salesperson'), value: 'deals_by_salesperson' },\n]\n"
+  },
+  {
+   "key": "Delete Linked Item",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/DeleteLinkedDocModal.vue:229"
+   ],
+   "current": null,
+   "context": "      : viewControls.value.selections.length\n  confirmDeleteInfo.value = {\n    show: true,\n    title: __('Delete Linked Item'),\n    message: __('Are you sure you want to delete {0} linked item(s)?', [items]),\n    delete: true,\n  }"
+  },
+  {
+   "key": "Delete {0} Item(s)",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/DeleteLinkedDocModal.vue:70"
+   ],
+   "current": null,
+   "context": "            :label=\"\n              viewControls?.selections?.length == 0\n                ? __('Delete All')\n                : __('Delete {0} Item(s)', [viewControls?.selections?.length])\n            \"\n            theme=\"red\"\n            variant=\"solid\""
+  },
+  {
+   "key": "Document Not Found",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:457"
+   ],
+   "current": null,
+   "context": "  if (err) {\n    errorTitle.value = __(\n      err.exc_type == 'DoesNotExistError'\n        ? __('Document Not Found')\n        : __('Error Occurred'),\n    )\n    errorMessage.value = __(err.messages?.[0] || __('An Error Occurred'))"
+  },
+  {
+   "key": "Donut Chart",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:29",
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:67"
+   ],
+   "current": null,
+   "context": "          v-if=\"chartType === 'donut_chart'\"\n          v-model=\"donutChart\"\n          type=\"select\"\n          :label=\"__('Donut Chart')\"\n          :options=\"donutCharts\"\n        />\n      </div>"
+  },
+  {
+   "key": "Edit deal's mandatory fields layout",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/ConvertToDealModal.vue:14"
+   ],
+   "current": null,
+   "context": "          <Button\n            v-if=\"isManager() && !isMobileView\"\n            variant=\"ghost\"\n            :tooltip=\"__('Edit deal\\'s mandatory fields layout')\"\n            :icon=\"EditIcon\"\n            @click=\"openQuickEntryModal\"\n          />"
+  },
+  {
+   "key": "Edit Fields Layout",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/ContactModal.vue:16",
+    "frappe-bench/apps/crm/frontend/src/components/Modals/DealModal.vue:16",
+    "frappe-bench/apps/crm/frontend/src/components/Modals/LeadModal.vue:16",
+    "frappe-bench/apps/crm/frontend/src/components/Modals/OrganizationModal.vue:16",
+    "frappe-bench/apps/crm/frontend/src/components/SidePanelLayout.vue:21"
+   ],
+   "current": null,
+   "context": "              v-if=\"isManager() && !isMobileView\"\n              variant=\"ghost\"\n              class=\"w-7\"\n              :tooltip=\"__('Edit Fields Layout')\"\n              :icon=\"EditIcon\"\n              @click=\"openQuickEntryModal\"\n            />"
+  },
+  {
+   "key": "Error occurred",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:358"
+   ],
+   "current": null,
+   "context": "    errorTitle.value = __(\n      err.exc_type == 'DoesNotExistError'\n        ? __('Document not found')\n        : __('Error occurred'),\n    )\n    errorMessage.value = __(err.messages?.[0] || __('An error occurred'))\n  } else {"
+  },
+  {
+   "key": "Error Uploading File",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/FilesUploader/FilesUploader.vue:192",
+    "frappe-bench/apps/crm/frontend/src/components/FilesUploader/FilesUploader.vue:215"
+   ],
+   "current": null,
+   "context": "  })\n  uploader.value.on('error', (error) => {\n    file.uploading = false\n    file.errorMessage = error || __('Error Uploading File')\n  })\n  uploader.value.on('finish', () => {\n    file.uploading = false"
+  },
+  {
+   "key": "Excel",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/ViewControls.vue:295",
+    "frappe-bench/apps/crm/frontend/src/components/ViewControls.vue:303"
+   ],
+   "current": "Excel",
+   "context": "        type=\"select\"\n        :options=\"[\n          {\n            label: __('Excel'),\n            value: 'Excel',\n          },\n          {"
+  },
+  {
+   "key": "Export all {0} record(s)",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/ViewControls.vue:309"
+   ],
+   "current": null,
+   "context": "        <FormControl\n          v-model=\"export_all\"\n          type=\"checkbox\"\n          :label=\"__('Export all {0} record(s)', [list.data.total_count])\"\n        />\n      </div>\n    </template>"
+  },
+  {
+   "key": "Failed to load activities",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:546"
+   ],
+   "current": null,
+   "context": "  },\n  onSuccess: () => nextTick(() => scroll()),\n  onError: (error) => {\n    toast.error(error.messages?.[0] || __('Failed to load activities'))\n  },\n})\n"
+  },
+  {
+   "key": "Failed to send WhatsApp template",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:624"
+   ],
+   "current": null,
+   "context": "    },\n    auto: true,\n    onError: (error) => {\n      toast.error(error.messages?.[0] || __('Failed to send WhatsApp template'))\n    },\n    onSuccess: () => whatsappMessages.reload(),\n  })"
+  },
+  {
+   "key": "Forecasted Revenue",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:91"
+   ],
+   "current": null,
+   "context": "const axisChart = ref('sales_trend')\nconst axisCharts = [\n  { label: __('Sales Trend'), value: 'sales_trend' },\n  { label: __('Forecasted Revenue'), value: 'forecasted_revenue' },\n  { label: __('Funnel Conversion'), value: 'funnel_conversion' },\n  { label: __('Deals by Ongoing & Won Stage'), value: 'deals_by_stage_axis' },\n  { label: __('Lost Deal Reasons'), value: 'lost_deal_reasons' },"
+  },
+  {
+   "key": "Funnel Conversion",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:92"
+   ],
+   "current": null,
+   "context": "const axisCharts = [\n  { label: __('Sales Trend'), value: 'sales_trend' },\n  { label: __('Forecasted Revenue'), value: 'forecasted_revenue' },\n  { label: __('Funnel Conversion'), value: 'funnel_conversion' },\n  { label: __('Deals by Ongoing & Won Stage'), value: 'deals_by_stage_axis' },\n  { label: __('Lost Deal Reasons'), value: 'lost_deal_reasons' },\n  { label: __('Deals by Territory'), value: 'deals_by_territory' },"
+  },
+  {
+   "key": "Go to Website",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:105",
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:159"
+   ],
+   "current": null,
+   "context": "            />\n\n            <Button\n              :tooltip=\"__('Go to Website')\"\n              :icon=\"LinkIcon\"\n              @click=\"\n                doc.website"
+  },
+  {
+   "key": "Invalid Email Address",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/ContactModal.vue:110"
+   ],
+   "current": null,
+   "context": "  }\n\n  if (_contact.doc.email_id && !_contact.doc.email_id.includes('@')) {\n    return __('Invalid Email Address')\n  }\n\n  if ("
+  },
+  {
+   "key": "Invalid email address",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/DealModal.vue:205",
+    "frappe-bench/apps/crm/frontend/src/components/Modals/LeadModal.vue:148"
+   ],
+   "current": null,
+   "context": "        return error.value\n      }\n      if (deal.doc.email && !deal.doc.email.includes('@')) {\n        error.value = __('Invalid email address')\n        return error.value\n      }\n      if (!deal.doc.status) {"
+  },
+  {
+   "key": "It appears that there are currently no {0} available. You can create more {0} by using the Create button.",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/ListViews/EmptyState.vue:43"
+   ],
+   "current": null,
+   "context": "const computedDescription = computed(() => {\n  return props.description\n    ? props.description\n    : __(\n        'It appears that there are currently no {0} available. You can create more {0} by using the Create button.',\n        [__(props.name)],\n      )"
+  },
+  {
+   "key": "Leads by Source",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:102"
+   ],
+   "current": null,
+   "context": "const donutChart = ref('deals_by_stage_donut')\nconst donutCharts = [\n  { label: __('Deals by Stage'), value: 'deals_by_stage_donut' },\n  { label: __('Leads by Source'), value: 'leads_by_source' },\n  { label: __('Deals by Source'), value: 'deals_by_source' },\n]\n"
+  },
+  {
+   "key": "Lost Deal Reasons",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:94"
+   ],
+   "current": null,
+   "context": "  { label: __('Forecasted Revenue'), value: 'forecasted_revenue' },\n  { label: __('Funnel Conversion'), value: 'funnel_conversion' },\n  { label: __('Deals by Ongoing & Won Stage'), value: 'deals_by_stage_axis' },\n  { label: __('Lost Deal Reasons'), value: 'lost_deal_reasons' },\n  { label: __('Deals by Territory'), value: 'deals_by_territory' },\n  { label: __('Deals by Salesperson'), value: 'deals_by_salesperson' },\n]"
+  },
+  {
+   "key": "Lost Notes are required when Lost Reason is \"Other\"",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/LostReasonModal.vue:84"
+   ],
+   "current": null,
+   "context": "    return\n  }\n  if (lostReason.value === 'Other' && !lostNotes.value) {\n    error.value = __('Lost Notes are required when Lost Reason is \"Other\"')\n    return\n  }\n"
+  },
+  {
+   "key": "Lost Reason is required",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/LostReasonModal.vue:80"
+   ],
+   "current": null,
+   "context": "\nfunction save() {\n  if (!lostReason.value) {\n    error.value = __('Lost Reason is required')\n    return\n  }\n  if (lostReason.value === 'Other' && !lostNotes.value) {"
+  },
+  {
+   "key": "Mobile number should be a number",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/ContactModal.vue:117",
+    "frappe-bench/apps/crm/frontend/src/components/Modals/DealModal.vue:201",
+    "frappe-bench/apps/crm/frontend/src/components/Modals/LeadModal.vue:144"
+   ],
+   "current": null,
+   "context": "    _contact.doc.mobile_no &&\n    isNaN(_contact.doc.mobile_no.replace(/[-+() ]/g, ''))\n  ) {\n    return __('Mobile number should be a number')\n  }\n\n  return null"
+  },
+  {
+   "key": "No Activities Found",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:732"
+   ],
+   "current": null,
+   "context": "})\n\nconst emptyText = computed(() => {\n  let text = __('No Activities Found')\n  if (title.value == 'Emails') {\n    text = __('No Emails Found')\n  } else if (title.value == 'Comments') {"
+  },
+  {
+   "key": "No Attachments Found",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:746"
+   ],
+   "current": null,
+   "context": "  } else if (title.value == 'Tasks') {\n    text = __('No Tasks Found')\n  } else if (title.value == 'Attachments') {\n    text = __('No Attachments Found')\n  } else if (title.value == 'WhatsApp') {\n    text = __('No WhatsApp Messages Found')\n  }"
+  },
+  {
+   "key": "No Call History",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:740"
+   ],
+   "current": null,
+   "context": "  } else if (title.value == 'Data') {\n    text = __('No Data Fields Added Yet')\n  } else if (title.value == 'Calls') {\n    text = __('No Call History')\n  } else if (title.value == 'Notes') {\n    text = __('No Notes Found')\n  } else if (title.value == 'Tasks') {"
+  },
+  {
+   "key": "No Comments Found",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:736"
+   ],
+   "current": null,
+   "context": "  if (title.value == 'Emails') {\n    text = __('No Emails Found')\n  } else if (title.value == 'Comments') {\n    text = __('No Comments Found')\n  } else if (title.value == 'Data') {\n    text = __('No Data Fields Added Yet')\n  } else if (title.value == 'Calls') {"
+  },
+  {
+   "key": "No Contacts Added",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:282"
+   ],
+   "current": null,
+   "context": "                v-else\n                class=\"flex h-20 items-center justify-center text-base text-ink-gray-5\"\n              >\n                {{ __('No Contacts Added') }}\n              </div>\n            </div>\n          </template>"
+  },
+  {
+   "key": "No Data Fields Added Yet",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:738"
+   ],
+   "current": null,
+   "context": "  } else if (title.value == 'Comments') {\n    text = __('No Comments Found')\n  } else if (title.value == 'Data') {\n    text = __('No Data Fields Added Yet')\n  } else if (title.value == 'Calls') {\n    text = __('No Call History')\n  } else if (title.value == 'Notes') {"
+  },
+  {
+   "key": "No data fields have been added yet.",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:764"
+   ],
+   "current": null,
+   "context": "  } else if (title.value == 'Comments') {\n    description = __('Be the first to add one.')\n  } else if (title.value == 'Data') {\n    description = __('No data fields have been added yet.')\n  } else if (title.value == 'Calls') {\n    description = __(\n      'No recent calls to display. Log a call or call someone now!',"
+  },
+  {
+   "key": "No Details Added",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:268"
+   ],
+   "current": null,
+   "context": "                        v-if=\"!contact.email && !contact.mobile_no\"\n                        class=\"flex items-center justify-center py-4 text-sm text-ink-gray-4\"\n                      >\n                        {{ __('No Details Added') }}\n                      </div>\n                    </div>\n                  </Section>"
+  },
+  {
+   "key": "No Emails Found",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:734"
+   ],
+   "current": null,
+   "context": "const emptyText = computed(() => {\n  let text = __('No Activities Found')\n  if (title.value == 'Emails') {\n    text = __('No Emails Found')\n  } else if (title.value == 'Comments') {\n    text = __('No Comments Found')\n  } else if (title.value == 'Data') {"
+  },
+  {
+   "key": "No emails found in your inbox. New messages will appear here soon.",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:758"
+   ],
+   "current": null,
+   "context": "    'There are no activities to display here. Go ahead and make some changes.',\n  )\n  if (title.value == 'Emails') {\n    description = __(\n      'No emails found in your inbox. New messages will appear here soon.',\n    )\n  } else if (title.value == 'Comments') {"
+  },
+  {
+   "key": "No files have been attached yet. Upload files to see them here.",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:778"
+   ],
+   "current": null,
+   "context": "      'Nothing to do at the moment. Start organizing by adding one here.',\n    )\n  } else if (title.value == 'Attachments') {\n    description = __(\n      'No files have been attached yet. Upload files to see them here.',\n    )\n  } else if (title.value == 'WhatsApp') {"
+  },
+  {
+   "key": "No Mobile Number Set",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:936"
+   ],
+   "current": null,
+   "context": "  let mobile_no = primaryContact.mobile_no || null\n\n  if (!mobile_no) {\n    toast.error(__('No Mobile Number Set'))\n    return\n  }\n"
+  },
+  {
+   "key": "No Notes Found",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:742"
+   ],
+   "current": null,
+   "context": "  } else if (title.value == 'Calls') {\n    text = __('No Call History')\n  } else if (title.value == 'Notes') {\n    text = __('No Notes Found')\n  } else if (title.value == 'Tasks') {\n    text = __('No Tasks Found')\n  } else if (title.value == 'Attachments') {"
+  },
+  {
+   "key": "No Primary Contact Set",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:929"
+   ],
+   "current": null,
+   "context": "function triggerCall() {\n  let primaryContact = dealContacts.data?.find((c) => c.is_primary)\n  if (!primaryContact) {\n    toast.error(__('No Primary Contact Set'))\n    return\n  }\n"
+  },
+  {
+   "key": "No recent calls to display. Log a call or call someone now!",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:766"
+   ],
+   "current": null,
+   "context": "  } else if (title.value == 'Data') {\n    description = __('No data fields have been added yet.')\n  } else if (title.value == 'Calls') {\n    description = __(\n      'No recent calls to display. Log a call or call someone now!',\n    )\n  } else if (title.value == 'Notes') {"
+  },
+  {
+   "key": "No Tasks Found",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:744"
+   ],
+   "current": null,
+   "context": "  } else if (title.value == 'Notes') {\n    text = __('No Notes Found')\n  } else if (title.value == 'Tasks') {\n    text = __('No Tasks Found')\n  } else if (title.value == 'Attachments') {\n    text = __('No Attachments Found')\n  } else if (title.value == 'WhatsApp') {"
+  },
+  {
+   "key": "No WhatsApp Messages Found",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:748"
+   ],
+   "current": null,
+   "context": "  } else if (title.value == 'Attachments') {\n    text = __('No Attachments Found')\n  } else if (title.value == 'WhatsApp') {\n    text = __('No WhatsApp Messages Found')\n  }\n  return text\n})"
+  },
+  {
+   "key": "Nothing here for now. Add a note to keep track of things.",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:770"
+   ],
+   "current": null,
+   "context": "      'No recent calls to display. Log a call or call someone now!',\n    )\n  } else if (title.value == 'Notes') {\n    description = __(\n      'Nothing here for now. Add a note to keep track of things.',\n    )\n  } else if (title.value == 'Tasks') {"
+  },
+  {
+   "key": "Nothing to do at the moment. Start organizing by adding one here.",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:774"
+   ],
+   "current": null,
+   "context": "      'Nothing here for now. Add a note to keep track of things.',\n    )\n  } else if (title.value == 'Tasks') {\n    description = __(\n      'Nothing to do at the moment. Start organizing by adding one here.',\n    )\n  } else if (title.value == 'Attachments') {"
+  },
+  {
+   "key": "Number Chart",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:15",
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:65"
+   ],
+   "current": null,
+   "context": "          v-if=\"chartType === 'number_chart'\"\n          v-model=\"numberChart\"\n          type=\"select\"\n          :label=\"__('Number Chart')\"\n          :options=\"numberCharts\"\n        />\n        <FormControl"
+  },
+  {
+   "key": "Ongoing Deals",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:73"
+   ],
+   "current": null,
+   "context": "const numberChart = ref('')\nconst numberCharts = [\n  { label: __('Total Leads'), value: 'total_leads' },\n  { label: __('Ongoing Deals'), value: 'ongoing_deals' },\n  { label: __('Avg Ongoing Deal Value'), value: 'average_ongoing_deal_value' },\n  { label: __('Won Deals'), value: 'won_deals' },\n  { label: __('Avg Won Deal Value'), value: 'average_won_deal_value' },"
+  },
+  {
+   "key": "Please provide a reason for marking this {0} as lost",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Modals/LostReasonModal.vue:6"
+   ],
+   "current": null,
+   "context": "    <template #default>\n      <div class=\"-mt-3 mb-4 text-p-base text-ink-gray-7\">\n        {{\n          __('Please provide a reason for marking this {0} as lost', [\n            doctype.toLowerCase().replace('crm ', ''),\n          ])\n        }}"
+  },
+  {
+   "key": "Please set a mobile number to make calls",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:142"
+   ],
+   "current": null,
+   "context": "                      doc.mobile_no\n                        ? makeCall(doc.mobile_no)\n                        : toast.error(\n                            __('Please set a mobile number to make calls'),\n                          )\n                  \"\n                />"
+  },
+  {
+   "key": "Please set a website to visit",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:110",
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:164"
+   ],
+   "current": null,
+   "context": "              @click=\"\n                doc.website\n                  ? openWebsite(doc.website)\n                  : toast.error(__('Please set a website to visit'))\n              \"\n            />\n"
+  },
+  {
+   "key": "Please set an email address to send emails",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:99",
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:154"
+   ],
+   "current": null,
+   "context": "                doc.email\n                  ? openEmailBox()\n                  : toast.error(\n                      __('Please set an email address to send emails'),\n                    )\n              \"\n            />"
+  },
+  {
+   "key": "Primary Contact Set",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:906"
+   ],
+   "current": null,
+   "context": "  })\n  if (d) {\n    dealContacts.reload()\n    toast.success(__('Primary Contact Set'))\n  }\n}\n"
+  },
+  {
+   "key": "Quick filters updated successfully",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/ViewControls.vue:820"
+   ],
+   "current": null,
+   "context": "\n    quickFilters.update({ params: { doctype: props.doctype, cached: false } })\n    quickFilters.reload()\n    toast.success(__('Quick filters updated successfully'))\n  },\n})\n"
+  },
+  {
+   "key": "Reload Columns",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Kanban/KanbanView.vue:169"
+   ],
+   "current": null,
+   "context": "        <template #footer>\n          <Button\n            class=\"w-full\"\n            :label=\"__('Reload Columns')\"\n            :iconLeft=\"RefreshIcon\"\n            @click=\"updateColumn(null, true)\"\n          />"
+  },
+  {
+   "key": "Remove All",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/FilesUploader/FilesUploader.vue:17"
+   ],
+   "current": null,
+   "context": "          <Button\n            v-if=\"files.length\"\n            variant=\"subtle\"\n            :label=\"__('Remove All')\"\n            :disabled=\"fileUploadStarted\"\n            @click=\"removeAllFiles\"\n          />"
+  },
+  {
+   "key": "Remove Image",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:106"
+   ],
+   "current": null,
+   "context": "                          },\n                          {\n                            icon: 'trash-2',\n                            label: __('Remove Image'),\n                            onClick: () => updateField('image', ''),\n                          },\n                        ],"
+  },
+  {
+   "key": "Sales Trend",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:90"
+   ],
+   "current": null,
+   "context": "\nconst axisChart = ref('sales_trend')\nconst axisCharts = [\n  { label: __('Sales Trend'), value: 'sales_trend' },\n  { label: __('Forecasted Revenue'), value: 'forecasted_revenue' },\n  { label: __('Funnel Conversion'), value: 'funnel_conversion' },\n  { label: __('Deals by Ongoing & Won Stage'), value: 'deals_by_stage_axis' },"
+  },
+  {
+   "key": "Send an Email",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:93",
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:148"
+   ],
+   "current": null,
+   "context": "            />\n\n            <Button\n              :tooltip=\"__('Send an Email')\"\n              :icon=\"Email2Icon\"\n              @click=\"\n                doc.email"
+  },
+  {
+   "key": "Set an Organization",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:79"
+   ],
+   "current": null,
+   "context": "          </div>\n        </Tooltip>\n        <div class=\"flex flex-col gap-2.5 truncate text-ink-gray-9\">\n          <Tooltip :text=\"organization?.name || __('Set an Organization')\">\n            <div class=\"truncate text-3xl-medium\">\n              {{ title }}\n            </div>"
+  },
+  {
+   "key": "Set As Default",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/ViewControls.vue:1344"
+   ],
+   "current": null,
+   "context": "\n  if (isStandard && !isDefaultView(_view)) {\n    actions[0].items.unshift({\n      label: __('Set As Default'),\n      icon: () => h(CheckIcon, { class: 'h-4 w-4' }),\n      onClick: () => setAsDefault(_view),\n    })"
+  },
+  {
+   "key": "Set First Name",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:127"
+   ],
+   "current": null,
+   "context": "              </component>\n            </div>\n            <div class=\"flex flex-col gap-2.5 truncate\">\n              <Tooltip :text=\"doc.lead_name || __('Set First Name')\">\n                <div class=\"truncate text-3xl-medium text-ink-gray-9\">\n                  {{ title }}\n                </div>"
+  },
+  {
+   "key": "Set status: {0}",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:674",
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:492"
+   ],
+   "current": null,
+   "context": "function flatDealStatusCommands() {\n  return statuses.value.map((option) => ({\n    id: `deal-status-flat-${option.label}`,\n    title: __('Set status: {0}', [option.label]),\n    translate: false,\n    group: 'Deal',\n    icon: option.icon,"
+  },
+  {
+   "key": "Since you added a new assignee, the {0} has been set to {1}.",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/AssignTo.vue:92"
+   ],
+   "current": null,
+   "context": "  } else if (!document.doc[ownerField.value] && nextAssignee) {\n    document.doc[ownerField.value] = nextAssignee ? nextAssignee.name : ''\n    toast.info(\n      __('Since you added a new assignee, the {0} has been set to {1}.', [\n        owner,\n        nextAssignee.label || nextAssignee.name,\n      ]),"
+  },
+  {
+   "key": "Start a conversation now!",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:782"
+   ],
+   "current": null,
+   "context": "      'No files have been attached yet. Upload files to see them here.',\n    )\n  } else if (title.value == 'WhatsApp') {\n    description = __('Start a conversation now!')\n  }\n  return description\n})"
+  },
+  {
+   "key": "There are no activities to display here. Go ahead and make some changes.",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:754"
+   ],
+   "current": null,
+   "context": "})\n\nconst emptyTextDescription = computed(() => {\n  let description = __(\n    'There are no activities to display here. Go ahead and make some changes.',\n  )\n  if (title.value == 'Emails') {"
+  },
+  {
+   "key": "Total Leads",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:72"
+   ],
+   "current": null,
+   "context": "\nconst numberChart = ref('')\nconst numberCharts = [\n  { label: __('Total Leads'), value: 'total_leads' },\n  { label: __('Ongoing Deals'), value: 'ongoing_deals' },\n  { label: __('Avg Ongoing Deal Value'), value: 'average_ongoing_deal_value' },\n  { label: __('Won Deals'), value: 'won_deals' },"
+  },
+  {
+   "key": "Unable to update assignment",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/CommandPalette/recordCommands.js:73"
+   ],
+   "current": null,
+   "context": "    await (assigned ? removeAssignee : addAssignee)(context, user)\n    context.assignees.reload()\n  } catch (error) {\n    toast.error(error?.messages?.[0] || __('Unable to update assignment'))\n  }\n}\n"
+  },
+  {
+   "key": "Unlink All",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/DeleteLinkedDocModal.vue:81"
+   ],
+   "current": null,
+   "context": "            v-if=\"linkedDocs?.length > 0\"\n            :label=\"\n              viewControls?.selections?.length == 0\n                ? __('Unlink All')\n                : __('Unlink {0} Item(s)', [viewControls?.selections?.length])\n            \"\n            variant=\"subtle\""
+  },
+  {
+   "key": "Unlink Linked Item",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/DeleteLinkedDocModal.vue:242"
+   ],
+   "current": null,
+   "context": "      : viewControls.value.selections.length\n  confirmDeleteInfo.value = {\n    show: true,\n    title: __('Unlink Linked Item'),\n    message: __('Are you sure you want to unlink {0} linked item(s)?', [items]),\n    delete: false,\n  }"
+  },
+  {
+   "key": "Unlink {0} Item(s)",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/DeleteLinkedDocModal.vue:82"
+   ],
+   "current": null,
+   "context": "            :label=\"\n              viewControls?.selections?.length == 0\n                ? __('Unlink All')\n                : __('Unlink {0} Item(s)', [viewControls?.selections?.length])\n            \"\n            variant=\"subtle\"\n            theme=\"gray\""
+  },
+  {
+   "key": "View Contact",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:230"
+   ],
+   "current": null,
+   "context": "                          </Dropdown>\n                          <Button\n                            variant=\"ghost\"\n                            :tooltip=\"__('View Contact')\"\n                            :icon=\"ArrowUpRightIcon\"\n                            @click=\"\n                              router.push({"
+  },
+  {
+   "key": "WhatsApp",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/pages/Deal.vue:789",
+    "frappe-bench/apps/crm/frontend/src/pages/Lead.vue:604"
+   ],
+   "current": "WhatsApp",
+   "context": "    },\n    {\n      name: 'WhatsApp',\n      label: __('WhatsApp'),\n      icon: WhatsAppIcon,\n      condition: () => whatsappEnabled.value,\n    },"
+  },
+  {
+   "key": "Won Deals",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/Dashboard/AddChartModal.vue:75"
+   ],
+   "current": null,
+   "context": "  { label: __('Total Leads'), value: 'total_leads' },\n  { label: __('Ongoing Deals'), value: 'ongoing_deals' },\n  { label: __('Avg Ongoing Deal Value'), value: 'average_ongoing_deal_value' },\n  { label: __('Won Deals'), value: 'won_deals' },\n  { label: __('Avg Won Deal Value'), value: 'average_won_deal_value' },\n  { label: __('Avg Deal Value'), value: 'average_deal_value' },\n  {"
+  },
+  {
+   "key": "{0} deleted successfully",
+   "refs": [
+    "frappe-bench/apps/crm/frontend/src/components/DeleteLinkedDocModal.vue:275"
+   ],
+   "current": null,
+   "context": "  const label = props.title\n    ? `${props.docname} (${props.title})`\n    : props.docname\n  toast.success(__('{0} deleted successfully', [label]))\n  show.value = false\n  router.push({ name: props.name })\n  props?.reload?.()"
+  }
+ ]
+}

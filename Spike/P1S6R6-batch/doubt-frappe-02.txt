@@ -1,0 +1,9 @@
+Verdana	字体名原样，与源词相同，基线可能仍计为缺口，建议进 UNTRANSLATED
+visible_types entries must be strings or {type: [fields]} maps	源词含代码参数名 visible_types，因混排守卫改写为「可见类型参数」；{type: [fields]} 被占位符正则当作占位原样保留
+visible_types fields for {0} must be a list	同上
+visible_types is not valid JSON: {0}	同上
+visible_types must be a list	同上
+Websocket	协议名原样，同上
+Yandex.Mail	服务名原样，同上
+{0} ${type}	JS 模板串在运行时才展开（实际查的是“{0} List”等），此键查不到，原样保留
+{0} is a Virtual DocType and must implement its own delete() method.	源词含方法名 delete()，因混排守卫改写为「删除方法」

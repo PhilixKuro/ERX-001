@@ -1,0 +1,10 @@
+Lost Notes are required when Lost Reason is "Other"	“Other”是 CRM Lost Reason 的记录名，下拉里若显示英文原样 Other，则提示中的“其它”与界面不一致；另 Lost Reason 沿用官方“未成交原因”、Lost Notes 沿用官方“输单备注”，两者用词不统一
+Please provide a reason for marking this {0} as lost	{0} 传入的是 doctype.toLowerCase().replace('crm ','')，即英文 deal/lead，运行时会中英夹杂，需改源码或在 {0} 处先翻译
+Cannot convert a lost lead to deal	Lost 对线索用官方“未成交”，而 Lost Deal Reasons 官方为“输单原因分析”，未成交/输单两套用词并存
+Axis Chart	新词：坐标轴图表（官方无现译）
+Donut Chart	新词：环形图；官方 Donut 现译“双层圆环图”不贴切，未沿用
+Number Chart	新词：数字图表；官方 Number Card 为“数字卡”，此处是 CRM 仪表板的图表类型，未改用“数字卡”
+Avg Deal Value	新词：平均商机价值，按官方“赢单商机的平均价值”取“价值”而非“金额”
+Since you added a new assignee, the {0} has been set to {1}.	{0} 是 owner 字段标签变量，来源若为英文则运行时夹杂英文
+Be the first to add one.	仅用于评论页签，补出“评论”二字以通顺
+Nothing to do at the moment. Start organizing by adding one here.	仅用于任务页签，“one”补译为“一个任务”

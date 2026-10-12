@@ -1,0 +1,16 @@
+Query Lineage	新词：Lineage 译「血缘」（数据血缘，查询间依赖图）；View Lineage 同
+Pivot	新词：Pivot 译「透视」，Unpivot 译「逆透视」，Transpose 译「转置」
+Transforms	Transform／Transforms 都译「变换」，单复数不分
+Public Key	仪表板／图表公开分享用的访问键，非加密公钥，译「公开访问密钥」
+Schema	新词：PostgreSQL 的 schema 译「模式」（数据库通行译法）
+Resolve Locations	地图图表把数据里的地名匹配到地图区域，译「匹配地理位置」
+Referencing Queries	数据表统计弹窗里的小标题，译「引用此数据表的查询」
+Select Source	与 Select a data source 区分：此处可选数据表或查询，译「选择数据来源」
+sort_order	源词是字段名直出的标签，译「排序序号」
+Parquet File	混排守卫会报：Parquet 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Schedule (Cron)	混排守卫会报：Cron 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Telegram API Token	混排守卫会报：Telegram 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Telegram Chat ID	混排守卫会报：Telegram 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Temporal column used to detect rows that changed since the last sync. Use <b>modified</b> for mutable tables and <b>creation</b> for append-only tables.	混排守卫会报：字段名 modified／creation 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+Write Python code to fetch and transform data. Available globals:<br>• client: API client for the selected data source<br>• table: Write data to warehouse. Methods: insert(data, overwrite=False)<br>• state: Persist data between runs. Methods: get(key, default=None), set(key, value), delete(key), clear()<br>• secrets: Access secret keys. Methods: get(key)<br>• log(message): Log execution messages	混排守卫会报：Python 及示例代码里的对象名、方法签名 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS
+You can use markdown to format the message. Use double asterisks (**) for bold text. You can use the following fields in the message:	混排守卫会报：Markdown 不在 ALLOW 白名单，属产品名／代码标识符，无法译，需主 Session 补进 ALLOW 或 QUALITY_EXCEPTIONS

@@ -1,0 +1,20 @@
+SoundCloud	原样显示，建议进白名单：链接预览服务商下拉选项，整条源词就是品牌名，未写进 csv
+Spotify	原样显示，建议进白名单：链接预览服务商下拉选项，整条源词就是品牌名，未写进 csv
+Scheduled messages run as server scripts. Ask your site administrator to set server_script_enabled in the site config and restart the site.	含原样代码／示例，需登记例外：译文保留站点配置键名 server_script_enabled
+Top P	含原样代码／示例，需登记例外：Top P 是模型参数名（字段 top_p），译文写「Top P（核采样）」保留参数名；nucleus sampling→核采样沿用前块
+SoundCloud player	品牌名 SoundCloud 不在混排白名单（ALLOW），译文「SoundCloud 播放器」会报中英夹杂；建议把 SoundCloud 加进 ALLOW 或登记例外
+Spotify player	同上，Spotify 不在 ALLOW；建议加进 ALLOW 或登记例外
+Tenor API Key	Tenor 是 GIF 服务品牌名，不在 ALLOW；译文「Tenor API 密钥」，建议加进 ALLOW 或登记例外
+Sent on the {0} of every month at {1}.	{0} 是源码 ordinal() 生成的英文序数（1st、2nd…），运行时会出现「每月 1st 日」中英夹杂，需改源码只传数字
+Sent every {0} at {1}.	{0} 是星期全称拼接（经 _() 翻译后用「和」连接），读作「每星期一、星期三和星期五 9:00 发送」
+Server Script is required	Server Script 官方现译「Python脚本」，本块统一写「Python 脚本」（含相关 6 条）；若主会话改定「服务器脚本」需同步替换
+This one leads to a better Raven - help us climb by reporting the error on	与「Chaos is a ladder.」呼应的阶梯比喻；后接链接文字 GitHub 与英文句点，读作「……请将此错误报告到 GitHub.」
+Seek	音频播放器进度条的无障碍标签，取「播放进度」
+Spoiler	新词：Spoiler→隐藏内容（用 ||…|| 包住、点击才显示的文字格式）
+Star	新词：频道标星按钮，与侧边栏分组 Favorites=收藏 一致，取「收藏」
+Stack	图片组排列方式选项（与 Grid 相对），取「堆叠」
+Stale After	新词：链接预览缓存的失效时间字段，取「过期时间」
+Strict	新词：AI 函数的 strict 开关（OpenAI 严格结构化参数），取「严格模式」
+Self Message	新词：网络钩子频道类型选项（发给自己的会话），取「发给自己的消息」
+Payload	新词：网络钩子 payload→载荷（官方现有「有效载荷计数」）
+Scheduled for {0}	{0} 是时间预设标签（如「明天 9:00」），译「已定时：{0}」

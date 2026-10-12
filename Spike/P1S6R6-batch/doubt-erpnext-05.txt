@@ -1,0 +1,19 @@
+Tax Expense	新词：标准科目表费用科目名，按小企业会计准则译「所得税费用」
+The Excluded Fee is bigger than the Deposit it is deducted from.	新词：Excluded Fee 译「扣除的手续费」
+The system found a mirror transaction ({0}) in another account with the same amount and date.	新词：mirror transaction 译「对应流水」（另一银行账户中金额、日期相同的转账对方流水）
+The uploaded file could not be parsed as a genericode XML document.	含原样代码／示例，需登记例外：genericode 是 OASIS 代码表标准格式名（小写），照原样保留
+This module is scheduled for deprecation and will be completely removed in version 17, please use <a href="https://frappe.io/helpdesk">Frappe Helpdesk</a> instead.	含原样代码／示例，需登记例外：Frappe Helpdesk 是产品名，Helpdesk 不在混排白名单
+To select more than one transaction at a time, press and hold the shift key.	含原样代码／示例，需登记例外：Shift 是键盘按键名，照原样保留
+Total Ledgers	新词：Total Ledgers（字段 total_vouchers，重过账物料成本价单）按含义译「凭证总数」
+Transaction type column has "Deposit"/"Withdrawal" values	含原样代码／示例，需登记例外：Deposit/Withdrawal 是对账单文件里交易类型列的原样取值，照原样保留
+Transferred from	新词：转账弹窗中资金来源账户，Transferred from 译「转出账户」
+Transferred to	新词：同上，Transferred to 译「转入账户」
+Type of check	新词：Type of check 是摘要规则的比较方式（包含等），译「匹配方式」
+Verification Token	新词：Verification Token 译「验证令牌」
+View Work Order Summary Report	View Work Order Summary Report 与 View Work Order Summary 都对应官方「工单进度追踪表」，带 Report 的译「查看工单进度追踪表报表」略重复，可与 197 统一
+Voucher Created	新词：对账类型选项，Voucher Created 译「已新建凭证」，与「已匹配」配对
+You can also add credit or debit values to pre-fill - these support both static values (like 200) or formulas (like transaction_amount * 0.25).	含原样代码／示例，需登记例外：transaction_amount 是规则公式里的变量名示例
+Zero-Quantity Line Items	新词：Zero-Quantity Line Items 译「零数量明细行」
+{0} Budget for Account {1} against {2} {3} is {4}. It is already exceeded by {5}.	{0} 由代码填入 _("Annual") 或 _("Accumulated Monthly")，中文成「年度预算」「累计月度预算」
+{0} should be in format: app.module.method	含原样代码／示例，需登记例外：app.module.method 是 API 路径格式示例
+{0} {1} not allowed to be reposted. You can enable it by adding it '{2}' table in {3}.	{1} 由代码填入英文 is/are，中文里会显示成「… is 不允许重过账」，占位符须保留；建议主会话考虑上游改法

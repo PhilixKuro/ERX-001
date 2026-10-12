@@ -1,0 +1,20 @@
+Naming series '{0}' for DocType '{1}' does not contain standard '.' or '{{' separator. Using fallback extraction.	占位符正则把「{{' separator. Using fallback extraction.」整段识别为一个占位符，为让占位符一致只能原样保留这段英文；建议主 Session 定夺是否改正则或加例外
+Incoming Bills	新词：发票工作区数字卡片，数据源为已提交的采购发票，译「收到的发票」
+Outgoing Bills	新词：同上，数据源为已提交的销售发票，译「开出的发票」
+Incoming Payment	数字卡片，数据源为收款类收付款凭证，译「收款」
+Outgoing Payment	数字卡片，数据源为付款类收付款凭证，译「付款」
+Incorrectly Cleared	新词：银行对账页签，清账日期早于记账日期的凭证，译「清账有误」
+Line Reference	新词：财务报表行 reference_code，译「行代码」，与 02 块「行代码重复」一致
+Long-term Provisions	新词：标准科目表科目名，译「长期准备金」
+Non-Current Liabilities	标准科目表的分组科目名，与法定列头「非流动负债：」不同名（无冒号），译「非流动负债」
+Prepaid Expenses	标准科目表科目名，译「待摊费用」，与法定列头「长期待摊费用」不同名
+Normal Balances	新词：期末结账凭证处理页签，译「常规余额」，含义拿不准
+Manufactured Items Value	工作区数字卡片，译「完工物料价值」
+Maximum Producible Items	BOM 库存分析报表合计行，译「最多可生产数量」
+Paid From	新词：银行对账内部转账，Paid From 指资金转出的银行/现金账户，译「付款账户」（官方 Account Paid From 为「贷方科目」）
+Paid To	新词：同上，Paid To 译「收款账户」
+Paid to	付款弹窗标题「付款对象」，与「收款自」配对
+Party ID	期初发票工具中的往来单位动态链接，译「往来单位编号」
+PDF statement support requires the 'pdfplumber' library to be installed.	pdfplumber 为库名不在白名单，意译「PDF 解析库」
+Invalid parameter. 'dn' should be of type str	dn 为参数名不在白名单，意译「单据名称参数」
+Invalid CSV format. Expected column: doctype_name	doctype_name 为列名不在白名单，意译「单据类型名称列」，用户看不到确切列名

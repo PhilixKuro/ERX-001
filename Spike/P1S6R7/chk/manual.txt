@@ -1,0 +1,242 @@
+## POS设置 | S3 无
+    'POS Profile' -> sales_invoice.json:pos_profile, selling.json
+    'POS Settings' -> erpnext_settings.json, selling.json
+## 临时冻结原因 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Reason For Putting On Hold' -> purchase_invoice.js:283, purchase_invoice.json:hold_comment
+    'Reason for Hold' -> purchase_order.js:696, sales_order.js:1804
+## 会计账簿 | S3 无
+    'Accounting Ledger' -> supplier.js:123, customer.js:173
+    'Ledger' -> payment_entry.js:426
+## 低税率扣除证明 | S3 无
+    'Deduction Certificate' -> taxes.json
+    'Lower Deduction Certificate' -> tax_withholding_entry.json:lower_deduction_certificate, tax_withholding_entry.json:under_withheld_reason
+## 使用公司默认小数精度尾差成本中心 | S3 §2.3.4 不改 syn=True :: 同一概念两种英文，均保留
+    'Use Company Default Round Off Cost Center' -> purchase_invoice.json:use_company_roundoff_cost_center
+    'Use Company default Cost Center for Round off' -> sales_invoice.json:use_company_roundoff_cost_center
+## 假期列表 | S3 无
+    'Holiday List' -> workstation.json:holiday_list, employee.json:holiday_list
+    'Leaves' -> leaves.json
+## 关闭 | S3 无
+    'Close' -> purchase_order.js:350, purchase_order_list.js:54, production_plan.js:132, work_order.js:765, sales_order.js:1001
+    'to close' -> CommandMenu.tsx:307
+## 单价（本币） | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Basic Rate (Company Currency)' -> bom_item.json:base_rate, sales_order_item.json:base_rate
+    'Rate (Company Currency)' -> purchase_invoice_item.json:base_rate, sales_invoice_item.json:base_rate, purchase_order_item.json:base_rate, quotation_item.json:base_rate, delivery_note_item.json:base_rate
+## 单据编号 | S3 无
+    'Against Docname' -> quotation_item.json:prevdoc_docname
+    'Document Naming' -> accounts_settings.json:document_naming_tab, stock_settings.json:document_naming_tab
+## 原材料耗用 | S3 无
+    'Consume Components' -> bom.json:consume_components_section
+    'Raw Materials Consumption' -> manufacturing_settings.json:raw_materials_consumption_section
+## 发件人 | S3 无
+    'From' -> sales_invoice.js:308, uom_conversion_factor.json:from_uom
+    'Sender' -> purchase_invoice.json:sender
+## 发生错误 | S3 无
+    'An Error Occurred' -> Deal.vue:460
+    'An error occurred' -> Lead.vue:360
+    'Error Occurred' -> Deal.vue:458
+    'Error occurred' -> Lead.vue:358
+## 发票地址 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Billing Address' -> accounts_settings.json:determine_address_tax_category_from, purchase_invoice.json:billing_address_display, sales_invoice.json:address_and_contact, quotation.json:billing_address_section, sales_order.json:billing_address_column
+    'Select Billing Address' -> purchase_invoice.json:billing_address
+## 商机 | S3 无
+    'Deals' -> Deal.vue:527, business_flow.json
+    'Opportunity' -> customer.json:opportunity_name, quotation.js:154, quotation.json:opportunity, crm.json
+## 固定视图 | S3 无
+    'Pin View' -> ViewControls.vue:1359
+    'Pinned Views' -> ViewControls.vue:765
+## 外包收货订单 | S3 无
+    'Inward Order' -> subcontracting.json
+    'Subcontracting Inward Order' -> work_order.json:subcontracting_inward_order, sales_order.js:1011, stock_entry.json:subcontracting_inward_order, subcontracting.json
+## 委外 | S3 §2.3.4 改 syn=False :: 只把勾选框让开
+    'Subcontract' -> production_plan_sub_assembly_item.json:type_of_manufacturing
+    'Subcontracting' -> subcontracting.json, material_request_plan_item.json:material_request_type, production_plan_sub_assembly_item.json:subcontracting_section
+## 委外订单 | S3 无
+    'Outward Order' -> subcontracting.json
+    'Subcontracting Order' -> purchase_order.js:404, stock_entry.json:subcontracting_order, subcontracting.json
+## 对方科目 | S3 无
+    'Against' -> gl_entry.json:against
+    'Against Account' -> cash_flow_item.json:against
+## 工单拆解 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Disassemble' -> work_order.js:1076, work_order.js:1087, stock_entry.js:406, stock_entry.js:449, stock_entry.json:purpose
+    'Disassemble Order' -> work_order.js:229
+## 工单耗用 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Material Consumption' -> work_order.js:884
+    'Material Consumption for Manufacture' -> stock_entry.json:purpose, stock_entry_type.json:purpose
+## 已取消 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Cancelled' -> payment_entry.json:status, purchase_invoice.json:status, sales_invoice.json:status, tax_withholding_entry.json:status, purchase_order.json:status
+    'Is Cancelled' -> gl_entry.json:is_cancelled, stock_ledger_entry.json:is_cancelled
+## 已开票% | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    '% Amount Billed' -> sales_order.json:per_billed, delivery_note.json:per_billed, purchase_receipt.json:per_billed
+    '% Billed' -> purchase_order.json:per_billed
+## 已预留库存 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Reserved Stock' -> work_order.js:961, sales_order.js:135, sales_order.js:465, bin.json:reserved_stock
+    'Stock Reserved' -> work_order.json:status
+## 序列号/批号 | S3 无
+    'Serial / Batch' -> job_card.json:section_break_jcmx
+    'Serial No / Batch' -> stock_entry_detail.json:serial_no_batch
+    'Serial Nos / Batches' -> item.json:serial_nos_and_batches
+## 应付账款 | S3 §2.3.3 改 syn=False :: 不能用「应付科目」——已被 Payable Account 占
+    'Accounts Payable' -> supplier.js:135, financial_reports.json, invoicing.json, payments.json, business_flow.json
+    'Payables' -> invoicing.json
+## 应收账款 | S3 §2.3.3 改 syn=False :: Receivable 是 Account.account_type 选项（科目类别）；Receivables 只在报表/工作区
+    'Accounts Receivable' -> customer.js:162, financial_reports.json, invoicing.json, payments.json, business_flow.json
+    'Debtors' -> 需求 §4.2.4
+    'Receivables' -> invoicing.json
+## 应用 | S3 无
+    'App' -> desktop_icon.json
+    'Apply' -> KanbanView.vue:46
+## 开始时间 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'From Time' -> sales_invoice_timesheet.json:from_time, job_card_scheduled_time.json:from_time, job_card_time_log.json:from_time
+    'Start Time' -> workstation.js:322, workstation_working_hour.json:start_time
+## 成品 | S3 §2.3.1 改 syn=False :: Production Item 是 BOM/Work Order 页签标题
+    'Final Product' -> job_card.json:production_item
+    'Finished Goods' -> sales_order.js:1438
+    'Item To Manufacture' -> work_order.json:production_item
+## 成本分摊比例（%） | S3 无
+    '% Cost Allocation' -> bom.json:cost_allocation_per
+    'Cost Allocation %' -> bom_secondary_item.json:cost_allocation_per
+## 截止日期 | S3 无
+    'Due Date' -> gl_entry.json:due_date, payment_entry.js:900, payment_entry_reference.json:due_date, payment_schedule.json:due_date, purchase_invoice.json:due_date
+    'To Date' -> payment_entry.js:899, payment_entry.js:903, purchase_invoice.json:to_date, sales_invoice.json:to_date, purchase_order.json:to_date
+## 所需物料 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Items Required' -> sales_order.js:1720
+    'Required Items' -> work_order.json:section_break_ndpq
+## 打印设置 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Print Settings' -> accounts_settings.json:print_settings, purchase_invoice.json:printing_settings, sales_invoice.json:edit_printing_settings, quotation.json:print_settings, sales_order.json:printing_details
+    'Printing Settings' -> purchase_order.json:column_break5, purchase_receipt.json:printing_settings, stock_entry.json:printing_settings
+## 扣款 | S3 无
+    'Debit Note' -> purchase_receipt.js:45, invoicing.json
+    'Payment Entry Deduction' -> payment_entry_deduction.json
+## 拆解数量 | S3 无
+    'Disassembled Qty' -> work_order.json:disassembled_qty
+    'Qty to Disassemble' -> stock_entry.js:415
+## 搜索 | S3 无
+    'Search' -> CommandMenu.tsx:178, CommandMenu.tsx:252
+    'to search' -> CommandMenu.tsx:313
+## 数量(库存单位) | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Qty as per Stock UOM' -> sales_invoice_item.json:stock_qty, quotation_item.json:stock_qty, sales_order_item.json:stock_qty, stock_entry_detail.json:transfer_qty
+    'Qty in Stock UOM' -> purchase_order_item.json:stock_qty, delivery_note_item.json:stock_qty
+## 替代物料 | S3 无
+    'Alternate Item' -> bom.js:291, work_order.js:162, work_order.js:177, stock_entry.js:358
+    'Item Alternative' -> stock.json
+## 核销明细 | S3 无
+    'Payment Entry Reference' -> payment_entry_reference.json, 需求 §4.2.4
+    'Payment References' -> payment_entry.json:references, 需求 §4.2.4
+## 框架订单 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Against Blanket Order' -> purchase_order_item.json:against_blanket_order, quotation_item.json:against_blanket_order, sales_order_item.json:against_blanket_order
+    'Blanket Order' -> purchase_order_item.json:blanket_order, quotation_item.json:blanket_order, sales_order_item.json:blanket_order, selling.json
+## 物料凭证 | S3 无
+    'Stock Ledger' -> item.js:164, stock.json, business_flow.json
+    'Stock Ledger Entry' -> stock_ledger_entry.json
+## 物料清单 | S3 §2.3.3 不改 syn=True :: 同义全部保留；` BOM` 前导空格报上游
+    'BOM' -> purchase_invoice_item.json:bom, purchase_order_item.json:bom, bom.json, bom.json:backflush_based_on, manufacturing_settings.json:backflush_raw_materials_based_on
+    'Bill of Materials' -> stock_entry.js:786, subcontracting.json
+## 物料移动明细 | S3 无
+    'Stock Entry Child' -> stock_entry_detail.json:ste_detail
+    'Stock Entry Detail' -> stock_entry_detail.json
+## 生成 | S3 无
+    'Generate' -> month_end_closing_voucher_list.js:41
+    'Make' -> job_card.js:490, work_order.js:859, work_order.js:893
+## 由供应商交货（直运） | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Delivered by Supplier (Drop Ship)' -> item.json:delivered_by_supplier
+    'Drop Ship' -> sales_invoice_item.json:drop_ship, purchase_order.json:drop_ship, sales_order_item.json:drop_ship_section
+## 禁用 | S3 无
+    'Disable' -> account.json:disabled
+    'Disabled' -> cost_center.json:disabled, fiscal_year.json:disabled, supplier.json:disabled, supplier_list.js:5, routing.json:disabled
+## 积分 | S3 无
+    'Loyalty Point Entry' -> selling.json
+    'Loyalty Points' -> sales_invoice.json:loyalty_points, customer.json:loyalty_points_tab, sales_order.json:loyalty_points, sales_order.json:loyalty_points_redemption
+## 税后付款金额(本币) | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Paid Amount After Tax' -> payment_entry.json:paid_amount_after_tax
+    'Paid Amount After Tax (Company Currency)' -> payment_entry.json:base_paid_amount_after_tax
+## 结束时间 | S3 §2.3.3 不改 syn=True :: To Time/End Time 同义保留；其余三个不在演示线表单面，不定
+    'End Time' -> job_card.js:383, workstation_working_hour.json:end_time
+    'To Time' -> sales_invoice_timesheet.json:to_time, job_card_scheduled_time.json:to_time, job_card_time_log.json:to_time
+## 编辑 | S3 无
+    'Edit' -> ViewControls.vue:1352, Dashboard.vue:16
+    'Editor' -> InstructionField.tsx:72
+## 联系人 | S3 §2.3.1 改 syn=False :: Contact 是 contact_display；Contacts 不在表单渲染面，保留
+    'Contact' -> ConvertToDealModal.vue:51, crm.json, selling.json
+    'Contact Person' -> purchase_invoice.json:contact_person, sales_invoice.json:contact_person, quotation.json:contact_person, sales_order.json:contact_person, delivery_note.json:contact_person
+    'Contacts' -> buying.json
+## 自动核销收付款 | S3 无
+    'Auto reconcile Payments' -> accounts_settings.json:auto_reconcile_payments
+    'Process Payment Reconciliation' -> banking.json, invoicing.json, payments.json
+## 请先选择仓库 | S3 无
+    'Please select the Warehouse first' -> item.js:369
+    'Select the Warehouse' -> production_plan.js:440, production_plan.js:453
+## 质检单 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Quality Inspection' -> purchase_invoice_item.json:quality_inspection, sales_invoice_item.json:quality_inspection, bom.js:277, bom.json:quality_inspection_section_break, job_card.json:quality_inspection
+    'Quality Inspection(s)' -> stock_entry.js:219
+## 费用 | S3 无
+    'Expense' -> account.json:root_type
+    'Expenses' -> expenses.json
+## 费用科目 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Expense Account' -> account.json:account_type, sales_invoice_item.json:expense_account, purchase_order_item.json:expense_account, delivery_note_item.json:expense_account, landed_cost_taxes_and_charges.json:expense_account
+    'Expense Head' -> purchase_invoice_item.json:expense_account
+## 车间仓 | S3 §2.3.2 不改 syn=True :: 同义不改。原文另注「官方另有 WIP WH → 在制品仓库，三条同义却两个译名，宜统一到「车间仓」」——非本组成员，未列入 changes
+    'WIP Warehouse' -> bom_operation.json:wip_warehouse, job_card.json:wip_warehouse
+    'Work-in-Progress Warehouse' -> work_order.json:wip_warehouse
+## 辅助核算 | S3 无
+    'Accounting Dimension' -> accounts_setup.json, budget.json
+    'Accounting Dimensions' -> advance_taxes_and_charges.json:accounting_dimensions_section, payment_entry.json:accounting_dimensions_section, purchase_invoice_item.json:accounting_dimensions_section, purchase_taxes_and_charges.json:accounting_dimensions_section, sales_invoice.json:accounting_dimensions_section
+    'Analytical Accounting' -> accounts_settings.json:analytics_section
+## 这是不能被编辑的树形结构的根结点。 | S3 §2.3.4 不改 syn=True :: 原文源词列「`This is a root account…` 等 6 条（account／department／item group／sales person／supplier group／territory）」，草案未给全 6 条源串，
+    'This is a root account and cannot be edited.' -> account.js:45
+    'This is a root item group and cannot be edited.' -> item_group.js:98
+## 退货数量 | S3 无
+    'Return Qty' -> purchase_receipt.js:329
+    'Returned Qty ' -> work_order_item.json:returned_qty
+## 部分开票 | S3 无
+    'Partially Billed' -> delivery_note.json:status, delivery_note_list.js:24
+    'Partly Billed' -> sales_order.json:billing_status, purchase_receipt.json:status, purchase_receipt_list.js:23
+## 采购 | S3 §2.3.1 改 syn=False :: 其余五个只在报表/工作区，保留
+    'Buying' -> buying.json, business_flow.json
+    'Purchase' -> material_request_plan_item.json:material_request_type, item.json:default_material_request_type, item_list.js:30, item_reorder.json:material_request_type
+## 采购税费模板 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Purchase Tax Template' -> company.js:156, taxes.json
+    'Purchase Taxes and Charges Template' -> payment_entry.json:purchase_taxes_and_charges_template, purchase_invoice.json:taxes_and_charges, purchase_order.json:taxes_and_charges, purchase_receipt.json:taxes_and_charges
+## 金额（本币） | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Amount (Company Currency)' -> advance_taxes_and_charges.json:base_tax_amount, payment_entry_deduction.json:amount, purchase_invoice_item.json:base_amount, purchase_taxes_and_charges.json:base_tax_amount, sales_invoice_item.json:base_amount
+    'Base Amount (Company Currency)' -> sales_invoice_payment.json:base_amount
+## 银行 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Bank' -> account.json:account_type, mode_of_payment.json:type, payment_entry.json:bank, employee.json:salary_mode, banking.json
+    'Banking' -> accounts_settings.json:banking_section, banking.json
+## 销售 | S3 §2.3.2 改 syn=False :: 与 Buying → 用于采购 对称；后两个只在报表，不定
+    'Sales' -> quotation.json:order_type, sales_order.json:order_type, item.json:sales_details, item_list.js:29
+    'Selling' -> selling.json, business_flow.json
+## 销售发票 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Against Sales Invoice' -> delivery_note_item.json:against_sales_invoice
+    'Sales Invoice' -> accounts_settings.js:63, sales_invoice.json, quotation_list.js:22, sales_order.js:1078, sales_order_list.js:75
+## 销售税费 | S3 无
+    'Sales Taxes' -> accounts_setup.json
+    'Sales Taxes and Charges' -> sales_invoice.json:taxes, sales_taxes_and_charges.json, quotation.json:taxes, sales_order.json:taxes, delivery_note.json:taxes
+## 销售税费模板 | S3 §2.3.3 不改 syn=True :: 同义不改
+    'Sales Tax Template' -> company.js:144, taxes.json
+    'Sales Taxes and Charges Template' -> payment_entry.json:sales_taxes_and_charges_template, sales_invoice.json:taxes_and_charges, quotation.json:taxes_and_charges, sales_order.json:taxes_and_charges, delivery_note.json:taxes_and_charges
+## 销售订单 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Against Sales Order' -> delivery_note_item.json:against_sales_order
+    'Sales Order' -> sales_invoice.js:379, sales_invoice_item.json:sales_order, purchase_order_item.json:sales_order, material_request_plan_item.json:sales_order, production_plan.json:get_items_from
+    'Sales Orders' -> production_plan.json:sales_orders, production_plan.json:sales_orders_detail
+## 销售订单明细 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Against Sales Order Item' -> delivery_note_item.json:so_detail
+    'Sales Order Item' -> sales_invoice_item.json:so_detail, purchase_order_item.json:sales_order_item, production_plan_item.json:sales_order_item, production_plan_item_reference.json:sales_order_item, production_plan_sub_assembly_item.json:sales_order_item
+## 问题 | S3 无
+    'Issue' -> support.json
+    'Problem' -> workstation.json:status
+## 隐藏 | S3 无
+    'Hidden' -> desktop_icon.json
+    'Hide' -> Activities.vue:247
+## 需要检验 | S3 §2.3.4 不改 syn=True :: 58 组同义/写法变体之一；草案只列目标词，未列源词
+    'Inspection Required' -> stock_entry.json:inspection_required
+    'Quality Inspection Required' -> bom.json:inspection_required, bom_operation.json:quality_inspection_required, work_order_operation.json:quality_inspection_required
+## 项目名称 | S3 无
+    'Cash Flow Name' -> cash_flow_subtotal.json:cash_flow_name
+    'Project Name' -> sales_invoice_timesheet.json:project_name
+## 项目类型 | S3 无
+    'Item Type' -> item_list.js:40
+    'Project Type' -> projects.json
+## 预留库存 | S3 无
+    'Reserve Stock' -> production_plan.json:reserve_stock, work_order.json:reserve_stock, sales_order.js:405, sales_order.json:reserve_stock, sales_order_item.json:reserve_stock
+    'Reserved Inventory' -> bin.json:reserved_inventory_section
