@@ -41,9 +41,13 @@ def _app_source_strings() -> set[str]:
 	"""执行 test_translations.py 里同名函数的源码（不 import frappe），保证与测试同一取法。"""
 	path = APP / "tests/test_translations.py"
 	tree = _module_ast(path)
-	function = next(node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name == "_app_source_strings")
+	# R9 TS-025：取法拆成两层，两个函数都要取出（import 都在函数体内）
+	names = ("_source_strings_from_text", "_app_source_strings")
+	functions = [node for node in tree.body if isinstance(node, ast.FunctionDef) and node.name in names]
+	if len(functions) != len(names):
+		raise KeyError(f"test_translations.py 缺函数：{set(names) - {node.name for node in functions}}")
 	namespace = {"__file__": str(path)}
-	exec(compile(ast.Module(body=[function], type_ignores=[]), str(path), "exec"), namespace)
+	exec(compile(ast.Module(body=functions, type_ignores=[]), str(path), "exec"), namespace)
 	return namespace["_app_source_strings"]()
 
 
