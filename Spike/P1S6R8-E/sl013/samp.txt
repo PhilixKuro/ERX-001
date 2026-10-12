@@ -1,0 +1,161 @@
+===  Book deferred entries via Journal Entry -> 通过日记账凭证记递延入账  @ erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:book_deferred_entries_via_journal_entry
+     "fieldname": "column_break_18",
+     "fieldtype": "Column Break"
+    },
+    {
+     "default": "0",
+     "description": "If this is unchecked, direct GL entries will be created to book deferred revenue or expense",
+     "fieldname": "book_deferred_entries_via_journal_entry",
+     "fieldtype": "Check",
+     "label": "Book deferred entries via Journal Entry"
+    },
+    {
+     "default": "0",
+     "depends_on": "eval:doc.book_deferred_entries_via_journal_entry",
+     "description": "If this is unchecked Journal Entries will be saved in a Draft state and will have to be submitted manually",
+===  IMPORTANT: Create a backup before proceeding! -> 重要：继续之前请先备份！  @ erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:93
+  					`</ul>` +
+  					`<div style='margin-bottom: 10px; padding: 10px; background-color: #fff3cd; border: 1px solid #ffc107; border-radius: 4px;'>` +
+  					`<b style='color: #856404;'>📦 ${__(
+  						"IMPORTANT: Create a backup before proceeding!"
+  					)}</b>` +
+===  Transaction Deletion Record To Delete -> 业务交易删除记录待删除明细  @ erpnext/erpnext/setup/doctype/transaction_deletion_record_to_delete/transaction_deletion_record_to_delete.json
+===  Item Wise Tax Details -> 物料税费明细  @ erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:item_wise_tax_details
+     "no_copy": 1,
+     "options": "Company:company:default_currency",
+     "print_hide": 1,
+     "read_only": 1
+    },
+    {
+     "fieldname": "item_wise_tax_details",
+     "fieldtype": "Table",
+     "hidden": 1,
+     "label": "Item Wise Tax Details",
+     "no_copy": 1,
+     "options": "Item Wise Tax Detail"
+    },
+    {
+===  Inward Order -> 外包收货订单  @ erpnext/erpnext/workspace_sidebar/subcontracting.json
+===  Pending Quantity cannot be greater than {0} -> 待处理数量不能大于 {0}  @ erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:308
+  						dialog.set_value("pending_qty", 0);
+  						frappe.throw(
+  							__("Pending Quantity cannot be greater than {0}", [
+  								get_qty_with_uom(
+  									flt(dialog.get_value("for_quantity")) -
+===  Production Item Info -> 成品信息  @ erpnext/erpnext/manufacturing/doctype/bom/bom.json:production_item_info_section
+    },
+    {
+     "fieldname": "column_break_omye",
+     "fieldtype": "Column Break"
+    },
+    {
+     "fieldname": "production_item_info_section",
+     "fieldtype": "Section Break",
+     "label": "Production Item Info"
+    },
+    {
+     "fieldname": "section_break_ouuf",
+     "fieldtype": "Section Break"
+    },
+===  Stock Expense -> 库存费用  @ erpnext/erpnext/setup/doctype/company/company.json:stock_expense_section
+    {
+     "fieldname": "buying_and_selling_tab",
+     "fieldtype": "Tab Break",
+     "label": "Buying and Selling"
+    },
+    {
+     "fieldname": "stock_expense_section",
+     "fieldtype": "Section Break",
+     "label": "Stock Expense"
+    },
+    {
+     "fieldname": "expenses_added_to_stock_account",
+     "fieldtype": "Link",
+     "label": "Expenses Added To Stock Account",
+===  Auto Reconciliation job trigger -> 自动核销任务运行间隔  @ erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:auto_reconciliation_job_trigger
+     "fieldname": "column_break_resa",
+     "fieldtype": "Column Break"
+    },
+    {
+     "default": "15",
+     "description": "Interval should be between 1 to 59 MInutes",
+     "fieldname": "auto_reconciliation_job_trigger",
+     "fieldtype": "Int",
+     "label": "Auto Reconciliation job trigger"
+    },
+    {
+     "default": "5",
+     "description": "Documents Processed on each trigger. Queue Size should be between 5 and 100",
+     "fieldname": "reconciliation_queue_size",
+===  Overdue Limit -> 逾期额度  @ erpnext/erpnext/selling/doctype/customer_credit_limit/customer_credit_limit.json:overdue_billing_threshold
+     "in_list_view": 1,
+     "label": "Credit Limit"
+    },
+    {
+     "columns": 3,
+     "description": "New Sales Invoices are blocked when the customer's overdue amount exceeds this. Requires 'Restrict Customer Over Billing' in Accounts Setting
+     "fieldname": "overdue_billing_threshold",
+     "fieldtype": "Currency",
+     "hidden": 1,
+     "in_list_view": 1,
+     "label": "Overdue Limit"
+    },
+    {
+     "fieldname": "column_break_2",
+===  Set First Name -> 设置名字  @ crm/frontend/src/pages/Lead.vue:127
+              </div>
+              <div class="flex flex-col gap-2.5 truncate">
+                <Tooltip :text="doc.lead_name || __('Set First Name')">
+                  <div class="truncate text-3xl-medium text-ink-gray-9">
+                    {{ title }}
+===  Sales Tax Withholding Category -> 销售代扣税款类别  @ erpnext/erpnext/stock/doctype/item/item.json:sales_tax_withholding_category
+    {
+     "fieldname": "column_break_ltlb",
+     "fieldtype": "Column Break"
+    },
+    {
+     "depends_on": "is_sales_item",
+     "fieldname": "sales_tax_withholding_category",
+     "fieldtype": "Link",
+     "label": "Sales Tax Withholding Category",
+     "options": "Tax Withholding Category"
+    },
+    {
+     "fieldname": "column_break_cqdk",
+     "fieldtype": "Column Break"
+===  Only records belonging to {0} will be deleted -> 只删除属于 {0} 的记录  @ erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:84
+  					`<div style='margin-bottom: 10px;'><b>${__("What will be deleted:")}</b></div>` +
+  					`<ul style='margin-left: 20px; margin-bottom: 10px;'>` +
+  					`<li><b>${__("DocTypes with a company field:")}</b> ${__(
+  						"Only records belonging to {0} will be deleted",
+  						[`<b>${frm.doc.company}</b>`]
+===  Base Cost (Company Currency) -> 成本（本币）  @ erpnext/erpnext/manufacturing/doctype/bom_secondary_item/bom_secondary_item.json:base_cost
+     "fieldtype": "Image",
+     "options": "image",
+     "read_only": 1
+    },
+    {
+     "default": "0",
+     "fieldname": "base_cost",
+     "fieldtype": "Currency",
+     "hidden": 1,
+     "label": "Base Cost (Company Currency)",
+     "non_negative": 1,
+     "options": "Company:company:default_currency",
+     "read_only": 1,
+     "reqd": 1
+===  Alias -> 别名  @ erpnext/erpnext/buying/doctype/supplier/supplier.json:alias
+     "no_copy": 1,
+     "oldfieldname": "supplier_name",
+     "oldfieldtype": "Data",
+     "reqd": 1
+    },
+    {
+     "fieldname": "alias",
+     "fieldtype": "Data",
+     "in_global_search": 1,
+     "label": "Alias",
+     "no_copy": 1,
+     "unique": 1
+    },
+    {

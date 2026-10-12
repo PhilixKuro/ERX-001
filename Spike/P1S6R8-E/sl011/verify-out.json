@@ -1,0 +1,568 @@
+{
+ "csv_rows": 5745,
+ "full_table": {
+  "find_placeholder": [],
+  "find_traditional": [],
+  "find_word_by_word": [],
+  "find_mixed": []
+ },
+ "full_table_counts": {
+  "find_placeholder": 0,
+  "find_traditional": 0,
+  "find_word_by_word": 0,
+  "find_mixed": 0
+ },
+ "quality_unittest": {
+  "run": 9,
+  "failures": 0,
+  "errors": 0
+ },
+ "self_bad": {
+  "find_traditional": {
+   "hits": 3,
+   "of": 3,
+   "reported": [
+    "Bank Account => 銀行帳戶",
+    "Settings => 設定",
+    "Report => 報表"
+   ]
+  },
+  "find_placeholder": {
+   "hits": 3,
+   "of": 3,
+   "reported": [
+    "Customer => 中文：客户",
+    "Name => 名称???",
+    "X =>   中文：X"
+   ]
+  },
+  "find_word_by_word": {
+   "hits": 3,
+   "of": 3,
+   "reported": [
+    "Save the document => 保存 the 文档",
+    "Add to Cart => 添加 到 购物车",
+    "Go => 前往 for 设置"
+   ]
+  },
+  "find_mixed": {
+   "hits": 3,
+   "of": 3,
+   "reported": [
+    "Create Invoice => 创建 Invoice",
+    "Delivery Note => 发货Note",
+    "Sync Leads => 同步 leads"
+   ]
+  }
+ },
+ "self_good": [],
+ "table_sizes": {
+  "QUALITY_EXCEPTIONS": 39,
+  "UNTRANSLATED": 213,
+  "ALLOW": 44
+ },
+ "empty_reasons": {
+  "QUALITY_EXCEPTIONS": [],
+  "UNTRANSLATED": [],
+  "ALLOW": []
+ },
+ "qe_keys_not_in_csv": [],
+ "qe_hits": {
+  "If enabled, all replies to your company (eg: replies@yourcompany.com) will come to this account. Note: Only one account can be default incoming.": {
+   "ours": "启用后，发给公司的所有回复（例如 replies@yourcompany.com）都会进入此账号。注意：只能有一个账号设为默认收件。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "### Access the web and mobile apps\n\n\nRaven is available at <a href=\"/raven\">**/raven**</a> for both web and mobile. On mobile, Raven can be installed as a PWA.": {
+   "ours": "### 访问网页版和移动版\n\n\n网页版和移动版均可在<a href=\"/raven\">**/raven**</a>访问 Raven。在手机上，可将 Raven 安装为 PWA 应用。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "<p><strong>Condition Examples:</strong></p>\n<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>": {
+   "ours": "<p><strong>条件示例：</strong></p>\n<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "A row blocks its whole domain. Tick Exact to block just that one URL - like \"frappe.io\" can be blocked without losing previews on \"frappe.io/blog\".": {
+   "ours": "每一行会屏蔽整个域名。勾选「精确」则只屏蔽这一个网址，例如可以只屏蔽\"frappe.io\"，而保留\"frappe.io/blog\"的链接预览。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Add a Webhook Secret so Raven can sign requests. An X-Frappe-Webhook-Signature header (a base64 HMAC-SHA256 of the payload) is added before the request is sent. Do not share the secret publicly.": {
+   "ours": "添加网络钩子密钥后，Raven 会对请求签名：发送请求前会添加 X-Frappe-Webhook-Signature 请求头（载荷的 HMAC-SHA256 签名，经 base64 编码）。请勿公开此密钥。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "e.g. marketing, design-team, project-alpha": {
+   "ours": "例如：marketing、design-team、project-alpha",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "e.g. party_parrot": {
+   "ours": "例如：party_parrot",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "For OpenAI: gpt-4o, gpt-4, etc. For Local LLM: use model name from /v1/models endpoint": {
+   "ours": "OpenAI 可填 gpt-4o、gpt-4 等；本地 LLM 请填写 /v1/models 接口返回的模型名称",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "e.g. api_key": {
+   "ours": "例如：api_key",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "e.g. john@example.com, henry@example.com": {
+   "ours": "例如：john@example.com, henry@example.com",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Temporal column used to detect rows that changed since the last sync. Use <b>modified</b> for mutable tables and <b>creation</b> for append-only tables.": {
+   "ours": "用于检测上次同步后有变动的行的时间列。可变数据表用 <b>modified</b>，仅追加的数据表用 <b>creation</b>。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Write Python code to fetch and transform data. Available globals:<br>• client: API client for the selected data source<br>• table: Write data to warehouse. Methods: insert(data, overwrite=False)<br>• state: Persist data between runs. Methods: get(key, default=None), set(key, value), delete(key), clear()<br>• secrets: Access secret keys. Methods: get(key)<br>• log(message): Log execution messages": {
+   "ours": "编写 Python 代码来获取和变换数据。可用的全局对象：<br>• client：所选数据源的 API 客户端<br>• table：将数据写入数据仓库。方法：insert(data, overwrite=False)<br>• state：在多次运行之间保留数据。方法：get(key, default=None)、set(key, value)、delete(key)、clear()<br>• secrets：访问密钥。方法：get(key)<br>• log(message)：记录执行消息",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Invalid CSV format. Expected column: doctype_name": {
+   "ours": "CSV 格式无效，缺少 doctype_name 列",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Payment reminder from Frappé - (#{{ name }})": {
+   "ours": "来自 Frappé 的付款提醒 - (#{{ name }})",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Setting up Frappe Mail requires you to have an API key and API secret for your email account. Read more": {
+   "ours": "设置 Frappe Mail 需要邮箱账号的 API 密钥和 API 私钥。了解更多",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Python expression evaluated on the server. Use doc.fieldname for the row and parent.fieldname for the parent document. When it evaluates to true the dimension becomes mandatory. Example: doc.t_warehouse and doc.qty > 0": {
+   "ours": "在服务器端计算的 Python 表达式。用 doc.fieldname 引用当前行字段，用 parent.fieldname 引用父单据字段。表达式结果为真时，该库存辅助核算项变为必填。示例：doc.t_warehouse and doc.qty > 0",
+   "guards": [
+    "find_word_by_word",
+    "find_mixed"
+   ]
+  },
+  "SMS Settings.allowed_roles not found. Update the Frappe Framework app to a version that includes this field, then re-run bench migrate.": {
+   "ours": "未找到「短信设置」的 allowed_roles 字段。请将 Frappe 框架升级到包含此字段的版本，然后重新运行 bench migrate。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "The uploaded file could not be parsed as a genericode XML document.": {
+   "ours": "上传的文件无法解析为 genericode XML 文档。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "This module is scheduled for deprecation and will be completely removed in version 17, please use <a href=\"https://frappe.io/helpdesk\">Frappe Helpdesk</a> instead.": {
+   "ours": "此模块计划弃用，将在第 17 版中完全移除，请改用 <a href=\"https://frappe.io/helpdesk\">Frappe Helpdesk</a>。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "To select more than one transaction at a time, press and hold the shift key.": {
+   "ours": "按住 Shift 键可一次选择多笔流水。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Transaction type column has \"Deposit\"/\"Withdrawal\" values": {
+   "ours": "交易类型列含“Deposit”/“Withdrawal”标记",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "You can also add credit or debit values to pre-fill - these support both static values (like 200) or formulas (like transaction_amount * 0.25).": {
+   "ours": "还可以预填贷方或借方金额，支持固定值（如 200）或公式（如 transaction_amount * 0.25）。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "{0} should be in format: app.module.method": {
+   "ours": "{0} 应采用格式：app.module.method",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Authorization POST requests must use application/x-www-form-urlencoded": {
+   "ours": "授权 POST 请求必须使用 application/x-www-form-urlencoded",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Provide a list of allowed Doctypes for file uploads. Each line should contain one allowed Doctype. If unset, uploads to all doctypes are allowed. Example: <br>User<br>Item<br>Quotation": {
+   "ours": "填写允许访客上传文件的单据类型，每行一个。不填则允许上传到所有单据类型。示例：<br>User<br>Item<br>Quotation",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "`doctype` and `fieldname` are required for deleting property setters.": {
+   "ours": "删除属性设置时必须提供 `doctype` 与 `fieldname`。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "visible_types entries must be strings or {type: [fields]} maps": {
+   "ours": "visible_types 的每一项必须是字符串或 {type: [fields]} 映射",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "visible_types fields for {0} must be a list": {
+   "ours": "visible_types 中 {0} 的字段必须是列表",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "visible_types is not valid JSON: {0}": {
+   "ours": "visible_types 不是有效的 JSON：{0}",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "visible_types must be a list": {
+   "ours": "visible_types 必须是列表",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "{0} is a Virtual DocType and must implement its own delete() method.": {
+   "ours": "{0} 是虚拟单据类型，必须自行实现 delete() 方法。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Make sure LM Studio is running with the server enabled on the specified URL.": {
+   "ours": "请确认 LM Studio 已运行，并已在指定网址上启用服务器。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Make sure Ollama is running. Default URL is usually http://localhost:11434/v1": {
+   "ours": "请确认 Ollama 正在运行。默认网址通常为 http://localhost:11434/v1",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "method and setting the user_id parameter. This method also accepts markdown and document link parameters.": {
+   "ours": "方法，并设置 user_id 参数。此方法也接受 markdown 参数和单据链接参数。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "parameter to True.": {
+   "ours": "参数设为 True。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Pressing Enter will add a new line. Use Ctrl / ⌘ + Enter to send your message.": {
+   "ours": "按回车键换行，按 Ctrl / ⌘ + 回车键发送消息。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Pressing Enter will immediately send your message. Use Shift+Enter to add a new line.": {
+   "ours": "按回车键会立即发送消息，按 Shift+回车键换行。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Scheduled messages run as server scripts. Ask your site administrator to set server_script_enabled in the site config and restart the site.": {
+   "ours": "定时消息以 Python 脚本方式运行。请联系站点管理员在站点配置中设置 server_script_enabled，然后重启站点。",
+   "guards": [
+    "find_mixed"
+   ]
+  },
+  "Top P": {
+   "ours": "Top P（核采样）",
+   "guards": [
+    "find_mixed"
+   ]
+  }
+ },
+ "allow_use": {
+  "WhatsApp": 7,
+  "Google": 21,
+  "Raven": 126,
+  "Jinja": 12,
+  "Excel": 6,
+  "Frappe": 36,
+  "ERPNext": 24,
+  "OpenAI": 29,
+  "Insights": 45,
+  "DuckDB": 7,
+  "Facebook": 9,
+  "Instagram": 1,
+  "Twilio": 13,
+  "Exotel": 8,
+  "BigQuery": 4,
+  "ClickHouse": 2,
+  "MariaDB": 2,
+  "PostgreSQL": 2,
+  "DuckLake": 1,
+  "Parquet": 1,
+  "Telegram": 3,
+  "Cron": 2,
+  "Markdown": 4,
+  "Python": 14,
+  "pdfplumber": 1,
+  "GeoJSON": 1,
+  "GMail": 1,
+  "Outlook": 1,
+  "Sendgrid": 1,
+  "Sparkpost": 1,
+  "Yahoo": 1,
+  "Yandex": 1,
+  "Frankfurter": 1,
+  "Gravatar": 7,
+  "Loom": 1,
+  "LocalAI": 1,
+  "Ollama": 1,
+  "Reddit": 1,
+  "SoundCloud": 1,
+  "Spotify": 1,
+  "Tenor": 1,
+  "Vimeo": 1,
+  "YouTube": 2,
+  "Zoom": 1
+ },
+ "overrides_count": 119,
+ "bad_basis": [],
+ "basis_prefix_counts": {
+  "S3 术语标准 §2.3.3": 6,
+  "S3 术语标准 §2.3": 2,
+  "DEC-026": 11,
+  "DEC-016": 29,
+  "DEC-001": 10,
+  "S3 术语标准 §2.3.4": 16,
+  "DEC-015": 1,
+  "DEC-021": 2,
+  "演示线撞名": 10,
+  "DEC-003": 1,
+  "S3 术语标准 §2.3.1": 6,
+  "本 app 自有源词": 2,
+  "S3 术语标准 §2.3.2": 1,
+  "S3 术语标准 §1.3": 4,
+  "S3 术语标准 §1.1": 10,
+  "按钮抽检 IT-010": 5,
+  "DEC-014": 2,
+  "DEC-019": 1
+ },
+ "own_source_basis": [
+  "Formula",
+  "Yearly Amount"
+ ],
+ "ours_guard_problems": [],
+ "ours_ne_csv": [],
+ "mo_missing_apps": [
+  "raven"
+ ],
+ "official_sizes": {
+  "mo": 17123,
+  "po": 17123
+ },
+ "intersection_mo": {
+  "size": 119,
+  "extra(inter-OVERRIDES)": [],
+  "missing(OVERRIDES-inter)": []
+ },
+ "intersection_po": {
+  "size": 119,
+  "extra(inter-OVERRIDES)": [],
+  "missing(OVERRIDES-inter)": []
+ },
+ "official_mismatch_mo": [],
+ "mo_vs_po_keydiff": {
+  "mo-po": 0,
+  "po-mo": 0
+ },
+ "csv_context_rows": 178,
+ "csv_context_in_official": [],
+ "csv_context_plain_in_official": [
+  "Accepted Warehouse:Purchase Invoice Item",
+  "Accepted Warehouse:Purchase Receipt",
+  "Accepted Warehouse:Purchase Receipt Item",
+  "Account Head:Advance Taxes and Charges",
+  "Account Head:Purchase Taxes and Charges",
+  "Account Head:Sales Taxes and Charges",
+  "Accounts:Company",
+  "Accounts:Mode of Payment",
+  "Accounts:Month End Closing Voucher",
+  "Accounts:Payment Entry",
+  "Advance Paid:Sales Order",
+  "Advance Payments:Company",
+  "Advance Payments:Purchase Invoice",
+  "Advance Payments:Sales Invoice",
+  "Against Doctype:Quotation Item",
+  "BOM Detail No:Purchase Order Item Supplied",
+  "BOM Detail No:Purchase Receipt Item Supplied",
+  "Bundle Items:Quotation",
+  "Buying:Item Price",
+  "Buying:Price List",
+  "Change Amount:Sales Invoice",
+  "Completed Qty:Job Card Operation",
+  "Completed Qty:Job Card Time Log",
+  "Completed Qty:Work Order Operation",
+  "Consumed Items:Purchase Receipt",
+  "Contact:Delivery Note",
+  "Contact:Employee External Work History",
+  "Contact:Payment Entry",
+  "Contact:Purchase Invoice",
+  "Contact:Purchase Receipt",
+  "Contact:Quotation",
+  "Contact:Sales Invoice",
+  "Contact:Sales Order",
+  "Credit Amount:GL Entry",
+  "Date of Commencement:Company",
+  "Dates:GL Entry",
+  "Debit Amount:GL Entry",
+  "Defaults:Customer",
+  "Defaults:Item Group",
+  "Defaults:Stock Settings"
+ ],
+ "overrides_basis": {
+  "Accounting Ledger": "S3 术语标准 §2.3.3",
+  "Accounts Receivable": "S3 术语标准 §2.3（保留）",
+  "Actual": "DEC-026（R4 TS-014 整句修复）",
+  "Actual End Date (via Timesheet)": "DEC-016（Timesheet 全族）",
+  "Actual Start Date (via Timesheet)": "DEC-016（Timesheet 全族）",
+  "Actual Time in Hours (via Timesheet)": "DEC-016（Timesheet 全族）",
+  "Add Row": "DEC-001（需求 §4.2.2 必改条目）",
+  "Add Timesheets": "DEC-016（Timesheet 全族）",
+  "Additional Material Transfer": "S3 术语标准 §2.3.4",
+  "Adjustment Against": "S3 术语标准 §2.3.3",
+  "Agents": "DEC-001（需求 §4.2.2 必改条目）",
+  "Available": "S3 术语标准 §2.3.4",
+  "Bot": "DEC-001（需求 §4.2.2 必改条目）",
+  "Cash Flow": "DEC-015（原生报表保留官方）",
+  "Closed Date": "DEC-021",
+  "Create Chart Of Accounts Based On": "DEC-021",
+  "Create Quotation": "DEC-001（需求 §4.2.2 必改条目；单据用「单」，DEC-016）",
+  "Create Timesheet": "DEC-016（Timesheet 全族）",
+  "Credit Note": "S3 术语标准 §2.3.4",
+  "Daily Timesheet Summary": "DEC-016（Timesheet 全族）",
+  "days": "DEC-026（R4 TS-014 整句修复）",
+  "Deals": "DEC-026（R4 TS-014 整句修复）",
+  "Debit Note": "演示线撞名",
+  "Debtors": "S3 术语标准 §2.3（科目名，保留）",
+  "Dr": "DEC-003／022（S3 DEC-081）",
+  "Due Date": "演示线撞名",
+  "Employee Hours Utilization Based On Timesheet": "DEC-016（Timesheet 全族）",
+  "Enabling the check box will fetch timesheet on select of a Project in Sales Invoice": "DEC-016（Timesheet 全族）",
+  "Expenses": "演示线撞名",
+  "Fetch Timesheet": "S3 术语标准 §2.3.4",
+  "Fetch Timesheet in Sales Invoice": "DEC-016（Timesheet 全族）",
+  "Finish": "S3 术语标准 §2.3.3",
+  "Finished Good": "S3 术语标准 §2.3.1",
+  "For Operation": "S3 术语标准 §2.3.1",
+  "For Warehouse": "S3 术语标准 §2.3.1",
+  "Formula": "本 app 自有源词（cn_tax `Cash Flow Code.formula`；S5 装序检查探针 `install.PROBE_SOURCE`）",
+  "Get Items for Purchase / Transfer": "DEC-026（R4 TS-014 整句修复）",
+  "Get Items for Purchase Only": "DEC-026（R4 TS-014 整句修复）",
+  "Get Items From": "S3 术语标准 §2.3.2",
+  "Get Sub Assembly Items": "DEC-026（R4 TS-014 整句修复）",
+  "Global Defaults": "DEC-026（R4 TS-014 整句修复）",
+  "Hide timesheets": "DEC-016（Timesheet 全族）",
+  "Hold": "S3 术语标准 §2.3.4",
+  "Hold Invoice": "S3 术语标准 §2.3.4",
+  "Idx": "DEC-001（演示线档补缺：合并字典无中文）",
+  "Include Timesheets in Draft Status": "DEC-016（Timesheet 全族）",
+  "Inward": "S3 术语标准 §1.3",
+  "Is Paid": "S3 术语标准 §1.1",
+  "Item Type": "演示线撞名",
+  "Leads": "DEC-026（R4 TS-014 整句修复）",
+  "Leaves": "演示线撞名",
+  "Ledger": "S3 术语标准 §2.3.3",
+  "Lft": "DEC-001（演示线档补缺：合并字典无中文）",
+  "Loyalty Point Entry": "演示线撞名",
+  "Material to Supplier": "S3 术语标准 §2.3.4",
+  "Max working hours against Timesheet": "DEC-016（Timesheet 全族）",
+  "Mode Of Payment": "S3 术语标准 §1.1",
+  "Mode of Payment": "S3 术语标准 §1.1",
+  "Mode of Payments": "S3 术语标准 §1.1",
+  "Modes of Payment": "S3 术语标准 §1.1",
+  "Note": "S3 术语标准 §2.3.4",
+  "Notes": "S3 术语标准 §2.3.4",
+  "old_parent": "DEC-001（演示线档补缺：合并字典无中文）",
+  "Opening & Closing": "DEC-001（需求 §4.2.2 必改条目，原误译）",
+  "Operations": "S3 术语标准 §2.3.1",
+  "Outstanding Amount": "S3 术语标准 §1.3",
+  "Outward": "S3 术语标准 §1.3",
+  "Payable": "S3 术语标准 §2.3.3",
+  "Payment": "按钮抽检 IT-010（DEC-035）",
+  "Payment Amount": "S3 术语标准 §1.1",
+  "Payment Entry Reference": "DEC-014",
+  "Payment Method": "S3 术语标准 §1.1",
+  "Payment Mode": "S3 术语标准 §1.1",
+  "Payment References": "DEC-014",
+  "Payment Type": "S3 术语标准 §1.1",
+  "Payments": "S3 术语标准 §2.3.1",
+  "Pinned Views": "演示线撞名",
+  "POS Profile": "演示线撞名",
+  "Process Payment Reconciliation": "演示线撞名",
+  "Receivable": "S3 术语标准 §2.3.3",
+  "Received Amount": "S3 术语标准 §1.3",
+  "Return / Credit Note": "按钮抽检 IT-010",
+  "Return / Debit Note": "按钮抽检 IT-010",
+  "Rgt": "DEC-001（演示线档补缺：合并字典无中文）",
+  "rgt": "DEC-001（演示线档补缺：合并字典无中文）",
+  "Row #{0}: Timesheet amount will overwrite the Earning component amount for the Salary Component {1}": "DEC-016（Timesheet 全族）",
+  "Row {0}: Project must be same as the one set in the Timesheet: {1}.": "DEC-016（Timesheet 全族）",
+  "Salary Component for timesheet based payroll.": "DEC-016（Timesheet 全族）",
+  "Salary Slip Based on Timesheet": "DEC-016（Timesheet 全族）",
+  "Salary Slip of employee {0} already created for time sheet {1}": "DEC-016（Timesheet 全族）",
+  "Salary Slip Timesheet": "DEC-016（Timesheet 全族）",
+  "Sales Invoice Timesheet": "DEC-016（Timesheet 全族）",
+  "Sales Partner": "S3 术语标准 §2.3.4",
+  "Send": "DEC-026（R4 TS-014 整句修复）",
+  "Serial and Batch Bundle": "S3 术语标准 §2.3.4",
+  "Setup": "DEC-019",
+  "Stock Ledger": "演示线撞名",
+  "Stock Projected Qty": "S3 术语标准 §2.3.4",
+  "Stock Unreservation": "S3 术语标准 §2.3.4",
+  "Temporarily on Hold": "S3 术语标准 §2.3.4",
+  "This is based on the Time Sheets created against this project": "DEC-016（Timesheet 全族）",
+  "Time Sheet": "DEC-016（Timesheet 全族）",
+  "Time Sheet List": "DEC-016（Timesheet 全族）",
+  "Time Sheets": "DEC-016（Timesheet 全族）",
+  "Timesheet": "DEC-016（Timesheet 全族）",
+  "Timesheet Detail": "DEC-016（Timesheet 全族）",
+  "Timesheet for tasks.": "DEC-016（Timesheet 全族）",
+  "Timesheets": "DEC-016（Timesheet 全族）",
+  "Total Billable Amount (via Timesheet)": "DEC-016（Timesheet 全族）",
+  "Total Costing Amount (via Timesheet)": "DEC-016（Timesheet 全族）",
+  "Transferred Qty": "S3 术语标准 §2.3.4",
+  "Type of Payment": "S3 术语标准 §1.1",
+  "Unreserve Stock": "S3 术语标准 §2.3.4",
+  "Update Items": "按钮抽检 IT-010",
+  "Update Rate and Availability": "DEC-026（R4 TS-014 整句修复）",
+  "Update Rate as per Last Purchase": "按钮抽检 IT-010",
+  "Value": "DEC-026（R4 TS-014 整句修复）",
+  "Warehouses": "S3 术语标准 §2.3.1",
+  "Yearly Amount": "本 app 自有源词（cn_tax `Cash Flow Subtotal.yearly_amount`；避开法定列头「本年累计金额」，S4 LG-134）"
+ }
+}

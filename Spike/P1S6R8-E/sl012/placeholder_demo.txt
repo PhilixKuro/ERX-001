@@ -1,0 +1,7 @@
+source ['{0}', '{1}', "{{' separator. Using fallback extraction."]
+zh_good ['{0}', '{1}', '{{」分隔符，改用备用方式提取。']
+zh_copy_tail ['{0}', '{1}', "{{' separator. Using fallback extraction."]
+equal(source, zh_good): False
+closed-brace regex: ['{0}', '{1}'] ['{0}', '{1}'] True
+in UNTRANSLATED: True
+reason: 源词含未闭合的 {{，test_translations._PLACEHOLDER 把其后整段当成占位符，任何中文译文都过不了占位符一致检查；暂不译，见 R7 D 回执未做项

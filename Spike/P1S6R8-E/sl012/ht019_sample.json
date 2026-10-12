@@ -1,0 +1,70 @@
+{
+ "n_override_pruned": 161,
+ "n_official_ne_source_not_back": 6,
+ "n_official_has_han": 3,
+ "all_161_not_back_mismatch": [],
+ "back_in_csv": {
+  "Lft": {
+   "csv": "左值",
+   "official": "Lft",
+   "merged": "左值"
+  },
+  "old_parent": {
+   "csv": "原上级",
+   "official": "old_parent",
+   "merged": "原上级"
+  }
+ },
+ "neq_keys": [
+  "Are you sure you want to log out?",
+  "B:Number system",
+  "Edit Filter",
+  "Filename",
+  "T:Number system",
+  "{0}.:Money in words"
+ ],
+ "sample": [
+  {
+   "key": "Are you sure you want to log out?",
+   "pruned_csv": "是 您 sure 您 want 至 日志 out?",
+   "official": "您确定要退出登录吗？",
+   "merged_erx": "您确定要退出登录吗？",
+   "eq": true
+  },
+  {
+   "key": "B:Number system",
+   "pruned_csv": "B:编号 系统",
+   "official": "B",
+   "merged_erx": "B",
+   "eq": true
+  },
+  {
+   "key": "Edit Filter",
+   "pruned_csv": "编辑 筛选",
+   "official": "编辑筛选器",
+   "merged_erx": "编辑筛选器",
+   "eq": true
+  },
+  {
+   "key": "Filename",
+   "pruned_csv": "中文：Filename",
+   "official": "文件名",
+   "merged_erx": "文件名",
+   "eq": true
+  },
+  {
+   "key": "T:Number system",
+   "pruned_csv": "T:编号 系统",
+   "official": "T",
+   "merged_erx": "T",
+   "eq": true
+  },
+  {
+   "key": "{0}.:Money in words",
+   "pruned_csv": "{0}.:Money 中 words",
+   "official": "{0}.",
+   "merged_erx": "{0}.",
+   "eq": true
+  }
+ ]
+}

@@ -1,0 +1,821 @@
+{
+ "summary": {
+  "method": "A：从 Spike/P1S6R6-sample.out.csv 100 条中 random.Random(20261012).sample 20 条复判；B：样本外批量行（population 4809 扣除已抽 100）按 app 比例配额 crm5/erpnext12/frappe3/hrms2/insights4/raven14，每 app 用 random.Random(20261012).sample 抽取，逐条读 #: 出处源码判。判据：需求 §4.2.3 三条＋DEC-029",
+  "A": {
+   "n": 20,
+   "unusable": 0,
+   "agree_with_d": 20
+  },
+  "B": {
+   "n": 40,
+   "unusable": 0
+  },
+  "estimate": "D 样本 3/100 不可用；E 样本外 0/40（零事件，95% 上界约 3/40≈7.5%）；合并 3/140≈2.1%，低于 DEC-017 的 10% 线",
+  "outside_sample_findings": [
+   {
+    "key": "Manufacturing Setup",
+    "zh": "生产设置",
+    "issue": "与 DocType Manufacturing Settings 官方「生产设置」撞名；同族 Stock/Selling/Buying/Assets/Projects/Subcontracting Setup 都译「…初始化」，此条不成系",
+    "suggest": "生产初始化"
+   }
+  ]
+ },
+ "items": [
+  {
+   "set": "A",
+   "app": "hrms",
+   "key": "Holiday List End",
+   "refs": [
+    "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.json"
+   ],
+   "translation": "假期列表结束日期",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 1,
+   "e_verdict": "可用",
+   "e_reason": "holiday_list_assignment.json 虚拟日期字段，指假期列表的结束日期；Holiday List 沿用官方「假期列表」",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "crm",
+   "key": "Nested Conditions",
+   "refs": [
+    "crm/frontend/src/components/ConditionsFilter/CFCondition.vue:99"
+   ],
+   "translation": "嵌套条件",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 2,
+   "e_verdict": "可用",
+   "e_reason": "CFCondition.vue 条件编辑器里的嵌套条件，意思对",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "crm",
+   "key": "Assign conditions are invalid",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:433"
+   ],
+   "translation": "分配条件无效",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 3,
+   "e_verdict": "可用",
+   "e_reason": "AssignmentRuleView.vue:433 校验分配条件失败的提示",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "crm",
+   "key": "Select an icon...",
+   "refs": [
+    "crm/frontend/src/components/Modals/ViewModal.vue:46"
+   ],
+   "translation": "选择图标……",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 4,
+   "e_verdict": "可用",
+   "e_reason": "ViewModal.vue:46 选图标的占位文字，省略号改全角",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "crm",
+   "key": "Auto-assign leads/deals to the right sales user based on predefined conditions",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRules.vue:11"
+   ],
+   "translation": "按预设条件将线索/商机自动分配给合适的销售人员",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 5,
+   "e_verdict": "可用",
+   "e_reason": "AssignmentRules.vue:11 说明文字；Lead/Deal 与官方线索/商机一致",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "raven",
+   "key": "Document Processors",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:229",
+    "raven/apps/web/src/components/features/settings/panels/Agents/AgentForm.tsx:49",
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:106",
+    "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:137"
+   ],
+   "translation": "文档处理器",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 6,
+   "e_verdict": "可用",
+   "e_reason": "Raven AI 设置页处理 PDF 等文件的处理器，此处「文档」指文件不指单据，不与 Document→单据 冲突",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "raven",
+   "key": "Find messages, files, links and polls. Type a query or pick a filter to start.",
+   "refs": [
+    "raven/apps/web/src/pages/search/Search.tsx:321"
+   ],
+   "translation": "查找消息、文件、链接和投票。输入关键词或选择筛选条件即可开始。",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 7,
+   "e_verdict": "可用",
+   "e_reason": "Search.tsx:321 空状态说明，消息/文件/链接/投票齐全",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "raven",
+   "key": "File Sources",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/SettingsDialog.tsx:213",
+    "raven/apps/web/src/components/features/settings/panels/FileSources/FileSources.tsx:144",
+    "raven/apps/web/src/components/features/settings/panels/FileSources/FileSources.tsx:166",
+    "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+   ],
+   "translation": "文件源",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 8,
+   "e_verdict": "可用",
+   "e_reason": "FileSources.tsx 设置页标题，意思对",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "raven",
+   "key": "Bot Functions",
+   "refs": [
+    "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+   ],
+   "translation": "机器人函数",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 9,
+   "e_verdict": "可用",
+   "e_reason": "raven_bot.json 子表字段，与 Raven Bot Functions→Raven 机器人函数 一致",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "crm",
+   "key": "Section title",
+   "refs": [
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:112",
+    "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:126"
+   ],
+   "translation": "区块标题",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 10,
+   "e_verdict": "可用",
+   "e_reason": "FormBuilderPanel.vue 区块标题占位；Section 官方「区块」",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "erpnext",
+   "key": "Indentation level: 0 = Main heading, 1 = Sub-category, 2 = Individual accounts, etc.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/financial_report_row/financial_report_row.json"
+   ],
+   "translation": "缩进级别：0 = 主标题，1 = 子类别，2 = 明细科目，依此类推。",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 11,
+   "e_verdict": "可用",
+   "e_reason": "financial_report_row.json 缩进级别说明，数字与等号保留",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "hrms",
+   "key": "No login methods are available. Please contact your administrator.",
+   "refs": [
+    "hrms/frontend/src/views/Login.vue:91"
+   ],
+   "translation": "没有可用的登录方式，请联系管理员。",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 12,
+   "e_verdict": "可用",
+   "e_reason": "hrms Login.vue:91 无登录方式提示",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "erpnext",
+   "key": "For example, if set to 4, the system will try to find matching transfer transactions in other banks 4 days before and after the transaction date. This is because transactions can clear on different days on different bank accounts.",
+   "refs": [
+    "erpnext/banking/src/components/features/Settings/Preferences.tsx:60"
+   ],
+   "translation": "例如设为 4 时，系统会在交易日期前后 4 天内查找其他银行的匹配转账流水。这是因为同一笔交易在不同银行户头上的清算日期可能不同。",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，「银行户头」为官方 Bank Account 用词，术语合规",
+   "id": 13,
+   "e_verdict": "可用",
+   "e_reason": "Preferences.tsx:60；Bank Account 官方「银行户头」，Bank Transaction 官方「银行交易流水」，用词一致",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "erpnext",
+   "key": "Account is mandatory",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/budget/budget.py:150"
+   ],
+   "translation": "科目必填",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 14,
+   "e_verdict": "可用",
+   "e_reason": "budget.py:150 科目必填",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "crm",
+   "key": "Assign To Me",
+   "refs": [
+    "crm/frontend/src/components/AssignToBody.vue:67"
+   ],
+   "translation": "分配给我",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 15,
+   "e_verdict": "可用",
+   "e_reason": "AssignToBody.vue:67 开关标签",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "raven",
+   "key": "Select what to delete. This can't be undone.",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/dialogs/DeleteMessageDialog.tsx:95"
+   ],
+   "translation": "请选择要删除的内容。此操作无法撤销。",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 16,
+   "e_verdict": "可用",
+   "e_reason": "DeleteMessageDialog.tsx:95 批量删除确认",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "raven",
+   "key": "Is Admin",
+   "refs": [
+    "raven/raven/raven/doctype/raven_workspace_member/raven_workspace_member.json",
+    "raven/raven/raven_channel_management/doctype/raven_channel_member/raven_channel_member.json"
+   ],
+   "translation": "是否管理员",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 17,
+   "e_verdict": "可用",
+   "e_reason": "raven_workspace_member/raven_channel_member Check 字段",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "raven",
+   "key": "Link Doctype",
+   "refs": [
+    "raven/raven/raven_messaging/doctype/raven_message/raven_message.json"
+   ],
+   "translation": "关联单据类型",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 18,
+   "e_verdict": "可用",
+   "e_reason": "raven_message.json link_doctype，指消息所关联单据的类型，意思对。拿不准：官方 Link DocType（大小写不同的另一键）译「源单据类型」，二者在不同 DocType，未判别名",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "erpnext",
+   "key": "Cannot repost more than {0} vouchers at once. Split them into multiple documents.",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:96"
+   ],
+   "translation": "一次最多重过账 {0} 张凭证，请拆分到多张单据。",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，「重过账」为官方 Repost 用词，单据／凭证用法合规",
+   "id": 19,
+   "e_verdict": "可用",
+   "e_reason": "repost_accounting_ledger.py:96 会计重过账，官方 Repost 族即「重过账」；{0} 保留",
+   "agree_with_d": true
+  },
+  {
+   "set": "A",
+   "app": "insights",
+   "key": "Open in Desk",
+   "refs": [
+    "insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:65",
+    "insights/frontend/src2/workbook/WorkbookNavbarActions.vue:79"
+   ],
+   "translation": "在工作台中打开",
+   "d_verdict": "可用",
+   "d_reason": "意思与出处一致，术语合规",
+   "id": 20,
+   "e_verdict": "可用",
+   "e_reason": "ChartBuilderToolbar.vue:65 / WorkbookNavbarActions.vue:79；Desk 官方「工作台」",
+   "agree_with_d": true
+  },
+  {
+   "set": "B",
+   "app": "crm",
+   "key": "Primary mobile no",
+   "refs": [
+    "crm/crm/fcrm/doctype/crm_deal/crm_deal.json"
+   ],
+   "translation": "主要手机号",
+   "id": 21,
+   "e_verdict": "可用",
+   "e_reason": "crm_deal.json 字段；Mobile No. 官方「手机号」，Primary Email 官方「主要邮箱」，成系"
+  },
+  {
+   "set": "B",
+   "app": "crm",
+   "key": "Activity Timeline",
+   "refs": [
+    "crm/crm/fcrm/doctype/fcrm_settings/fcrm_settings.json"
+   ],
+   "translation": "活动时间线",
+   "id": 22,
+   "e_verdict": "可用",
+   "e_reason": "fcrm_settings.json；Activity/Timeline 官方「活动」「时间线」"
+  },
+  {
+   "set": "B",
+   "app": "crm",
+   "key": "Auto Create Customer",
+   "refs": [
+    "crm/frontend/src/components/Settings/ERPNextSettings.vue:270"
+   ],
+   "translation": "自动创建客户",
+   "id": 23,
+   "e_verdict": "可用",
+   "e_reason": "ERPNextSettings.vue:270 开关标签"
+  },
+  {
+   "set": "B",
+   "app": "crm",
+   "key": "A lead sync source is already enabled for this Facebook Lead Form!",
+   "refs": [
+    "crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.py:49"
+   ],
+   "translation": "此 Facebook 线索表单已启用了一个线索同步来源！",
+   "id": 24,
+   "e_verdict": "可用",
+   "e_reason": "lead_sync_source.py:49 校验提示"
+  },
+  {
+   "set": "B",
+   "app": "crm",
+   "key": "Assignment rule deleted",
+   "refs": [
+    "crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleListItem.vue:126"
+   ],
+   "translation": "分配规则已删除",
+   "id": 25,
+   "e_verdict": "可用",
+   "e_reason": "AssignmentRuleListItem.vue:126 删除成功提示"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "Please check the 'Activate Serial and Batch No for Item' checkbox in the {0} to make Serial and Batch Bundle for the item.",
+   "refs": [
+    "erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:150"
+   ],
+   "translation": "请在 {0} 中勾选「启用物料序列号与批号」，才能为物料创建序列批次包。",
+   "id": 26,
+   "e_verdict": "可用",
+   "e_reason": "serial_and_batch_bundle.py:150；引号内复述的是 Stock Settings 字段「Activate Serial / Batch No for Item」，该字段现译「启用物料序列号/批号」，句中写「启用物料序列号与批号」，差一个连接字，用户仍找得到；Serial and Batch Bundle 用本项目覆盖词「序列批次包」，一致；{0} 保留"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "A naming series conflict occurred while creating serial numbers. Please change the naming series for the item {0}.",
+   "refs": [
+    "erpnext/erpnext/stock/serial_batch_bundle.py:1569"
+   ],
+   "translation": "创建序列号时编号模板冲突，请修改物料 {0} 的编号模板。",
+   "id": 27,
+   "e_verdict": "可用",
+   "e_reason": "serial_batch_bundle.py:1569；naming series 用本项目演示线定词「编号模板」（csv 中 9 行一致）。另见拿不准：字段 label Naming Series 本身仍是官方「命名规则」"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "Appointment Booking Portal Settings",
+   "refs": [
+    "erpnext/erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.json"
+   ],
+   "translation": "门户预约设置",
+   "id": 28,
+   "e_verdict": "可用",
+   "e_reason": "appointment_booking_settings.json:105 分节标题，指预约门户的设置；语序略别扭（宜「预约门户设置」），意思不错"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "% Complete must be between 0 and 100",
+   "refs": [
+    "erpnext/erpnext/projects/doctype/project/project.py:226"
+   ],
+   "translation": "完成百分比必须在 0 到 100 之间",
+   "id": 29,
+   "e_verdict": "可用",
+   "e_reason": "project.py:226 校验提示，% Complete 译「完成百分比」"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "Amount does not match the selected transaction",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:894"
+   ],
+   "translation": "金额与所选流水不符",
+   "id": 30,
+   "e_verdict": "可用",
+   "e_reason": "MatchAndReconcile.tsx:894 银行对账匹配提示，transaction→流水与银行交易流水一致"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "Subcontracting Setup",
+   "refs": [
+    "erpnext/erpnext/subcontracting/module_onboarding/subcontracting_onboarding/subcontracting_onboarding.json"
+   ],
+   "translation": "委外初始化",
+   "id": 31,
+   "e_verdict": "可用",
+   "e_reason": "subcontracting_onboarding.json 模块引导标题；与 Stock/Selling/Buying/Assets/Projects Setup 的「…初始化」成系。注：同族 Manufacturing Setup 译「生产设置」不成系且与 DocType Manufacturing Settings 撞名（样本外，见报告）"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "Set up rules to automatically classify transactions. Drag and drop rules to reorder their priority.",
+   "refs": [
+    "erpnext/banking/src/components/features/Settings/MatchingRules.tsx:37"
+   ],
+   "translation": "设置规则自动归类流水。拖动规则可调整优先级。",
+   "id": 32,
+   "e_verdict": "可用",
+   "e_reason": "MatchingRules.tsx:37 规则设置说明"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "What do you use today?",
+   "refs": [
+    "erpnext/erpnext/public/js/setup_wizard.js:69"
+   ],
+   "translation": "您目前在用什么系统？",
+   "id": 33,
+   "e_verdict": "可用",
+   "e_reason": "setup_wizard.js:69，选项是 Tally/QuickBooks/SAP 等系统名，补「系统」二字合出处"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "Backflush raw materials of subcontract based on",
+   "refs": [
+    "erpnext/erpnext/buying/doctype/buying_settings/buying_settings.json"
+   ],
+   "translation": "委外原材料倒冲依据",
+   "id": 34,
+   "e_verdict": "可用",
+   "e_reason": "buying_settings.json 字段；「倒冲」是 S3 术语草案与大陆 ERP 通用词，官方同族词本身不统一（后冲/倒扣账），未另起别名"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "Failed to delete closing balance.",
+   "refs": [
+    "erpnext/banking/src/components/features/BankReconciliation/BankBalance.tsx:388"
+   ],
+   "translation": "期末余额删除失败。",
+   "id": 35,
+   "e_verdict": "可用",
+   "e_reason": "BankBalance.tsx:388 删除期末余额失败提示"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "Password Required",
+   "refs": [
+    "erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:977"
+   ],
+   "translation": "需要密码",
+   "id": 36,
+   "e_verdict": "可用",
+   "e_reason": "bank_statement_import_log.py:977 弹窗标题"
+  },
+  {
+   "set": "B",
+   "app": "erpnext",
+   "key": "Applying a Discount Amount? When this Sales Order is partially fulfilled through multiple Delivery Notes and Sales Invoices, the Discount Amount is allocated on a FIFO basis. The earlier transactions receive a larger share of the discount. To spread the discount proportionally across item prices, use Additional Discount Percentage instead.",
+   "refs": [
+    "erpnext/erpnext/selling/doctype/sales_order/sales_order.json"
+   ],
+   "translation": "使用折扣金额？若此销售订单分多张销售出库与销售发票部分执行，折扣金额将按先进先出分摊，越早的单据分得的折扣越多。如需按物料价格比例分摊折扣，请改用额外折扣百分比。",
+   "id": 37,
+   "e_verdict": "可用",
+   "e_reason": "sales_order.json 字段说明；Delivery Note 官方「销售出库」，Additional Discount Percentage 官方「额外折扣百分比」，意思完整"
+  },
+  {
+   "set": "B",
+   "app": "frappe",
+   "key": "Recorder Event",
+   "refs": [
+    "frappe/frappe/core/doctype/recorder_event/recorder_event.json"
+   ],
+   "translation": "程序运行记录事件",
+   "id": 38,
+   "e_verdict": "可用",
+   "e_reason": "recorder_event DocType 名；Recorder 官方「程序运行记录」"
+  },
+  {
+   "set": "B",
+   "app": "frappe",
+   "key": "Add attachment",
+   "refs": [
+    "frappe/frappe/public/js/frappe/form/controls/attachment_gallery.js:205"
+   ],
+   "translation": "添加附件",
+   "id": 39,
+   "e_verdict": "可用",
+   "e_reason": "attachment_gallery.js:205 上传按钮"
+  },
+  {
+   "set": "B",
+   "app": "frappe",
+   "key": "Attachment Gallery",
+   "refs": [
+    "frappe/frappe/core/doctype/docfield/docfield.json",
+    "frappe/frappe/custom/doctype/custom_field/custom_field.json",
+    "frappe/frappe/custom/doctype/customize_form_field/customize_form_field.json"
+   ],
+   "translation": "附件图库",
+   "id": 40,
+   "e_verdict": "可用",
+   "e_reason": "DocField 字段类型选项 Attachment Gallery，「附件图库」合意"
+  },
+  {
+   "set": "B",
+   "app": "hrms",
+   "key": "Holiday List Assignment",
+   "refs": [
+    "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.json",
+    "hrms/hrms/workspace_sidebar/leaves.json"
+   ],
+   "translation": "假期列表分配",
+   "id": 41,
+   "e_verdict": "可用",
+   "e_reason": "HRMS DocType 名与侧栏项；Holiday List 官方「假期列表」"
+  },
+  {
+   "set": "B",
+   "app": "hrms",
+   "key": "Advance Account Required",
+   "refs": [
+    "hrms/hrms/hr/doctype/employee_advance/employee_advance.py:47"
+   ],
+   "translation": "缺少预支科目",
+   "id": 42,
+   "e_verdict": "可用",
+   "e_reason": "employee_advance.py:47 弹窗标题，员工预支场景，HRMS 同族多用「预支科目」"
+  },
+  {
+   "set": "B",
+   "app": "insights",
+   "key": "Is Native Query",
+   "refs": [
+    "insights/insights/insights/doctype/insights_query/insights_query.json",
+    "insights/insights/insights/doctype/insights_query_v3/insights_query_v3.json"
+   ],
+   "translation": "是否原生查询",
+   "id": 43,
+   "e_verdict": "可用",
+   "e_reason": "insights_query Check 字段"
+  },
+  {
+   "set": "B",
+   "app": "insights",
+   "key": "Above average",
+   "refs": [
+    "insights/frontend/src2/query/components/FormatRule.vue:203"
+   ],
+   "translation": "高于平均值",
+   "id": 44,
+   "e_verdict": "可用",
+   "e_reason": "FormatRule.vue:203 排名条件选项"
+  },
+  {
+   "set": "B",
+   "app": "insights",
+   "key": "View SQL",
+   "refs": [
+    "insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:55",
+    "insights/frontend/src2/query/components/QueryToolbar.vue:40"
+   ],
+   "translation": "查看 SQL",
+   "id": 45,
+   "e_verdict": "可用",
+   "e_reason": "ChartBuilderToolbar.vue:55 菜单项，SQL 保留"
+  },
+  {
+   "set": "B",
+   "app": "insights",
+   "key": "Append",
+   "refs": [
+    "insights/insights/insights/doctype/insights_table_import/insights_table_import.json"
+   ],
+   "translation": "追加",
+   "id": 46,
+   "e_verdict": "可用",
+   "e_reason": "insights_table_import.json「Action if table exists」选项 Fail/Append/Overwrite 之一，追加合意"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "No one has viewed this yet",
+   "refs": [
+    "raven/apps/web/src/components/features/message/actions/ReadReceiptsList.tsx:202",
+    "raven/apps/web/src/components/features/message/actions/ReadReceiptsList.tsx:226"
+   ],
+   "translation": "还没有人查看",
+   "id": 47,
+   "e_verdict": "可用",
+   "e_reason": "ReadReceiptsList.tsx:202 已读回执空状态"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "12-hour",
+   "refs": [
+    "raven/raven/raven/doctype/raven_user/raven_user.json"
+   ],
+   "translation": "12 小时制",
+   "id": 48,
+   "e_verdict": "可用",
+   "e_reason": "raven_user.json 时间格式选项"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "comments",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/LinkPreviewCard.tsx:44"
+   ],
+   "translation": "条评论",
+   "id": 49,
+   "e_verdict": "可用",
+   "e_reason": "LinkPreviewCard.tsx:46 拼成「{n} 条评论」，量词合出处"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "Any source",
+   "refs": [
+    "raven/apps/web/src/components/features/search/SearchFiltersBar.tsx:98"
+   ],
+   "translation": "任意来源",
+   "id": 50,
+   "e_verdict": "可用",
+   "e_reason": "SearchFiltersBar.tsx:98 来源筛选占位"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "## Channels\n\nRaven helps you and your team communicate with each other.\n\nConversation happen in **channels**. \n\nAll users who have access to Raven can view and send messages in **Open** channels. \n\n**Public** channels are visible to everyone, but only members can take send messages in them. Any user can join public channels. \n\n**Private** channels are only visible to members and new members can only be added by the channel admin - which is the creator of the channel. \n\nYou could also send messages to other users privately via **Direct messages** - including yourself!\n\nA user could create as many channels and add as many users as they want to in them. ",
+   "refs": [
+    "raven/raven/raven/onboarding_step/introduction_to_raven/introduction_to_raven.json"
+   ],
+   "translation": "## 频道\n\nRaven 帮助您与团队成员相互沟通。\n\n交流在**频道**中进行。\n\n所有可访问 Raven 的用户都可以在**开放**频道中查看和发送消息。\n\n**公开**频道对所有人可见，但只有成员才能在其中发送消息。任何用户都可以加入公开频道。\n\n**私有**频道仅对成员可见，新成员只能由频道管理员（即频道创建者）添加。\n\n您还可以通过**私信**与其他用户私下交流，甚至可以发给自己！\n\n每个用户都可以创建任意多个频道，并在其中添加任意多个用户。",
+   "id": 51,
+   "e_verdict": "可用",
+   "e_reason": "introduction_to_raven 引导 Markdown，标题与粗体标记保留；Open 在此是频道类型「开放」，不是状态「待处理」，按出处译对"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "All members",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceMembers.tsx:139"
+   ],
+   "translation": "全部成员",
+   "id": 52,
+   "e_verdict": "可用",
+   "e_reason": "WorkspaceMembers.tsx:139 下拉选项"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "Search saved messages",
+   "refs": [
+    "raven/apps/web/src/pages/later/Later.tsx:78"
+   ],
+   "translation": "搜索已保存的消息",
+   "id": 53,
+   "e_verdict": "可用",
+   "e_reason": "Later.tsx:78 搜索占位"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "{0} isn't in this channel and won't be added to this thread.",
+   "refs": [
+    "raven/apps/web/src/components/features/ChatInput/MentionWarningBanner.tsx:86"
+   ],
+   "translation": "{0} 不在此频道中，不会被加入此话题。",
+   "id": 54,
+   "e_verdict": "可用",
+   "e_reason": "MentionWarningBanner.tsx:86，thread→话题与 Thread 现译一致，{0} 保留"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "You cannot access Raven.",
+   "refs": [
+    "raven/apps/web/src/components/layout/AppShell.tsx:108"
+   ],
+   "translation": "您无法访问 Raven。",
+   "id": 55,
+   "e_verdict": "可用",
+   "e_reason": "AppShell.tsx:108 无权访问提示，品牌名 Raven 保留"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "Remove Member",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceMembers.tsx:226"
+   ],
+   "translation": "移除成员",
+   "id": 56,
+   "e_verdict": "可用",
+   "e_reason": "WorkspaceMembers.tsx:226 菜单项"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "Thread Bot",
+   "refs": [
+    "raven/raven/raven_channel_management/doctype/raven_channel/raven_channel.json"
+   ],
+   "translation": "话题机器人",
+   "id": 57,
+   "e_verdict": "可用",
+   "e_reason": "raven_channel.json Link 字段，与 Thread→话题、Bot→机器人 一致"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "Back to instruction templates",
+   "refs": [
+    "raven/apps/web/src/components/features/settings/panels/Instructions/InstructionEditorView.tsx:17"
+   ],
+   "translation": "返回指令模板列表",
+   "id": 58,
+   "e_verdict": "可用",
+   "e_reason": "InstructionEditorView.tsx:17 返回按钮"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "Edit message...",
+   "refs": [
+    "raven/apps/web/src/components/features/message/renderers/EditMessageComposer.tsx:73",
+    "raven/apps/web/src/components/features/schedule-send/useScheduledMessageEdit.ts:85"
+   ],
+   "translation": "编辑消息……",
+   "id": 59,
+   "e_verdict": "可用",
+   "e_reason": "EditMessageComposer.tsx:73 编辑框占位"
+  },
+  {
+   "set": "B",
+   "app": "raven",
+   "key": "No conversations found",
+   "refs": [
+    "raven/apps/web/src/pages/share/ShareTarget.tsx:152"
+   ],
+   "translation": "未找到会话",
+   "id": 60,
+   "e_verdict": "可用",
+   "e_reason": "ShareTarget.tsx:152 分享目标空状态"
+  }
+ ]
+}

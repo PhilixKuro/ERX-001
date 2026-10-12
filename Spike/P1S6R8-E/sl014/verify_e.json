@@ -1,0 +1,43 @@
+{
+ "Translation": 0,
+ "CFW": 0,
+ "GL": 0,
+ "SLE": 0,
+ "Stock Reconciliation": 0,
+ "companies": [
+  "华东弹簧有限公司"
+ ],
+ "accounts_HDTH": 266,
+ "S6R6_name_hits": {},
+ "check_app_order": {
+  "ok": true,
+  "order": [
+   "frappe",
+   "erpnext",
+   "crm",
+   "hrms",
+   "insights",
+   "raven",
+   "frappe_china"
+  ],
+  "order_ok": true,
+  "overrides": {
+   "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_charts_for_country": "frappe_china.accounting.chart.get_charts_for_country",
+   "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_chart": "frappe_china.accounting.chart.get_chart",
+   "erpnext.accounts.utils.get_coa": "frappe_china.accounting.chart.get_coa"
+  },
+  "overrides_ok": true,
+  "translation": {
+   "source": "Formula",
+   "expected": "计算方式",
+   "actual": "计算方式",
+   "competitors": {
+    "hrms": "公式"
+   }
+  },
+  "translation_ok": true,
+  "company_checks_ok": true,
+  "problems": []
+ },
+ "translation_check": []
+}

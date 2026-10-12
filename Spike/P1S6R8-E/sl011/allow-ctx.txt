@@ -1,0 +1,53 @@
+## Zoom 1
+   Zoom meeting => Zoom 会议
+## Loom 1
+   Loom video player => Loom 视频播放器
+## Tenor 1
+   Tenor API Key => Tenor API 密钥
+## Google 21
+   Document Processors require Google Cloud APIs to be enabled in your Raven settings. => 使用文档处理器需要在 Raven 设置中启用 Google 云 API。
+   Enable Google APIs => 启用 Google API
+   Google Ads => Google 广告
+   Google APIs are not enabled. Please enable them in Raven Settings => Google API 未启用，请在 Raven 设置中启用
+## Raven 126
+   ## Adding Users  To access Raven, users need to have the **Raven User** role.  Go to the " => ## 添加用户  用户须拥有 **Raven 用户**角色才能访问 Raven。  前往“用户”列表，为需要使用 Raven 的用户添加该角色。
+   ## Channels  Raven helps you and your team communicate with each other.  Conversation happ => ## 频道  Raven 帮助您与团队成员相互沟通。  交流在**频道**中进行。  所有可访问 Raven 的用户都可以在**开放**频道中查看和发送消息。  **公开**频道对所有人可见，但只有成员才能在其中发送消息。任何用户都可以加入
+   ## Raven Settings   <em>**Automatically adding users to Raven**</em>  To make it easy for  => ## Raven 设置   <em>**自动将用户添加到 Raven**</em>  为方便起见，所有可访问工作台的用户都会被自动分配 Raven 用户角色。如需关闭此功能，请前往 Raven 设置。
+   ### Access the web and mobile apps   Raven is available at <a href="/raven">**/raven**</a> => ### 访问网页版和移动版   网页版和移动版均可在<a href="/raven">**/raven**</a>访问 Raven。在手机上，可将 Raven 安装为 PWA 应用。
+## Insights 45
+    Enable this if you want the bot to be able to process files like Excel sheets or data fro => 启用后，机器人可以处理 Excel 表格、Insights 数据之类的文件。 <br> OpenAI 助手会在沙盒环境中（OpenAI 服务器上）运行代码来完成这项处理。
+   Data Sources | Insights => 数据源 | Insights
+   Enable this if you want the bot to be able to process files like Excel sheets or data from => 启用后，机器人可以处理 Excel 表格、Insights 数据之类的文件。  此功能由 OpenAI 助手在沙盒环境中（OpenAI 服务器上）运行代码实现。
+   Insights Admin => Insights 管理员
+## Frappe 36
+   A piece of craft by Frappe. => Frappe 匠心出品。
+   Add a Webhook Secret so Raven can sign requests. An X-Frappe-Webhook-Signature header (a b => 添加网络钩子密钥后，Raven 会对请求签名：发送请求前会添加 X-Frappe-Webhook-Signature 请求头（载荷的 HMAC-SHA256 签名，经 base64 编码）。请勿公开此密钥。
+   Allowed Users is not required as Frappe CRM is already installed on the site. => 站点已安装 Frappe CRM，无需设置允许的用户。
+   Allowed Users is required for data synchronization from remote Frappe CRM site. => 从远程 Frappe CRM 站点同步数据时须设置允许的用户。
+## Cron 2
+   Cron expression to schedule the script. Note: The scheduler checks for jobs every hour. => 安排脚本运行的 Cron 表达式。注意：调度程序每小时检查一次任务。
+   Schedule (Cron) => 运行计划（Cron）
+## Outlook 1
+   Setting up Outlook requires you to enable two factor authentication and app specific passw => 设置 Outlook 需要启用双重验证和应用专用密码。了解更多
+## Sendgrid 1
+   Setting up Sendgrid requires you to enable two factor authentication and app specific pass => 设置 Sendgrid 需要启用双重验证和应用专用密码。了解更多
+## Python 14
+   Apply a custom operation using python script => 使用 Python 脚本执行自定义操作
+   OpenAI Python SDK Version: => OpenAI Python SDK 版本：
+   Python expression evaluated on the server. Use doc.fieldname for the row and parent.fieldn => 在服务器端计算的 Python 表达式。用 doc.fieldname 引用当前行字段，用 parent.fieldname 引用父单据字段。表达式结果为真时，该库存辅助核算项变为必填。示例：doc.t_warehouse and doc.
+   Scheduled messages run as server scripts. Ask your site administrator to set server_script => 定时消息以 Python 脚本方式运行。请联系站点管理员在站点配置中设置 server_script_enabled，然后重启站点。
+## Excel 6
+    Enable this if you want the bot to be able to process files like Excel sheets or data fro => 启用后，机器人可以处理 Excel 表格、Insights 数据之类的文件。 <br> OpenAI 助手会在沙盒环境中（OpenAI 服务器上）运行代码来完成这项处理。
+   Enable this if you want the bot to be able to process files like Excel sheets or data from => 启用后，机器人可以处理 Excel 表格、Insights 数据之类的文件。  此功能由 OpenAI 助手在沙盒环境中（OpenAI 服务器上）运行代码实现。
+   Only CSV and Excel formats are supported for export => 导出只支持 CSV 和 Excel 格式
+   Upload a CSV or Excel file to create a new data source => 上传 CSV 或 Excel 文件以新建数据源
+## Gravatar 7
+   Delete Gravatar URLs => 删除 Gravatar 链接
+   Existing Gravatar URLs may still be stored on User and Contact records. Do you want to del => 用户和联系人记录中可能仍保存着现有的 Gravatar 链接。是否立即删除这些链接？
+   Existing Gravatar URLs may still be stored on User, Contact, and Lead records. Do you want => 用户、联系人和线索记录中可能仍保存着现有的 Gravatar 链接。是否立即删除这些链接？
+   Frappe no longer uses Gravatar because it can disclose hashed email addresses to a third-p => Frappe 已不再使用 Gravatar，因为它可能把经过哈希处理的邮箱地址泄露给第三方服务。要彻底杜绝这种情况，必须删除现有的 Gravatar 图片链接。
+## Jinja 12
+   Can be HTML/Markdown/Plain Text. Support Jinja tags => 可以是 HTML 格式、MD 格式或纯文本，支持 Jinja 标签
+   Dynamic Instructions allow you to embed Jinja tags in your instruction to the bot. Hence t => 启用动态指令后，可在给机器人的指令中嵌入 Jinja 标签。因此指令会随调用机器人的用户或系统中的数据而变化。这些指令在每次调用机器人时重新计算。如需在指令中动态嵌入员工 ID、公司名称等内容，请勾选此项
+   Dynamic Instructions allow you to embed Jinja tags in your instruction to the bot. Instruc => 启用动态指令后，可在给机器人的指令中嵌入 Jinja 标签。指令在每次调用机器人时重新计算，因此会随调用机器人的用户或系统中的数据而变化。
+   Headline of the in-app notification. Falls back to Subject if left blank. Supports Jinja. => 站内通知的标题。留空时使用主题。支持 Jinja。

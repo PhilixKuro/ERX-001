@@ -1,0 +1,251 @@
+{
+ "backscan_in_csv": [
+  {
+   "key": "Auto Repost Incorrect Valuation Entries (Weekly)",
+   "expected": "自动追溯调整成本价错误的分录（每周）",
+   "csv": "自动追溯调整成本价错误的分录（每周）",
+   "ok": true
+  },
+  {
+   "key": "Auto Reposting of Incorrect Valuation",
+   "expected": "成本价错误自动追溯调整",
+   "csv": "成本价错误自动追溯调整",
+   "ok": true
+  },
+  {
+   "key": "Enable Parallel Reposting",
+   "expected": "启用并行追溯调整",
+   "csv": "启用并行追溯调整",
+   "ok": true
+  },
+  {
+   "key": "Enable Separate Reposting for GL",
+   "expected": "启用总账单独追溯调整",
+   "csv": "启用总账单独追溯调整",
+   "ok": true
+  },
+  {
+   "key": "If enabled, a weekly scheduler scans the Stock Ledger Variance for item-warehouses with incorrect valuation in the current financial year and auto-creates Item & Warehouse based reposts to fix them.",
+   "expected": "启用后，系统每周定时扫描本会计年度物料凭证差异报表中成本价有误的物料与仓库组合，并自动按物料与仓库创建追溯调整予以修正。",
+   "csv": "启用后，系统每周定时扫描本会计年度物料凭证差异报表中成本价有误的物料与仓库组合，并自动按物料与仓库创建追溯调整予以修正。",
+   "ok": true
+  },
+  {
+   "key": "No of Items to Repost",
+   "expected": "待追溯调整物料数",
+   "csv": "待追溯调整物料数",
+   "ok": true
+  },
+  {
+   "key": "No of Parallel Reposting (Per Item)",
+   "expected": "并行追溯调整数（每个物料）",
+   "csv": "并行追溯调整数（每个物料）",
+   "ok": true
+  },
+  {
+   "key": "Repost Only Accounting Ledgers",
+   "expected": "仅追溯调整会计分录",
+   "csv": "仅追溯调整会计分录",
+   "ok": true
+  },
+  {
+   "key": "Reposting for Item-Wh Completed {0}%",
+   "expected": "按物料与仓库追溯调整已完成 {0}%",
+   "csv": "按物料与仓库追溯调整已完成 {0}%",
+   "ok": true
+  },
+  {
+   "key": "Reposting for Vouchers Completed {0}%",
+   "expected": "按凭证追溯调整已完成 {0}%",
+   "csv": "按凭证追溯调整已完成 {0}%",
+   "ok": true
+  },
+  {
+   "key": "Reposting Reference",
+   "expected": "追溯调整参照号",
+   "csv": "追溯调整参照号",
+   "ok": true
+  },
+  {
+   "key": "Reposting Vouchers",
+   "expected": "追溯调整凭证",
+   "csv": "追溯调整凭证",
+   "ok": true
+  },
+  {
+   "key": "Reposting Vouchers Progress",
+   "expected": "凭证追溯调整进度",
+   "csv": "凭证追溯调整进度",
+   "ok": true
+  },
+  {
+   "key": "Stock and accounting values could not be reconciled by reposting for {0}.",
+   "expected": "追溯调整后，{0} 的库存与账务数值仍未能对平。",
+   "csv": "追溯调整后，{0} 的库存与账务数值仍未能对平。",
+   "ok": true
+  },
+  {
+   "key": "Stock Ledgers won’t be reposted.",
+   "expected": "不追溯调整库存台账。",
+   "csv": "不追溯调整库存台账。",
+   "ok": true
+  }
+ ],
+ "specific_in_csv": [
+  {
+   "key": "Reposting Item and Warehouse",
+   "expected": "追溯调整的物料与仓库",
+   "csv": "追溯调整的物料与仓库",
+   "ok": true
+  },
+  {
+   "key": "Grand Total must match sum of Payment References",
+   "expected": "总计必须等于各付款凭据行金额之和",
+   "csv": "总计必须等于各付款凭据行金额之和",
+   "ok": true
+  },
+  {
+   "key": "Vote Selection",
+   "expected": "所选选项",
+   "csv": "所选选项",
+   "ok": true
+  }
+ ],
+ "csv_rows_with_重过账": [
+  {
+   "key": "Add atleast one voucher to repost.",
+   "zh": "请至少添加一张要重过账的凭证。",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:92"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Cannot repost more than {0} vouchers at once. Split them into multiple documents.",
+   "zh": "一次最多重过账 {0} 张凭证，请拆分到多张单据。",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:96"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Changing the account in any transaction of the DocTypes listed below will trigger a repost. To prevent reposting, remove the relevant DocType from the list.",
+   "zh": "以下单据类型的任何业务单据修改科目后都将触发重过账。如不希望重过账，请将对应单据类型从列表中移除。",
+   "refs": [
+    "erpnext/accounts/doctype/accounts_settings/accounts_settings.json"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Duplicate vouchers found. Remove the duplicate vouchers to continue to repost.",
+   "zh": "存在重复凭证，请移除重复凭证后再重过账。",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:110"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Partially Reposted",
+   "zh": "部分已重过账",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.json"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Repost",
+   "zh": "重过账",
+   "refs": [
+    "erpnext/accounts/doctype/accounts_settings/accounts_settings.json"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Reposted",
+   "zh": "已重过账",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger_items/repost_accounting_ledger_items.json"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Reposting can be started only for submitted document.",
+   "zh": "只有已提交的单据才能开始重过账。",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:216"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Reposting cannot be started when status is {0}.",
+   "zh": "状态为 {0} 时不能开始重过账。",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:221"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Reposting is still in progress in background.",
+   "zh": "重过账仍在后台运行。",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:211"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Reposting Status",
+   "zh": "重过账状态",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger_items/repost_accounting_ledger_items.json"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Reposting {0} {1}",
+   "zh": "正在重过账 {0} {1}",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:315"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Scheduler is inactive. Reposting will only run once background jobs are processed.",
+   "zh": "后台任务调度未启动，重过账要等后台任务被处理后才会运行。",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:232"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "The following cancelled repost entries exist for <b>{0}</b>:<br><br>{1}<br><br>Kindly delete these entries before continuing.",
+   "zh": "<b>{0}</b> 存在以下已取消的重过账记录：<br><br>{1}<br><br>请先删除这些记录再继续。",
+   "refs": [
+    "erpnext/controllers/accounts_controller.py:494"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "Unable to Repost Accounting Ledger",
+   "zh": "会计凭证重过账失败",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:375"
+   ],
+   "stock_ref": false
+  },
+  {
+   "key": "{0} {1} not allowed to be reposted. You can enable it by adding it '{2}' table in {3}.",
+   "zh": "{0} {1} 不允许重过账。如需启用，请将其添加到 {3} 的「{2}」表中。",
+   "refs": [
+    "erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:506"
+   ],
+   "stock_ref": false
+  }
+ ],
+ "summary": {
+  "backscan_ok": 15,
+  "backscan_total": 15,
+  "specific_ok": 3,
+  "csv_重过账_rows": 16,
+  "stock_ref_rows": 0
+ }
+}

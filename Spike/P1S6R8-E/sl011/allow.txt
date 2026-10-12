@@ -1,0 +1,92 @@
+WARNING: running on unlocked commits: {'frappe_china': ['cf8a9ba8aea4505a5886a873b2fff5cec1971611', '1d51db2b7a775002078961477c7ccf0f5dbc8fc4']}
+{
+  "commits": {
+    "heads": {
+      "frappe": "c1f1e8ec3708750d7254f7f99d869ffb9886f19f",
+      "erpnext": "12cd563fb9a79731f75ae2a45b1446a0a2dd9e74",
+      "crm": "deedce73c1eb48577e7f70e95df6bac1dc55c93f",
+      "hrms": "6f5ac249283f6fa1013fd5616f3d95f686ba7bb2",
+      "insights": "5447f1621c0e6593994286807fe2521e03f1b0b4",
+      "raven": "e890308e967fdc6510d88b9f16cb1dbda321b1ea",
+      "frappe_china": "cf8a9ba8aea4505a5886a873b2fff5cec1971611"
+    },
+    "unlocked": {
+      "frappe_china": [
+        "cf8a9ba8aea4505a5886a873b2fff5cec1971611",
+        "1d51db2b7a775002078961477c7ccf0f5dbc8fc4"
+      ]
+    }
+  },
+  "gap_counts": {
+    "frappe": 0,
+    "erpnext": 0,
+    "crm": 0,
+    "hrms": 0,
+    "insights": 0,
+    "raven": 0
+  },
+  "identity_gap_counts": {
+    "frappe": 0,
+    "erpnext": 0,
+    "crm": 0,
+    "hrms": 0,
+    "insights": 0,
+    "raven": 0
+  },
+  "whitelisted": {
+    "frappe": 76,
+    "erpnext": 52,
+    "crm": 27,
+    "hrms": 32,
+    "insights": 16,
+    "raven": 25
+  },
+  "collision_count": 1196,
+  "demo_surface_count": 3055,
+  "lg009_missing_doctypes": [
+    "Item Attribute",
+    "Lead",
+    "Master Production Schedule",
+    "Period Closing Voucher",
+    "Pick List",
+    "Prepared Report",
+    "Report",
+    "Repost Item Valuation",
+    "Sales Forecast",
+    "Translation",
+    "User Permission",
+    "Warehouse Type",
+    "Workstation Operating Component",
+    "Workstation Type"
+  ],
+  "lg009_original_scope_missing": [
+    "BOM Item",
+    "BOM Operation",
+    "Delivery Note Item",
+    "Employee",
+    "Item Attribute",
+    "Item Customer Detail",
+    "Landed Cost Taxes and Charges",
+    "Lead",
+    "Master Production Schedule",
+    "Mode of Payment Account",
+    "Payment Entry Reference",
+    "Period Closing Voucher",
+    "Pick List",
+    "Prepared Report",
+    "Purchase Order Item",
+    "Report",
+    "Repost Item Valuation",
+    "Routing",
+    "Sales Forecast",
+    "Sales Order Item",
+    "Translation",
+    "UOM Conversion Detail",
+    "User Permission",
+    "Warehouse Type",
+    "Workstation Cost",
+    "Workstation Operating Component",
+    "Workstation Type"
+  ]
+}
+demo collision groups: 188; official overrides: 119

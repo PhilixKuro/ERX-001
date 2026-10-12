@@ -1,0 +1,2 @@
+| **SH-P1S6002** | 官方英文默认数据在演示屏上原样显示：`Nos`（UOM，工作站等屏）、`general`（Raven 频道）、`Qualification`（CRM 商机状态）。属数据不是界面文案，不改 csv（DEC-033） | E（R8 IT-042） | 2026-10-12 | S7 造数开工时（定演示数据时一并改名或换用中文记录） | P1-S6-R8 E 确认报告 IT-042；`Spike/P1S6R6-screens.json` 的 `default_data` | 延期 |
+| **SH-P1S6003** | 带 context 的 csv 行不进覆盖清单的依据守卫：178 行中 165 行在渲染点上改变了官方无 context 译文（如 `Accepted Warehouse:Purchase Receipt` 官方「仓库」→「验收仓库」），按「键交集」定义合规，但无依据可查 | E（R8 IT-047） | 2026-10-12 | 下次批量改 context 行时，或上游 po 开始带 msgctxt 时 | P1-S6-R8 E 确认报告 IT-047 | 延期 |

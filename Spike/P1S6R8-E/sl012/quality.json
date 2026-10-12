@@ -1,0 +1,403 @@
+{
+ "rows": 5745,
+ "QE_type": "dict",
+ "QE_n": 39,
+ "ALLOW_n": 44,
+ "zhongwen_colon": [],
+ "qmarks": [],
+ "empty": [],
+ "nongb_rows": 0,
+ "nongb_rows_not_QE": [],
+ "nongb_all": [],
+ "mixed_n": 37,
+ "mixed": [
+  {
+   "key": "<p><strong>Condition Examples:</strong></p>\n<pre>doc.status==\"Open\"<br>doc.due_d",
+   "zh": "<p><strong>条件示例：</strong></p>\n<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()",
+   "words": [
+    "doc",
+    "status",
+    "Open",
+    "doc",
+    "due",
+    "date",
+    "nowdate",
+    "doc",
+    "total"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "`doctype` and `fieldname` are required for deleting property setters.",
+   "zh": "删除属性设置时必须提供 `doctype` 与 `fieldname`。",
+   "words": [
+    "doctype",
+    "fieldname"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "A row blocks its whole domain. Tick Exact to block just that one URL - like \"fra",
+   "zh": "每一行会屏蔽整个域名。勾选「精确」则只屏蔽这一个网址，例如可以只屏蔽\"frappe.io\"，而保留\"frappe.io/blog\"的链接预览。",
+   "words": [
+    "blog"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Add a Webhook Secret so Raven can sign requests. An X-Frappe-Webhook-Signature h",
+   "zh": "添加网络钩子密钥后，Raven 会对请求签名：发送请求前会添加 X-Frappe-Webhook-Signature 请求头（载荷的 HMAC-SHA256 签",
+   "words": [
+    "X-Frappe-Webhook-Signature",
+    "base"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Authorization POST requests must use application/x-www-form-urlencoded",
+   "zh": "授权 POST 请求必须使用 application/x-www-form-urlencoded",
+   "words": [
+    "application",
+    "x-www-form-urlencoded"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "e.g. api_key",
+   "zh": "例如：api_key",
+   "words": [
+    "api",
+    "key"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "e.g. john@example.com, henry@example.com",
+   "zh": "例如：john@example.com, henry@example.com",
+   "words": [
+    "john",
+    "example",
+    "com",
+    "henry",
+    "example",
+    "com"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "e.g. marketing, design-team, project-alpha",
+   "zh": "例如：marketing、design-team、project-alpha",
+   "words": [
+    "marketing",
+    "design-team",
+    "project-alpha"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "e.g. party_parrot",
+   "zh": "例如：party_parrot",
+   "words": [
+    "party",
+    "parrot"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "For OpenAI: gpt-4o, gpt-4, etc. For Local LLM: use model name from /v1/models en",
+   "zh": "OpenAI 可填 gpt-4o、gpt-4 等；本地 LLM 请填写 /v1/models 接口返回的模型名称",
+   "words": [
+    "gpt-",
+    "gpt-",
+    "models"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "If enabled, all replies to your company (eg: replies@yourcompany.com) will come ",
+   "zh": "启用后，发给公司的所有回复（例如 replies@yourcompany.com）都会进入此账号。注意：只能有一个账号设为默认收件。",
+   "words": [
+    "replies",
+    "yourcompany",
+    "com"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Invalid CSV format. Expected column: doctype_name",
+   "zh": "CSV 格式无效，缺少 doctype_name 列",
+   "words": [
+    "doctype",
+    "name"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Make sure LM Studio is running with the server enabled on the specified URL.",
+   "zh": "请确认 LM Studio 已运行，并已在指定网址上启用服务器。",
+   "words": [
+    "Studio"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "method and setting the user_id parameter. This method also accepts markdown and ",
+   "zh": "方法，并设置 user_id 参数。此方法也接受 markdown 参数和单据链接参数。",
+   "words": [
+    "user"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "parameter to True.",
+   "zh": "参数设为 True。",
+   "words": [
+    "True"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Payment reminder from Frappé - (#{{ name }})",
+   "zh": "来自 Frappé 的付款提醒 - (#{{ name }})",
+   "words": [
+    "Frapp"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Pressing Enter will add a new line. Use Ctrl / ⌘ + Enter to send your message.",
+   "zh": "按回车键换行，按 Ctrl / ⌘ + 回车键发送消息。",
+   "words": [
+    "Ctrl"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Pressing Enter will immediately send your message. Use Shift+Enter to add a new ",
+   "zh": "按回车键会立即发送消息，按 Shift+回车键换行。",
+   "words": [
+    "Shift"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Provide a list of allowed Doctypes for file uploads. Each line should contain on",
+   "zh": "填写允许访客上传文件的单据类型，每行一个。不填则允许上传到所有单据类型。示例：<br>User<br>Item<br>Quotation",
+   "words": [
+    "User",
+    "Item",
+    "Quotation"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Python expression evaluated on the server. Use doc.fieldname for the row and par",
+   "zh": "在服务器端计算的 Python 表达式。用 doc.fieldname 引用当前行字段，用 parent.fieldname 引用父单据字段。表达式结果为真时，",
+   "words": [
+    "doc",
+    "fieldname",
+    "parent",
+    "fieldname",
+    "doc",
+    "warehouse",
+    "and",
+    "doc",
+    "qty"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Scheduled messages run as server scripts. Ask your site administrator to set ser",
+   "zh": "定时消息以 Python 脚本方式运行。请联系站点管理员在站点配置中设置 server_script_enabled，然后重启站点。",
+   "words": [
+    "server",
+    "script",
+    "enabled"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Setting up Frappe Mail requires you to have an API key and API secret for your e",
+   "zh": "设置 Frappe Mail 需要邮箱账号的 API 密钥和 API 私钥。了解更多",
+   "words": [
+    "Mail"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "SMS Settings.allowed_roles not found. Update the Frappe Framework app to a versi",
+   "zh": "未找到「短信设置」的 allowed_roles 字段。请将 Frappe 框架升级到包含此字段的版本，然后重新运行 bench migrate。",
+   "words": [
+    "allowed",
+    "roles",
+    "bench",
+    "migrate"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Temporal column used to detect rows that changed since the last sync. Use <b>mod",
+   "zh": "用于检测上次同步后有变动的行的时间列。可变数据表用 <b>modified</b>，仅追加的数据表用 <b>creation</b>。",
+   "words": [
+    "modified",
+    "creation"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "The uploaded file could not be parsed as a genericode XML document.",
+   "zh": "上传的文件无法解析为 genericode XML 文档。",
+   "words": [
+    "genericode"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "This module is scheduled for deprecation and will be completely removed in versi",
+   "zh": "此模块计划弃用，将在第 17 版中完全移除，请改用 <a href=\"https://frappe.io/helpdesk\">Frappe Helpdesk</",
+   "words": [
+    "Helpdesk"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "To select more than one transaction at a time, press and hold the shift key.",
+   "zh": "按住 Shift 键可一次选择多笔流水。",
+   "words": [
+    "Shift"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Top P",
+   "zh": "Top P（核采样）",
+   "words": [
+    "Top"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Transaction type column has \"Deposit\"/\"Withdrawal\" values",
+   "zh": "交易类型列含“Deposit”/“Withdrawal”标记",
+   "words": [
+    "Deposit",
+    "Withdrawal"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "visible_types entries must be strings or {type: [fields]} maps",
+   "zh": "visible_types 的每一项必须是字符串或 {type: [fields]} 映射",
+   "words": [
+    "visible",
+    "types"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "visible_types fields for {0} must be a list",
+   "zh": "visible_types 中 {0} 的字段必须是列表",
+   "words": [
+    "visible",
+    "types"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "visible_types is not valid JSON: {0}",
+   "zh": "visible_types 不是有效的 JSON：{0}",
+   "words": [
+    "visible",
+    "types"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "visible_types must be a list",
+   "zh": "visible_types 必须是列表",
+   "words": [
+    "visible",
+    "types"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "Write Python code to fetch and transform data. Available globals:<br>• client: A",
+   "zh": "编写 Python 代码来获取和变换数据。可用的全局对象：<br>• client：所选数据源的 API 客户端<br>• table：将数据写入数据仓库。方法",
+   "words": [
+    "client",
+    "table",
+    "insert",
+    "data",
+    "overwrite",
+    "False",
+    "state",
+    "get",
+    "key",
+    "default",
+    "None",
+    "set",
+    "key",
+    "value",
+    "delete",
+    "key",
+    "clear",
+    "secrets",
+    "get",
+    "key",
+    "log",
+    "message"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "You can also add credit or debit values to pre-fill - these support both static ",
+   "zh": "还可以预填贷方或借方金额，支持固定值（如 200）或公式（如 transaction_amount * 0.25）。",
+   "words": [
+    "transaction",
+    "amount"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "{0} is a Virtual DocType and must implement its own delete() method.",
+   "zh": "{0} 是虚拟单据类型，必须自行实现 delete() 方法。",
+   "words": [
+    "delete"
+   ],
+   "in_src": true
+  },
+  {
+   "key": "{0} should be in format: app.module.method",
+   "zh": "{0} 应采用格式：app.module.method",
+   "words": [
+    "app",
+    "module",
+    "method"
+   ],
+   "in_src": true
+  }
+ ],
+ "no_han": [
+  [
+   "<p><strong>{{ __(\"Condition Examples\") }}:</strong></p>\n<pre><code class=\"language-python\">doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</code></pre>\n",
+   "<p><strong>{{ __(\"Condition Examples\") }}：</strong></p>\n<pre><code class=\"language-python\">doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</code></pre>\n"
+  ],
+  [
+   "<p><strong>{{ __(\"Condition Examples\") }}:</strong></p>\n<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>",
+   "<p><strong>{{ __(\"Condition Examples\") }}：</strong></p>\n<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>"
+  ],
+  [
+   "[{0}] {1}",
+   "【{0}】{1}"
+  ],
+  [
+   "CN¥",
+   "¥"
+  ],
+  [
+   "{0}; {1}",
+   "{0}；{1}"
+  ]
+ ]
+}

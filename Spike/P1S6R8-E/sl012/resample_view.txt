@@ -1,0 +1,519 @@
+=== #1 [A] hrms
+KEY: Holiday List End
+ZH : 假期列表结束日期
+D  : 可用 / 意思与出处一致，术语合规
+=== #2 [A] crm
+KEY: Nested Conditions
+ZH : 嵌套条件
+D  : 可用 / 意思与出处一致，术语合规
+crm/frontend/src/components/ConditionsFilter/CFCondition.vue:99
+  97:         :label="__('Open Nested Conditions')"
+  98:         @click="show = true"
+  99:       />
+  100:     </div>
+  101:     <div class="condition-actions w-max">
+=== #3 [A] crm
+KEY: Assign conditions are invalid
+ZH : 分配条件无效
+D  : 可用 / 意思与出处一致，术语合规
+crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleView.vue:433
+  431: 
+  432:         if (!validateConditions(assignmentRuleData.value.assignConditionJson)) {
+  433:           assignmentRuleErrors.value.assignConditionError = __(
+  434:             'Assign conditions are invalid',
+  435:           )
+=== #4 [A] crm
+KEY: Select an icon...
+ZH : 选择图标……
+D  : 可用 / 意思与出处一致，术语合规
+crm/frontend/src/components/Modals/ViewModal.vue:46
+  44:                 currentIsEmoji
+  45:                   ? __('Replace with an icon...')
+  46:                   : __('Select an icon...')
+  47:               "
+  48:             />
+=== #5 [A] crm
+KEY: Auto-assign leads/deals to the right sales user based on predefined conditions
+ZH : 按预设条件将线索/商机自动分配给合适的销售人员
+D  : 可用 / 意思与出处一致，术语合规
+crm/frontend/src/components/Settings/AssignmentRules/AssignmentRules.vue:11
+  9:         <p class="text-p-base text-ink-gray-6">
+  10:           {{
+  11:             __(
+  12:               'Auto-assign leads/deals to the right sales user based on predefined conditions',
+  13:             )
+=== #6 [A] raven
+KEY: Document Processors
+ZH : 文档处理器
+D  : 可用 / 意思与出处一致，术语合规
+raven/apps/web/src/components/features/settings/SettingsDialog.tsx:229
+  227:             id: "document-processors",
+  228:             group: "ai",
+  229:             label: _("Document Processors"),
+  230:             icon: CpuIcon,
+  231:             component: DocumentProcessorsPanel,
+raven/apps/web/src/components/features/settings/panels/Agents/AgentForm.tsx:49
+  47:                             </TabsTrigger>
+  48:                             <TabsTrigger value="document-processors">
+  49:                                 <CpuIcon /> {_("Document Processors")}
+  50:                             </TabsTrigger>
+  51:                             <TabsTrigger value="files">
+  (+2 more refs)
+=== #7 [A] raven
+KEY: Find messages, files, links and polls. Type a query or pick a filter to start.
+ZH : 查找消息、文件、链接和投票。输入关键词或选择筛选条件即可开始。
+D  : 可用 / 意思与出处一致，术语合规
+raven/apps/web/src/pages/search/Search.tsx:321
+  319:                                 <EmptyHeader>
+  320:                                     <EmptyTitle>{_('Search Raven')}</EmptyTitle>
+  321:                                     <EmptyDescription>{_('Find messages, files, links and polls. Type a query or pick a filter to start.')}</EmptyDescription>
+  322:                                 </EmptyHeader>
+  323:                             </Empty>
+=== #8 [A] raven
+KEY: File Sources
+ZH : 文件源
+D  : 可用 / 意思与出处一致，术语合规
+raven/apps/web/src/components/features/settings/SettingsDialog.tsx:213
+  211:             id: "file-sources",
+  212:             group: "ai",
+  213:             label: _("File Sources"),
+  214:             icon: FolderIcon,
+  215:             component: FileSourcesPanel,
+raven/apps/web/src/components/features/settings/panels/FileSources/FileSources.tsx:144
+  142:                 }
+  143:             >
+  144:                 <SettingsPanelTitle>{_("File Sources")}</SettingsPanelTitle>
+  145:                 <SettingsPanelDescription>{_("Add files that can be used by AI Agents.")}</SettingsPanelDescription>
+  146:             </SettingsPanelHeader>
+  (+2 more refs)
+=== #9 [A] raven
+KEY: Bot Functions
+ZH : 机器人函数
+D  : 可用 / 意思与出处一致，术语合规
+=== #10 [A] crm
+KEY: Section title
+ZH : 区块标题
+D  : 可用 / 意思与出处一致，术语合规
+crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:112
+  110:                             :ref="(el) => el && el.focus()"
+  111:                             v-model="sec.secField.label"
+  112:                             :placeholder="__('Section title')"
+  113:                             class="min-w-0 flex-1 border-0 bg-transparent p-0 text-base-medium text-ink-gray-9 placeholder:font-normal placeholder:italic placeholder:text-ink-gray-4 focus:outline-none focus:ring-0"
+  114:                             @blur="sec.editingLabel = false"
+crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:126
+  124:                             @click="sec.editingLabel = true"
+  125:                           >
+  126:                             {{ sec.secField.label || __('Section title') }}
+  127:                           </span>
+  128:                         </div>
+=== #11 [A] erpnext
+KEY: Indentation level: 0 = Main heading, 1 = Sub-category, 2 = Individual accounts, etc.
+ZH : 缩进级别：0 = 主标题，1 = 子类别，2 = 明细科目，依此类推。
+D  : 可用 / 意思与出处一致，术语合规
+=== #12 [A] hrms
+KEY: No login methods are available. Please contact your administrator.
+ZH : 没有可用的登录方式，请联系管理员。
+D  : 可用 / 意思与出处一致，术语合规
+hrms/frontend/src/views/Login.vue:91
+  89: 					</template>
+  90: 
+  91: 					<div v-else-if="user_pass_login_disabled.data" class="text-center text-gray-600 py-8">{{ __("No login methods are available. Please contact your administrator.") }}</div>
+  92: 				</div>
+  93: 			</div>
+=== #13 [A] erpnext
+KEY: For example, if set to 4, the system will try to find matching transfer transactions in other banks 4 days before and after the transaction date. This is because transactions can clear on different days on different bank accounts.
+ZH : 例如设为 4 时，系统会在交易日期前后 4 天内查找其他银行的匹配转账流水。这是因为同一笔交易在不同银行户头上的清算日期可能不同。
+D  : 可用 / 意思与出处一致，「银行户头」为官方 Bank Account 用词，术语合规
+erpnext/banking/src/components/features/Settings/Preferences.tsx:60
+  58:                             <Label htmlFor="transfer_match_days" className="text-p-base text-ink-gray-6">{_("Number of days to match transfers")}</Label>
+  59:                             <p className="text-p-sm text-ink-gray-5">
+  60:                                 {_("For example, if set to 4, the system will try to find matching transfer transactions in other banks 4 days before and after the transaction date. This is because transactions can clear
+  61:                             </p>
+  62:                         </div>
+=== #14 [A] erpnext
+KEY: Account is mandatory
+ZH : 科目必填
+D  : 可用 / 意思与出处一致，术语合规
+erpnext/erpnext/accounts/doctype/budget/budget.py:150
+  148: 	def validate_account(self):
+  149: 		if not self.account:
+  150: 			frappe.throw(_("Account is mandatory"))
+  151: 
+  152: 		account_details = frappe.get_cached_value(
+=== #15 [A] crm
+KEY: Assign To Me
+ZH : 分配给我
+D  : 可用 / 意思与出处一致，术语合规
+crm/frontend/src/components/AssignToBody.vue:67
+  65:         @click="assignToMe = !assignToMe"
+  66:       >
+  67:         {{ __('Assign To Me') }}
+  68:       </div>
+  69:       <Switch v-model="assignToMe" @click.stop />
+=== #16 [A] raven
+KEY: Select what to delete. This can't be undone.
+ZH : 请选择要删除的内容。此操作无法撤销。
+D  : 可用 / 意思与出处一致，术语合规
+raven/apps/web/src/components/features/message/actions/dialogs/DeleteMessageDialog.tsx:95
+  93:                     <AlertDialogDescription>
+  94:                         {isBatch
+  95:                             ? _("Select what to delete. This can't be undone.")
+  96:                             : _("This will be removed for everyone in the conversation. This can't be undone.")}
+  97:                     </AlertDialogDescription>
+=== #17 [A] raven
+KEY: Is Admin
+ZH : 是否管理员
+D  : 可用 / 意思与出处一致，术语合规
+=== #18 [A] raven
+KEY: Link Doctype
+ZH : 关联单据类型
+D  : 可用 / 意思与出处一致，术语合规
+=== #19 [A] erpnext
+KEY: Cannot repost more than {0} vouchers at once. Split them into multiple documents.
+ZH : 一次最多重过账 {0} 张凭证，请拆分到多张单据。
+D  : 可用 / 意思与出处一致，「重过账」为官方 Repost 用词，单据／凭证用法合规
+erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.py:96
+  94: 		if len(self.vouchers) > MAX_VOUCHERS_PER_REPOST:
+  95: 			frappe.throw(
+  96: 				_("Cannot repost more than {0} vouchers at once. Split them into multiple documents.").format(
+  97: 					MAX_VOUCHERS_PER_REPOST
+  98: 				)
+=== #20 [A] insights
+KEY: Open in Desk
+ZH : 在工作台中打开
+D  : 可用 / 意思与出处一致，术语合规
+insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:65
+  63: 	},
+  64: 	{
+  65: 		label: __('Open in Desk'),
+  66: 		icon: h(ExternalLink, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),
+  67: 		onClick: () => props.chart.openInDesk(),
+insights/frontend/src2/workbook/WorkbookNavbarActions.vue:79
+  77: 				session.user.has_desk_access
+  78: 					? {
+  79: 							label: __('Open in Desk'),
+  80: 							icon: 'external-link',
+  81: 							onClick: () => workbook.openInDesk(),
+=== #21 [B] crm
+KEY: Primary mobile no
+ZH : 主要手机号
+=== #22 [B] crm
+KEY: Activity Timeline
+ZH : 活动时间线
+=== #23 [B] crm
+KEY: Auto Create Customer
+ZH : 自动创建客户
+crm/frontend/src/components/Settings/ERPNextSettings.vue:270
+  268:                 <div class="flex flex-col">
+  269:                   <div class="text-p-base-medium text-ink-gray-7 truncate">
+  270:                     {{ __('Auto Create Customer') }}
+  271:                   </div>
+  272:                   <div class="text-p-sm text-ink-gray-5 truncate">
+=== #24 [B] crm
+KEY: A lead sync source is already enabled for this Facebook Lead Form!
+ZH : 此 Facebook 线索表单已启用了一个线索同步来源！
+crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.py:49
+  47: 
+  48: 		if already_active:
+  49: 			frappe.throw(frappe._("A lead sync source is already enabled for this Facebook Lead Form!"))
+  50: 
+  51: 	def before_insert(self):
+=== #25 [B] crm
+KEY: Assignment rule deleted
+ZH : 分配规则已删除
+crm/frontend/src/components/Settings/AssignmentRules/AssignmentRuleListItem.vue:126
+  124:       assignmentRulesList.reload()
+  125:       isConfirmingDelete.value = false
+  126:       toast.success(__('Assignment rule deleted'))
+  127:     },
+  128:     auto: true,
+=== #26 [B] erpnext
+KEY: Please check the 'Activate Serial and Batch No for Item' checkbox in the {0} to make Serial and Batch Bundle for the item.
+ZH : 请在 {0} 中勾选「启用物料序列号与批号」，才能为物料创建序列批次包。
+erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.py:150
+  148: 		if not frappe.db.get_single_value("Stock Settings", "enable_serial_and_batch_no_for_item"):
+  149: 			frappe.throw(
+  150: 				_(
+  151: 					"Please check the 'Activate Serial and Batch No for Item' checkbox in the {0} to make Serial and Batch Bundle for the item."
+  152: 				).format(get_link_to_form("Stock Settings", "Stock Settings")),
+=== #27 [B] erpnext
+KEY: A naming series conflict occurred while creating serial numbers. Please change the naming series for the item {0}.
+ZH : 创建序列号时编号模板冲突，请修改物料 {0} 的编号模板。
+erpnext/erpnext/stock/serial_batch_bundle.py:1569
+  1567: 				if e and len(e.args) > 1 and "Duplicate" in e.args[1]:
+  1568: 					frappe.throw(
+  1569: 						_(
+  1570: 							"A naming series conflict occurred while creating serial numbers. Please change the naming series for the item {0}."
+  1571: 						).format(bold(self.item_code)),
+=== #28 [B] erpnext
+KEY: Appointment Booking Portal Settings
+ZH : 门户预约设置
+=== #29 [B] erpnext
+KEY: % Complete must be between 0 and 100
+ZH : 完成百分比必须在 0 到 100 之间
+erpnext/erpnext/projects/doctype/project/project.py:226
+  224: 				self.percent_complete = 100
+  225: 			elif flt(self.percent_complete) < 0 or flt(self.percent_complete) > 100:
+  226: 				frappe.throw(_("% Complete must be between 0 and 100"))
+  227: 			return
+  228: 
+=== #30 [B] erpnext
+KEY: Amount does not match the selected transaction
+ZH : 金额与所选流水不符
+erpnext/banking/src/components/features/BankReconciliation/MatchAndReconcile.tsx:894
+  892:                             <div className="flex flex-col gap-1 min-w-24">
+  893:                                 <div className="text-xs text-ink-gray-6">{_("Amount")}</div>
+  894:                                 <div className="text-base font-medium flex items-center gap-1">{formatCurrency(voucher.paid_amount, voucher.currency)} {amountMatches ? <MatchBadge matchType="full" label={_("Amount matche
+  895:                             </div>
+  896: 
+=== #31 [B] erpnext
+KEY: Subcontracting Setup
+ZH : 委外初始化
+=== #32 [B] erpnext
+KEY: Set up rules to automatically classify transactions. Drag and drop rules to reorder their priority.
+ZH : 设置规则自动归类流水。拖动规则可调整优先级。
+erpnext/banking/src/components/features/Settings/MatchingRules.tsx:37
+  35: 
+  36:                 <SettingsPanelDescription>
+  37:                     {_("Set up rules to automatically classify transactions. Drag and drop rules to reorder their priority.")}
+  38:                 </SettingsPanelDescription>
+  39:             </SettingsPanelHeader>
+=== #33 [B] erpnext
+KEY: What do you use today?
+ZH : 您目前在用什么系统？
+erpnext/erpnext/public/js/setup_wizard.js:69
+  67: 			{
+  68: 				fieldname: "persona_current_system",
+  69: 				label: __("What do you use today?"),
+  70: 				fieldtype: "Select",
+  71: 				options: [
+=== #34 [B] erpnext
+KEY: Backflush raw materials of subcontract based on
+ZH : 委外原材料倒冲依据
+=== #35 [B] erpnext
+KEY: Failed to delete closing balance.
+ZH : 期末余额删除失败。
+erpnext/banking/src/components/features/BankReconciliation/BankBalance.tsx:388
+  386:             loading: _("Deleting closing balance..."),
+  387:             success: _("Closing balance deleted."),
+  388:             error: _("Failed to delete closing balance.")
+  389:         })
+  390:     }
+=== #36 [B] erpnext
+KEY: Password Required
+ZH : 需要密码
+erpnext/erpnext/accounts/doctype/bank_statement_import_log/bank_statement_import_log.py:977
+  975: 					" Bank Account and try again."
+  976: 				),
+  977: 				title=_("Password Required"),
+  978: 			)
+  979: 
+=== #37 [B] erpnext
+KEY: Applying a Discount Amount? When this Sales Order is partially fulfilled through multiple Delivery Notes and Sales Invoices, the Discount Amount is allocated on a FIFO basis. The earlier transactions receive a larger share of the discount. To spread the discount proportionally across item prices, use Additional Discount Percentage instead.
+ZH : 使用折扣金额？若此销售订单分多张销售出库与销售发票部分执行，折扣金额将按先进先出分摊，越早的单据分得的折扣越多。如需按物料价格比例分摊折扣，请改用额外折扣百分比。
+=== #38 [B] frappe
+KEY: Recorder Event
+ZH : 程序运行记录事件
+=== #39 [B] frappe
+KEY: Add attachment
+ZH : 添加附件
+frappe/frappe/public/js/frappe/form/controls/attachment_gallery.js:205
+  203: 
+  204: 	render_upload_button($grid) {
+  205: 		const label = __("Add attachment");
+  206: 		const $button = $(
+  207: 			'<button type="button" class="attachment-gallery-item attachment-gallery-upload"></button>'
+=== #40 [B] frappe
+KEY: Attachment Gallery
+ZH : 附件图库
+  (+1 more refs)
+=== #41 [B] hrms
+KEY: Holiday List Assignment
+ZH : 假期列表分配
+=== #42 [B] hrms
+KEY: Advance Account Required
+ZH : 缺少预支科目
+hrms/hrms/hr/doctype/employee_advance/employee_advance.py:47
+  45: 						get_link_to_form("Employee", self.employee + "#salary_information", self.employee),
+  46: 					),
+  47: 					title=_("Advance Account Required"),
+  48: 				)
+  49: 
+=== #43 [B] insights
+KEY: Is Native Query
+ZH : 是否原生查询
+=== #44 [B] insights
+KEY: Above average
+ZH : 高于平均值
+insights/frontend/src2/query/components/FormatRule.vue:203
+  201: 	{ label: __('Top N percent'), value: 'top_percent' as RankOperator },
+  202: 	{ label: __('Bottom N percent'), value: 'bottom_percent' as RankOperator },
+  203: 	{ label: __('Above average'), value: 'above_average' as RankOperator },
+  204: 	{ label: __('Below average'), value: 'below_average' as RankOperator },
+  205: ]
+=== #45 [B] insights
+KEY: View SQL
+ZH : 查看 SQL
+insights/frontend/src2/charts/components/ChartBuilderToolbar.vue:55
+  53: 	},
+  54: 	{
+  55: 		label: __('View SQL'),
+  56: 		icon: h(Scroll, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),
+  57: 		onClick: () => (showViewSQLDialog.value = true),
+insights/frontend/src2/query/components/QueryToolbar.vue:40
+  38: 	actions.push(
+  39: 		{
+  40: 			label: __('View SQL'),
+  41: 			icon: h(Scroll, { class: 'h-3 w-3 text-gray-700', strokeWidth: 1.5 }),
+  42: 			onClick: () => (showViewSQLDialog.value = true),
+=== #46 [B] insights
+KEY: Append
+ZH : 追加
+=== #47 [B] raven
+KEY: No one has viewed this yet
+ZH : 还没有人查看
+raven/apps/web/src/components/features/message/actions/ReadReceiptsList.tsx:202
+  200:         ) : isEmpty ? (
+  201:             <p className={`px-3 pt-2 text-lg text-ink-gray-4 ${sheetBottomPad}`}>
+  202:                 {_("No one has viewed this yet")}
+  203:             </p>
+  204:         ) : (
+raven/apps/web/src/components/features/message/actions/ReadReceiptsList.tsx:226
+  224:                 // leave dead space under the text.
+  225:                 <p className="flex h-full items-center px-3 text-lg text-ink-gray-4 md:px-2 md:text-base">
+  226:                     {_("No one has viewed this yet")}
+  227:                 </p>
+  228:             ) : (
+=== #48 [B] raven
+KEY: 12-hour
+ZH : 12 小时制
+=== #49 [B] raven
+KEY: comments
+ZH : 条评论
+raven/apps/web/src/components/features/message/renderers/LinkPreviewCard.tsx:44
+  42:         const date = getDateObject(meta.published_on.replace(/^(\d{4}-\d{2}-\d{2})Z$/, "$1"))
+  43:         if (date.isValid()) parts.push(date.format("MMM D, YYYY"))
+  44:     }
+  45:     if (typeof meta.points === "number") parts.push(`${meta.points} ${_("points")}`)
+  46:     if (typeof meta.comments === "number") parts.push(`${meta.comments} ${_("comments")}`)
+=== #50 [B] raven
+KEY: Any source
+ZH : 任意来源
+raven/apps/web/src/components/features/search/SearchFiltersBar.tsx:98
+  96:                         value={filters.link_provider || []}
+  97:                         onValueChange={onProviderChange}
+  98:                         placeholder={_("Any source")}
+  99:                         triggerClassName="w-full"
+  100:                         className="w-full min-w-0"
+=== #51 [B] raven
+KEY: ## Channels
+
+Raven helps you and your team communicate with each other.
+
+Conversation happen in **channels**. 
+
+All users who have access to Raven can view and send messages in **Open** channels. 
+
+**Public** channels are visible to everyone, but only members can take send messages in them. Any user can join public channels. 
+
+**Private** channels are only visible to members and new members can only be added by the channel admin - which is the creator of the channel. 
+
+You could also send messages to other users privately via **Direct messages** - including yourself!
+
+A user could create as many channels and add as many users as they want to in them. 
+ZH : ## 频道
+
+Raven 帮助您与团队成员相互沟通。
+
+交流在**频道**中进行。
+
+所有可访问 Raven 的用户都可以在**开放**频道中查看和发送消息。
+
+**公开**频道对所有人可见，但只有成员才能在其中发送消息。任何用户都可以加入公开频道。
+
+**私有**频道仅对成员可见，新成员只能由频道管理员（即频道创建者）添加。
+
+您还可以通过**私信**与其他用户私下交流，甚至可以发给自己！
+
+每个用户都可以创建任意多个频道，并在其中添加任意多个用户。
+=== #52 [B] raven
+KEY: All members
+ZH : 全部成员
+raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceMembers.tsx:139
+  137:                     </SelectTrigger>
+  138:                     <SelectContent>
+  139:                         <SelectItem value="all">{_("All members")}</SelectItem>
+  140:                         <SelectItem value="admins">{_("Admins")}</SelectItem>
+  141:                     </SelectContent>
+=== #53 [B] raven
+KEY: Search saved messages
+ZH : 搜索已保存的消息
+raven/apps/web/src/pages/later/Later.tsx:78
+  76:                 onChange={(e) => setSearch(e.target.value)}
+  77:                 placeholder={tab === 'saved'
+  78:                     ? _('Search saved messages')
+  79:                     : tab === 'completed'
+  80:                         ? _('Search completed reminders')
+=== #54 [B] raven
+KEY: {0} isn't in this channel and won't be added to this thread.
+ZH : {0} 不在此频道中，不会被加入此话题。
+raven/apps/web/src/components/features/ChatInput/MentionWarningBanner.tsx:86
+  84:                 text: isThread
+  85:                     ? outside.length === 1
+  86:                         ? _("{0} isn't in this channel and won't be added to this thread.", [names(outside)])
+  87:                         : outside.length <= 3
+  88:                             ? _("{0} aren't in this channel and won't be added to this thread.", [names(outside)])
+=== #55 [B] raven
+KEY: You cannot access Raven.
+ZH : 您无法访问 Raven。
+raven/apps/web/src/components/layout/AppShell.tsx:108
+  106:                 >
+  107:                     <AlertCircle />
+  108:                     <AlertTitle>{_('You cannot access Raven.')}</AlertTitle>
+  109:                     <AlertDescription>{_('You do not have the "Raven User" role. Please contact your system administrator.')}</AlertDescription>
+  110:                 </Alert>
+=== #56 [B] raven
+KEY: Remove Member
+ZH : 移除成员
+raven/apps/web/src/components/features/settings/panels/Workspaces/WorkspaceMembers.tsx:226
+  224:                 <DropdownMenuItem variant="destructive" onClick={removeMember}>
+  225:                     <UserMinusIcon />
+  226:                     {_("Remove Member")}
+  227:                 </DropdownMenuItem>
+  228:             </DropdownMenuContent>
+=== #57 [B] raven
+KEY: Thread Bot
+ZH : 话题机器人
+=== #58 [B] raven
+KEY: Back to instruction templates
+ZH : 返回指令模板列表
+raven/apps/web/src/components/features/settings/panels/Instructions/InstructionEditorView.tsx:17
+  15:         createDefaults={{ template_name: "", instruction: "", dynamic_instructions: 0 }}
+  16:         createTitle={_("Create an Instruction Template")}
+  17:         backLabel={_("Back to instruction templates")}
+  18:         deleteTitle={_("Delete Instruction Template?")}
+  19:         deleteDescription={(doc) => _("This will permanently delete {0}.", [doc.template_name])}
+=== #59 [B] raven
+KEY: Edit message...
+ZH : 编辑消息……
+raven/apps/web/src/components/features/message/renderers/EditMessageComposer.tsx:73
+  71:         content: message.text,
+  72:         autofocus: true,
+  73:         placeholder: _("Edit message..."),
+  74:     })
+  75: 
+raven/apps/web/src/components/features/schedule-send/useScheduledMessageEdit.ts:85
+  83:         // opening with the keyboard up covers its own controls).
+  84:         autofocus: !isMobile,
+  85:         placeholder: _("Edit message..."),
+  86:     })
+  87: 
+=== #60 [B] raven
+KEY: No conversations found
+ZH : 未找到会话
+raven/apps/web/src/pages/share/ShareTarget.tsx:152
+  150:                 )}
+  151:                 {filteredChannels.length === 0 && filteredDMs.length === 0 && (
+  152:                     <p className="px-4 py-8 text-center text-sm text-ink-gray-5">{_("No conversations found")}</p>
+  153:                 )}
+  154:             </div>

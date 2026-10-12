@@ -1,0 +1,81 @@
+import json
+items = json.load(open('resample_input.json', encoding='utf-8'))
+OK = '可用'
+J = {
+1: (OK, 'holiday_list_assignment.json 虚拟日期字段，指假期列表的结束日期；Holiday List 沿用官方「假期列表」'),
+2: (OK, 'CFCondition.vue 条件编辑器里的嵌套条件，意思对'),
+3: (OK, 'AssignmentRuleView.vue:433 校验分配条件失败的提示'),
+4: (OK, 'ViewModal.vue:46 选图标的占位文字，省略号改全角'),
+5: (OK, 'AssignmentRules.vue:11 说明文字；Lead/Deal 与官方线索/商机一致'),
+6: (OK, 'Raven AI 设置页处理 PDF 等文件的处理器，此处「文档」指文件不指单据，不与 Document→单据 冲突'),
+7: (OK, 'Search.tsx:321 空状态说明，消息/文件/链接/投票齐全'),
+8: (OK, 'FileSources.tsx 设置页标题，意思对'),
+9: (OK, 'raven_bot.json 子表字段，与 Raven Bot Functions→Raven 机器人函数 一致'),
+10: (OK, 'FormBuilderPanel.vue 区块标题占位；Section 官方「区块」'),
+11: (OK, 'financial_report_row.json 缩进级别说明，数字与等号保留'),
+12: (OK, 'hrms Login.vue:91 无登录方式提示'),
+13: (OK, 'Preferences.tsx:60；Bank Account 官方「银行户头」，Bank Transaction 官方「银行交易流水」，用词一致'),
+14: (OK, 'budget.py:150 科目必填'),
+15: (OK, 'AssignToBody.vue:67 开关标签'),
+16: (OK, 'DeleteMessageDialog.tsx:95 批量删除确认'),
+17: (OK, 'raven_workspace_member/raven_channel_member Check 字段'),
+18: (OK, 'raven_message.json link_doctype，指消息所关联单据的类型，意思对。拿不准：官方 Link DocType（大小写不同的另一键）译「源单据类型」，二者在不同 DocType，未判别名'),
+19: (OK, 'repost_accounting_ledger.py:96 会计重过账，官方 Repost 族即「重过账」；{0} 保留'),
+20: (OK, 'ChartBuilderToolbar.vue:65 / WorkbookNavbarActions.vue:79；Desk 官方「工作台」'),
+21: (OK, 'crm_deal.json 字段；Mobile No. 官方「手机号」，Primary Email 官方「主要邮箱」，成系'),
+22: (OK, 'fcrm_settings.json；Activity/Timeline 官方「活动」「时间线」'),
+23: (OK, 'ERPNextSettings.vue:270 开关标签'),
+24: (OK, 'lead_sync_source.py:49 校验提示'),
+25: (OK, 'AssignmentRuleListItem.vue:126 删除成功提示'),
+26: (OK, 'serial_and_batch_bundle.py:150；引号内复述的是 Stock Settings 字段「Activate Serial / Batch No for Item」，该字段现译「启用物料序列号/批号」，句中写「启用物料序列号与批号」，差一个连接字，用户仍找得到；Serial and Batch Bundle 用本项目覆盖词「序列批次包」，一致；{0} 保留'),
+27: (OK, 'serial_batch_bundle.py:1569；naming series 用本项目演示线定词「编号模板」（csv 中 9 行一致）。另见拿不准：字段 label Naming Series 本身仍是官方「命名规则」'),
+28: (OK, 'appointment_booking_settings.json:105 分节标题，指预约门户的设置；语序略别扭（宜「预约门户设置」），意思不错'),
+29: (OK, 'project.py:226 校验提示，% Complete 译「完成百分比」'),
+30: (OK, 'MatchAndReconcile.tsx:894 银行对账匹配提示，transaction→流水与银行交易流水一致'),
+31: (OK, 'subcontracting_onboarding.json 模块引导标题；与 Stock/Selling/Buying/Assets/Projects Setup 的「…初始化」成系。注：同族 Manufacturing Setup 译「生产设置」不成系且与 DocType Manufacturing Settings 撞名（样本外，见报告）'),
+32: (OK, 'MatchingRules.tsx:37 规则设置说明'),
+33: (OK, 'setup_wizard.js:69，选项是 Tally/QuickBooks/SAP 等系统名，补「系统」二字合出处'),
+34: (OK, 'buying_settings.json 字段；「倒冲」是 S3 术语草案与大陆 ERP 通用词，官方同族词本身不统一（后冲/倒扣账），未另起别名'),
+35: (OK, 'BankBalance.tsx:388 删除期末余额失败提示'),
+36: (OK, 'bank_statement_import_log.py:977 弹窗标题'),
+37: (OK, 'sales_order.json 字段说明；Delivery Note 官方「销售出库」，Additional Discount Percentage 官方「额外折扣百分比」，意思完整'),
+38: (OK, 'recorder_event DocType 名；Recorder 官方「程序运行记录」'),
+39: (OK, 'attachment_gallery.js:205 上传按钮'),
+40: (OK, 'DocField 字段类型选项 Attachment Gallery，「附件图库」合意'),
+41: (OK, 'HRMS DocType 名与侧栏项；Holiday List 官方「假期列表」'),
+42: (OK, 'employee_advance.py:47 弹窗标题，员工预支场景，HRMS 同族多用「预支科目」'),
+43: (OK, 'insights_query Check 字段'),
+44: (OK, 'FormatRule.vue:203 排名条件选项'),
+45: (OK, 'ChartBuilderToolbar.vue:55 菜单项，SQL 保留'),
+46: (OK, 'insights_table_import.json「Action if table exists」选项 Fail/Append/Overwrite 之一，追加合意'),
+47: (OK, 'ReadReceiptsList.tsx:202 已读回执空状态'),
+48: (OK, 'raven_user.json 时间格式选项'),
+49: (OK, 'LinkPreviewCard.tsx:46 拼成「{n} 条评论」，量词合出处'),
+50: (OK, 'SearchFiltersBar.tsx:98 来源筛选占位'),
+51: (OK, 'introduction_to_raven 引导 Markdown，标题与粗体标记保留；Open 在此是频道类型「开放」，不是状态「待处理」，按出处译对'),
+52: (OK, 'WorkspaceMembers.tsx:139 下拉选项'),
+53: (OK, 'Later.tsx:78 搜索占位'),
+54: (OK, 'MentionWarningBanner.tsx:86，thread→话题与 Thread 现译一致，{0} 保留'),
+55: (OK, 'AppShell.tsx:108 无权访问提示，品牌名 Raven 保留'),
+56: (OK, 'WorkspaceMembers.tsx:226 菜单项'),
+57: (OK, 'raven_channel.json Link 字段，与 Thread→话题、Bot→机器人 一致'),
+58: (OK, 'InstructionEditorView.tsx:17 返回按钮'),
+59: (OK, 'EditMessageComposer.tsx:73 编辑框占位'),
+60: (OK, 'ShareTarget.tsx:152 分享目标空状态'),
+}
+for it in items:
+    v, why = J[it['id']]
+    it['e_verdict'] = v; it['e_reason'] = why
+    if it['set'] == 'A': it['agree_with_d'] = (it['d_verdict'] == v)
+a = [i for i in items if i['set'] == 'A']; b = [i for i in items if i['set'] == 'B']
+summary = {
+ 'method': 'A：从 Spike/P1S6R6-sample.out.csv 100 条中 random.Random(20261012).sample 20 条复判；B：样本外批量行（population 4809 扣除已抽 100）按 app 比例配额 crm5/erpnext12/frappe3/hrms2/insights4/raven14，每 app 用 random.Random(20261012).sample 抽取，逐条读 #: 出处源码判。判据：需求 §4.2.3 三条＋DEC-029',
+ 'A': {'n': len(a), 'unusable': sum(i['e_verdict'] != OK for i in a), 'agree_with_d': sum(i['agree_with_d'] for i in a)},
+ 'B': {'n': len(b), 'unusable': sum(i['e_verdict'] != OK for i in b)},
+ 'estimate': 'D 样本 3/100 不可用；E 样本外 0/40（零事件，95% 上界约 3/40≈7.5%）；合并 3/140≈2.1%，低于 DEC-017 的 10% 线',
+ 'outside_sample_findings': [
+   {'key': 'Manufacturing Setup', 'zh': '生产设置', 'issue': '与 DocType Manufacturing Settings 官方「生产设置」撞名；同族 Stock/Selling/Buying/Assets/Projects/Subcontracting Setup 都译「…初始化」，此条不成系', 'suggest': '生产初始化'},
+ ],
+}
+json.dump({'summary': summary, 'items': items}, open('resample.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+print(json.dumps(summary, ensure_ascii=False)[:600])

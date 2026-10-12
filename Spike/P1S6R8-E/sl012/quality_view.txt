@@ -1,0 +1,40 @@
+NO_HAN [["<p><strong>{{ __(\"Condition Examples\") }}:</strong></p>\n<pre><code class=\"language-python\">doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</code></pre>\n", "<p><strong>{{ __(\"Condition Examples\") }}：</strong></p>\n<pre><code class=\"language-python\">doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</code></pre>\n"], ["<p><strong>{{ __(\"Condition Examples\") }}:</strong></p>\n<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>", "<p><strong>{{ __(\"Condition Examples\") }}：</strong></p>\n<pre>doc.status==\"Open\"<br>doc.due_date==nowdate()<br>doc.total &gt; 40000\n</pre>"], ["[{0}] {1}", "【{0}】{1}"], ["CN¥", "¥"], ["{0}; {1}", "{0}；{1}"]]
+True ['doc', 'status', 'Open', 'doc', 'due', 'date', 'nowdate', 'doc', 'total'] | <p><strong>Condition Examples:</strong></p>
+<pre>doc.status=="Open"<br | <p><strong>条件示例：</strong></p>
+<pre>doc.status=="Open"<br>doc.due_date=
+True ['doctype', 'fieldname'] | `doctype` and `fieldname` are required for deleting property setters. | 删除属性设置时必须提供 `doctype` 与 `fieldname`。
+True ['blog'] | A row blocks its whole domain. Tick Exact to block just that one URL - | 每一行会屏蔽整个域名。勾选「精确」则只屏蔽这一个网址，例如可以只屏蔽"frappe.io"，而保留"frappe.io/blog"的链接预览
+True ['X-Frappe-Webhook-Signature', 'base'] | Add a Webhook Secret so Raven can sign requests. An X-Frappe-Webhook-S | 添加网络钩子密钥后，Raven 会对请求签名：发送请求前会添加 X-Frappe-Webhook-Signature 请求头（载荷的 HMA
+True ['application', 'x-www-form-urlencoded'] | Authorization POST requests must use application/x-www-form-urlencoded | 授权 POST 请求必须使用 application/x-www-form-urlencoded
+True ['api', 'key'] | e.g. api_key | 例如：api_key
+True ['john', 'example', 'com', 'henry', 'example', 'com'] | e.g. john@example.com, henry@example.com | 例如：john@example.com, henry@example.com
+True ['marketing', 'design-team', 'project-alpha'] | e.g. marketing, design-team, project-alpha | 例如：marketing、design-team、project-alpha
+True ['party', 'parrot'] | e.g. party_parrot | 例如：party_parrot
+True ['gpt-', 'gpt-', 'models'] | For OpenAI: gpt-4o, gpt-4, etc. For Local LLM: use model name from /v1 | OpenAI 可填 gpt-4o、gpt-4 等；本地 LLM 请填写 /v1/models 接口返回的模型名称
+True ['replies', 'yourcompany', 'com'] | If enabled, all replies to your company (eg: replies@yourcompany.com)  | 启用后，发给公司的所有回复（例如 replies@yourcompany.com）都会进入此账号。注意：只能有一个账号设为默认收件。
+True ['doctype', 'name'] | Invalid CSV format. Expected column: doctype_name | CSV 格式无效，缺少 doctype_name 列
+True ['Studio'] | Make sure LM Studio is running with the server enabled on the specifie | 请确认 LM Studio 已运行，并已在指定网址上启用服务器。
+True ['user'] | method and setting the user_id parameter. This method also accepts mar | 方法，并设置 user_id 参数。此方法也接受 markdown 参数和单据链接参数。
+True ['True'] | parameter to True. | 参数设为 True。
+True ['Frapp'] | Payment reminder from Frappé - (#{{ name }}) | 来自 Frappé 的付款提醒 - (#{{ name }})
+True ['Ctrl'] | Pressing Enter will add a new line. Use Ctrl / ⌘ + Enter to send your  | 按回车键换行，按 Ctrl / ⌘ + 回车键发送消息。
+True ['Shift'] | Pressing Enter will immediately send your message. Use Shift+Enter to  | 按回车键会立即发送消息，按 Shift+回车键换行。
+True ['User', 'Item', 'Quotation'] | Provide a list of allowed Doctypes for file uploads. Each line should  | 填写允许访客上传文件的单据类型，每行一个。不填则允许上传到所有单据类型。示例：<br>User<br>Item<br>Quotation
+True ['doc', 'fieldname', 'parent', 'fieldname', 'doc', 'warehouse', 'and', 'doc', 'qty'] | Python expression evaluated on the server. Use doc.fieldname for the r | 在服务器端计算的 Python 表达式。用 doc.fieldname 引用当前行字段，用 parent.fieldname 引用父单据字段
+True ['server', 'script', 'enabled'] | Scheduled messages run as server scripts. Ask your site administrator  | 定时消息以 Python 脚本方式运行。请联系站点管理员在站点配置中设置 server_script_enabled，然后重启站点。
+True ['Mail'] | Setting up Frappe Mail requires you to have an API key and API secret  | 设置 Frappe Mail 需要邮箱账号的 API 密钥和 API 私钥。了解更多
+True ['allowed', 'roles', 'bench', 'migrate'] | SMS Settings.allowed_roles not found. Update the Frappe Framework app  | 未找到「短信设置」的 allowed_roles 字段。请将 Frappe 框架升级到包含此字段的版本，然后重新运行 bench migra
+True ['modified', 'creation'] | Temporal column used to detect rows that changed since the last sync.  | 用于检测上次同步后有变动的行的时间列。可变数据表用 <b>modified</b>，仅追加的数据表用 <b>creation</b>。
+True ['genericode'] | The uploaded file could not be parsed as a genericode XML document. | 上传的文件无法解析为 genericode XML 文档。
+True ['Helpdesk'] | This module is scheduled for deprecation and will be completely remove | 此模块计划弃用，将在第 17 版中完全移除，请改用 <a href="https://frappe.io/helpdesk">Frappe 
+True ['Shift'] | To select more than one transaction at a time, press and hold the shif | 按住 Shift 键可一次选择多笔流水。
+True ['Top'] | Top P | Top P（核采样）
+True ['Deposit', 'Withdrawal'] | Transaction type column has "Deposit"/"Withdrawal" values | 交易类型列含“Deposit”/“Withdrawal”标记
+True ['visible', 'types'] | visible_types entries must be strings or {type: [fields]} maps | visible_types 的每一项必须是字符串或 {type: [fields]} 映射
+True ['visible', 'types'] | visible_types fields for {0} must be a list | visible_types 中 {0} 的字段必须是列表
+True ['visible', 'types'] | visible_types is not valid JSON: {0} | visible_types 不是有效的 JSON：{0}
+True ['visible', 'types'] | visible_types must be a list | visible_types 必须是列表
+True ['client', 'table', 'insert', 'data', 'overwrite', 'False', 'state', 'get', 'key', 'default', 'None', 'set', 'key', 'value', 'delete', 'key', 'clear', 'secrets', 'get', 'key', 'log', 'message'] | Write Python code to fetch and transform data. Available globals:<br>• | 编写 Python 代码来获取和变换数据。可用的全局对象：<br>• client：所选数据源的 API 客户端<br>• table：将数
+True ['transaction', 'amount'] | You can also add credit or debit values to pre-fill - these support bo | 还可以预填贷方或借方金额，支持固定值（如 200）或公式（如 transaction_amount * 0.25）。
+True ['delete'] | {0} is a Virtual DocType and must implement its own delete() method. | {0} 是虚拟单据类型，必须自行实现 delete() 方法。
+True ['app', 'module', 'method'] | {0} should be in format: app.module.method | {0} 应采用格式：app.module.method
