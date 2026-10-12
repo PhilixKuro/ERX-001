@@ -191,6 +191,8 @@ CONFIRM = [
 	("Job Card", "jc_open", "job_card_1"), ("Delivery Note", "dn_draft", "dn_open"),
 	("Sales Invoice", "si_draft", "si_open"), ("Month End Closing Voucher", None, "mecv"),
 	("Cash Flow Worksheet", "cfw_draft", "cfw"),
+	# TS-023 第 7 步「演示线另用到的、本轮造数出现的」：期初 Journal Entry（草稿由 Spike/P1S6R7/ts023/je_draft.py 复制）
+	("Journal Entry", "je_draft", "opening"),
 ]
 for dt, draft, done in CONFIRM:
 	for action, var in (("submit", draft), ("cancel", done)):
@@ -208,13 +210,21 @@ for s in screens:
 spec = {
 	"note": "R6 TS-022 生成；生成脚本 Spike/P1S6R6-screens-build.py。占位值由 values.json（造数状态文件）提供",
 	"allow": R4_FORMS["allow"],
-	"data_selectors": R4_FORMS["data_selectors"],
+	# TS-023：v16 表单记录名在 .form-name-container（R4 的 .form-details 已不命中，Item Price 自动名被判英文）
+	"data_selectors": R4_FORMS["data_selectors"] + [
+		{"selector": ".form-name-container", "reason": "表单当前记录名称（v16 容器），用户数据或自动名"},
+	],
 	"data_patterns": [
 		{"pattern": r"\b(?:[A-Z]{2,}-)+(?:[A-Z0-9]+-)*\d{3,}(?:-\d+)?\b", "reason": "单据编号（编号规则生成，用户数据）"},
 		{"pattern": r"\bPO-JOB\d+\b|\bBOM-\S+", "reason": "生产任务单与物料清单编号（用户数据）"},
 		{"pattern": r"_?S6R6?\S*", "reason": "本轮造数前缀与测试公司简称（用户数据）"},
 	],
-	"default_data": {},
+	# TS-023 演示站发现的官方默认数据（DEC-033：计发现、不改 csv，交 S7 造数）
+	"default_data": {
+		"Nos": {"doctype": "UOM", "name": "Nos", "reason": "ERPNext 安装时建的计量单位；工作站看板模板 {{ d.fg_uom }} 原样输出、未经 __()"},
+		"general": {"doctype": "Raven Channel", "name": "raven-general", "reason": "Raven 安装时建的默认频道名"},
+		"Qualification": {"doctype": "CRM Deal Status", "name": "Qualification", "reason": "CRM 安装时建的商机状态；看板漏斗图按原值出类目"},
+	},
 	"trad_chars_file": "P1S6R6-trad-chars.json",
 	"variables": variables,
 	"screens": screens,

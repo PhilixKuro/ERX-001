@@ -44,6 +44,10 @@
   {
    "selector": ".form-details",
    "reason": "表单当前记录名称，包括单例 Global Defaults 的名称"
+  },
+  {
+   "selector": ".form-name-container",
+   "reason": "表单当前记录名称（v16 容器），用户数据或自动名"
   }
  ],
  "data_patterns": [
@@ -60,7 +64,23 @@
    "reason": "本轮造数前缀与测试公司简称（用户数据）"
   }
  ],
- "default_data": {},
+ "default_data": {
+  "Nos": {
+   "doctype": "UOM",
+   "name": "Nos",
+   "reason": "ERPNext 安装时建的计量单位；工作站看板模板 {{ d.fg_uom }} 原样输出、未经 __()"
+  },
+  "general": {
+   "doctype": "Raven Channel",
+   "name": "raven-general",
+   "reason": "Raven 安装时建的默认频道名"
+  },
+  "Qualification": {
+   "doctype": "CRM Deal Status",
+   "name": "Qualification",
+   "reason": "CRM 安装时建的商机状态；看板漏斗图按原值出类目"
+  }
+ },
  "trad_chars_file": "P1S6R6-trad-chars.json",
  "variables": {
   "company": {
@@ -211,6 +231,9 @@
    "from": "Spike/P1S6R6-closed-loop-<site>.json 同名键（造数脚本写入；作 values.json 传入）"
   },
   "si_draft": {
+   "from": "Spike/P1S6R6-closed-loop-<site>.json 同名键（造数脚本写入；作 values.json 传入）"
+  },
+  "je_draft": {
    "from": "Spike/P1S6R6-closed-loop-<site>.json 同名键（造数脚本写入；作 values.json 传入）"
   }
  },
@@ -1739,6 +1762,30 @@
     "action": "cancel",
     "doctype": "Cash Flow Worksheet",
     "name": "{{cfw}}"
+   }
+  },
+  {
+   "id": "confirm-submit-journal-entry",
+   "stage": "确认框",
+   "state": "dialog",
+   "route": "desk/journal-entry/{{je_draft}}",
+   "sidebar": "Business Flow",
+   "dialog": {
+    "action": "submit",
+    "doctype": "Journal Entry",
+    "name": "{{je_draft}}"
+   }
+  },
+  {
+   "id": "confirm-cancel-journal-entry",
+   "stage": "确认框",
+   "state": "dialog",
+   "route": "desk/journal-entry/{{opening}}",
+   "sidebar": "Business Flow",
+   "dialog": {
+    "action": "cancel",
+    "doctype": "Journal Entry",
+    "name": "{{opening}}"
    }
   }
  ]

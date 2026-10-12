@@ -358,6 +358,11 @@ async function runDialog(c, screen, row) {
         try { await c.screenshot(row.screenshot); } catch {}
         try { await c.evaluate(`document.querySelectorAll('.modal.show .btn-modal-close').forEach(b => b.click()); true`); } catch {}
       }
+      // HIT_ENTRIES=1：留下含命中词的原始条目，供逐屏定性（TS-023）
+      if (process.env.HIT_ENTRIES && row.text_entries && !row.pass) {
+        const words = [...row.english, ...row.traditional];
+        row.hit_entries = row.text_entries.filter(e => words.some(w => (e.value || '').includes(w)) || row.title_issues.some(t => t.value === e.value));
+      }
       delete row.text_entries;
       result.push(row);
       fs.writeFileSync(`${outDir}/result.json`, JSON.stringify(result, null, 2));

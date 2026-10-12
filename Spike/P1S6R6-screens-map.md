@@ -1,6 +1,6 @@
 # P1-S6-R6 逐屏核屏清单映射（需求 §4.9 行 → 屏 id）
 
-生成：`Spike/P1S6R6-screens-build.py`。屏总数 **137**；按状态：blank 33、dialog 34、list 17、prefilled 7、report 10、saved 36
+生成：`Spike/P1S6R6-screens-build.py`。屏总数 **139**；按状态：blank 33、dialog 36、list 17、prefilled 7、report 10、saved 36
 
 | §4.9 行 | 屏数 | 屏 id |
 |---|---|---|
@@ -32,6 +32,6 @@
 | 表二 /crm | 5 | `crm-leads`、`crm-deals`、`crm-dashboard`、`crm-lead-detail`、`crm-deal-detail` |
 | 表二 /raven | 1 | `raven` |
 | 表二 /insights | 1 | `insights` |
-| 确认框（A22） | 29 | `confirm-submit-bom`、`confirm-cancel-bom`、`confirm-submit-purchase-order`、`confirm-cancel-purchase-order`、`confirm-submit-purchase-receipt`、`confirm-cancel-purchase-receipt`、`confirm-submit-purchase-invoice`、`confirm-cancel-purchase-invoice`、`confirm-submit-payment-entry`、`confirm-cancel-payment-entry`、`confirm-submit-quotation`、`confirm-cancel-quotation`、`confirm-submit-sales-order`、`confirm-cancel-sales-order`、`confirm-submit-production-plan`、`confirm-cancel-production-plan`、`confirm-submit-work-order`、`confirm-cancel-work-order`、`confirm-submit-stock-entry`、`confirm-cancel-stock-entry`、`confirm-submit-job-card`、`confirm-cancel-job-card`、`confirm-submit-delivery-note`、`confirm-cancel-delivery-note`、`confirm-submit-sales-invoice`、`confirm-cancel-sales-invoice`、`confirm-cancel-month-end-closing-voucher`、`confirm-submit-cash-flow-worksheet`、`confirm-cancel-cash-flow-worksheet` |
+| 确认框（A22） | 31 | `confirm-submit-bom`、`confirm-cancel-bom`、`confirm-submit-purchase-order`、`confirm-cancel-purchase-order`、`confirm-submit-purchase-receipt`、`confirm-cancel-purchase-receipt`、`confirm-submit-purchase-invoice`、`confirm-cancel-purchase-invoice`、`confirm-submit-payment-entry`、`confirm-cancel-payment-entry`、`confirm-submit-quotation`、`confirm-cancel-quotation`、`confirm-submit-sales-order`、`confirm-cancel-sales-order`、`confirm-submit-production-plan`、`confirm-cancel-production-plan`、`confirm-submit-work-order`、`confirm-cancel-work-order`、`confirm-submit-stock-entry`、`confirm-cancel-stock-entry`、`confirm-submit-job-card`、`confirm-cancel-job-card`、`confirm-submit-delivery-note`、`confirm-cancel-delivery-note`、`confirm-submit-sales-invoice`、`confirm-cancel-sales-invoice`、`confirm-cancel-month-end-closing-voucher`、`confirm-submit-cash-flow-worksheet`、`confirm-cancel-cash-flow-worksheet`、`confirm-submit-journal-entry`、`confirm-cancel-journal-entry` |
 
 空映射：无
