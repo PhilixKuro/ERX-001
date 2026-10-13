@@ -1,0 +1,46 @@
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_translations, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 17 integration tests for frappe_china
+
+frappe_china.tests.test_translations.TestTranslations
+   [32m ✔ [0m test_app_translations_are_unique_and_do_not_alias_legal_labels [31m (3.42s)[0m
+   [32m ✔ [0m test_basis_form_rejects_garbled_basis
+   [32m ✔ [0m test_csv_has_no_duplicate_keys
+   [32m ✔ [0m test_csv_rows_have_two_or_three_columns
+   [32m ✔ [0m test_csv_sorted
+   [32m ✔ [0m test_duplicate_key_detector_detects_appended_duplicate
+   [32m ✔ [0m test_every_app_source_string_has_chinese
+   [32m ✔ [0m test_literal_keys_are_app_sources
+   [32m ✔ [0m test_override_basis_forms
+   [32m ✔ [0m test_override_officials_are_current
+   [32m ✔ [0m test_overrides_exist_in_csv
+   [32m ✔ [0m test_own_basis_requires_app_source
+   [32m ✔ [0m test_placeholder_requires_closing_brace
+   [32m ✔ [0m test_placeholders_preserved
+   [32m ✔ [0m test_r9_own_keys_are_app_sources
+   [32m ✔ [0m test_source_strings_literal_key_forms
+   [32m ✔ [0m test_token_check_detects_reordered_html_tags
+----------------------------------------------------------------------
+Ran 17 tests in 11.121s
+
+OK
+
+
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_crm_sidepanel, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 5 integration tests for frappe_china
+
+frappe_china.tests.test_crm_sidepanel.TestCrmSidepanel
+   [32m ✔ [0m test_chinese_session_translates_generated_placeholders [31m (3.09s)[0m
+   [32m ✔ [0m test_custom_placeholder_kept_and_read_only_tooltip_translated
+   [32m ✔ [0m test_doctype_without_side_panel_returns_empty_list
+   [32m ✔ [0m test_english_session_is_identical_to_upstream
+   [32m ✔ [0m test_override_resolves_to_frappe_china
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 3.113s
+
+OK

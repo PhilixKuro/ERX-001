@@ -1,0 +1,2 @@
+/workspace/Spike/P1S6R11-E/demo-sb/demo_check.py:22: SyntaxWarning: "\_" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\_"? A raw string is also an option.
+  n = frappe.db.sql(f"select count(*) from `{t}` where `{c}` like %s", ('%\_S6R%',))[0][0]

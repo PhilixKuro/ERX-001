@@ -1,0 +1,6066 @@
+[
+{
+"file": "crm/crm/fcrm/doctype/crm_form_script/crm_form_script.js",
+"line": 29,
+"fn": "add_custom_button",
+"label": "frm.doc.enabled ? __(\"Disable\") : __(\"Enable\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "crm/crm/fcrm/doctype/crm_invitation/crm_invitation.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Accept Invitation\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "crm/crm/fcrm/doctype/erpnext_crm_settings/erpnext_crm_settings.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Reset ERPNext Form Script\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "crm/crm/lead_syncing/doctype/failed_lead_sync_log/failed_lead_sync_log.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Retry Sync\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "crm/crm/lead_syncing/doctype/lead_sync_source/lead_sync_source.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Sync Now\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/account/account.js",
+"line": 54,
+"fn": "add_custom_button",
+"label": "__(\"Merge Account\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/account/account.js",
+"line": 61,
+"fn": "add_custom_button",
+"label": "__(\"Update Account Name / Number\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/account/account.js",
+"line": 86,
+"fn": "add_custom_button",
+"label": "__(\"Chart of Accounts\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/account/account.js",
+"line": 95,
+"fn": "add_custom_button",
+"label": "__(\"Convert to Non-Group\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/account/account.js",
+"line": 109,
+"fn": "add_custom_button",
+"label": "__(\"General Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/account/account.js",
+"line": 123,
+"fn": "add_custom_button",
+"label": "__(\"Convert to Group\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/account/account_tree.js",
+"line": 190,
+"fn": "add_inner_button",
+"label": "__(\"Chart of Cost Centers\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/account/account_tree.js",
+"line": 200,
+"fn": "add_inner_button",
+"label": "__(\"Opening Invoice Creation Tool\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/account/account_tree.js",
+"line": 222,
+"fn": "add_inner_button",
+"label": "__(report)",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/accounting_dimension/accounting_dimension.js",
+"line": 37,
+"fn": "add_custom_button",
+"label": "__(\"Show {0}\", [frm.doc.document_type])",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/accounting_dimension/accounting_dimension.js",
+"line": 43,
+"fn": "add_custom_button",
+"label": "__(button)",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank/bank.js",
+"line": 18,
+"fn": "add_custom_button",
+"label": "__(\"Refresh Plaid Link\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_account/bank_account.js",
+"line": 33,
+"fn": "add_custom_button",
+"label": "__(\"Unlink external integrations\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_clearance/bank_clearance.js",
+"line": 38,
+"fn": "add_custom_button",
+"label": "__(\"Get Payment Entries\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_clearance/bank_clearance.js",
+"line": 40,
+"fn": "change_custom_button_type",
+"label": "__(\"Get Payment Entries\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_clearance/bank_clearance.js",
+"line": 42,
+"fn": "add_custom_button",
+"label": "__(\"Update Clearance Date\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_clearance/bank_clearance.js",
+"line": 43,
+"fn": "change_custom_button_type",
+"label": "__(\"Get Payment Entries\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_clearance/bank_clearance.js",
+"line": 44,
+"fn": "change_custom_button_type",
+"label": "__(\"Update Clearance Date\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js",
+"line": 48,
+"fn": "add_custom_button",
+"label": "__(\"Upload Bank Statement\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js",
+"line": 66,
+"fn": "add_custom_button",
+"label": "__(\"Auto Reconcile\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js",
+"line": 84,
+"fn": "add_custom_button",
+"label": "__(\"Get Unreconciled Entries\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_reconciliation_tool/bank_reconciliation_tool.js",
+"line": 87,
+"fn": "change_custom_button_type",
+"label": "__(\"Get Unreconciled Entries\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_statement_import/bank_statement_import.js",
+"line": 94,
+"fn": "add_custom_button",
+"label": "__(\"Export Errored Rows\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_statement_import/bank_statement_import.js",
+"line": 98,
+"fn": "add_custom_button",
+"label": "__(\"Go to {0} List\", [__(frm.doc.reference_doctype)])",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_statement_import/bank_statement_import.js",
+"line": 225,
+"fn": "add_custom_button",
+"label": "__(\"Report Error\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_statement_import/bank_statement_import.js",
+"line": 591,
+"fn": "add_custom_button",
+"label": "__(\"Export Import Log\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bank_transaction/bank_transaction.js",
+"line": 40,
+"fn": "add_custom_button",
+"label": "__(\"Unreconcile Transaction\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bisect_accounting_statements/bisect_accounting_statements.js",
+"line": 9,
+"fn": "add_custom_button",
+"label": "__(\"Bisect Left\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bisect_accounting_statements/bisect_accounting_statements.js",
+"line": 13,
+"fn": "add_custom_button",
+"label": "__(\"Bisect Right\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bisect_accounting_statements/bisect_accounting_statements.js",
+"line": 17,
+"fn": "add_custom_button",
+"label": "__(\"Up\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/bisect_accounting_statements/bisect_accounting_statements.js",
+"line": 20,
+"fn": "add_custom_button",
+"label": "__(\"Build Tree\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/budget/budget.js",
+"line": 37,
+"fn": "add_custom_button",
+"label": "__(\"Revise Budget\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/cheque_print_template/cheque_print_template.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "frm.doc.has_print_format ? __(\"Update Print Format\") : __(\"Create Print Format\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/cost_center/cost_center.js",
+"line": 19,
+"fn": "add_custom_button",
+"label": "__(\"Update Cost Center Name / Number\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/cost_center/cost_center.js",
+"line": 41,
+"fn": "add_custom_button",
+"label": "__(\"Chart of Cost Centers\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/cost_center/cost_center.js",
+"line": 45,
+"fn": "add_custom_button",
+"label": "__(\"Budget\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/cost_center/cost_center.js",
+"line": 121,
+"fn": "add_custom_button",
+"label": "__(\"Convert to Non-Group\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/cost_center/cost_center.js",
+"line": 123,
+"fn": "add_custom_button",
+"label": "__(\"Convert to Group\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/cost_center/cost_center_tree.js",
+"line": 51,
+"fn": "add_inner_button",
+"label": "__(\"Chart of Accounts\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/cost_center/cost_center_tree.js",
+"line": 60,
+"fn": "add_inner_button",
+"label": "__(\"Budget List\")",
+"label_literal": null,
+"group": "__(\"Budget\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/cost_center/cost_center_tree.js",
+"line": 68,
+"fn": "add_inner_button",
+"label": "__(\"Monthly Distribution\")",
+"label_literal": null,
+"group": "__(\"Budget\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/cost_center/cost_center_tree.js",
+"line": 76,
+"fn": "add_inner_button",
+"label": "__(\"Budget Variance Report\")",
+"label_literal": null,
+"group": "__(\"Budget\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/coupon_code/coupon_code.js",
+"line": 36,
+"fn": "add_custom_button",
+"label": "__(\"Add/Edit Coupon Conditions\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/dunning/dunning.js",
+"line": 45,
+"fn": "add_custom_button",
+"label": "__(\"Resolve\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/dunning/dunning.js",
+"line": 50,
+"fn": "add_custom_button",
+"label": "__(\"Payment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/dunning/dunning.js",
+"line": 61,
+"fn": "add_custom_button",
+"label": "__(\"Fetch Overdue Payments\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.js",
+"line": 30,
+"fn": "add_custom_button",
+"label": "__(\"Journal Entries\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/exchange_rate_revaluation/exchange_rate_revaluation.js",
+"line": 38,
+"fn": "add_custom_button",
+"label": "__(\"Reversal Journal Entries\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_template.js",
+"line": 9,
+"fn": "add_custom_button",
+"label": "__(\"View Account Coverage\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_template.js",
+"line": 18,
+"fn": "add_custom_button",
+"label": "__(\"View Report\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/invoice_discounting/invoice_discounting.js",
+"line": 57,
+"fn": "add_custom_button",
+"label": "__(\"Get Invoices\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/invoice_discounting/invoice_discounting.js",
+"line": 64,
+"fn": "add_custom_button",
+"label": "__(\"Disburse Loan\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/invoice_discounting/invoice_discounting.js",
+"line": 69,
+"fn": "add_custom_button",
+"label": "__(\"Close Loan\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/invoice_discounting/invoice_discounting.js",
+"line": 193,
+"fn": "add_custom_button",
+"label": "__(\"Accounting Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/journal_entry/journal_entry.js",
+"line": 80,
+"fn": "add_custom_button",
+"label": "__(\"Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/journal_entry/journal_entry.js",
+"line": 99,
+"fn": "add_custom_button",
+"label": "__(\"Reverse Journal Entry\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/journal_entry/journal_entry.js",
+"line": 109,
+"fn": "add_custom_button",
+"label": "__(\"Quick Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/journal_entry/journal_entry.js",
+"line": 122,
+"fn": "add_custom_button",
+"label": "__(\"Create Inter Company Journal Entry\")",
+"label_literal": null,
+"group": "__(\"Make\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js",
+"line": 255,
+"fn": "add_custom_button",
+"label": "__(\"View Exchange Gain/Loss Journals\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.js",
+"line": 425,
+"fn": "add_custom_button",
+"label": "__(\"Ledger\")",
+"label_literal": null,
+"group": "\"fa fa-table\""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_order/payment_order.js",
+"line": 18,
+"fn": "add_custom_button",
+"label": "__(\"Payment Request\")",
+"label_literal": null,
+"group": "__(\"Get Payments from\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_order/payment_order.js",
+"line": 26,
+"fn": "add_custom_button",
+"label": "__(\"Payment Entry\")",
+"label_literal": null,
+"group": "__(\"Get Payments from\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_order/payment_order.js",
+"line": 39,
+"fn": "add_custom_button",
+"label": "__(\"Create Journal Entries\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_order/payment_order.js",
+"line": 62,
+"fn": "remove_custom_button",
+"label": "label",
+"label_literal": null,
+"group": "\"Get from\""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js",
+"line": 94,
+"fn": "add_custom_button",
+"label": "__(\"Get Unreconciled Entries\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js",
+"line": 97,
+"fn": "change_custom_button_type",
+"label": "__(\"Get Unreconciled Entries\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js",
+"line": 100,
+"fn": "add_custom_button",
+"label": "__(\"Allocate\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js",
+"line": 101,
+"fn": "change_custom_button_type",
+"label": "__(\"Allocate\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js",
+"line": 102,
+"fn": "change_custom_button_type",
+"label": "__(\"Get Unreconciled Entries\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js",
+"line": 105,
+"fn": "add_custom_button",
+"label": "__(\"Reconcile\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js",
+"line": 106,
+"fn": "change_custom_button_type",
+"label": "__(\"Reconcile\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js",
+"line": 107,
+"fn": "change_custom_button_type",
+"label": "__(\"Get Unreconciled Entries\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_reconciliation/payment_reconciliation.js",
+"line": 108,
+"fn": "change_custom_button_type",
+"label": "__(\"Allocate\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_request/payment_request.js",
+"line": 49,
+"fn": "add_custom_button",
+"label": "__(\"Resend Payment Email\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/payment_request/payment_request.js",
+"line": 68,
+"fn": "add_custom_button",
+"label": "__(\"Create Payment Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/period_closing_voucher/period_closing_voucher.js",
+"line": 44,
+"fn": "add_custom_button",
+"label": "__(\"Ledger\")",
+"label_literal": null,
+"group": "\"fa fa-table\""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/pos_closing_entry/pos_closing_entry.js",
+"line": 51,
+"fn": "add_custom_button",
+"label": "__(\"Retry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/pos_invoice/pos_invoice.js",
+"line": 79,
+"fn": "add_custom_button",
+"label": "__(\"Return\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/pos_invoice/pos_invoice.js",
+"line": 81,
+"fn": "add_custom_button",
+"label": "__(\"Payment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/process_payment_reconciliation/process_payment_reconciliation.js",
+"line": 56,
+"fn": "add_custom_button",
+"label": "execute_btn",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/process_payment_reconciliation/process_payment_reconciliation.js",
+"line": 98,
+"fn": "add_custom_button",
+"label": "execute_btn",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.js",
+"line": 9,
+"fn": "add_custom_button",
+"label": "execute_btn",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.js",
+"line": 27,
+"fn": "add_custom_button",
+"label": "execute_btn",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/process_period_closing_voucher/process_period_closing_voucher.js",
+"line": 45,
+"fn": "add_custom_button",
+"label": "execute_btn",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.js",
+"line": 11,
+"fn": "add_custom_button",
+"label": "__(\"Send Emails\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/process_statement_of_accounts/process_statement_of_accounts.js",
+"line": 27,
+"fn": "add_custom_button",
+"label": "__(\"Download\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 93,
+"fn": "add_custom_button",
+"label": "__(\"Change Release Date\")",
+"label_literal": null,
+"group": "__(\"Hold Invoice\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 100,
+"fn": "add_custom_button",
+"label": "__(\"Unblock Invoice\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 108,
+"fn": "add_custom_button",
+"label": "__(\"Block Invoice\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 124,
+"fn": "add_custom_button",
+"label": "__(\"Payment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 130,
+"fn": "add_custom_button",
+"label": "__(\"Return / Debit Note\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 145,
+"fn": "add_custom_button",
+"label": "__(\"Payment Request\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 155,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Order\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 180,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Receipt\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 227,
+"fn": "add_custom_button",
+"label": "\"Inter Company Invoice\"",
+"label_literal": "Inter Company Invoice",
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 642,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Receipt\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 652,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Receipt\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.js",
+"line": 666,
+"fn": "add_custom_button",
+"label": "__(\"Landed Cost Voucher\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js",
+"line": 27,
+"fn": "add_custom_button",
+"label": "__(\"Start Reposting\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/repost_accounting_ledger/repost_accounting_ledger.js",
+"line": 33,
+"fn": "add_custom_button",
+"label": "__(\"Show Preview\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/repost_payment_ledger/repost_payment_ledger.js",
+"line": 42,
+"fn": "add_custom_button",
+"label": "btn_label",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 98,
+"fn": "add_custom_button",
+"label": "__(\"Payment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 110,
+"fn": "add_custom_button",
+"label": "__(\"Return / Credit Note\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 128,
+"fn": "add_custom_button",
+"label": "__(\"Delivery Note\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 139,
+"fn": "add_custom_button",
+"label": "__(\"Payment Request\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 147,
+"fn": "add_custom_button",
+"label": "__(\"Invoice Discounting\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 158,
+"fn": "add_custom_button",
+"label": "__(\"Dunning\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 163,
+"fn": "add_custom_button",
+"label": "__(\"Maintenance Schedule\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 181,
+"fn": "add_custom_button",
+"label": "__(button_label)",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 203,
+"fn": "remove_custom_button",
+"label": "__(button_label)",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 282,
+"fn": "remove_custom_button",
+"label": "label",
+"label_literal": null,
+"group": "\"Get Items From\""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 301,
+"fn": "add_custom_button",
+"label": "__(\"Timesheet\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 378,
+"fn": "add_custom_button",
+"label": "__(\"Sales Order\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 402,
+"fn": "add_custom_button",
+"label": "__(\"Quotation\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.js",
+"line": 434,
+"fn": "add_custom_button",
+"label": "__(\"Delivery Note\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/sales_invoice/regional/italy.js",
+"line": 4,
+"fn": "add_custom_button",
+"label": "__(\"Generate E-Invoice\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/shareholder/shareholder.js",
+"line": 21,
+"fn": "add_custom_button",
+"label": "__(\"Share Balance\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/shareholder/shareholder.js",
+"line": 27,
+"fn": "add_custom_button",
+"label": "__(\"Share Ledger\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/share_transfer/share_transfer.js",
+"line": 18,
+"fn": "add_custom_button",
+"label": "__(\"Create Journal Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/subscription/subscription.js",
+"line": 35,
+"fn": "add_custom_button",
+"label": "__(\"Fetch Subscription Updates\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/subscription/subscription.js",
+"line": 41,
+"fn": "add_custom_button",
+"label": "__(\"Force-Fetch Subscription Updates\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/subscription/subscription.js",
+"line": 47,
+"fn": "add_custom_button",
+"label": "__(\"Cancel Subscription\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/doctype/subscription/subscription.js",
+"line": 53,
+"fn": "add_custom_button",
+"label": "__(\"Restart Subscription\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/accounts/report/accounts_payable/accounts_payable.js",
+"line": 183,
+"fn": "add_inner_button",
+"label": "__(\"Accounts Payable Summary\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/report/accounts_payable_summary/accounts_payable_summary.js",
+"line": 127,
+"fn": "add_inner_button",
+"label": "__(\"Accounts Payable\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/report/accounts_receivable/accounts_receivable.js",
+"line": 205,
+"fn": "add_inner_button",
+"label": "__(\"Accounts Receivable Summary\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/accounts/report/accounts_receivable_summary/accounts_receivable_summary.js",
+"line": 150,
+"fn": "add_inner_button",
+"label": "__(\"Accounts Receivable\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 104,
+"fn": "add_custom_button",
+"label": "__(\"Asset Value Adjustment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 112,
+"fn": "add_custom_button",
+"label": "__(\"Asset Repair\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 126,
+"fn": "add_custom_button",
+"label": "__(\"Depreciation Entry\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 142,
+"fn": "add_custom_button",
+"label": "__(\"Maintain Asset\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 151,
+"fn": "add_custom_button",
+"label": "__(\"Asset Repair\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 159,
+"fn": "add_custom_button",
+"label": "__(\"Split Asset\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 167,
+"fn": "add_custom_button",
+"label": "__(\"Transfer Asset\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 175,
+"fn": "add_custom_button",
+"label": "__(\"Scrap Asset\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 183,
+"fn": "add_custom_button",
+"label": "__(\"Sell Asset\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 191,
+"fn": "add_custom_button",
+"label": "__(\"Restore Asset\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 197,
+"fn": "add_custom_button",
+"label": "__(\"Accounting Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset/asset.js",
+"line": 236,
+"fn": "add_custom_button",
+"label": "__(\"Capitalize Asset\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/assets/doctype/asset_repair/asset_repair.js",
+"line": 100,
+"fn": "add_custom_button",
+"label": "__(\"Accounting Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/bulk_transaction/doctype/bulk_transaction_log/bulk_transaction_log.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Succeeded Entries\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/bulk_transaction/doctype/bulk_transaction_log/bulk_transaction_log.js",
+"line": 16,
+"fn": "add_custom_button",
+"label": "__(\"Failed Entries\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/bulk_transaction/doctype/bulk_transaction_log/bulk_transaction_log.js",
+"line": 27,
+"fn": "add_custom_button",
+"label": "__(\"Retry Failed Transactions\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 105,
+"fn": "add_custom_button",
+"label": "__(\"Return of Components\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 324,
+"fn": "add_custom_button",
+"label": "__(\"Update Items\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 337,
+"fn": "add_custom_button",
+"label": "__(\"Hold\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 343,
+"fn": "add_custom_button",
+"label": "__(\"Resume\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 349,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 358,
+"fn": "add_custom_button",
+"label": "__(\"Deliver (Dropship)\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 368,
+"fn": "add_custom_button",
+"label": "__(\"Re-open\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 383,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Receipt\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 393,
+"fn": "add_custom_button",
+"label": "__(\"Material to Supplier\")",
+"label_literal": null,
+"group": "__(\"Transfer\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 403,
+"fn": "add_custom_button",
+"label": "__(\"Subcontracting Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 416,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Invoice\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 429,
+"fn": "add_custom_button",
+"label": "__(\"Payment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 437,
+"fn": "add_custom_button",
+"label": "__(\"Payment Request\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 455,
+"fn": "add_custom_button",
+"label": "button_label",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 527,
+"fn": "add_custom_button",
+"label": "__(\"Material Request\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 552,
+"fn": "add_custom_button",
+"label": "__(\"Supplier Quotation\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 575,
+"fn": "add_custom_button",
+"label": "__(\"Update Rate as per Last Purchase\")",
+"label_literal": null,
+"group": "__(\"Tools\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/purchase_order/purchase_order.js",
+"line": 590,
+"fn": "add_custom_button",
+"label": "__(\"Link to Material Request\")",
+"label_literal": null,
+"group": "__(\"Tools\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.js",
+"line": 39,
+"fn": "add_custom_button",
+"label": "__(\"Supplier Quotation\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.js",
+"line": 47,
+"fn": "add_custom_button",
+"label": "__(\"Send Emails to Suppliers\")",
+"label_literal": null,
+"group": "__(\"Tools\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.js",
+"line": 64,
+"fn": "add_custom_button",
+"label": "__(\"Download PDF\")",
+"label_literal": null,
+"group": "__(\"Tools\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.js",
+"line": 154,
+"fn": "add_custom_button",
+"label": "__(\"Supplier Quotation Comparison\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.js",
+"line": 360,
+"fn": "add_custom_button",
+"label": "__(\"Material Request\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.js",
+"line": 384,
+"fn": "add_custom_button",
+"label": "__(\"Opportunity\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.js",
+"line": 406,
+"fn": "add_custom_button",
+"label": "__(\"Possible Supplier\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.js",
+"line": 451,
+"fn": "add_custom_button",
+"label": "__(\"Link to Material Requests\")",
+"label_literal": null,
+"group": "__(\"Tools\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/request_for_quotation/request_for_quotation.js",
+"line": 460,
+"fn": "add_custom_button",
+"label": "__(\"Get Suppliers\")",
+"label_literal": null,
+"group": "__(\"Tools\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier/supplier.js",
+"line": 122,
+"fn": "add_custom_button",
+"label": "__(\"Accounting Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier/supplier.js",
+"line": 134,
+"fn": "add_custom_button",
+"label": "__(\"Accounts Payable\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier/supplier.js",
+"line": 146,
+"fn": "add_custom_button",
+"label": "__(doctype)",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier/supplier.js",
+"line": 150,
+"fn": "add_custom_button",
+"label": "__(\"Get Supplier Group Details\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier/supplier.js",
+"line": 163,
+"fn": "add_custom_button",
+"label": "__(\"Link with Customer\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier_quotation/supplier_quotation.js",
+"line": 38,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier_quotation/supplier_quotation.js",
+"line": 43,
+"fn": "add_custom_button",
+"label": "__(\"Update Items\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier_quotation/supplier_quotation.js",
+"line": 51,
+"fn": "add_custom_button",
+"label": "__(\"Quotation\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier_quotation/supplier_quotation.js",
+"line": 55,
+"fn": "add_custom_button",
+"label": "__(\"Material Request\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier_quotation/supplier_quotation.js",
+"line": 79,
+"fn": "add_custom_button",
+"label": "__(\"Link to Material Requests\")",
+"label_literal": null,
+"group": "__(\"Tools\")"
+},
+{
+"file": "erpnext/erpnext/buying/doctype/supplier_quotation/supplier_quotation.js",
+"line": 87,
+"fn": "add_custom_button",
+"label": "__(\"Request for Quotation\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/buying/report/supplier_quotation_comparison/supplier_quotation_comparison.js",
+"line": 126,
+"fn": "add_inner_button",
+"label": "__(\"Select Default Supplier\")",
+"label_literal": null,
+"group": "__(\"Tools\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/appointment/appointment.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "frm.doc.lead",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/crm/doctype/appointment/appointment.js",
+"line": 12,
+"fn": "add_custom_button",
+"label": "__(frm.doc.calendar_event)",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/crm/doctype/campaign/campaign.js",
+"line": 14,
+"fn": "add_custom_button",
+"label": "__(\"View Leads\")",
+"label_literal": null,
+"group": "\"fa fa-list\""
+},
+{
+"file": "erpnext/erpnext/crm/doctype/lead/lead.js",
+"line": 32,
+"fn": "add_custom_button",
+"label": "__(\"Customer\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/lead/lead.js",
+"line": 33,
+"fn": "add_custom_button",
+"label": "__(\"Opportunity\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/lead/lead.js",
+"line": 34,
+"fn": "add_custom_button",
+"label": "__(\"Quotation\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/lead/lead.js",
+"line": 36,
+"fn": "add_custom_button",
+"label": "__(\"Prospect\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/lead/lead.js",
+"line": 37,
+"fn": "add_custom_button",
+"label": "__(\"Add to Prospect\")",
+"label_literal": null,
+"group": "__(\"Action\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/opportunity/opportunity.js",
+"line": 80,
+"fn": "add_custom_button",
+"label": "__(\"Supplier Quotation\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/opportunity/opportunity.js",
+"line": 88,
+"fn": "add_custom_button",
+"label": "__(\"Request For Quotation\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/opportunity/opportunity.js",
+"line": 98,
+"fn": "add_custom_button",
+"label": "__(\"Customer\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/opportunity/opportunity.js",
+"line": 107,
+"fn": "add_custom_button",
+"label": "__(\"Quotation\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/opportunity/opportunity.js",
+"line": 117,
+"fn": "add_custom_button",
+"label": "__(\"Fetch Latest Exchange Rate\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/crm/doctype/opportunity/opportunity.js",
+"line": 125,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/crm/doctype/opportunity/opportunity.js",
+"line": 130,
+"fn": "add_custom_button",
+"label": "__(\"Reopen\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/crm/doctype/prospect/prospect.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Customer\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/crm/doctype/prospect/prospect.js",
+"line": 19,
+"fn": "add_custom_button",
+"label": "__(\"Opportunity\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/edi/doctype/code_list/code_list.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Import Genericode File\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/edi/doctype/code_list/code_list_list.js",
+"line": 3,
+"fn": "add_inner_button",
+"label": "__(\"Import Genericode File\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/edi/doctype/common_code/common_code_list.js",
+"line": 3,
+"fn": "add_inner_button",
+"label": "__(\"Import Genericode File\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/erpnext_integrations/doctype/plaid_settings/plaid_settings.js",
+"line": 15,
+"fn": "add_custom_button",
+"label": "__(\"Link a new bank account\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/erpnext_integrations/doctype/plaid_settings/plaid_settings.js",
+"line": 19,
+"fn": "add_custom_button",
+"label": "__(\"Reset Plaid Link\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/erpnext_integrations/doctype/plaid_settings/plaid_settings.js",
+"line": 23,
+"fn": "add_custom_button",
+"label": "__(\"Sync Now\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.js",
+"line": 64,
+"fn": "add_custom_button",
+"label": "__(\"Sales Order\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/maintenance/doctype/maintenance_schedule/maintenance_schedule.js",
+"line": 86,
+"fn": "add_custom_button",
+"label": "__(\"Maintenance Visit\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/maintenance/doctype/maintenance_visit/maintenance_visit.js",
+"line": 80,
+"fn": "add_custom_button",
+"label": "__(\"Maintenance Schedule\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/maintenance/doctype/maintenance_visit/maintenance_visit.js",
+"line": 102,
+"fn": "add_custom_button",
+"label": "__(\"Warranty Claim\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/maintenance/doctype/maintenance_visit/maintenance_visit.js",
+"line": 121,
+"fn": "add_custom_button",
+"label": "__(\"Sales Order\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/blanket_order/blanket_order.js",
+"line": 30,
+"fn": "add_custom_button",
+"label": "__(\"Sales Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/blanket_order/blanket_order.js",
+"line": 44,
+"fn": "add_custom_button",
+"label": "__(\"Quotation\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/blanket_order/blanket_order.js",
+"line": 60,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+"line": 225,
+"fn": "add_custom_button",
+"label": "__(\"Update Cost\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+"line": 233,
+"fn": "add_custom_button",
+"label": "__(\"Browse BOM\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+"line": 246,
+"fn": "add_custom_button",
+"label": "__(\"New Version\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+"line": 257,
+"fn": "add_custom_button",
+"label": "__(\"Work Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+"line": 266,
+"fn": "add_custom_button",
+"label": "__(\"Variant BOM\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+"line": 276,
+"fn": "add_custom_button",
+"label": "__(\"Quality Inspection\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/bom/bom.js",
+"line": 291,
+"fn": "add_custom_button",
+"label": "__(\"Alternate Item\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.js",
+"line": 190,
+"fn": "add_custom_button",
+"label": "__(\"Rebuild Tree\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/bom_creator/bom_creator.js",
+"line": 196,
+"fn": "add_custom_button",
+"label": "__(\"Create Multi-level BOM\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/bom_update_tool/bom_update_tool.js",
+"line": 25,
+"fn": "add_custom_button",
+"label": "__(\"View BOM Update Log\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/job_card/job_card.js",
+"line": 111,
+"fn": "add_custom_button",
+"label": "__(\"Make Stock Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/job_card/job_card.js",
+"line": 220,
+"fn": "add_custom_button",
+"label": "__(\"Material Request\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/job_card/job_card.js",
+"line": 228,
+"fn": "add_custom_button",
+"label": "__(\"Material Transfer\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/job_card/job_card.js",
+"line": 419,
+"fn": "add_custom_button",
+"label": "__(\"Make Subcontracting PO\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/job_card/job_card.js",
+"line": 456,
+"fn": "add_custom_button",
+"label": "__(\"Corrective Job Card\")",
+"label_literal": null,
+"group": "__(\"Make\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/master_production_schedule/master_production_schedule.js",
+"line": 65,
+"fn": "add_custom_button",
+"label": "__(\"View MRP\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/plant_floor/plant_floor.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Create Workstation\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 109,
+"fn": "add_custom_button",
+"label": "__(\"Production Plan Summary\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 123,
+"fn": "add_custom_button",
+"label": "__(\"Re-open\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 131,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 143,
+"fn": "add_custom_button",
+"label": "__(\"Work Order / Subcontract PO\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 158,
+"fn": "add_custom_button",
+"label": "__(\"Material Request\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 268,
+"fn": "add_custom_button",
+"label": "__(\"Reserve for Sub-assembly\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 276,
+"fn": "add_custom_button",
+"label": "__(\"Unreserve for Sub-assembly\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 282,
+"fn": "add_custom_button",
+"label": "__(\"Reserved Stock for Sub-assembly\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 294,
+"fn": "add_custom_button",
+"label": "__(\"Reserve for Raw Materials\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 302,
+"fn": "add_custom_button",
+"label": "__(\"Unreserve for Raw Materials\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/production_plan/production_plan.js",
+"line": 308,
+"fn": "add_custom_button",
+"label": "__(\"Reserved Stock for Raw Materials\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/sales_forecast/sales_forecast.js",
+"line": 41,
+"fn": "add_custom_button",
+"label": "__(\"Create MPS\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 162,
+"fn": "add_custom_button",
+"label": "__(\"Alternate Item\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 177,
+"fn": "remove_custom_button",
+"label": "__(\"Alternate Item\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 203,
+"fn": "add_custom_button",
+"label": "__(\"Create Job Card\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 212,
+"fn": "add_custom_button",
+"label": "__(\"BOM\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 228,
+"fn": "add_custom_button",
+"label": "__(\"Disassemble Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 299,
+"fn": "add_custom_button",
+"label": "__(\"Return Components\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 764,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 774,
+"fn": "add_custom_button",
+"label": "__(\"Stop\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 782,
+"fn": "add_custom_button",
+"label": "__(\"Re-open\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 816,
+"fn": "add_custom_button",
+"label": "__(\"Create Pick List\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 820,
+"fn": "add_custom_button",
+"label": "__(\"Material Request\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 824,
+"fn": "add_custom_button",
+"label": "__(\"Start\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 837,
+"fn": "add_custom_button",
+"label": "__(\"Additional Material Transfer\")",
+"label_literal": null,
+"group": "__(\"Make\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 883,
+"fn": "add_custom_button",
+"label": "__(\"Material Consumption\")",
+"label_literal": null,
+"group": "__(\"Make\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 904,
+"fn": "add_custom_button",
+"label": "__(\"Finish\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 919,
+"fn": "add_custom_button",
+"label": "__(\"Finish\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 928,
+"fn": "add_custom_button",
+"label": "__(\"Finish\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 944,
+"fn": "add_custom_button",
+"label": "__(\"Reserve\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 953,
+"fn": "add_custom_button",
+"label": "__(\"Unreserve\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/doctype/work_order/work_order.js",
+"line": 960,
+"fn": "add_custom_button",
+"label": "__(\"Reserved Stock\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/manufacturing/report/material_requirements_planning_report/material_requirements_planning_report.js",
+"line": 130,
+"fn": "add_inner_button",
+"label": "__(\"Make Purchase / Work Order\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/projects/doctype/activity_type/activity_type.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Activity Cost per Employee\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/projects/doctype/project/project.js",
+"line": 82,
+"fn": "add_custom_button",
+"label": "__(\"Duplicate Project with Tasks\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/projects/doctype/project/project.js",
+"line": 90,
+"fn": "add_custom_button",
+"label": "__(\"Update Costing and Billing\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/projects/doctype/project/project.js",
+"line": 101,
+"fn": "add_custom_button",
+"label": "__(\"Gantt Chart\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/projects/doctype/project/project.js",
+"line": 112,
+"fn": "add_custom_button",
+"label": "__(\"Kanban Board\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/projects/doctype/project/project.js",
+"line": 148,
+"fn": "add_custom_button",
+"label": "__(\"Set Project Status\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/projects/doctype/timesheet/timesheet.js",
+"line": 56,
+"fn": "add_custom_button",
+"label": "__(\"Create Sales Invoice\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/projects/doctype/timesheet/timesheet.js",
+"line": 70,
+"fn": "add_custom_button",
+"label": "__(button)",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/public/js/communication.js",
+"line": 12,
+"fn": "add_custom_button",
+"label": "__(\"Issue\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/public/js/communication.js",
+"line": 24,
+"fn": "add_custom_button",
+"label": "__(\"Lead\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/public/js/communication.js",
+"line": 34,
+"fn": "add_custom_button",
+"label": "__(\"Opportunity\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/public/js/event.js",
+"line": 15,
+"fn": "add_custom_button",
+"label": "__(\"Add Leads\")",
+"label_literal": null,
+"group": "__(\"Add Participants\")"
+},
+{
+"file": "erpnext/erpnext/public/js/event.js",
+"line": 23,
+"fn": "add_custom_button",
+"label": "__(\"Add Customers\")",
+"label_literal": null,
+"group": "__(\"Add Participants\")"
+},
+{
+"file": "erpnext/erpnext/public/js/event.js",
+"line": 31,
+"fn": "add_custom_button",
+"label": "__(\"Add Suppliers\")",
+"label_literal": null,
+"group": "__(\"Add Participants\")"
+},
+{
+"file": "erpnext/erpnext/public/js/event.js",
+"line": 39,
+"fn": "add_custom_button",
+"label": "__(\"Add Employees\")",
+"label_literal": null,
+"group": "__(\"Add Participants\")"
+},
+{
+"file": "erpnext/erpnext/public/js/event.js",
+"line": 47,
+"fn": "add_custom_button",
+"label": "__(\"Add Sales Partners\")",
+"label_literal": null,
+"group": "__(\"Add Participants\")"
+},
+{
+"file": "erpnext/erpnext/public/js/utils.js",
+"line": 224,
+"fn": "add_custom_button",
+"label": "__(\"Serial / Batch Nos\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/public/js/controllers/buying.js",
+"line": 324,
+"fn": "add_custom_button",
+"label": "__(\"Product Bundle\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/public/js/controllers/stock_controller.js",
+"line": 96,
+"fn": "add_custom_button",
+"label": "__(\"Stock Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/public/js/controllers/stock_controller.js",
+"line": 117,
+"fn": "add_custom_button",
+"label": "__(\"Accounting Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/public/js/controllers/transaction.js",
+"line": 436,
+"fn": "add_custom_button",
+"label": "__(\"Quality Inspection(s)\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/public/js/utils/item_selector.js",
+"line": 20,
+"fn": "add_custom_button",
+"label": "__(\"Add Items\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/public/js/utils/ledger_preview.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Accounting Ledger\")",
+"label_literal": null,
+"group": "__(\"Preview\")"
+},
+{
+"file": "erpnext/erpnext/public/js/utils/ledger_preview.js",
+"line": 36,
+"fn": "add_custom_button",
+"label": "__(\"Stock Ledger\")",
+"label_literal": null,
+"group": "__(\"Preview\")"
+},
+{
+"file": "erpnext/erpnext/public/js/utils/unreconcile.js",
+"line": 24,
+"fn": "add_custom_button",
+"label": "__(\"UnReconcile\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/regional/report/electronic_invoice_register/electronic_invoice_register.js",
+"line": 34,
+"fn": "add_inner_button",
+"label": "__(\"Export E-Invoices\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/selling/doctype/customer/customer.js",
+"line": 161,
+"fn": "add_custom_button",
+"label": "__(\"Accounts Receivable\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/customer/customer.js",
+"line": 172,
+"fn": "add_custom_button",
+"label": "__(\"Accounting Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/customer/customer.js",
+"line": 185,
+"fn": "add_custom_button",
+"label": "__(doctype)",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/customer/customer.js",
+"line": 189,
+"fn": "add_custom_button",
+"label": "__(\"Get Customer Group Details\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/customer/customer.js",
+"line": 202,
+"fn": "add_custom_button",
+"label": "__(\"Link with Supplier\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/installation_note/installation_note.js",
+"line": 58,
+"fn": "add_custom_button",
+"label": "__(\"From Delivery Note\")",
+"label_literal": null,
+"group": "\"fa fa-download\""
+},
+{
+"file": "erpnext/erpnext/selling/doctype/quotation/quotation.js",
+"line": 134,
+"fn": "add_custom_button",
+"label": "__(\"Sales Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/quotation/quotation.js",
+"line": 136,
+"fn": "add_custom_button",
+"label": "__(\"Update Items\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/selling/doctype/quotation/quotation.js",
+"line": 146,
+"fn": "add_custom_button",
+"label": "__(\"Set as Lost\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/selling/doctype/quotation/quotation.js",
+"line": 153,
+"fn": "add_custom_button",
+"label": "__(\"Opportunity\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 90,
+"fn": "add_custom_button",
+"label": "__(\"Update Items\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 106,
+"fn": "add_custom_button",
+"label": "__(\"Reserve\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 121,
+"fn": "add_custom_button",
+"label": "__(\"Unreserve\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 134,
+"fn": "add_custom_button",
+"label": "__(\"Reserved Stock\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 188,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Order\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 946,
+"fn": "add_custom_button",
+"label": "__(\"Update Items\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 959,
+"fn": "add_custom_button",
+"label": "__(\"Resume\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 969,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 973,
+"fn": "add_custom_button",
+"label": "__(\"Re-open\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 994,
+"fn": "add_custom_button",
+"label": "__(\"Hold\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1000,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1010,
+"fn": "add_custom_button",
+"label": "__(\"Subcontracting Inward Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1027,
+"fn": "add_custom_button",
+"label": "__(\"Pick List\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1047,
+"fn": "add_custom_button",
+"label": "__(\"Delivery Note\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1055,
+"fn": "add_custom_button",
+"label": "__(\"Work Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1063,
+"fn": "add_custom_button",
+"label": "__(\"Production Plan\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1077,
+"fn": "add_custom_button",
+"label": "__(\"Sales Invoice\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1092,
+"fn": "add_custom_button",
+"label": "__(\"Material Request\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1098,
+"fn": "add_custom_button",
+"label": "__(\"Request for Raw Materials\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1111,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1121,
+"fn": "add_custom_button",
+"label": "__(\"Maintenance Visit\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1128,
+"fn": "add_custom_button",
+"label": "__(\"Maintenance Schedule\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1138,
+"fn": "add_custom_button",
+"label": "__(\"Project\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1154,
+"fn": "add_custom_button",
+"label": "button_label",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1167,
+"fn": "add_custom_button",
+"label": "__(\"Payment Request\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1175,
+"fn": "add_custom_button",
+"label": "__(\"Payment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/selling/doctype/sales_order/sales_order.js",
+"line": 1191,
+"fn": "add_custom_button",
+"label": "__(\"Quotation\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/setup/doctype/company/company.js",
+"line": 123,
+"fn": "add_custom_button",
+"label": "__(\"Cost Centers\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/setup/doctype/company/company.js",
+"line": 133,
+"fn": "add_custom_button",
+"label": "__(\"Chart of Accounts\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/setup/doctype/company/company.js",
+"line": 143,
+"fn": "add_custom_button",
+"label": "__(\"Sales Tax Template\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/setup/doctype/company/company.js",
+"line": 155,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Tax Template\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/setup/doctype/company/company.js",
+"line": 167,
+"fn": "add_custom_button",
+"label": "__(\"Create Tax Template\")",
+"label_literal": null,
+"group": "__(\"Manage\")"
+},
+{
+"file": "erpnext/erpnext/setup/doctype/company/company.js",
+"line": 178,
+"fn": "add_custom_button",
+"label": "__(\"Delete Transactions\")",
+"label_literal": null,
+"group": "__(\"Manage\")"
+},
+{
+"file": "erpnext/erpnext/setup/doctype/email_digest/email_digest.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"View Now\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/setup/doctype/email_digest/email_digest.js",
+"line": 24,
+"fn": "add_custom_button",
+"label": "__(\"Send Now\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/setup/doctype/employee/employee.js",
+"line": 50,
+"fn": "add_custom_button",
+"label": "__(\"Create User\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/setup/doctype/employee/employee_list.js",
+"line": 16,
+"fn": "add_inner_button",
+"label": "__(\"Import Employees\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/setup/doctype/item_group/item_group.js",
+"line": 82,
+"fn": "add_custom_button",
+"label": "__(\"Item Group Tree\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/setup/doctype/item_group/item_group.js",
+"line": 87,
+"fn": "add_custom_button",
+"label": "__(\"Items\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js",
+"line": 112,
+"fn": "add_custom_button",
+"label": "__(\"Generate To Delete List\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js",
+"line": 127,
+"fn": "add_custom_button",
+"label": "__(\"Export\")",
+"label_literal": null,
+"group": "__(\"Template\")"
+},
+{
+"file": "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js",
+"line": 140,
+"fn": "add_custom_button",
+"label": "__(\"Remove Zero Counts\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js",
+"line": 170,
+"fn": "add_custom_button",
+"label": "__(\"Import\")",
+"label_literal": null,
+"group": "__(\"Template\")"
+},
+{
+"file": "erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js",
+"line": 210,
+"fn": "add_custom_button",
+"label": "__(\"Retry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/batch/batch.js",
+"line": 20,
+"fn": "add_custom_button",
+"label": "__(\"View Ledger\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/batch/batch.js",
+"line": 28,
+"fn": "add_custom_button",
+"label": "__(\"Recalculate Batch Qty\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/bin/bin.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Recalculate Values\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 88,
+"fn": "add_custom_button",
+"label": "__(\"Credit Note\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 113,
+"fn": "add_custom_button",
+"label": "__(button_label)",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 156,
+"fn": "add_custom_button",
+"label": "__(\"Sales Order\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 198,
+"fn": "add_custom_button",
+"label": "__(\"Pick List\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 245,
+"fn": "add_custom_button",
+"label": "__(\"Shipment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 259,
+"fn": "add_custom_button",
+"label": "__(\"Installation Note\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 269,
+"fn": "add_custom_button",
+"label": "__(\"Sales Return\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 279,
+"fn": "add_custom_button",
+"label": "__(\"Delivery Trip\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 295,
+"fn": "add_custom_button",
+"label": "__(\"Packing Slip\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 321,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 346,
+"fn": "add_custom_button",
+"label": "__(\"Sales Invoice\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_note/delivery_note.js",
+"line": 357,
+"fn": "add_custom_button",
+"label": "__(\"Reopen\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_trip/delivery_trip.js",
+"line": 47,
+"fn": "add_custom_button",
+"label": "__(\"Notify Customers via Email\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_trip/delivery_trip.js",
+"line": 53,
+"fn": "add_custom_button",
+"label": "__(\"Delivery Note\")",
+"label_literal": null,
+"group": "__(\"Get stops from\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/delivery_trip/delivery_trip.js",
+"line": 74,
+"fn": "add_custom_button",
+"label": "__(\"Delivery Notes\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/inventory_dimension/inventory_dimension.js",
+"line": 65,
+"fn": "add_custom_button",
+"label": "__(\"Delete Dimension\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/item/item.js",
+"line": 153,
+"fn": "add_custom_button",
+"label": "__(\"Stock Balance\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/item/item.js",
+"line": 163,
+"fn": "add_custom_button",
+"label": "__(\"Stock Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/item/item.js",
+"line": 173,
+"fn": "add_custom_button",
+"label": "__(\"Stock Projected Qty\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/item/item.js",
+"line": 206,
+"fn": "add_custom_button",
+"label": "__(\"Show Variants\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/item/item.js",
+"line": 214,
+"fn": "add_custom_button",
+"label": "__(\"Item Variant Settings\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/item/item.js",
+"line": 222,
+"fn": "add_custom_button",
+"label": "__(\"Variant Details Report\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/item/item.js",
+"line": 231,
+"fn": "add_custom_button",
+"label": "__(\"Single Variant\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/item/item.js",
+"line": 238,
+"fn": "add_custom_button",
+"label": "__(\"Multiple Variants\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/item/item.js",
+"line": 246,
+"fn": "add_custom_button",
+"label": "__(\"Variant\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/item/item.js",
+"line": 275,
+"fn": "add_custom_button",
+"label": "__(\"Duplicate\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 160,
+"fn": "add_custom_button",
+"label": "__(\"Bill of Materials\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 171,
+"fn": "add_custom_button",
+"label": "__(\"Stop\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 177,
+"fn": "add_custom_button",
+"label": "__(\"Pick List\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 187,
+"fn": "add_custom_button",
+"label": "__(\"Material Transfer\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 193,
+"fn": "add_custom_button",
+"label": "__(\"Material Transfer (In Transit)\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 201,
+"fn": "add_custom_button",
+"label": "__(\"Issue Material\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 209,
+"fn": "add_custom_button",
+"label": "__(\"Material Receipt\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 217,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 223,
+"fn": "add_custom_button",
+"label": "__(\"Request for Quotation\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 229,
+"fn": "add_custom_button",
+"label": "__(\"Supplier Quotation\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 237,
+"fn": "add_custom_button",
+"label": "__(\"Work Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 245,
+"fn": "add_custom_button",
+"label": "__(\"Subcontracted Purchase Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 257,
+"fn": "add_custom_button",
+"label": "__(\"Sales Order\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/material_request/material_request.js",
+"line": 265,
+"fn": "add_custom_button",
+"label": "__(\"Re-open\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/pick_list/pick_list.js",
+"line": 131,
+"fn": "add_custom_button",
+"label": "__(\"Update Current Stock\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/pick_list/pick_list.js",
+"line": 136,
+"fn": "add_custom_button",
+"label": "__(\"Delivery Note\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/pick_list/pick_list.js",
+"line": 141,
+"fn": "add_custom_button",
+"label": "__(\"Sales Invoice\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/pick_list/pick_list.js",
+"line": 147,
+"fn": "add_custom_button",
+"label": "__(\"Stock Entry\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/pick_list/pick_list.js",
+"line": 157,
+"fn": "add_custom_button",
+"label": "__(\"Reserve\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/pick_list/pick_list.js",
+"line": 165,
+"fn": "add_custom_button",
+"label": "__(\"Unreserve\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/pick_list/pick_list.js",
+"line": 177,
+"fn": "add_custom_button",
+"label": "__(\"Reserved Stock\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/pick_list/pick_list.js",
+"line": 271,
+"fn": "add_custom_button",
+"label": "__(\"Get Items\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/price_list/price_list.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Add / Edit Prices\")",
+"label_literal": null,
+"group": "\"fa fa-money\""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 44,
+"fn": "add_custom_button",
+"label": "__(\"Debit Note\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 58,
+"fn": "add_custom_button",
+"label": "__(\"Delivery Note\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 87,
+"fn": "add_custom_button",
+"label": "__(\"Landed Cost Voucher\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 117,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Invoice\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 191,
+"fn": "add_custom_button",
+"label": "__(\"Asset\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 202,
+"fn": "add_custom_button",
+"label": "__(\"Asset Movement\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 216,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Order\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 250,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 253,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Return\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 255,
+"fn": "add_custom_button",
+"label": "__(\"Make Stock Entry\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 262,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Invoice\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 268,
+"fn": "add_custom_button",
+"label": "__(\"Sample Retention Stock Entry\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/purchase_receipt/purchase_receipt.js",
+"line": 279,
+"fn": "add_custom_button",
+"label": "__(\"Reopen\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/quick_stock_balance/quick_stock_balance.js",
+"line": 15,
+"fn": "add_custom_button",
+"label": "__(\"Stock Balance Report\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.js",
+"line": 90,
+"fn": "add_custom_button",
+"label": "__(\"Restart\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/repost_item_valuation/repost_item_valuation.js",
+"line": 114,
+"fn": "add_custom_button",
+"label": "__(\"Start Reposting\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/serial_and_batch_bundle/serial_and_batch_bundle.js",
+"line": 58,
+"fn": "add_custom_button",
+"label": "__(\"Make {0}\", [label])",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/serial_no/serial_no.js",
+"line": 32,
+"fn": "add_custom_button",
+"label": "__(\"View Ledgers\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.js",
+"line": 12,
+"fn": "add_custom_button",
+"label": "__(\"Generate Stock Closing Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_closing_entry/stock_closing_entry.js",
+"line": 27,
+"fn": "add_custom_button",
+"label": "__(\"Regenerate Stock Closing Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 218,
+"fn": "add_custom_button",
+"label": "__(\"Quality Inspection(s)\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 322,
+"fn": "add_custom_button",
+"label": "__(\"Material Request\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 358,
+"fn": "add_custom_button",
+"label": "__(\"Alternate Item\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 381,
+"fn": "add_custom_button",
+"label": "__(\"End Transit\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 390,
+"fn": "add_custom_button",
+"label": "__(\"Received Stock Entries\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 405,
+"fn": "add_custom_button",
+"label": "__(\"Disassemble\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 459,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Invoice\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 478,
+"fn": "add_custom_button",
+"label": "__(\"Material Request\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 531,
+"fn": "add_custom_button",
+"label": "__(\"Expired Batches\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 570,
+"fn": "add_custom_button",
+"label": "__(\"Sample Retention Stock Entry\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 600,
+"fn": "add_custom_button",
+"label": "__(\"Transit Entry\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 634,
+"fn": "remove_custom_button",
+"label": "\"Bill of Materials\"",
+"label_literal": "Bill of Materials",
+"group": "\"Get Items From\""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 785,
+"fn": "add_custom_button",
+"label": "__(\"Bill of Materials\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.js",
+"line": 1550,
+"fn": "add_custom_button",
+"label": "__(\"Excise Invoice\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_reconciliation/stock_reconciliation.js",
+"line": 71,
+"fn": "add_custom_button",
+"label": "__(\"Fetch Items from Warehouse\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/stock_reposting_settings/stock_reposting_settings.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Convert to Item Based Reposting\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/warehouse/warehouse.js",
+"line": 45,
+"fn": "add_custom_button",
+"label": "__(enable_toggle)",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/warehouse/warehouse.js",
+"line": 50,
+"fn": "add_custom_button",
+"label": "frm.doc.is_group\n\t\t\t\t\t\t? __(\"Convert to Ledger\", null, \"Warehouse\")\n\t\t\t\t\t\t: __(\"Convert to Group\", null, \"Warehouse\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/doctype/warehouse/warehouse.js",
+"line": 61,
+"fn": "add_custom_button",
+"label": "__(\"Stock Balance\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/doctype/warehouse/warehouse.js",
+"line": 81,
+"fn": "add_custom_button",
+"label": "__(\"General Ledger\", null, \"Warehouse\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/stock/report/incorrect_serial_and_batch_bundle/incorrect_serial_and_batch_bundle.js",
+"line": 28,
+"fn": "add_inner_button",
+"label": "__(\"Fix SABB Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/report/stock_and_account_value_comparison/stock_and_account_value_comparison.js",
+"line": 44,
+"fn": "add_inner_button",
+"label": "__(\"Create Reposting Entries\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/report/stock_balance/stock_balance.js",
+"line": 162,
+"fn": "add_inner_button",
+"label": "__(\"View Stock Ledger\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/report/stock_ledger/stock_ledger.js",
+"line": 139,
+"fn": "add_inner_button",
+"label": "__(\"View Stock Balance\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/report/stock_ledger_invariant_check/stock_ledger_invariant_check.js",
+"line": 58,
+"fn": "add_inner_button",
+"label": "__(\"Create Reposting Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/report/stock_ledger_variance/stock_ledger_variance.js",
+"line": 92,
+"fn": "add_inner_button",
+"label": "__(\"Create Reposting Entries\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/report/stock_qty_vs_batch_qty/stock_qty_vs_batch_qty.js",
+"line": 32,
+"fn": "add_inner_button",
+"label": "__(\"Update Batch Qty\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/stock/report/stock_qty_vs_serial_no_count/stock_qty_vs_serial_no_count.js",
+"line": 6,
+"fn": "add_inner_button",
+"label": "__(\"Sync Serial No Status\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.js",
+"line": 115,
+"fn": "add_custom_button",
+"label": "__(\"Re-open\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.js",
+"line": 121,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.js",
+"line": 135,
+"fn": "add_custom_button",
+"label": "__(\"Raw Materials to Customer\")",
+"label_literal": null,
+"group": "__(\"Return\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.js",
+"line": 141,
+"fn": "add_custom_button",
+"label": "__(\"Work Order\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.js",
+"line": 150,
+"fn": "add_custom_button",
+"label": "__(\"Material from Customer\")",
+"label_literal": null,
+"group": "__(\"Receive\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.js",
+"line": 157,
+"fn": "add_custom_button",
+"label": "__(\"Subcontracting Delivery\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_inward_order/subcontracting_inward_order.js",
+"line": 164,
+"fn": "add_custom_button",
+"label": "__(\"Finished Goods Return\")",
+"label_literal": null,
+"group": "__(\"Return\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js",
+"line": 163,
+"fn": "add_custom_button",
+"label": "__(\"Re-open\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js",
+"line": 169,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js",
+"line": 179,
+"fn": "add_custom_button",
+"label": "__(\"Reserve\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js",
+"line": 192,
+"fn": "add_custom_button",
+"label": "__(\"Unreserve\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js",
+"line": 204,
+"fn": "add_custom_button",
+"label": "__(\"Reserved Stock\")",
+"label_literal": null,
+"group": "__(\"Stock Reservation\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js",
+"line": 592,
+"fn": "add_custom_button",
+"label": "__(\"Return of Components\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js",
+"line": 637,
+"fn": "add_custom_button",
+"label": "__(\"Subcontracting Receipt\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_order/subcontracting_order.js",
+"line": 643,
+"fn": "add_custom_button",
+"label": "__(\"Material to Supplier\")",
+"label_literal": null,
+"group": "__(\"Transfer\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.js",
+"line": 35,
+"fn": "add_custom_button",
+"label": "__(\"Stock Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.js",
+"line": 50,
+"fn": "add_custom_button",
+"label": "__(\"Accounting Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.js",
+"line": 67,
+"fn": "add_custom_button",
+"label": "__(\"Purchase Receipt\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.js",
+"line": 83,
+"fn": "add_custom_button",
+"label": "__(\"Subcontract Return\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/subcontracting/doctype/subcontracting_receipt/subcontracting_receipt.js",
+"line": 140,
+"fn": "add_custom_button",
+"label": "__(\"Subcontracting Order\")",
+"label_literal": null,
+"group": "__(\"Get Items From\")"
+},
+{
+"file": "erpnext/erpnext/support/doctype/issue/issue.js",
+"line": 23,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/support/doctype/issue/issue.js",
+"line": 28,
+"fn": "add_custom_button",
+"label": "__(\"Task\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "erpnext/erpnext/support/doctype/issue/issue.js",
+"line": 39,
+"fn": "add_custom_button",
+"label": "__(\"Reopen\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/support/doctype/warranty_claim/warranty_claim.js",
+"line": 47,
+"fn": "add_custom_button",
+"label": "__(\"Maintenance Visit\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/telephony/doctype/call_log/call_log.js",
+"line": 8,
+"fn": "add_custom_button",
+"label": "incoming_call ? __(\"Callback\") : __(\"Call Again\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "erpnext/erpnext/utilities/doctype/video/video.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Watch Video\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/cypress/integration/custom_buttons.js",
+"line": 14,
+"fn": "add_custom_button",
+"label": "label",
+"label_literal": null,
+"group": "group"
+},
+{
+"file": "frappe/cypress/integration/custom_buttons.js",
+"line": 41,
+"fn": "add_custom_button",
+"label": "label",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/automation/doctype/assignment_rule/assignment_rule.js",
+"line": 46,
+"fn": "add_custom_button",
+"label": "label",
+"label_literal": null,
+"group": "\"top\""
+},
+{
+"file": "frappe/frappe/automation/doctype/auto_repeat/auto_repeat.js",
+"line": 45,
+"fn": "add_custom_button",
+"label": "label",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/contacts/doctype/address/address.js",
+"line": 34,
+"fn": "add_custom_button",
+"label": "__(\"{0}: {1}\", [__(link.link_doctype), __(link.link_name)])",
+"label_literal": null,
+"group": "__(\"Links\")"
+},
+{
+"file": "frappe/frappe/contacts/doctype/contact/contact.js",
+"line": 30,
+"fn": "add_custom_button",
+"label": "__(\"Invite as User\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/contacts/doctype/contact/contact.js",
+"line": 55,
+"fn": "add_custom_button",
+"label": "__(\"Call\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/contacts/doctype/contact/contact.js",
+"line": 87,
+"fn": "add_custom_button",
+"label": "__(\"{0}: {1}\", [__(link.link_doctype), __(link.link_name)])",
+"label_literal": null,
+"group": "__(\"Links\")"
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 26,
+"fn": "add_custom_button",
+"label": "__(frm.doc.reference_name)",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 39,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 43,
+"fn": "add_custom_button",
+"label": "__(\"Reopen\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 48,
+"fn": "add_custom_button",
+"label": "__(\"Relink\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 57,
+"fn": "add_custom_button",
+"label": "__(\"Reply\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 61,
+"fn": "add_custom_button",
+"label": "__(\"Reply All\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 69,
+"fn": "add_custom_button",
+"label": "__(\"Forward\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 77,
+"fn": "add_custom_button",
+"label": "frm.doc.seen ? __(\"Mark as Unread\") : __(\"Mark as Read\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 85,
+"fn": "add_custom_button",
+"label": "__(\"Move\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 94,
+"fn": "add_custom_button",
+"label": "__(\"Mark as Spam\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 103,
+"fn": "add_custom_button",
+"label": "__(\"Move To Trash\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 112,
+"fn": "add_custom_button",
+"label": "__(\"Contact\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "frappe/frappe/core/doctype/communication/communication.js",
+"line": 126,
+"fn": "add_custom_button",
+"label": "__(\"Add Contact\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/data_import/data_import.js",
+"line": 87,
+"fn": "add_custom_button",
+"label": "__(\"Export Errored Rows\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/data_import/data_import.js",
+"line": 93,
+"fn": "add_custom_button",
+"label": "__(\"Go to {0} List\", [__(frm.doc.reference_doctype)])",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/data_import/data_import.js",
+"line": 180,
+"fn": "add_custom_button",
+"label": "__(\"Cancel Import\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/data_import/data_import.js",
+"line": 210,
+"fn": "add_custom_button",
+"label": "__(\"Report Error\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/data_import/data_import.js",
+"line": 544,
+"fn": "add_custom_button",
+"label": "__(\"Export Import Log\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/deleted_document/deleted_document.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Open\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/deleted_document/deleted_document.js",
+"line": 11,
+"fn": "add_custom_button",
+"label": "__(\"Restore\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/doctype/doctype.js",
+"line": 56,
+"fn": "add_custom_button",
+"label": "button_text",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/duckdb_sync/duckdb_sync.js",
+"line": 23,
+"fn": "add_custom_button",
+"label": "__(\"Sync Data\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/error_log/error_log.js",
+"line": 9,
+"fn": "add_custom_button",
+"label": "__(\"Show Similar Errors\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/error_log/error_log.js",
+"line": 16,
+"fn": "add_custom_button",
+"label": "__(\"Open reference document\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/file/file.js",
+"line": 4,
+"fn": "add_custom_button",
+"label": "__(\"View File\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/file/file.js",
+"line": 15,
+"fn": "add_custom_button",
+"label": "__(\"Download\")",
+"label_literal": null,
+"group": "\"fa fa-download\""
+},
+{
+"file": "frappe/frappe/core/doctype/file/file.js",
+"line": 34,
+"fn": "add_custom_button",
+"label": "__(\"Optimize\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/file/file.js",
+"line": 38,
+"fn": "add_custom_button",
+"label": "__(\"Unzip\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/installed_applications/installed_applications.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Update Hooks Resolution Order\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/page/page.js",
+"line": 11,
+"fn": "add_custom_button",
+"label": "__(\"Go to {0} Page\", [frm.doc.title || frm.doc.name])",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/prepared_report/prepared_report.js",
+"line": 49,
+"fn": "add_custom_button",
+"label": "__(\"Download as CSV\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/prepared_report/prepared_report.js",
+"line": 66,
+"fn": "add_custom_button",
+"label": "__(\"Cancel Prepared Report\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/recorder/recorder.js",
+"line": 18,
+"fn": "add_custom_button",
+"label": "__(\"Suggest Optimizations\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/recorder/recorder.js",
+"line": 33,
+"fn": "add_custom_button",
+"label": "__(\"Add Indexes\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/report/report.js",
+"line": 15,
+"fn": "add_custom_button",
+"label": "__(\"Show Report\")",
+"label_literal": null,
+"group": "\"fa fa-table\""
+},
+{
+"file": "frappe/frappe/core/doctype/report/report.js",
+"line": 38,
+"fn": "add_custom_button",
+"label": "doc.disabled ? __(\"Enable Report\") : __(\"Disable Report\")",
+"label_literal": null,
+"group": "doc.disabled ? \"fa fa-check\" : \"fa fa-off\""
+},
+{
+"file": "frappe/frappe/core/doctype/role/role.js",
+"line": 20,
+"fn": "add_custom_button",
+"label": "__(\"Role Permissions Manager\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "frappe/frappe/core/doctype/role/role.js",
+"line": 29,
+"fn": "add_custom_button",
+"label": "__(\"Show Users\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "frappe/frappe/core/doctype/role/role.js",
+"line": 39,
+"fn": "add_custom_button",
+"label": "__(\"Replicate Role\")",
+"label_literal": null,
+"group": "__(\"Action\")"
+},
+{
+"file": "frappe/frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.js",
+"line": 19,
+"fn": "add_custom_button",
+"label": "__(\"Reset to defaults\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/rq_job/rq_job.js",
+"line": 13,
+"fn": "add_custom_button",
+"label": "__(\"Force Stop job\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/rq_job/rq_job_list.js",
+"line": 7,
+"fn": "add_inner_button",
+"label": "__(\"Remove Failed Jobs\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/rq_job/rq_job_list.js",
+"line": 31,
+"fn": "add_inner_button",
+"label": "__(\"Enable Scheduler\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/server_script/server_script.js",
+"line": 14,
+"fn": "add_custom_button",
+"label": "__(\"Compare Versions\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/submission_queue/submission_queue.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Unlock Reference Document\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/user/user.js",
+"line": 130,
+"fn": "add_custom_button",
+"label": "__(\"Set User Permissions\")",
+"label_literal": null,
+"group": "__(\"Permissions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/user/user.js",
+"line": 141,
+"fn": "add_custom_button",
+"label": "__(\"View Permitted Documents\")",
+"label_literal": null,
+"group": "__(\"Permissions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/user/user.js",
+"line": 150,
+"fn": "add_custom_button",
+"label": "__(\"View Doctype Permissions\")",
+"label_literal": null,
+"group": "__(\"Permissions\")"
+},
+{
+"file": "frappe/frappe/core/doctype/user/user.js",
+"line": 162,
+"fn": "add_custom_button",
+"label": "__(\"Reset Password\")",
+"label_literal": null,
+"group": "__(\"Password\")"
+},
+{
+"file": "frappe/frappe/core/doctype/user/user.js",
+"line": 178,
+"fn": "add_custom_button",
+"label": "__(\"Reset LDAP Password\")",
+"label_literal": null,
+"group": "__(\"Password\")"
+},
+{
+"file": "frappe/frappe/core/doctype/user/user.js",
+"line": 229,
+"fn": "add_custom_button",
+"label": "__(\"Reset OTP Secret\")",
+"label_literal": null,
+"group": "__(\"Password\")"
+},
+{
+"file": "frappe/frappe/core/doctype/user/user.js",
+"line": 273,
+"fn": "add_custom_button",
+"label": "__(\"Create User Email\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/user/user.js",
+"line": 381,
+"fn": "add_custom_button",
+"label": "__(\"Impersonate\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/user_invitation/user_invitation.js",
+"line": 17,
+"fn": "add_custom_button",
+"label": "__(\"Resend\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/user_invitation/user_invitation.js",
+"line": 36,
+"fn": "add_custom_button",
+"label": "__(\"Cancel\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/user_permission/user_permission.js",
+"line": 26,
+"fn": "add_custom_button",
+"label": "__(\"View Permitted Documents\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/user_permission/user_permission_list.js",
+"line": 4,
+"fn": "add_inner_button",
+"label": "__(\"Add / Update\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/user_permission/user_permission_list.js",
+"line": 142,
+"fn": "add_inner_button",
+"label": "__(\"Bulk Delete\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/doctype/version/version.js",
+"line": 3,
+"fn": "add_custom_button",
+"label": "__(\"Show all Versions\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/page/permission_manager/permission_manager.js",
+"line": 72,
+"fn": "add_inner_button",
+"label": "__(\"Set User Permissions\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.js",
+"line": 7,
+"fn": "add_inner_button",
+"label": "__(\"Optimize\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/custom/doctype/client_script/client_script.js",
+"line": 12,
+"fn": "add_custom_button",
+"label": "__(\"Go to {0}\", [frm.doc.dt])",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/custom/doctype/client_script/client_script.js",
+"line": 22,
+"fn": "add_custom_button",
+"label": "__(\"Add script for Child Table\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/custom/doctype/client_script/client_script.js",
+"line": 60,
+"fn": "add_custom_button",
+"label": "__(\"Compare Versions\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/custom/doctype/customize_form/customize_form.js",
+"line": 91,
+"fn": "add_custom_button",
+"label": "__(f.options)",
+"label_literal": null,
+"group": "__(\"Customize Child Table\")"
+},
+{
+"file": "frappe/frappe/custom/doctype/customize_form/customize_form.js",
+"line": 111,
+"fn": "add_custom_button",
+"label": "__(\"Go to {0} List\", [__(frm.doc.doc_type)])",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/custom/doctype/customize_form/customize_form.js",
+"line": 120,
+"fn": "add_custom_button",
+"label": "__(\"Set Permissions\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/custom/doctype/customize_form/customize_form.js",
+"line": 128,
+"fn": "add_custom_button",
+"label": "__(\"Reload\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/custom/doctype/customize_form/customize_form.js",
+"line": 136,
+"fn": "add_custom_button",
+"label": "__(\"Reset Layout\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/custom/doctype/customize_form/customize_form.js",
+"line": 144,
+"fn": "add_custom_button",
+"label": "__(\"Reset All Customizations\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/custom/doctype/customize_form/customize_form.js",
+"line": 152,
+"fn": "add_custom_button",
+"label": "__(\"Trim Table\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/custom/doctype/customize_form/customize_form.js",
+"line": 254,
+"fn": "add_custom_button",
+"label": "__(\"Export Customizations\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/custom/doctype/custom_field/custom_field.js",
+"line": 117,
+"fn": "add_custom_button",
+"label": "__(\"Rename Fieldname\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/custom/doctype/doctype_layout/doctype_layout.js",
+"line": 42,
+"fn": "add_custom_button",
+"label": "__(\"Go to {0} List\", [frm.doc.name])",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/custom/doctype/doctype_layout/doctype_layout.js",
+"line": 46,
+"fn": "add_custom_button",
+"label": "__(\"Sync {0} Fields\", [frm.doc.name])",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/calendar_view/calendar_view.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Show Calendar\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/console_log/console_log.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Re-Run in Console\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/dashboard/dashboard.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Show Dashboard\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/dashboard_chart/dashboard_chart.js",
+"line": 34,
+"fn": "add_custom_button",
+"label": "__(\"Add Chart to Dashboard\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/dashboard_chart_source/dashboard_chart_source.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Dashboard Chart\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "frappe/frappe/desk/doctype/desktop_icon/desktop_icon.js",
+"line": 16,
+"fn": "add_custom_button",
+"label": "__(\"Workspace Sidebar\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "frappe/frappe/desk/doctype/desktop_settings/desktop_settings.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Visit Desktop\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/event/event.js",
+"line": 25,
+"fn": "add_custom_button",
+"label": "__(value.reference_docname)",
+"label_literal": null,
+"group": "__(\"Participants\")"
+},
+{
+"file": "frappe/frappe/desk/doctype/event/event.js",
+"line": 35,
+"fn": "add_custom_button",
+"label": "__(\"Add Contacts\")",
+"label_literal": null,
+"group": "__(\"Add Participants\")"
+},
+{
+"file": "frappe/frappe/desk/doctype/form_tour/form_tour.js",
+"line": 23,
+"fn": "add_custom_button",
+"label": "frm",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/form_tour/form_tour.js",
+"line": 101,
+"fn": "add_custom_button",
+"label": "__(\"Reset\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/form_tour/form_tour.js",
+"line": 116,
+"fn": "add_custom_button",
+"label": "__(\"Show Tour\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/global_search_settings/global_search_settings.js",
+"line": 94,
+"fn": "add_custom_button",
+"label": "__(\"Reset\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/kanban_board/kanban_board.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Show Board\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/module_onboarding/module_onboarding.js",
+"line": 17,
+"fn": "add_custom_button",
+"label": "__(\"Reset\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/note/note.js",
+"line": 12,
+"fn": "remove_custom_button",
+"label": "frm.is_note_editable ? edit_label : read_label",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/note/note.js",
+"line": 13,
+"fn": "add_custom_button",
+"label": "frm.is_note_editable ? read_label : edit_label",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/notification_settings/notification_settings.js",
+"line": 17,
+"fn": "add_custom_button",
+"label": "__(\"Go to Notification Settings List\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/notification_type/notification_type.js",
+"line": 12,
+"fn": "add_custom_button",
+"label": "__(\"Enable Email Notifications for All Users\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/desk/doctype/number_card/number_card.js",
+"line": 37,
+"fn": "add_custom_button",
+"label": "__(\"Add Card to Dashboard\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/todo/todo.js",
+"line": 15,
+"fn": "add_custom_button",
+"label": "__(frm.doc.reference_name)",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/todo/todo.js",
+"line": 22,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "\"fa fa-check\""
+},
+{
+"file": "frappe/frappe/desk/doctype/todo/todo.js",
+"line": 35,
+"fn": "add_custom_button",
+"label": "__(\"Reopen\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "frappe/frappe/desk/doctype/todo/todo.js",
+"line": 45,
+"fn": "add_custom_button",
+"label": "__(\"New\")",
+"label_literal": null,
+"group": "null"
+},
+{
+"file": "frappe/frappe/desk/doctype/workspace/workspace.js",
+"line": 49,
+"fn": "add_custom_button",
+"label": "__(\"Add to Desktop\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/doctype/workspace_sidebar/workspace_sidebar.js",
+"line": 11,
+"fn": "add_custom_button",
+"label": "__(`View Sidebar`)",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/page/backups/backups.js",
+"line": 8,
+"fn": "add_inner_button",
+"label": "__(\"Set Number of Backups\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/page/backups/backups.js",
+"line": 14,
+"fn": "add_inner_button",
+"label": "__(\"Download Files Backup\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/desk/page/backups/backups.js",
+"line": 21,
+"fn": "add_inner_button",
+"label": "__(\"Get Backup Encryption Key\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/email/doctype/auto_email_report/auto_email_report.js",
+"line": 8,
+"fn": "add_custom_button",
+"label": "__(\"Download\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/email/doctype/auto_email_report/auto_email_report.js",
+"line": 21,
+"fn": "add_custom_button",
+"label": "__(\"Send Now\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/email/doctype/email_account/email_account.js",
+"line": 208,
+"fn": "add_custom_button",
+"label": "__(\"Pull Emails\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/email/doctype/email_group/email_group.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Import Subscribers\")",
+"label_literal": null,
+"group": "__(\"Action\")"
+},
+{
+"file": "frappe/frappe/email/doctype/email_group/email_group.js",
+"line": 37,
+"fn": "add_custom_button",
+"label": "__(\"Add Subscribers\")",
+"label_literal": null,
+"group": "__(\"Action\")"
+},
+{
+"file": "frappe/frappe/email/doctype/email_queue/email_queue.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Send Now\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/email/doctype/email_queue/email_queue.js",
+"line": 28,
+"fn": "add_custom_button",
+"label": "__(\"Retry Sending\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/email/doctype/email_queue/email_queue_list.js",
+"line": 29,
+"fn": "add_inner_button",
+"label": "label",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/email/doctype/email_queue/email_queue_list.js",
+"line": 41,
+"fn": "remove_inner_button",
+"label": "label",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/email/doctype/notification/notification.js",
+"line": 204,
+"fn": "add_custom_button",
+"label": "__(\"Preview\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/email/doctype/notification/notification.js",
+"line": 236,
+"fn": "add_custom_button",
+"label": "__(\"Get Alerts for Today\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/integrations/doctype/connected_app/connected_app.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Get OpenID Configuration\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/integrations/doctype/connected_app/connected_app.js",
+"line": 20,
+"fn": "add_custom_button",
+"label": "__(\"Connect to {}\", [frm.doc.provider_name])",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/integrations/doctype/google_calendar/google_calendar.js",
+"line": 28,
+"fn": "add_custom_button",
+"label": "__(\"Sync Calendar\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/integrations/doctype/google_contacts/google_contacts.js",
+"line": 28,
+"fn": "add_custom_button",
+"label": "__(\"Sync Contacts\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/integrations/doctype/webhook/webhook.js",
+"line": 90,
+"fn": "add_custom_button",
+"label": "__(\"Preview\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/printing/doctype/print_format/print_format.js",
+"line": 28,
+"fn": "add_custom_button",
+"label": "__(\"Edit Format\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/printing/doctype/print_format/print_format.js",
+"line": 47,
+"fn": "add_custom_button",
+"label": "__(\"Set as Default\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/printing/doctype/print_style/print_style.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Print Settings\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/printing/page/print_format_builder/print_format_builder.js",
+"line": 175,
+"fn": "add_inner_button",
+"label": "__(\"Edit Properties\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/public/js/frappe/form/form.js",
+"line": 485,
+"fn": "add_custom_button",
+"label": "action.label",
+"label_literal": null,
+"group": "action.group"
+},
+{
+"file": "frappe/frappe/public/js/frappe/form/form.js",
+"line": 622,
+"fn": "add_custom_button",
+"label": "",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/public/js/frappe/form/form.js",
+"line": 1540,
+"fn": "add_custom_button",
+"label": "label",
+"label_literal": null,
+"group": "group"
+},
+{
+"file": "frappe/frappe/public/js/frappe/form/form.js",
+"line": 1544,
+"fn": "add_inner_button",
+"label": "label",
+"label_literal": null,
+"group": "group"
+},
+{
+"file": "frappe/frappe/public/js/frappe/form/form.js",
+"line": 1551,
+"fn": "change_custom_button_type",
+"label": "label",
+"label_literal": null,
+"group": "group"
+},
+{
+"file": "frappe/frappe/public/js/frappe/form/form.js",
+"line": 1552,
+"fn": "change_inner_button_type",
+"label": "label",
+"label_literal": null,
+"group": "group"
+},
+{
+"file": "frappe/frappe/public/js/frappe/form/form.js",
+"line": 1562,
+"fn": "remove_custom_button",
+"label": "label",
+"label_literal": null,
+"group": "group"
+},
+{
+"file": "frappe/frappe/public/js/frappe/form/form.js",
+"line": 1563,
+"fn": "remove_inner_button",
+"label": "label",
+"label_literal": null,
+"group": "group"
+},
+{
+"file": "frappe/frappe/public/js/frappe/form/grid.js",
+"line": 1588,
+"fn": "add_custom_button",
+"label": "label",
+"label_literal": null,
+"group": "position = \"bottom\""
+},
+{
+"file": "frappe/frappe/public/js/frappe/list/list_filter.js",
+"line": 19,
+"fn": "add_inner_button",
+"label": "__(\"Filters\")",
+"label_literal": null,
+"group": "__(\"Saved Filters\")"
+},
+{
+"file": "frappe/frappe/public/js/frappe/list/list_view_select.js",
+"line": 152,
+"fn": "add_inner_button",
+"label": "item.name",
+"label_literal": null,
+"group": "placeholder"
+},
+{
+"file": "frappe/frappe/public/js/frappe/list/list_view_select.js",
+"line": 161,
+"fn": "add_inner_button",
+"label": "default_action.label",
+"label_literal": null,
+"group": "placeholder"
+},
+{
+"file": "frappe/frappe/public/js/frappe/ui/dialog.js",
+"line": 378,
+"fn": "add_custom_button",
+"label": "",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/public/js/frappe/ui/page.js",
+"line": 622,
+"fn": "add_inner_button",
+"label": "label",
+"label_literal": null,
+"group": "group"
+},
+{
+"file": "frappe/frappe/public/js/frappe/ui/page.js",
+"line": 668,
+"fn": "remove_inner_button",
+"label": "label",
+"label_literal": null,
+"group": "group"
+},
+{
+"file": "frappe/frappe/public/js/frappe/ui/page.js",
+"line": 686,
+"fn": "change_inner_button_type",
+"label": "label",
+"label_literal": null,
+"group": "group"
+},
+{
+"file": "frappe/frappe/public/js/frappe/utils/utils.js",
+"line": 1735,
+"fn": "add_custom_button",
+"label": "html",
+"label_literal": null,
+"group": "class_name = \"\""
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/treeview.js",
+"line": 119,
+"fn": "add_inner_button",
+"label": "__(\"Include Disabled\")",
+"label_literal": null,
+"group": "__(\"Expand\")"
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/treeview.js",
+"line": 132,
+"fn": "add_inner_button",
+"label": "__(\"Collapse All\")",
+"label_literal": null,
+"group": "__(\"Expand\")"
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/treeview.js",
+"line": 142,
+"fn": "add_inner_button",
+"label": "__(\"Expand All\")",
+"label_literal": null,
+"group": "__(\"Expand\")"
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/reports/query_report.js",
+"line": 187,
+"fn": "add_inner_button",
+"label": "__(\"Create Card\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/reports/query_report.js",
+"line": 200,
+"fn": "add_inner_button",
+"label": "__(\"Set Chart\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/reports/query_report.js",
+"line": 210,
+"fn": "add_inner_button",
+"label": "__(\"Add Chart to Dashboard\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/reports/query_report.js",
+"line": 899,
+"fn": "add_inner_button",
+"label": "__(\"Download Report\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/workspace/workspace.js",
+"line": 393,
+"fn": "add_inner_button",
+"label": "__(\"Settings\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/workspace/blocks/header.js",
+"line": 42,
+"fn": "add_custom_button",
+"label": "frappe.utils.icon(\"drag\", \"xs\")",
+"label_literal": null,
+"group": "\"drag-handle\""
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/workspace/blocks/paragraph.js",
+"line": 132,
+"fn": "add_custom_button",
+"label": "frappe.utils.icon(\"drag\", \"xs\")",
+"label_literal": null,
+"group": "\"drag-handle\""
+},
+{
+"file": "frappe/frappe/public/js/frappe/views/workspace/blocks/spacer.js",
+"line": 40,
+"fn": "add_custom_button",
+"label": "frappe.utils.icon(\"drag\", \"xs\")",
+"label_literal": null,
+"group": "\"drag-handle\""
+},
+{
+"file": "frappe/frappe/public/js/frappe/widgets/base_widget.js",
+"line": 30,
+"fn": "add_custom_button",
+"label": "frappe.utils.icon(\"es-line-drag\", \"xs\")",
+"label_literal": null,
+"group": "\"drag-handle\""
+},
+{
+"file": "frappe/frappe/public/js/frappe/widgets/base_widget.js",
+"line": 48,
+"fn": "add_custom_button",
+"label": "`<i class=\"${classname}\" aria-hidden=\"true\"></i>`",
+"label_literal": null,
+"group": "\"show-or-hide-button\""
+},
+{
+"file": "frappe/frappe/public/js/frappe/widgets/base_widget.js",
+"line": 61,
+"fn": "add_custom_button",
+"label": "frappe.utils.icon(\"es-line-edit-alt\", \"xs\")",
+"label_literal": null,
+"group": "\"edit-button\""
+},
+{
+"file": "frappe/frappe/website/doctype/personal_data_deletion_request/personal_data_deletion_request.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Delete Data\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/website/doctype/personal_data_deletion_request/personal_data_deletion_request.js",
+"line": 23,
+"fn": "add_custom_button",
+"label": "__(\"Put on Hold\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/website/doctype/portal_settings/portal_settings.js",
+"line": 19,
+"fn": "add_custom_button",
+"label": "__(\"Reset\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/website/doctype/website_route_meta/website_route_meta.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Visit Web Page\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/website/doctype/website_settings/website_settings.js",
+"line": 16,
+"fn": "add_custom_button",
+"label": "__(\"View Website\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/website/doctype/website_slideshow/website_slideshow.js",
+"line": 13,
+"fn": "add_custom_button",
+"label": "__(\"Fetch attached images from document\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/website/doctype/website_theme/website_theme.js",
+"line": 33,
+"fn": "add_custom_button",
+"label": "__(\"Set as Default Theme\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/website/doctype/web_form/web_form.js",
+"line": 82,
+"fn": "add_custom_button",
+"label": "frm.doc.published ? __(\"Unpublish\") : __(\"Publish\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/website/doctype/web_form/web_form.js",
+"line": 89,
+"fn": "add_custom_button",
+"label": "__(\"Get Fields\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/website/doctype/web_form_request/web_form_request.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Copy Link\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "frappe/frappe/workflow/doctype/workflow/workflow.js",
+"line": 44,
+"fn": "add_custom_button",
+"label": "__(\"Go to {0} List\", [frm.doc.document_type])",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/employee_property_update.js",
+"line": 43,
+"fn": "add_custom_button",
+"label": "__(\"Add Employee Property\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/appraisal/appraisal.js",
+"line": 56,
+"fn": "add_custom_button",
+"label": "__(\"View Goals\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/appraisal_cycle/appraisal_cycle.js",
+"line": 22,
+"fn": "add_custom_button",
+"label": "__(\"View Goals\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/appraisal_cycle/appraisal_cycle.js",
+"line": 34,
+"fn": "add_custom_button",
+"label": "__(\"Create Appraisals\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/appraisal_cycle/appraisal_cycle.js",
+"line": 51,
+"fn": "add_custom_button",
+"label": "__(\"Start\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/appraisal_cycle/appraisal_cycle.js",
+"line": 62,
+"fn": "add_custom_button",
+"label": "__(\"Mark as Completed\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/appraisal_cycle/appraisal_cycle.js",
+"line": 67,
+"fn": "add_custom_button",
+"label": "__(\"Mark as In Progress\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/attendance/attendance.js",
+"line": 17,
+"fn": "add_custom_button",
+"label": "__(\"Attendance Request\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/attendance/attendance_list.js",
+"line": 16,
+"fn": "add_inner_button",
+"label": "__(\"Mark Attendance\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/daily_work_summary_group/daily_work_summary_group.js",
+"line": 12,
+"fn": "add_custom_button",
+"label": "__(\"Daily Work Summary\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_advance/employee_advance.js",
+"line": 37,
+"fn": "add_custom_button",
+"label": "__(\"Payment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_advance/employee_advance.js",
+"line": 51,
+"fn": "add_custom_button",
+"label": "__(\"Expense Claim\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_advance/employee_advance.js",
+"line": 69,
+"fn": "add_custom_button",
+"label": "__(\"Return\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_advance/employee_advance.js",
+"line": 80,
+"fn": "add_custom_button",
+"label": "__(\"Deduction from Salary\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_checkin/employee_checkin.js",
+"line": 33,
+"fn": "add_custom_button",
+"label": "__(\"Fetch Shift\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_onboarding/employee_onboarding.js",
+"line": 26,
+"fn": "add_custom_button",
+"label": "__(\"Employee\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_onboarding/employee_onboarding.js",
+"line": 35,
+"fn": "add_custom_button",
+"label": "__(\"Project\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_onboarding/employee_onboarding.js",
+"line": 42,
+"fn": "add_custom_button",
+"label": "__(\"Task\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_onboarding/employee_onboarding.js",
+"line": 51,
+"fn": "add_custom_button",
+"label": "__(\"Employee\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_onboarding/employee_onboarding.js",
+"line": 67,
+"fn": "add_custom_button",
+"label": "__(\"Mark as Completed\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_referral/employee_referral.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Reject Employee Referral\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_referral/employee_referral.js",
+"line": 21,
+"fn": "add_custom_button",
+"label": "__(\"Create Job Applicant\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_referral/employee_referral.js",
+"line": 40,
+"fn": "add_custom_button",
+"label": "__(\"Create Additional Salary\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_separation/employee_separation.js",
+"line": 14,
+"fn": "add_custom_button",
+"label": "__(\"Employee\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_separation/employee_separation.js",
+"line": 23,
+"fn": "add_custom_button",
+"label": "__(\"Project\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/employee_separation/employee_separation.js",
+"line": 30,
+"fn": "add_custom_button",
+"label": "__(\"Task\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/exit_interview/exit_interview.js",
+"line": 11,
+"fn": "add_custom_button",
+"label": "__(\"Send Exit Questionnaire\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/expense_claim/expense_claim.js",
+"line": 125,
+"fn": "add_custom_button",
+"label": "__(\"Payment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/expense_claim/expense_claim.js",
+"line": 141,
+"fn": "add_custom_button",
+"label": "__(\"View Exchange Gain/Loss Journals\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/expense_claim/expense_claim.js",
+"line": 304,
+"fn": "add_custom_button",
+"label": "__(\"Accounting Ledger\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/expense_claim/expense_claim.js",
+"line": 329,
+"fn": "add_custom_button",
+"label": "__(\"Bank Entries\")",
+"label_literal": null,
+"group": "__(\"View\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/full_and_final_statement/full_and_final_statement.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Create Journal Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/goal/goal.js",
+"line": 54,
+"fn": "add_custom_button",
+"label": "__(\"Unarchive\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/goal/goal.js",
+"line": 65,
+"fn": "add_custom_button",
+"label": "__(\"Reopen\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/goal/goal.js",
+"line": 76,
+"fn": "add_custom_button",
+"label": "__(\"Archive\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/goal/goal.js",
+"line": 87,
+"fn": "add_custom_button",
+"label": "__(\"Close\")",
+"label_literal": null,
+"group": "__(\"Status\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/interview/interview.js",
+"line": 31,
+"fn": "add_custom_button",
+"label": "__(\"Reschedule Interview\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/interview/interview.js",
+"line": 62,
+"fn": "add_custom_button",
+"label": "__(\"Submit Feedback\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/interview_round/interview_round.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Create Interview\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/interview_type/interview_type.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Create Interview\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_applicant/job_applicant.js",
+"line": 69,
+"fn": "add_custom_button",
+"label": "__(\"Shortlist\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_applicant/job_applicant.js",
+"line": 74,
+"fn": "add_custom_button",
+"label": "__(\"Reject\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_applicant/job_applicant.js",
+"line": 81,
+"fn": "add_custom_button",
+"label": "__(\"Schedule Interview\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_applicant/job_applicant.js",
+"line": 89,
+"fn": "add_custom_button",
+"label": "__(\"Show Employee\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_applicant/job_applicant.js",
+"line": 93,
+"fn": "add_custom_button",
+"label": "__(\"Create Employee\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_applicant/job_applicant.js",
+"line": 101,
+"fn": "add_custom_button",
+"label": "__(\"View Job Offer\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_applicant/job_applicant.js",
+"line": 107,
+"fn": "add_custom_button",
+"label": "__(\"Create Job Offer\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_offer/job_offer.js",
+"line": 45,
+"fn": "add_custom_button",
+"label": "__(\"Create Employee\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_offer/job_offer.js",
+"line": 51,
+"fn": "add_custom_button",
+"label": "__(\"Show Employee\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_opening_template/job_opening_template.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Create Job Opening\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/job_requisition/job_requisition.js",
+"line": 38,
+"fn": "add_custom_button",
+"label": "__(\"Create Job Opening\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/job_requisition/job_requisition.js",
+"line": 49,
+"fn": "add_custom_button",
+"label": "__(\"Associate Job Opening\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/leave_allocation/leave_allocation.js",
+"line": 42,
+"fn": "add_custom_button",
+"label": "__(\"Expire Allocation\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/leave_allocation/leave_allocation.js",
+"line": 51,
+"fn": "add_custom_button",
+"label": "__(\"Adjust Allocation\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/leave_encashment/leave_encashment.js",
+"line": 58,
+"fn": "add_custom_button",
+"label": "__(\"Payment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/leave_policy/leave_policy.js",
+"line": 8,
+"fn": "add_custom_button",
+"label": "__(\"Single Assignment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/leave_policy/leave_policy.js",
+"line": 18,
+"fn": "add_custom_button",
+"label": "__(\"Bulk Assignment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/leave_policy_assignment/leave_policy_assignment_list.js",
+"line": 3,
+"fn": "add_inner_button",
+"label": "__(\"Bulk Leave Policy Assignment\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/overtime_slip/overtime_slip.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Fetch Overtime Details\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js",
+"line": 118,
+"fn": "add_inner_button",
+"label": "__(\"Approve\")",
+"label_literal": null,
+"group": "__(\"Process Requests\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/shift_assignment_tool/shift_assignment_tool.js",
+"line": 125,
+"fn": "add_inner_button",
+"label": "__(\"Reject\")",
+"label_literal": null,
+"group": "__(\"Process Requests\")"
+},
+{
+"file": "hrms/hrms/hr/doctype/shift_type/shift_type.js",
+"line": 13,
+"fn": "add_custom_button",
+"label": "__(\"Mark Attendance\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/training_event/training_event.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Training Result\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/training_event/training_event.js",
+"line": 16,
+"fn": "add_custom_button",
+"label": "__(\"Training Feedback\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/hr/doctype/vehicle_log/vehicle_log.js",
+"line": 16,
+"fn": "add_custom_button",
+"label": "__(\"Expense Claim\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/bulk_salary_structure_assignment/bulk_salary_structure_assignment.js",
+"line": 196,
+"fn": "add_custom_button",
+"label": "__(d)",
+"label_literal": null,
+"group": "__(\"Update\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/bulk_salary_structure_assignment/bulk_salary_structure_assignment.js",
+"line": 235,
+"fn": "remove_custom_button",
+"label": "__(d)",
+"label_literal": null,
+"group": "__(\"Update\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/employee_tax_exemption_declaration/employee_tax_exemption_declaration.js",
+"line": 43,
+"fn": "add_custom_button",
+"label": "__(\"Submit Proof\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/employee_tax_exemption_proof_submission/employee_tax_exemption_proof_submission.js",
+"line": 47,
+"fn": "add_custom_button",
+"label": "__(\"Get Details From Declaration\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/gratuity/gratuity.js",
+"line": 36,
+"fn": "add_custom_button",
+"label": "__(\"Create Payment Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/income_tax_slab/income_tax_slab.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Salary Structure Assignment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/payroll_entry/payroll_entry.js",
+"line": 69,
+"fn": "add_custom_button",
+"label": "__(\"Get Employees\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/payroll_entry/payroll_entry.js",
+"line": 83,
+"fn": "add_custom_button",
+"label": "__(\"Create Overtime Slips\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/payroll_entry/payroll_entry.js",
+"line": 90,
+"fn": "add_custom_button",
+"label": "__(\"Submit Overtime Slips\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/payroll_entry/payroll_entry.js",
+"line": 171,
+"fn": "add_custom_button",
+"label": "__(\"Submit Salary Slip\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/payroll_entry/payroll_entry.js",
+"line": 175,
+"fn": "add_custom_button",
+"label": "__(\"Create Salary Slips\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/payroll_entry/payroll_entry.js",
+"line": 184,
+"fn": "add_custom_button",
+"label": "__(\"Make Bank Entry\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/payroll_entry/payroll_entry.js",
+"line": 188,
+"fn": "add_custom_button",
+"label": "__(\"Release Withheld Salaries\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/salary_component/salary_component.js",
+"line": 46,
+"fn": "add_custom_button",
+"label": "__(\"Salary Structure\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/salary_component/salary_component.js",
+"line": 114,
+"fn": "add_custom_button",
+"label": "__(\"Sync {0}\", [__(df)])",
+"label_literal": null,
+"group": "__(\"Update Salary Structures\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/salary_structure/salary_structure.js",
+"line": 125,
+"fn": "add_custom_button",
+"label": "__(\"Single Assignment\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/salary_structure/salary_structure.js",
+"line": 136,
+"fn": "add_custom_button",
+"label": "__(\"Bulk Assignments\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/salary_structure/salary_structure.js",
+"line": 147,
+"fn": "add_custom_button",
+"label": "__(\"Income Tax Slab\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/salary_structure/salary_structure.js",
+"line": 160,
+"fn": "add_custom_button",
+"label": "__(\"Preview Salary Slip\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/salary_structure/salary_structure_list.js",
+"line": 3,
+"fn": "add_inner_button",
+"label": "__(\"Bulk Salary Structure Assignment\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.js",
+"line": 60,
+"fn": "add_custom_button",
+"label": "__(\"Payroll Entry\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.js",
+"line": 72,
+"fn": "add_custom_button",
+"label": "__(\"See CTC Break-up\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "hrms/hrms/payroll/doctype/salary_structure_assignment/salary_structure_assignment.js",
+"line": 88,
+"fn": "add_custom_button",
+"label": "__(\"Preview Salary Slip\")",
+"label_literal": null,
+"group": "__(\"Actions\")"
+},
+{
+"file": "hrms/hrms/public/js/erpnext/delivery_trip.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Expense Claim\")",
+"label_literal": null,
+"group": "__(\"Create\")"
+},
+{
+"file": "hrms/hrms/public/js/erpnext/timesheet.js",
+"line": 8,
+"fn": "add_custom_button",
+"label": "__(\"Create Salary Slip\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/public/js/hierarchy_chart/hierarchy_chart_desktop.js",
+"line": 116,
+"fn": "add_inner_button",
+"label": "__(\"Export\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/public/js/hierarchy_chart/hierarchy_chart_desktop.js",
+"line": 120,
+"fn": "add_inner_button",
+"label": "__(\"Expand All\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/public/js/hierarchy_chart/hierarchy_chart_desktop.js",
+"line": 124,
+"fn": "remove_inner_button",
+"label": "__(\"Expand All\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/public/js/hierarchy_chart/hierarchy_chart_desktop.js",
+"line": 125,
+"fn": "add_inner_button",
+"label": "__(\"Collapse All\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/public/js/hierarchy_chart/hierarchy_chart_desktop.js",
+"line": 130,
+"fn": "remove_inner_button",
+"label": "__(\"Collapse All\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/public/js/utils/index.js",
+"line": 239,
+"fn": "add_inner_button",
+"label": "__(\"Shift Assignment Tool\")",
+"label_literal": null,
+"group": "__(\"Shift Tools\")"
+},
+{
+"file": "hrms/hrms/public/js/utils/index.js",
+"line": 251,
+"fn": "add_inner_button",
+"label": "__(\"Roster\")",
+"label_literal": null,
+"group": "__(\"Shift Tools\")"
+},
+{
+"file": "hrms/hrms/public/js/utils/index.js",
+"line": 261,
+"fn": "add_custom_button",
+"label": "__(\"Shift Assignment Tool\")",
+"label_literal": null,
+"group": "__(\"Shift Tools\")"
+},
+{
+"file": "hrms/hrms/public/js/utils/index.js",
+"line": 272,
+"fn": "add_custom_button",
+"label": "__(\"Roster\")",
+"label_literal": null,
+"group": "__(\"Shift Tools\")"
+},
+{
+"file": "hrms/hrms/public/js/utils/leave_utils.js",
+"line": 5,
+"fn": "add_custom_button",
+"label": "__(\"View Ledger\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "hrms/hrms/public/js/utils/leave_utils.js",
+"line": 20,
+"fn": "add_custom_button",
+"label": "__(\"View Leave Balance\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "insights/insights/insights/doctype/insights_alert/insights_alert.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Send Alert\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "insights/insights/insights/doctype/insights_data_source_v3/insights_data_source_v3.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "\"Test Connection\"",
+"label_literal": "Test Connection",
+"group": ""
+},
+{
+"file": "insights/insights/insights/doctype/insights_query/insights_query.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Run\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.js",
+"line": 6,
+"fn": "add_custom_button",
+"label": "__(\"Enqueue\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "insights/insights/insights/doctype/insights_table_import_job/insights_table_import_job.js",
+"line": 10,
+"fn": "add_custom_button",
+"label": "__(\"Bulk Enqueue\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "insights/insights/insights/doctype/insights_table_import_log/insights_table_import_log.js",
+"line": 7,
+"fn": "add_custom_button",
+"label": "__(\"Mark as Failed\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js",
+"line": 12,
+"fn": "add_custom_button",
+"label": "__(\"Import to Warehouse\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js",
+"line": 19,
+"fn": "add_custom_button",
+"label": "__(\"Clear Warehouse Data\")",
+"label_literal": null,
+"group": ""
+},
+{
+"file": "insights/insights/insights/doctype/insights_table_v3/insights_table_v3.js",
+"line": 38,
+"fn": "add_custom_button",
+"label": "__(\"Statistics\")",
+"label_literal": null,
+"group": ""
+}
+]

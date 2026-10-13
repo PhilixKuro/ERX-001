@@ -12,7 +12,8 @@ step() { echo "== $(date '+%F %T') $*"; }
 
 step "0a 容器 /etc/hosts 临时加 test.localhost：实时服务鉴权时按页面 Origin 回调站点（realtime/utils.js:4-15），容器里解析不了 test.localhost 就报 Unauthorized: fetch failed；退出时还原"
 docker exec -u root erx001-frappe-1 sh -c 'getent hosts test.localhost >/dev/null || { cp /etc/hosts /tmp/hosts.it018.bak; echo "127.0.0.1 test.localhost  # P1-S6-R5 SB IT-018 temporary" >> /etc/hosts; }'
-trap 'docker exec -u root erx001-frappe-1 sh -c "[ -f /tmp/hosts.it018.bak ] && cp /tmp/hosts.it018.bak /etc/hosts && rm /tmp/hosts.it018.bak; getent hosts test.localhost || echo hosts restored"' EXIT
+# 退出时停掉第 0 步起的 6787，并还原 hosts（R11 IT-057：序列须写全 6787 启停）
+trap 'docker exec -u frappe erx001-frappe-1 sh -c "pkill -f \"serve --port 6787\"" || true; docker exec -u root erx001-frappe-1 sh -c "[ -f /tmp/hosts.it018.bak ] && cp /tmp/hosts.it018.bak /etc/hosts && rm /tmp/hosts.it018.bak; getent hosts test.localhost || echo hosts restored"' EXIT
 step "0 重起测试站 6787，带 DEV_SERVER=1：不带时页面按自身 6787 连 socket.io、得 404，实时通道不通（socketio_client.js:120-127）"
 docker exec -u frappe erx001-frappe-1 sh -c 'pkill -f "serve --port 6787"' || true
 sleep 2

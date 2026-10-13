@@ -1,0 +1,42 @@
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_translations, verbose=False, tests=('test_r9_own_keys_are_app_sources', 'test_source_strings_literal_key_forms'), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 2 integration tests for frappe_china
+
+frappe_china.tests.test_translations.TestTranslations
+   [31m ✖ [0m test_r9_own_keys_are_app_sources
+   [31m ✖ [0m test_source_strings_literal_key_forms
+
+
+======================================================================
+ FAIL  test_r9_own_keys_are_app_sources (frappe_china.tests.test_translations.TestTranslations.test_r9_own_keys_are_app_sources)
+R9 方案新增的自有键都算本 app 源词，清场不删（SL-021 ①，R11 IT-052）。
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_translations.py", line 307, in test_r9_own_keys_are_app_sources
+    self.assertEqual(R9_OWN_KEYS - _app_source_strings(), set())
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    self = <frappe_china.tests.test_translations.TestTranslations testMethod=test_r9_own_keys_are_app_sources>
+AssertionError: Items in the first set but not the second:
+'{0} Filters Applied'
+'{0} Filter Applied'
+'This field is read only and cannot be edited.'
+
+======================================================================
+ FAIL  test_source_strings_literal_key_forms (frappe_china.tests.test_translations.TestTranslations.test_source_strings_literal_key_forms)
+R9 A28：取法认得出命名约定常量、translate( 别名与侧栏 json；反例取不到（SL-021 ②）。
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_translations.py", line 295, in test_source_strings_literal_key_forms
+    self.assertEqual(_source_strings_from_text("public/js/y.js", 'const FOO_SOURCE = ["H"];\n'), {"H"})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    js = "translate('E');\nconst sources = {x: new Set(['F'])};\ntranslateLabel('G');\n"
+    python = 'FOO_SOURCES = ("A", "B")\nBAR_SOURCE: Final[str] = "C"\nOTHER = ("D",)\n'
+    self = <frappe_china.tests.test_translations.TestTranslations testMethod=test_source_strings_literal_key_forms>
+AssertionError: Items in the second set but not the first:
+'H'
+
+----------------------------------------------------------------------
+Ran 2 tests in 3.024s
+
+FAILED (failures=2)

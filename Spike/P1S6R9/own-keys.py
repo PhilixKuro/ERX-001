@@ -13,6 +13,8 @@ prune = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(prune)
 
 expected = {item["key"] for item in json.loads((ROOT / "Spike/P1S6R8-E/sl012/literal_keys.json").read_text(encoding="utf-8"))} | {"CN Tax"}
+# R9 方案新增的自有键（R11 IT-052）
+expected |= {"{0} Filter Applied", "{0} Filters Applied", "(Empty)", "Add {0}...", "Select {0}...", "This field is read only and cannot be edited."}
 own = prune.keep_keys()["own"]
 missing = sorted(expected - own)
 print(f"expected={len(expected)} own={len(own)} missing={missing}")

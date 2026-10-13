@@ -151,6 +151,13 @@ docker/up.sh
 | Realtime (socketio) | `SOCKETIO_PORT`，缺省 9100 | **`realtime-proxy` 服务**（nginx，转发到 `frappe` 的同号端口） | 同号（站点配置 `socketio_port`） |
 | 资源监视／另起测试站服务 | 6787，**只绑 `127.0.0.1`** | `frappe` 服务 | 6787 |
 
+**6787 上的测试站要用实时通道**（表单不刷新、`realtime_check` 等要页面收到推送的场景），起服务时须做两步，否则页面连不上实时服务：
+
+1. 带 `DEV_SERVER=1` 起 `serve`。不带时页面按自身端口 6787 去连 socket.io，得 404（`frappe/public/js/frappe/socketio_client.js:120-127`）。
+2. 容器 `/etc/hosts` 临时加一行 `127.0.0.1 test.localhost`，用完还原。实时服务鉴权时按页面来源回访站点（`frappe/realtime/utils.js:4-15`），容器内解析不了 `test.localhost`，会报 `Unauthorized: TypeError: fetch failed`。
+
+可照做的完整序列（含启停与还原）见 `Spike/P1S6R5-SB/it018-run.sh`。
+
 **为什么实时端口前多一层转发**（S5 LG-007、需求 §4.8）：实时服务按请求的来源认站点，本机名（`localhost`、`127.0.0.1`、`*.localhost`）认得出，局域网地址、组网地址认不出，连接会被拒（`Invalid namespace`）。`realtime-proxy` 对非本机名来源补一个 `X-Frappe-Site-Name` 请求头，值取 `.env` 的 `SITE_NAME`；本机来源原样透传。规则不写任何具体地址，局域网与组网走同一条分支。配置在 `realtime-proxy/default.conf.template`，官方镜像启动时用 `envsubst` 渲染。不改上游源码。
 
 Windows 上 9000 常落在 Hyper-V 保留端口段（本机实测 8995-9094），故 socketio 缺省用 9100。查保留段：

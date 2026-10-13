@@ -1,0 +1,100 @@
+{
+ "installed_apps": [
+  "frappe",
+  "erpnext",
+  "crm",
+  "hrms",
+  "insights",
+  "raven",
+  "frappe_china"
+ ],
+ "check_app_order": {
+  "ok": true,
+  "order": [
+   "frappe",
+   "erpnext",
+   "crm",
+   "hrms",
+   "insights",
+   "raven",
+   "frappe_china"
+  ],
+  "order_ok": true,
+  "overrides": {
+   "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_charts_for_country": "frappe_china.accounting.chart.get_charts_for_country",
+   "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_chart": "frappe_china.accounting.chart.get_chart",
+   "erpnext.accounts.utils.get_coa": "frappe_china.accounting.chart.get_coa"
+  },
+  "overrides_ok": true,
+  "translation": {
+   "source": "Formula",
+   "expected": "计算方式",
+   "actual": "计算方式",
+   "competitors": {
+    "hrms": "公式"
+   }
+  },
+  "translation_ok": true,
+  "company_checks_ok": true,
+  "problems": []
+ },
+ "find_problems": [],
+ "Translation": 0,
+ "CFW": 0,
+ "companies": [
+  [
+   "华东弹簧有限公司",
+   "小企业会计准则(2024)"
+  ]
+ ],
+ "accounts_by_company": [
+  [
+   "华东弹簧有限公司",
+   266
+  ]
+ ],
+ "prefix_S6R_hits": {},
+ "counts": {
+  "tabGL Entry": 0,
+  "tabStock Ledger Entry": 0,
+  "tabPayment Ledger Entry": 0,
+  "tabSales Invoice": 0,
+  "tabPurchase Invoice": 0,
+  "tabJournal Entry": 0,
+  "tabPayment Entry": 0,
+  "tabStock Entry": 0,
+  "tabWork Order": 0,
+  "tabSales Order": 0,
+  "tabPurchase Order": 0,
+  "tabBOM": 0,
+  "tabJob Card": 0,
+  "tabDelivery Note": 0,
+  "tabPurchase Receipt": 0,
+  "tabQuotation": 0,
+  "tabProduction Plan": 0,
+  "tabMonth End Closing Voucher": 0,
+  "tabItem": 0,
+  "tabCustomer": 0,
+  "tabSupplier": 0,
+  "tabCRM Lead": 0,
+  "tabCRM Deal": 0,
+  "tabEmployee": 0,
+  "tabWorkstation": 0,
+  "tabOperation": 1,
+  "tabRouting": 0,
+  "tabWarehouse": 5,
+  "tabVersion": 29,
+  "tabDeleted Document": 178
+ },
+ "business_flow_sidebar": [
+  [
+   "Business Flow",
+   "2026-10-10 18:16:09.723606"
+  ]
+ ],
+ "patch_log_china": [
+  [
+   2
+  ]
+ ]
+}
