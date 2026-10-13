@@ -1,0 +1,27 @@
+05:47:22 system     | web.1 started (pid=4656)
+05:47:22 system     | socketio.1 started (pid=4660)
+05:47:22 system     | watch.1 started (pid=4661)
+05:47:22 system     | schedule.1 started (pid=4666)
+05:47:22 system     | worker.1 started (pid=4669)
+05:47:27 watch.1    | 
+05:47:27 watch.1    | yarn run v1.22.22
+05:47:27 watch.1    | $ node esbuild --watch --live-reload
+05:47:31 socketio.1 | Realtime service listening on: ws://0.0.0.0:9100
+05:47:38 web.1      | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+05:47:38 web.1      |  * Running on all addresses (0.0.0.0)
+05:47:38 web.1      |  * Running on http://127.0.0.1:8000
+05:47:38 web.1      |  * Running on http://172.19.0.6:8000
+05:47:38 web.1      | [33mPress CTRL+C to quit[0m
+05:47:38 web.1      |  * Restarting with stat
+05:47:47 web.1      |  * Debugger is active!
+05:47:47 web.1      |  * Debugger PIN: 359-516-903
+05:47:49 watch.1    | Browserslist: caniuse-lite is outdated. Please run:
+05:47:49 watch.1    |   npx update-browserslist-db@latest
+05:47:49 watch.1    |   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+05:48:18 web.1      | 172.19.0.1 - - [13/Oct/2026 05:48:18] "GET /api/method/ping HTTP/1.1" 200 -
+05:48:18 web.1      | 172.19.0.1 - - [13/Oct/2026 05:48:18] "GET /api/method/ping HTTP/1.1" 200 -
+05:48:18 web.1      | 172.19.0.1 - - [13/Oct/2026 05:48:18] "GET /api/method/ping HTTP/1.1" 200 -
+05:48:18 web.1      | 172.19.0.1 - - [13/Oct/2026 05:48:18] "GET /api/method/ping HTTP/1.1" 200 -
+05:48:18 web.1      | 172.19.0.1 - - [13/Oct/2026 05:48:18] "GET /api/method/ping HTTP/1.1" 200 -
+05:48:18 web.1      | 172.19.0.1 - - [13/Oct/2026 05:48:18] "GET /api/method/ping HTTP/1.1" 200 -
+05:48:20 watch.1    | Watching for changes...

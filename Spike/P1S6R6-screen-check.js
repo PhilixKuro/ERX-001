@@ -315,6 +315,12 @@ async function runDialog(c, screen, row) {
   const after = await getDoc(c, d.doctype, d.name);
   row.docstatus_after = after.status === 200 ? after.body.data.docstatus : null;
   row.docstatus_ok = row.docstatus_after === row.docstatus_before;
+  // kind_expected（R9 TS-036，HT-026）：confirm＝普通确认框，cancel_all＝「取消所有单据」对话框（判为 other）；不写则不查
+  if (screen.kind_expected) {
+    row.kind_expected = screen.kind_expected;
+    row.kind_ok = row.dialog_kind === ({confirm: 'confirm', cancel_all: 'other'}[screen.kind_expected]);
+    if (!row.kind_ok) row.pass = false;
+  }
 }
 
 (async () => {
@@ -367,7 +373,7 @@ async function runDialog(c, screen, row) {
       result.push(row);
       fs.writeFileSync(`${outDir}/result.json`, JSON.stringify(result, null, 2));
       fs.writeFileSync(`${outDir}/variables.json`, JSON.stringify({values, unresolved}, null, 2));
-      console.log(JSON.stringify({id: row.id, state: row.state, pass: row.pass, english: row.english, traditional: row.traditional, title_issues: row.title_issues.length, default_data: row.default_data.map(d => d.word), sidebar_title: row.sidebar_title, docstatus_ok: row.docstatus_ok, error: row.error}));
+      console.log(JSON.stringify({id: row.id, state: row.state, pass: row.pass, english: row.english, traditional: row.traditional, title_issues: row.title_issues.length, default_data: row.default_data.map(d => d.word), sidebar_title: row.sidebar_title, docstatus_ok: row.docstatus_ok, dialog_kind: row.dialog_kind, kind_ok: row.kind_ok, error: row.error}));
     }
   } finally { c.close(); }
   if (fatal || result.some(row => (!row.skipped && !row.pass) || row.docstatus_ok === false)) process.exitCode = 1;
