@@ -1,0 +1,7 @@
+== 2026-10-13 16:15:57 0 起测试站 6787（已在跑则跳过）
+== 2026-10-13 16:15:57 1 造数据：公司 _FCT S6 Part3、仓库、员工、两个物料、工序、两张日记账、期初库存、一张物料移动
+== 2026-10-13 16:16:25 2 造工作站（BOM 的工序行要用）
+== 2026-10-13 16:16:34 3 例 3：浏览器新建 BOM（1 行原料、1 道工序）→ 点保存 → 不刷新读提交按钮；脚本内先验实时通道
+Error: Condition timed out: frappe.realtime.socket?.connected
+    at Object.until (D:\ERX-001\Spike\P1S6R4-cdp.cjs:84:9)
+    at async D:\ERX-001\Spike\P1S6R5-SB\it018-refresh-check.js:18:3

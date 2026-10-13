@@ -1,0 +1,91 @@
+{
+  "round": "property-setter",
+  "cases": [
+    {
+      "doctype": "Sales Invoice",
+      "wrapped": {
+        "indicator": false,
+        "filter": false,
+        "states": [],
+        "status_context": "Sales Invoice"
+      },
+      "badges": {
+        "ACC-SINV-2026-00004": {
+          "text": "未付",
+          "color": "orange filterable",
+          "filter": "status,=,Unpaid"
+        },
+        "ACC-SINV-2026-00002": {
+          "text": "已付款",
+          "color": "green filterable",
+          "filter": "status,=,Paid"
+        }
+      },
+      "filter": {
+        "df_context": null,
+        "unpaid": "未付",
+        "paid": "已付款",
+        "overdue": "已逾期"
+      },
+      "filter_selected": {
+        "value": "Unpaid",
+        "shown": "未付"
+      },
+      "form": {
+        "status": "Unpaid",
+        "field": "未收款",
+        "label": "状态",
+        "header": [
+          "未付"
+        ]
+      }
+    },
+    {
+      "doctype": "Purchase Invoice",
+      "wrapped": {
+        "indicator": false,
+        "filter": false,
+        "states": [],
+        "status_context": null
+      },
+      "badges": {
+        "ACC-PINV-2026-00006": {
+          "text": "未付",
+          "color": "orange filterable",
+          "filter": "status,=,Unpaid"
+        },
+        "ACC-PINV-2026-00002": {
+          "text": "临时冻结",
+          "color": "darkgrey filterable",
+          "filter": "undefined"
+        },
+        "ACC-PINV-2026-00004": {
+          "text": "已付款",
+          "color": "green filterable",
+          "filter": "status,=,Paid"
+        }
+      },
+      "filter": {
+        "df_context": null,
+        "unpaid": "未付",
+        "paid": "已付款",
+        "overdue": "已逾期"
+      },
+      "filter_selected": {
+        "value": "Unpaid",
+        "shown": "未付"
+      },
+      "form": {
+        "status": "Unpaid",
+        "field": "未付款",
+        "label": "状态",
+        "header": [
+          "未付"
+        ]
+      }
+    }
+  ],
+  "marks": {
+    "select_formatter": true
+  }
+}

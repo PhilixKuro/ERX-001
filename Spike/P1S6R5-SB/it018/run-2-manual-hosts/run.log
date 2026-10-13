@@ -1,0 +1,13 @@
+== 2026-10-13 16:33:14 0 重起测试站 6787，带 DEV_SERVER=1：不带时页面按自身 6787 连 socket.io、得 404，实时通道不通（socketio_client.js:120-127）
+== 2026-10-13 16:34:11 1 造数据：公司 _FCT S6 Part3、仓库、员工、两个物料、工序、两张日记账、期初库存、一张物料移动
+== 2026-10-13 16:34:40 2 造工作站（BOM 的工序行要用）
+== 2026-10-13 16:34:49 3 例 3：浏览器新建 BOM（1 行原料、1 道工序）→ 点保存 → 不刷新读提交按钮；脚本内先验实时通道
+== 2026-10-13 16:35:10 4 用例 3 那张 BOM 提交并建工单（关产能计划）、取出唯一的任务单、设跳过发料
+== 2026-10-13 16:35:23 5 例 4：浏览器在任务单上 开始（选员工）→ 暂停 → 继续 → 完成，每步读库里时间行；脚本内先验实时通道
+== 2026-10-13 16:35:40 6 例 1、5：先验实时通道，再从业务流程侧栏点 Account／Warehouse／Cost Center／Company／Employee，干净状态与进过列表视图各一轮
+== 2026-10-13 16:36:04 7 清理：按状态文件倒序取消并删除本次造的单据、删公司，核无残留
+/workspace/frappe-bench/apps/erpnext/erpnext/controllers/stock_controller.py:1201: V16ERPNextDeprecationWarning: This codepath was marked (DATE: unknown) deprecated for removal (from v16 onwards); note:
+ No instructions.
+
+  deprecation_warning("unknown", "v16", "No instructions.")
+== 2026-10-13 16:36:28 DONE

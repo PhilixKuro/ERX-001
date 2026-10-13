@@ -1,0 +1,91 @@
+{
+  "round": "patched",
+  "cases": [
+    {
+      "doctype": "Sales Invoice",
+      "wrapped": {
+        "indicator": true,
+        "filter": true,
+        "states": [],
+        "status_context": null
+      },
+      "badges": {
+        "ACC-SINV-2026-00004": {
+          "text": "未收款",
+          "color": "orange filterable",
+          "filter": "status,=,Unpaid"
+        },
+        "ACC-SINV-2026-00002": {
+          "text": "已收款",
+          "color": "green filterable",
+          "filter": "status,=,Paid"
+        }
+      },
+      "filter": {
+        "df_context": "Sales Invoice",
+        "unpaid": "未收款",
+        "paid": "已收款",
+        "overdue": "已逾期"
+      },
+      "filter_selected": {
+        "value": "Unpaid",
+        "shown": "未收款"
+      },
+      "form": {
+        "status": "Unpaid",
+        "field": "未收款",
+        "label": "状态",
+        "header": [
+          "未收款"
+        ]
+      }
+    },
+    {
+      "doctype": "Purchase Invoice",
+      "wrapped": {
+        "indicator": true,
+        "filter": true,
+        "states": [],
+        "status_context": null
+      },
+      "badges": {
+        "ACC-PINV-2026-00006": {
+          "text": "未付款",
+          "color": "orange filterable",
+          "filter": "status,=,Unpaid"
+        },
+        "ACC-PINV-2026-00002": {
+          "text": "临时冻结",
+          "color": "darkgrey filterable",
+          "filter": "undefined"
+        },
+        "ACC-PINV-2026-00004": {
+          "text": "已付款",
+          "color": "green filterable",
+          "filter": "status,=,Paid"
+        }
+      },
+      "filter": {
+        "df_context": "Purchase Invoice",
+        "unpaid": "未付款",
+        "paid": "已付款",
+        "overdue": "已逾期"
+      },
+      "filter_selected": {
+        "value": "Unpaid",
+        "shown": "未付款"
+      },
+      "form": {
+        "status": "Unpaid",
+        "field": "未付款",
+        "label": "状态",
+        "header": [
+          "未付款"
+        ]
+      }
+    }
+  ],
+  "marks": {
+    "select_formatter": true
+  }
+}

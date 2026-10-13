@@ -1,0 +1,77 @@
+{
+  "mode": "bom",
+  "steps": [],
+  "browser": "Chrome/154.0.8037.98",
+  "realtime": "实时通道检查：通过（591.7 ms，回执用户 Administrator，回执页面 test.localhost:6787）\n{\"ok\": true, \"token\": \"LGNlb8lkADvSIJOiOkL7JPB5\", \"latency_ms\": 591.7, \"acked_by\": \"Administrator\", \"client\": \"test.localhost:6787\"}\n",
+  "preparation": {
+    "dirty": true,
+    "items": 1,
+    "operations": 1
+  },
+  "result": {
+    "name": "BOM-_FCT S6P3-FG-001",
+    "unsaved": 0,
+    "dirty": false,
+    "primary": "提交",
+    "disabled": false,
+    "calls": [
+      [
+        "BOM Operation",
+        "new-bom-operation-pdwftewjnt",
+        {
+          "operating_cost": 10,
+          "base_operating_cost": 10
+        }
+      ],
+      [
+        "BOM Item",
+        "new-bom-item-vijlpkitri",
+        "base_rate",
+        10
+      ],
+      [
+        "BOM Item",
+        "new-bom-item-vijlpkitri",
+        "amount",
+        10
+      ],
+      [
+        "BOM Item",
+        "new-bom-item-vijlpkitri",
+        "base_amount",
+        10
+      ],
+      [
+        "BOM Item",
+        "new-bom-item-vijlpkitri",
+        "qty_consumed_per_unit",
+        1
+      ],
+      [
+        "BOM",
+        "new-bom-ukgbkjaroh",
+        "raw_material_cost",
+        10
+      ],
+      [
+        "BOM",
+        "new-bom-ukgbkjaroh",
+        "base_raw_material_cost",
+        10
+      ],
+      [
+        "BOM",
+        "new-bom-ukgbkjaroh",
+        "total_cost",
+        20
+      ],
+      [
+        "BOM",
+        "new-bom-ukgbkjaroh",
+        "base_total_cost",
+        20
+      ]
+    ]
+  },
+  "reproduced": false
+}

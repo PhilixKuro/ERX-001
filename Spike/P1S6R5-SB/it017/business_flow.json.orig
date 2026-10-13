@@ -1,0 +1,585 @@
+{
+ "doctype": "Workspace Sidebar",
+ "name": "Business Flow",
+ "title": "Business Flow",
+ "app": "frappe_china",
+ "module": "CN Tax",
+ "header_icon": "organization",
+ "items": [
+  {
+   "type": "Section Break",
+   "label": "Master Data",
+   "link_type": "DocType",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Company",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Company"
+  },
+  {
+   "type": "Link",
+   "label": "Global Defaults",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Global Defaults"
+  },
+  {
+   "type": "Link",
+   "label": "Fiscal Year",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Fiscal Year"
+  },
+  {
+   "type": "Link",
+   "label": "Chart of Accounts",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Account"
+  },
+  {
+   "type": "Link",
+   "label": "Cost Center",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Cost Center"
+  },
+  {
+   "type": "Link",
+   "label": "Warehouse",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Warehouse"
+  },
+  {
+   "type": "Link",
+   "label": "Unit of Measure (UOM)",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "UOM"
+  },
+  {
+   "type": "Link",
+   "label": "Item",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Item"
+  },
+  {
+   "type": "Link",
+   "label": "Item Price",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Item Price"
+  },
+  {
+   "type": "Link",
+   "label": "Workstation",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Workstation"
+  },
+  {
+   "type": "Link",
+   "label": "Operation",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Operation"
+  },
+  {
+   "type": "Link",
+   "label": "Routing",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Routing"
+  },
+  {
+   "type": "Link",
+   "label": "BOM",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "BOM"
+  },
+  {
+   "type": "Link",
+   "label": "Customer",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Customer"
+  },
+  {
+   "type": "Link",
+   "label": "Supplier",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Supplier"
+  },
+  {
+   "type": "Link",
+   "label": "Employee",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Employee"
+  },
+  {
+   "type": "Section Break",
+   "label": "Selling",
+   "link_type": "DocType",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Leads",
+   "link_type": "URL",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "url": "/crm/leads"
+  },
+  {
+   "type": "Link",
+   "label": "Deals",
+   "link_type": "URL",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "url": "/crm/deals"
+  },
+  {
+   "type": "Link",
+   "label": "Dashboard",
+   "link_type": "URL",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "url": "/crm/dashboard"
+  },
+  {
+   "type": "Link",
+   "label": "Quotation",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Quotation"
+  },
+  {
+   "type": "Link",
+   "label": "Sales Order",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Sales Order"
+  },
+  {
+   "type": "Link",
+   "label": "Delivery Note",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Delivery Note"
+  },
+  {
+   "type": "Link",
+   "label": "Sales Invoice",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Sales Invoice"
+  },
+  {
+   "type": "Section Break",
+   "label": "Buying",
+   "link_type": "DocType",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Material Request",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Material Request"
+  },
+  {
+   "type": "Link",
+   "label": "Supplier Quotation",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Supplier Quotation"
+  },
+  {
+   "type": "Link",
+   "label": "Purchase Order",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Purchase Order"
+  },
+  {
+   "type": "Link",
+   "label": "Purchase Receipt",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Purchase Receipt"
+  },
+  {
+   "type": "Link",
+   "label": "Purchase Invoice",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Purchase Invoice"
+  },
+  {
+   "type": "Section Break",
+   "label": "Stock",
+   "link_type": "DocType",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Stock Reconciliation",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Stock Reconciliation"
+  },
+  {
+   "type": "Link",
+   "label": "Quality Inspection",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Quality Inspection"
+  },
+  {
+   "type": "Section Break",
+   "label": "Manufacturing",
+   "link_type": "DocType",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Production Plan",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Production Plan"
+  },
+  {
+   "type": "Link",
+   "label": "Work Order",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Work Order"
+  },
+  {
+   "type": "Link",
+   "label": "Stock Entry",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Stock Entry"
+  },
+  {
+   "type": "Link",
+   "label": "Job Card",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Job Card"
+  },
+  {
+   "type": "Section Break",
+   "label": "Finance",
+   "link_type": "DocType",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "Payment Entry",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Payment Entry"
+  },
+  {
+   "type": "Link",
+   "label": "Journal Entry",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Journal Entry"
+  },
+  {
+   "type": "Link",
+   "label": "Accounts Receivable",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Accounts Receivable"
+  },
+  {
+   "type": "Link",
+   "label": "Accounts Payable",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Accounts Payable"
+  },
+  {
+   "type": "Link",
+   "label": "Month End Closing Voucher",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Month End Closing Voucher"
+  },
+  {
+   "type": "Link",
+   "label": "Cash Flow Worksheet",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Cash Flow Worksheet"
+  },
+  {
+   "type": "Link",
+   "label": "Bank Statement Preprocess",
+   "link_type": "DocType",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Bank Statement Preprocess"
+  },
+  {
+   "type": "Section Break",
+   "label": "Reports",
+   "link_type": "DocType",
+   "child": 0,
+   "indent": 1,
+   "collapsible": 1,
+   "keep_closed": 0
+  },
+  {
+   "type": "Link",
+   "label": "小企业资产负债表",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "小企业资产负债表"
+  },
+  {
+   "type": "Link",
+   "label": "小企业利润表",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "小企业利润表"
+  },
+  {
+   "type": "Link",
+   "label": "小企业现金流量表",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "小企业现金流量表"
+  },
+  {
+   "type": "Link",
+   "label": "漏科目检查",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "漏科目检查"
+  },
+  {
+   "type": "Link",
+   "label": "General Ledger",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "General Ledger"
+  },
+  {
+   "type": "Link",
+   "label": "Stock Ledger",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Stock Ledger"
+  },
+  {
+   "type": "Link",
+   "label": "Stock Balance",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Stock Balance"
+  },
+  {
+   "type": "Link",
+   "label": "Stock and Account Value Comparison",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "Stock and Account Value Comparison"
+  },
+  {
+   "type": "Link",
+   "label": "BOM Variance Report",
+   "link_type": "Report",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "link_to": "BOM Variance Report"
+  },
+  {
+   "type": "Link",
+   "label": "AI Assistant",
+   "link_type": "URL",
+   "child": 1,
+   "indent": 0,
+   "collapsible": 1,
+   "keep_closed": 0,
+   "url": "/raven"
+  }
+ ],
+ "modified": "2026-10-10 18:16:09.723606",
+ "standard": 1
+}

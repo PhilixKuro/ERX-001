@@ -1,0 +1,150 @@
+{
+  "label": "blocked",
+  "block": true,
+  "user": "_fct_s6_crm_probe@example.com",
+  "pages": [
+    {
+      "url": "/crm/leads/view/list",
+      "roles": null,
+      "html_lang": "zh",
+      "config": true,
+      "adapter": false,
+      "order": [
+        [
+          "ready:interactive",
+          442.6000000014901
+        ],
+        [
+          "app-mounted",
+          529.1000000014901
+        ],
+        [
+          "ready:complete",
+          555.3000000044703
+        ]
+      ],
+      "scripts": [
+        "module:index-BVSBSR-B.js",
+        "registerSW.js",
+        "inline",
+        "china-ui-labels",
+        "independent_app_labels.js"
+      ],
+      "english_hits": [
+        "Getting started",
+        "Start now"
+      ],
+      "placeholder_english": [],
+      "placeholder_sample": [],
+      "forbidden": false,
+      "id": "leads",
+      "console": [],
+      "status": [
+        200
+      ]
+    },
+    {
+      "url": "/crm/leads/CRM-LEAD-2026-00001",
+      "roles": null,
+      "html_lang": "zh",
+      "config": true,
+      "adapter": false,
+      "order": [
+        [
+          "ready:interactive",
+          303.79999999701977
+        ],
+        [
+          "app-mounted",
+          336
+        ],
+        [
+          "ready:complete",
+          339.70000000298023
+        ]
+      ],
+      "scripts": [
+        "module:index-BVSBSR-B.js",
+        "registerSW.js",
+        "inline",
+        "china-ui-labels",
+        "independent_app_labels.js"
+      ],
+      "english_hits": [
+        "Getting started",
+        "Start now"
+      ],
+      "placeholder_english": [],
+      "placeholder_sample": [
+        "添加组织……",
+        "添加网站……",
+        "添加区域……",
+        "添加区域……",
+        "添加行业……",
+        "添加行业……"
+      ],
+      "forbidden": false,
+      "id": "lead-detail",
+      "console": [],
+      "status": [
+        200
+      ]
+    },
+    {
+      "url": "/crm/dashboard",
+      "roles": null,
+      "html_lang": "zh",
+      "config": true,
+      "adapter": false,
+      "order": [
+        [
+          "ready:interactive",
+          289.1000000014901
+        ],
+        [
+          "app-mounted",
+          322
+        ],
+        [
+          "ready:complete",
+          326
+        ]
+      ],
+      "scripts": [
+        "module:index-BVSBSR-B.js",
+        "registerSW.js",
+        "inline",
+        "china-ui-labels",
+        "independent_app_labels.js"
+      ],
+      "english_hits": [
+        "Getting started",
+        "Start now"
+      ],
+      "placeholder_english": [],
+      "placeholder_sample": [],
+      "forbidden": false,
+      "id": "dashboard",
+      "console": [],
+      "status": [
+        200
+      ]
+    }
+  ],
+  "html": [
+    {
+      "status": 200,
+      "cache_control": "no-store,no-cache,must-revalidate,max-age=0",
+      "config": true,
+      "lang": "zh",
+      "module_before_adapter": true
+    },
+    {
+      "status": 200,
+      "cache_control": "no-store,no-cache,must-revalidate,max-age=0",
+      "config": true,
+      "lang": "zh",
+      "module_before_adapter": true
+    }
+  ]
+}

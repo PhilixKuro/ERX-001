@@ -1,0 +1,13 @@
+restart unhooked -> 200
+round unhooked ok
+{"action": "states-on", "states": [{"name": "c9cb4vnagn", "parent": "Purchase Invoice", "color": "Orange"}, {"name": "c9ai6otibe", "parent": "Sales Invoice", "color": "Orange"}], "ps": [], "meta_context": null}
+round states ok
+{"action": "states-off", "states": [], "ps": [], "meta_context": null}
+{"action": "ps-on", "states": [], "ps": [{"name": "Sales Invoice-status-context", "value": "Sales Invoice"}], "meta_context": "Sales Invoice"}
+round property-setter ok
+{"action": "ps-off", "states": [], "ps": [], "meta_context": null}
+restart restored -> 200
+git status identical
+round restored ok
+{"action": "check", "states": [], "ps": [], "meta_context": null}
+DONE
