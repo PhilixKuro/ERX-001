@@ -1,0 +1,156 @@
+{
+  "results": [
+    {
+      "doctype": "Stock Reconciliation",
+      "name": "MAT-RECO-2026-00001",
+      "opening": true,
+      "pass": true,
+      "form": {
+        "doctype": "Stock Reconciliation",
+        "name": "MAT-RECO-2026-00001",
+        "purpose": "Opening Stock",
+        "stock_patch": true,
+        "button": "<a class=\"dropdown-item\" href=\"#\" onclick=\"return false;\" data-label=\"%E4%BC%9A%E8%AE%A1%E5%87%AD%E8%AF%81\">会计凭证</a>"
+      },
+      "filters": {
+        "voucher_no": "MAT-RECO-2026-00001",
+        "from_date": "2026-10-10",
+        "to_date": "2026-10-10",
+        "company": "_FCT S6 Part3",
+        "categorize_by": "Categorize by Voucher (Consolidated)",
+        "show_cancelled_entries": false,
+        "show_opening_entries": 1,
+        "ignore_prepared_report": true
+      },
+      "rows": [
+        {
+          "account": "1403 - 原材料 - S6P3",
+          "debit": 100,
+          "credit": 0,
+          "voucher_no": "MAT-RECO-2026-00001"
+        },
+        {
+          "account": "9999 - 临时开账科目 - S6P3",
+          "debit": 0,
+          "credit": 100,
+          "voucher_no": "MAT-RECO-2026-00001"
+        }
+      ]
+    },
+    {
+      "doctype": "Journal Entry",
+      "name": "ACC-JV-2026-00002",
+      "opening": true,
+      "pass": true,
+      "form": {
+        "doctype": "Journal Entry",
+        "name": "ACC-JV-2026-00002",
+        "opening": "Yes",
+        "stock_patch": true,
+        "button": "<a class=\"dropdown-item\" href=\"#\" onclick=\"return false;\" data-label=\"%E4%BC%9A%E8%AE%A1%E5%87%AD%E8%AF%81\">会计凭证</a>"
+      },
+      "filters": {
+        "voucher_no": "ACC-JV-2026-00002",
+        "from_date": "2026-10-10",
+        "to_date": "2026-10-10",
+        "company": "_FCT S6 Part3",
+        "categorize_by": "",
+        "show_opening_entries": 1,
+        "show_cancelled_entries": false
+      },
+      "rows": [
+        {
+          "account": "1001 - 库存现金 - S6P3",
+          "debit": 100,
+          "credit": 0,
+          "voucher_no": "ACC-JV-2026-00002"
+        },
+        {
+          "account": "3001 - 实收资本 - S6P3",
+          "debit": 0,
+          "credit": 100,
+          "voucher_no": "ACC-JV-2026-00002"
+        }
+      ]
+    },
+    {
+      "doctype": "Stock Entry",
+      "name": "MAT-STE-2026-00001",
+      "opening": false,
+      "pass": true,
+      "form": {
+        "doctype": "Stock Entry",
+        "name": "MAT-STE-2026-00001",
+        "opening": "No",
+        "purpose": "Material Receipt",
+        "stock_patch": true,
+        "button": "<a class=\"dropdown-item\" href=\"#\" onclick=\"return false;\" data-label=\"%E4%BC%9A%E8%AE%A1%E5%87%AD%E8%AF%81\">会计凭证</a>"
+      },
+      "filters": {
+        "voucher_no": "MAT-STE-2026-00001",
+        "from_date": "2026-10-10",
+        "to_date": "2026-10-10",
+        "company": "_FCT S6 Part3",
+        "categorize_by": "Categorize by Voucher (Consolidated)",
+        "show_cancelled_entries": false,
+        "ignore_prepared_report": true
+      },
+      "rows": [
+        {
+          "account": "1403 - 原材料 - S6P3",
+          "debit": 10,
+          "credit": 0,
+          "voucher_no": "MAT-STE-2026-00001"
+        },
+        {
+          "account": "1901 - 待处理财产损溢_非流动资产 - S6P3",
+          "debit": 0,
+          "credit": 10,
+          "voucher_no": "MAT-STE-2026-00001"
+        }
+      ]
+    },
+    {
+      "doctype": "Journal Entry",
+      "name": "ACC-JV-2026-00003",
+      "opening": false,
+      "pass": true,
+      "form": {
+        "doctype": "Journal Entry",
+        "name": "ACC-JV-2026-00003",
+        "opening": "No",
+        "stock_patch": true,
+        "button": "<a class=\"dropdown-item\" href=\"#\" onclick=\"return false;\" data-label=\"%E4%BC%9A%E8%AE%A1%E5%87%AD%E8%AF%81\">会计凭证</a>"
+      },
+      "filters": {
+        "voucher_no": "ACC-JV-2026-00003",
+        "from_date": "2026-10-10",
+        "to_date": "2026-10-10",
+        "company": "_FCT S6 Part3",
+        "categorize_by": "",
+        "show_cancelled_entries": false
+      },
+      "rows": [
+        {
+          "account": "1001 - 库存现金 - S6P3",
+          "debit": 100,
+          "credit": 0,
+          "voucher_no": "ACC-JV-2026-00003"
+        },
+        {
+          "account": "3001 - 实收资本 - S6P3",
+          "debit": 0,
+          "credit": 100,
+          "voucher_no": "ACC-JV-2026-00003"
+        }
+      ]
+    }
+  ],
+  "browser": "Chrome/154.0.8037.98",
+  "missing_controller": {
+    "messages": [
+      "[frappe_china] ERPNext StockController is unavailable; opening ledger patch skipped"
+    ],
+    "exception": false
+  }
+}

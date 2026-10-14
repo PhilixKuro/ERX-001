@@ -1,0 +1,32 @@
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_scaffold, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 5 integration tests for frappe_china
+
+frappe_china.tests.test_scaffold.TestScaffold
+   [31m ✖ [0m test_chart_of_accounts_bytes_unchanged
+   [32m ✔ [0m test_cn_tax_sidebar_is_registered_but_hidden [31m (3.12s)[0m
+   [32m ✔ [0m test_hrms_is_optional
+   [32m ✔ [0m test_no_language_dependent_expense_claim_cleanup
+   [32m ✔ [0m test_script_report_stubs_run [31m (25.2s)[0m
+
+
+======================================================================
+ FAIL  test_chart_of_accounts_bytes_unchanged (frappe_china.tests.test_scaffold.TestScaffold.test_chart_of_accounts_bytes_unchanged)
+R12 FD-006：编辑器改换行也会改字节，内容相等不够，要逐字节与 zelin 原件一致。
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_scaffold.py", line 27, in test_chart_of_accounts_bytes_unchanged
+    self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), CHART_SHA256)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    path = PosixPath('/workspace/frappe-bench/apps/frappe_china/frappe_china/cn_tax/chart_of_accounts/cn_smes_chart_of_accounts2024.json')
+    self = <frappe_china.tests.test_scaffold.TestScaffold testMethod=test_chart_of_accounts_bytes_unchanged>
+AssertionError: 'e9238dec44e7cd266cccf7311e08d7e783411fde65bf34d8bcb116a0c06a8327' != '539d12f5d4099116ea3f8b86c78f1c4000e9d3c0b4367083f26d1c3a5c867972'
+- e9238dec44e7cd266cccf7311e08d7e783411fde65bf34d8bcb116a0c06a8327
++ 539d12f5d4099116ea3f8b86c78f1c4000e9d3c0b4367083f26d1c3a5c867972
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 30.126s
+
+FAILED (failures=1)

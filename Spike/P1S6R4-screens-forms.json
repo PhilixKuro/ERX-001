@@ -1,0 +1,542 @@
+{
+  "allow": {
+    "BOM": "行业通用物料清单缩写",
+    "CRM": "产品名称缩写",
+    "PDF": "文件格式",
+    "XLSX": "文件格式",
+    "UTF-8": "编码名",
+    "GB18030": "编码名",
+    "CNY": "币种代码",
+    "USD": "币种代码",
+    "INR": "币种代码",
+    "ERPNext": "产品名",
+    "Frappe": "产品名",
+    "Insights": "产品名",
+    "Raven": "产品名",
+    "HR": "产品模块缩写",
+    "Ctrl": "键名",
+    "AI": "产品能力缩写",
+    "Frappe China": "自有 app 产品名（整句匹配）",
+    "Administrator": "登录用户数据",
+    "HDTH": "演示公司的简称，用户数据",
+    "Asia/Kolkata": "既有站点时区配置值",
+    "ID": "用户标识缩写",
+    "POS": "销售终端通用缩写",
+    "CEFACT": "计量单位标准名称",
+    "ICG": "计量单位标准名称",
+    "IC013": "计量单位标准编号",
+    "IC010": "计量单位标准编号"
+  },
+  "data_selectors": [
+    {
+      "selector": ".sidebar-user-button,.avatar[title]",
+      "reason": "登录用户姓名与邮箱，属于用户数据"
+    },
+    {
+      "selector": "[data-fieldname='naming_series'] select",
+      "reason": "单号命名编码，保留原码"
+    },
+    {
+      "selector": ".system-timezone",
+      "reason": "站点时区配置数据，保留时区标识"
+    },
+    {
+      "selector": ".form-details",
+      "reason": "表单当前记录名称，包括单例 Global Defaults 的名称"
+    }
+  ],
+  "screens": [
+    {
+      "id": "01-company-new",
+      "stage": "环节1",
+      "route": "desk/company/new-company-1",
+      "wait_for": "window.cur_frm?.doctype===\"Company\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "01-company-new-accounts_tab",
+      "stage": "环节1",
+      "route": "desk/company/new-company-1",
+      "wait_for": "window.cur_frm?.doctype===\"Company\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [
+        {
+          "selector": ".nav-link[data-fieldname=\"accounts_tab\"]"
+        }
+      ],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "01-company-new-stock_tab",
+      "stage": "环节1",
+      "route": "desk/company/new-company-1",
+      "wait_for": "window.cur_frm?.doctype===\"Company\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [
+        {
+          "selector": ".nav-link[data-fieldname=\"stock_tab\"]"
+        }
+      ],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "01-company-existing",
+      "stage": "环节1",
+      "route": "desk/company/%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8",
+      "wait_for": "window.cur_frm?.doctype===\"Company\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "01-company-existing-accounts_tab",
+      "stage": "环节1",
+      "route": "desk/company/%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8",
+      "wait_for": "window.cur_frm?.doctype===\"Company\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [
+        {
+          "selector": ".nav-link[data-fieldname=\"accounts_tab\"]"
+        }
+      ],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "01-company-existing-stock_tab",
+      "stage": "环节1",
+      "route": "desk/company/%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8",
+      "wait_for": "window.cur_frm?.doctype===\"Company\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [
+        {
+          "selector": ".nav-link[data-fieldname=\"stock_tab\"]"
+        }
+      ],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "01-defaults",
+      "stage": "环节1",
+      "route": "desk/global-defaults",
+      "wait_for": "cur_frm?.doctype==='Global Defaults'",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "01-fiscal-year",
+      "stage": "环节1",
+      "route": "desk/fiscal-year",
+      "wait_for": "cur_list?.doctype==='Fiscal Year'",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "02-warehouse",
+      "stage": "环节2",
+      "route": "desk/warehouse/view/tree",
+      "wait_for": "!!document.querySelector('.tree-node')",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "03-uom-list",
+      "stage": "环节3",
+      "route": "desk/uom",
+      "wait_for": "cur_list?.doctype==='UOM'",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "03-uom-new",
+      "stage": "环节3",
+      "route": "desk/uom/new-uom-1",
+      "wait_for": "window.cur_frm?.doctype===\"UOM\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "04-item-new",
+      "stage": "环节4",
+      "route": "desk/item/new-item-1",
+      "wait_for": "window.cur_frm?.doctype===\"Item\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "04-item-new-uom_tab",
+      "stage": "环节4",
+      "route": "desk/item/new-item-1",
+      "wait_for": "window.cur_frm?.doctype===\"Item\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [
+        {
+          "selector": ".nav-link[data-fieldname=\"uom_tab\"]"
+        }
+      ],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "04-item-new-inventory_section",
+      "stage": "环节4",
+      "route": "desk/item/new-item-1",
+      "wait_for": "window.cur_frm?.doctype===\"Item\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [
+        {
+          "selector": ".nav-link[data-fieldname=\"inventory_section\"]"
+        }
+      ],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "04-item-new-manufacturing",
+      "stage": "环节4",
+      "route": "desk/item/new-item-1",
+      "wait_for": "window.cur_frm?.doctype===\"Item\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [
+        {
+          "selector": ".nav-link[data-fieldname=\"manufacturing\"]"
+        }
+      ],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "04-item-price",
+      "stage": "环节4",
+      "route": "desk/item-price/new-item-price-1",
+      "wait_for": "window.cur_frm?.doctype===\"Item Price\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "05-workstation",
+      "stage": "环节5",
+      "route": "desk/workstation/new-workstation-1",
+      "wait_for": "window.cur_frm?.doctype===\"Workstation\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "05-operation",
+      "stage": "环节5",
+      "route": "desk/operation/new-operation-1",
+      "wait_for": "window.cur_frm?.doctype===\"Operation\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "05-routing",
+      "stage": "环节5",
+      "route": "desk/routing/new-routing-1",
+      "wait_for": "window.cur_frm?.doctype===\"Routing\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "06-bom-new",
+      "stage": "环节6",
+      "route": "desk/bom/new-bom-1",
+      "wait_for": "window.cur_frm?.doctype===\"BOM\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "06-bom-new-production_item_tab",
+      "stage": "环节6",
+      "route": "desk/bom/new-bom-1",
+      "wait_for": "window.cur_frm?.doctype===\"BOM\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [
+        {
+          "selector": ".nav-link[data-fieldname=\"production_item_tab\"]"
+        }
+      ],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "06-bom-new-costing",
+      "stage": "环节6",
+      "route": "desk/bom/new-bom-1",
+      "wait_for": "window.cur_frm?.doctype===\"BOM\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [
+        {
+          "selector": ".nav-link[data-fieldname=\"costing\"]"
+        }
+      ],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "06-bom-new-more_info_tab",
+      "stage": "环节6",
+      "route": "desk/bom/new-bom-1",
+      "wait_for": "window.cur_frm?.doctype===\"BOM\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [
+        {
+          "selector": ".nav-link[data-fieldname=\"more_info_tab\"]"
+        }
+      ],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "07-supplier",
+      "stage": "环节7",
+      "route": "desk/supplier/new-supplier-1",
+      "wait_for": "window.cur_frm?.doctype===\"Supplier\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "07-customer",
+      "stage": "环节7",
+      "route": "desk/customer/new-customer-1",
+      "wait_for": "window.cur_frm?.doctype===\"Customer\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "08-purchase-order-new",
+      "stage": "环节8",
+      "route": "desk/purchase-order/new-purchase-order-1",
+      "wait_for": "window.cur_frm?.doctype===\"Purchase Order\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "09-purchase-receipt-new",
+      "stage": "环节9",
+      "route": "desk/purchase-receipt/new-purchase-receipt-1",
+      "wait_for": "window.cur_frm?.doctype===\"Purchase Receipt\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "10-purchase-invoice-new",
+      "stage": "环节10",
+      "route": "desk/purchase-invoice/new-purchase-invoice-1",
+      "wait_for": "window.cur_frm?.doctype===\"Purchase Invoice\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "11-payment-entry-new",
+      "stage": "环节11",
+      "route": "desk/payment-entry/new-payment-entry-1",
+      "wait_for": "window.cur_frm?.doctype===\"Payment Entry\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "13-journal-entry-new",
+      "stage": "环节13",
+      "route": "desk/journal-entry/new-journal-entry-1",
+      "wait_for": "window.cur_frm?.doctype===\"Journal Entry\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "14-quotation-new",
+      "stage": "环节14",
+      "route": "desk/quotation/new-quotation-1",
+      "wait_for": "window.cur_frm?.doctype===\"Quotation\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "15-sales-order-new",
+      "stage": "环节15",
+      "route": "desk/sales-order/new-sales-order-1",
+      "wait_for": "window.cur_frm?.doctype===\"Sales Order\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "16-production-plan-new",
+      "stage": "环节16",
+      "route": "desk/production-plan/new-production-plan-1",
+      "wait_for": "window.cur_frm?.doctype===\"Production Plan\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "17-work-order-new",
+      "stage": "环节17",
+      "route": "desk/work-order/new-work-order-1",
+      "wait_for": "window.cur_frm?.doctype===\"Work Order\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "18-stock-entry-new",
+      "stage": "环节18",
+      "route": "desk/stock-entry/new-stock-entry-1",
+      "wait_for": "window.cur_frm?.doctype===\"Stock Entry\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "19-job-card-new",
+      "stage": "环节19",
+      "route": "desk/job-card/new-job-card-1",
+      "wait_for": "window.cur_frm?.doctype===\"Job Card\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "19-employee-new",
+      "stage": "环节19",
+      "route": "desk/employee/new-employee-1",
+      "wait_for": "window.cur_frm?.doctype===\"Employee\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "21-delivery-note-new",
+      "stage": "环节21",
+      "route": "desk/delivery-note/new-delivery-note-1",
+      "wait_for": "window.cur_frm?.doctype===\"Delivery Note\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "22-sales-invoice-new",
+      "stage": "环节22",
+      "route": "desk/sales-invoice/new-sales-invoice-1",
+      "wait_for": "window.cur_frm?.doctype===\"Sales Invoice\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "report-Stock Balance",
+      "stage": "环节12",
+      "route": "desk/query-report/Stock%20Balance",
+      "wait_for": "!!window.frappe?.query_report?.filters && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "report-Stock Ledger",
+      "stage": "环节12",
+      "route": "desk/query-report/Stock%20Ledger",
+      "wait_for": "!!window.frappe?.query_report?.filters && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "report-Stock and Account Value Comparison",
+      "stage": "环节12",
+      "route": "desk/query-report/Stock%20and%20Account%20Value%20Comparison",
+      "wait_for": "!!window.frappe?.query_report?.filters && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "report-General Ledger",
+      "stage": "环节13",
+      "route": "desk/query-report/General%20Ledger",
+      "wait_for": "!!window.frappe?.query_report?.filters && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "report-BOM Variance Report",
+      "stage": "环节20",
+      "route": "desk/query-report/BOM%20Variance%20Report",
+      "wait_for": "!!window.frappe?.query_report?.filters && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "report-小企业利润表",
+      "stage": "环节23",
+      "route": "desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E5%88%A9%E6%B6%A6%E8%A1%A8",
+      "wait_for": "!!window.frappe?.query_report?.filters && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "report-小企业资产负债表",
+      "stage": "环节S4",
+      "route": "desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E8%B5%84%E4%BA%A7%E8%B4%9F%E5%80%BA%E8%A1%A8",
+      "wait_for": "!!window.frappe?.query_report?.filters && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "report-小企业现金流量表",
+      "stage": "环节S4",
+      "route": "desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8",
+      "wait_for": "!!window.frappe?.query_report?.filters && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "report-漏科目检查",
+      "stage": "环节S4",
+      "route": "desk/query-report/%E6%BC%8F%E7%A7%91%E7%9B%AE%E6%A3%80%E6%9F%A5",
+      "wait_for": "!!window.frappe?.query_report?.filters && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "s4-cash-flow",
+      "stage": "S4",
+      "route": "desk/cash-flow-worksheet/new-cash-flow-worksheet-1",
+      "wait_for": "window.cur_frm?.doctype===\"Cash Flow Worksheet\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "s4-bank-preprocess",
+      "stage": "S4",
+      "route": "desk/bank-statement-preprocess/new-bank-statement-preprocess-1",
+      "wait_for": "window.cur_frm?.doctype===\"Bank Statement Preprocess\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "s4-month-end-list",
+      "stage": "S4",
+      "route": "desk/month-end-closing-voucher",
+      "wait_for": "cur_list?.doctype==='Month End Closing Voucher'",
+      "steps": [],
+      "sidebar": "Business Flow"
+    },
+    {
+      "id": "home",
+      "stage": "首页",
+      "route": "desk",
+      "wait_for": "!!document.querySelector('.desktop-icon')",
+      "steps": [],
+      "sidebar": null
+    },
+    {
+      "id": "sidebar-accounts-setup",
+      "stage": "原有侧栏",
+      "route": "desk/company",
+      "wait_for": "cur_list?.doctype==='Company'",
+      "steps": [
+        {
+          "evaluate": "frappe.app.sidebar.setup(\"Accounts Setup\");true"
+        }
+      ],
+      "sidebar": "Accounts Setup"
+    },
+    {
+      "id": "sidebar-stock",
+      "stage": "原有侧栏",
+      "route": "desk/company",
+      "wait_for": "cur_list?.doctype==='Company'",
+      "steps": [
+        {
+          "evaluate": "frappe.app.sidebar.setup(\"Stock\");true"
+        }
+      ],
+      "sidebar": "Stock"
+    },
+    {
+      "id": "sidebar-crm",
+      "stage": "原有侧栏",
+      "route": "desk/company",
+      "wait_for": "cur_list?.doctype==='Company'",
+      "steps": [
+        {
+          "evaluate": "frappe.app.sidebar.setup(\"CRM\");true"
+        }
+      ],
+      "sidebar": "CRM"
+    }
+  ]
+}

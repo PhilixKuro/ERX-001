@@ -1,0 +1,33 @@
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_translation_check, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 9 integration tests for frappe_china
+
+frappe_china.tests.test_translation_check.TestTranslationCheck
+   [32m ✔ [0m test_all_languages_and_translation_limit_are_reported
+   [32m ✔ [0m test_assets_mo_file_is_reported [31m (29.4s)[0m
+   [32m ✔ [0m test_clean_site_passes
+   [32m ✔ [0m test_labels_raise_other_errors
+   [32m ✔ [0m test_labels_skip_db_only_when_not_connected
+   [31m ✖ [0m test_legal_label_check_ignores_session_language
+   [32m ✔ [0m test_legal_label_translation_is_reported
+   [32m ✔ [0m test_mo_and_po_files_are_reported
+   [32m ✔ [0m test_translation_record_is_reported [31m (2.06s)[0m
+
+
+======================================================================
+ FAIL  test_legal_label_check_ignores_session_language (frappe_china.tests.test_translation_check.TestTranslationCheck.test_legal_label_check_ignores_session_language)
+R12 FD-003：`bench execute` 下 `frappe.local.lang` 为 en，第 4 项仍须按 zh 判。
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_translation_check.py", line 105, in test_legal_label_check_ignores_session_language
+    self.assertIn("资产", labels.validate_legal_labels())
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    doc = <Translation: doctype=Translation a7o8vsfo59>
+    self = <frappe_china.tests.test_translation_check.TestTranslationCheck testMethod=test_legal_label_check_ignores_session_language>
+AssertionError: '资产' not found in []
+
+----------------------------------------------------------------------
+Ran 9 tests in 36.370s
+
+FAILED (failures=1)

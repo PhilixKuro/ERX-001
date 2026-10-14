@@ -1,0 +1,43 @@
+{
+  "pass": true,
+  "included": [
+    "ChildTableAction",
+    "DirectLabel",
+    "MissingOption",
+    "MissingPlaceholder",
+    "MissingTitle",
+    "nested"
+  ],
+  "entries": [
+    {
+      "kind": "text",
+      "value": "DirectLabel",
+      "tag": "DIV"
+    },
+    {
+      "kind": "text",
+      "value": "nested",
+      "tag": "B"
+    },
+    {
+      "kind": "text",
+      "value": "ChildTableAction",
+      "tag": "BUTTON"
+    },
+    {
+      "kind": "placeholder",
+      "value": "MissingPlaceholder",
+      "tag": "INPUT"
+    },
+    {
+      "kind": "title",
+      "value": "MissingTitle",
+      "tag": "INPUT"
+    },
+    {
+      "kind": "selected-option",
+      "value": "MissingOption",
+      "tag": "SELECT"
+    }
+  ]
+}

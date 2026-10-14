@@ -1,0 +1,812 @@
+[
+ {
+  "app": "crm",
+  "key": "What are your biggest challenges with sales today?",
+  "refs": [
+   "crm/frontend/src/pages/PersonaForm.vue:87"
+  ],
+  "target": "目前销售工作中最大的难题是什么？",
+  "context": "  },\n  {\n    key: 'biggest_challenges',\n    title: __('What are your biggest challenges with sales today?'),\n    multiple: true,\n    options: [\n      { label: __('Capturing leads'), value: 'capturing_leads' },",
+  "tier": "batch"
+ },
+ {
+  "app": "crm",
+  "key": "Restrict visibility of Leads and Deals based on a reporting tree.",
+  "refs": [
+   "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:20"
+  ],
+  "target": "按汇报关系树限制线索和商机的可见范围。",
+  "context": "        </div>\n        <p class=\"text-p-base text-ink-gray-6\">\n          {{\n            __(\n              'Restrict visibility of Leads and Deals based on a reporting tree.',\n            )\n          }}",
+  "tier": "batch"
+ },
+ {
+  "app": "crm",
+  "key": "Enable Sales Hierarchy",
+  "refs": [
+   "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:62"
+  ],
+  "target": "启用销售层级",
+  "context": "        <lucide-network class=\"size-7.5 text-ink-gray-5\" />\n        <div class=\"flex flex-col items-center gap-1.5 text-center\">\n          <span class=\"text-lg-medium text-ink-gray-8\">\n            {{ __('Enable Sales Hierarchy') }}\n          </span>\n          <span class=\"text-center text-p-base text-ink-gray-6\">\n            {{ __('Restrict visibility using a reporting tree') }}",
+  "tier": "batch"
+ },
+ {
+  "app": "crm",
+  "key": "Twilio Integration Disabled",
+  "refs": [
+   "crm/frontend/src/components/Settings/Telephony/TwilioSettings.vue:115"
+  ],
+  "target": "Twilio 集成未启用",
+  "context": "            <div class=\"flex flex-col items-center gap-1.5 text-center\">\n              <PhoneIcon class=\"size-7.5 text-ink-gray-7\" />\n              <span class=\"text-lg-medium text-ink-gray-8\">\n                {{ __('Twilio Integration Disabled') }}\n              </span>\n              <span class=\"text-center text-p-base text-ink-gray-6\">\n                {{",
+  "tier": "batch"
+ },
+ {
+  "app": "crm",
+  "key": "Managing contacts and companies",
+  "refs": [
+   "crm/frontend/src/pages/PersonaForm.vue:97"
+  ],
+  "target": "管理联系人和公司",
+  "context": "        value: 'pipeline_organized',\n      },\n      {\n        label: __('Managing contacts and companies'),\n        value: 'managing_contacts',\n      },\n      { label: __('Collaborating with my team'), value: 'team_collaboration' },",
+  "tier": "batch"
+ },
+ {
+  "app": "crm",
+  "key": "Sales hierarchy enabled",
+  "refs": [
+   "crm/frontend/src/components/Settings/Hierarchy/Hierarchy.vue:336"
+  ],
+  "target": "销售层级已启用",
+  "context": "      { enable_sales_hierarchy: 1 },\n      {\n        onSuccess: () => {\n          toast.success(__('Sales hierarchy enabled'))\n        },\n      },\n    )",
+  "tier": "batch"
+ },
+ {
+  "app": "crm",
+  "key": "Company in ERPNext site",
+  "refs": [
+   "crm/crm/fcrm/doctype/erpnext_crm_settings/erpnext_crm_settings.json"
+  ],
+  "target": "ERPNext 站点中的公司",
+  "context": "   \"depends_on\": \"enabled\",\n   \"fieldname\": \"erpnext_company\",\n   \"fieldtype\": \"Data\",\n   \"label\": \"Company in ERPNext site\",\n   \"mandatory_depends_on\": \"enabled\"\n  },\n  {",
+  "tier": "batch"
+ },
+ {
+  "app": "crm",
+  "key": "Preview again",
+  "refs": [
+   "crm/frontend/src/components/Settings/Forms/FormBuilderPanel.vue:530"
+  ],
+  "target": "再次预览",
+  "context": "            <div class=\"text-lg font-semibold text-ink-gray-9\">\n              {{ form.success_message || __('Thank you!') }}\n            </div>\n            <Button :label=\"__('Preview again')\" @click=\"resetPreview\" />\n          </div>\n\n          <template v-else>",
+  "tier": "batch"
+ },
+ {
+  "app": "crm",
+  "key": "You don't have permission to delete this attachment",
+  "refs": [
+   "crm/crm/api/__init__.py:155"
+  ],
+  "target": "您无权删除此附件",
+  "context": "@frappe.whitelist(methods=[\"DELETE\", \"POST\"])\ndef delete_attachment(doctype: str, docname: str, file_url: str):\n\tif not frappe.has_permission(doctype, doc=docname, ptype=\"write\"):\n\t\tfrappe.throw(_(\"You don't have permission to delete this attachment\"), frappe.PermissionError)\n\n\tfile_name = frappe.db.get_value(\n\t\t\"File\",",
+  "tier": "batch"
+ },
+ {
+  "app": "crm",
+  "key": "You can get your access key from ",
+  "refs": [
+   "crm/frontend/src/components/Settings/DashboardSettings.vue:145"
+  ],
+  "target": "访问密钥可从以下位置获取：",
+  "context": "            }}\n          </div>\n          <div class=\"text-p-sm text-ink-gray-5\">\n            {{ __('You can get your access key from ') }}\n            <a\n              class=\"hover:underline text-ink-gray-7\"\n              :href=\"providerMeta.docsUrl\"",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "{0} is in Draft. Submit it before creating the Asset.",
+  "refs": [
+   "erpnext/erpnext/assets/doctype/asset/asset.py:509"
+  ],
+  "target": "{0} 为草稿，请先提交再创建资产。",
+  "context": "\n\t\t\tif frappe.db.get_value(doctype, purchase_doc, \"docstatus\") == 0:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"{0} is in Draft. Submit it before creating the Asset.\").format(\n\t\t\t\t\t\tget_link_to_form(doctype, purchase_doc)\n\t\t\t\t\t)\n\t\t\t\t)",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "The following rows are duplicates:",
+  "refs": [
+   "erpnext/erpnext/assets/doctype/asset_repair/asset_repair.py:116"
+  ],
+  "target": "以下行重复：",
+  "context": "\t\t\t\t\tfor idx, pi, account in duplicates\n\t\t\t\t]\n\t\t\t)\n\t\t\tmsg = _(\"The following rows are duplicates:\") + f\"<br><ul>{duplicate_links}</ul>\"\n\t\t\tfrappe.throw(msg)\n\n\tdef validate_purchase_invoice_status(self):",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "Appointment Scheduling needs to be enabled for Appointment Booking through portal.",
+  "refs": [
+   "erpnext/erpnext/crm/doctype/appointment_booking_settings/appointment_booking_settings.py:101"
+  ],
+  "target": "须先启用预约排程，才能通过门户预约。",
+  "context": "\n\t\tif not self.enable_scheduling:\n\t\t\tfrappe.throw(\n\t\t\t\t_(\"Appointment Scheduling needs to be enabled for Appointment Booking through portal.\")\n\t\t\t)\n\n\t\tself.validate_link_expiry_duration()",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "{0}'s {1} cannot be before {2}'s Expected Start Date.",
+  "refs": [
+   "erpnext/erpnext/projects/doctype/task/task.py:147"
+  ],
+  "target": "{0} 的{1}不能早于 {2} 的预计开始日期。",
+  "context": "\n\t\t\tif project_start_date and date_diff(task_date, getdate(project_start_date)) < 0:\n\t\t\t\tfrappe.throw(\n\t\t\t\t\t_(\"{0}'s {1} cannot be before {2}'s Expected Start Date.\").format(\n\t\t\t\t\t\tget_link_to_form(\"Task\", self.name),\n\t\t\t\t\t\t_(self.meta.get_label(fieldname)),\n\t\t\t\t\t\tget_link_to_form(\"Project\", self.project),",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "Filter must be [field, operator, value]",
+  "refs": [
+   "erpnext/erpnext/accounts/doctype/financial_report_template/financial_report_validation.py:460"
+  ],
+  "target": "筛选条件须为 [字段, 运算符, 值] 格式",
+  "context": "\t\t# simple condition: [field, operator, value]\n\t\tif isinstance(filter_config, list):\n\t\t\tif len(filter_config) != 3:\n\t\t\t\treturn _(\"Filter must be [field, operator, value]\")\n\n\t\t\tfield, operator, value = filter_config\n",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "The company {0} is not in South Africa. VAT Audit Report is only available for companies in South Africa.",
+  "refs": [
+   "erpnext/erpnext/regional/report/vat_audit_report/vat_audit_report.py:43"
+  ],
+  "target": "公司 {0} 不在南非。增值税审计报表只适用于南非的公司。",
+  "context": "\tdef validate_company_region(self):\n\t\tif self.filters.company and get_region(self.filters.company) != \"South Africa\":\n\t\t\tfrappe.throw(\n\t\t\t\t_(\n\t\t\t\t\t\"The company {0} is not in South Africa. VAT Audit Report is only available for companies in South Africa.\"\n\t\t\t\t).format(frappe.bold(self.filters.company))\n\t\t\t)",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "Bank Account Balance",
+  "refs": [
+   "erpnext/erpnext/accounts/doctype/bank_account_balance/bank_account_balance.json"
+  ],
+  "target": "银行账户余额",
+  "context": " \"modified\": \"2026-06-16 22:17:48.007982\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Accounts\",\n \"name\": \"Bank Account Balance\",\n \"owner\": \"Administrator\",\n \"permissions\": [\n  {",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "Account where the cost of this item will be debited on purchase",
+  "refs": [
+   "erpnext/erpnext/stock/doctype/item_default/item_default.json"
+  ],
+  "target": "采购此物料时其成本记入借方的科目",
+  "context": "   \"fieldtype\": \"Column Break\"\n  },\n  {\n   \"description\": \"Account where the cost of this item will be debited on purchase\",\n   \"fieldname\": \"expense_account\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Default Expense Account\",",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "Excess Material Transfer",
+  "refs": [
+   "erpnext/erpnext/stock/doctype/stock_entry/stock_entry.py:1371"
+  ],
+  "target": "调拨数量超出",
+  "context": "\t\t\t\t\t\tfrappe.bold(item.item_code),\n\t\t\t\t\t\tpending_qty,\n\t\t\t\t\t),\n\t\t\t\t\ttitle=_(\"Excess Material Transfer\"),\n\t\t\t\t)\n\n\tdef validate_same_source_target_warehouse_during_material_transfer(self):",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "{0} {1} is blocked.",
+  "refs": [
+   "erpnext/erpnext/accounts/doctype/journal_entry/journal_entry.py:915"
+  ],
+  "target": "{0} {1} 已冻结。",
+  "context": "\t\t\t\t\t\t\tinvoice.doctype, invoice.name, invoice.release_date\n\t\t\t\t\t\t)\n\t\t\t\t\t\tif invoice.release_date\n\t\t\t\t\t\telse _(\"{0} {1} is blocked.\").format(invoice.doctype, invoice.name)\n\t\t\t\t\t)\n\t\t\t\t\tfrappe.throw(msg)\n",
+  "tier": "batch"
+ },
+ {
+  "app": "frappe",
+  "key": "You can only edit your own replies.",
+  "refs": [
+   "frappe/frappe/website/doctype/discussion_topic/discussion_topic.py:37"
+  ],
+  "target": "您只能编辑自己的回复。",
+  "context": "\tif reply_name:\n\t\tdoc = frappe.get_doc(\"Discussion Reply\", reply_name)\n\t\tif doc.owner != frappe.session.user:\n\t\t\tfrappe.throw(frappe._(\"You can only edit your own replies.\"), frappe.PermissionError)\n\t\tdoc.reply = reply\n\t\tdoc.save(ignore_permissions=True)\n\t\treturn",
+  "tier": "batch"
+ },
+ {
+  "app": "frappe",
+  "key": "Web Form Values",
+  "refs": [
+   "frappe/frappe/website/doctype/web_form_request/web_form_request.json",
+   "frappe/frappe/website/doctype/web_form_request/web_form_request.py:98"
+  ],
+  "target": "网页表单值",
+  "context": "  {\n   \"fieldname\": \"web_form_values\",\n   \"fieldtype\": \"Code\",\n   \"label\": \"Web Form Values\",\n   \"options\": \"JSON\"\n  },\n  {",
+  "tier": "batch"
+ },
+ {
+  "app": "frappe",
+  "key": "Couldn't open Cloud settings. Please try again.",
+  "refs": [
+   "frappe/frappe/desk/page/desktop/desktop.js:467",
+   "frappe/frappe/desk/page/desktop/desktop.js:477"
+  ],
+  "target": "无法打开云设置，请重试。",
+  "context": "\t\t\t// Pilot may be unreachable or the origin blocked; let the user retry.\n\t\t\tconsole.error(\"Cloud settings bundle failed to load\", error); // eslint-disable-line no-console\n\t\t\tfrappe.show_alert({\n\t\t\t\tmessage: __(\"Couldn't open Cloud settings. Please try again.\"),\n\t\t\t\tindicator: \"red\",\n\t\t\t});\n\t\t\treturn;",
+  "tier": "batch"
+ },
+ {
+  "app": "frappe",
+  "key": "In {0}, {1} is required in row {2}.",
+  "refs": [
+   "frappe/frappe/public/js/frappe/form/save.js:229"
+  ],
+  "target": "{0} 中第 {2} 行必须填写 {1}。",
+  "context": "\t\t\t\tlines.push(\n\t\t\t\t\t__(\"In {0}, {1} is required in row {2}.\", [\n\t\t\t\t\t\tte.label,\n\t\t\t\t\t\tfield_label.bold(),\n\t\t\t\t\t\trows[0],\n\t\t\t\t\t])\n\t\t\t\t);",
+  "tier": "batch"
+ },
+ {
+  "app": "frappe",
+  "key": "You've been invited",
+  "refs": [
+   "frappe/frappe/templates/emails/user_invitation.html:1"
+  ],
+  "target": "您收到了邀请",
+  "context": "<h1 class=\"email-header-title\">{{ _(\"You've been invited\") }}</h1>\n<p>{{ _(\"Hello,\") }}</p>\n<p>\n\t{{ _(\"You've been invited to join {0}.\").format(frappe.bold(title)) }}",
+  "tier": "batch"
+ },
+ {
+  "app": "frappe",
+  "key": "Doctype To Sync",
+  "refs": [
+   "frappe/frappe/core/doctype/doctype_to_sync/doctype_to_sync.json",
+   "frappe/frappe/core/doctype/report/report.json"
+  ],
+  "target": "待同步单据类型",
+  "context": " \"modified\": \"2026-06-18 11:21:56.316632\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Core\",\n \"name\": \"Doctype To Sync\",\n \"owner\": \"Administrator\",\n \"permissions\": [],\n \"row_format\": \"Dynamic\",",
+  "tier": "batch"
+ },
+ {
+  "app": "frappe",
+  "key": "Generating PDF...",
+  "refs": [
+   "frappe/frappe/public/js/frappe/microtemplate.js:247"
+  ],
+  "target": "正在生成 PDF……",
+  "context": "\txhr.responseType = \"arraybuffer\";\n\txhr.timeout = 10 * 60 * 1000;\n\n\tfrappe.dom?.freeze(__(\"Generating PDF...\"));\n\n\txhr.onload = function (success) {\n\t\tfrappe.dom?.unfreeze();",
+  "tier": "batch"
+ },
+ {
+  "app": "frappe",
+  "key": "Sign In",
+  "refs": [
+   "frappe/frappe/www/login.html:98",
+   "frappe/frappe/www/login.html:120",
+   "frappe/frappe/www/login.html:136"
+  ],
+  "target": "登录",
+  "context": "\t\t{% if title %}\n\t\t<h4>{{ _(title) }}</h4>\n\t\t{% else %}\n\t\t<h4>{{ _('Sign In') }}</h4>\n\t\t{% endif %}\n\t\t{% if subtitle %}\n\t\t<p class=\"page-card-subtitle\">{{ _(subtitle) }}</p>",
+  "tier": "batch"
+ },
+ {
+  "app": "frappe",
+  "key": "The user can create a new Item but cannot edit existing items.",
+  "refs": [
+   "frappe/frappe/core/page/permission_manager/permission_manager_help.html:43"
+  ],
+  "target": "用户可新建物料，但不能编辑已有物料。",
+  "context": "\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Create\") %}</td>\n\t\t\t\t\t<td>{%= __(\"Allows the user to create new documents.\") %}</td>\n\t\t\t\t\t<td>{%= __(\"The user can create a new Item but cannot edit existing items.\") %}</td>\n\t\t\t\t</tr>\n\t\t\t\t<tr>\n\t\t\t\t\t<td>{%= __(\"Delete\") %}</td>",
+  "tier": "batch"
+ },
+ {
+  "app": "frappe",
+  "key": "Enable Email Notifications for All Users",
+  "refs": [
+   "frappe/frappe/desk/doctype/notification_type/notification_type.js:13"
+  ],
+  "target": "为所有用户启用邮件通知",
+  "context": "\t\t}\n\n\t\tfrm.add_custom_button(\n\t\t\t__(\"Enable Email Notifications for All Users\"),\n\t\t\t() => {\n\t\t\t\tfrappe.confirm(\n\t\t\t\t\t__(",
+  "tier": "batch"
+ },
+ {
+  "app": "hrms",
+  "key": "Annual CTC",
+  "refs": [
+   "hrms/hrms/payroll/report/employee_ctc_break_up/employee_profile_card.html:123"
+  ],
+  "target": "年度人力总成本",
+  "context": "                    {{ annual_ctc }}\n                </div>\n                <div class=\"mt-1 text-small no-wrap\">\n                   {{_(\"Annual CTC\")}}\n                </div>\n\t\t    </div>\n",
+  "tier": "batch"
+ },
+ {
+  "app": "hrms",
+  "key": "Employee Company",
+  "refs": [
+   "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.json"
+  ],
+  "target": "员工所属公司",
+  "context": "   \"fieldname\": \"employee_company\",\n   \"fieldtype\": \"Link\",\n   \"hidden\": 1,\n   \"label\": \"Employee Company\",\n   \"options\": \"Company\",\n   \"read_only\": 1\n  },",
+  "tier": "batch"
+ },
+ {
+  "app": "hrms",
+  "key": "Holiday List Start",
+  "refs": [
+   "hrms/hrms/hr/doctype/holiday_list_assignment/holiday_list_assignment.json"
+  ],
+  "target": "假期列表开始日期",
+  "context": "   \"fieldname\": \"holiday_list_start\",\n   \"fieldtype\": \"Date\",\n   \"is_virtual\": 1,\n   \"label\": \"Holiday List Start\"\n  },\n  {\n   \"fieldname\": \"holiday_list_end\",",
+  "tier": "batch"
+ },
+ {
+  "app": "hrms",
+  "key": "Exemption Submission Proof",
+  "refs": [
+   "hrms/hrms/workspace_sidebar/tax_&_benefits.json"
+  ],
+  "target": "免税证明提交",
+  "context": "   \"icon\": \"liabilities\",\n   \"indent\": 0,\n   \"keep_closed\": 0,\n   \"label\": \"Exemption Submission Proof\",\n   \"link_to\": \"Employee Tax Exemption Proof Submission\",\n   \"link_type\": \"DocType\",\n   \"show_arrow\": 0,",
+  "tier": "batch"
+ },
+ {
+  "app": "hrms",
+  "key": "Open Resume in New Tab",
+  "refs": [
+   "hrms/hrms/hr/doctype/job_applicant/job_applicant.json"
+  ],
+  "target": "在新标签页中打开简历",
+  "context": "   \"fieldname\": \"open_resume_button\",\n   \"fieldtype\": \"Button\",\n   \"hidden\": 1,\n   \"label\": \"Open Resume in New Tab\"\n  }\n ],\n \"icon\": \"fa fa-user\",",
+  "tier": "batch"
+ },
+ {
+  "app": "hrms",
+  "key": "Sanctioned Amount (Company Currency)",
+  "refs": [
+   "hrms/hrms/hr/doctype/expense_claim_detail/expense_claim_detail.json"
+  ],
+  "target": "批准金额（本币）",
+  "context": "  {\n   \"fieldname\": \"base_sanctioned_amount\",\n   \"fieldtype\": \"Currency\",\n   \"label\": \"Sanctioned Amount (Company Currency)\",\n   \"oldfieldname\": \"sanctioned_amount\",\n   \"oldfieldtype\": \"Currency\",\n   \"options\": \"Company:company:default_currency\",",
+  "tier": "batch"
+ },
+ {
+  "app": "hrms",
+  "key": "Selected employee advance is not of employee {}",
+  "refs": [
+   "hrms/hrms/hr/doctype/expense_claim/expense_claim.py:492"
+  ],
+  "target": "所选员工预支不属于员工 {}",
+  "context": "\n\t\tfor d in self.get(\"expenses\"):\n\t\t\tself.round_floats_in(d)\n\n\t\t\tif self.approval_status == \"Rejected\":\n\t\t\t\td.sanctioned_amount = 0.0\n",
+  "tier": "batch"
+ },
+ {
+  "app": "hrms",
+  "key": "Pay Details",
+  "refs": [
+   "hrms/hrms/hr/doctype/job_opening/job_opening.json",
+   "hrms/hrms/hr/doctype/job_opening_template/job_opening_template.json"
+  ],
+  "target": "薪酬信息",
+  "context": "  {\n   \"fieldname\": \"pay_details_tab\",\n   \"fieldtype\": \"Tab Break\",\n   \"label\": \"Pay Details\"\n  },\n  {\n   \"fieldname\": \"column_break_pfir\",",
+  "tier": "batch"
+ },
+ {
+  "app": "hrms",
+  "key": "Updated Status for Other Half from {0} to {1} for date {2} in the attendance record {3}",
+  "refs": [
+   "hrms/hrms/hr/doctype/attendance_request/attendance_request.py:177"
+  ],
+  "target": "已将考勤记录 {3} 中 {2} 另半日的状态从 {0} 改为 {1}",
+  "context": "\t\t\t\tdoc.add_comment(comment_type=\"Info\", text=text)\n\n\t\t\t\tfrappe.msgprint(\n\t\t\t\t\t_(\n\t\t\t\t\t\t\"Updated Status for Other Half from {0} to {1} for date {2} in the attendance record {3}\"\n\t\t\t\t\t).format(\n\t\t\t\t\t\tfrappe.bold(old_half_day_status),",
+  "tier": "batch"
+ },
+ {
+  "app": "hrms",
+  "key": "View Job Offer",
+  "refs": [
+   "hrms/hrms/hr/doctype/job_applicant/job_applicant.js:78"
+  ],
+  "target": "查看录用通知",
+  "context": "\t\t\t\t\tfrm.set_value(\"status\", \"Rejected\");\n\t\t\t\t\tfrm.save();\n\t\t\t\t\tfrm.refresh();\n\t\t\t\t});\n\t\t\t}\n\t\t\tif (frm.doc.status !== \"Rejected\" && frm.doc.status !== \"Accepted\") {\n\t\t\t\tfrm.add_custom_button(__(\"Schedule Interview\"), () => {",
+  "tier": "batch"
+ },
+ {
+  "app": "insights",
+  "key": "Maximum of...",
+  "refs": [
+   "insights/frontend/src2/charts/components/MeasurePicker.vue:140"
+  ],
+  "target": "最大值……",
+  "context": "\t\tdata_type: measureExpression.data_type,\n\t\tformat: measure.value.format,\n\t}\n\tshowMeasureDialog.value = false\n}\n\nconst aggregationOptions: { label: string; value: AggregationType }[] = [",
+  "tier": "batch"
+ },
+ {
+  "app": "insights",
+  "key": "Join this table with another table or query",
+  "refs": [
+   "insights/frontend/src2/query/components/AddOperationPopover.vue:51"
+  ],
+  "target": "将此数据表与另一个数据表或查询关联",
+  "context": "\t},\n\t{\n\t\tlabel: __('Join Table'),\n\t\tdescription: __('Join this table with another table or query'),\n\t\ticon: query_operation_types.join.icon,\n\t\tonClick: () => (showJoinSelectorDialog.value = true),\n\t},",
+  "tier": "batch"
+ },
+ {
+  "app": "insights",
+  "key": "Long Int",
+  "refs": [
+   "insights/insights/insights/doctype/insights_table_column/insights_table_column.json"
+  ],
+  "target": "长整数",
+  "context": "   \"fieldtype\": \"Select\",\n   \"in_list_view\": 1,\n   \"label\": \"Type\",\n   \"options\": \"Integer\\nLong Int\\nDecimal\\nText\\nLong Text\\nDate\\nDatetime\\nTime\\nString\",\n   \"reqd\": 1\n  }\n ],",
+  "tier": "batch"
+ },
+ {
+  "app": "insights",
+  "key": "is yesterday",
+  "refs": [
+   "insights/frontend/src2/query/components/FormatRule.vue:186"
+  ],
+  "target": "为昨天",
+  "context": "\nconst dateOperatorOptions = [\n\t{ label: __('is today'), value: 'is_today' as DateOperator },\n\t{ label: __('is yesterday'), value: 'is_yesterday' as DateOperator },\n\t{ label: __('is tomorrow'), value: 'is_tomorrow' as DateOperator },\n\t{ label: __('is this week'), value: 'is_this_week' as DateOperator },\n\t{ label: __('is last week'), value: 'is_last_week' as DateOperator },",
+  "tier": "batch"
+ },
+ {
+  "app": "insights",
+  "key": "Insights User Invitation",
+  "refs": [
+   "insights/insights/insights/doctype/insights_user_invitation/insights_user_invitation.json"
+  ],
+  "target": "Insights 用户邀请",
+  "context": " \"modified\": \"2026-08-25 00:00:00.000000\",\n \"modified_by\": \"Administrator\",\n \"module\": \"Insights\",\n \"name\": \"Insights User Invitation\",\n \"naming_rule\": \"Autoincrement\",\n \"owner\": \"Administrator\",\n \"permissions\": [",
+  "tier": "batch"
+ },
+ {
+  "app": "insights",
+  "key": "Execution Failed",
+  "refs": [
+   "insights/insights/insights/doctype/insights_query/insights_query.json"
+  ],
+  "target": "执行失败",
+  "context": "   \"in_list_view\": 1,\n   \"in_standard_filter\": 1,\n   \"label\": \"Status\",\n   \"options\": \"Pending Execution\\nExecution Successful\\nExecution Failed\",\n   \"read_only\": 1\n  },\n  {",
+  "tier": "batch"
+ },
+ {
+  "app": "insights",
+  "key": "Team Permissions",
+  "refs": [
+   "insights/insights/insights/doctype/insights_team/insights_team.json"
+  ],
+  "target": "团队权限",
+  "context": "  {\n   \"fieldname\": \"team_permissions\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Team Permissions\",\n   \"options\": \"Insights Resource Permission\"\n  },\n  {",
+  "tier": "batch"
+ },
+ {
+  "app": "insights",
+  "key": "Validation failed",
+  "refs": [
+   "insights/frontend/src2/charts/components/NewMeasureSelectorDialog.vue:57"
+  ],
+  "target": "校验失败",
+  "context": "\n\t\tif (!res || !res.is_valid) {\n\t\t\tvalidationState.value = 'invalid'\n\t\t\tvalidationErrors.value = res?.errors || [{ message: __('Validation failed') }]\n\t\t\treturn\n\t\t}\n",
+  "tier": "batch"
+ },
+ {
+  "app": "insights",
+  "key": "Horizontal",
+  "refs": [
+   "insights/frontend/src2/charts/components/SankeyChartConfigForm.vue:60"
+  ],
+  "target": "水平",
+  "context": "\t\t\t\tlabel=\"Orientation\"\n\t\t\t\ttype=\"select\"\n\t\t\t\t:options=\"[\n\t\t\t\t\t{ label: __('Horizontal'), value: 'horizontal' },\n\t\t\t\t\t{ label: __('Vertical'), value: 'vertical' },\n\t\t\t\t]\"\n\t\t\t/>",
+  "tier": "batch"
+ },
+ {
+  "app": "insights",
+  "key": "Action if table exists",
+  "refs": [
+   "insights/insights/insights/doctype/insights_table_import/insights_table_import.json"
+  ],
+  "target": "数据表已存在时的处理方式",
+  "context": "   \"default\": \"Fail\",\n   \"fieldname\": \"if_exists\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Action if table exists\",\n   \"options\": \"Fail\\nAppend\\nOverwrite\"\n  },\n  {",
+  "tier": "batch"
+ },
+ {
+  "app": "raven",
+  "key": "{0} reacted with {1}",
+  "refs": [
+   "raven/apps/web/src/components/features/message/renderers/MessageReactions.tsx:242"
+  ],
+  "target": "{0} 用 {1} 做了表情回应",
+  "context": "        return users?.[index]?.full_name ?? userId\n    })\n\n    return <p className=\"max-w-96\">{_(\"{0} reacted with {1}\", [formatNameList(names), reaction.emoji_name])}</p>\n}\n\n/** Maximum names spelled out before collapsing the rest into \"and N others\". */",
+  "tier": "batch"
+ },
+ {
+  "app": "raven",
+  "key": "Could not run this action",
+  "refs": [
+   "raven/apps/web/src/components/features/message/actions/dialogs/RunMessageActionDialog.tsx:130"
+  ],
+  "target": "无法执行此操作",
+  "context": "            })\n        } catch (error) {\n            // Dialog stays open with the values intact so the user can correct and retry.\n            errorResponseToast(_(\"Could not run this action\"), error as FrappeError)\n        }\n    }\n",
+  "tier": "batch"
+ },
+ {
+  "app": "raven",
+  "key": "Times are in {0}. An end before the start means an overnight shift.",
+  "refs": [
+   "raven/apps/web/src/components/features/settings/panels/QuietHoursAdminSection.tsx:237"
+  ],
+  "target": "时间按 {0} 时区计算。结束时间早于开始时间表示跨夜班次。",
+  "context": "                        </div>\n                        {/* Times are measured on the SITE's clock, not each member's. */}\n                        <p className=\"text-p-sm text-ink-gray-5\">\n                            {_(\"Times are in {0}. An end before the start means an overnight shift.\", [SYSTEM_TIMEZONE])}\n                        </p>\n                    </div>\n                    <DialogFooter>",
+  "tier": "batch"
+ },
+ {
+  "app": "raven",
+  "key": "No processors created yet. Select a type below to create your first processor.",
+  "refs": [
+   "raven/apps/web/src/components/features/settings/panels/DocumentProcessors/DocumentProcessors.tsx:204"
+  ],
+  "target": "尚未创建处理器。请在下方选择一种类型，创建第一个处理器。",
+  "context": "            <h5 className=\"text-base font-medium\">{_(\"Active Processors ({0})\", [String(processors.length)])}</h5>\n            {processors.length === 0 ? (\n                <p className=\"text-p-sm text-ink-gray-6\">\n                    {_(\"No processors created yet. Select a type below to create your first processor.\")}\n                </p>\n            ) : (\n                <>",
+  "tier": "batch"
+ },
+ {
+  "app": "raven",
+  "key": "points",
+  "refs": [
+   "raven/apps/web/src/components/features/message/renderers/LinkPreviewCard.tsx:43"
+  ],
+  "target": "分",
+  "context": "        // accepts and Safari rejects. Strip it so both show the date. Anything that\n        // still does not parse is dropped.\n        const date = getDateObject(meta.published_on.replace(/^(\\d{4}-\\d{2}-\\d{2})Z$/, \"$1\"))\n        if (date.isValid()) parts.push(date.format(\"MMM D, YYYY\"))\n    }\n    if (typeof meta.points === \"number\") parts.push(`${meta.points} ${_(\"points\")}`)\n    if (typeof meta.comments === \"number\") parts.push(`${meta.comments} ${_(\"comments\")}`)",
+  "tier": "batch"
+ },
+ {
+  "app": "raven",
+  "key": "Enable quiet hours",
+  "refs": [
+   "raven/apps/web/src/components/features/settings/panels/QuietHoursAdminSection.tsx:204"
+  ],
+  "target": "启用免打扰时段",
+  "context": "                <form onSubmit={form.handleSubmit(onSubmit)} noValidate className=\"flex flex-col gap-4\">\n                    <div className=\"flex items-center justify-between\">\n                        <Label htmlFor=\"enable_quiet_hours\">\n                            {_('Enable quiet hours')}\n                        </Label>\n                        <Switch\n                            size=\"md\"",
+  "tier": "batch"
+ },
+ {
+  "app": "raven",
+  "key": "Channels with no activity in the last 30 days will be hidden from the sidebar automatically.",
+  "refs": [
+   "raven/apps/web/src/components/features/settings/panels/Preferences.tsx:119"
+  ],
+  "target": "最近 30 天内没有动态的频道将自动从侧边栏隐藏。",
+  "context": "                        <SettingsFormRow>\n                            <div className=\"flex flex-col\">\n                                <SettingsFormLabel htmlFor=\"filter_recent_activity\">{_(\"Only show channels with recent activity\")}</SettingsFormLabel>\n                                <SettingsFormDescription>{_(\"Channels with no activity in the last 30 days will be hidden from the sidebar automatically.\")}</SettingsFormDescription>\n                            </div>\n                            <div className=\"flex justify-end\">\n                                <Switch",
+  "tier": "batch"
+ },
+ {
+  "app": "raven",
+  "key": "Sending a direct message to a user",
+  "refs": [
+   "raven/apps/web/src/components/features/settings/panels/Agents/AgentApiDocsTab.tsx:86"
+  ],
+  "target": "向用户发送私信",
+  "context": "            </div>\n\n            <div className=\"flex flex-col gap-1\">\n                <h3 className=\"text-sm font-semibold\">{_(\"Sending a direct message to a user\")}</h3>\n                <p className=\"text-p-sm text-ink-gray-6\">\n                    {_(\"You can send a direct message to a user by calling the\")}{\" \"}\n                    <code className=\"rounded bg-surface-gray-2 px-1 py-0.5 font-mono text-p-xs\">send_direct_message</code>{\" \"}",
+  "tier": "batch"
+ },
+ {
+  "app": "raven",
+  "key": "Temperature",
+  "refs": [
+   "raven/apps/web/src/components/features/settings/panels/Agents/AgentAITab.tsx:112",
+   "raven/raven/raven_bot/doctype/raven_bot/raven_bot.json"
+  ],
+  "target": "温度",
+  "context": "            <div className=\"grid items-start gap-4 md:grid-cols-2\">\n                <NumberSliderField\n                    name=\"temperature\"\n                    label={_(\"Temperature\")}\n                    min={0}\n                    max={2}\n                    formDescription={_(",
+  "tier": "batch"
+ },
+ {
+  "app": "raven",
+  "key": "Who has read this message",
+  "refs": [
+   "raven/apps/web/src/components/features/message/actions/dialogs/ReadReceiptsDialog.tsx:41"
+  ],
+  "target": "已读此消息的人",
+  "context": "                    <DrawerTitle className=\"px-4 pb-4 pt-1 text-left text-2xl-semibold text-ink-gray-9\">\n                        {_(\"Read by\")}\n                    </DrawerTitle>\n                    <DrawerDescription className=\"sr-only\">{_(\"Who has read this message\")}</DrawerDescription>\n                    {/* Positional no-drag (see useNoDragWhileScrolled): the readers list\n                        scrolls past its cap; while scrolled the swipe belongs to it, and\n                        a pull from the top dismisses the sheet. */}",
+  "tier": "batch"
+ },
+ {
+  "app": "erpnext",
+  "key": "Allow Editing of Items and Quantities in Work Order",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/manufacturing_settings/manufacturing_settings.json:allow_editing_of_items_and_quantities_in_work_order"
+  ],
+  "target": "允许修改生产工单的物料与数量",
+  "context": "  {\n   \"default\": \"0\",\n   \"description\": \"If enabled, the system will allow users to edit the raw materials and their quantities in the Work Order. The system will not reset the quantities as per the BOM, if the user has changed them.\",\n   \"fieldname\": \"allow_editing_of_items_and_quantities_in_work_order\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow Editing of Items and Quantities in Work Order\"\n  },",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Role allowed to edit frozen stock",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:stock_auth_role"
+  ],
+  "target": "可修改冻结库存单据的角色",
+  "context": "  {\n   \"depends_on\": \"eval:(doc.stock_frozen_upto || doc.stock_frozen_upto_days)\",\n   \"description\": \"The users with this Role are allowed to create/modify a stock transaction, even though the transaction is frozen.\",\n   \"fieldname\": \"stock_auth_role\",\n   \"fieldtype\": \"Link\",\n   \"label\": \"Role allowed to edit frozen stock\",\n   \"options\": \"Role\"",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Maintain same rate throughout internal Transaction",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:maintain_same_internal_transaction_rate"
+  ],
+  "target": "内部交易全程保持同一单价",
+  "context": "  },\n  {\n   \"default\": \"0\",\n   \"fieldname\": \"maintain_same_internal_transaction_rate\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Maintain same rate throughout internal Transaction\"\n  },",
+  "tier": "demo"
+ },
+ {
+  "app": "raven",
+  "key": "Search for {0} anywhere",
+  "refs": [
+   "frappe-bench/apps/raven/apps/web/src/components/features/cmdk/CommandMenu.tsx:270"
+  ],
+  "target": "全局搜索 {0}",
+  "context": "                            <TextSearch className=\"shrink-0\" />\n                            <ScopedLabel\n                                text={text}\n                                templateWithText={_(\"Search for {0} anywhere\")}\n                                templateNoText={_(\"Search anywhere\")}\n                            />\n                        </CommandItem>",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Allow to edit stock UOM qty for Stock Entry",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:allow_to_edit_stock_uom_qty_for_stock_entry"
+  ],
+  "target": "允许在物料移动中修改库存单位数量",
+  "context": "  {\n   \"default\": \"0\",\n   \"documentation_url\": \"https://docs.frappe.io/erpnext/stock-settings#why-to-edit-stock-qty-qty-as-per-stock-uom\",\n   \"fieldname\": \"allow_to_edit_stock_uom_qty_for_stock_entry\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Allow to edit stock UOM qty for Stock Entry\"\n  },",
+  "tier": "demo"
+ },
+ {
+  "app": "crm",
+  "key": "No Activities Found",
+  "refs": [
+   "frappe-bench/apps/crm/frontend/src/components/Activities/Activities.vue:732"
+  ],
+  "target": "暂无活动",
+  "context": "})\n\nconst emptyText = computed(() => {\n  let text = __('No Activities Found')\n  if (title.value == 'Emails') {\n    text = __('No Emails Found')\n  } else if (title.value == 'Comments') {",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Pending Quantity cannot be greater than {0}",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:308",
+   "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/job_card/job_card.js:71"
+  ],
+  "target": "待处理数量不能大于 {0}",
+  "context": "\t\t\t\t\tif (process_loss_qty < 0) {\n\t\t\t\t\t\tdialog.set_value(\"pending_qty\", 0);\n\t\t\t\t\t\tfrappe.throw(\n\t\t\t\t\t\t\t__(\"Pending Quantity cannot be greater than {0}\", [\n\t\t\t\t\t\t\t\tget_qty_with_uom(\n\t\t\t\t\t\t\t\t\tflt(dialog.get_value(\"for_quantity\")) -\n\t\t\t\t\t\t\t\t\t\tflt(dialog.get_value(\"completed_qty\")),",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Match transfers within 'N' days",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:transfer_match_days"
+  ],
+  "target": "在 N 天内匹配账户间转账",
+  "context": "  {\n   \"default\": \"3\",\n   \"description\": \"Number of days to consider for matching transfers across bank accounts\",\n   \"fieldname\": \"transfer_match_days\",\n   \"fieldtype\": \"Int\",\n   \"label\": \"Match transfers within 'N' days\",\n   \"non_negative\": 1",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Batch Item settings",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:section_break_gnhq"
+  ],
+  "target": "批次物料设置",
+  "context": "  },\n  {\n   \"depends_on\": \"enable_serial_and_batch_no_for_item\",\n   \"fieldname\": \"section_break_gnhq\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Batch Item settings\"\n  },",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Optional. Select a specific manufacture entry to reverse.",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/work_order/work_order.js:1048"
+  ],
+  "target": "选填。可指定要拆解冲回的完工入库单。",
+  "context": "\t\t\t\tlabel: __(\"Source Manufacture Entry\"),\n\t\t\t\tfieldname: \"source_stock_entry\",\n\t\t\t\toptions: \"Stock Entry\",\n\t\t\t\tdescription: __(\"Optional. Select a specific manufacture entry to reverse.\"),\n\t\t\t\tget_query: () => {\n\t\t\t\t\treturn {\n\t\t\t\t\t\tfilters: {",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Action if Quality Inspection is rejected",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:action_if_quality_inspection_is_rejected"
+  ],
+  "target": "质检不合格时的控制措施",
+  "context": "  },\n  {\n   \"default\": \"Stop\",\n   \"fieldname\": \"action_if_quality_inspection_is_rejected\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Action if Quality Inspection is rejected\",\n   \"options\": \"Stop\\nWarn\"",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Item Wise Consumption",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/workspace_sidebar/buying.json"
+  ],
+  "target": "物料耗用表",
+  "context": "",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "{0}: select the typed value {1} from the list or clear it",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/stock/doctype/item/item.js:906"
+  ],
+  "target": "{0}：请从列表中选择已输入的值 {1}，或将其清空",
+  "context": "\t\t\t\tif (pending) {\n\t\t\t\t\tlet value = frappe.utils.escape_html(pending);\n\t\t\t\t\terrors.push(\n\t\t\t\t\t\t__(\"{0}: select the typed value {1} from the list or clear it\", [attribute, value])\n\t\t\t\t\t);\n\t\t\t\t}\n\t\t\t});",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Tax Withholding Entries",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/accounts/doctype/payment_entry/payment_entry.json:tax_withholding_entries",
+   "frappe-bench/apps/erpnext/erpnext/accounts/doctype/purchase_invoice/purchase_invoice.json:tax_withholding_entries",
+   "frappe-bench/apps/erpnext/erpnext/accounts/doctype/sales_invoice/sales_invoice.json:tax_withholding_entries"
+  ],
+  "target": "代扣税款明细",
+  "context": "   \"label\": \"Ignore Tax Withholding Threshold\"\n  },\n  {\n   \"fieldname\": \"tax_withholding_entries\",\n   \"fieldtype\": \"Table\",\n   \"label\": \"Tax Withholding Entries\",\n   \"options\": \"Tax Withholding Entry\",",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "To Delete list generated with {0} DocTypes",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/setup/doctype/transaction_deletion_record/transaction_deletion_record.js:118"
+  ],
+  "target": "已生成待删除清单，共 {0} 个单据类型",
+  "context": "\t\t\t\t\tdoc: frm.doc,\n\t\t\t\t\tcallback: (r) => {\n\t\t\t\t\t\tfrappe.show_alert({\n\t\t\t\t\t\t\tmessage: __(\"To Delete list generated with {0} DocTypes\", [r.message.count]),\n\t\t\t\t\t\t\tindicator: \"green\",\n\t\t\t\t\t\t});\n\t\t\t\t\t\tfrm.refresh();",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Action if same rate is not maintained throughout internal transaction",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/accounts/doctype/accounts_settings/accounts_settings.json:maintain_same_rate_action"
+  ],
+  "target": "内部交易前后价格不一致时的控制措施",
+  "context": "  {\n   \"default\": \"Stop\",\n   \"depends_on\": \"maintain_same_internal_transaction_rate\",\n   \"fieldname\": \"maintain_same_rate_action\",\n   \"fieldtype\": \"Select\",\n   \"label\": \"Action if same rate is not maintained throughout internal transaction\",\n   \"mandatory_depends_on\": \"maintain_same_internal_transaction_rate\",",
+  "tier": "demo"
+ },
+ {
+  "app": "crm",
+  "key": "It appears that there are currently no {0} available. You can create more {0} by using the Create button.",
+  "refs": [
+   "frappe-bench/apps/crm/frontend/src/components/ListViews/EmptyState.vue:43"
+  ],
+  "target": "当前还没有 {0}。可点击“创建”按钮新建更多 {0}。",
+  "context": "const computedDescription = computed(() => {\n  return props.description\n    ? props.description\n    : __(\n        'It appears that there are currently no {0} available. You can create more {0} by using the Create button.',\n        [__(props.name)],\n      )",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Convert Item description to clean HTML in transactions",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/stock/doctype/stock_settings/stock_settings.json:clean_description_html"
+  ],
+  "target": "业务单据中将物料描述转换为规范 HTML",
+  "context": "  },\n  {\n   \"default\": \"1\",\n   \"fieldname\": \"clean_description_html\",\n   \"fieldtype\": \"Check\",\n   \"label\": \"Convert Item description to clean HTML in transactions\"\n  },",
+  "tier": "demo"
+ },
+ {
+  "app": "raven",
+  "key": "Google APIs are not enabled. Please enable them in Raven Settings",
+  "refs": [
+   "frappe-bench/apps/raven/apps/web/src/components/features/settings/panels/ai/GoogleAPINotEnabledCallout.tsx:29"
+  ],
+  "target": "Google API 未启用，请在 Raven 设置中启用",
+  "context": "    }\n\n    const message = !hasGoogleApis\n        ? _(\"Google APIs are not enabled. Please enable them in Raven Settings\")\n        : _(\"No Google Project ID is set. Please set a Project ID in Raven Settings\")\n\n    return (",
+  "tier": "demo"
+ },
+ {
+  "app": "erpnext",
+  "key": "Consume Components",
+  "refs": [
+   "frappe-bench/apps/erpnext/erpnext/manufacturing/doctype/bom/bom.json:consume_components_section"
+  ],
+  "target": "原材料耗用",
+  "context": "   \"label\": \"BOM Configuration\"\n  },\n  {\n   \"fieldname\": \"consume_components_section\",\n   \"fieldtype\": \"Section Break\",\n   \"label\": \"Consume Components\"\n  },",
+  "tier": "demo"
+ }
+]

@@ -1,0 +1,49 @@
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_translations, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 18 integration tests for frappe_china
+
+frappe_china.tests.test_translations.TestTranslations
+   [32m ✔ [0m test_app_translations_are_unique_and_do_not_alias_legal_labels [31m (2.63s)[0m
+   [32m ✔ [0m test_basis_form_rejects_garbled_basis
+   [32m ✔ [0m test_csv_has_no_duplicate_keys
+   [32m ✔ [0m test_csv_rows_have_two_or_three_columns
+   [32m ✔ [0m test_csv_sorted
+   [32m ✔ [0m test_duplicate_key_detector_detects_appended_duplicate
+   [31m ✖ [0m test_duplicate_key_detector_normalizes_escaped_newline
+   [32m ✔ [0m test_every_app_source_string_has_chinese
+   [32m ✔ [0m test_literal_keys_are_app_sources
+   [32m ✔ [0m test_override_basis_forms
+   [32m ✔ [0m test_override_officials_are_current
+   [32m ✔ [0m test_overrides_exist_in_csv
+   [32m ✔ [0m test_own_basis_requires_app_source
+   [32m ✔ [0m test_placeholder_requires_closing_brace
+   [32m ✔ [0m test_placeholders_preserved
+   [32m ✔ [0m test_r9_own_keys_are_app_sources
+   [32m ✔ [0m test_source_strings_literal_key_forms
+   [32m ✔ [0m test_token_check_detects_reordered_html_tags
+
+
+======================================================================
+ FAIL  test_duplicate_key_detector_normalizes_escaped_newline (frappe_china.tests.test_translations.TestTranslations.test_duplicate_key_detector_normalizes_escaped_newline)
+R12 FD-015：Frappe 读 csv 时把键里的字面 \n 换成换行（translate.py:204），两种写法是同一个键。
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_translations.py", line 287, in test_duplicate_key_detector_normalizes_escaped_newline
+    self.assertEqual(_duplicate_keys(rows), ["a\nb"])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    rows = [['a\\nb', '甲'], ['a\nb', '乙']]
+    self = <frappe_china.tests.test_translations.TestTranslations testMethod=test_duplicate_key_detector_normalizes_escaped_newline>
+AssertionError: Lists differ: [] != ['a\nb']
+
+Second list contains 1 additional elements.
+First extra element 0:
+'a\nb'
+
+- []
++ ['a\nb']
+
+----------------------------------------------------------------------
+Ran 18 tests in 8.404s
+
+FAILED (failures=1)

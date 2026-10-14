@@ -1,0 +1,22 @@
+{
+  "before": {
+    "requests": [],
+    "state": {
+      "container_length": 0,
+      "header_images": [
+        "/assets/frappe_china/icons/desktop_icons/solid/business_flow.svg"
+      ],
+      "html": "function () {\n\t\t\tif (!this.dropdown_menu?.length) return;\n\t\t\treturn add_app_item.apply(this, arguments);\n\t\t}"
+    }
+  },
+  "after": {
+    "requests": [],
+    "state": {
+      "container_length": 0,
+      "header_images": [
+        "/assets/frappe_china/icons/desktop_icons/solid/business_flow.svg"
+      ],
+      "visible_menu": 1
+    }
+  }
+}

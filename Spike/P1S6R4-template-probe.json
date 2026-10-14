@@ -1,0 +1,31 @@
+[
+  {
+    "app": "crm",
+    "pass": true,
+    "upstream": "crm/www/crm.html",
+    "original_scripts": [
+      "/assets/crm/frontend/assets/index-BVSBSR-B.js",
+      "/assets/crm/frontend/registerSW.js"
+    ],
+    "injection_count": 1
+  },
+  {
+    "app": "raven",
+    "pass": true,
+    "upstream": "raven/www/raven.html",
+    "original_scripts": [
+      "/assets/raven/raven/assets/index-Dd4w3s-a.js"
+    ],
+    "injection_count": 1
+  },
+  {
+    "app": "insights",
+    "pass": true,
+    "upstream": "insights/www/insights.html",
+    "original_scripts": [
+      "/assets/insights/frontend/assets/main-d3c88f0d.js",
+      "/src/main.js"
+    ],
+    "injection_count": 1
+  }
+]

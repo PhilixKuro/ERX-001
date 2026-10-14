@@ -1,0 +1,82 @@
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_scaffold, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 5 integration tests for frappe_china
+
+frappe_china.tests.test_scaffold.TestScaffold
+   [32m ✔ [0m test_chart_of_accounts_bytes_unchanged
+   [32m ✔ [0m test_cn_tax_sidebar_is_registered_but_hidden [31m (3.13s)[0m
+   [32m ✔ [0m test_hrms_is_optional
+   [32m ✔ [0m test_no_language_dependent_expense_claim_cleanup
+   [32m ✔ [0m test_script_report_stubs_run [31m (24.8s)[0m
+----------------------------------------------------------------------
+Ran 5 tests in 29.827s
+
+OK
+
+
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_translations, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 18 integration tests for frappe_china
+
+frappe_china.tests.test_translations.TestTranslations
+   [32m ✔ [0m test_app_translations_are_unique_and_do_not_alias_legal_labels [31m (2.58s)[0m
+   [32m ✔ [0m test_basis_form_rejects_garbled_basis
+   [32m ✔ [0m test_csv_has_no_duplicate_keys
+   [32m ✔ [0m test_csv_rows_have_two_or_three_columns
+   [32m ✔ [0m test_csv_sorted
+   [32m ✔ [0m test_duplicate_key_detector_detects_appended_duplicate
+   [32m ✔ [0m test_duplicate_key_detector_normalizes_escaped_newline
+   [32m ✔ [0m test_every_app_source_string_has_chinese
+   [32m ✔ [0m test_literal_keys_are_app_sources
+   [32m ✔ [0m test_override_basis_forms
+   [32m ✔ [0m test_override_officials_are_current
+   [32m ✔ [0m test_overrides_exist_in_csv
+   [32m ✔ [0m test_own_basis_requires_app_source
+   [32m ✔ [0m test_placeholder_requires_closing_brace
+   [32m ✔ [0m test_placeholders_preserved
+   [32m ✔ [0m test_r9_own_keys_are_app_sources
+   [32m ✔ [0m test_source_strings_literal_key_forms
+   [32m ✔ [0m test_token_check_detects_reordered_html_tags
+
+
+----------------------------------------------------------------------
+Ran 18 tests in 8.263s
+
+OK
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_named_terms, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 2 integration tests for frappe_china
+
+frappe_china.tests.test_named_terms.TestNamedTerms
+   [32m ✔ [0m test_named_terms [31m (2.38s)[0m
+   [32m ✔ [0m test_timesheet_family_uses_gong_shi_dan
+----------------------------------------------------------------------
+Ran 2 tests in 3.009s
+
+OK
+
+
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_translation_quality, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 9 integration tests for frappe_china
+
+frappe_china.tests.test_translation_quality.TestTranslationQuality
+   [32m ✔ [0m test_every_exception_has_a_reason
+   [32m ✔ [0m test_mixed_guard_reports_constructed_row
+   [32m ✔ [0m test_no_mixed_language_translations
+   [32m ✔ [0m test_no_placeholder_translations
+   [32m ✔ [0m test_no_traditional_characters
+   [32m ✔ [0m test_no_word_by_word_translations
+   [32m ✔ [0m test_placeholder_guard_reports_constructed_row
+   [32m ✔ [0m test_traditional_guard_reports_constructed_row
+   [32m ✔ [0m test_word_by_word_guard_reports_constructed_row
+----------------------------------------------------------------------
+Ran 9 tests in 0.176s
+
+OK
+
+
