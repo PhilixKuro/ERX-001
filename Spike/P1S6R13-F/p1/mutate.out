@@ -1,0 +1,16 @@
+[translations] baseline: 4 run, all green
+[translations] FD-012 py: ast.walk -> 只认 elts: 4 run, red=['test_source_strings_follow_a28_wording']
+[translations] FD-012 js: 去掉第三参 context: 4 run, red=['test_source_strings_follow_a28_wording']
+[translations] FD-012 js: 去掉反引号: 4 run, red=['test_source_strings_follow_a28_wording']
+[translations] FD-012 js: 不跳过 ${} 插值: 4 run, red=['test_source_strings_follow_a28_wording']
+[translations] FD-013: \\. -> \.: 4 run, red=['test_source_strings_keep_escaped_quotes']
+[translations] FD-015: 去掉 \\n 归一: 4 run, red=['test_duplicate_key_detector_normalizes_escaped_newline']
+[quality] baseline: 8 run, all green
+[quality] FD-017: _waived 退回整行全免: 8 run, red=['test_exception_waives_only_its_registered_guard']
+[quality] FD-017: identity 不看 UNTRANSLATED: 8 run, red=['test_no_untranslated_rows']
+[quality] FD-017: identity 恒假: 8 run, red=['test_identity_guard_reports_constructed_row']
+[quality] FD-017: identity 移出 GUARDS: 8 run, all green
+[quality] FD-017: Python expression 行去掉 word_by_word 豁免: 8 run, red=['test_no_word_by_word_translations']
+[quality] FD-017: 某 QE 理由置空: 8 run, red=['test_every_exception_has_a_reason']
+[quality] FD-017: 守卫名拼错（mixd）: 8 run, red=['test_exception_waives_only_its_registered_guard', 'test_no_mixed_language_translations']
+[quality] FD-036 连带: 白名单删 JAN: 8 run, red=['test_no_untranslated_rows']

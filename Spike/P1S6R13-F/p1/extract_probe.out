@@ -1,0 +1,10 @@
+① app sources old/new: 280 280 only_old [] only_new []
+② extraction tests: 3 run, 0 fail, 0 error []
+③ probe_forms OK old=5/12 new=12/12
+④ "_('Can\\'t save')" extracted ["Can\\'t save"] runtime "Can't save" MISMATCH
+④ '_("Say \\"hi\\"")' extracted ['Say \\"hi\\"'] runtime 'Say "hi"' MISMATCH
+④ "__('Don\\'t')" extracted ["Don\\'t"] runtime "Don't" MISMATCH
+④ '_("Line\\none")' extracted ['Line\\none'] runtime 'Line\none' MISMATCH
+⑤ 'const resources = {url: "/api/method/frappe.client.get", method: "GET"};' -> ['/api/method/frappe.client.get', 'GET'] | old -> []
+⑤ 'DATA_SOURCES = {"mysql": "MariaDB", "pg": "PostgreSQL"}' -> ['MariaDB', 'PostgreSQL', 'mysql', 'pg'] | old -> []
+⑤ 'let source = frm.doc.source || "Manual";' -> ['Manual'] | old -> []

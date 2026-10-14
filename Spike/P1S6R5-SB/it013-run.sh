@@ -9,7 +9,7 @@ restart() {
   docker exec -u frappe erx001-frappe-1 sh -c 'pkill -f "serve --port 6787"' || true
   sleep 2
   docker exec -u frappe -w /workspace/frappe-bench erx001-frappe-1 /home/frappe/.local/bin/bench --site test.localhost clear-cache
-  docker exec -d -u frappe -w /workspace/frappe-bench/sites erx001-frappe-1 sh -c "../env/bin/python -m frappe.utils.bench_helper frappe --site test.localhost serve --port 6787 > /workspace/Spike/P1S6R5-SB/serve-6787-$1.log 2>&1"
+  docker exec -d -u frappe -w /workspace/frappe-bench/sites erx001-frappe-1 sh -c "../env/bin/python -m frappe.utils.bench_helper frappe --site test.localhost serve --port 6787 > /workspace/frappe-bench/logs/serve-6787-it013-$1.log 2>&1"  # 长跑日志不写受管目录（开发守则，R13 FD-050）
   for i in $(seq 1 60); do c=$(curl -s -o /dev/null -w "%{http_code}" --max-time 5 http://127.0.0.1:6787/api/method/ping || true); [ "$c" = 200 ] && break; sleep 1; done
   echo "restart $1 -> $c"
 }

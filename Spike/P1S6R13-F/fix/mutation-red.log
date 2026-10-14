@@ -1,0 +1,188 @@
+﻿Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_dashboards, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 4 integration tests for frappe_china
+docker : 
+At line:3 char:104
++ ... ) { $out += docker compose -f D:\ERX-001\docker\compose.yaml exec -T  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+frappe_china.tests.test_dashboards.TestWorkstationDashboard
+   [32m ✔ [0m test_hook_registered
+   [32m ✔ [0m test_master_group_is_not_salutation [31m (2.67s)[0m
+   [31m ✖ [0m test_other_languages_untouched
+   [32m ✔ [0m test_salutation_master_unchanged
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.762s
+
+FAILED (failures=1)
+======================================================================
+ FAIL  test_other_languages_untouched (frappe_china.tests.test_dashboards.TestWorkstationDashboard.test_other_languages_untouched)
+非 zh 会话不改键：各语言自有 Master 的译文，没有 Master Data 的（R13 FD-046）。
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_dashboards.py", line 42, in test_other_languages_untouched
+    self.assertEqual(groups[("BOM", "Routing", "Operation")], frappe._("Master", lang=lang))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    groups = {('BOM', 'Routing', 'Operation'): 'Master Data', ('Work Order', 'Job Card'): 'Transaction'}
+    lang = 'en'
+    self = <frappe_china.tests.test_dashboards.TestWorkstationDashboard testMethod=test_other_languages_untouched>
+AssertionError: 'Master Data' != 'Master'
+- Master Data
++ Master
+
+
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_business_flow_navigation, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 5 old-frappe-test-class-category tests for frappe_china
+docker : 
+At line:3 char:104
++ ... ) { $out += docker compose -f D:\ERX-001\docker\compose.yaml exec -T  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+frappe_china.tests.test_business_flow_navigation.TestBusinessFlowNavigation
+   [32m ✔ [0m test_chinese_labels_are_unique
+   [32m ✔ [0m test_desktop_icon_is_first_and_links_sidebar
+   [32m ✔ [0m test_desktop_icon_label_equals_sidebar_title
+   [32m ✔ [0m test_sidebar_has_required_sections_and_unique_labels
+   [31m ✖ [0m test_sidebar_links_match_plan
+
+
+======================================================================
+ FAIL  test_sidebar_links_match_plan (frappe_china.tests.test_business_flow_navigation.TestBusinessFlowNavigation.test_sidebar_links_match_plan)
+删一项、改 link_to、换顺序或挪到别的分节都要报（R12 FD-016 ④；R13 FD-045）。
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_business_flow_navigation.py", line 90, in test_sidebar_links_match_plan
+    self.assertEqual(links, EXPECTED_LINKS)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+    data = {'doctype': 'Workspace Sidebar', 'name': 'Business Flow', 'title': 'Business Flow', 'app': 'frappe_china', 'module': 'CN Tax', 'header_icon': 'organization', 'items': [{'type': 'Section Break', 'label': 'Master Data', 'link_type': 'DocType', 'child': 0, 'indent': 1, 'collapsible': 1, 'keep_closed': 0}, {'type': 'Link', 'label': 'Company', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Company'}, {'type': 'Link', 'label': 'Global Defaults', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Global Defaults'}, {'type': 'Link', 'label': 'Fiscal Year', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Fiscal Year'}, {'type': 'Link', 'label': 'Chart of Accounts', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Account'}, {'type': 'Link', 'label': 'Cost Center', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Cost Center'}, {'type': 'Link', 'label': 'Warehouse', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Warehouse'}, {'type': 'Link', 'label': 'Unit of Measure (UOM)', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'UOM'}, {'type': 'Link', 'label': 'Item', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Item'}, {'type': 'Link', 'label': 'Item Price', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Item Price'}, {'type': 'Link', 'label': 'Workstation', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Workstation'}, {'type': 'Link', 'label': 'Operation', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Operation'}, {'type': 'Link', 'label': 'Routing', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Routing'}, {'type': 'Link', 'label': 'BOM', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'BOM'}, {'type': 'Link', 'label': 'Customer', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Customer'}, {'type': 'Link', 'label': 'Supplier', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Supplier'}, {'type': 'Link', 'label': 'Employee', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Employee'}, {'type': 'Link', 'label': 'Leads', 'link_type': 'URL', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'url': '/crm/leads'}, {'type': 'Section Break', 'label': 'Selling', 'link_type': 'DocType', 'child': 0, 'indent': 1, 'collapsible': 1, 'keep_closed': 0}, {'type': 'Link', 'label': 'Deals', 'link_type': 'URL', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'url': '/crm/deals'}, {'type': 'Link', 'label': 'Dashboard', 'link_type': 'URL', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'url': '/crm/dashboard'}, {'type': 'Link', 'label': 'Quotation', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Quotation'}, {'type': 'Link', 'label': 'Sales Order', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Sales Order'}, {'type': 'Link', 'label': 'Delivery Note', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Delivery Note'}, {'type': 'Link', 'label': 'Sales Invoice', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Sales Invoice'}, {'type': 'Section Break', 'label': 'Buying', 'link_type': 'DocType', 'child': 0, 'indent': 1, 'collapsible': 1, 'keep_closed': 0}, {'type': 'Link', 'label': 'Material Request', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Material Request'}, {'type': 'Link', 'label': 'Supplier Quotation', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Supplier Quotation'}, {'type': 'Link', 'label': 'Purchase Order', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Purchase Order'}, {'type': 'Link', 'label': 'Purchase Receipt', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Purchase Receipt'}, {'type': 'Link', 'label': 'Purchase Invoice', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Purchase Invoice'}, {'type': 'Section Break', 'label': 'Stock', 'link_type': 'DocType', 'child': 0, 'indent': 1, 'collapsible': 1, 'keep_closed': 0}, {'type': 'Link', 'label': 'Stock Reconciliation', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Stock Reconciliation'}, {'type': 'Link', 'label': 'Quality Inspection', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Quality Inspection'}, {'type': 'Section Break', 'label': 'Manufacturing', 'link_type': 'DocType', 'child': 0, 'indent': 1, 'collapsible': 1, 'keep_closed': 0}, {'type': 'Link', 'label': 'Production Plan', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Production Plan'}, {'type': 'Link', 'label': 'Work Order', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Work Order'}, {'type': 'Link', 'label': 'Stock Entry', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Stock Entry'}, {'type': 'Link', 'label': 'Job Card', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Job Card'}, {'type': 'Section Break', 'label': 'Finance', 'link_type': 'DocType', 'child': 0, 'indent': 1, 'collapsible': 1, 'keep_closed': 0}, {'type': 'Link', 'label': 'Payment Entry', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Payment Entry'}, {'type': 'Link', 'label': 'Journal Entry', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Journal Entry'}, {'type': 'Link', 'label': 'Accounts Receivable', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Accounts Receivable'}, {'type': 'Link', 'label': 'Accounts Payable', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Accounts Payable'}, {'type': 'Link', 'label': 'Month End Closing Voucher', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Month End Closing Voucher'}, {'type': 'Link', 'label': 'Cash Flow Worksheet', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Cash Flow Worksheet'}, {'type': 'Link', 'label': 'Bank Statement Preprocess', 'link_type': 'DocType', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Bank Statement Preprocess'}, {'type': 'Section Break', 'label': 'Reports', 'link_type': 'DocType', 'child': 0, 'indent': 1, 'collapsible': 1, 'keep_closed': 0}, {'type': 'Link', 'label': '小企业资产负债表', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': '小企业资产负债表'}, {'type': 'Link', 'label': '小企业利润表', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': '小企业利润表'}, {'type': 'Link', 'label': '小企业现金流量表', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': '小企业现金流量表'}, {'type': 'Link', 'label': '漏科目检查', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': '漏科目检查'}, {'type': 'Link', 'label': 'General Ledger', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'General Ledger'}, {'type': 'Link', 'label': 'Stock Ledger', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Stock Ledger'}, {'type': 'Link', 'label': 'Stock Balance', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Stock Balance'}, {'type': 'Link', 'label': 'Stock and Account Value Comparison', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'Stock and Account Value Comparison'}, {'type': 'Link', 'label': 'BOM Variance Report', 'link_type': 'Report', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'link_to': 'BOM Variance Report'}, {'type': 'Link', 'label': 'AI Assistant', 'link_type': 'URL', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'url': '/raven'}], 'modified': '2026-10-10 18:16:09.723606', 'standard': 1}
+    item = {'type': 'Link', 'label': 'AI Assistant', 'link_type': 'URL', 'child': 1, 'indent': 0, 'collapsible': 1, 'keep_closed': 0, 'url': '/raven'}
+    links = [('Master Data', 'Company', 'DocType', 'Company'), ('Master Data', 'Global Defaults', 'DocType', 'Global Defaults'), ('Master Data', 'Fiscal Year', 'DocType', 'Fiscal Year'), ('Master Data', 'Chart of Accounts', 'DocType', 'Account'), ('Master Data', 'Cost Center', 'DocType', 'Cost Center'), ('Master Data', 'Warehouse', 'DocType', 'Warehouse'), ('Master Data', 'Unit of Measure (UOM)', 'DocType', 'UOM'), ('Master Data', 'Item', 'DocType', 'Item'), ('Master Data', 'Item Price', 'DocType', 'Item Price'), ('Master Data', 'Workstation', 'DocType', 'Workstation'), ('Master Data', 'Operation', 'DocType', 'Operation'), ('Master Data', 'Routing', 'DocType', 'Routing'), ('Master Data', 'BOM', 'DocType', 'BOM'), ('Master Data', 'Customer', 'DocType', 'Customer'), ('Master Data', 'Supplier', 'DocType', 'Supplier'), ('Master Data', 'Employee', 'DocType', 'Employee'), ('Master Data', 'Leads', 'URL', '/crm/leads'), ('Selling', 'Deals', 'URL', '/crm/deals'), ('Selling', 'Dashboard', 'URL', '/crm/dashboard'), ('Selling', 'Quotation', 'DocType', 'Quotation'), ('Selling', 'Sales Order', 'DocType', 'Sales Order'), ('Selling', 'Delivery Note', 'DocType', 'Delivery Note'), ('Selling', 'Sales Invoice', 'DocType', 'Sales Invoice'), ('Buying', 'Material Request', 'DocType', 'Material Request'), ('Buying', 'Supplier Quotation', 'DocType', 'Supplier Quotation'), ('Buying', 'Purchase Order', 'DocType', 'Purchase Order'), ('Buying', 'Purchase Receipt', 'DocType', 'Purchase Receipt'), ('Buying', 'Purchase Invoice', 'DocType', 'Purchase Invoice'), ('Stock', 'Stock Reconciliation', 'DocType', 'Stock Reconciliation'), ('Stock', 'Quality Inspection', 'DocType', 'Quality Inspection'), ('Manufacturing', 'Production Plan', 'DocType', 'Production Plan'), ('Manufacturing', 'Work Order', 'DocType', 'Work Order'), ('Manufacturing', 'Stock Entry', 'DocType', 'Stock Entry'), ('Manufacturing', 'Job Card', 'DocType', 'Job Card'), ('Finance', 'Payment Entry', 'DocType', 'Payment Entry'), ('Finance', 'Journal Entry', 'DocType', 'Journal Entry'), ('Finance', 'Accounts Receivable', 'Report', 'Accounts Receivable'), ('Finance', 'Accounts Payable', 'Report', 'Accounts Payable'), ('Finance', 'Month End Closing Voucher', 'DocType', 'Month End Closing Voucher'), ('Finance', 'Cash Flow Worksheet', 'DocType', 'Cash Flow Worksheet'), ('Finance', 'Bank Statement Preprocess', 'DocType', 'Bank Statement Preprocess'), ('Reports', '小企业资产负债表', 'Report', '小企业资产负债表'), ('Reports', '小企业利润表', 'Report', '小企业利润表'), ('Reports', '小企业现金流量表', 'Report', '小企业现金流量表'), ('Reports', '漏科目检查', 'Report', '漏科目检查'), ('Reports', 'General Ledger', 'Report', 'General Ledger'), ('Reports', 'Stock Ledger', 'Report', 'Stock Ledger'), ('Reports', 'Stock Balance', 'Report', 'Stock Balance'), ('Reports', 'Stock and Account Value Comparison', 'Report', 'Stock and Account Value Comparison'), ('Reports', 'BOM Variance Report', 'Report', 'BOM Variance Report'), ('Reports', 'AI Assistant', 'URL', '/raven')]
+    section = 'Reports'
+    self = <frappe_china.tests.test_business_flow_navigation.TestBusinessFlowNavigation testMethod=test_sidebar_links_match_plan>
+AssertionError: Lists differ: [('Ma[859 chars]), ('Master Data', 'Leads', 'URL', '/crm/leads[2048 chars]en')] != [('Ma[859 chars]), ('Selling', 'Leads', 'URL', '/crm/leads'), [2044 chars]en')]
+
+First differing element 16:
+('Master Data', 'Leads', 'URL', '/crm/leads')
+('Selling', 'Leads', 'URL', '/crm/leads')
+
+  [('Master Data', 'Company', 'DocType', 'Company'),
+   ('Master Data', 'Global Defaults', 'DocType', 'Global Defaults'),
+   ('Master Data', 'Fiscal Year', 'DocType', 'Fiscal Year'),
+   ('Master Data', 'Chart of Accounts', 'DocType', 'Account'),
+   ('Master Data', 'Cost Center', 'DocType', 'Cost Center'),
+   ('Master Data', 'Warehouse', 'DocType', 'Warehouse'),
+   ('Master Data', 'Unit of Measure (UOM)', 'DocType', 'UOM'),
+   ('Master Data', 'Item', 'DocType', 'Item'),
+   ('Master Data', 'Item Price', 'DocType', 'Item Price'),
+   ('Master Data', 'Workstation', 'DocType', 'Workstation'),
+   ('Master Data', 'Operation', 'DocType', 'Operation'),
+   ('Master Data', 'Routing', 'DocType', 'Routing'),
+   ('Master Data', 'BOM', 'DocType', 'BOM'),
+   ('Master Data', 'Customer', 'DocType', 'Customer'),
+   ('Master Data', 'Supplier', 'DocType', 'Supplier'),
+   ('Master Data', 'Employee', 'DocType', 'Employee'),
+-  ('Master Data', 'Leads', 'URL', '/crm/leads'),
+?    ^^^^ ^^^^^^
+
++  ('Selling', 'Leads', 'URL', '/crm/leads'),
+?    ^ ^^^^^
+
+   ('Selling', 'Deals', 'URL', '/crm/deals'),
+   ('Selling', 'Dashboard', 'URL', '/crm/dashboard'),
+   ('Selling', 'Quotation', 'DocType', 'Quotation'),
+   ('Selling', 'Sales Order', 'DocType', 'Sales Order'),
+   ('Selling', 'Delivery Note', 'DocType', 'Delivery Note'),
+   ('Selling', 'Sales Invoice', 'DocType', 'Sales Invoice'),
+   ('Buying', 'Material Request', 'DocType', 'Material Request'),
+   ('Buying', 'Supplier Quotation', 'DocType', 'Supplier Quotation'),
+   ('Buying', 'Purchase Order', 'DocType', 'Purchase Order'),
+   ('Buying', 'Purchase Receipt', 'DocType', 'Purchase Receipt'),
+   ('Buying', 'Purchase Invoice', 'DocType', 'Purchase Invoice'),
+   ('Stock', 'Stock Reconciliation', 'DocType', 'Stock Reconciliation'),
+   ('Stock', 'Quality Inspection', 'DocType', 'Quality Inspection'),
+   ('Manufacturing', 'Production Plan', 'DocType', 'Production Plan'),
+   ('Manufacturing', 'Work Order', 'DocType', 'Work Order'),
+   ('Manufacturing', 'Stock Entry', 'DocType', 'Stock Entry'),
+   ('Manufacturing', 'Job Card', 'DocType', 'Job Card'),
+   ('Finance', 'Payment Entry', 'DocType', 'Payment Entry'),
+   ('Finance', 'Journal Entry', 'DocType', 'Journal Entry'),
+   ('Finance', 'Accounts Receivable', 'Report', 'Accounts Receivable'),
+   ('Finance', 'Accounts Payable', 'Report', 'Accounts Payable'),
+   ('Finance',
+    'Month End Closing Voucher',
+    'DocType',
+    'Month End Closing Voucher'),
+   ('Finance', 'Cash Flow Worksheet', 'DocType', 'Cash Flow Worksheet'),
+   ('Finance',
+    'Bank Statement Preprocess',
+    'DocType',
+    'Bank Statement Preprocess'),
+   ('Reports', '小企业资产负债表', 'Report', '小企业资产负债表'),
+   ('Reports', '小企业利润表', 'Report', '小企业利润表'),
+   ('Reports', '小企业现金流量表', 'Report', '小企业现金流量表'),
+   ('Reports', '漏科目检查', 'Report', '漏科目检查'),
+   ('Reports', 'General Ledger', 'Report', 'General Ledger'),
+   ('Reports', 'Stock Ledger', 'Report', 'Stock Ledger'),
+   ('Reports', 'Stock Balance', 'Report', 'Stock Balance'),
+   ('Reports',
+    'Stock and Account Value Comparison',
+    'Report',
+    'Stock and Account Value Comparison'),
+   ('Reports', 'BOM Variance Report', 'Report', 'BOM Variance Report'),
+   ('Reports', 'AI Assistant', 'URL', '/raven')]
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.408s
+
+FAILED (failures=1)
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_translation_quality, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 13 integration tests for frappe_china
+docker : 
+At line:3 char:104
++ ... ) { $out += docker compose -f D:\ERX-001\docker\compose.yaml exec -T  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+frappe_china.tests.test_translation_quality.TestTranslationQuality
+   [32m ✔ [0m test_every_exception_has_a_reason
+   [32m ✔ [0m test_exception_waives_only_its_registered_guard
+   [31m ✖ [0m test_guard_problems_runs_all_five_guards
+   [32m ✔ [0m test_identity_guard_reports_constructed_row
+   [32m ✔ [0m test_mixed_guard_reports_constructed_row
+   [32m ✔ [0m test_no_mixed_language_translations
+   [32m ✔ [0m test_no_placeholder_translations
+   [32m ✔ [0m test_no_traditional_characters
+   [32m ✔ [0m test_no_untranslated_rows
+   [32m ✔ [0m test_no_word_by_word_translations
+   [32m ✔ [0m test_placeholder_guard_reports_constructed_row
+   [32m ✔ [0m test_traditional_guard_reports_constructed_row
+   [32m ✔ [0m test_word_by_word_guard_reports_constructed_row
+
+----------------------------------------------------------------------
+Ran 13 tests in 0.226s
+
+FAILED (failures=1)
+
+======================================================================
+ FAIL  test_guard_problems_runs_all_five_guards (frappe_china.tests.test_translation_quality.TestTranslationQuality.test_guard_problems_runs_all_five_guards)
+五道守卫都在 GUARDS 里：guard_problems（覆盖清单、guard_scan、apply_rows 共用）少一道会被拦下（R13 FD-052）。
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_translation_quality.py", line 262, in test_guard_problems_runs_all_five_guards
+    self.assertEqual(GUARD_NAMES, {"placeholder", "traditional", "word_by_word", "mixed", "identity"})
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    self = <frappe_china.tests.test_translation_quality.TestTranslationQuality testMethod=test_guard_problems_runs_all_five_guards>
+AssertionError: frozenset({'word_by_word', 'mixed', 'placeholder', 'traditional'}) != {'identity', 'traditional', 'word_by_word', 'placeholder', 'mixed'}
+

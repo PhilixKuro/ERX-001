@@ -1,0 +1,8 @@
+基线失败断言: []
+[存活] 分节断点后移一位（Quotation 落入 Master Data）: 失败断言=[]
+[杀死] 同节内两条目换序: 失败断言=['links_match_plan']
+[杀死] 删一个条目: 失败断言=['links_match_plan']
+[杀死] 改一个 link_to: 失败断言=['links_match_plan']
+[杀死] URL 项改成 DocType 项: 失败断言=['url_count', 'links_match_plan']
+[杀死] 改侧栏 title: 失败断言=['icon_label_equals_title']
+[杀死] 改 module: 失败断言=['module']

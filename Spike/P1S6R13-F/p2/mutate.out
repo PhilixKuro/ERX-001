@@ -1,0 +1,20 @@
+基线 pass=86 fail=0
+[杀死] FD-001 PE 分组回到 "fa fa-table"：fail=2 ← Payment Entry, status 1: replace original button and retain filters | Payment Entry, status 2: replace original button and retain filters
+[杀死] FD-001 JE 也不带分组：fail=2 ← Journal Entry, status 1: replace original button and retain filters | Journal Entry, status 2: replace original button and retain filters
+[杀死] FD-001 去掉 remove_custom_button：fail=4 ← Journal Entry, status 1: replace original button and retain filters | Journal Entry, status 2: replace original button and retain filters | Payment Entry, status 1: replace original button and retain filters | Payment Entry, status 2: replace original button and retain filters
+[杀死] FD-001 去掉 show_opening_entries：fail=4 ← Journal Entry, status 1: replace original button and retain filters | Journal Entry, status 2: replace original button and retain filters | Payment Entry, status 1: replace original button and retain filters | Payment Entry, status 2: replace original button and retain filters
+[杀死] FD-019 去掉 :not(.frappe-card)：fail=2 ← timeline null and undefined values show | comment card bold null is user content and untouched
+[杀死] FD-019 :not 挂错层（挂在 .new-timeline）：fail=2 ← timeline null and undefined values show | comment card bold null is user content and untouched
+[杀死] FD-018 replacer 回到字符串：fail=1 ← sort title with $& in the translated label is inserted literally
+[杀死] FD-020 回到无保护写法：fail=1 ← missing frappe.form warns and skips the Select formatter
+[杀死] FD-020 缺接点不告警：fail=1 ← missing frappe.form warns and skips the Select formatter
+[杀死] FD-016③ Select 去 df.parent：fail=1 ← Select formatter uses df.parent, then doc.doctype, as context
+[杀死] FD-016③ Select 去 doc.doctype 回退：fail=1 ← Select formatter uses df.parent, then doc.doctype, as context
+[杀死] FD-016③ 徽标去 context：fail=1 ← list badge takes the DocType context for status rows
+[杀死] FD-016③ 徽标判定放宽（On Hold 也改）：fail=1 ← list badge leaves the On Hold branch alone
+[杀死] FD-016③ 筛选不补 context：fail=1 ← status filter gets the DocType context after native onload
+[杀死] FD-016③ 筛选不清 last_options：fail=1 ← status filter gets the DocType context after native onload
+[杀死] FD-016③ 筛选不 set_options：fail=1 ← status filter gets the DocType context after native onload
+[杀死] FD-016③ 徽标去幂等标记：fail=1 ← reloading invoice_list.js does not stack wrappers
+[杀死] FD-016③ onload 不委托原方法：fail=2 ← reloading invoice_list.js does not stack wrappers | status filter gets the DocType context after native onload
+还原后 pass=86 fail=0

@@ -1,0 +1,5 @@
+BAD public/js/x.js ['"Can\\\\\'t save"'] want ['"Can\'t save"']
+BAD pkg/mod.py ['\'Say \\\\"hi\\\\"\''] want ['\'Say "hi"\'']
+BAD public/js/y.js ['"Don\\\\\'t"', "'B'"] want ['"Don\'t"', "'B'"]
+BAD public/js/z.js ["'Line\\\\nTwo \\\\u00e9'"] want ["'Line\\nTwo é'"]
+BAD pkg/mod.py ["'Tab\\\\tEnd:Ctx'"] want ["'Tab\\tEnd:Ctx'"]

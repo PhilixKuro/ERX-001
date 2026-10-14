@@ -18,7 +18,7 @@ step "0 重起测试站 6787，带 DEV_SERVER=1：不带时页面按自身 6787 
 docker exec -u frappe erx001-frappe-1 sh -c 'pkill -f "serve --port 6787"' || true
 sleep 2
 if true; then
-  docker exec -d -u frappe -w /workspace/frappe-bench/sites erx001-frappe-1 sh -c "DEV_SERVER=1 ../env/bin/python -m frappe.utils.bench_helper frappe --site test.localhost serve --port 6787 > /workspace/$OUT/serve-6787.log 2>&1"
+  docker exec -d -u frappe -w /workspace/frappe-bench/sites erx001-frappe-1 sh -c "DEV_SERVER=1 ../env/bin/python -m frappe.utils.bench_helper frappe --site test.localhost serve --port 6787 > /workspace/frappe-bench/logs/serve-6787-it018.log 2>&1"  # 长跑日志不写受管目录（开发守则，R13 FD-050）
   for i in $(seq 1 60); do [ "$(curl -s -o /dev/null -w '%{http_code}' --max-time 5 http://127.0.0.1:6787/api/method/ping || true)" = 200 ] && break; sleep 1; done
 fi
 step "1 造数据：公司 _FCT S6 Part3、仓库、员工、两个物料、工序、两张日记账、期初库存、一张物料移动"

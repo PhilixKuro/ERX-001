@@ -1,0 +1,134 @@
+﻿Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_dashboards, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 4 integration tests for frappe_china
+docker : 
+At line:4 char:33
++ ... ) { $out += docker compose -f D:\ERX-001\docker\compose.yaml exec -T  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+frappe_china.tests.test_dashboards.TestWorkstationDashboard
+   [32m ✔ [0m test_hook_registered
+   [32m ✔ [0m test_master_group_is_not_salutation [31m (2.62s)[0m
+   [32m ✔ [0m test_other_languages_untouched
+   [32m ✔ [0m test_salutation_master_unchanged
+----------------------------------------------------------------------
+Ran 4 tests in 2.945s
+
+
+
+OK
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_translations, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 20 integration tests for frappe_china
+docker : 
+At line:4 char:33
++ ... ) { $out += docker compose -f D:\ERX-001\docker\compose.yaml exec -T  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+frappe_china.tests.test_translations.TestTranslations
+   [32m ✔ [0m test_app_translations_are_unique_and_do_not_alias_legal_labels [31m (2.57s)[0m
+   [32m ✔ [0m test_basis_form_rejects_garbled_basis
+   [32m ✔ [0m test_csv_has_no_duplicate_keys
+   [32m ✔ [0m test_csv_rows_have_two_or_three_columns
+   [32m ✔ [0m test_csv_sorted
+   [32m ✔ [0m test_duplicate_key_detector_detects_appended_duplicate
+   [32m ✔ [0m test_duplicate_key_detector_normalizes_escaped_newline
+   [32m ✔ [0m test_every_app_source_string_has_chinese
+   [32m ✔ [0m test_literal_keys_are_app_sources
+   [32m ✔ [0m test_override_basis_forms
+   [32m ✔ [0m test_override_officials_are_current
+   [32m ✔ [0m test_overrides_exist_in_csv
+   [32m ✔ [0m test_own_basis_requires_app_source
+   [32m ✔ [0m test_placeholder_requires_closing_brace
+   [32m ✔ [0m test_placeholders_preserved
+   [32m ✔ [0m test_r9_own_keys_are_app_sources
+   [32m ✔ [0m test_source_strings_follow_a28_wording
+   [32m ✔ [0m test_source_strings_keep_escaped_quotes
+   [32m ✔ [0m test_source_strings_literal_key_forms
+   [32m ✔ [0m test_token_check_detects_reordered_html_tags
+----------------------------------------------------------------------
+Ran 20 tests in 8.260s
+
+OK
+
+
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_translation_quality, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 13 integration tests for frappe_china
+docker : 
+At line:4 char:33
++ ... ) { $out += docker compose -f D:\ERX-001\docker\compose.yaml exec -T  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+frappe_china.tests.test_translation_quality.TestTranslationQuality
+   [32m ✔ [0m test_every_exception_has_a_reason
+   [32m ✔ [0m test_exception_waives_only_its_registered_guard
+   [32m ✔ [0m test_guard_problems_runs_all_five_guards
+   [32m ✔ [0m test_identity_guard_reports_constructed_row
+   [32m ✔ [0m test_mixed_guard_reports_constructed_row
+   [32m ✔ [0m test_no_mixed_language_translations
+   [32m ✔ [0m test_no_placeholder_translations
+   [32m ✔ [0m test_no_traditional_characters
+   [32m ✔ [0m test_no_untranslated_rows
+   [32m ✔ [0m test_no_word_by_word_translations
+   [32m ✔ [0m test_placeholder_guard_reports_constructed_row
+   [32m ✔ [0m test_traditional_guard_reports_constructed_row
+   [32m ✔ [0m test_word_by_word_guard_reports_constructed_row
+----------------------------------------------------------------------
+Ran 13 tests in 0.208s
+
+OK
+
+
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_named_terms, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 2 integration tests for frappe_china
+docker : 
+At line:4 char:33
++ ... ) { $out += docker compose -f D:\ERX-001\docker\compose.yaml exec -T  ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+frappe_china.tests.test_named_terms.TestNamedTerms
+   [32m ✔ [0m test_named_terms [31m (2.37s)[0m
+   [32m ✔ [0m test_timesheet_family_uses_gong_shi_dan
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 2.995s
+
+OK
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_business_flow_navigation, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 5 old-frappe-test-class-category tests for frappe_china
+docker : 
+At line:5 char:9
++ $out += docker compose -f D:\ERX-001\docker\compose.yaml exec -T -w / ...
++         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+frappe_china.tests.test_business_flow_navigation.TestBusinessFlowNavigation
+   [32m ✔ [0m test_chinese_labels_are_unique
+   [32m ✔ [0m test_desktop_icon_is_first_and_links_sidebar
+   [32m ✔ [0m test_desktop_icon_label_equals_sidebar_title
+   [32m ✔ [0m test_sidebar_has_required_sections_and_unique_labels
+   [32m ✔ [0m test_sidebar_links_match_plan
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.360s
+
+OK

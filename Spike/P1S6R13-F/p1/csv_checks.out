@@ -1,0 +1,12 @@
+① rows 5756 bad cols [] unsorted [] dup []
+② 2583 ['Item Type', '条目类型', 'Navbar Item'] same target elsewhere: []
+② 2683 ['Ledger', '账簿纸', 'Print Settings'] same target elsewhere: []
+② 3343 ['Partly Paid', '部分收款', 'Sales Invoice'] same target elsewhere: []
+② 3344 ['Partly Paid and Discounted', '已贴现部分收款', 'Sales Invoice'] same target elsewhere: []
+② 4588 ['Stock Ledger Invariant Check', '库存台账一致性检查'] same target elsewhere: []
+② 5137 ['Unpaid and Discounted', '已贴现未收款', 'Sales Invoice'] same target elsewhere: []
+② Expenses rows: []
+③ FD-015 original: ['a\nb'] mutated: [] (mutant killed)
+④ "__('Can\\'t save');" keep keys ["Can\\'t save"] | csv row key "Can't save" | kept by prune: False
+④ '_("Say \\"hi\\"")' keep keys ['Say \\"hi\\"'] | csv row key 'Say "hi"' | kept by prune: False
+⑤ legal-ish labels 138 csv rows aliasing them: []

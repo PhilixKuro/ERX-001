@@ -1,0 +1,4 @@
+基线 {'new_install': True, 'already_renamed': True}
+[杀死] 删守卫1（旧表不存在）: {'new_install': False, 'already_renamed': True} 变红的用例=['new_install']
+[杀死] 删守卫2（新表已存在）: {'new_install': True, 'already_renamed': False} 变红的用例=['already_renamed']
+[杀死] 两条守卫都删: {'new_install': False, 'already_renamed': False} 变红的用例=['new_install', 'already_renamed']

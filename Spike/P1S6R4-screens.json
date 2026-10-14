@@ -1,0 +1,68 @@
+{
+  "allow": {
+    "BOM": "行业通用物料清单缩写",
+    "CRM": "产品名称缩写",
+    "PDF": "文件格式",
+    "XLSX": "文件格式",
+    "UTF-8": "编码名",
+    "GB18030": "编码名",
+    "CNY": "币种代码",
+    "USD": "币种代码",
+    "INR": "币种代码",
+    "ERPNext": "产品名",
+    "Frappe": "产品名",
+    "Insights": "产品名",
+    "Raven": "产品名",
+    "HR": "产品模块缩写",
+    "Ctrl": "键名"
+    ,"AI": "产品能力缩写"
+    ,"Frappe China": "自有 app 产品名（整句匹配）"
+    ,"Administrator": "登录用户数据"
+    ,"HDTH": "演示公司的简称，用户数据"
+    ,"Asia/Kolkata": "既有站点时区配置值"
+    ,"ID": "用户标识缩写"
+    ,"POS": "销售终端通用缩写"
+    ,"CEFACT": "计量单位标准名称"
+    ,"ICG": "计量单位标准名称"
+    ,"IC013": "计量单位标准编号"
+    ,"IC010": "计量单位标准编号"
+  },
+  "data_selectors": [
+    {"selector":".sidebar-user-button,.avatar[title]","reason":"登录用户姓名与邮箱，属于用户数据"},
+    {"selector":"[data-fieldname='naming_series'] select","reason":"单号命名编码，保留原码"},
+    {"selector":".system-timezone","reason":"站点时区配置数据，保留时区标识"},
+    {"selector":".form-details","reason":"表单当前记录名称，包括单例 Global Defaults 的名称"}
+  ],
+  "screens": [
+    {"id":"01-company","stage":"环节1","route":"desk/company","wait_for":"!!document.querySelector('.list-row-container')"},
+    {"id":"02-warehouse","stage":"环节2","route":"desk/warehouse/view/tree","wait_for":"!!document.querySelector('.tree-node')"},
+    {"id":"03-uom","stage":"环节3","route":"desk/uom","wait_for":"!!window.cur_list"},
+    {"id":"04-item","stage":"环节4","route":"desk/item","wait_for":"!!window.cur_list"},
+    {"id":"05-workstation","stage":"环节5","route":"desk/workstation","wait_for":"!!window.cur_list"},
+    {"id":"06-bom","stage":"环节6","route":"desk/bom","wait_for":"!!window.cur_list"},
+    {"id":"07-supplier","stage":"环节7","route":"desk/supplier","wait_for":"!!window.cur_list"},
+    {"id":"08-purchase-order","stage":"环节8","route":"desk/purchase-order","wait_for":"!!window.cur_list"},
+    {"id":"09-purchase-receipt","stage":"环节9","route":"desk/purchase-receipt","wait_for":"!!window.cur_list"},
+    {"id":"10-purchase-invoice","stage":"环节10","route":"desk/purchase-invoice","wait_for":"!!window.cur_list"},
+    {"id":"11-payment-entry","stage":"环节11","route":"desk/payment-entry","wait_for":"!!window.cur_list"},
+    {"id":"12-stock-reports","stage":"环节12","route":"desk/query-report/Stock Balance","wait_for":"!!document.body"},
+    {"id":"13-journal-entry","stage":"环节13","route":"desk/journal-entry","wait_for":"!!window.cur_list"},
+    {"id":"14-quotation","stage":"环节14","route":"desk/quotation","wait_for":"!!window.cur_list"},
+    {"id":"15-sales-order","stage":"环节15","route":"desk/sales-order","wait_for":"!!window.cur_list"},
+    {"id":"16-production-plan","stage":"环节16","route":"desk/production-plan","wait_for":"!!window.cur_list"},
+    {"id":"17-work-order","stage":"环节17","route":"desk/work-order","wait_for":"!!window.cur_list"},
+    {"id":"18-stock-entry","stage":"环节18","route":"desk/stock-entry","wait_for":"!!window.cur_list"},
+    {"id":"19-job-card","stage":"环节19","route":"desk/job-card","wait_for":"!!window.cur_list"},
+    {"id":"20-bom-variance","stage":"环节20","route":"desk/query-report/BOM Variance Report","wait_for":"!!document.body"},
+    {"id":"21-delivery-note","stage":"环节21","route":"desk/delivery-note","wait_for":"!!window.cur_list"},
+    {"id":"22-sales-invoice","stage":"环节22","route":"desk/sales-invoice","wait_for":"!!window.cur_list"},
+    {"id":"23-profit-loss","stage":"环节23","route":"desk/query-report/小企业利润表","wait_for":"!!document.body"},
+    {"id":"home","stage":"首页","route":"desk","wait_for":"!!document.querySelector('.desktop-icon')"},
+    {"id":"business-flow","stage":"自有侧栏","route":"desk","steps":[{"selector":".desktop-icon"}],"wait_for":"!!document.querySelector('.body-sidebar')"},
+    {"id":"crm-leads","stage":"CRM","url":"http://erx.localhost:8000/crm/leads","wait_for":"!!document.body"},
+    {"id":"crm-deals","stage":"CRM","url":"http://erx.localhost:8000/crm/deals","wait_for":"!!document.body"},
+    {"id":"crm-dashboard","stage":"CRM","url":"http://erx.localhost:8000/crm/dashboard","wait_for":"!!document.body"},
+    {"id":"raven","stage":"Raven","url":"http://erx.localhost:8000/raven","wait_for":"!!document.body"},
+    {"id":"insights","stage":"Insights","url":"http://erx.localhost:8000/insights/","wait_for":"!!document.body"}
+  ]
+}
