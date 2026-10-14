@@ -1,0 +1,101 @@
+✔ filter button title for 0 filters is translated (2.6418ms)
+✔ filter button title for 1 filters is translated (0.7296ms)
+✔ filter button title for 3 filters is translated (0.5114ms)
+✔ subject column sort title uses the translated label (0.8122ms)
+✔ sort title with $& in the translated label is inserted literally (0.6334ms)
+✔ subject column label falls back to the parent doctype of the list (1.44ms)
+✔ header without the upstream title is returned unchanged (0.6176ms)
+✔ English session keeps native filter title and header (0.5881ms)
+✔ missing FilterGroup or ListView only warns and leaves the other patch working (1.1734ms)
+✔ reloading does not stack the list wrappers (0.673ms)
+✔ grouped raw label is translated in dropdown, data-label and mobile menu (0.7671ms)
+✔ already translated or ungrouped labels are passed through unchanged (0.5918ms)
+✔ English session and non-string labels keep native add_inner_button (0.9291ms)
+✔ missing Page only warns; reloading does not stack the button wrapper (1.0099ms)
+✔ whitelisted DocType columns show the translated DocType name, data untouched (0.8205ms)
+✔ empty and null values reach the native formatter unchanged (0.5604ms)
+✔ Stock Ledger keeps its own report formatter and only voucher_type is translated (0.4927ms)
+✔ non-whitelisted report and English session are unchanged (0.896ms)
+✔ missing QueryReport only warns; reloading does not stack the report wrapper (0.9151ms)
+✖ timeline null and undefined values show (Empty) after a mutation (2.1575ms)
+✖ comment card bold null is user content and untouched (0.7152ms)
+✔ bold null outside the timeline is untouched (0.562ms)
+✔ English session keeps timeline null (0.4953ms)
+✔ reloading creates no second timeline observer (0.5991ms)
+✔ Fetch Timesheet dialog date labels use From Date / To Date (0.8284ms)
+✔ other titles, field names or field types keep their labels (0.5352ms)
+✔ English session keeps the dialog labels (0.4951ms)
+✔ missing Dialog only warns; reloading does not stack the dialog wrapper (0.8929ms)
+✔ datatable filter title is translated at load and observer listens to childList only (0.9759ms)
+✔ re-rendered filter row is translated from added nodes only (0.6759ms)
+✔ an added filter input itself is matched (0.5405ms)
+✔ translated title is not translated twice (0.5363ms)
+✔ English session keeps datatable filter titles (0.5388ms)
+✔ unexpected upstream title format warns once and keeps the title (0.6522ms)
+✔ missing body warns and skips (0.5518ms)
+✔ reloading creates no second datatable observer (0.5255ms)
+✔ missing frappe.form warns and skips the Select formatter (1.2102ms)
+ℹ tests 37
+ℹ suites 0
+ℹ pass 35
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 107.6427
+
+✖ failing tests:
+
+test at frappe_china\tests\test_desk_patches.cjs:343:1
+✖ timeline null and undefined values show (Empty) after a mutation (2.1575ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      '（空）',
+      '2026-10-12',
+      '（空）',
+      'null value',
+  +   '（空）'
+  -   'null'
+    ]
+  
+      at TestContext.<anonymous> (D:\ERX-001\frappe-bench\apps\frappe_china\frappe_china\tests\test_desk_patches.cjs:350:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1103:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:785:18)
+      at Test.postRun (node:internal/test_runner/test:1232:19)
+      at Test.run (node:internal/test_runner/test:1160:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:785:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '（空）', '2026-10-12', '（空）', 'null value', '（空）' ],
+    expected: [ '（空）', '2026-10-12', '（空）', 'null value', 'null' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at frappe_china\tests\test_desk_patches.cjs:352:1
+✖ comment card bold null is user content and untouched (0.7152ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   '（空）'
+  -   'null'
+    ]
+  
+      at TestContext.<anonymous> (D:\ERX-001\frappe-bench\apps\frappe_china\frappe_china\tests\test_desk_patches.cjs:356:9)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1103:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:785:18)
+      at Test.postRun (node:internal/test_runner/test:1232:19)
+      at Test.run (node:internal/test_runner/test:1160:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:785:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ '（空）' ],
+    expected: [ 'null' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

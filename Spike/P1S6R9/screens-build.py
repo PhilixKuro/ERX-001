@@ -4,6 +4,7 @@
   - 新增 4 屏：「选工时单」对话框、Raven 个人资料状态下拉、BOM 与 WO 普通取消确认框；
   - 原 confirm-cancel-bom／confirm-cancel-work-order 两屏保留，标 kind_expected: "cancel_all"；新增两屏标 "confirm"；
   - variables 加 bom_cancel、wo_cancel（造数脚本 cancel-opens 一步写入状态文件）；
+  - R12 SB FD-002 加 1 屏：工位表单「关联」页签（forbid「少爷」，require「基础资料」），故共 +5；
   - 称呼下拉不进（演示站 tabSalutation 0 条）；采购发票「公司间销售发票」不进（演示站无内部供应商），两者只在测试站截（TS-035 第 8、2 屏）。
 """
 import json
@@ -66,6 +67,15 @@ new_screens = {
         'dialog': {'action': 'cancel', 'doctype': 'Work Order', 'name': '{{wo_cancel}}'},
         'added_r9': '同上，工单（HT-026）',
     },
+    # R12 SB FD-002：工位看板 BOM／工艺路线／工序分组原为 _("Master")，与称呼「少爷」撞名
+    '05-workstation-connections': {
+        'id': '05-workstation-connections', 'stage': '环节5', 'state': 'saved',
+        'route': 'desk/workstation/{{workstation}}', 'wait_for': FORM('Workstation'), 'sidebar': 'Business Flow',
+        'steps': [{'click': '.form-tabs .nav-link[data-fieldname="connections_tab"]',
+                   'wait_for': "!!document.querySelector('.form-dashboard .document-link')"}],
+        'forbid': ['少爷'], 'require': ['基础资料', '工艺路线'],
+        'added_r12': 'R12 FD-002：「关联」页签分组标题经 override_doctype_dashboards 改为「基础资料」',
+    },
 }
 
 screens = []
@@ -77,6 +87,8 @@ for screen in src['screens']:
     # 新增屏放在同环节旁边，便于对照截图
     if screen['id'] == '22-sales-invoice-list':
         screens.append(new_screens['22-sales-invoice-timesheet-dialog'])
+    elif screen['id'] == '05-workstation-saved':
+        screens.append(new_screens['05-workstation-connections'])
     elif screen['id'] == 'raven':
         screens.append(new_screens['raven-profile-status'])
     elif screen['id'] == 'confirm-cancel-bom':
@@ -85,6 +97,6 @@ for screen in src['screens']:
         screens.append(new_screens['confirm-cancel-work-order-plain'])
 spec['screens'] = screens
 ids = [s['id'] for s in screens]
-assert len(ids) == len(set(ids)) == len(src['screens']) + 4, len(ids)
+assert len(ids) == len(set(ids)) == len(src['screens']) + 5, len(ids)
 (ROOT / 'Spike/P1S6R9-screens.json').write_text(json.dumps(spec, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
 print(f'{len(src["screens"])} -> {len(screens)} screens; added: {list(new_screens)}')

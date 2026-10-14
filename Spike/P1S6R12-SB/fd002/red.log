@@ -1,0 +1,54 @@
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_dashboards, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 4 integration tests for frappe_china
+
+frappe_china.tests.test_dashboards.TestWorkstationDashboard
+   [31m ✖ [0m test_english_session
+   [31m ✖ [0m test_hook_registered
+   [31m ✖ [0m test_master_group_is_not_salutation
+   [32m ✔ [0m test_salutation_master_unchanged
+
+
+======================================================================
+ FAIL  test_english_session (frappe_china.tests.test_dashboards.TestWorkstationDashboard.test_english_session)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_dashboards.py", line 40, in test_english_session
+    self.assertEqual(groups[("BOM", "Routing", "Operation")], "Master Data")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    groups = {('BOM', 'Routing', 'Operation'): 'Master', ('Work Order', 'Job Card'): 'Transaction'}
+    self = <frappe_china.tests.test_dashboards.TestWorkstationDashboard testMethod=test_english_session>
+AssertionError: 'Master' != 'Master Data'
+- Master
++ Master Data
+
+
+======================================================================
+ FAIL  test_hook_registered (frappe_china.tests.test_dashboards.TestWorkstationDashboard.test_hook_registered)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_dashboards.py", line 24, in test_hook_registered
+    self.assertIn(OURS, frappe.get_hooks("override_doctype_dashboards").get("Workstation", []))
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    self = <frappe_china.tests.test_dashboards.TestWorkstationDashboard testMethod=test_hook_registered>
+AssertionError: 'frappe_china.dashboards.workstation_dashboard' not found in []
+
+======================================================================
+ FAIL  test_master_group_is_not_salutation (frappe_china.tests.test_dashboards.TestWorkstationDashboard.test_master_group_is_not_salutation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_dashboards.py", line 28, in test_master_group_is_not_salutation
+    self.assertEqual(groups[("BOM", "Routing", "Operation")], "基础资料")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    groups = {('BOM', 'Routing', 'Operation'): '少爷', ('Work Order', 'Job Card'): '交易'}
+    self = <frappe_china.tests.test_dashboards.TestWorkstationDashboard testMethod=test_master_group_is_not_salutation>
+AssertionError: '少爷' != '基础资料'
+- 少爷
++ 基础资料
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.935s
+
+FAILED (failures=3)

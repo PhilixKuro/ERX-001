@@ -1,0 +1,71 @@
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_translation_quality, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 12 integration tests for frappe_china
+
+frappe_china.tests.test_translation_quality.TestTranslationQuality
+   [31m ✖ [0m test_every_exception_has_a_reason
+   [31m ✖ [0m test_exception_waives_only_its_registered_guard
+   [31m ✖ [0m test_identity_guard_reports_constructed_row
+   [32m ✔ [0m test_mixed_guard_reports_constructed_row
+   [32m ✔ [0m test_no_mixed_language_translations
+   [32m ✔ [0m test_no_placeholder_translations
+   [32m ✔ [0m test_no_traditional_characters
+   [31m ✖ [0m test_no_untranslated_rows
+   [32m ✔ [0m test_no_word_by_word_translations
+   [32m ✔ [0m test_placeholder_guard_reports_constructed_row
+   [32m ✔ [0m test_traditional_guard_reports_constructed_row
+   [32m ✔ [0m test_word_by_word_guard_reports_constructed_row
+
+
+======================================================================
+ ERROR  test_every_exception_has_a_reason (frappe_china.tests.test_translation_quality.TestTranslationQuality.test_every_exception_has_a_reason)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_translation_quality.py", line 228, in test_every_exception_has_a_reason
+    self.assertEqual([key for key, (_, reason) in QUALITY_EXCEPTIONS.items() if not reason.strip()], [])
+                                   ^^^^^^^^^^^
+    self = <frappe_china.tests.test_translation_quality.TestTranslationQuality testMethod=test_every_exception_has_a_reason>
+    table = {'WhatsApp': '即时通讯产品名，CRM 界面按原名显示', 'Google': '公司与服务品牌名', 'Raven': '本项目所装即时通讯 App 的产品名', 'Jinja': '模板语言名，用户须按原名查文档', 'Excel': '电子表格产品名', 'Frappe': '框架品牌名', 'ERPNext': '产品名', 'OpenAI': '公司与服务品牌名', 'Insights': '本项目所装分析 App 的产品名', 'DuckDB': '嵌入式分析数据库产品名，ERPNext 财务报表同步目标', 'Facebook': '社交平台品牌名，CRM 线索同步对象，官方词典同样保留原名', 'Instagram': '社交平台品牌名，与 Facebook 广告同列', 'Twilio': '电话服务商品牌名，无通行中文名', 'Exotel': '电话服务商品牌名，无通行中文名', 'BigQuery': '数据仓库产品名，Insights 数据源', 'ClickHouse': '数据库产品名，Insights 数据源', 'MariaDB': '数据库产品名，Insights 数据源', 'PostgreSQL': '数据库产品名，Insights 数据源', 'DuckLake': '数据湖格式产品名，Insights 数据源', 'Parquet': '列式文件格式名', 'Telegram': '即时通讯产品名，Insights 预警通道', 'Cron': '定时表达式标准名，用户须按原名查文档', 'Markdown': '文本标记语言名', 'Python': '编程语言名', 'pdfplumber': '服务器端 PDF 解析库名，安装时须按原名', 'GeoJSON': '地理数据格式名', 'GMail': '邮件服务品牌名', 'Outlook': '邮件服务品牌名', 'Sendgrid': '邮件服务品牌名，无通行中文名', 'Sparkpost': '邮件服务品牌名，无通行中文名', 'Yahoo': '邮件服务品牌名', 'Yandex': '邮件服务品牌名，无通行中文名', 'Frankfurter': '汇率服务商名，用户须按原名在设置里识别', 'Gravatar': '头像服务品牌名，设置项按原名识别', 'Loom': '视频服务品牌名', 'LocalAI': '本地 AI 服务产品名', 'Ollama': '本地大模型运行工具产品名', 'Reddit': '社区网站品牌名', 'SoundCloud': '音频平台品牌名', 'Spotify': '音乐平台品牌名', 'Tenor': '动图平台品牌名', 'Vimeo': '视频平台品牌名', 'YouTube': '视频平台品牌名', 'Zoom': '视频会议产品名'}
+ValueError: too many values to unpack (expected 2)
+
+======================================================================
+----------------------------------------------------------------------
+Ran 12 tests in 0.254s
+
+ ERROR  test_exception_waives_only_its_registered_guard (frappe_china.tests.test_translation_quality.TestTranslationQuality.test_exception_waives_only_its_registered_guard)
+QUALITY_EXCEPTIONS 只豁免登记的那几道守卫；同一行混进繁体照样报出（R12 FD-017）。
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_translation_quality.py", line 232, in test_exception_waives_only_its_registered_guard
+    key = next(key for key, (guards, _) in QUALITY_EXCEPTIONS.items() if guards == frozenset({"mixed"}))
+    self = <frappe_china.tests.test_translation_quality.TestTranslationQuality testMethod=test_exception_waives_only_its_registered_guard>
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_translation_quality.py", line 232, in <genexpr>
+    key = next(key for key, (guards, _) in QUALITY_EXCEPTIONS.items() if guards == frozenset({"mixed"}))
+                            ^^^^^^^^^^^
+    .0 = <dict_itemiterator object at 0x784b1ab7dfd0>
+    key = 'If enabled, all replies to your company (eg: replies@yourcompany.com) will come to this account. Note: Only one account can be default incoming.'
+ValueError: too many values to unpack (expected 2)
+
+======================================================================
+ ERROR  test_identity_guard_reports_constructed_row (frappe_china.tests.test_translation_quality.TestTranslationQuality.test_identity_guard_reports_constructed_row)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_translation_quality.py", line 242, in test_identity_guard_reports_constructed_row
+    self.assertIn("Upload Photo => Upload Photo", find_identity([["Upload Photo", "Upload Photo"]]))
+                                                  ^^^^^^^^^^^^^
+    self = <frappe_china.tests.test_translation_quality.TestTranslationQuality testMethod=test_identity_guard_reports_constructed_row>
+NameError: name 'find_identity' is not defined
+
+======================================================================
+ ERROR  test_no_untranslated_rows (frappe_china.tests.test_translation_quality.TestTranslationQuality.test_no_untranslated_rows)
+译文等于源词（整句没译）的行只许是 UNTRANSLATED 外、登记过 identity 豁免的（R12 FD-017，原只在基线脚本里查）。
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_translation_quality.py", line 239, in test_no_untranslated_rows
+    self.assertEqual(find_identity(csv_rows()), [])
+                     ^^^^^^^^^^^^^
+    self = <frappe_china.tests.test_translation_quality.TestTranslationQuality testMethod=test_no_untranslated_rows>
+NameError: name 'find_identity' is not defined
+
+FAILED (errors=4)

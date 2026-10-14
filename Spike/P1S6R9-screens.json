@@ -826,6 +826,28 @@
    "sidebar": "Business Flow"
   },
   {
+   "id": "05-workstation-connections",
+   "stage": "环节5",
+   "state": "saved",
+   "route": "desk/workstation/{{workstation}}",
+   "wait_for": "window.cur_frm?.doctype===\"Workstation\" && !!cur_frm.fields_dict && !frappe.dom.freeze_count",
+   "sidebar": "Business Flow",
+   "steps": [
+    {
+     "click": ".form-tabs .nav-link[data-fieldname=\"connections_tab\"]",
+     "wait_for": "!!document.querySelector('.form-dashboard .document-link')"
+    }
+   ],
+   "forbid": [
+    "少爷"
+   ],
+   "require": [
+    "基础资料",
+    "工艺路线"
+   ],
+   "added_r12": "R12 FD-002：「关联」页签分组标题经 override_doctype_dashboards 改为「基础资料」"
+  },
+  {
    "id": "05-operation-saved",
    "stage": "环节5",
    "state": "saved",

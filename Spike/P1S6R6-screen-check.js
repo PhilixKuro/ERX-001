@@ -8,7 +8,7 @@
 //   allow {词: 理由}、data_selectors [{selector, reason}]、data_patterns [{pattern, reason}]、
 //   include_selectors [{selector, reason}]、default_data {词: {doctype, name, reason}}、
 //   variables {占位: {from, doctype, filters, order_by, index, value}}、trad_chars_file、screens [...]
-// 每屏：{id, stage, state, route|url, sidebar, wait_for, steps, after, extract_root, data_selectors, dialog, note}
+// 每屏：{id, stage, state, route|url, sidebar, wait_for, steps, after, extract_root, data_selectors, dialog, forbid, require, note}
 //   state ∈ blank／saved／prefilled／dialog／list／report
 //   dialog（确认框屏）：{action: "submit"|"cancel", doctype, name, button}
 // 输出 <outDir>/result.json：每屏 {id, stage, state, pass, english, traditional, title_issues, default_data,
@@ -285,6 +285,16 @@ async function capture(c, screen, row) {
     .map(({word, doctype, name, reason}) => ({word, doctype, name, reason}));
   row.sidebar_ok = !screen.sidebar || row.sidebar_title === screen.sidebar;
   row.pass = !row.english.length && !row.traditional.length && !row.title_issues.length && row.sidebar_ok;
+  // forbid（R12 SB FD-002）：本屏不得出现的中文误译词，如工位「关联」页签的「少爷」；不写则不查
+  if (screen.forbid) {
+    row.forbidden = screen.forbid.filter(word => text.includes(word));
+    if (row.forbidden.length) row.pass = false;
+  }
+  // require（同上）：本屏必须出现的译文，防 forbid 因该区域没渲染而空过
+  if (screen.require) {
+    row.missing_required = screen.require.filter(word => !text.includes(word));
+    if (row.missing_required.length) row.pass = false;
+  }
   row.screenshot = `${outDir}/${screen.id}.png`;
   await c.screenshot(row.screenshot);
 }

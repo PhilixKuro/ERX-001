@@ -1,0 +1,33 @@
+{
+ "round": "patched",
+ "cases": [
+  {
+   "doctype": "Payment Entry",
+   "name": "ACC-PAY-2026-00013",
+   "buttons": {
+    "toolbar": 1,
+    "grouped": 0
+   },
+   "report_filters": {
+    "voucher_no": "ACC-PAY-2026-00013",
+    "show_opening_entries": 1,
+    "company": "_S6R6 测试公司"
+   },
+   "rows": 2
+  },
+  {
+   "doctype": "Journal Entry",
+   "name": "ACC-JV-2026-00002",
+   "buttons": {
+    "toolbar": 0,
+    "grouped": 1
+   },
+   "report_filters": {
+    "voucher_no": "ACC-JV-2026-00002",
+    "show_opening_entries": 1,
+    "company": "_S6R6 测试公司"
+   },
+   "rows": 2
+  }
+ ]
+}

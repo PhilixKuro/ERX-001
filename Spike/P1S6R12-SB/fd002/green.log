@@ -1,0 +1,16 @@
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_dashboards, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 4 integration tests for frappe_china
+
+frappe_china.tests.test_dashboards.TestWorkstationDashboard
+   [32m ✔ [0m test_english_session [31m (2.57s)[0m
+   [32m ✔ [0m test_hook_registered
+   [32m ✔ [0m test_master_group_is_not_salutation
+   [32m ✔ [0m test_salutation_master_unchanged
+
+
+----------------------------------------------------------------------
+Ran 4 tests in 2.873s
+
+OK

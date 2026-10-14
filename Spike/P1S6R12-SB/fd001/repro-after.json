@@ -1,0 +1,43 @@
+[
+ {
+  "doctype": "Journal Entry",
+  "mobile_menu": [
+   "查看 > 会计凭证",
+   "查看 > 会计凭证"
+  ],
+  "buttons": 1,
+  "where": [
+   "A"
+  ],
+  "route_options_after_click": {
+   "voucher_no": "X-OPEN",
+   "from_date": "2026-01-01",
+   "to_date": "2026-10-10",
+   "company": "C",
+   "categorize_by": "",
+   "show_opening_entries": 1,
+   "show_cancelled_entries": false,
+   "finance_book": ""
+  }
+ },
+ {
+  "doctype": "Payment Entry",
+  "mobile_menu": [
+   "会计凭证",
+   "会计凭证"
+  ],
+  "buttons": 1,
+  "where": [
+   "BUTTON"
+  ],
+  "route_options_after_click": {
+   "voucher_no": "X-OPEN",
+   "from_date": "2026-01-01",
+   "to_date": "2026-10-10",
+   "company": "C",
+   "categorize_by": "",
+   "show_opening_entries": 1,
+   "show_cancelled_entries": false
+  }
+ }
+]

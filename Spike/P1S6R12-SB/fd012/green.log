@@ -1,0 +1,11 @@
+test_source_strings_follow_a28_wording (builtins.T)
+守则 A28「其中的字符串字面量都算」：常量值的任何嵌套形态都取；JS 带 context 的第三参也取（R12 FD-012）。 ... ok
+test_source_strings_keep_escaped_quotes (builtins.T)
+带转义引号的源词整条取出，不在转义引号处截断（R12 FD-013）。 ... ok
+test_source_strings_literal_key_forms (builtins.T)
+R9 A28：取法认得出命名约定常量、translate( 别名与侧栏 json；反例取不到（SL-021 ②）。 ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.003s
+
+OK

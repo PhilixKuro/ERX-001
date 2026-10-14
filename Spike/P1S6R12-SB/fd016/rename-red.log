@@ -1,0 +1,30 @@
+Starting test run with parameters: site=test.localhost, module=frappe_china.tests.test_cash_flow_rename, verbose=False, tests=(), force=False, profile=False, failfast=False, skip_before_tests=False, debug=False, selected_categories=[]
+View detailed logs (using --verbose): /workspace/frappe-bench/logs/frappe.testing.log
+
+Running 2 integration tests for frappe_china
+
+frappe_china.tests.test_cash_flow_rename.TestCashFlowRename
+   [32m ✔ [0m test_already_renamed_site_returns
+   [31m ✖ [0m test_new_install_without_old_table_returns
+----------------------------------------------------------------------
+Ran 2 tests in 0.189s
+
+
+
+======================================================================
+ FAIL  test_new_install_without_old_table_returns (frappe_china.tests.test_cash_flow_rename.TestCashFlowRename.test_new_install_without_old_table_returns)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/frappe-bench/apps/frappe_china/frappe_china/tests/test_cash_flow_rename.py", line 14, in test_new_install_without_old_table_returns
+    rename.assert_not_called()
+    ~~~~~~~~~~~~~~~~~~~~~~~~^^
+    rename = <MagicMock name='rename_doc' id='132740156940576'>
+    self = <frappe_china.tests.test_cash_flow_rename.TestCashFlowRename testMethod=test_new_install_without_old_table_returns>
+  File "/home/frappe/.pyenv/versions/3.14.7/lib/python3.14/unittest/mock.py", line 947, in assert_not_called
+    raise AssertionError(msg)
+    msg = "Expected 'rename_doc' to not have been called. Called 1 times.\nCalls: [call('DocType', 'Cash Flow', 'Cash Flow Worksheet', force=True)]."
+    self = <MagicMock name='rename_doc' id='132740156940576'>
+AssertionError: Expected 'rename_doc' to not have been called. Called 1 times.
+Calls: [call('DocType', 'Cash Flow', 'Cash Flow Worksheet', force=True)].
+
+FAILED (failures=1)

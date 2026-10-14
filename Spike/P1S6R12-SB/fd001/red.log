@@ -1,0 +1,68 @@
+✔ Journal Entry, status 1: replace original button and retain filters (1.8923ms)
+✔ Journal Entry, status 2: replace original button and retain filters (0.551ms)
+✔ Journal Entry, opening No, status 1: keep native handler (0.513ms)
+✔ Journal Entry, opening Yes, status 0: keep native handler (1.1278ms)
+✖ Payment Entry, status 1: replace original button and retain filters (1.3792ms)
+✖ Payment Entry, status 2: replace original button and retain filters (0.5874ms)
+✔ Payment Entry, opening No, status 1: keep native handler (0.484ms)
+✔ Payment Entry, opening Yes, status 0: keep native handler (0.4731ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 82.2694
+
+✖ failing tests:
+
+test at frappe_china\tests\test_opening_ledger.cjs:49:3
+✖ Payment Entry, status 1: replace original button and retain filters (1.3792ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'fa fa-table/会计凭证'
+  -   'null/会计凭证'
+    ]
+  
+      at TestContext.<anonymous> (D:\ERX-001\frappe-bench\apps\frappe_china\frappe_china\tests\test_opening_ledger.cjs:51:11)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1103:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:785:18)
+      at Test.postRun (node:internal/test_runner/test:1232:19)
+      at Test.run (node:internal/test_runner/test:1160:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:785:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'fa fa-table/会计凭证' ],
+    expected: [ 'null/会计凭证' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at frappe_china\tests\test_opening_ledger.cjs:49:3
+✖ Payment Entry, status 2: replace original button and retain filters (0.5874ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'fa fa-table/会计凭证'
+  -   'null/会计凭证'
+    ]
+  
+      at TestContext.<anonymous> (D:\ERX-001\frappe-bench\apps\frappe_china\frappe_china\tests\test_opening_ledger.cjs:51:11)
+      at Test.runInAsyncScope (node:async_hooks:214:14)
+      at Test.run (node:internal/test_runner/test:1103:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:785:18)
+      at Test.postRun (node:internal/test_runner/test:1232:19)
+      at Test.run (node:internal/test_runner/test:1160:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:785:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'fa fa-table/会计凭证' ],
+    expected: [ 'null/会计凭证' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

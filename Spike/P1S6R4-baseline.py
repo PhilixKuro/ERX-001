@@ -3,6 +3,7 @@ import ast
 import importlib.util
 import csv
 import json
+import os
 import re
 import subprocess
 from collections import defaultdict
@@ -244,6 +245,65 @@ def demo_surface(index, merged):
     return surface, scope, sorted(mentioned - scope), sorted(mentioned - base)
 
 
+SOURCE_SKIP = {"node_modules", "locale", "dist", ".git", "__pycache__", "assets", "www_build", "tests", "test"}
+SOURCE_SUFFIXES = (".py", ".js", ".vue", ".ts", ".tsx", ".jsx", ".html", ".json")
+
+
+def source_index(keys):
+    """R12 FD-009：六个上游 app 源码里各键的出处（`_()`／`__()` 字面量、json 的 label 与 Select 选项）。
+
+    main.pot 的 `#:` 不全：后装 app 的 main.pot 不重复收录前面 app 已有的 msgid（如 erpnext
+    工位看板的 `_("Master")`、hrms 的 `Expenses`），占用核查只靠它会漏判。只取 keys 里的键，不取 context。
+    """
+    keys = set(keys)
+    refs = defaultdict(set)
+    for app in APPS[:-1]:
+        base = ROOT / "apps" / app
+        paths = []
+        # os.walk 先剪目录：rglob 会走进 node_modules 里的断链（Windows 上直接抛 OSError）
+        for dirpath, dirnames, filenames in os.walk(base):
+            dirnames[:] = sorted(d for d in dirnames if d not in SOURCE_SKIP and not d.startswith("."))
+            paths.extend(Path(dirpath) / name for name in sorted(filenames)
+                         if name.endswith(SOURCE_SUFFIXES) and not name.startswith("test_"))
+        for path in paths:
+            rel = path.relative_to(base)
+            try:
+                text = path.read_text(encoding="utf-8-sig")
+            except (UnicodeDecodeError, OSError):
+                continue
+            # 与 main.pot `#:` 同一口径：相对 apps/<app>/（如 erpnext/manufacturing/…）
+            reference = rel.as_posix()
+            line = lambda offset: text.count("\n", 0, offset) + 1
+            if path.suffix == ".json":
+                for match in re.finditer(r'"label":\s*("(?:\\.|[^"\\])*")', text):
+                    value = json.loads(match.group(1))
+                    if value in keys:
+                        refs[value].add(f"{reference}:{line(match.start())}:label")
+                for match in re.finditer(r'"options":\s*("(?:\\.|[^"\\])*")', text):
+                    for option in json.loads(match.group(1)).split("\n"):
+                        if option.strip() in keys:
+                            refs[option.strip()].add(f"{reference}:{line(match.start())}:option")
+            else:
+                for match in CALL_LITERAL.finditer(text):
+                    try:
+                        value = ast.literal_eval(match.group(1))
+                    except (ValueError, SyntaxError):
+                        continue
+                    if value in keys:
+                        refs[value].add(f"{reference}:{line(match.start())}:call")
+    return refs
+
+
+def pot_refs():
+    """main.pot 里无 context 条目的 `#:` 出处文件（相对 apps/）。"""
+    files = defaultdict(set)
+    for app in APPS[:-1]:
+        for entry in parse_po(app_path(app) / "locale/main.pot"):
+            if not entry["context"]:
+                files[entry["id"]].update(ref.split(":")[0] for ref in entry["refs"])
+    return files
+
+
 def official_overrides():
     official = {}
     for app in APPS[:-1]:
@@ -251,7 +311,17 @@ def official_overrides():
             if entry["str"]:
                 official[entry_key(entry)] = {"official": entry["str"], "app": app}
     ours = parse_csv(app_path("frappe_china") / "translations/zh.csv")
-    return [{"key": key, **official[key], "ours": ours[key]} for key in sorted(ours.keys() & official.keys())]
+    keys = sorted(ours.keys() & official.keys())
+    # 只对无 context 键建出处索引：带 context 的行只作用于该 context，不波及他处
+    sources, pot = source_index(key for key in keys if ":" not in key), pot_refs()
+    rows = []
+    for key in keys:
+        row = {"key": key, **official[key], "ours": ours[key]}
+        if ":" not in key:
+            row["source_refs"] = sorted(sources.get(key, ()))
+            row["hidden_refs"] = [ref for ref in row["source_refs"] if ref.split(":")[0] not in pot.get(key, ())]
+        rows.append(row)
+    return rows
 
 
 def commits(allow_unlocked: bool) -> dict:
