@@ -9,14 +9,15 @@
 | 任务 | 对应切片 | 落地位置（文件:行） | 结果 | 完成时间 | 说明 |
 |---|---|---|---|---|---|
 | TS-001 Ruff 基线清零 | SL-001 | app `pyproject.toml:20,41`、63 个 Python 文件（详见差异复核）、主仓库 `docker/scripts/setup.sh:377`、`docs/开发守则.md:237` | ✅完成 | 2026-10-15 | HT-001 go；Ruff 两门为 0；Python 改前／改后均 283/283，Node 均 86/86；用户许可后独立提交并推送 `39b2cec`，stat 范围已核 |
-| TS-002 模块骨架与字段框架 | SL-001 | — | ⬜未开始 | — | TS-001 提交关口已通过，为下一任务 |
-| TS-003 覆盖自检与顺序比对 | SL-002 | — | ⬜未开始 | — | — |
-| TS-004 补货参数与提前期同步 | SL-003 | — | ⬜未开始 | — | — |
-| TS-005 选 BOM 共用函数 | SL-004 | — | ⬜未开始 | — | — |
-| TS-006 选 BOM 三处接入 | SL-004 | — | ⬜未开始 | — | — |
-| TS-007 安全库存与再订货点 | SL-003 | — | ⬜未开始 | — | — |
+| TS-002 | SL-001 | modules.txt, module directories, empty workspace sidebars, custom_field fixtures, replenishment/types.py | DONE | 2026-10-15 | module definitions and sidebars verified on test.localhost; 22 custom fields synchronized; Ruff checks pass |
+| TS-003 | SL-002 | install.py, hooks.py, test_after_migrate.py, check_business_order.py, setup.sh | DONE | 2026-10-15 | override coverage, order checks, migration failure reporting, targeted tests and order script verified |
+| TS-004 补货参数与提前期同步 | SL-003 | `replenishment/params.py`, `replenishment/lead_time.py`, `hooks.py`, `docker/scripts/configure_apps.py`, `tests/test_replenishment_params.py` | DONE | 2026-10-15 | item values override company defaults; service level defaults to 95; existing Item Lead Time purchase_time sync preserves buffer_time; Stock Settings.auto_indent explicitly set to 0; Ruff and 3 targeted tests pass; first configure run changed 1 to 0, second reported no changes and DB value is 0 |
+| TS-005/006 验证 | SL-004 | `bench --site test.localhost run-tests --app frappe_china --module frappe_china.tests.test_bom_selection`；Ruff 定向检查 | TS-005、TS-006 完成 | 2026-10-15 | 8/8 测试通过；Ruff check、format check、`node --check` 与 `git diff --check` 通过；test.localhost 真实验收覆盖 Work Order 自动切换、人工 BOM 保留、Production Plan 保存、Sales Order `make_work_orders` 四条路径 |
+| TS-005 选 BOM 共用函数 | SL-004 | `production/bom_selection.py`、`tests/test_bom_selection.py` | ✅完成 | 2026-10-15 | 单位成本计算、原生默认 BOM 并列规则、损耗率≥100、数量为 0、无有效 BOM 均已覆盖；不写回 BOM 数据；8/8 定向测试通过；Ruff check/format 通过 |
+| TS-006 选 BOM 三处接入 | SL-004 | `production/bom_selection.py`、`hooks.py`、`public/js/work_order.js`、`tests/test_bom_selection.py` | ✅完成 | 2026-10-15 | Work Order 新建自动选择并刷新工序/原料；人工 BOM 保留并写评论；Production Plan `validate` 仅替换原生默认 BOM；Sales Order `make_work_orders` 实测生成已选低成本 BOM；前端显示推荐提示；8/8 定向测试通过 |
+| TS-007 需求取样、安全库存与再订货点 | SL-003 | `replenishment/demand.py`、`replenishment/safety_stock.py`、`replenishment/reorder_level.py`、`tests/test_replenishment_levels.py` | 进行中 | 2026-10-15 | 已完成 90 天需求窗口、白名单出库过滤、样本标准差、安全库存与现有 Item Reorder 行回写；7/7 定向测试通过；test.localhost 事务内造两仓库不同出库量，实测再订货点 `1.834172917` 与 `1.856395139` 不相等；仍待补边界证据与回执收尾 |
 | TS-008 补货建议单与三规则 | SL-005 | — | ⬜未开始 | — | — |
-| TS-009 每日计算与采纳 | SL-005 | — | ⬜未开始 | — | — |
+| TS-009 每日计算与采购 | SL-005 | — | ⬜未开始 | — | — |
 
 ## 全量验证
 
@@ -35,6 +36,7 @@
 |---|---|---|---|
 | TS-001 | `env/bin/ruff --version`；两条 ruff 命令输出；提交后 `git show --stat HEAD`；两次全量测试对比 | 容器内 pip 实装 0.14.10 后 `bench setup requirements --python`；app 内 `../../env/bin/ruff check frappe_china`、`../../env/bin/ruff format --check frappe_china`；bench 根目录两次 `bench --site test.localhost run-tests --app frappe_china`；app 内两次 `node --test frappe_china/tests/*.cjs`；独立提交后 `git show --stat HEAD` | 全通过；版本 0.14.10；Python 283→283、Node 86→86；两项 Ruff 检查退出 0；提交 `39b2cec` 仅 63 个 `.py` 与 `pyproject.toml`（2445 行增加、968 行删除） |
 | TS-001 | `setup.sh` 安装版本读 `pyproject.toml` | `bash -n` 检查；从脚本摘出原样 6.1 段在当前 bench 运行 | 两项退出 0；输出 `Requirement already satisfied: ruff==0.14.10` 与 `ruff 0.14.10 已安装`；未运行完整 setup/up |
+| TS-004 | parameter fallback, lead-time sync, and auto_indent | targeted test module plus two configure_apps.py runs on test.localhost; tabSingles query | DONE | 2026-10-15 | 3/3 tests pass; first run changed Stock Settings.auto_indent from 1 to 0, second reported no changes; DB value 0; lead-time sync test passes |
 
 ## 偏离与暂停
 
@@ -62,12 +64,12 @@
 | 项 | 为什么没做 |
 |---|---|
 | tag | 本步打tag=否，未创建 |
-| TS-002～009 | 尚未开工；TS-001 独立提交关口已通过，从 TS-002 续跑 |
+| TS-007～009 | TS-007 进行中；TS-005、TS-006 已完成 |
 | Part2／3 的 TS-010～017 | 尚未开工，不建完成回执；仍按方案顺序执行 |
 
 ## 状态值
 
-**D 步进行中，尚无出口状态值。** TS-001 已完成独立提交、推送及提交范围复核；TS-002 尚未开始。下一次从本表 TS-002（模块骨架与字段框架）续，不重跑已完成的基线验证。后续功能改动依总纲纪律 9 只写不提交，D 步收尾再报用户裁决；整个 D 步尚未满足「代码已落地」。
+D step ongoing; TS-001 committed and pushed; TS-002/003/004/005/006 completed; TS-007 implementation is in progress with 7 targeted tests; functional changes remain uncommitted pending D-step closeout.
 
 ## 复核建议
 

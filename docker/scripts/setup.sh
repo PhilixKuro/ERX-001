@@ -394,6 +394,7 @@ fi
 if bench --site "$SITE_NAME" list-apps 2>/dev/null | awk '{print $1}' | grep -qx "frappe_china"; then
   log "将 frappe_china 归位到业务 app 之后"
   bench --site "$SITE_NAME" execute frappe_china.install.reorder_installed_apps
+  "$BENCH_DIR/env/bin/python" "$WS/docker/scripts/check_business_order.py" "$APPS_JSON" "$BENCH_DIR/apps/frappe_china/frappe_china/install.py"
   ok "归位完成"
 else
   ok "frappe_china 未安装，跳过归位"
