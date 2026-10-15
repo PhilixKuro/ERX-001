@@ -374,6 +374,22 @@ while IFS= read -r d; do
   fi
 done < <(find apps -mindepth 1 -maxdepth 1 -type d -print)
 
+# ---------- 6.1 Python 开发工具 ----------
+# 版本只在自有 app 的 pyproject.toml 维护，与 pre-commit 的 Ruff 版本保持一致。
+if [ -f "$BENCH_DIR/apps/frappe_china/pyproject.toml" ]; then
+  log "安装 frappe_china 锁定的 Ruff"
+  ruff_requirement=$("$BENCH_DIR/env/bin/python" - <<'PY'
+import tomllib
+from pathlib import Path
+
+config = tomllib.loads(Path("apps/frappe_china/pyproject.toml").read_text(encoding="utf-8"))
+print("ruff" + config["tool"]["bench"]["dev-dependencies"]["ruff"])
+PY
+  )
+  PIP_PROXY="${PIP_PROXY:-${GIT_PROXY:-}}" "$BENCH_DIR/env/bin/pip" install "$ruff_requirement"
+  ok "$("$BENCH_DIR/env/bin/ruff" --version) 已安装"
+fi
+
 # ---------- 6.2 归位 frappe_china ----------
 if bench --site "$SITE_NAME" list-apps 2>/dev/null | awk '{print $1}' | grep -qx "frappe_china"; then
   log "将 frappe_china 归位到业务 app 之后"
