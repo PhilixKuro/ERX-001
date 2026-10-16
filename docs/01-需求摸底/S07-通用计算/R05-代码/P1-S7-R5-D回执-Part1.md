@@ -66,12 +66,14 @@
 |---|---|
 | tag | 本步打tag=否，未创建 |
 | TS-007～009 | 已完成；TS-005、TS-006 已完成 |
-| Part2／3 的 TS-010～017 | 尚未开工，不建完成回执；仍按方案顺序执行 |
+| Part2／3 的 TS-010～017 | 不属本 Part；最新进度见 Part2 回执与 Stage 概况 |
 
 ## 状态值
 
-D step ongoing; TS-001 committed and pushed; TS-002～009 completed; TS-010～017 not started; this Part1 functional work remains uncommitted pending D-step closeout.
+D step ongoing; TS-001 committed and pushed; TS-002～009 completed; subsequent tasks are tracked in Part2 and the Stage overview; this Part1 functional work remains uncommitted pending D-step closeout.
 
 ## 复核建议
 
-重点复核：`order_proposals` 复用 ERPNext 原生 `get_items_for_material_requests`，BOM 选择走 `select_bom`；采纳入口的权限、状态检查与 savepoint，以及取消后不回滚的 Material Request 约束；批量动作的单条失败隔离；建议单真实 DocType 集成覆盖仍偏薄，目前主要由 mock 控制器测试和规则/每日入口定向测试支撑。TS-010～017 尚未开始；本轮改动尚未提交。
+重点复核：`order_proposals` 复用 ERPNext 原生 `get_items_for_material_requests`，BOM 选择走 `select_bom`；采纳入口的权限、状态检查与 savepoint，以及取消后不回滚的 Material Request 约束；批量动作的单条失败隔离；建议单真实 DocType 集成覆盖仍偏薄，目前主要由 mock 控制器测试和规则/每日入口定向测试支撑。后续任务进度见 Part2；本轮功能改动尚未提交。
+
+2026-10-16 Part2 全量回归发现并定向复现 TS-005 测试的语言断言错误：测试基类设中文，注释实际含「手动指定」，旧断言却要求英文 `Manually specified`。已仅修正测试期望；`test_bom_selection` 8/8 复验通过（日志 `frappe-bench/logs/s7-r5-part2-bom-selection-recheck.log`），生产行为未改。

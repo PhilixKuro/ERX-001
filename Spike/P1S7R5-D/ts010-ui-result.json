@@ -1,0 +1,122 @@
+{
+ "itemCode": "_FCT_TS010_UI_1792093438392",
+ "batchA": "_FCT-TS010-A-1792093438392",
+ "batchB": "_FCT-TS010-B-1792093438392",
+ "created": {
+  "item": "_FCT_TS010_UI_1792093438392",
+  "batch_a": "_FCT-TS010-A-1792093438392",
+  "batch_b": "_FCT-TS010-B-1792093438392",
+  "itemProbe": {
+   "ok": true,
+   "value": {
+    "stock_uom": "Kg",
+    "weight_uom": "Kg",
+    "cn_unit_length_m": 0.5
+   },
+   "response": {
+    "message": {
+     "stock_uom": "Kg",
+     "weight_uom": "Kg",
+     "cn_unit_length_m": 0.5
+    }
+   }
+  },
+  "batchProbe": {
+   "ok": true,
+   "value": {
+    "item": "_FCT_TS010_UI_1792093438392",
+    "cn_linear_density": 0.01
+   },
+   "response": {
+    "message": {
+     "item": "_FCT_TS010_UI_1792093438392",
+     "cn_linear_density": 0.01
+    }
+   }
+  },
+  "factorProbe": {
+   "ok": true,
+   "value": {
+    "conversion_factor": 0.005,
+    "source": "batch"
+   },
+   "response": {
+    "message": {
+     "conversion_factor": 0.005,
+     "source": "batch"
+    }
+   }
+  }
+ },
+ "before": [
+  {
+   "conversion_factor": 0.004,
+   "stock_qty": 0
+  },
+  {
+   "conversion_factor": 0.004,
+   "stock_qty": 0
+  }
+ ],
+ "after": [
+  {
+   "batch_no": "_FCT-TS010-A-1792093438392",
+   "conversion_factor": 0.005,
+   "stock_qty": 0.05
+  },
+  {
+   "batch_no": "_FCT-TS010-B-1792093438392",
+   "conversion_factor": 0.006,
+   "stock_qty": 0.06
+  }
+ ],
+ "handlers": {
+  "batch": 2,
+  "uom": 1,
+  "batch_source": [
+   "(...args) => {\n        try {\n          return handler2(...args);\n        } catch (error) {\n          console.error(handler2);\n          throw error;\n        }\n      }",
+   "(...args) => {\n        try {\n          return handler2(...args);\n        } catch (error) {\n          console.error(handler2);\n          throw error;\n        }\n      }"
+  ],
+  "loaded": [],
+  "item_count": 2
+ },
+ "batchAPI": [
+  {
+   "conversion_factor": 0.005,
+   "source": "batch"
+  },
+  {
+   "conversion_factor": 0.006,
+   "source": "batch"
+  }
+ ],
+ "factorFetch": {
+  "status": 200,
+  "text": "{\"message\":{\"conversion_factor\":0.005,\"source\":\"batch\"}}"
+ },
+ "switched": [
+  {
+   "batch_no": "_FCT-TS010-B-1792093438392",
+   "conversion_factor": 0.006,
+   "stock_qty": 0.06
+  },
+  {
+   "batch_no": "_FCT-TS010-A-1792093438392",
+   "conversion_factor": 0.005,
+   "stock_qty": 0.05
+  }
+ ],
+ "final": [
+  {
+   "batch_no": "_FCT-TS010-A-1792093438392",
+   "conversion_factor": 0.005,
+   "stock_qty": 0.05
+  },
+  {
+   "batch_no": "_FCT-TS010-B-1792093438392",
+   "conversion_factor": 0.006,
+   "stock_qty": 0.06
+  }
+ ],
+ "deleted_item": true
+}
