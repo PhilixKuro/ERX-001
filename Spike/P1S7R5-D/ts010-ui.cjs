@@ -16,6 +16,9 @@ async function main() {
 	const browser = await open(BASE);
 	const report = { itemCode, batchA, batchB, created: {}, before: null, after: null };
 	try {
+		// 写之前先确认连的是测试站：8000 只服务演示站（R7 F FD-013）
+		const site = await browser.evaluate('frappe.boot.sitename');
+		if (site !== 'test.localhost') throw new Error(`refusing to write: connected to ${site}`);
 		const created = await browser.evaluate(`(async () => {
 			const insert = async (doc) => {
 				return await new Promise(resolve => frappe.call({ method: 'frappe.client.insert', args: { doc },

@@ -1,0 +1,7 @@
+module_defs [{'name': 'Production Plus', 'app_name': 'frappe_china'}, {'name': 'Stock Plus', 'app_name': 'frappe_china'}]
+sidebars [('Stock Plus', 0), ('Production Plus', 0)]
+stored_wg ((0, 'Stores - _TC'),)
+reorder_rows_hit ['_FCT F1 WG 64905']
+order_props [('Material Transfer', 6.0)]
+upsert_fail ValidationError  物料需求类型不能为“Material Transfer”。只能是“采购", "调拨", "其他出库", "工单入库”其中一个
+rolled back; leftover items 0

@@ -1,0 +1,10 @@
+A_patched_in_bench_execute erpnext.manufacturing.doctype.work_order.work_order
+B0_before [[250.0, [2000.0], 40.0], [250.0, [2000.0], 40.0], [250.0, [2000.0], 40.0], [250.0, [2000.0], 40.0]]
+B1_after_700 [[250.0, [2000.0], 40.0], [250.0, [2000.0], 40.0], [200.0, [1600.0], 32.0], [0.0, [0.0], 0.0]]
+B2_after_cancel [[250.0, [2000.0], 40.0], [250.0, [2000.0], 40.0], [200.0, [1600.0], 32.0], [300.0, [0.0], 48.0]]
+C_rows_after_600_partial_card [[600.0, 400.0, 'Completed'], [0.0, 0.0, 'Pending'], [0.0, 0.0, 'Pending']]
+C_first_card_loss 0.0
+C_second_card_qty 1000.0
+D_db_qty_after_cascade 950.0
+D_stale_save saved
+D_db_qty_after_stale_save [1000.0, 40000.0]

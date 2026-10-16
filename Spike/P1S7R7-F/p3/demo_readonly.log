@@ -1,0 +1,125 @@
+{
+ "order": [
+  "frappe",
+  "erpnext",
+  "crm",
+  "hrms",
+  "insights",
+  "raven",
+  "frappe_china"
+ ],
+ "auto_indent": [
+  [
+   "0"
+  ]
+ ],
+ "piece_component": [
+  [
+   "计件工资"
+  ]
+ ],
+ "modules": [
+  [
+   "Production Plus",
+   "frappe_china"
+  ],
+  [
+   "Stock Plus",
+   "frappe_china"
+  ]
+ ],
+ "reports": [
+  {
+   "name": "Capacity Load",
+   "module": "Production Plus",
+   "modified": "2026-10-16 16:30:00",
+   "prepared_report": 0,
+   "disabled": 0
+  },
+  {
+   "name": "SPC Control Chart",
+   "module": "Production Plus",
+   "modified": "2026-10-16 16:40:00",
+   "prepared_report": 0,
+   "disabled": 0
+  }
+ ],
+ "report_roles": [
+  [
+   "Capacity Load",
+   "Manufacturing Manager"
+  ],
+  [
+   "Capacity Load",
+   "Manufacturing User"
+  ],
+  [
+   "Capacity Load",
+   "System Manager"
+  ],
+  [
+   "SPC Control Chart",
+   "Quality Manager"
+  ],
+  [
+   "SPC Control Chart",
+   "System Manager"
+  ]
+ ],
+ "page": [
+  {
+   "name": "spc-chart",
+   "module": "Production Plus",
+   "modified": "2026-10-16 16:40:00"
+  }
+ ],
+ "page_roles": [
+  [
+   "Quality Manager"
+  ],
+  [
+   "System Manager"
+  ]
+ ],
+ "sidebars": [
+  [
+   "Production Plus",
+   0
+  ],
+  [
+   "Stock Plus",
+   0
+  ]
+ ],
+ "translation": [
+  [
+   0
+  ]
+ ],
+ "error_log_total": [
+  [
+   12
+  ]
+ ],
+ "error_logs_new_since_D_after": [],
+ "notification_selfcheck": [],
+ "scheduler_disabled": true,
+ "GL Entry": 0,
+ "Stock Ledger Entry": 0,
+ "Customer": 0,
+ "Supplier": 0,
+ "Item": 0,
+ "Sales Invoice": 0,
+ "Purchase Invoice": 0,
+ "Journal Entry": 0,
+ "Payment Entry": 0,
+ "Stock Entry": 0,
+ "Work Order": 0,
+ "Job Card": 0,
+ "Material Request": 0,
+ "Quality Inspection": 0,
+ "Workstation": 0,
+ "Replenishment Suggestion": 0,
+ "Piece Rate Summary": 0,
+ "Additional Salary": 0
+}

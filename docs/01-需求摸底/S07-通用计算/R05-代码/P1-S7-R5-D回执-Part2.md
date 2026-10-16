@@ -81,3 +81,7 @@ Part1 的旧测试在中文上下文断言英文 `Manually specified`，首轮�
 - **与方案的偏离**：SL-008 ⑤ 的入库输入由 `950/50` 改为工单数量 `1000/50`；`sync_operation_loss` 是方案外新增，均经用户裁决（D 讨论记录第 4～7 步）。
 - **演示站**：改动只涉及 Python，没有 schema 变化，不需要 migrate。演示站运行中的 worker 要重启 `bench start` 才会加载新代码，本次没有重启。
 - TS-013 的单价映射沿用 TS-011 同 BOM、同工序第 k 次出现的对应规则；重点对照 `piece_rate._rate`。员工失败按 savepoint 回滚，批量入口核心不 commit；列表白名单入口检查角色后提交。取消实测经原生回链检查通过，未加 `ignore_links`。
+
+## 更正（P1-S7-R7 F 审核 FD-013，2026-10-17 补记）
+
+上方验证表 TS-010 行「浏览器临时数据、6787 服务及 hosts 标记已清」不完整：`ts010-ui.cjs` 的首版连的是 `test.localhost:8000`，而 8000 只服务演示站，故在 `erx.localhost` 建过物料 `_FCT_TS010_UI_1792088513074` 与两个批次，并留下 45 条请求失败的 Error Log。这些在 [Part3 回执](P1-S7-R5-D回执-Part3.md) TS-017 收尾时才清掉。演示站现已干净（R7 F 片 3 只读核实）。`ts010-ui.cjs` 已补「写之前断言 `frappe.boot.sitename`」。
