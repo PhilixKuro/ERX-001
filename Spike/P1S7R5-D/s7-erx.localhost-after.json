@@ -1,0 +1,116 @@
+{
+ "site": "erx.localhost",
+ "companies": [
+  "华东弹簧有限公司"
+ ],
+ "items": [],
+ "accounts": 266,
+ "counts": {
+  "GL Entry": 0,
+  "Stock Ledger Entry": 0,
+  "Customer": 0,
+  "Supplier": 0,
+  "Item": 0,
+  "Sales Invoice": 0,
+  "Purchase Invoice": 0,
+  "Sales Order": 0,
+  "Purchase Order": 0,
+  "Delivery Note": 0,
+  "Purchase Receipt": 0,
+  "Stock Entry": 0,
+  "Journal Entry": 0,
+  "Payment Entry": 0,
+  "Work Order": 0,
+  "Job Card": 0,
+  "Replenishment Suggestion": 0,
+  "Piece Rate Summary": 0,
+  "Translation": 0
+ },
+ "app_order": {
+  "ok": true,
+  "order": [
+   "frappe",
+   "erpnext",
+   "crm",
+   "hrms",
+   "insights",
+   "raven",
+   "frappe_china"
+  ],
+  "order_ok": true,
+  "overrides": {
+   "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_charts_for_country": "frappe_china.accounting.chart.get_charts_for_country",
+   "erpnext.accounts.doctype.account.chart_of_accounts.chart_of_accounts.get_chart": "frappe_china.accounting.chart.get_chart",
+   "erpnext.accounts.utils.get_coa": "frappe_china.accounting.chart.get_coa",
+   "crm.fcrm.doctype.crm_fields_layout.crm_fields_layout.get_sidepanel_sections": "frappe_china.crm_sidepanel.get_sidepanel_sections"
+  },
+  "overrides_ok": true,
+  "translation": {
+   "source": "Formula",
+   "expected": "计算方式",
+   "actual": "计算方式",
+   "competitors": {
+    "hrms": "公式"
+   }
+  },
+  "translation_ok": true,
+  "company_checks_ok": true,
+  "problems": []
+ },
+ "auto_indent": 0,
+ "salary_component": "计件工资",
+ "sidebars": {
+  "Stock Plus": 0,
+  "Production Plus": 0
+ },
+ "error_logs": [
+  {
+   "name": "6au0k6mf8k",
+   "method": "<details><summary>您无权访问此资源。请登录后访问</summary>方法 <strong>frappe.auth.get_logged_user</strong> 申明前未添加@frappe.whitelist()装饰器</details>"
+  },
+  {
+   "name": "6aua0virvt",
+   "method": "'<strong>1002 - 银行存款 - HDTH</strong>' 科目已被 <strong></strong>"
+  },
+  {
+   "name": "6au5idp49d",
+   "method": "<details><summary>您无权访问此资源。请登录后访问</summary>方法 <strong>frappe.auth.get_logged_user</strong> 申明前未添加@frappe.whitelist()装饰器</details>"
+  },
+  {
+   "name": "6auiil6uhl",
+   "method": "<details><summary>您无权访问此资源。请登录后访问</summary>方法 <strong>frappe.auth.get_logged_user</strong> 申明前未添加@frappe.whitelist()装饰器</details>"
+  },
+  {
+   "name": "6aubn3cne7",
+   "method": "<details><summary>您无权访问此资源。请登录后访问</summary>方法 <strong>frappe.client.get_count</strong> 申明前未添加@frappe.whitelist()装饰器</details>"
+  },
+  {
+   "name": "6aub3pge82",
+   "method": "<details><summary>您无权访问此资源。请登录后访问</summary>方法 <strong>frappe.client.get_count</strong> 申明前未添加@frappe.whitelist()装饰器</details>"
+  },
+  {
+   "name": "6auhpnoon4",
+   "method": "<details><summary>您无权访问此资源。请登录后访问</summary>方法 <strong>frappe.client.get_count</strong> 申明前未添加@frappe.whitelist()装饰器</details>"
+  },
+  {
+   "name": "6au2lmsu6u",
+   "method": "<details><summary>您无权访问此资源。请登录后访问</summary>方法 <strong>frappe.client.get_count</strong> 申明前未添加@frappe.whitelist()装饰器</details>"
+  },
+  {
+   "name": "3mngud5ljm",
+   "method": "Report execution failed for: 小企业现金流量表"
+  },
+  {
+   "name": "83q73bqn4d",
+   "method": "Report execution failed for: 小企业现金流量表"
+  },
+  {
+   "name": "dddp5d67vv",
+   "method": "Report execution failed for: 小企业现金流量表"
+  },
+  {
+   "name": "qpc3gpjevo",
+   "method": "Report execution failed for: 小企业现金流量表"
+  }
+ ]
+}

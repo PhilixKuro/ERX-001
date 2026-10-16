@@ -1,0 +1,899 @@
+[
+ {
+  "name": "h33r87027i",
+  "creation": "2026-10-16 16:29:36.365138",
+  "method": "<details><summary>您无权访问此资源。请登录后访问</summary>方法 <strong>frappe.auth.get_logged_user</strong> 申明前未添加@frappe.whitelist()装饰器</details>",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.auth.get_logged_user"
+   },
+   "method": "GET",
+   "path": "/api/method/frappe.auth.get_logged_user",
+   "referrer": null,
+   "type": "http_request",
+   "user": "Guest"
+  },
+  "trace_sha256": "61c481786613f684e427b61bf3b65192fcdc68dc432a1e424f4bc3a5b88c2b52"
+ },
+ {
+  "name": "h330n1u0eg",
+  "creation": "2026-10-16 16:29:36.392142",
+  "method": "CRM线索 CRM-LEAD-2026-00001未找到",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.get_doc_permissions",
+    "docname": "CRM-LEAD-2026-00001",
+    "doctype": "CRM Lead"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.get_doc_permissions",
+   "referrer": "http://localhost:8000/crm/leads/CRM-LEAD-2026-00001",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "8d3faf75c2cbfb9261d56f13efe337f46a90851f948358f5858c6d582d99065a"
+ },
+ {
+  "name": "h34iusa2bt",
+  "creation": "2026-10-16 16:29:36.415807",
+  "method": "CRM线索 CRM-LEAD-2026-00001未找到",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.get",
+    "doctype": "CRM Lead",
+    "name": "CRM-LEAD-2026-00001"
+   },
+   "method": "GET",
+   "path": "/api/method/frappe.client.get",
+   "referrer": "http://localhost:8000/crm/leads/CRM-LEAD-2026-00001",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "0c063941cb4ec5a24ae00c2d6db4b1252714c2d0ea48cda8d05abfc35d3d344d"
+ },
+ {
+  "name": "h3439c9q3v",
+  "creation": "2026-10-16 16:29:36.438043",
+  "method": "CRM线索 CRM-LEAD-2026-00001未找到",
+  "metadata": {
+   "form_dict": {
+    "cmd": "crm.api.doc.add_seen",
+    "doctype": "CRM Lead",
+    "name": "CRM-LEAD-2026-00001"
+   },
+   "method": "POST",
+   "path": "/api/method/crm.api.doc.add_seen",
+   "referrer": "http://localhost:8000/crm/leads/CRM-LEAD-2026-00001",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "e6da51eb9109ad09f092b655aa43e5059ed7fd42a6018b754e322bcd90e027bc"
+ },
+ {
+  "name": "h346rkhh2e",
+  "creation": "2026-10-16 16:29:36.465121",
+  "method": "该月没有已提交的现金流量底稿",
+  "metadata": {
+   "form_dict": {
+    "are_default_filters": "true",
+    "cmd": "frappe.desk.query_report.run",
+    "filters": "{\"company\":\"华东弹簧有限公司\",\"fiscal_year\":\"2026\",\"month\":\"10\",\"period_type\":\"Monthly\"}",
+    "ignore_prepared_report": "false",
+    "js_filters": "[{\"fieldname\":\"company\",\"fieldtype\":\"Link\",\"options\":\"Company\"},{\"fieldname\":\"fiscal_year\",\"fieldtype\":\"Link\",\"options\":\"Fiscal Year\"}]",
+    "report_name": "小企业现金流量表"
+   },
+   "method": "GET",
+   "path": "/api/method/frappe.desk.query_report.run",
+   "referrer": "http://localhost:8000/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "e51deb95fd42cfa27349952f7962d5220372322e2b57bb6323a8c740da7f7727"
+ },
+ {
+  "name": "h34ol8u5ee",
+  "creation": "2026-10-16 16:29:36.494241",
+  "method": "找不到供应商: _S6R6 验收供应商, 公司: _Test Company, 行 #1: 验收仓库: Stores - _TC, 行 #2: 验收仓库: Stores - _TC",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.insert",
+    "doc": "{\"doctype\":\"Purchase Receipt\",\"company\":\"_Test Company\",\"supplier\":\"_S6R6 验收供应商\",\"posting_date\":\"2026-10-15\",\"currency\":\"INR\",\"items\":[{\"item_code\":\"_FCT_TS010_UI_1792088513074\",\"item_name\":\"_FCT_TS010_UI_1792088513074\",\"qty\":10,\"uom\":\"Nos\",\"stock_uom\":\"Kg\",\"conversion_factor\":99,\"warehouse\":\"Stores - _TC\",\"batch_no\":\"_FCT-TS010-A-1792088513074\",\"rate\":1,\"amount\":10},{\"item_code\":\"_FCT_TS010_UI_1792088513074\",\"item_name\":\"_FCT_TS010_UI_1792088513074\",\"qty\":10,\"uom\":\"Nos\",\"stock_uom\":\"Kg\",\"conversion_factor\":99,\"warehouse\":\"Stores - _TC\",\"batch_no\":\"_FCT-TS010-B-1792088513074\",\"rate\":1,\"amount\":10}]}"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.insert",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "11711859f2dbd80ea4e3b37b25fb406709968d503019809d80e462a559b4decf"
+ },
+ {
+  "name": "h35v7t9gkm",
+  "creation": "2026-10-16 16:29:36.518561",
+  "method": "找不到供应商: _S6R6 验收供应商, 公司: _Test Company, 行 #1: 验收仓库: Stores - _TC, 行 #2: 验收仓库: Stores - _TC",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.insert",
+    "doc": "{\"doctype\":\"Purchase Receipt\",\"company\":\"_Test Company\",\"supplier\":\"_S6R6 验收供应商\",\"posting_date\":\"2026-10-15\",\"currency\":\"INR\",\"items\":[{\"item_code\":\"_FCT_TS010_UI_1792088819292\",\"item_name\":\"_FCT_TS010_UI_1792088819292\",\"qty\":10,\"uom\":\"Nos\",\"stock_uom\":\"Kg\",\"conversion_factor\":99,\"warehouse\":\"Stores - _TC\",\"batch_no\":\"_FCT-TS010-A-1792088819292\",\"rate\":1,\"amount\":10},{\"item_code\":\"_FCT_TS010_UI_1792088819292\",\"item_name\":\"_FCT_TS010_UI_1792088819292\",\"qty\":10,\"uom\":\"Nos\",\"stock_uom\":\"Kg\",\"conversion_factor\":99,\"warehouse\":\"Stores - _TC\",\"batch_no\":\"_FCT-TS010-B-1792088819292\",\"rate\":1,\"amount\":10}]}"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.insert",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "31da57a50bfd158c536a7dc79f50572639a4a6d0f70b6b177b34c7d40b81ab90"
+ },
+ {
+  "name": "h35gtn4tis",
+  "creation": "2026-10-16 16:29:36.544347",
+  "method": "找不到供应商: _S6R6 验收供应商, 公司: _Test Company, 行 #1: 验收仓库: Stores - _TC, 行 #2: 验收仓库: Stores - _TC",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.insert",
+    "doc": "{\"doctype\":\"Purchase Receipt\",\"company\":\"_Test Company\",\"supplier\":\"_S6R6 验收供应商\",\"posting_date\":\"2026-10-15\",\"currency\":\"INR\",\"items\":[{\"item_code\":\"_FCT_TS010_UI_1792088912670\",\"item_name\":\"_FCT_TS010_UI_1792088912670\",\"qty\":10,\"uom\":\"Nos\",\"stock_uom\":\"Kg\",\"conversion_factor\":99,\"warehouse\":\"Stores - _TC\",\"batch_no\":\"_FCT-TS010-A-1792088912670\",\"rate\":1,\"amount\":10},{\"item_code\":\"_FCT_TS010_UI_1792088912670\",\"item_name\":\"_FCT_TS010_UI_1792088912670\",\"qty\":10,\"uom\":\"Nos\",\"stock_uom\":\"Kg\",\"conversion_factor\":99,\"warehouse\":\"Stores - _TC\",\"batch_no\":\"_FCT-TS010-B-1792088912670\",\"rate\":1,\"amount\":10}]}"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.insert",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "71195890aa6ed1ab44daa5bc41cec59efad5db459b13049f216116b2d2550c4b"
+ },
+ {
+  "name": "h3513gmgg6",
+  "creation": "2026-10-16 16:29:36.570718",
+  "method": "找不到供应商: _S6R6 验收供应商, 公司: _S6R6 测试公司, 行 #1: 验收仓库: _S6R6 验收原料 - S6R, 行 #2: 验收仓库: _S6R6 验收原料 - S6R",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.insert",
+    "doc": "{\"doctype\":\"Purchase Receipt\",\"company\":\"_S6R6 测试公司\",\"supplier\":\"_S6R6 验收供应商\",\"posting_date\":\"2026-10-16\",\"currency\":\"CNY\",\"items\":[{\"item_code\":\"_FCT_TS010_UI_1792089099755\",\"item_name\":\"_FCT_TS010_UI_1792089099755\",\"qty\":10,\"uom\":\"Nos\",\"stock_uom\":\"Kg\",\"conversion_factor\":99,\"warehouse\":\"_S6R6 验收原料 - S6R\",\"batch_no\":\"_FCT-TS010-A-1792089099755\",\"rate\":1,\"amount\":10},{\"item_code\":\"_FCT_TS010_UI_1792089099755\",\"item_name\":\"_FCT_TS010_UI_1792089099755\",\"qty\":10,\"uom\":\"Nos\",\"stock_uom\":\"Kg\",\"conversion_factor\":99,\"warehouse\":\"_S6R6 验收原料 - S6R\",\"batch_no\":\"_FCT-TS010-B-1792089099755\",\"rate\":1,\"amount\":10}]}"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.insert",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "ff611c79097429d1e9ac46afe2b5a8477a0ca791ff6442137569b085f0dd85dc"
+ },
+ {
+  "name": "h355tejln5",
+  "creation": "2026-10-16 16:29:36.596611",
+  "method": "供应商 _S6R6 验收供应商未找到",
+  "metadata": {
+   "form_dict": {
+    "cmd": "erpnext.accounts.party.get_party_details",
+    "company": "_S6R6 测试公司",
+    "currency": "CNY",
+    "doctype": "Purchase Receipt",
+    "fetch_payment_terms_template": "1",
+    "party": "_S6R6 验收供应商",
+    "party_type": "Supplier",
+    "posting_date": "2026-10-16",
+    "price_list": "Standard Buying"
+   },
+   "method": "POST",
+   "path": "/api/method/erpnext.accounts.party.get_party_details",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-loffyhgojr",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "5c3978249dfd1a6f1da0cb57c221165b6561a5a3c0e2d5bff8cb12049693b7b0"
+ },
+ {
+  "name": "h36gso3cfe",
+  "creation": "2026-10-16 16:29:36.621034",
+  "method": "get_batch_based_item_price() missing 1 required positional argument: 'item_code'",
+  "metadata": {
+   "form_dict": {
+    "cmd": "erpnext.stock.get_item_details.get_batch_based_item_price",
+    "pctx": "{\"items\":[],\"supplier\":\"_S6R6 验收供应商\",\"currency\":\"CNY\",\"conversion_rate\":1,\"price_list\":\"Standard Buying\",\"price_list_currency\":\"CNY\",\"plc_conversion_rate\":1,\"company\":\"_S6R6 测试公司\",\"transaction_date\":\"2026-10-16\",\"ignore_pricing_rule\":0,\"doctype\":\"Purchase Receipt\",\"name\":\"new-purchase-receipt-loffyhgojr\",\"is_return\":0,\"update_stock\":0,\"pos_profile\":\"\",\"is_internal_supplier\":\"\",\"batch_no\":\"_FCT-TS010-A-1792089466423\"}"
+   },
+   "method": "POST",
+   "path": "/api/method/erpnext.stock.get_item_details.get_batch_based_item_price",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-loffyhgojr",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "1b626168b9067003bc85cc064870becb580a39a6d29da3d1654e2a4b357f32c7"
+ },
+ {
+  "name": "h36klhif9a",
+  "creation": "2026-10-16 16:29:36.644043",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-B-1792089466423",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089466423",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-loffyhgojr",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "00b6f503ef357a0ebaa1f93ebc002f9585020ee95157e376005c680c2d173e51"
+ },
+ {
+  "name": "h364g9ertt",
+  "creation": "2026-10-16 16:29:36.666075",
+  "method": "供应商 _S6R6 验收供应商未找到",
+  "metadata": {
+   "form_dict": {
+    "cmd": "erpnext.accounts.party.get_party_details",
+    "company": "_S6R6 测试公司",
+    "currency": "CNY",
+    "doctype": "Purchase Receipt",
+    "fetch_payment_terms_template": "1",
+    "party": "_S6R6 验收供应商",
+    "party_type": "Supplier",
+    "posting_date": "2026-10-16",
+    "price_list": "Standard Buying"
+   },
+   "method": "POST",
+   "path": "/api/method/erpnext.accounts.party.get_party_details",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-plyqvovgsl",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "abdb8253584f06b8631cd46850eb18c711ed76c0d61b4c84f8a8dd79ca4f6b5e"
+ },
+ {
+  "name": "h368uq4kji",
+  "creation": "2026-10-16 16:29:36.686804",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-B-1792089629799",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089629799",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-plyqvovgsl",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "8a52ceec96181b3763356d3039bf41da69e419a33d5cf57c23f7783cdb48fdbe"
+ },
+ {
+  "name": "h379qksddp",
+  "creation": "2026-10-16 16:29:36.706173",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792089629799",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089629799",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-plyqvovgsl",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "f3b04507c85e83bc67606789ccb447b48f578aac34d76301fd6a5f8839e13361"
+ },
+ {
+  "name": "h375khdp32",
+  "creation": "2026-10-16 16:29:36.725697",
+  "method": "供应商 _S6R6 验收供应商未找到",
+  "metadata": {
+   "form_dict": {
+    "cmd": "erpnext.accounts.party.get_party_details",
+    "company": "_S6R6 测试公司",
+    "currency": "CNY",
+    "doctype": "Purchase Receipt",
+    "fetch_payment_terms_template": "1",
+    "party": "_S6R6 验收供应商",
+    "party_type": "Supplier",
+    "posting_date": "2026-10-16",
+    "price_list": "Standard Buying"
+   },
+   "method": "POST",
+   "path": "/api/method/erpnext.accounts.party.get_party_details",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-zjwjmzscum",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "4fffac3026da8aa78e8baffacf4ccb351ad1bb4c0da185ac9498100c8a4758a0"
+ },
+ {
+  "name": "h37kvo7e5i",
+  "creation": "2026-10-16 16:29:36.745642",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-B-1792089752132",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089752132",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-zjwjmzscum",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "20ab747cfabe04073f3117dc4ce718a6cb88ad655e623a24a620c3f10ee5a9e2"
+ },
+ {
+  "name": "h37ek3glkt",
+  "creation": "2026-10-16 16:29:36.766446",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792089752132",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089752132",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-zjwjmzscum",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "32e38f96a0eda8fe87c9e233034b0acf836bd1910c54f0d4f834866947fdf764"
+ },
+ {
+  "name": "h37285lb5u",
+  "creation": "2026-10-16 16:29:36.787270",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-B-1792089752132",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089752132",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-zjwjmzscum",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "d6edf2e72360756ab4ccf080b05fbf3a8a5724a00dd55c22e0fad85c74e854e8"
+ },
+ {
+  "name": "h38capv27t",
+  "creation": "2026-10-16 16:29:36.809699",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792089752132",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089752132",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-zjwjmzscum",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "ec48801d8cfab969027b955e9e37fb8c6e8a8eaa863bc041a2602b9837836d6c"
+ },
+ {
+  "name": "h38rm5t49m",
+  "creation": "2026-10-16 16:29:36.832714",
+  "method": "查询过滤条件字段无效(js调用db.get_value, db.get_list过滤条件不支持字表字段，db.get_list支持子单据查询，需添加parent_doctype:主单据类型参数用于权限检查): cn_unit_length_m",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.get_value",
+    "doctype": "Item",
+    "fieldname": "[\"stock_uom\",\"weight_uom\",\"cn_unit_length_m\"]",
+    "name": "_FCT_TS010_UI_1792089917473"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.get_value",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "ea37fd3efacad636c990c6d1ebfe4cd1a263f0e989b88b878d703b2afa4afe20"
+ },
+ {
+  "name": "h38317fps2",
+  "creation": "2026-10-16 16:29:36.854977",
+  "method": "查询过滤条件字段无效(js调用db.get_value, db.get_list过滤条件不支持字表字段，db.get_list支持子单据查询，需添加parent_doctype:主单据类型参数用于权限检查): cn_linear_density",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.get_value",
+    "doctype": "Batch",
+    "fieldname": "[\"item\",\"cn_linear_density\"]",
+    "name": "_FCT-TS010-A-1792089917473"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.get_value",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "9ded5cf354373bd70328d1c4f6314979d41439568922452eaf1d582e0926828c"
+ },
+ {
+  "name": "h384cmdkor",
+  "creation": "2026-10-16 16:29:36.878991",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792089917473",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089917473",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "e8452fe5e2336d016e91a3429753e9745818e8fa1ebff218b234cdff39f1d2f7"
+ },
+ {
+  "name": "h397l0nvm0",
+  "creation": "2026-10-16 16:29:36.902243",
+  "method": "供应商 _S6R6 验收供应商未找到",
+  "metadata": {
+   "form_dict": {
+    "cmd": "erpnext.accounts.party.get_party_details",
+    "company": "_S6R6 测试公司",
+    "currency": "CNY",
+    "doctype": "Purchase Receipt",
+    "fetch_payment_terms_template": "1",
+    "party": "_S6R6 验收供应商",
+    "party_type": "Supplier",
+    "posting_date": "2026-10-16",
+    "price_list": "Standard Buying"
+   },
+   "method": "POST",
+   "path": "/api/method/erpnext.accounts.party.get_party_details",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-fnjpzrgryu",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "582dff562d2737460ffa74e425d6654cd4644b98b7449f10f54d700e117d34b7"
+ },
+ {
+  "name": "h399isjvsu",
+  "creation": "2026-10-16 16:29:36.924714",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-B-1792089917473",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089917473",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-fnjpzrgryu",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "41a62ef0300cd6dbd16798f5cd7c8b0cc7276c1678fdd6b90b9f1d76e4a1b884"
+ },
+ {
+  "name": "h399f3sa3m",
+  "creation": "2026-10-16 16:29:36.949052",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792089917473",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089917473",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-fnjpzrgryu",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "2d6370f628bf4c0a9a59951d0922db0eec1bbe2654f8ba2a2b2599a761b7bc04"
+ },
+ {
+  "name": "h39tlaiqf6",
+  "creation": "2026-10-16 16:29:36.973300",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792089917473",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089917473",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-fnjpzrgryu",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "50b0ddf43540c000afd1f7df8c8d996a1489a17cf871a521462152858af5fb49"
+ },
+ {
+  "name": "h39920ao4l",
+  "creation": "2026-10-16 16:29:36.996198",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-B-1792089917473",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792089917473",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-fnjpzrgryu",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "b6cc3f899d8a4f71080bc5b0037060e36a266d3ba065441b7f96e6c0b8c35b22"
+ },
+ {
+  "name": "h3ainascmj",
+  "creation": "2026-10-16 16:29:37.018093",
+  "method": "查询过滤条件字段无效(js调用db.get_value, db.get_list过滤条件不支持字表字段，db.get_list支持子单据查询，需添加parent_doctype:主单据类型参数用于权限检查): cn_unit_length_m",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.get_value",
+    "doctype": "Item",
+    "fieldname": "[\"stock_uom\",\"weight_uom\",\"cn_unit_length_m\"]",
+    "name": "_FCT_TS010_UI_1792090261548"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.get_value",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "9bfbc440d91fe7da23e9d5051546c7efa468e11e5370268bc14abfcf840964c2"
+ },
+ {
+  "name": "h3akvde8na",
+  "creation": "2026-10-16 16:29:37.041111",
+  "method": "查询过滤条件字段无效(js调用db.get_value, db.get_list过滤条件不支持字表字段，db.get_list支持子单据查询，需添加parent_doctype:主单据类型参数用于权限检查): cn_linear_density",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.get_value",
+    "doctype": "Batch",
+    "fieldname": "[\"item\",\"cn_linear_density\"]",
+    "name": "_FCT-TS010-A-1792090261548"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.get_value",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "b6611e04ba66a751515dd6f2eb19c20f3bf170152c59172b9e0aa78aa87cf0f8"
+ },
+ {
+  "name": "h3a90ue8ju",
+  "creation": "2026-10-16 16:29:37.061126",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792090261548",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090261548",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "bea4bc9aca15bed15288e62f008cb813b245fd51a50bef7382db61a03981bafd"
+ },
+ {
+  "name": "h3aoef0cft",
+  "creation": "2026-10-16 16:29:37.084145",
+  "method": "供应商 _S6R6 验收供应商未找到",
+  "metadata": {
+   "form_dict": {
+    "cmd": "erpnext.accounts.party.get_party_details",
+    "company": "_S6R6 测试公司",
+    "currency": "CNY",
+    "doctype": "Purchase Receipt",
+    "fetch_payment_terms_template": "1",
+    "party": "_S6R6 验收供应商",
+    "party_type": "Supplier",
+    "posting_date": "2026-10-16",
+    "price_list": "Standard Buying"
+   },
+   "method": "POST",
+   "path": "/api/method/erpnext.accounts.party.get_party_details",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-cubsyndwuv",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "dc40066876dc8cc418eb8e567293316cb5f1aa7c7e9837155013c772cb81ffb5"
+ },
+ {
+  "name": "h3bughqr1b",
+  "creation": "2026-10-16 16:29:37.105717",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792090261548",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090261548",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-cubsyndwuv",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "7700806b8615e2d3d7d9c1c5579372be7c1d09b0ddbde2137b31c7836c68c3f9"
+ },
+ {
+  "name": "h3brj9cunm",
+  "creation": "2026-10-16 16:29:37.126960",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-B-1792090261548",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090261548",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-cubsyndwuv",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "4c8f16e76ee52011210415ad33e21650d46881358923a37020c0b540464d06dc"
+ },
+ {
+  "name": "h3beqio3mu",
+  "creation": "2026-10-16 16:29:37.148324",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-B-1792090261548",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090261548",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-cubsyndwuv",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "d134d2ef3159648e18b0fc68974fc185eda88b5e0a8079eaaaaa649c803a5dc5"
+ },
+ {
+  "name": "h3bsipj7og",
+  "creation": "2026-10-16 16:29:37.172744",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792090261548",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090261548",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-cubsyndwuv",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "d475820770ca6ae8c0256cc96ae516c6d1e0f6017ff8fe790ded8d11dd2c7ba2"
+ },
+ {
+  "name": "h3bb9pd65n",
+  "creation": "2026-10-16 16:29:37.197465",
+  "method": "查询过滤条件字段无效(js调用db.get_value, db.get_list过滤条件不支持字表字段，db.get_list支持子单据查询，需添加parent_doctype:主单据类型参数用于权限检查): cn_unit_length_m",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.get_value",
+    "doctype": "Item",
+    "fieldname": "[\"stock_uom\",\"weight_uom\",\"cn_unit_length_m\"]",
+    "name": "_FCT_TS010_UI_1792090427328"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.get_value",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "fb850c220ac40e26ec72c6871d44e39cc0a021cd2e17c036427f50520c44180e"
+ },
+ {
+  "name": "h3ca6volbd",
+  "creation": "2026-10-16 16:29:37.221048",
+  "method": "查询过滤条件字段无效(js调用db.get_value, db.get_list过滤条件不支持字表字段，db.get_list支持子单据查询，需添加parent_doctype:主单据类型参数用于权限检查): cn_linear_density",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.client.get_value",
+    "doctype": "Batch",
+    "fieldname": "[\"item\",\"cn_linear_density\"]",
+    "name": "_FCT-TS010-A-1792090427328"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.client.get_value",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "9b1f888fa11d6c30853bfc56a77918df59d990f20214650d08db6e611af34789"
+ },
+ {
+  "name": "h3cula6bja",
+  "creation": "2026-10-16 16:29:37.248085",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792090427328",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090427328",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "3c6546e99718eb0b8d14de83d4a4261370f18d33335950dcb89391d349f3ca2b"
+ },
+ {
+  "name": "h3c75qb4vt",
+  "creation": "2026-10-16 16:29:37.271075",
+  "method": "供应商 _S6R6 验收供应商未找到",
+  "metadata": {
+   "form_dict": {
+    "cmd": "erpnext.accounts.party.get_party_details",
+    "company": "_S6R6 测试公司",
+    "currency": "CNY",
+    "doctype": "Purchase Receipt",
+    "fetch_payment_terms_template": "1",
+    "party": "_S6R6 验收供应商",
+    "party_type": "Supplier",
+    "posting_date": "2026-10-16",
+    "price_list": "Standard Buying"
+   },
+   "method": "POST",
+   "path": "/api/method/erpnext.accounts.party.get_party_details",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-ckqgyyxrmk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "04bf07c5333500494ece74f789df550993ddf957b362cfa41630b3137c7c7854"
+ },
+ {
+  "name": "h3cgrhq2jc",
+  "creation": "2026-10-16 16:29:37.293871",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792090427328",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090427328",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-ckqgyyxrmk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "f3c9d96d8261ad304b0b6c45346da6d223e152ece4589adad57d92f951f79bea"
+ },
+ {
+  "name": "h3d0fek3gs",
+  "creation": "2026-10-16 16:29:37.317869",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-B-1792090427328",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090427328",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-ckqgyyxrmk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "88603299b33e03eca1d8063635f2f1b6967913e693c6791da9947c305a72e77c"
+ },
+ {
+  "name": "h3dd5ciplf",
+  "creation": "2026-10-16 16:29:37.342321",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792090427328",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090427328",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-ckqgyyxrmk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "7c9f66e60392db8b7de420503abc621acbc09c8807db3cda9cf638bc6444ea0a"
+ },
+ {
+  "name": "h3d787it7r",
+  "creation": "2026-10-16 16:29:37.364864",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-A-1792090427328",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090427328",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-ckqgyyxrmk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "44c419fea33d410c9f971be7882651de85c50156801ca18cd0267f6a249d6bef"
+ },
+ {
+  "name": "h3dsdo5rs2",
+  "creation": "2026-10-16 16:29:37.386787",
+  "method": "(1054, \"Unknown column 'cn_unit_length_m' in 'SELECT'\")",
+  "metadata": {
+   "form_dict": {
+    "batch_no": "_FCT-TS010-B-1792090427328",
+    "cmd": "frappe_china.production.batch_uom.get_batch_conversion_factor",
+    "item_code": "_FCT_TS010_UI_1792090427328",
+    "uom": "Nos"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe_china.production.batch_uom.get_batch_conversion_factor",
+   "referrer": "http://test.localhost:8000/desk/purchase-receipt/new-purchase-receipt-ckqgyyxrmk",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "4863db611e4bd083f378579d75da2d206a833e472731e7e05d1ab54cadaa14bf"
+ },
+ {
+  "name": "rurh1i4cku",
+  "creation": "2026-10-16 16:48:09.146553",
+  "method": "页面 spc-chart未找到",
+  "metadata": {
+   "form_dict": {
+    "cmd": "frappe.desk.desk_page.getpage",
+    "name": "spc-chart"
+   },
+   "method": "POST",
+   "path": "/api/method/frappe.desk.desk_page.getpage",
+   "referrer": "http://erx.localhost:8000/desk/spc-chart",
+   "type": "http_request",
+   "user": "Administrator"
+  },
+  "trace_sha256": "c4fccbaa4ed3d791973f58a67021bd519040b509ad0d7a6779afdc04c30a8d44"
+ },
+ {
+  "name": "0n4pu27b6m",
+  "creation": "2026-10-16 16:56:16.111149",
+  "method": "Filelock: Failed to aquire /workspace/frappe-bench/sites/erx.localhost/locks/bench_migrate.lock",
+  "metadata": {
+   "type": "http_request"
+  },
+  "trace_sha256": "90c22274491fcc783b69c3ffbe4ba0e3db07864cb5266f772749fd1f1fcd6068"
+ }
+]
