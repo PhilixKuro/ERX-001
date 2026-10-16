@@ -10,10 +10,12 @@
 |---|---|---|---|---|---|
 | TS-010 批次系数 | SL-006 | `frappe_china/production/batch_uom.py:8`、`frappe_china/public/js/batch_uom.js:1`、`frappe_china/hooks.py`、`frappe_china/fixtures/custom_field.json`、`frappe_china/translations/zh.csv`、`frappe_china/README.md` | ✅完成 | 2026-10-16 | Python 3/3、Node 定向 1/1；采购收货表单同单两批次与交换批次均正确，截图见验证表。续跑全量 Python 328/328、Node 87/87 及译名检查通过。 |
 | TS-011 拆单覆盖 | SL-007 | `frappe_china/production/job_card_split.py:15`、`frappe_china/tests/test_job_card_split.py:12`、`frappe_china/hooks.py`、`frappe_china/README.md`「后端覆盖登记」 | ✅完成 | 2026-10-16 | 拆分数量、工时保留、两条建卡路径、重复工序按同一 BOM 映射及 hooks 已实现；初版定向 8/8，全量内含续跑补测后 9/9；日志修复、上游哈希守卫及译名检查通过。 |
-| TS-012 工序间数量传递 | SL-008 | — | ⏸暂停待裁决 | 2026-10-16 | SA 验证 HT-011 为 go、HT-012 为有效 no-go；指定 Manufacture 输入下工单仍 In Process。按 D 纪律暂停反馈，不先写测试或生产代码。 |
+| TS-012 工序间数量传递 | SL-008 | `production/operation_flow.py::realign`、`tests/test_operation_flow.py::TestOperationFlow`、`hooks.py`、`translations/zh.csv` | ⚠️部分（Manufacture 验收暂停） | — | 保留级联与取消恢复、已开工卡保护及差异提示代码；`1000/50` 被原生工序校验拒绝。用户最新裁决保持原生语义，保留代码和失败证据，重新确定验收口径。尚未完成切片验收。 |
 | TS-013 计件汇总单与 Additional Salary | SL-009 | — | ⬜未开始 | — | — |
 
 ## 全量验证
+
+下表为 TS-010／TS-011 完成时、TS-012 实现前的验证基线，不能视为包含当前 TS-012 代码的全量回归。
 
 | 门 | 结果 |
 |---|---|
@@ -31,10 +33,18 @@ Part1 的旧测试在中文上下文断言英文 `Manually specified`，首轮�
 |---|---|---|---|
 | TS-010 | `tests/test_batch_uom.py`：SL-006 ①～④、⑥；SL-006 ⑤：测试站采购收货表单选两个批次并截图。 | 三类单据草稿 insert/save；Node 模拟前端 handler；测试站真实采购收货表单选两批次并交换。 | Python 3/3、Node 1/1；系数 0.005 / 0.006、库存数量 0.05 / 0.06。证据：`Spike/P1S7R5-D/ts010-ui.cjs`、`ts010-ui-result.json`、`ts010-purchase-receipt-batch-factors.png`。浏览器临时数据、6787 服务及 hosts 标记已清。 |
 | TS-011 | `tests/test_job_card_split.py`：SL-007 ①～⑤，工单提交与 make_job_card 两条路径；上游源码哈希守卫。 | 真实工单/BOM 提交；直接调用 make_job_card；模拟补丁被还原后经 before_submit 重装；跨 BOM 同名工序映射测试；日志兜底分支补测。 | 全量内 9/9。10000→1 张/4000 分；2500→4 张/各1000 分；3000→3000×3+1000/1200×3+400 分；未勾选为原生 1 张/400000 分。守卫 SHA256 `a1ef469cb702d0a2dc923f8911d0e3a17f4144af157b5035a466bb159ab4870b`。 |
+| TS-012 | `tests/test_operation_flow.py`：数量级联、拆单末卡调整与取消恢复、已开工卡提示及 Manufacture 联合验收。 | 测试站真实三工序工单；保留 `1000/50` 原生异常和 `950/0` 原生入库结果断言，不绕过原生校验。 | 定向测试记录事实，不能视作 SL-008 验收通过；最终复跑结果和日志见下节。 |
+
+## TS-012 暂停时验证
+
+- 定向测试命令：`docker compose -f docker/compose.yaml exec -T -w /workspace/frappe-bench frappe bench --site test.localhost run-tests --module frappe_china.tests.test_operation_flow`。
+- Manufacture 事实：`1000/50` 抛 `OperationsNotCompleteError`；`950/0` 被原生带入损耗 50，成品 900，工单 `produced_qty=900`、`process_loss_qty=50`、`In Process`，工序行状态为 Completed / Work in Progress / Work in Progress。
+- 定向测试 4/4 通过（10.877s，退出 0），日志：`frappe-bench/logs/s7-r5-ts012-native-evidence.log`；固定证据说明：`Spike/P1S7R5-D/ts012-native-evidence.md`。本次修改的 Python 三文件 Ruff check／format --check 均通过。当前尚未跑包含 TS-012 的全量回归，不宣称功能验收完成。
+- CSV 修改后清缓存，测试站 `translation_check.run` 通过。翻译模块首跑 19/20，新增提示词追加在表尾导致 `test_csv_sorted` 失败；已将该行移到全表正确排序位置，复跑 **20/20 通过**（10.793s，退出 0）。原失败日志保留在 `frappe-bench/logs/s7-r5-ts012-translations.log`，复跑日志为 `s7-r5-ts012-translations-recheck.log`。
 
 ## 偏离与暂停
 
-- TS-012 的独立 SA 已完成：HT-011 go，HT-012 有效 no-go。以 `fg_completed_qty=950`、`process_loss_qty=50` 提交 Manufacture 后，原生生成成品数量 900，工单保持 `In Process`（工单数量 1000）。按 D 纪律暂停并反馈用户裁决；未写 TS-012 测试或生产代码。
+- TS-012 的独立 SA 已完成：HT-011 go；原始 HT-012 的 `950/50` 得到成品 900、工单 `In Process`。随后选择的 `1000/50` 在级联后的第二、三道工序处被原生校验拒绝（完工 950＋损耗 0＜1000），该验收假设被否证。用户最新裁决：保留原生语义，暂停 Manufacture 验收，保留级联代码与失败证据，重新确定验收口径。详见 [D 讨论记录第 2 步](P1-S7-R5-D讨论记录.md)。
 - TS-010 前端采用追加子表字段 handler，调用 `frappe.model.set_value` 后交由原生 conversion_factor handler 重算；未替换原生 handler。
 - 补跑前发现 `tests/translation_whitelist.py` 的既有新增行单引号不满足 Ruff 格式要求，已仅格式化该文件；全量发现 Part1 的 TS-005 测试按英文断言中文注释，已定向复现（注释实际含「手动指定」），修正测试期望文字，不改生产行为。
 - 本次完整全量是在 TS-010／TS-011 均已实现后补跑，覆盖当前两个切片；未做到总纲 §十要求的「每个切片完成当场各跑一次全量」，不将本次补验记为历史上已逐切片执行。
@@ -49,15 +59,15 @@ Part1 的旧测试在中文上下文断言英文 `Manually specified`，首轮�
 
 | 项 | 为什么没做 |
 |---|---|
-| TS-012 | HT-012 no-go：指定 Manufacture 输入无法满足“工单 Completed”验收，等待用户裁决 |
-| TS-013 | 按方案任务顺序，待 TS-012 后继续 |
+| TS-012 | 级联代码保留；原始 `950/50` 与后续 `1000/50` 均不能满足成品 950／工单 Completed 的联合验收，Manufacture 验收按用户裁决暂停，待重新定口径 |
+| TS-013 | 按方案任务顺序等待 TS-012，尚未开始；TS-014～017 同样未推进 |
 
 ## 状态值
 
-- `无法实现`——TS-010／TS-011 实现及补验已完成；TS-012 的 HT-012 在原生口径下为 no-go，按 D 纪律暂停反馈用户，等待对方案受影响部分的裁决；TS-012～017 尚未落地。
+- `无法实现`——仅指当前联合验收在既定级联结果与保留原生语义的约束下无法按 `1000/50` 达成；按用户最新裁决暂停反馈，待重新确定验收口径。D 未结束，TS-010／TS-011 已完成，TS-012 代码部分保留，TS-013～017 尚未落地；不将事实测试通过记为 `代码已落地`。
 
 ## 复核建议
 
 - TS-011 对应规则：对照方案 `_bom_operation_split_qty`，重点复核同一 BOM 内同 operation 第 k 次出现，跨 BOM 不共享计数。测试位置 `tests/test_job_card_split.py::test_repeated_operation_mapping_is_scoped_to_the_same_bom`。
 - 两条建卡路径中 make_job_card 当前测试直接调用后端入口，未做工单表单点击验收；HTTP／后台补丁的 hooks 注册有断言，实际重装由 Work Order before_submit 测试覆盖。
-- TS-012 尚未落地。独立 SA 已覆盖三道工序校验和 Manufacture 提交后的工单、工序状态；HT-012 的原生数量口径及 no-go 证据见 D 待验表，未裁决前不按原方案继续编码。
+- TS-012 尚未完成。复核 `test_manufacture_native_loss_semantics_remains_pending` 的原生异常与实际入库数量／工单状态断言；重新确定验收口径后再恢复数量级联、已开工卡提示及 Manufacture 的联合验收，当前不进入 TS-013～017。

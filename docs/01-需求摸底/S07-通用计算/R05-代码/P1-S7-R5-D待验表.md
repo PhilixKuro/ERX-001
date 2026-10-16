@@ -15,6 +15,14 @@
 | V-01（HT-011） | 三工序 1000 支工单，首道卡按 950 完工＋50 损耗提交后，经 `frappe.db.set_value` 将第二道卡 `for_quantity` 从 1000 改为 950，重新读取后按 950 完工、零损耗提交，是否同时通过原生数量校验和前后序校验 | 阻塞 TS-012 | go | 实跑三张原生 Job Card，sequence_id 为 1/2/3，初始 `for_quantity` 均 1000。未完成首道时提交第二道，原生抛 `OperationSequenceError`；首道提交后 `total_completed_qty=950`、`process_loss_qty=50`、docstatus=1。对第二道执行 `frappe.db.set_value` 将数量从 1000 改为 950，重新读取为 950；提交后 `total_completed_qty=950`、`process_loss_qty=0`、docstatus=1，Job Card status 为 Completed。工单 status=`In Process`；三工序行状态依序 Completed / Work in Progress / Pending。 | `Spike/P1S7R5-D/ht011-probe.py`；实际输出 `Spike/P1S7R5-D/ht011-probe.log` |
 | V-02（HT-012） | 三工序 1000 支工单，首道 950 完工＋50 损耗、第二与第三道改量后各 950 完工且零损耗，Manufacture 库存凭证以 `fg_completed_qty=950`、`process_loss_qty=50` 提交，是否成功且工单 `status=Completed`；同时记录三道工序状态 | 阻塞 TS-012 | no-go | 三张卡均原生提交成功：首道 950 完工＋50 损耗，第二、三道各 950 完工＋0 损耗。Manufacture 凭证以 `fg_completed_qty=950`、`process_loss_qty=50` 提交成功（docstatus=1）；原生生成 finished-good 行 qty=900。提交后工单 `produced_qty=900`、`process_loss_qty=50`、qty=1000、status=`In Process`；三工序行状态为 Completed / Work in Progress / Work in Progress。工单未到 Completed，命题不成立。 | `Spike/P1S7R5-D/ht012-probe.py`；实际输出 `Spike/P1S7R5-D/ht012-probe.log` |
 
+### 前次用户裁决（2026-10-16，后续验证已否证其验收假设）
+
+用户当时选择改验收输入、保持 ERPNext 原生生产语义：TS-012 的 Manufacture 验收改为 `fg_completed_qty=1000`、`process_loss_qty=50`。当时预期原生生成 finished-good 数量 950，并以 `produced_qty + process_loss_qty >= qty` 将工单置为 `Completed`；但后续实跑在原生工序校验处先被拒绝，该预期未成立，以后续暂停裁决为准。HT-012 的原始 `950/50` no-go 作为事实证据保留。
+
+### 后续裁决（2026-10-16）
+
+实现并复跑后发现，`1000/50` 在 Manufacture 提交前即被原生 `check_if_operations_completed()` 拒绝：数量级联后的第二、三道工序均为完工 950、损耗 0，不能满足每道工序的 1000 校验。为保留原生语义，用户裁决暂停 TS-012 的 Manufacture 验收，保留级联代码与失败证据，重新确定验收口径。定向测试 4/4 通过（10.877s，退出 0），Manufacture 用例断言 `1000/50` 抛 `OperationsNotCompleteError`，以及原生 `950/0 → 成品900、produced_qty=900、process_loss_qty=50、status=In Process`；这不是成品 950／工单 Completed 的验收通过。固定说明见 `Spike/P1S7R5-D/ts012-native-evidence.md`，运行日志见 `frappe-bench/logs/s7-r5-ts012-native-evidence.log`，原始探针证据仍见 `Spike/P1S7R5-D/ht012-probe.log`。
+
 ### 执行入口与边界
 
 - 先读 `CLAUDE.md`、`docs/流程体系/workflows/plannedDev/SA-probe-plannedDev-spike.md`、`plays/play-spike.md`、`bricks/spike.md`、`交接契约.md`、`docs/开发守则.md`。
@@ -27,4 +35,4 @@
 
 ## 复核建议
 
-HT-011 的第二道提交被原生前后序校验负向控制阻止，首道完成后再按数据库改量并重读则提交通过，验证过程没有 mock 或绕过校验。HT-012 的 Manufacture 凭证成功提交，但工单仍为 In Process：原生 `stock_entry.py:3398` 以 `fg_completed_qty - process_loss_qty` 得 finished-good 行数量（950−50=900）；`work_order.py:717-718` 以 `produced_qty + process_loss_qty >= qty` 判定 Completed（900+50<1000）。复核时请重点确认此数量口径是否符合需求预期，并分别复查 Work Order 与三条 Work Order Operation 状态；按 D 约定，V-02 no-go 需暂停 TS-012 并反馈，不据此直接开写。
+HT-011 的第二道提交被原生前后序校验负向控制阻止，首道完成后再按数据库改量并重读则提交通过，验证过程没有 mock 或绕过校验。HT-012 的 `1000/50` 口径已在原生校验处确认冲突，当前暂停 Manufacture 验收；重新确定口径后再恢复 finished-good 数量、工单状态与三条 Work Order Operation 状态的联合验收。原始 `950/50` 的 no-go 证据以及当前定向测试的 `950/0` 观察均保留。
