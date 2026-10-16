@@ -1,0 +1,15 @@
+== before
+['frappe', 'erpnext', 'frappe_china', 'crm', 'hrms', 'insights', 'raven']
+== migrate displaced
+migrate exit=0
+34:frappe_china override self-check failed: 装载顺序不对：frappe_china 之后只能是 ['frappe_debug']，实际 ['frappe', 'erpnext', 'frappe_china', 'crm', 'hrms', 'insights', 'raven']（排在它后面的：['crm', 'hrms', 'insights', 'raven']）
+== after displaced
+1
+1
+{"changed": true, "before": ["frappe", "erpnext", "frappe_china", "crm", "hrms", "insights", "raven"], "after": ["frappe", "erpnext", "crm", "hrms", "insights", "raven", "frappe_china"]}
+== migrate restored
+migrate exit=0
+== after restored
+1
+1
+True ['frappe', 'erpnext', 'crm', 'hrms', 'insights', 'raven', 'frappe_china']
