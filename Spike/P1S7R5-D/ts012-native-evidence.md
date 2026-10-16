@@ -15,7 +15,9 @@
 
 第二行提交后，Work Order Operation 状态依序为 `Completed / Work in Progress / Work in Progress`。原始独立 SA 的 `950/50` 同样得到成品 900、工单 In Process，见 `ht012-probe.py` 与 `ht012-probe.log`。
 
-## 自动化证据
+> **后续（2026-10-16，D 讨论记录第 7 步，用户选 A）**：本文件记的是原生事实，保留作历史证据。处理方式是后道卡全部提交后，在 `Work Order Operation` 行补写上道累计损耗，Manufacture 改按工单数量入库，结果成品 950、Completed。探针见 `ht012b-probe.py`／`.log`。下文提到的测试用例已被三条新用例取代。
+
+## 自动化证据（历史）
 
 测试：`frappe_china/tests/test_operation_flow.py::TestOperationFlow.test_manufacture_native_loss_semantics_remains_pending`。
 

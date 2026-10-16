@@ -33,6 +33,12 @@
 - 命令入口（工作目录 `docker/`）：`docker compose exec -T frappe bench --site test.localhost execute "exec(open('/workspace/Spike/P1S7R5-D/ht011-probe.py', encoding='utf-8').read(), globals())"`；HT-012 独立运行 `ht012-probe.py`，两次实跑输出分别保存在对应 `.log` 文件。公共造数/快照函数在 `Spike/P1S7R5-D/ts012-probe-common.py`。
 - 填回判定后 D 继续：两个 go → TS-012 先红后绿；任一 no-go → 按方案「不成立时」暂停反馈；探针构造错误仅属待验，修正后重跑。
 
+### 补验（2026-10-16，A 路线，执行者 Claude）
+
+| 编号 | 待验命题 | 阻塞否 | 判定 | 实际观察 | 探针代码 |
+|---|---|---|---|---|---|
+| V-03（HT-012b） | 后道卡级联、全部提交后，把工单工序行损耗补写为「工单数量 − 本道完工」（即本道损耗＋上道累计损耗），Manufacture 按工单数量入库，能否通过原生工序校验、成品为实际末道完工数、工单 Completed | 阻塞 TS-012 | go | 例 1：三道 950，工序行补写 50／50／50，入库 `1000/50`，原生生成成品行 950，工单 Completed。例 2：950＋50、930＋20、930，工序行 50／70／70，入库 `1000/70`，成品 930，Completed。原生 `get_pending_process_loss_qty` 取各行最大值，所以补写的必须是累计值。回滚后残留 0 | `Spike/P1S7R5-D/ht012b-probe.py`；输出 `ht012b-probe.log` |
+
 ## 复核建议
 
 HT-011 的第二道提交被原生前后序校验负向控制阻止，首道完成后再按数据库改量并重读则提交通过，验证过程没有 mock 或绕过校验。HT-012 的 `1000/50` 口径已在原生校验处确认冲突，当前暂停 Manufacture 验收；重新确定口径后再恢复 finished-good 数量、工单状态与三条 Work Order Operation 状态的联合验收。原始 `950/50` 的 no-go 证据以及当前定向测试的 `950/0` 观察均保留。
