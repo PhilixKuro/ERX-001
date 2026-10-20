@@ -1,0 +1,16 @@
+{"mode":"bench","i":1,"gl":5959,"ms_browser":6546,"status":200,"body":{"ok":true,"took":6.47,"extra":"workspace/frappe-bench/sites/sa.localhost/private/backups/20261020_171531-sa_localhost-site_config_backup.json 127.0B\nDatabase: /workspace/frappe-bench/sites/sa.localhost/private/backups/20261020_171531-sa_localhost-database.sql.gz 3.0MiB\nBackup for Site sa.localhost has been successfully completed\n","stderr":""}}
+{"mode":"bench","i":2,"gl":5959,"ms_browser":6390,"status":200,"body":{"ok":true,"took":6.38,"extra":"workspace/frappe-bench/sites/sa.localhost/private/backups/20261020_171537-sa_localhost-site_config_backup.json 127.0B\nDatabase: /workspace/frappe-bench/sites/sa.localhost/private/backups/20261020_171537-sa_localhost-database.sql.gz 3.0MiB\nBackup for Site sa.localhost has been successfully completed\n","stderr":""}}
+{"mode":"bench","i":3,"gl":5959,"ms_browser":6193,"status":200,"body":{"ok":true,"took":6.18,"extra":"workspace/frappe-bench/sites/sa.localhost/private/backups/20261020_171543-sa_localhost-site_config_backup.json 127.0B\nDatabase: /workspace/frappe-bench/sites/sa.localhost/private/backups/20261020_171543-sa_localhost-database.sql.gz 3.0MiB\nBackup for Site sa.localhost has been successfully completed\n","stderr":""}}
+{"mode":"clone","i":1,"gl":5959,"ms_browser":30613,"status":200,"body":{"ok":true,"took":30.6,"extra":"_b8fff8768a271240_snap1792487746","stderr":""}}
+{"mode":"clone","i":2,"gl":5959,"ms_browser":36633,"status":200,"body":{"ok":true,"took":36.62,"extra":"_b8fff8768a271240_snap1792487777","stderr":""}}
+{"summary":[{"mode":"bench","ok":3,"ms_browser":[6546,6390,6193]},{"mode":"clone","ok":2,"ms_browser":[30613,36633]}]}
+D:\ERX-001\Spike\P1S8R3-SA\sa-cdp.cjs:72
+			const timer = setTimeout(() => { pending.delete(id); reject(Error(`CDP timeout ${method}`)); }, 60000);
+			                                                            ^
+
+Error: CDP timeout Runtime.evaluate
+    at Timeout._onTimeout (D:\ERX-001\Spike\P1S8R3-SA\sa-cdp.cjs:72:64)
+    at listOnTimeout (node:internal/timers:605:17)
+    at process.processTimers (node:internal/timers:541:7)
+
+Node.js v24.13.1

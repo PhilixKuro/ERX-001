@@ -1,0 +1,6 @@
+{"setting": 0.0}
+{"pp": {"name": "MFG-PP-2026-00002", "po_items": [{"item": "Y1-SPR-C-2.0-16-50", "planned_qty": 5264, "sales_order": "SAL-ORD-2026-00314"}]}}
+{"stage1_create": {"result": "make_work_order 未抛异常", "work_orders": [{"name": "MFG-WO-2026-00314", "qty": 5264.0, "sales_order": "SAL-ORD-2026-00314", "docstatus": 0}], "messages": ["<a href=\"http://sa.localhost/desk/work-order?name=%5B%22in%22%2C+%5B%22MFG-WO-2026-00314%22%5D%5D\" rel=\"noopener noreferrer\">Work Order</a> created", "No Purchase Orders were created"]}}
+{"stage2_submit": {"wo": "MFG-WO-2026-00314", "qty": 5264.0, "result": "OverProductionError", "message": "Cannot produce more Item <a href=\"http://sa.localhost/desk/item/Y1-SPR-C-2.0-16-50\">Y1-SPR-C-2.0-16-50</a> than Sales Order quantity <strong>5000.0</strong> <strong>支</strong>"}}
+{"control_6pct": {"wo": "MFG-WO-2026-00314", "qty": 5264.0, "result": "提交成功"}}
+{"rollback": {"pp_left": 0}}
