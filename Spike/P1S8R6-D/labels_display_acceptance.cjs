@@ -1,0 +1,53 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const { open } = require('../P1S6R4-cdp.cjs');
+const f = JSON.parse(fs.readFileSync(path.join(__dirname,'../../frappe-bench/logs/s8-ts009-acceptance-fixture.json'),'utf8'));
+
+(async () => {
+ const c=await open(); const result={site:'test.localhost'};
+ try {
+  assert.equal(await c.evaluate('frappe.boot.sitename'),f.site);
+  await c.evaluate(`frappe.set_route('Form','Operation',${JSON.stringify(f.operation)})`);
+  await c.until("window.cur_frm?.doctype==='Operation' && !cur_frm.is_new()");
+  result.operation=await c.evaluate("({value:cur_frm.doc.cn_piece_rate,input:cur_frm.fields_dict.cn_piece_rate.$input.val(),precision:cur_frm.fields_dict.cn_piece_rate.df.precision})");
+  assert.equal(result.operation.value,0.004); assert.equal(Number(result.operation.input),0.004);
+  await c.evaluate("cur_frm.fields_dict.cn_piece_rate.$wrapper[0].scrollIntoView({block:'center'}); true");
+  await c.screenshot(path.join(__dirname,'SL008-operation-rate-saved.png'));
+  await c.evaluate(`frappe.set_route('Form','BOM',${JSON.stringify(f.bom)})`);
+  await c.until("cur_frm?.doctype==='BOM' && cur_frm.doc.operations?.length===3");
+  await c.evaluate("cur_frm.fields_dict.operations.grid.grid_rows[0].toggle_view(true); true");
+  await c.until("!!cur_frm.fields_dict.operations.grid.grid_rows[0].grid_form?.fields_dict?.cn_piece_rate?.$input");
+  result.bom=await c.evaluate("({values:cur_frm.doc.operations.map(row=>row.cn_piece_rate),input:cur_frm.fields_dict.operations.grid.grid_rows[0].grid_form.fields_dict.cn_piece_rate.$input.val()})");
+  assert(result.bom.values.every(value=>value===0.004)); assert.equal(Number(result.bom.input),0.004);
+  await c.evaluate("cur_frm.fields_dict.operations.grid.grid_rows[0].grid_form.fields_dict.cn_piece_rate.$wrapper[0].scrollIntoView({block:'center'}); true");
+  await c.screenshot(path.join(__dirname,'SL008-bom-rate-saved.png'));
+  await c.evaluate("frappe.set_route('List','Piece Rate Summary')");
+  await c.until("window.cur_list?.doctype==='Piece Rate Summary' && document.body.innerText.includes('员工姓名')");
+  result.summaryList=await c.evaluate("({columns:cur_list.columns.map(column=>column.df?.fieldname||column.type),text:document.querySelector('.list-row-head')?.innerText})");
+  assert(result.summaryList.columns.includes('employee_name'));
+  await c.screenshot(path.join(__dirname,'SL008-piece-rate-list.png'));
+  await c.evaluate(`frappe.set_route('Form','Piece Rate Summary',${JSON.stringify(f.summary)})`);
+  await c.until("cur_frm?.doctype==='Piece Rate Summary' && cur_frm.doc.items?.length===3");
+  result.rateSources=await c.evaluate("({values:cur_frm.doc.items.map(row=>row.rate_source),text:cur_frm.fields_dict.items.$wrapper.text()})");
+  for(const label of ['BOM 工序','工序主数据','无计件单价']) assert(result.rateSources.text.includes(label),JSON.stringify(result.rateSources));
+  await c.evaluate("cur_frm.fields_dict.items.$wrapper[0].scrollIntoView({block:'center'}); true");
+  await c.screenshot(path.join(__dirname,'SL008-piece-rate-sources.png'));
+  await c.evaluate("frappe.set_route('query-report','SPC Control Chart')");
+  await c.until("frappe.query_report?.report_name==='SPC Control Chart' && frappe.query_report.filters?.length>0");
+  await c.evaluate(`frappe.query_report.set_filter_value({item_code:${JSON.stringify(f.spc.item)},specification:${JSON.stringify(f.spc.parameter)},from_date:'2026-10-01',to_date:'2026-10-01'}); true`);
+  await c.pause(700);
+  await c.evaluate("frappe.query_report.refresh(); true");
+  await c.until("frappe.query_report.data?.length===28",30000);
+  result.spc=await c.evaluate("({columns:frappe.query_report.columns.map(column=>column.label),summary:document.querySelector('.report-summary')?.innerText,rows:frappe.query_report.data.length,prepared:frappe.query_report.report_doc.prepared_report})");
+  for(const label of ['子组大小','子组均值','子组极差','触发规则']) assert(result.spc.columns.includes(label));
+  for(const label of ['子组数','统计读数数','剔除读数数','判异点数']) assert(result.spc.summary.includes(label),JSON.stringify(result.spc));
+  assert.equal(result.spc.prepared,0);
+  await c.screenshot(path.join(__dirname,'SL008-spc-populated.png'));
+  result.contexts=await c.evaluate("({quality:['Incoming','Outgoing','In Process'].map(key=>__(key,null,'Quality Inspection')),calls:['Incoming','Outgoing'].map(key=>__(key))})");
+  assert.deepEqual(result.contexts.quality,['来料检验','出货检验','过程检验']);
+  assert.deepEqual(result.contexts.calls,['呼入','呼出']);
+  fs.writeFileSync(path.join(__dirname,'../../frappe-bench/logs/s8-ts009-display-acceptance.json'),JSON.stringify(result,null,2));
+  console.log(JSON.stringify(result));
+ } finally { await c.close(); }
+})().catch(error=>{console.error(error);process.exitCode=1;});

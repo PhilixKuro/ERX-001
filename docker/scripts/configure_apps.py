@@ -234,6 +234,38 @@ def configure_stock(notes: list[str]) -> dict:
     return {"Stock Settings": changed}
 
 
+def configure_demo_prerequisites(notes: list[str]) -> dict:
+    """Seed the wizard's native lists and set the four demo prerequisites."""
+    from frappe.desk.page.setup_wizard.install_fixtures import (
+        update_genders,
+        update_salutations,
+    )
+
+    changes = {}
+    for doctype, update in (
+        ("Gender", update_genders),
+        ("Salutation", update_salutations),
+    ):
+        before = frappe.db.count(doctype)
+        update()
+        after = frappe.db.count(doctype)
+        if after != before:
+            changes[doctype] = {"count": (before, after)}
+
+    settings = frappe.get_single("Stock Settings")
+    changed = _apply(settings, {"enable_serial_and_batch_no_for_item": 1})
+    if changed:
+        settings.save(ignore_permissions=True)
+        changes["Stock Settings"] = changed
+
+    administrator = frappe.get_doc("User", "Administrator")
+    if administrator.get("first_name") == "Administrator":
+        changed = _apply(administrator, {"first_name": "演示管理员"})
+        administrator.save(ignore_permissions=True)
+        changes["User Administrator"] = changed
+    return changes
+
+
 def configure_raven(url: str, key: str, notes: list[str]) -> dict:
     changes = {}
     if not _has("Raven Settings"):
@@ -420,6 +452,8 @@ def main(argv=None) -> int:
         changes = {}
         changes.update(configure_crm(company, notes))
         changes.update(configure_stock(notes))
+        for target, fields in configure_demo_prerequisites(notes).items():
+            changes.setdefault(target, {}).update(fields)
         changes.update(configure_raven(url, key, notes))
         changes.update(
             ensure_bot_and_functions(os.environ.get("RAVEN_LLM_MODEL", ""), notes)

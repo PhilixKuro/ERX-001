@@ -43,3 +43,7 @@
 ## 失效条件
 
 若某需求确实只能靠类覆盖实现，须重新评估并登记。
+
+## 修订记录
+
+- 2026-10-21 P1-S8：`WorkOrder.validate_work_order_against_so` 运行时替换（非 `override_doctype_class`），见 `frappe_china/README.md` 后端覆盖登记。
