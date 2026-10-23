@@ -1,0 +1,284 @@
+{
+  "kind": "step",
+  "act": 6,
+  "step": 1,
+  "route": "/desk/query-report/Capacity%20Load?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&from_date=2026-04-01&to_date=2026-05-13&bucket=Week",
+  "progress": {
+    "active": true,
+    "act": 6,
+    "step": 1,
+    "refs": {
+      "deal1": "CRM-DEAL-2026-00085",
+      "quotation1": "SAL-QTN-2026-00085",
+      "so1": "SAL-ORD-2026-00085",
+      "suggestion1": "RS-2026-00090",
+      "mr1": "MAT-MR-2026-00089",
+      "po1": "PUR-ORD-2026-00089",
+      "receipt1": "MAT-PRE-2026-00080",
+      "pinv1": "ACC-PINV-2026-00080",
+      "payment1": "ACC-PAY-2026-00143",
+      "plan1": "MFG-PP-2026-00078",
+      "work_order1": "MFG-WO-2026-00078",
+      "material_transfer1": "MAT-STE-2026-00149",
+      "job_card1": "PO-JOB00474",
+      "manufacture_entry1": "MAT-STE-2026-00150"
+    },
+    "scene_date": "2026-04-01",
+    "base_db": "_3ba7ba1053a80306"
+  },
+  "form": null,
+  "report": {
+    "name": "Capacity Load",
+    "filters": {
+      "company": "华东弹簧有限公司",
+      "from_date": "2026-04-01",
+      "to_date": "2026-05-13",
+      "bucket": "Week",
+      "workstations": []
+    },
+    "rows": [
+      {
+        "workstation": "卷簧机-1",
+        "bucket": "2026-04-01",
+        "demand_hours": 0,
+        "capacity_hours": 32,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-1",
+        "bucket": "2026-04-06",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-1",
+        "bucket": "2026-04-13",
+        "demand_hours": 58.062663333333305,
+        "capacity_hours": 48,
+        "load_percent": 120.96388194444438,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-1",
+        "bucket": "2026-04-20",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-1",
+        "bucket": "2026-04-27",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-1",
+        "bucket": "2026-05-04",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-1",
+        "bucket": "2026-05-11",
+        "demand_hours": 0,
+        "capacity_hours": 24,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-1",
+        "bucket": "Unscheduled",
+        "demand_hours": 4.51247875,
+        "capacity_hours": null,
+        "load_percent": null,
+        "notes": "未排期"
+      },
+      {
+        "workstation": "卷簧机-2",
+        "bucket": "2026-04-01",
+        "demand_hours": 0,
+        "capacity_hours": 32,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-2",
+        "bucket": "2026-04-06",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-2",
+        "bucket": "2026-04-13",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-2",
+        "bucket": "2026-04-20",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-2",
+        "bucket": "2026-04-27",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-2",
+        "bucket": "2026-05-04",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "卷簧机-2",
+        "bucket": "2026-05-11",
+        "demand_hours": 0,
+        "capacity_hours": 24,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "回火炉-1",
+        "bucket": "2026-04-01",
+        "demand_hours": 0,
+        "capacity_hours": 64,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "回火炉-1",
+        "bucket": "2026-04-06",
+        "demand_hours": 0,
+        "capacity_hours": 96,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "回火炉-1",
+        "bucket": "2026-04-13",
+        "demand_hours": 20.902558800000005,
+        "capacity_hours": 96,
+        "load_percent": 21.773498750000005,
+        "notes": ""
+      },
+      {
+        "workstation": "回火炉-1",
+        "bucket": "2026-04-20",
+        "demand_hours": 0,
+        "capacity_hours": 96,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "回火炉-1",
+        "bucket": "2026-04-27",
+        "demand_hours": 0,
+        "capacity_hours": 96,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "回火炉-1",
+        "bucket": "2026-05-04",
+        "demand_hours": 0,
+        "capacity_hours": 96,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "回火炉-1",
+        "bucket": "2026-05-11",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "回火炉-1",
+        "bucket": "Unscheduled",
+        "demand_hours": 1.2496095,
+        "capacity_hours": null,
+        "load_percent": null,
+        "notes": "未排期"
+      },
+      {
+        "workstation": "磨端机-1",
+        "bucket": "2026-04-01",
+        "demand_hours": 0,
+        "capacity_hours": 32,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "磨端机-1",
+        "bucket": "2026-04-06",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "磨端机-1",
+        "bucket": "2026-04-13",
+        "demand_hours": 41.80511760000001,
+        "capacity_hours": 48,
+        "load_percent": 87.09399500000002,
+        "notes": ""
+      },
+      {
+        "workstation": "磨端机-1",
+        "bucket": "2026-04-20",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "磨端机-1",
+        "bucket": "2026-04-27",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "磨端机-1",
+        "bucket": "2026-05-04",
+        "demand_hours": 0,
+        "capacity_hours": 48,
+        "load_percent": 0,
+        "notes": ""
+      },
+      {
+        "workstation": "磨端机-1",
+        "bucket": "2026-05-11",
+        "demand_hours": 0,
+        "capacity_hours": 24,
+        "load_percent": 0,
+        "notes": ""
+      }
+    ]
+  },
+  "dialogs": [],
+  "body": "业务流程\nFrappe China\n搜索\nCtrl+K\n通知\n基础资料\n公司\n全局默认值\n财年\n科目表\n成本中心\n仓库\n计量单位\n物料\n物料价格\n工站\n工序\n工艺路线\n物料清单\n客户\n供应商\n员工\n假期列表\n质检参数\n质检模板\n批号\n薪资结构\n薪资结构分配\n库存设置\n生产设置\n销售\n线索\n商机\n数据面板\n报价\n销售订单\n销售出库\n销售发票\n采购\n物料需求\n供应商报价\n采购订单\n采购入库\n采购发票\n补货建议\n供应商评分卡\n库存\n库存调账\n质检单\n生产\n生产计划\n生产工单\n物料移动\n生产任务单\n计件汇总单\n产能负荷\n过程统计控制图\n过程控制图\n补货策略对比\n财务\n收付款凭证\n日记账凭证\n应收账款\n应付账款\n结转凭证\n现金流量底稿\n银行流水预处理\n报表\n小企业资产负债表\n小企业利润表\n小企业现金流量表\n漏科目检查\n会计总账\n库存台账\n库存余额(收发存汇总表)\n库存与会计账金额对账\nBOM差异报表\nAI 分析助手\n\n演\n演示管理员\nadmin@example.com\n业务流程\n产能负荷\n操作\n输入内容即可显示结果。\ncompany\nfrom_date\nto_date\n天\n周\n月\nbucket\n工站\nworkstations\n1\n2\n3\n4\n5\n2026-04-01\n2026-04-06\n2026-04-13\n2026-04-20\n2026-04-27\n2026-05-04\n2026-05-11\n需求工时\n产能工时\n工站\n时间桶\n需求工时\n产能工时\n产能负荷率\n备注\n1\n卷簧机-1\n2026-04-01\n0.00\n32.00\n0%\n2\n卷簧机-1\n2026-04-06\n0.00\n48.00\n0%\n3\n卷簧机-1\n2026-04-13\n58.06\n48.00\n120.96%\n4\n卷簧机-1\n2026-04-20\n0.00\n48.00\n0%\n5\n卷簧机-1\n2026-04-27\n0.00\n48.00\n0%\n6\n卷簧机-1\n2026-05-04\n0.00\n48.00\n0%\n7\n卷簧机-1\n2026-05-11\n0.00\n24.00\n0%\n8\n卷簧机-1\n未排期\n4.51\n未排期\n9\n卷簧机-2\n2026-04-01\n0.00\n32.00\n0%\n10\n卷簧机-2\n2026-04-06\n0.00\n48.00\n0%\n11\n卷簧机-2\n2026-04-13\n0.00\n48.00\n0%\n12\n卷簧机-2\n2026-04-20\n0.00\n48.00\n0%\n13\n卷簧机-2\n2026-04-27\n0.00\n48.00\n0%\n14\n卷簧机-2\n2026-05-04\n0.00\n48.00\n0%\n15\n卷簧机-2\n2026-05-11\n0.00\n24.00\n0%\n16\n回火炉-1\n2026-04-01\n0.00\n64.00\n0%\n17\n回火炉-1\n2026-04-06\n0.00\n96.00\n0%\n18\n回火炉-1\n2026-04-13\n20.90\n96.00\n21.77%\n19\n回火炉-1\n2026-04-20\n0.00\n96.00\n0%\n20\n回火炉-1\n2026-04-27\n0.00\n96.00\n0%\n21\n回火炉-1\n2026-05-04\n0.00\n96.00\n0%\n22\n回火炉-1\n2026-05-11\n0.00\n48.00\n0%\n23\n回火炉-1\n未排期\n1.25\n未排期\n24\n磨端机-1\n2026-04-01\n0.00\n32.00\n0%\n25\n磨端机-1\n2026-04-06\n0.00\n48.00\n0%\n26\n磨端机-1\n2026-04-13\n41.81\n48.00\n87.09%\n27\n磨端机-1\n2026-04-20\n0.00\n48.00\n0%\n28\n磨端机-1\n2026-04-27\n0.00\n48.00\n0%\n29\n磨端机-1\n2026-05-04\n0.00\n48.00\n0%\n30\n磨端机-1\n2026-05-11\n0.00\n24.00\n0%\n过滤条件可以用>,<,= 比较符，两个值之间用：表示范围， 如>5, <10, =20, 5:10\n运行时间：0.022709秒\n第 6 幕 · 看车间\n产能负荷按周展示未来排程，超出工位能力的周次会标红。\n→ 下一步 · Alt+H 隐藏讲解\n四月,\n2026\n日\n一\n二\n三\n四\n五\n六\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n1\n2\n今天\n五月,\n2026\n日\n一\n二\n三\n四\n五\n六\n26\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n今天"
+}

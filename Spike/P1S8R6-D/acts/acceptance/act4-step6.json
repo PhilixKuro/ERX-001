@@ -1,0 +1,157 @@
+{
+  "kind": "step",
+  "act": 4,
+  "step": 6,
+  "route": "/desk/production-plan/MFG-PP-2026-00078",
+  "progress": {
+    "active": true,
+    "act": 4,
+    "step": 6,
+    "refs": {
+      "deal1": "CRM-DEAL-2026-00085",
+      "quotation1": "SAL-QTN-2026-00085",
+      "so1": "SAL-ORD-2026-00085",
+      "suggestion1": "RS-2026-00090",
+      "mr1": "MAT-MR-2026-00089",
+      "po1": "PUR-ORD-2026-00089",
+      "receipt1": "MAT-PRE-2026-00080",
+      "pinv1": "ACC-PINV-2026-00080",
+      "payment1": "ACC-PAY-2026-00143",
+      "plan1": "MFG-PP-2026-00078"
+    },
+    "scene_date": "2026-01-07",
+    "base_db": "_784d783aa8860455"
+  },
+  "form": {
+    "doctype": "Production Plan",
+    "name": "MFG-PP-2026-00078",
+    "docstatus": 1,
+    "doc": {
+      "name": "MFG-PP-2026-00078",
+      "owner": "Administrator",
+      "creation": "2026-10-24 01:50:35.125871",
+      "modified": "2026-10-24 01:50:35.125871",
+      "modified_by": "Administrator",
+      "docstatus": 1,
+      "idx": 0,
+      "naming_series": "MFG-PP-.YYYY.-",
+      "company": "华东弹簧有限公司",
+      "get_items_from": "Sales Order",
+      "posting_date": "2026-01-07",
+      "reserve_stock": 0,
+      "item_code": null,
+      "customer": null,
+      "warehouse": null,
+      "project": null,
+      "sales_order_status": "",
+      "from_date": null,
+      "to_date": null,
+      "from_delivery_date": null,
+      "to_delivery_date": null,
+      "combine_items": 0,
+      "sub_assembly_warehouse": null,
+      "skip_available_sub_assembly_item": 1,
+      "combine_sub_items": 0,
+      "include_non_stock_items": 1,
+      "include_subcontracted_items": 1,
+      "consider_minimum_order_qty": 0,
+      "include_safety_stock": 0,
+      "ignore_existing_ordered_qty": 1,
+      "for_warehouse": null,
+      "total_planned_qty": 5259.299,
+      "total_produced_qty": 0,
+      "status": "Submitted",
+      "amended_from": null,
+      "doctype": "Production Plan",
+      "sales_orders": [
+        {
+          "name": "c1fi4nrr86",
+          "owner": "Administrator",
+          "creation": "2026-10-24 01:50:35.125871",
+          "modified": "2026-10-24 01:50:35.125871",
+          "modified_by": "Administrator",
+          "docstatus": 1,
+          "idx": 1,
+          "sales_order": "SAL-ORD-2026-00085",
+          "sales_order_date": "2026-01-07",
+          "customer": "HDTH 第1幕五千支订单",
+          "grand_total": 4400,
+          "status": null,
+          "parent": "MFG-PP-2026-00078",
+          "parentfield": "sales_orders",
+          "parenttype": "Production Plan",
+          "doctype": "Production Plan Sales Order",
+          "__unsaved": 1
+        }
+      ],
+      "material_requests": [],
+      "po_items": [
+        {
+          "name": "c1fkbospci",
+          "owner": "Administrator",
+          "creation": "2026-10-24 01:50:35.125871",
+          "modified": "2026-10-24 01:50:35.125871",
+          "modified_by": "Administrator",
+          "docstatus": 1,
+          "idx": 1,
+          "include_exploded_items": 1,
+          "item_code": "SPR-C-3.0-23-50",
+          "bom_no": "HDTH-C3-A",
+          "planned_qty": 5259.299,
+          "cn_demand_qty": 5000,
+          "cn_recommended_qty": 5259.299,
+          "cn_recommended_bom": "HDTH-C3-A",
+          "cn_bom_source": "confirmed",
+          "stock_uom": "支",
+          "warehouse": "成品 - HDTH",
+          "planned_start_date": "2026-10-24 01:50:34.511594",
+          "pending_qty": 5000,
+          "ordered_qty": 0,
+          "description": "压簧 YA 3.0×23×50（外径23，中径20）",
+          "produced_qty": 0,
+          "sales_order": "SAL-ORD-2026-00085",
+          "sales_order_item": "7nhbs8cini",
+          "material_request": null,
+          "material_request_item": null,
+          "product_bundle_item": null,
+          "item_reference": null,
+          "temporary_name": "new-production-plan-cxuwwbybcy",
+          "parent": "MFG-PP-2026-00078",
+          "parentfield": "po_items",
+          "parenttype": "Production Plan",
+          "doctype": "Production Plan Item",
+          "__unsaved": 1
+        }
+      ],
+      "prod_plan_references": [],
+      "sub_assembly_items": [],
+      "mr_items": [],
+      "warehouses": [],
+      "__onload": {
+        "enable_stock_reservation": 0,
+        "pending_work_order_qty": {
+          "production_plan_item": {
+            "c1fkbospci": 5259.299
+          },
+          "production_plan_sub_assembly_item": {}
+        }
+      },
+      "__last_sync_on": {}
+    }
+  },
+  "report": {
+    "name": "Stock and Account Value Comparison",
+    "filters": {
+      "company": "华东弹簧有限公司",
+      "as_on_date": "2026-01-07"
+    },
+    "rows": []
+  },
+  "dialogs": [
+    {
+      "title": "确认物料清单推荐",
+      "text": "确认物料清单推荐\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t推荐物料清单：HDTH-C3-ABOM单位成本HDTH-C3-A0.296467HDTH-C3-B0.307161\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t保留当前\n\t\t\t\t\t\t换用推荐"
+    }
+  ],
+  "body": "业务流程\nFrappe China\n搜索\nCtrl+K\n通知\n基础资料\n公司\n全局默认值\n财年\n科目表\n成本中心\n仓库\n计量单位\n物料\n物料价格\n工站\n工序\n工艺路线\n物料清单\n客户\n供应商\n员工\n假期列表\n质检参数\n质检模板\n批号\n薪资结构\n薪资结构分配\n库存设置\n生产设置\n销售\n线索\n商机\n数据面板\n报价\n销售订单\n销售出库\n销售发票\n采购\n物料需求\n供应商报价\n采购订单\n采购入库\n采购发票\n补货建议\n供应商评分卡\n库存\n库存调账\n质检单\n生产\n生产计划\n生产工单\n物料移动\n生产任务单\n计件汇总单\n产能负荷\n过程统计控制图\n过程控制图\n补货策略对比\n财务\n收付款凭证\n日记账凭证\n应收账款\n应付账款\n结转凭证\n现金流量底稿\n银行流水预处理\n报表\n小企业资产负债表\n小企业利润表\n小企业现金流量表\n漏科目检查\n会计总账\n库存台账\n库存余额(收发存汇总表)\n库存与会计账金额对账\nBOM差异报表\nAI 分析助手\n\n演\n演示管理员\nadmin@example.com\n业务流程\n生产计划\nMFG-PP-2026-00078\n未开始\n查看\n状态\n创建\n取消\n\n物料SPR-C-3.0-23-50：已生产数量0\n\n物料SPR-C-3.0-23-50：已生产数量0\n\n交易\n生产工单\n物料需求\n委外\n采购订单\n预留管理\n库存预留单\n公司\n华东弹簧有限公司\ncompany\n取物料来源\n销售订单\nget_items_from\n记账日期\n2026-01-07\nposting_date\n销售订单 \n选择待生产成品\npo_items\n装配件\n编号\n物料号\n物料清单号\n计划数量\n单位\n成品仓\n计划开始日期\n1\nSPR-C-3.0-23-50\nHDTH-C3-A\n5,259.299\n支\n成品 - HDTH\n2026-10-23 23:20:34\n子装配件\n计算时考量预计数量\n\n若启用，订购数量计算公式：\n需求数量（物料清单） -预计数量。\n以避免过量订购。\n\nskip_available_sub_assembly_item\n合并子装配件\n\ncombine_sub_items\n原材料需求预览 \n针对原材料\n包含非库存物料\n\ninclude_non_stock_items\n包含委外物料\n\ninclude_subcontracted_items\n考虑最小订单数量\n\nconsider_minimum_order_qty\n包含安全库存\n\ninclude_safety_stock\n计算时考量预计数量（原材料）\n\n若启用，需求数量计算公式：\n需求数量（物料清单） -预计数量。\n以避免过量订购。\n\nignore_existing_ordered_qty\n仅获取采购物料\nget_items_for_mr\n获取采购或调拨物料\n若物料库存充足，请执行物料调拨或采购操作。\ntransfer_materials\n其他详细信息 \n评论\n演\n评论\n\n\n\n\n活动\n新建邮件\n发送 Raven 消息\n你创建了本单据 · 刚刚\n你最新修订了本单据 · 刚刚\nMFG-PP-2026-00078\n分配\n附件\n标签\n分享\n最后由您编辑\n\n刚刚\n由您创建\n\n刚刚\n第 4 幕 · 生产\n计划确认后创建生产工单，生产进度与销售订单保持关联。\n→ 下一步 · Alt+H 隐藏讲解\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n二月,\n2026\n日\n一\n二\n三\n四\n五\n六\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n今天\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n01\n:\n43\n:\n13\nToday\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n01\n:\n45\n:\n19\nToday\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n23\n:\n03\n:\n03\nToday\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n23\n:\n03\n:\n06\nToday\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n一月,\n2026\n日\n一\n二\n三\n四\n五\n六\n28\n29\n30\n31\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n十月,\n2026\n日\n一\n二\n三\n四\n五\n六\n27\n28\n29\n30\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n今天\n已提交"
+}

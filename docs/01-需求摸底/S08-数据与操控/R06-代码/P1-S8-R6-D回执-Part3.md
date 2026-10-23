@@ -1,19 +1,21 @@
 # P1-S8-R6 D 回执 · Part3
 
-**日期**：2026-10-23｜**执行者**：Codex｜**打 tag**：否
+**日期**：2026-10-24｜**执行者**：Codex｜**打 tag**：否
 **依据**：[R5 开发方案·Part3](../R05-开发方案/P1-S8-R5-C开发方案-Part3.md)及总纲。沿用 R6；Part2 TS-013～017 已完成。
+
+> 当前状态以“2026-10-24 联合验收最终事实”为准；文中更早的续跑段落保留为历史诊断记录，不代表当前未验收。
 
 ## 逐项执行结果
 
 | 任务 | 对应切片 | 落地位置（文件:行） | 结果 | 完成时间 | 说明 |
 |---|---|---|---|---|---|
-| TS-018 演示配置格式、校验与演示进度 | SL-012 | `demo/config.py`、`demo/progress.py`、`data/demo.yaml`、`doctype/demo_progress/`、两份测试 | ✅完成 | 2026-10-23 | 测试先红：配置9条、进度5条模块或DocType缺失。迁移退出0；最新全量98/98（273.690秒），配置9/9、进度5/5全部通过。demo.yaml仍为TS-024待补的九幕骨架。 |
+| TS-018 演示配置格式、校验与演示进度 | SL-012 | `demo/config.py`、`demo/progress.py`、`data/demo.yaml`、`doctype/demo_progress/`、两份测试 | ✅完成 | 2026-10-23 | 测试先红：配置9条、进度5条模块或DocType缺失。迁移退出0；最新全量98/98（273.690秒），配置9/9、进度5/5全部通过。九幕配置随后由TS-024完成并经联合验收。 |
 | TS-019 desk 运行器 | SL-012 | `public/js/demo/runner.js`、`public/css/demo.css`、`data/demo_selftest.yaml`、`demo/scene_date.py`及测试；`Spike/P1S8R6-D/runner-*.{cjs,py}` | ✅完成 | 2026-10-23 | 13动作35步彩排完成，每步读回进度；场景日期前后端、原生映射与代建链、刷新refs、快捷键/浮窗通过。Node13/13；Python98/98。换库及跨CRM引用按方案在TS-022/020补验，SL-012相应项尚不提前关闭。 |
 | TS-020 CRM 驱动与注入 | SL-013 | `demo/crm_inject.py`、`templates/crm_demo.html`、`public/js/demo/crm_driver.js`及测试；`Spike/P1S8R6-D/crm-*.cjs` | ✅完成 | 2026-10-23 | 10/10界面转换；真实API兜底、中英文源码、两路径自动回Desk与引用通过。debug101/101、china466+6+4、Node115+24、Ruff/构建/译名自检通过。 |
 | TS-021 快照与换库服务端 | SL-014 | `demo/dbops.py`、`demo/registry.py`、`demo/snapshot.py`、`demo/switch.py`；四份定向测试；`Spike/P1S8R6-D/ts021-snapshot-acceptance.cjs` | ✅完成 | 2026-10-23 | HT-015 go。18/18定向测试、Ruff通过；s8dev真实克隆原始/主用/备用库，拒绝_o，抄会话切入主用、快照库禁止清理、切回基库后删除3库且登记表清空。 |
 | TS-022 换库前端 | SL-014 | `demo/{registry,snapshot,switch,progress}.py`、`public/js/demo/runner.js`、`public/demo/transit.html`、`public/css/demo.css`、`frappe_debug/page/demo_rehearsal/`及测试 | ✅完成 | 2026-10-23 | 十次快进均≤10秒；两次重来数据干净，跨库引用可打开。中转页返回基库、12库清理与原进度/条数恢复通过。两个收尾按钮已落地并在s8dev原生页面验证。debug124/124、china466+6+4、Node32+115、两app Ruff/构建与两站译名自检通过。 |
-| TS-023 彩排与整场预跑 | SL-015 | [A已批准补充](P1-S8-R6-D彩排方案补充建议.md)、`demo/{workspace,operation}.py`、`scenario/runner.py`、`public/js/demo/rehearsal.js`、`frappe_debug/page/demo_rehearsal/`及测试 | 🔄实施中 | — | 编排、工作库登记/恢复、复合操作锁、刷新续跑及失败停止均已实现；Node36/36、Python定向45/45。s8dev原生工作库创建、经中转切入/回基库、进度与条数保持、删除工作库通过。真实九幕SL-015/016按批准方案留待TS-024后联合验收。 |
-| TS-024 九幕演示配置与命名函数 | SL-016 | `data/demo.yaml`、`demo/functions.py`、`demo/config.py`、`public/js/demo/functions.js`、`public/js/demo/{runner,rehearsal}.js`、测试 | 🔄实施中 | 2026-10-23 | 九幕配置初稿仍未验收。本轮先红后绿修复CRM跨页交接，CRM/运行器/彩排与策略区间Node41/41；修复D2订单日期变量与订单建议引用错配，服务端测试2/2；工单提交改为场景日并由原生钩子生成工序卡；策略比较期改按三规则启用边界。`test_demo_config`11/11；三个JS语法、Ruff check及build通过。Ruff format检查覆盖4个Python文件时仅既存修改的`tests/test_demo_config.py`未通过，其它3文件格式通过；未做非必要全文件重排。尚未完成真实报工时间/数量、末道数量、报表日期、交互细节和九幕原生彩排，详见状态值。 |
+| TS-023 彩排与整场预跑 | SL-015 | [A已批准补充](P1-S8-R6-D彩排方案补充建议.md)、`demo/{workspace,operation}.py`、`scenario/runner.py`、`public/js/demo/rehearsal.js`、`frappe_debug/page/demo_rehearsal/`及测试 | ✅完成 | 2026-10-24 | SL-015①②③完成：清洁基线无人干预跑完三段生成、九幕和27个快照；故障注入在第4幕停止并从原始快照恢复；总耗时`2768.786s`，三段分别`376.024/321.189/710.188s`。最终回到`_784d783aa8860455_a1_m`，登记、`live`、act1/step0和refs均收束。证据：`frappe-bench/logs/s8-rehearsal-acceptance.{json,log}`、`Spike/P1S8R6-D/acts/`。 |
+| TS-024 九幕演示配置与命名函数 | SL-016 | `data/demo.yaml`、`demo/functions.py`、`demo/config.py`、`public/js/demo/functions.js`、`public/js/demo/{runner,rehearsal}.js`、测试 | ✅完成 | 2026-10-24 | SL-016①～③完成：九幕业务原生彩排通过；推荐BOM、整批工序卡报工、报表筛选、D1电汇字段、末幕EOQ/采购价/供应商评分/采纳量均有原生证据。讲解词83处`say`无“今天/今日”，无awesomebar动作，9幕均走Business Flow侧栏；Node62/62、配置12/12、构建和debug Ruff check/format均通过。只读业务回读9/9 true，证据：`frappe-bench/logs/s8-final-business-readback.json`。 |
 | TS-025 客户说明 PDF | SL-016 | — | ⬜未开始 | — | 依赖九幕彩排截图。 |
 | TS-026 收尾 | SL-017 | — | ⬜未开始 | — | 回归、演示站部署、预跑与用户现场演示。 |
 
@@ -26,8 +28,8 @@
 | TS-020 | s8dev第1幕转换10次，每次新线索；Node可注入页面函数走界面、重试、接口三分支；两种会话取源码。 | `crm-selftest.cjs`、`crm-paths.cjs`、`crm-return.cjs`；`test_crm_driver.cjs`及`test_crm_inject.py`，日志见下节。 | 10/10界面转换；真实关窗/API兜底、自动回Desk并open_doc引用通过；实际zh/en源码通过。CRM Node11/11、注入Python3/3，debug全量101/101；客户应用466+6+4全部通过。 |
 | TS-021 | `tests/test_registry.py`状态机；`test_dbops.py`命令与库名校验；s8dev实跑SL-014③⑥；HT-015须go。 | 四套 `bench --site test.localhost run-tests --module frappe_debug.tests.test_{dbops,registry,snapshot,switch}` 串行；定向 Ruff；`ts021-snapshot-acceptance.cjs`。 | dbops5/5、registry6/6、snapshot2/2、switch5/5；合计18/18。Ruff check/format均通过。s8dev实测原始库保护、会话拷贝切库、回切、当前快照拒清理、删除3库与清空站点私有登记。HT-015已填go。证据：`s8-ts021-native.json/png`。 |
 | TS-022 | s8dev：SL-014①②④⑤计时与断言；SL-012⑤换库后save_as仍可用；彩排页两个结束按钮。 | `switch-timing.cjs`严格就绪计时，`ts022-cleanup.cjs`、`ts022-verify-cleanup.py`、`ts022-page.cjs`；Node/服务端测试与切片全量回归。 | 十次快进3.879～4.703秒，目标进度与Administrator身份通过；重来两次单据条数恢复一致。引用打开原生Sales Order；返回基库且12快照库全删除，临时root撤回。页面按钮原生验证通过。全量回归结果见下节。 |
-| TS-023 | 编排/状态/失败停止与恢复边界；A批准补充的工作库生命周期、受控切换/清理。完整SL-015①②③与SL-016①～③均待TS-024真实九幕后联合验收。 | Node四套前端测试；`test_workspace`、`test_registry`、`test_dbops`、`test_snapshot`、`test_switch`、`test_scenario_runner`串行；Ruff、JS语法、`bench build --app frappe_debug`；`ts023-workspace-native.cjs`。 | Node36/36、Python45/45；Ruff check及format通过（12文件），JS语法通过，构建退出0。s8dev原生创建并等待工作库ready，经真实中转页切换到工作库及返回基库，Administrator会话、演示进度和ToDo/Sales Order/Purchase Order/CRM Lead数量保持；清理1库、登记为空，information_schema确认工作库不存在，临时root配置已撤回。证据见下节。 |
-| TS-024 | SL-016①～③：九幕配置、命名函数、讲解词、原生彩排。 | `test_demo_runner.cjs`、`test_rehearsal.cjs`、`test_crm_driver.cjs`、`test_demo_functions.cjs`；`test_demo_config`和`test_demo_functions`定向测试（`test.localhost`）；JS语法、增量Ruff、构建。 | handoff红测3例失败后绿；Node41/41。Python配置11/11、服务端函数2/2。三个JS `node --check`通过，Ruff check通过；Ruff format覆盖四个Python文件时三份通过，既存修改的`test_demo_config.py`尚有原格式差异；`bench build --app frappe_debug`退出0。没有浏览器业务原生验收；SL-016①～③与SL-015仍待真实九幕完成后联合执行。 |
+| TS-023 | 编排/状态/失败停止与恢复边界；A批准补充的工作库生命周期、受控切换/清理。SL-015①②③与联合验收同时完成。 | Node四套前端测试；`test_workspace`、`test_registry`、`test_dbops`、`test_snapshot`、`test_switch`、`test_scenario_runner`串行；Ruff、JS语法、`bench build --app frappe_debug`；`ts023-workspace-native.cjs`。 | Node36/36、Python45/45；增量Python45/45，Ruff check/format、JS语法、构建通过。九幕结束后最终registry的27个快照全部`ready`，最终库`_784d783aa8860455_a1_m`，进度act1/step0、refs清空；故障停止/恢复、工作库生命周期和清理均有证据。 |
+| TS-024 | SL-016①～③：九幕配置、命名函数、讲解词、原生彩排。 | `test_demo_runner.cjs`、`test_rehearsal.cjs`、`test_crm_driver.cjs`、`test_demo_functions.cjs`；`test_demo_config`和`test_demo_functions`定向测试（`test.localhost`）；JS语法、增量Ruff、构建；`final-business-readback.py`。 | Node62/62、配置12/12、业务只读回读9/9；三段生成和九幕原生步骤全部完成。D1电汇、生产数量/损耗/成本、EOQ采纳、有效历史采购价、12家供应商评分、上月计件/结转/现金流及实际计时日期均通过。 |
 
 ### TS-019 实机证据（s8dev.localhost，6787）
 
@@ -118,18 +120,39 @@
 
 | 项 | 为什么没做 |
 |---|---|
-| TS-023整场联合验收、TS-024余下业务修复及原生验收、TS-025～026 | 按A批准范围，SL-015/016待真实九幕可跑后联合执行；PDF、收尾和部署尚未开始。TS-024配置初稿仍有未解决/未验证的业务细节，详见下方状态值，不声称九幕通过。 |
+| TS-025～026 | TS-023/024及SL-015①②③、SL-016①～③已完成；按方案要求的九页客户说明PDF、收尾回归/部署/现场演示尚未开始。 |
 
 ## 状态值
 
-执行中：TS-018～022完成，HT-015经SA填回go。SL-012跨库引用已补验，SL-014实测与全量回归通过。TS-023代码及增量验证完成，工作库生命周期原生验证通过；按A批准范围，完整九幕SL-015/016联合验收待TS-024完成后执行。TS-024进行中：九幕配置初稿在`frappe_debug/data/demo.yaml`；本轮先红后绿修复CRM跳转handoff，相关Node40/40通过、三个JS语法检查通过；修复了D2订单查询日期变量、订单建议引用键，工单按场景日提交并使用原生工序卡生成。仍未解决/未验证：SlotAllocator场景日期排工与BOM工时、工序顺序/数量/员工、末道良品数、报工确认弹窗实取、推荐BOM确认与计划数量呈现、三段策略真实比较区间、各报表筛选/先填后等、D2付款方式、末幕有效采购价/供应商评分/采纳数量、完整九幕原生彩排与27快照。TS-023 SL-015/016未验收，TS-024～026未完成；D步尚不能标记“代码已落地”。
+当前：TS-018～024完成，HT-015经SA填回go；SL-015①②③、SL-016①～③联合验收完成。清洁整场总耗时`2768.786s`，三段生成分别`376.024s`、`321.189s`、`710.188s`；9幕完成，最终registry的27个快照全部`ready`，最终回到`_784d783aa8860455_a1_m`，Administrator、`live`、act1/step0、refs清空。第3幕库存对账0行差异；第4幕推荐BOM原生确认、生产计划、领料、首道报工通过；第5幕9张生产任务单报工、完工入库和库存流水通过；第6幕产能负荷30行、SPC、上月计件通过；第7幕发货、质检、销售结算、上月结转、现金流底稿和三张报表通过；第8幕策略对比报表3行；第9幕EOQ建议、历史采购价、供应商评分卡、采纳物料需求通过。最终只读业务回读9/9 true，具体见`frappe-bench/logs/s8-final-business-readback.json`。TS-025、TS-026仍未开始，SL-016④ PDF尚未完成，D步不能标“代码已落地”。
 
 ## 复核建议
+
+以下复核段落包含早期诊断过程；TS-023/TS-024 当前状态以本回执顶部表格、状态值和“2026-10-24 联合验收最终事实”为准。
 
 换库最需复核的是`demo/switch.py::_schedule_replenish`：它利用after_response队列追加回调，等框架session.update之后才关闭旧连接、刷新配置并补库；请对照当前Frappe请求收尾顺序和`s8-ts022-session-order-red.log`复核，上游升级后须重验。`snapshot.replenish`已先删used库再克隆，连续两次真实重来和数据条数验证通过；原先“未删旧库”的缺口已修。
 
 失败路径比主路径薄：`test_failed_switch_restores_reserved_snapshot_states`验证调用预留恢复，尚未做真实会话复制失败后的持久登记恢复及配置更新后异常注入。`demo/operation.py`以站点路径上的FileLock串行准备、恢复、切换、清理及生成任务登记；请对照`workspace.restore_work`的分步删库/克隆失败状态复核可重试性，当前该恢复路径主要由自动测试覆盖，本轮原生实测只覆盖工作库创建、切入、返回和清理。`switch_to_db`只允许基库或ready工作库，幕主/备副本须经`switch_to_act`消费。HT-015的go依赖关scheduler、生成期间不换库，在途任务仍写旧库，不能解读为任意后台作业可跨库。
 
-十次≤10秒证据只覆盖第5→6、第7→8幕快进，起始报表可显示“请设置过滤条件”；不代表TS-024九幕业务已通过，也不代表所有跳幕/重来≤10秒。补库实际有137秒等待。彩排页现含整场开始、当前幕续跑、返回演示前及清理快照库入口；实际九幕业务仍待TS-024，之后联合验SL-015/016。
+十次≤10秒证据仍只覆盖第5→6、第7→8幕快进，补库实际有137秒等待；该限制不影响本次九幕业务完成。彩排页现含整场开始、当前幕续跑、返回演示前及清理快照库入口。
 
-TS-024当前增量验证：先红日志`s8-ts024-handoff-red.log`复现交接时提前推进、现场继续执行和彩排提前完成；实现后`s8-ts024-handoff-green.log`CRM/运行器/彩排共40/40。最后一次JS改动后复跑`s8-ts024-runner-final.log`仍40/40，`functions.js`、`runner.js`、`rehearsal.js`的`node --check`通过。`test.localhost`定向`test_demo_config` 11/11通过；`test_demo_functions`首次执行中测试断言引用错误（保留`s8-ts024-functions-final.log`），修正测试后2/2通过（`s8-ts024-functions-redo.log`）。Ruff check/format覆盖`functions.py`与新增测试均通过；`bench build --app frappe_debug`退出0（`s8-ts024-build-final.log`）。本轮未执行浏览器业务写入、场景生成、切库或部署。
+TS-024续跑证据：开计时卡`PO-JOB01892`经原生表单提交恢复通过；第三卡复跑证实Datetime控件秒精度与微秒槽边界不等，另证实已报完待提交卡被误作剩余0再次报工，代码据此加入秒级对齐、受限计时续用与零剩余草稿只提交。Node `test_demo_functions.cjs` 7/7、服务端`test_demo_functions` 6/6、`test_slots` 5/5，Ruff及format通过；构建`s8-ts024-production-build-final4.log`退出0。整批UI尚未通过：测试服务缓存一度未加载`functions.js`；清s8dev缓存、仅重启6787测试服务后确认加载19个命名函数，但复跑仍在零剩余工序卡分支报错，代码随后补了零剩余跳过/提交路径，尚无再次完整验证。浏览器测试订单存在部分已报未提交工序卡，详见`s8-ts024-production-ui-remaining*.log`与`s8-ts024-production-ui.json`。此前9卡事务探针与首卡浏览器报工证据仍在`s8-ts024-production-native.json`、`s8-ts024-production-ui.json`；探针基于s8dev既有数据，制造成本行为空，不代表成本验收或整场彩排。SL-015/016和TS-024～026仍未完成。
+
+### 2026-10-23 续跑补记
+
+摘要中已完成后续实机整批剩余工序卡报工，最终卡`PO-JOB01899`原生提交成功；证据：`frappe-bench/logs/s8-ts024-production-ui-remaining9.log`与`Spike/P1S8R6-D/s8-ts024-production-ui.json`。本次重新运行`test_demo_config`为11/11，`test_demo_functions`为6/6；Node运行器17/17、彩排13/13、CRM11/11、命名函数7/7。Ruff check对配置及测试文件通过，format check仍指出既有修改的`test_demo_config.py`需要重排，未对其做整文件格式化。act4推荐BOM动作配置与Node测试通过、原生提交流程未验；act3电汇方式和参考号/日期配置断言通过、付款单字段原生读回未验。报表筛选和先填后等、末幕有效价格/供应商评分/采纳量及九幕彩排与27快照仍未完成，故TS-024保持实施中、未验收，TS-023的SL-015/016联合验收亦待后续。
+
+### 2026-10-24 联合验收最终事实（覆盖上方旧续跑与状态判断）
+
+- 已修复原生报表筛选/异步刷新：库存对账使用`as_on_date=D1`；三张报表和策略报表等待各自原生刷新结果，避免复用上一张表数据。原生库存对账150组差异已查明为在产品1409科目没有Stock类型；生成器通过原生Account保存修正仓库显式科目，定向测试先红后绿。此前工作库读回对账0差异、建议量与采纳量同为2227.779千克、52条价格与12家评分，仅为修复诊断证据，不能替代本次清洁整场验收。
+- 推荐BOM原生弹窗已实际捕获并选择换用推荐；计划行推荐`HDTH-C3-A`，计划量5259.299（按实际BOM反算）。工序整批报工已通过。生成器Job Card移除submit前冗余save，避免原生时间戳秒/微秒不一致；原先误判为并发编辑的说法不成立。
+- 跨午夜后D1领料HTTP417已取得原始响应，确认为`NegativeStockError`：现实凌晨时间写入历史场景日，领料早于采购入库，短缺41.27千克。运行器新回归先红后绿；新单据场景时间按幕/步固定为23时的递增时刻，并在保存前复核。原生领料与首道报工重跑通过。响应证据`frappe-bench/logs/s8-rehearsal-acceptance-failure.json`后被字段故障覆盖，字段故障专份见下项；领料原始错误正文保存在本次工具记录。
+- SL-015②准确实测：第4幕最后一步临时将`.list-row`改成`field: __s8_invalid_field`，停止在第4幕第14步、进度step=13；页面及持久日志均含原因，原始及之前幕快照保留。`s8-field-fault-act4{,-failure}.json`为定长证据。恢复`.list-row`后经正式`resume(4)`从原始快照克隆工作库，完整第4幕通过，日志事件`2026-10-23T17:06:34.140Z resume-act4-verified`。未直接连接原始库。
+- 日期冻结已落地：工作库登记`scenario_end`，后端默认场景沿用本次预跑终点，显式参数不受影响。当前新整场终点2026-10-24；隔离预跑站补完10月23日，再按真实质检日程重新筛选SPC候选。185组、1146次原生筛选评估；新旧日程键完全相同，无直接改指纹。旧计划归档为`quality-plan-E20261023-archived.json`，新计划用于本次清洁整场。
+- 已经中转页回清洁基库并完成受控清理。清理请求超过CDP60秒而服务端最终200，未盲目重发。独立读回基库`_784d783aa8860455`、登记空、Sales Order/Work Order/GL/SLE/Scenario Event均0。
+- 当前增量验证：Node运行器28、命名函数14、彩排20，合计62/62；Python配置12/12、工作库14/14、主数据1/1；debug Ruff check和format check覆盖68文件通过，构建退出0（`s8-ts024-final-build.log`）。部分配置/mock断言在实现后更新，本轮不声称每处严格先红后绿。
+- 首次清洁整场于2026-10-23T17:12:08Z启动，第3幕失败。证实原生表单缓存超过120秒后安排延迟reload，旧采购订单回调夺回`cur_frm`，导致映射采购入库后又回到旧表单。`runner.js::actions.open_doc`等待目标表单的原生同步时间刷新且onload完成；Node新增竞争回归先红后绿。正式`resume(3)`于17:31完成第3、4幕，库存对账0行差异；该诊断续跑不计清洁整场通过。现场归档`s8-stale-form-failure.json`。
+- 本轮Python串行定向验证全部通过：配置12、工作库14、主数据1、命名函数7、时槽7、逐日4、质检5、月结7、目标9，共66项；后六模块39项的日志为`s8-ts024-final-{demo_functions,slots,day,quality,monthly,targets}.log`。最终Node运行器28＋命名函数14＋彩排20＝62/62；讲解词更新后配置12/12，最新`bench build --app frappe_debug`退出0。Ruff check/format覆盖debug68文件通过。未把这些定向回归称为TS-026最新全量；部分配置/mock断言在实现后更新，不能声称全部严格先红后绿。
+- 讲解词按站点最终zh词典校正：报价、生产工单、生产任务单、过程控制图、计件汇总单、供应商评分卡、物料需求、补货建议；末幕改为“对照各家供应商的历史采购价”，与按生效日降序显示实际价格一致。83处`say`、禁词和导航检查已完成。
+- **清洁整场最终结果**：`frappe-bench/logs/s8-rehearsal-acceptance.{json,log}`记录`done`；最终registry的27个快照全部`ready`，最终数据库`_784d783aa8860455_a1_m`。观察器曾提示`Filter missing`，属于页面级报表提示噪声，不构成整场失败；按原生刷新结果和业务只读回读判定通过。TS-025/026未开始，SL-016④ PDF未通过，D不得标“代码已落地”。
+- **最终业务只读回读**：`final-business-readback.py`输出`9/9 true`；D1电汇科目/参考号/日期、生产计划与完工损耗、制造成本、EOQ建议与采纳、至少4家供应商历史采购价、12家供应商截至`2026-09-30`评分、上月计件与Additional Salary、上月结转凭证/现金流底稿、实际计时日期均已核对。

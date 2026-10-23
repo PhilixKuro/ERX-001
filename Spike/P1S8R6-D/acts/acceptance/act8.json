@@ -1,0 +1,175 @@
+{
+  "act": 8,
+  "route": "/desk/query-report/Replenishment%20Strategy%20Comparison?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&period_1_from=2025-10-01&period_1_to=2026-01-31&period_2_from=2026-02-01&period_2_to=2026-05-31&period_3_from=2026-06-01&period_3_to=2026-10-23",
+  "progress": {
+    "active": true,
+    "act": 8,
+    "step": 3,
+    "refs": {
+      "deal1": "CRM-DEAL-2026-00085",
+      "quotation1": "SAL-QTN-2026-00085",
+      "so1": "SAL-ORD-2026-00085",
+      "suggestion1": "RS-2026-00090",
+      "mr1": "MAT-MR-2026-00089",
+      "po1": "PUR-ORD-2026-00089",
+      "receipt1": "MAT-PRE-2026-00080",
+      "pinv1": "ACC-PINV-2026-00080",
+      "payment1": "ACC-PAY-2026-00143",
+      "plan1": "MFG-PP-2026-00078",
+      "work_order1": "MFG-WO-2026-00078",
+      "material_transfer1": "MAT-STE-2026-00149",
+      "job_card1": "PO-JOB00474",
+      "manufacture_entry1": "MAT-STE-2026-00150",
+      "act7_order": "SAL-ORD-2026-00137",
+      "delivery1": "MAT-DN-2026-00147",
+      "sinv1": "ACC-SINV-2026-00147",
+      "receipt_payment1": "ACC-PAY-2026-00254",
+      "closing_voucher": "JZ-HDTH-202603-001",
+      "cash_flow_worksheet": "XJ-HDTH-202603"
+    },
+    "scene_date": "2026-10-24",
+    "base_db": "_784d783aa8860455"
+  },
+  "form": {
+    "doctype": "Cash Flow Worksheet",
+    "name": "XJ-HDTH-202603",
+    "docstatus": 1
+  },
+  "report": {
+    "name": "Replenishment Strategy Comparison",
+    "filters": {
+      "company": "华东弹簧有限公司",
+      "items": [],
+      "period_1_from": "2025-10-01",
+      "period_1_to": "2026-01-31",
+      "period_2_from": "2026-02-01",
+      "period_2_to": "2026-05-31",
+      "period_3_from": "2026-06-01",
+      "period_3_to": "2026-10-23"
+    },
+    "rows": [
+      {
+        "period": "第 1 段",
+        "from_date": "2025-10-01",
+        "to_date": "2026-01-31",
+        "days": 123,
+        "avg_value": 13434.398617886167,
+        "po_count": 104,
+        "total": 9134.897494246574,
+        "shortage": 32
+      },
+      {
+        "period": "第 2 段",
+        "from_date": "2026-02-01",
+        "to_date": "2026-05-31",
+        "days": 120,
+        "avg_value": 66913.70950000001,
+        "po_count": 25,
+        "total": 5959.825000547946,
+        "shortage": 3
+      },
+      {
+        "period": "第 3 段",
+        "from_date": "2026-06-01",
+        "to_date": "2026-10-23",
+        "days": 145,
+        "avg_value": 62097.98503448271,
+        "po_count": 25,
+        "total": 6440.431258630133,
+        "shortage": 1
+      }
+    ]
+  },
+  "dialogs": [
+    {
+      "title": "确认物料清单推荐",
+      "text": "确认物料清单推荐\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t推荐物料清单：HDTH-C3-ABOM单位成本HDTH-C3-A0.296467HDTH-C3-B0.307161\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t保留当前\n\t\t\t\t\t\t换用推荐"
+    },
+    {
+      "title": "信息",
+      "text": "信息\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t生产工单已创建未创建采购订单\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t确认"
+    },
+    {
+      "title": "选择数量",
+      "text": "选择数量\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t工单发料 数量\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t5,259.299\n\t\t\t\t\t\t最大值：5259.299\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tqty\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t创建"
+    },
+    {
+      "title": "停止计时",
+      "text": "停止计时\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t本批次生产数量\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t2,000\n\t\t\t\t\t\t完工、待完工与制程损耗数量之和须等于此数。\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tfor_quantity\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t完成数量\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t1,940\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tcompleted_qty\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t待处理数量\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t0\n\t\t\t\t\t\t本批次未完成、留给后续批次或其他生产任务单的数量。\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tpending_qty\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t加工损耗量\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t60\n\t\t\t\t\t\t本批次报废的数量，不再生产。\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tprocess_loss_qty\n\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t结束时间\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t2026-01-07 07:10:00\n\t\t\t\t\t\tAsia/Kolkata\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tend_time\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t更新"
+    }
+  ],
+  "errors": [
+    "Filter missing"
+  ],
+  "routes": [
+    "/desk",
+    "/desk/quotation/SAL-QTN-2026-00085",
+    "/desk/sales-order/new-sales-order-nepoqjcohy",
+    "/desk/sales-order/SAL-ORD-2026-00085",
+    "/desk/replenishment-suggestion",
+    "/desk/replenishment-suggestion/RS-2026-00090",
+    "/desk/material-request/MAT-MR-2026-00089",
+    "/desk/purchase-order/new-purchase-order-xyontfbozb",
+    "/desk/purchase-order/PUR-ORD-2026-00089",
+    "/desk/purchase-order",
+    "/desk/purchase-order/PUR-ORD-2026-00089",
+    "/desk/purchase-receipt/new-purchase-receipt-kkrnfaovjy",
+    "/desk/purchase-receipt/MAT-PRE-2026-00080",
+    "/desk/purchase-invoice/new-purchase-invoice-vjwnorbutu",
+    "/desk/purchase-invoice/ACC-PINV-2026-00080",
+    "/desk/payment-entry/new-payment-entry-bsyppzrnjc",
+    "/desk/payment-entry/ACC-PAY-2026-00143",
+    "/desk/query-report/Stock%20and%20Account%20Value%20Comparison",
+    "/desk/query-report/Stock%20and%20Account%20Value%20Comparison?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&as_on_date=2026-01-07",
+    "/desk/production-plan",
+    "/desk/production-plan?status=%5B%22%21%3D%22%2C%22Closed%22%5D",
+    "/desk/production-plan/new-production-plan-sevptmyzqv",
+    "/desk/production-plan/MFG-PP-2026-00078",
+    "/desk/work-order/MFG-WO-2026-00078",
+    "/desk/stock-entry/new-stock-entry-ovtwvaraoa",
+    "/desk/stock-entry/MAT-STE-2026-00149",
+    "/desk/job-card/PO-JOB00474",
+    "/desk/job-card",
+    "/desk/job-card?work_order=MFG-WO-2026-00078",
+    "/desk/work-order",
+    "/desk/work-order?status=%5B%22%21%3D%22%2C%22Stopped%22%5D",
+    "/desk/job-card/PO-JOB00475",
+    "/desk/job-card/PO-JOB00476",
+    "/desk/job-card/PO-JOB00477",
+    "/desk/job-card/PO-JOB00478",
+    "/desk/job-card/PO-JOB00479",
+    "/desk/job-card/PO-JOB00480",
+    "/desk/job-card/PO-JOB00481",
+    "/desk/job-card/PO-JOB00482",
+    "/desk/work-order",
+    "/desk/work-order?sales_order=SAL-ORD-2026-00085&status=In+Process",
+    "/desk/work-order/MFG-WO-2026-00078",
+    "/desk/stock-entry/new-stock-entry-wsskisuftv",
+    "/desk/stock-entry/MAT-STE-2026-00150",
+    "/desk/query-report/Stock%20Ledger",
+    "/desk/query-report/Stock%20Ledger?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&from_date=2026-01-07&to_date=2026-01-07&valuation_field_type=Currency",
+    "/desk/query-report/Capacity%20Load",
+    "/desk/query-report/Capacity%20Load?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&from_date=2026-04-01&to_date=2026-05-13&bucket=Week",
+    "/desk/spc-chart",
+    "/desk/piece-rate-summary",
+    "/desk/piece-rate-summary?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8",
+    "/desk/sales-order",
+    "/desk/sales-order/SAL-ORD-2026-00137",
+    "/desk/delivery-note/new-delivery-note-mpinakpmpx",
+    "/desk/delivery-note/MAT-DN-2026-00147",
+    "/desk/sales-invoice/new-sales-invoice-rvrpsiepko",
+    "/desk/sales-invoice/ACC-SINV-2026-00147",
+    "/desk/payment-entry/new-payment-entry-thdojaemqj",
+    "/desk/payment-entry/ACC-PAY-2026-00254",
+    "/desk/month-end-closing-voucher/JZ-HDTH-202603-001",
+    "/desk/cash-flow-worksheet/XJ-HDTH-202603",
+    "/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E8%B5%84%E4%BA%A7%E8%B4%9F%E5%80%BA%E8%A1%A8",
+    "/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E8%B5%84%E4%BA%A7%E8%B4%9F%E5%80%BA%E8%A1%A8?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&fiscal_year=2026&month=3",
+    "/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E5%88%A9%E6%B6%A6%E8%A1%A8",
+    "/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E5%88%A9%E6%B6%A6%E8%A1%A8?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&fiscal_year=2026&month=3&period_type=Monthly",
+    "/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8",
+    "/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&fiscal_year=2026&month=3&period_type=Monthly",
+    "/desk/query-report/Replenishment%20Strategy%20Comparison",
+    "/desk/query-report/Replenishment%20Strategy%20Comparison?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&period_1_from=2025-10-01&period_1_to=2026-01-31&period_2_from=2026-02-01&period_2_to=2026-05-31&period_3_from=2026-06-01&period_3_to=2026-10-23"
+  ]
+}

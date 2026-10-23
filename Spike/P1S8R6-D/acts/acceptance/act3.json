@@ -1,0 +1,58 @@
+{
+  "act": 3,
+  "route": "/desk/query-report/Stock%20and%20Account%20Value%20Comparison?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&as_on_date=2026-01-07",
+  "progress": {
+    "active": true,
+    "act": 3,
+    "step": 14,
+    "refs": {
+      "deal1": "CRM-DEAL-2026-00085",
+      "quotation1": "SAL-QTN-2026-00085",
+      "so1": "SAL-ORD-2026-00085",
+      "suggestion1": "RS-2026-00090",
+      "mr1": "MAT-MR-2026-00089",
+      "po1": "PUR-ORD-2026-00089",
+      "receipt1": "MAT-PRE-2026-00080",
+      "pinv1": "ACC-PINV-2026-00080",
+      "payment1": "ACC-PAY-2026-00143"
+    },
+    "scene_date": "2026-01-07",
+    "base_db": "_784d783aa8860455"
+  },
+  "form": {
+    "doctype": "Payment Entry",
+    "name": "ACC-PAY-2026-00143",
+    "docstatus": 1
+  },
+  "report": {
+    "name": "Stock and Account Value Comparison",
+    "filters": {
+      "company": "华东弹簧有限公司",
+      "as_on_date": "2026-01-07"
+    },
+    "rows": []
+  },
+  "dialogs": [],
+  "errors": [],
+  "routes": [
+    "/desk",
+    "/desk/quotation/SAL-QTN-2026-00085",
+    "/desk/sales-order/new-sales-order-nepoqjcohy",
+    "/desk/sales-order/SAL-ORD-2026-00085",
+    "/desk/replenishment-suggestion",
+    "/desk/replenishment-suggestion/RS-2026-00090",
+    "/desk/material-request/MAT-MR-2026-00089",
+    "/desk/purchase-order/new-purchase-order-xyontfbozb",
+    "/desk/purchase-order/PUR-ORD-2026-00089",
+    "/desk/purchase-order",
+    "/desk/purchase-order/PUR-ORD-2026-00089",
+    "/desk/purchase-receipt/new-purchase-receipt-kkrnfaovjy",
+    "/desk/purchase-receipt/MAT-PRE-2026-00080",
+    "/desk/purchase-invoice/new-purchase-invoice-vjwnorbutu",
+    "/desk/purchase-invoice/ACC-PINV-2026-00080",
+    "/desk/payment-entry/new-payment-entry-bsyppzrnjc",
+    "/desk/payment-entry/ACC-PAY-2026-00143",
+    "/desk/query-report/Stock%20and%20Account%20Value%20Comparison",
+    "/desk/query-report/Stock%20and%20Account%20Value%20Comparison?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&as_on_date=2026-01-07"
+  ]
+}

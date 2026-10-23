@@ -1,0 +1,375 @@
+{"at":"2026-10-23T13:36:14.723Z","event":"baseline","current":{"db":"_784d783aa8860455","user":"Administrator"},"snapshots":{"base_db":null,"acts":{}}}
+{"at":"2026-10-23T13:36:14.985Z","event":"progress","step":0,"route":"/desk/demo-rehearsal","error":null}
+{"at":"2026-10-23T13:36:15.701Z","event":"progress","phase":"switch_work","act":1,"status":"running","step":0,"route":"/desk/demo-rehearsal","error":null}
+{"at":"2026-10-23T13:36:42.556Z","event":"progress","phase":"switch_work","act":1,"status":"running","route":"/assets/frappe_debug/demo/transit.html","error":null}
+{"at":"2026-10-23T13:36:45.212Z","event":"progress","phase":"prepare","act":1,"status":"running","route":"/desk/company","error":null}
+{"at":"2026-10-23T13:36:45.973Z","event":"progress","phase":"segment","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:37:46.502Z","event":"progress","phase":"segment","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:38:47.040Z","event":"progress","phase":"segment","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:39:47.199Z","event":"progress","phase":"segment","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:40:47.621Z","event":"progress","phase":"segment","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:41:47.757Z","event":"progress","phase":"segment","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:42:48.212Z","event":"progress","phase":"segment","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:43:48.683Z","event":"progress","phase":"segment","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:44:13.577Z","event":"progress","phase":"acts","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:44:43.289Z","event":"progress","phase":"steps","act":1,"status":"running","route":"/crm/leads/CRM-LEAD-2026-00085","error":null}
+{"at":"2026-10-23T13:44:49.724Z","event":"progress","phase":"steps","act":1,"status":"running","step":1,"route":"/desk","error":null}
+{"at":"2026-10-23T13:44:51.404Z","event":"checkpoint","act":1,"step":3,"form":{"doctype":"Quotation","name":"SAL-QTN-2026-00085"},"report":null}
+{"at":"2026-10-23T13:44:51.406Z","event":"progress","phase":"steps","act":1,"status":"running","step":3,"route":"/desk/quotation/SAL-QTN-2026-00085","error":null}
+{"at":"2026-10-23T13:44:52.123Z","event":"progress","phase":"steps","act":1,"status":"running","step":7,"route":"/desk/quotation/SAL-QTN-2026-00085","error":null}
+{"at":"2026-10-23T13:44:53.839Z","event":"progress","phase":"steps","act":1,"status":"running","step":8,"route":"/desk/sales-order/SAL-ORD-2026-00085","error":null}
+{"at":"2026-10-23T13:45:53.725Z","event":"progress","phase":"steps","act":1,"status":"failed","step":8,"route":"/desk/sales-order/SAL-ORD-2026-00085","error":"第 1 幕第 9 步：第 1 幕第 9 步：表单未保存或提交超时"}
+{"at":"2026-10-23T13:45:53.725Z","event":"failure","message":"第 1 幕第 9 步：第 1 幕第 9 步：表单未保存或提交超时"}
+{"at":"2026-10-23T13:50:03.786Z","event":"progress","phase":"restore","act":1,"status":"running","route":"/assets/frappe_debug/demo/transit.html","error":null}
+{"at":"2026-10-23T13:50:07.380Z","event":"progress","phase":"restore","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:50:22.993Z","event":"progress","phase":"restore_wait","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:51:23.449Z","event":"progress","phase":"restore_wait","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:52:12.671Z","event":"progress","phase":"steps","act":1,"status":"running","route":"/desk/company","error":null}
+{"at":"2026-10-23T13:52:16.335Z","event":"progress","phase":"acts","act":1,"status":"running","step":1,"route":"/desk","error":null}
+{"at":"2026-10-23T13:52:17.216Z","event":"progress","phase":"steps","act":1,"status":"running","step":1,"route":"/desk/quotation/SAL-QTN-2026-00085","error":null}
+{"at":"2026-10-23T13:52:18.018Z","event":"checkpoint","act":1,"step":3,"form":{"doctype":"Quotation","name":"SAL-QTN-2026-00085"},"report":null}
+{"at":"2026-10-23T13:52:18.020Z","event":"progress","phase":"steps","act":1,"status":"running","step":3,"route":"/desk/quotation/SAL-QTN-2026-00085","error":null}
+{"at":"2026-10-23T13:52:18.735Z","event":"progress","phase":"steps","act":1,"status":"failed","step":6,"route":"/desk/quotation/SAL-QTN-2026-00085","error":"第 1 幕第 7 步：第 1 幕第 7 步：找不到按钮 销售订单；现有按钮："}
+{"at":"2026-10-23T13:52:18.735Z","event":"failure","message":"第 1 幕第 7 步：第 1 幕第 7 步：找不到按钮 销售订单；现有按钮："}
+{"at":"2026-10-23T13:56:00.657Z","event":"progress","phase":"restore","act":1,"status":"running","route":"/assets/frappe_debug/demo/transit.html","error":null}
+{"at":"2026-10-23T13:56:04.292Z","event":"progress","phase":"restore","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:56:19.139Z","event":"progress","phase":"restore_wait","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:57:19.471Z","event":"progress","phase":"restore_wait","act":1,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T13:58:06.751Z","event":"progress","phase":"steps","act":1,"status":"running","route":"/desk/company","error":null}
+{"at":"2026-10-23T13:58:10.356Z","event":"progress","phase":"acts","act":1,"status":"running","step":1,"route":"/desk","error":null}
+{"at":"2026-10-23T13:58:11.058Z","event":"progress","phase":"steps","act":1,"status":"running","step":1,"route":"/desk/quotation/SAL-QTN-2026-00085","error":null}
+{"at":"2026-10-23T13:58:11.858Z","event":"checkpoint","act":1,"step":3,"form":{"doctype":"Quotation","name":"SAL-QTN-2026-00085"},"report":null}
+{"at":"2026-10-23T13:58:11.859Z","event":"progress","phase":"steps","act":1,"status":"running","step":3,"route":"/desk/quotation/SAL-QTN-2026-00085","error":null}
+{"at":"2026-10-23T13:58:12.571Z","event":"progress","phase":"steps","act":1,"status":"running","step":7,"route":"/desk/sales-order/new-sales-order-lxgbkmhhxc","error":null}
+{"at":"2026-10-23T13:58:13.277Z","event":"progress","phase":"steps","act":1,"status":"running","step":8,"route":"/desk/sales-order/new-sales-order-lxgbkmhhxc","error":null}
+{"at":"2026-10-23T13:58:14.098Z","event":"act-complete","act":1,"form":{"doctype":"Sales Order","name":"SAL-ORD-2026-00085"},"report":null}
+{"at":"2026-10-23T13:58:14.100Z","event":"progress","phase":"steps","act":1,"status":"running","step":9,"route":"/desk/sales-order/SAL-ORD-2026-00085","error":null}
+{"at":"2026-10-23T13:58:14.811Z","event":"progress","phase":"acts","act":2,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T13:59:15.423Z","event":"progress","phase":"acts","act":2,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T13:59:16.136Z","event":"progress","phase":"steps","act":2,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T13:59:16.891Z","event":"progress","phase":"steps","act":2,"status":"running","step":1,"route":"/desk/replenishment-suggestion/RS-2026-00090","error":null}
+{"at":"2026-10-23T13:59:17.708Z","event":"progress","phase":"steps","act":2,"status":"running","step":3,"route":"/desk/material-request/MAT-MR-2026-00089","error":null}
+{"at":"2026-10-23T13:59:18.533Z","event":"progress","phase":"steps","act":2,"status":"running","step":4,"route":"/desk/purchase-order/new-purchase-order-tluqytlsiv","error":null}
+{"at":"2026-10-23T13:59:19.237Z","event":"progress","phase":"steps","act":2,"status":"running","step":6,"route":"/desk/purchase-order/new-purchase-order-tluqytlsiv","error":null}
+{"at":"2026-10-23T13:59:20.044Z","event":"act-complete","act":2,"form":{"doctype":"Purchase Order","name":"PUR-ORD-2026-00089"},"report":null}
+{"at":"2026-10-23T13:59:20.046Z","event":"progress","phase":"steps","act":2,"status":"running","step":7,"route":"/desk/purchase-order/PUR-ORD-2026-00089","error":null}
+{"at":"2026-10-23T13:59:20.755Z","event":"progress","phase":"acts","act":3,"status":"running","step":0,"route":"/desk/purchase-order","error":null}
+{"at":"2026-10-23T14:00:21.270Z","event":"progress","phase":"acts","act":3,"status":"running","step":0,"route":"/desk/purchase-order","error":null}
+{"at":"2026-10-23T14:01:21.867Z","event":"progress","phase":"acts","act":3,"status":"running","step":0,"route":"/desk/purchase-order","error":null}
+{"at":"2026-10-23T14:01:53.230Z","event":"progress","phase":"steps","act":3,"status":"running","step":0,"route":"/desk/purchase-order/PUR-ORD-2026-00089","error":null}
+{"at":"2026-10-23T14:01:54.047Z","event":"progress","phase":"steps","act":3,"status":"running","step":2,"route":"/desk/purchase-receipt/new-purchase-receipt-mqperacsgz","error":null}
+{"at":"2026-10-23T14:02:53.889Z","event":"progress","phase":"steps","act":3,"status":"failed","step":2,"route":"/desk/purchase-receipt/new-purchase-receipt-mqperacsgz","error":"第 3 幕第 3 步：第 3 幕第 3 步：等待条件超时"}
+{"at":"2026-10-23T14:02:53.890Z","event":"failure","message":"第 3 幕第 3 步：第 3 幕第 3 步：等待条件超时"}
+{"at":"2026-10-23T14:05:49.393Z","event":"progress","phase":"restore","act":3,"status":"running","step":2,"route":"/desk","error":null}
+{"at":"2026-10-23T14:05:52.401Z","event":"progress","phase":"restore","act":3,"status":"running","route":"/desk/company","error":null}
+{"at":"2026-10-23T14:05:53.109Z","event":"progress","phase":"restore","act":3,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T14:06:08.026Z","event":"progress","phase":"restore_wait","act":3,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T14:07:08.274Z","event":"progress","phase":"restore_wait","act":3,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T14:07:55.463Z","event":"progress","phase":"steps","act":3,"status":"running","route":"/desk/purchase-order","error":null}
+{"at":"2026-10-23T14:07:56.187Z","event":"progress","phase":"steps","act":3,"status":"running","step":0,"route":"/desk/purchase-order/PUR-ORD-2026-00089","error":null}
+{"at":"2026-10-23T14:07:56.894Z","event":"progress","phase":"steps","act":3,"status":"running","step":1,"route":"/desk/purchase-order/PUR-ORD-2026-00089","error":null}
+{"at":"2026-10-23T14:07:57.609Z","event":"progress","phase":"steps","act":3,"status":"running","step":3,"route":"/desk/purchase-receipt/new-purchase-receipt-fjehthyztp","error":null}
+{"at":"2026-10-23T14:07:59.172Z","event":"progress","phase":"steps","act":3,"status":"running","step":5,"route":"/desk/purchase-invoice/new-purchase-invoice-sckqorgatg","error":null}
+{"at":"2026-10-23T14:07:59.886Z","event":"progress","phase":"steps","act":3,"status":"running","step":6,"route":"/desk/purchase-invoice/new-purchase-invoice-sckqorgatg","error":null}
+{"at":"2026-10-23T14:08:00.598Z","event":"progress","phase":"steps","act":3,"status":"running","step":8,"route":"/desk/payment-entry/new-payment-entry-bfxybjxwix","error":null}
+{"at":"2026-10-23T14:08:01.309Z","event":"progress","phase":"steps","act":3,"status":"running","step":12,"route":"/desk/payment-entry/new-payment-entry-bfxybjxwix","error":null}
+{"at":"2026-10-23T14:08:02.157Z","event":"progress","phase":"steps","act":3,"status":"running","step":13,"route":"/desk/query-report/Stock%20and%20Account%20Value%20Comparison","error":null}
+{"at":"2026-10-23T14:08:03.003Z","event":"checkpoint","act":3,"step":14,"form":{"doctype":"Payment Entry","name":"ACC-PAY-2026-00143"},"report":{"name":"Stock and Account Value Comparison","rows":149}}
+{"at":"2026-10-23T14:08:03.005Z","event":"progress","phase":"steps","act":3,"status":"running","step":14,"route":"/desk/query-report/Stock%20and%20Account%20Value%20Comparison","error":null}
+{"at":"2026-10-23T14:08:03.843Z","event":"act-complete","act":3,"form":{"doctype":"Payment Entry","name":"ACC-PAY-2026-00143"},"report":{"name":"Stock and Account Value Comparison","rows":149}}
+{"at":"2026-10-23T14:08:04.548Z","event":"progress","phase":"acts","act":4,"status":"running","step":0,"route":"/desk/production-plan","error":null}
+{"at":"2026-10-23T14:08:45.147Z","event":"progress","phase":"steps","act":4,"status":"running","step":0,"route":"/desk/production-plan","error":null}
+{"at":"2026-10-23T14:08:45.854Z","event":"progress","phase":"steps","act":4,"status":"running","step":5,"route":"/desk/production-plan/new-production-plan-xqfqbfhtwx","error":null}
+{"at":"2026-10-23T14:08:47.381Z","event":"checkpoint","act":4,"step":6,"form":{"doctype":"Production Plan","name":"MFG-PP-2026-00078"},"report":{"name":"Stock and Account Value Comparison","rows":149}}
+{"at":"2026-10-23T14:08:47.383Z","event":"progress","phase":"steps","act":4,"status":"running","step":6,"route":"/desk/production-plan/MFG-PP-2026-00078","error":null}
+{"at":"2026-10-23T14:08:49.674Z","event":"progress","phase":"steps","act":4,"status":"running","step":7,"route":"/desk/work-order/MFG-WO-2026-00078","error":null}
+{"at":"2026-10-23T14:08:50.568Z","event":"progress","phase":"steps","act":4,"status":"running","step":8,"route":"/desk/stock-entry/new-stock-entry-gdgcspzxip","error":null}
+{"at":"2026-10-23T14:08:51.276Z","event":"progress","phase":"steps","act":4,"status":"running","step":9,"route":"/desk/stock-entry/new-stock-entry-gdgcspzxip","error":null}
+{"at":"2026-10-23T14:08:52.042Z","event":"progress","phase":"steps","act":4,"status":"running","step":10,"route":"/desk/job-card/PO-JOB00474","error":null}
+{"at":"2026-10-23T14:08:52.872Z","event":"progress","phase":"steps","act":4,"status":"running","step":11,"route":"/desk/job-card/PO-JOB00474","error":null}
+{"at":"2026-10-23T14:08:53.788Z","event":"act-complete","act":4,"form":{"doctype":"Job Card","name":"PO-JOB00474"},"report":{"name":"Stock and Account Value Comparison","rows":149}}
+{"at":"2026-10-23T14:08:53.790Z","event":"progress","phase":"steps","act":4,"status":"running","step":14,"route":"/desk/job-card","error":null}
+{"at":"2026-10-23T14:08:54.500Z","event":"progress","phase":"acts","act":5,"status":"running","step":0,"route":"/desk/work-order","error":null}
+{"at":"2026-10-23T14:09:55.110Z","event":"progress","phase":"acts","act":5,"status":"running","step":0,"route":"/desk/work-order","error":null}
+{"at":"2026-10-23T14:10:55.568Z","event":"progress","phase":"acts","act":5,"status":"running","step":0,"route":"/desk/work-order","error":null}
+{"at":"2026-10-23T14:11:25.531Z","event":"progress","phase":"steps","act":5,"status":"running","step":1,"route":"/desk/job-card/PO-JOB00475","error":null}
+{"at":"2026-10-23T14:11:33.882Z","event":"progress","phase":"steps","act":5,"status":"running","step":2,"route":"/desk/work-order","error":null}
+{"at":"2026-10-23T14:11:34.945Z","event":"progress","phase":"steps","act":5,"status":"running","step":5,"route":"/desk/stock-entry/new-stock-entry-pitjqfdqcx","error":null}
+{"at":"2026-10-23T14:11:35.650Z","event":"progress","phase":"steps","act":5,"status":"running","step":7,"route":"/desk/stock-entry/new-stock-entry-pitjqfdqcx","error":null}
+{"at":"2026-10-23T14:11:36.471Z","event":"checkpoint","act":5,"step":9,"form":{"doctype":"Stock Entry","name":"MAT-STE-2026-00150"},"report":{"name":"Stock Ledger","rows":149}}
+{"at":"2026-10-23T14:11:36.473Z","event":"progress","phase":"steps","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T14:11:37.266Z","event":"act-complete","act":5,"form":{"doctype":"Stock Entry","name":"MAT-STE-2026-00150"},"report":{"name":"Stock Ledger","rows":149}}
+{"at":"2026-10-23T14:12:36.551Z","event":"progress","phase":"steps","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T14:13:23.539Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T14:14:24.003Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T14:15:24.523Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T14:16:25.042Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T14:17:25.589Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T14:18:26.141Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T14:19:26.714Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T14:19:45.241Z","event":"progress","phase":"acts","act":6,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T14:19:45.951Z","event":"progress","phase":"acts","act":6,"status":"running","step":0,"route":"/desk/query-report/Capacity%20Load","error":null}
+{"at":"2026-10-23T14:20:14.650Z","event":"progress","phase":"steps","act":6,"status":"running","step":0,"route":"/desk/query-report/Capacity%20Load","error":null}
+{"at":"2026-10-23T14:20:15.474Z","event":"checkpoint","act":6,"step":1,"form":{"doctype":"Stock Entry","name":"MAT-STE-2026-00150"},"report":{"name":"Capacity Load","rows":30}}
+{"at":"2026-10-23T14:20:15.476Z","event":"progress","phase":"steps","act":6,"status":"running","step":1,"route":"/desk/query-report/Capacity%20Load","error":null}
+{"at":"2026-10-23T14:20:16.252Z","event":"progress","phase":"steps","act":6,"status":"running","step":3,"route":"/desk/spc-chart","error":null}
+{"at":"2026-10-23T14:20:17.041Z","event":"checkpoint","act":6,"step":5,"form":null,"report":{"name":"Capacity Load","rows":30}}
+{"at":"2026-10-23T14:20:17.043Z","event":"progress","phase":"steps","act":6,"status":"running","step":5,"route":"/desk/spc-chart","error":null}
+{"at":"2026-10-23T14:20:18.479Z","event":"progress","phase":"steps","act":6,"status":"running","step":6,"route":"/desk/piece-rate-summary","error":null}
+{"at":"2026-10-23T14:20:19.284Z","event":"act-complete","act":6,"form":null,"report":{"name":"Capacity Load","rows":30}}
+{"at":"2026-10-23T14:20:19.286Z","event":"progress","phase":"steps","act":6,"status":"running","step":7,"route":"/desk/piece-rate-summary","error":null}
+{"at":"2026-10-23T14:20:20.072Z","event":"progress","phase":"acts","act":7,"status":"running","step":0,"route":"/desk/sales-order","error":null}
+{"at":"2026-10-23T14:21:20.598Z","event":"progress","phase":"acts","act":7,"status":"running","step":0,"route":"/desk/sales-order","error":null}
+{"at":"2026-10-23T14:22:21.153Z","event":"progress","phase":"acts","act":7,"status":"running","step":0,"route":"/desk/sales-order","error":null}
+{"at":"2026-10-23T14:22:26.189Z","event":"progress","phase":"steps","act":7,"status":"running","step":0,"route":"/desk/sales-order/SAL-ORD-2026-00137","error":null}
+{"at":"2026-10-23T14:22:27.237Z","event":"progress","phase":"steps","act":7,"status":"running","step":2,"route":"/desk/delivery-note/new-delivery-note-hjugzvwlkq","error":null}
+{"at":"2026-10-23T14:22:28.192Z","event":"progress","phase":"steps","act":7,"status":"running","step":3,"route":"/desk/delivery-note/MAT-DN-2026-00147","error":null}
+{"at":"2026-10-23T14:22:28.967Z","event":"progress","phase":"steps","act":7,"status":"running","step":4,"route":"/desk/delivery-note/MAT-DN-2026-00147","error":null}
+{"at":"2026-10-23T14:22:29.857Z","event":"progress","phase":"steps","act":7,"status":"running","step":5,"route":"/desk/delivery-note/MAT-DN-2026-00147","error":null}
+{"at":"2026-10-23T14:22:30.935Z","event":"progress","phase":"steps","act":7,"status":"running","step":6,"route":"/desk/sales-invoice/new-sales-invoice-yfccovqljb","error":null}
+{"at":"2026-10-23T14:22:31.649Z","event":"progress","phase":"steps","act":7,"status":"running","step":7,"route":"/desk/sales-invoice/new-sales-invoice-yfccovqljb","error":null}
+{"at":"2026-10-23T14:22:32.374Z","event":"progress","phase":"steps","act":7,"status":"running","step":8,"route":"/desk/sales-invoice/ACC-SINV-2026-00147","error":null}
+{"at":"2026-10-23T14:22:33.079Z","event":"progress","phase":"steps","act":7,"status":"running","step":11,"route":"/desk/payment-entry/new-payment-entry-tjtoheadck","error":null}
+{"at":"2026-10-23T14:22:34.079Z","event":"progress","phase":"steps","act":7,"status":"running","step":14,"route":"/desk/payment-entry/ACC-PAY-2026-00254","error":null}
+{"at":"2026-10-23T14:22:35.787Z","event":"progress","phase":"steps","act":7,"status":"running","step":15,"route":"/desk/month-end-closing-voucher/JZ-HDTH-202603-001","error":null}
+{"at":"2026-10-23T14:22:37.001Z","event":"progress","phase":"steps","act":7,"status":"running","step":16,"route":"/desk/cash-flow-worksheet/XJ-HDTH-202603","error":null}
+{"at":"2026-10-23T14:22:37.709Z","event":"progress","phase":"steps","act":7,"status":"running","step":17,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E8%B5%84%E4%BA%A7%E8%B4%9F%E5%80%BA%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:22:38.492Z","event":"checkpoint","act":7,"step":18,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业资产负债表","rows":30}}
+{"at":"2026-10-23T14:22:38.500Z","event":"progress","phase":"steps","act":7,"status":"running","step":18,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E8%B5%84%E4%BA%A7%E8%B4%9F%E5%80%BA%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:22:39.791Z","event":"checkpoint","act":7,"step":19,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业利润表","rows":32}}
+{"at":"2026-10-23T14:22:39.806Z","event":"progress","phase":"steps","act":7,"status":"running","step":19,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E5%88%A9%E6%B6%A6%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:22:40.854Z","event":"checkpoint","act":7,"step":20,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业现金流量表","rows":25}}
+{"at":"2026-10-23T14:22:41.115Z","event":"progress","phase":"steps","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:22:41.929Z","event":"act-complete","act":7,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业现金流量表","rows":25}}
+{"at":"2026-10-23T14:23:41.767Z","event":"progress","phase":"steps","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:24:27.349Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:24:35.174Z","event":"progress","phase":"segment","act":7,"status":"failed","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":"生成第 3 段：未知日期：frappe.exceptions.ValidationError: 质检 MAT-QA-2026-00884 已提交读数与SPC候选计划不一致"}
+{"at":"2026-10-23T14:24:35.174Z","event":"failure","message":"生成第 3 段：未知日期：frappe.exceptions.ValidationError: 质检 MAT-QA-2026-00884 已提交读数与SPC候选计划不一致"}
+{"at":"2026-10-23T14:37:32.114Z","event":"failure","message":"Condition timed out: !!window.frappe_debug?.demo?.business_functions_loaded"}
+{"at":"2026-10-23T14:41:47.538Z","event":"progress","phase":"restore","act":7,"status":"running","step":20,"route":"/desk","error":null}
+{"at":"2026-10-23T14:41:50.400Z","event":"progress","phase":"restore","act":7,"status":"running","route":"/desk/company","error":null}
+{"at":"2026-10-23T14:41:51.107Z","event":"progress","phase":"restore","act":7,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T14:42:05.272Z","event":"progress","phase":"restore_wait","act":7,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T14:43:05.554Z","event":"progress","phase":"restore_wait","act":7,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T14:43:58.733Z","event":"progress","phase":"steps","act":7,"status":"running","route":"/desk/sales-order","error":null}
+{"at":"2026-10-23T14:43:59.474Z","event":"progress","phase":"steps","act":7,"status":"running","step":0,"route":"/desk/sales-order/SAL-ORD-2026-00137","error":null}
+{"at":"2026-10-23T14:44:00.903Z","event":"progress","phase":"steps","act":7,"status":"running","step":2,"route":"/desk/delivery-note/new-delivery-note-ddgtrpitif","error":null}
+{"at":"2026-10-23T14:44:01.617Z","event":"progress","phase":"steps","act":7,"status":"running","step":3,"route":"/desk/delivery-note/new-delivery-note-ddgtrpitif","error":null}
+{"at":"2026-10-23T14:44:02.329Z","event":"progress","phase":"steps","act":7,"status":"running","step":4,"route":"/desk/delivery-note/MAT-DN-2026-00147","error":null}
+{"at":"2026-10-23T14:44:03.872Z","event":"progress","phase":"steps","act":7,"status":"running","step":6,"route":"/desk/sales-invoice/new-sales-invoice-ilmjfsghhd","error":null}
+{"at":"2026-10-23T14:44:04.816Z","event":"progress","phase":"steps","act":7,"status":"running","step":7,"route":"/desk/sales-invoice/ACC-SINV-2026-00147","error":null}
+{"at":"2026-10-23T14:44:05.527Z","event":"progress","phase":"steps","act":7,"status":"running","step":10,"route":"/desk/payment-entry/new-payment-entry-kcszjoktcn","error":null}
+{"at":"2026-10-23T14:44:06.246Z","event":"progress","phase":"steps","act":7,"status":"running","step":14,"route":"/desk/payment-entry/ACC-PAY-2026-00254","error":null}
+{"at":"2026-10-23T14:44:07.660Z","event":"progress","phase":"steps","act":7,"status":"running","step":15,"route":"/desk/month-end-closing-voucher/JZ-HDTH-202603-001","error":null}
+{"at":"2026-10-23T14:44:08.400Z","event":"progress","phase":"steps","act":7,"status":"running","step":17,"route":"/desk/cash-flow-worksheet/XJ-HDTH-202603","error":null}
+{"at":"2026-10-23T14:44:09.198Z","event":"checkpoint","act":7,"step":18,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业资产负债表"}}
+{"at":"2026-10-23T14:44:09.238Z","event":"progress","phase":"steps","act":7,"status":"running","step":18,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E8%B5%84%E4%BA%A7%E8%B4%9F%E5%80%BA%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:44:10.104Z","event":"checkpoint","act":7,"step":19,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业利润表","rows":32}}
+{"at":"2026-10-23T14:44:10.106Z","event":"progress","phase":"steps","act":7,"status":"running","step":19,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E5%88%A9%E6%B6%A6%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:44:10.939Z","event":"checkpoint","act":7,"step":20,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业现金流量表","rows":25}}
+{"at":"2026-10-23T14:44:10.941Z","event":"progress","phase":"steps","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:44:11.756Z","event":"act-complete","act":7,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业现金流量表","rows":25}}
+{"at":"2026-10-23T14:44:12.464Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:45:12.894Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:46:13.232Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:47:13.582Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:48:14.047Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:49:14.614Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:50:15.039Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:51:15.550Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:52:16.004Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:53:16.546Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:54:17.070Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:55:17.622Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:56:18.230Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:57:18.803Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:58:19.341Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T14:59:19.889Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:00:20.421Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:01:20.947Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:02:21.518Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:03:22.026Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:04:22.544Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:05:23.082Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:06:05.032Z","event":"progress","phase":"acts","act":8,"status":"running","step":0,"route":"/desk/query-report/Replenishment%20Strategy%20Comparison","error":null}
+{"at":"2026-10-23T15:06:35.664Z","event":"progress","phase":"steps","act":8,"status":"running","step":0,"route":"/desk/query-report/Replenishment%20Strategy%20Comparison","error":null}
+{"at":"2026-10-23T15:06:36.473Z","event":"checkpoint","act":8,"step":1,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"Replenishment Strategy Comparison","rows":25}}
+{"at":"2026-10-23T15:06:36.475Z","event":"progress","phase":"steps","act":8,"status":"running","step":1,"route":"/desk/query-report/Replenishment%20Strategy%20Comparison","error":null}
+{"at":"2026-10-23T15:06:37.262Z","event":"act-complete","act":8,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"Replenishment Strategy Comparison","rows":25}}
+{"at":"2026-10-23T15:06:37.264Z","event":"progress","phase":"steps","act":8,"status":"running","step":3,"route":"/desk/query-report/Replenishment%20Strategy%20Comparison","error":null}
+{"at":"2026-10-23T15:06:37.976Z","event":"progress","phase":"acts","act":9,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T15:07:38.474Z","event":"progress","phase":"acts","act":9,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T15:08:38.975Z","event":"progress","phase":"acts","act":9,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T15:09:02.479Z","event":"progress","phase":"steps","act":9,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T15:09:03.196Z","event":"progress","phase":"steps","act":9,"status":"running","step":2,"route":"/desk/item-price","error":null}
+{"at":"2026-10-23T15:09:04.016Z","event":"checkpoint","act":9,"step":3,"form":{"doctype":"Replenishment Suggestion","name":"RS-2026-00159"},"report":{"name":"Replenishment Strategy Comparison","rows":3}}
+{"at":"2026-10-23T15:09:04.018Z","event":"progress","phase":"steps","act":9,"status":"running","step":3,"route":"/desk/item-price","error":null}
+{"at":"2026-10-23T15:09:04.825Z","event":"checkpoint","act":9,"step":4,"form":{"doctype":"Replenishment Suggestion","name":"RS-2026-00159"},"report":{"name":"Replenishment Strategy Comparison","rows":3}}
+{"at":"2026-10-23T15:09:04.828Z","event":"progress","phase":"steps","act":9,"status":"running","step":4,"route":"/desk/supplier-scorecard","error":null}
+{"at":"2026-10-23T15:09:05.539Z","event":"progress","phase":"steps","act":9,"status":"running","step":5,"route":"/desk/replenishment-suggestion/RS-2026-00159","error":null}
+{"at":"2026-10-23T15:09:07.046Z","event":"act-complete","act":9,"form":{"doctype":"Material Request","name":"MAT-MR-2026-00155"},"report":{"name":"Replenishment Strategy Comparison","rows":3}}
+{"at":"2026-10-23T15:09:07.048Z","event":"progress","phase":"steps","act":9,"status":"running","step":6,"route":"/desk/material-request/MAT-MR-2026-00155","error":null}
+{"at":"2026-10-23T15:09:07.751Z","event":"progress","phase":"finalize","act":9,"status":"running","step":6,"route":"/desk/material-request/MAT-MR-2026-00155","error":null}
+{"at":"2026-10-23T15:10:08.156Z","event":"progress","phase":"finalize","act":9,"status":"running","step":6,"route":"/desk/material-request/MAT-MR-2026-00155","error":null}
+{"at":"2026-10-23T15:11:08.620Z","event":"progress","phase":"finalize","act":9,"status":"running","step":6,"route":"/desk/material-request/MAT-MR-2026-00155","error":null}
+{"at":"2026-10-23T15:11:12.182Z","event":"progress","phase":"done","act":9,"status":"done","route":"/desk/company","error":null}
+{"at":"2026-10-23T15:11:12.913Z","event":"done","db":{"db":"_784d783aa8860455_a1_m","user":"Administrator"},"snapshots":{"base_db":"_784d783aa8860455","work_db":"_784d783aa8860455_work","work_state":"ready","acts":{"1":{"o":{"db":"_784d783aa8860455_a1_o","state":"ready"},"m":{"db":"_784d783aa8860455_a1_m","state":"used"},"b":{"db":"_784d783aa8860455_a1_b","state":"ready"}},"2":{"o":{"db":"_784d783aa8860455_a2_o","state":"ready"},"m":{"db":"_784d783aa8860455_a2_m","state":"ready"},"b":{"db":"_784d783aa8860455_a2_b","state":"ready"}},"3":{"o":{"db":"_784d783aa8860455_a3_o","state":"ready"},"m":{"db":"_784d783aa8860455_a3_m","state":"ready"},"b":{"db":"_784d783aa8860455_a3_b","state":"ready"}},"4":{"o":{"db":"_784d783aa8860455_a4_o","state":"ready"},"m":{"db":"_784d783aa8860455_a4_m","state":"ready"},"b":{"db":"_784d783aa8860455_a4_b","state":"ready"}},"5":{"o":{"db":"_784d783aa8860455_a5_o","state":"ready"},"m":{"db":"_784d783aa8860455_a5_m","state":"ready"},"b":{"db":"_784d783aa8860455_a5_b","state":"ready"}},"6":{"o":{"db":"_784d783aa8860455_a6_o","state":"ready"},"m":{"db":"_784d783aa8860455_a6_m","state":"ready"},"b":{"db":"_784d783aa8860455_a6_b","state":"ready"}},"7":{"o":{"db":"_784d783aa8860455_a7_o","state":"ready"},"m":{"db":"_784d783aa8860455_a7_m","state":"ready"},"b":{"db":"_784d783aa8860455_a7_b","state":"ready"}},"8":{"o":{"db":"_784d783aa8860455_a8_o","state":"ready"},"m":{"db":"_784d783aa8860455_a8_m","state":"ready"},"b":{"db":"_784d783aa8860455_a8_b","state":"ready"}},"9":{"o":{"db":"_784d783aa8860455_a9_o","state":"ready"},"m":{"db":"_784d783aa8860455_a9_m","state":"ready"},"b":{"db":"_784d783aa8860455_a9_b","state":"ready"}}}},"progress":{"active":true,"act":1,"step":0,"refs":{},"scene_date":"2026-01-07","base_db":"_784d783aa8860455"},"mode":"live","ready_registry":{"base_db":"_784d783aa8860455","work_db":"_784d783aa8860455_work","work_state":"ready","acts":{"1":{"o":{"db":"_784d783aa8860455_a1_o","state":"ready"},"m":{"db":"_784d783aa8860455_a1_m","state":"ready"},"b":{"db":"_784d783aa8860455_a1_b","state":"ready"}},"2":{"o":{"db":"_784d783aa8860455_a2_o","state":"ready"},"m":{"db":"_784d783aa8860455_a2_m","state":"ready"},"b":{"db":"_784d783aa8860455_a2_b","state":"ready"}},"3":{"o":{"db":"_784d783aa8860455_a3_o","state":"ready"},"m":{"db":"_784d783aa8860455_a3_m","state":"ready"},"b":{"db":"_784d783aa8860455_a3_b","state":"ready"}},"4":{"o":{"db":"_784d783aa8860455_a4_o","state":"ready"},"m":{"db":"_784d783aa8860455_a4_m","state":"ready"},"b":{"db":"_784d783aa8860455_a4_b","state":"ready"}},"5":{"o":{"db":"_784d783aa8860455_a5_o","state":"ready"},"m":{"db":"_784d783aa8860455_a5_m","state":"ready"},"b":{"db":"_784d783aa8860455_a5_b","state":"ready"}},"6":{"o":{"db":"_784d783aa8860455_a6_o","state":"ready"},"m":{"db":"_784d783aa8860455_a6_m","state":"ready"},"b":{"db":"_784d783aa8860455_a6_b","state":"ready"}},"7":{"o":{"db":"_784d783aa8860455_a7_o","state":"ready"},"m":{"db":"_784d783aa8860455_a7_m","state":"ready"},"b":{"db":"_784d783aa8860455_a7_b","state":"ready"}},"8":{"o":{"db":"_784d783aa8860455_a8_o","state":"ready"},"m":{"db":"_784d783aa8860455_a8_m","state":"ready"},"b":{"db":"_784d783aa8860455_a8_b","state":"ready"}},"9":{"o":{"db":"_784d783aa8860455_a9_o","state":"ready"},"m":{"db":"_784d783aa8860455_a9_m","state":"ready"},"b":{"db":"_784d783aa8860455_a9_b","state":"ready"}}}},"total_seconds":5693.691}
+{"at":"2026-10-23T15:14:10.324Z","event":"progress","phase":"done","act":9,"status":"done","step":0,"route":"/desk","error":"没有可续跑的失败记录"}
+{"at":"2026-10-23T15:14:10.326Z","event":"failure","message":"没有可续跑的失败记录"}
+{"at":"2026-10-23T15:14:53.039Z","event":"progress","phase":"restore","act":4,"status":"running","route":"/assets/frappe_debug/demo/transit.html","error":null}
+{"at":"2026-10-23T15:14:56.559Z","event":"progress","phase":"restore","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:15:56.711Z","event":"progress","phase":"restore","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:16:57.210Z","event":"progress","phase":"restore","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:17:14.956Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:18:15.322Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:19:15.731Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:20:16.268Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:21:16.741Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:24:21.368Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk","error":null}
+{"at":"2026-10-23T15:24:25.151Z","event":"progress","phase":"steps","act":4,"status":"running","route":"/desk/company","error":null}
+{"at":"2026-10-23T15:24:25.858Z","event":"progress","phase":"steps","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:24:26.563Z","event":"progress","phase":"steps","act":4,"status":"running","step":1,"route":"/desk/production-plan/new-production-plan-xvulckrbky","error":null}
+{"at":"2026-10-23T15:24:27.984Z","event":"progress","phase":"steps","act":4,"status":"running","step":5,"route":"/desk/production-plan/new-production-plan-xvulckrbky","error":null}
+{"at":"2026-10-23T15:24:29.516Z","event":"checkpoint","act":4,"step":6,"form":{"doctype":"Production Plan","name":"MFG-PP-2026-00078"},"report":null}
+{"at":"2026-10-23T15:24:29.519Z","event":"progress","phase":"steps","act":4,"status":"running","step":6,"route":"/desk/production-plan/MFG-PP-2026-00078","error":null}
+{"at":"2026-10-23T15:24:32.468Z","event":"progress","phase":"steps","act":4,"status":"running","step":7,"route":"/desk/work-order/MFG-WO-2026-00078","error":null}
+{"at":"2026-10-23T15:24:33.190Z","event":"progress","phase":"steps","act":4,"status":"running","step":8,"route":"/desk/stock-entry/new-stock-entry-nmbpkmhmdy","error":null}
+{"at":"2026-10-23T15:24:33.907Z","event":"progress","phase":"steps","act":4,"status":"running","step":9,"route":"/desk/stock-entry/new-stock-entry-nmbpkmhmdy","error":null}
+{"at":"2026-10-23T15:24:34.732Z","event":"progress","phase":"steps","act":4,"status":"running","step":10,"route":"/desk/job-card/PO-JOB00474","error":null}
+{"at":"2026-10-23T15:24:35.449Z","event":"progress","phase":"steps","act":4,"status":"running","step":11,"route":"/desk/job-card/PO-JOB00474","error":null}
+{"at":"2026-10-23T15:24:36.158Z","event":"progress","phase":"steps","act":4,"status":"failed","step":13,"route":"/desk/job-card","error":"第 4 幕第 14 步：第 4 幕第 14 步：Failed to execute 'querySelector' on 'Document': '[' is not a valid selector."}
+{"at":"2026-10-23T15:24:36.159Z","event":"failure","message":"第 4 幕第 14 步：第 4 幕第 14 步：Failed to execute 'querySelector' on 'Document': '[' is not a valid selector."}
+{"at":"2026-10-23T15:25:07.052Z","event":"progress","phase":"restore","act":4,"status":"running","route":"/assets/frappe_debug/demo/transit.html","error":null}
+{"at":"2026-10-23T15:25:10.398Z","event":"progress","phase":"restore","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:25:25.266Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:26:25.447Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:27:12.266Z","event":"progress","phase":"steps","act":4,"status":"running","route":"/desk/production-plan","error":null}
+{"at":"2026-10-23T15:27:12.970Z","event":"progress","phase":"steps","act":4,"status":"running","step":0,"route":"/desk/production-plan","error":null}
+{"at":"2026-10-23T15:27:13.683Z","event":"progress","phase":"steps","act":4,"status":"running","step":5,"route":"/desk/production-plan/new-production-plan-zelqzmcpwj","error":null}
+{"at":"2026-10-23T15:27:14.473Z","event":"checkpoint","act":4,"step":6,"form":{"doctype":"Production Plan","name":"MFG-PP-2026-00078"},"report":null}
+{"at":"2026-10-23T15:27:14.475Z","event":"progress","phase":"steps","act":4,"status":"running","step":6,"route":"/desk/production-plan/MFG-PP-2026-00078","error":null}
+{"at":"2026-10-23T15:27:15.897Z","event":"progress","phase":"steps","act":4,"status":"running","step":7,"route":"/desk/work-order/MFG-WO-2026-00078","error":null}
+{"at":"2026-10-23T15:27:16.630Z","event":"progress","phase":"steps","act":4,"status":"running","step":8,"route":"/desk/stock-entry/new-stock-entry-qvtovndqhj","error":null}
+{"at":"2026-10-23T15:27:17.399Z","event":"progress","phase":"steps","act":4,"status":"running","step":9,"route":"/desk/stock-entry/MAT-STE-2026-00149","error":null}
+{"at":"2026-10-23T15:27:18.111Z","event":"progress","phase":"steps","act":4,"status":"running","step":11,"route":"/desk/job-card/PO-JOB00474","error":null}
+{"at":"2026-10-23T15:27:18.935Z","event":"act-complete","act":4,"form":{"doctype":"Job Card","name":"PO-JOB00474"},"report":null}
+{"at":"2026-10-23T15:27:18.937Z","event":"progress","phase":"steps","act":4,"status":"running","step":14,"route":"/desk/job-card","error":null}
+{"at":"2026-10-23T15:27:19.647Z","event":"progress","phase":"acts","act":5,"status":"running","step":0,"route":"/desk/work-order","error":null}
+{"at":"2026-10-23T15:28:20.125Z","event":"progress","phase":"acts","act":5,"status":"running","step":0,"route":"/desk/work-order","error":null}
+{"at":"2026-10-23T15:28:23.683Z","event":"progress","phase":"steps","act":5,"status":"running","step":1,"route":"/desk/job-card/PO-JOB00475","error":null}
+{"at":"2026-10-23T15:28:29.461Z","event":"progress","phase":"steps","act":5,"status":"running","step":4,"route":"/desk/work-order/MFG-WO-2026-00078","error":null}
+{"at":"2026-10-23T15:28:30.166Z","event":"progress","phase":"steps","act":5,"status":"running","step":7,"route":"/desk/stock-entry/new-stock-entry-bckqrcmhaj","error":null}
+{"at":"2026-10-23T15:28:30.882Z","event":"progress","phase":"steps","act":5,"status":"running","step":8,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:28:31.690Z","event":"checkpoint","act":5,"step":9,"form":{"doctype":"Stock Entry","name":"MAT-STE-2026-00150"},"report":{"name":"Stock Ledger","rows":5}}
+{"at":"2026-10-23T15:28:31.691Z","event":"progress","phase":"steps","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:28:32.503Z","event":"act-complete","act":5,"form":{"doctype":"Stock Entry","name":"MAT-STE-2026-00150"},"report":{"name":"Stock Ledger","rows":5}}
+{"at":"2026-10-23T15:29:32.201Z","event":"progress","phase":"steps","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:30:22.526Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:31:22.913Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:32:23.311Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:32:36.117Z","event":"progress","phase":"segment","act":5,"status":"failed","step":9,"route":"/desk/query-report/Stock%20Ledger","error":"生成第 2 段：2026-02-06：frappe.exceptions.TimestampMismatchError: Error: PO-JOB00618 (Job Card) has been modified after you have opened it (2026-10-23 23:32:35, 2026-10-23 23:32:35.049523). 请刷新获取最新数据。"}
+{"at":"2026-10-23T15:32:36.118Z","event":"failure","message":"生成第 2 段：2026-02-06：frappe.exceptions.TimestampMismatchError: Error: PO-JOB00618 (Job Card) has been modified after you have opened it (2026-10-23 23:32:35, 2026-10-23 23:32:35.049523). 请刷新获取最新数据。"}
+{"at":"2026-10-23T15:37:58.914Z","event":"progress","phase":"restore","act":4,"status":"running","route":"/assets/frappe_debug/demo/transit.html","error":null}
+{"at":"2026-10-23T15:38:02.330Z","event":"progress","phase":"restore","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:38:33.460Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:39:33.562Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:40:33.820Z","event":"progress","phase":"restore_wait","act":4,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T15:40:37.367Z","event":"progress","phase":"restore_wait","act":4,"status":"running","route":"/assets/frappe_debug/demo/transit.html","error":null}
+{"at":"2026-10-23T15:40:40.294Z","event":"progress","phase":"steps","act":4,"status":"running","route":"/desk/production-plan","error":null}
+{"at":"2026-10-23T15:40:41.012Z","event":"progress","phase":"steps","act":4,"status":"running","step":0,"route":"/desk/production-plan","error":null}
+{"at":"2026-10-23T15:40:41.723Z","event":"progress","phase":"steps","act":4,"status":"running","step":5,"route":"/desk/production-plan/new-production-plan-kihqccjawg","error":null}
+{"at":"2026-10-23T15:40:43.236Z","event":"checkpoint","act":4,"step":6,"form":{"doctype":"Production Plan","name":"MFG-PP-2026-00078"},"report":null}
+{"at":"2026-10-23T15:40:43.238Z","event":"progress","phase":"steps","act":4,"status":"running","step":6,"route":"/desk/production-plan/MFG-PP-2026-00078","error":null}
+{"at":"2026-10-23T15:40:44.652Z","event":"progress","phase":"steps","act":4,"status":"running","step":7,"route":"/desk/work-order/MFG-WO-2026-00078","error":null}
+{"at":"2026-10-23T15:40:45.387Z","event":"progress","phase":"steps","act":4,"status":"running","step":8,"route":"/desk/stock-entry/new-stock-entry-qjjcvutjme","error":null}
+{"at":"2026-10-23T15:40:46.134Z","event":"progress","phase":"steps","act":4,"status":"running","step":9,"route":"/desk/stock-entry/MAT-STE-2026-00149","error":null}
+{"at":"2026-10-23T15:40:46.848Z","event":"progress","phase":"steps","act":4,"status":"running","step":11,"route":"/desk/job-card/PO-JOB00474","error":null}
+{"at":"2026-10-23T15:40:47.690Z","event":"act-complete","act":4,"form":{"doctype":"Job Card","name":"PO-JOB00474"},"report":null}
+{"at":"2026-10-23T15:40:47.692Z","event":"progress","phase":"steps","act":4,"status":"running","step":14,"route":"/desk/job-card","error":null}
+{"at":"2026-10-23T15:40:48.397Z","event":"progress","phase":"acts","act":5,"status":"running","step":0,"route":"/desk/work-order","error":null}
+{"at":"2026-10-23T15:41:47.363Z","event":"progress","phase":"steps","act":5,"status":"running","step":0,"route":"/desk/work-order","error":null}
+{"at":"2026-10-23T15:41:48.085Z","event":"progress","phase":"steps","act":5,"status":"running","step":1,"route":"/desk/job-card/PO-JOB00475","error":null}
+{"at":"2026-10-23T15:41:53.809Z","event":"progress","phase":"steps","act":5,"status":"running","step":2,"route":"/desk/work-order","error":null}
+{"at":"2026-10-23T15:41:54.525Z","event":"progress","phase":"steps","act":5,"status":"running","step":5,"route":"/desk/stock-entry/new-stock-entry-zgylkmldmo","error":null}
+{"at":"2026-10-23T15:41:55.375Z","event":"progress","phase":"steps","act":5,"status":"running","step":7,"route":"/desk/stock-entry/MAT-STE-2026-00150","error":null}
+{"at":"2026-10-23T15:41:56.208Z","event":"checkpoint","act":5,"step":9,"form":{"doctype":"Stock Entry","name":"MAT-STE-2026-00150"},"report":{"name":"Stock Ledger","rows":5}}
+{"at":"2026-10-23T15:41:56.210Z","event":"progress","phase":"steps","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:41:57.040Z","event":"act-complete","act":5,"form":{"doctype":"Stock Entry","name":"MAT-STE-2026-00150"},"report":{"name":"Stock Ledger","rows":5}}
+{"at":"2026-10-23T15:42:56.645Z","event":"progress","phase":"steps","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:43:40.738Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:44:41.117Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:45:41.538Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:46:42.045Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:47:42.543Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:48:43.009Z","event":"progress","phase":"segment","act":5,"status":"running","step":9,"route":"/desk/query-report/Stock%20Ledger","error":null}
+{"at":"2026-10-23T15:49:10.061Z","event":"progress","phase":"acts","act":6,"status":"running","step":0,"route":"/desk/query-report/Capacity%20Load","error":null}
+{"at":"2026-10-23T15:49:38.530Z","event":"progress","phase":"steps","act":6,"status":"running","step":0,"route":"/desk/query-report/Capacity%20Load","error":null}
+{"at":"2026-10-23T15:49:39.344Z","event":"checkpoint","act":6,"step":1,"form":{"doctype":"Stock Entry","name":"MAT-STE-2026-00150"},"report":{"name":"Capacity Load","rows":30}}
+{"at":"2026-10-23T15:49:39.346Z","event":"progress","phase":"steps","act":6,"status":"running","step":1,"route":"/desk/query-report/Capacity%20Load","error":null}
+{"at":"2026-10-23T15:49:40.136Z","event":"checkpoint","act":6,"step":5,"form":null,"report":{"name":"Capacity Load","rows":30}}
+{"at":"2026-10-23T15:49:40.139Z","event":"progress","phase":"steps","act":6,"status":"running","step":5,"route":"/desk/spc-chart","error":null}
+{"at":"2026-10-23T15:49:41.691Z","event":"act-complete","act":6,"form":null,"report":{"name":"Capacity Load","rows":30}}
+{"at":"2026-10-23T15:49:41.693Z","event":"progress","phase":"steps","act":6,"status":"running","step":7,"route":"/desk/piece-rate-summary","error":null}
+{"at":"2026-10-23T15:49:42.396Z","event":"progress","phase":"acts","act":7,"status":"running","step":0,"route":"/desk/sales-order","error":null}
+{"at":"2026-10-23T15:50:42.853Z","event":"progress","phase":"acts","act":7,"status":"running","step":0,"route":"/desk/sales-order","error":null}
+{"at":"2026-10-23T15:51:43.307Z","event":"progress","phase":"acts","act":7,"status":"running","step":0,"route":"/desk/sales-order","error":null}
+{"at":"2026-10-23T15:51:53.986Z","event":"progress","phase":"steps","act":7,"status":"running","step":2,"route":"/desk/sales-order/SAL-ORD-2026-00137","error":null}
+{"at":"2026-10-23T15:51:55.556Z","event":"progress","phase":"steps","act":7,"status":"running","step":3,"route":"/desk/delivery-note/new-delivery-note-nfjncocvxg","error":null}
+{"at":"2026-10-23T15:51:56.971Z","event":"progress","phase":"steps","act":7,"status":"running","step":4,"route":"/desk/delivery-note/MAT-DN-2026-00147","error":null}
+{"at":"2026-10-23T15:51:57.679Z","event":"progress","phase":"steps","act":7,"status":"running","step":6,"route":"/desk/sales-invoice/new-sales-invoice-prfxfrpvev","error":null}
+{"at":"2026-10-23T15:51:59.152Z","event":"progress","phase":"steps","act":7,"status":"running","step":7,"route":"/desk/sales-invoice/new-sales-invoice-prfxfrpvev","error":null}
+{"at":"2026-10-23T15:51:59.863Z","event":"progress","phase":"steps","act":7,"status":"running","step":9,"route":"/desk/sales-invoice/ACC-SINV-2026-00147","error":null}
+{"at":"2026-10-23T15:52:00.581Z","event":"progress","phase":"steps","act":7,"status":"running","step":12,"route":"/desk/payment-entry/new-payment-entry-igzpnwmqgc","error":null}
+{"at":"2026-10-23T15:52:01.383Z","event":"progress","phase":"steps","act":7,"status":"running","step":14,"route":"/desk/payment-entry/ACC-PAY-2026-00254","error":null}
+{"at":"2026-10-23T15:52:02.858Z","event":"progress","phase":"steps","act":7,"status":"running","step":15,"route":"/desk/month-end-closing-voucher/JZ-HDTH-202603-001","error":null}
+{"at":"2026-10-23T15:52:03.600Z","event":"progress","phase":"steps","act":7,"status":"running","step":16,"route":"/desk/cash-flow-worksheet/XJ-HDTH-202603","error":null}
+{"at":"2026-10-23T15:52:04.311Z","event":"progress","phase":"steps","act":7,"status":"running","step":17,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E8%B5%84%E4%BA%A7%E8%B4%9F%E5%80%BA%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:52:05.096Z","event":"checkpoint","act":7,"step":18,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业资产负债表","rows":30}}
+{"at":"2026-10-23T15:52:05.098Z","event":"progress","phase":"steps","act":7,"status":"running","step":18,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E8%B5%84%E4%BA%A7%E8%B4%9F%E5%80%BA%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:52:21.871Z","event":"checkpoint","act":7,"step":19,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业利润表","rows":30}}
+{"at":"2026-10-23T15:52:21.873Z","event":"progress","phase":"steps","act":7,"status":"running","step":19,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E5%88%A9%E6%B6%A6%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:52:22.692Z","event":"checkpoint","act":7,"step":20,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业现金流量表","rows":25}}
+{"at":"2026-10-23T15:52:22.815Z","event":"progress","phase":"steps","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:52:23.621Z","event":"act-complete","act":7,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"小企业现金流量表","rows":25}}
+{"at":"2026-10-23T15:53:23.365Z","event":"progress","phase":"steps","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:53:57.451Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:54:57.815Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:55:58.272Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:56:58.735Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:57:59.229Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T15:58:59.632Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T16:00:00.063Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T16:01:00.472Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T16:02:00.951Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T16:03:01.495Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T16:04:02.089Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T16:05:02.665Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T16:06:03.099Z","event":"progress","phase":"segment","act":7,"status":"running","step":20,"route":"/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E7%8E%B0%E9%87%91%E6%B5%81%E9%87%8F%E8%A1%A8","error":null}
+{"at":"2026-10-23T16:06:08.771Z","event":"progress","phase":"acts","act":8,"status":"running","step":0,"route":"/desk/query-report/Replenishment%20Strategy%20Comparison","error":null}
+{"at":"2026-10-23T16:06:40.851Z","event":"checkpoint","act":8,"step":1,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"Replenishment Strategy Comparison","rows":25}}
+{"at":"2026-10-23T16:06:40.853Z","event":"progress","phase":"steps","act":8,"status":"running","step":1,"route":"/desk/query-report/Replenishment%20Strategy%20Comparison","error":null}
+{"at":"2026-10-23T16:06:41.648Z","event":"act-complete","act":8,"form":{"doctype":"Cash Flow Worksheet","name":"XJ-HDTH-202603"},"report":{"name":"Replenishment Strategy Comparison","rows":25}}
+{"at":"2026-10-23T16:06:41.651Z","event":"progress","phase":"steps","act":8,"status":"running","step":3,"route":"/desk/query-report/Replenishment%20Strategy%20Comparison","error":null}
+{"at":"2026-10-23T16:06:42.365Z","event":"progress","phase":"acts","act":9,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T16:07:42.893Z","event":"progress","phase":"acts","act":9,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T16:08:43.453Z","event":"progress","phase":"acts","act":9,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T16:09:03.408Z","event":"progress","phase":"steps","act":9,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T16:09:04.122Z","event":"progress","phase":"steps","act":9,"status":"failed","step":1,"route":"/desk/replenishment-suggestion","error":"第 9 幕第 2 步：第 9 幕第 2 步：frappe.exceptions.ValidationError: 第 9 幕每日计算日期必须是场景终点 E"}
+{"at":"2026-10-23T16:09:04.122Z","event":"failure","message":"第 9 幕第 2 步：第 9 幕第 2 步：frappe.exceptions.ValidationError: 第 9 幕每日计算日期必须是场景终点 E"}
+{"at":"2026-10-23T16:25:30.948Z","event":"progress","phase":"restore","act":9,"status":"running","step":1,"route":"/desk","error":null}
+{"at":"2026-10-23T16:25:33.920Z","event":"progress","phase":"restore","act":9,"status":"running","route":"/desk/company","error":null}
+{"at":"2026-10-23T16:25:34.631Z","event":"progress","phase":"restore","act":9,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T16:25:49.509Z","event":"progress","phase":"restore_wait","act":9,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T16:26:49.887Z","event":"progress","phase":"restore_wait","act":9,"status":"running","step":0,"route":"/desk/company","error":null}
+{"at":"2026-10-23T16:27:49.912Z","event":"progress","phase":"steps","act":9,"status":"running","route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T16:27:50.627Z","event":"progress","phase":"steps","act":9,"status":"running","step":0,"route":"/desk/replenishment-suggestion","error":null}
+{"at":"2026-10-23T16:27:52.048Z","event":"progress","phase":"steps","act":9,"status":"running","step":1,"route":"/desk/replenishment-suggestion/RS-2026-00159","error":null}
+{"at":"2026-10-23T16:27:52.839Z","event":"checkpoint","act":9,"step":3,"form":{"doctype":"Replenishment Suggestion","name":"RS-2026-00159"},"report":null}
+{"at":"2026-10-23T16:27:52.847Z","event":"progress","phase":"steps","act":9,"status":"running","step":3,"route":"/desk/supplier-scorecard","error":null}
+{"at":"2026-10-23T16:27:53.618Z","event":"checkpoint","act":9,"step":4,"form":{"doctype":"Replenishment Suggestion","name":"RS-2026-00159"},"report":null}
+{"at":"2026-10-23T16:27:53.620Z","event":"progress","phase":"steps","act":9,"status":"running","step":4,"route":"/desk/supplier-scorecard","error":null}
+{"at":"2026-10-23T16:27:54.336Z","event":"progress","phase":"steps","act":9,"status":"running","step":5,"route":"/desk/replenishment-suggestion/RS-2026-00159","error":null}
+{"at":"2026-10-23T16:27:55.852Z","event":"act-complete","act":9,"form":{"doctype":"Material Request","name":"MAT-MR-2026-00155"},"report":null}
+{"at":"2026-10-23T16:27:55.854Z","event":"progress","phase":"steps","act":9,"status":"running","step":6,"route":"/desk/material-request/MAT-MR-2026-00155","error":null}
+{"at":"2026-10-23T16:27:59.441Z","event":"progress","phase":"done","act":9,"status":"done","route":"/desk/company","error":null}
+{"at":"2026-10-23T16:29:59.509Z","event":"failure","message":"must finish in act-one main database"}

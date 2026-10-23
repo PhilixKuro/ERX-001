@@ -1,0 +1,30 @@
+{
+  "act": 1,
+  "route": "/desk/sales-order/SAL-ORD-2026-00085",
+  "progress": {
+    "active": true,
+    "act": 1,
+    "step": 9,
+    "refs": {
+      "deal1": "CRM-DEAL-2026-00085",
+      "quotation1": "SAL-QTN-2026-00085",
+      "so1": "SAL-ORD-2026-00085"
+    },
+    "scene_date": "2026-01-07",
+    "base_db": "_3ba7ba1053a80306"
+  },
+  "form": {
+    "doctype": "Sales Order",
+    "name": "SAL-ORD-2026-00085",
+    "docstatus": 1
+  },
+  "report": null,
+  "dialogs": [],
+  "errors": [],
+  "routes": [
+    "/desk",
+    "/desk/quotation/SAL-QTN-2026-00085",
+    "/desk/sales-order/new-sales-order-wmskhysjed",
+    "/desk/sales-order/SAL-ORD-2026-00085"
+  ]
+}

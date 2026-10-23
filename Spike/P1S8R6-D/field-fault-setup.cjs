@@ -1,0 +1,14 @@
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'../..');
+const yaml=path.join(root,'frappe-bench/apps/frappe_debug/frappe_debug/data/demo.yaml');
+const source=fs.readFileSync(yaml,'utf8');
+const before='      - action: highlight\n        selector: .list-row\n        say: 工序数量已根据损耗调整，生产计划与实际进度可以对照。';
+const after=before.replace('selector: .list-row','field: __s8_invalid_field');
+assert.ok(source.includes(before));
+fs.writeFileSync(path.join(root,'frappe-bench/logs/s8-ts024-demo-before-field-fault.yaml'),source);
+fs.writeFileSync(yaml,source.replace(before,after));
+const output=path.join(root,'frappe-bench/logs/s8-rehearsal-acceptance.json');
+const saved=JSON.parse(fs.readFileSync(output,'utf8'));
+saved.state.status='failed';saved.state.act=4;saved.state.error='Harness setup for exact field-name failure injection';
+fs.writeFileSync(output,JSON.stringify(saved,null,2));
+console.log('Temporary act-four field fault configured; official resume will restore its original snapshot.');

@@ -1,0 +1,38 @@
+{
+  "act": 2,
+  "route": "/desk/purchase-order/PUR-ORD-2026-00089",
+  "progress": {
+    "active": true,
+    "act": 2,
+    "step": 7,
+    "refs": {
+      "deal1": "CRM-DEAL-2026-00085",
+      "quotation1": "SAL-QTN-2026-00085",
+      "so1": "SAL-ORD-2026-00085",
+      "suggestion1": "RS-2026-00090",
+      "mr1": "MAT-MR-2026-00089",
+      "po1": "PUR-ORD-2026-00089"
+    },
+    "scene_date": "2026-01-07",
+    "base_db": "_784d783aa8860455"
+  },
+  "form": {
+    "doctype": "Purchase Order",
+    "name": "PUR-ORD-2026-00089",
+    "docstatus": 1
+  },
+  "report": null,
+  "dialogs": [],
+  "errors": [],
+  "routes": [
+    "/desk",
+    "/desk/quotation/SAL-QTN-2026-00085",
+    "/desk/sales-order/new-sales-order-nepoqjcohy",
+    "/desk/sales-order/SAL-ORD-2026-00085",
+    "/desk/replenishment-suggestion",
+    "/desk/replenishment-suggestion/RS-2026-00090",
+    "/desk/material-request/MAT-MR-2026-00089",
+    "/desk/purchase-order/new-purchase-order-xyontfbozb",
+    "/desk/purchase-order/PUR-ORD-2026-00089"
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "act": 9,
+  "route": "/desk/material-request/MAT-MR-2026-00155",
+  "progress": {
+    "active": true,
+    "act": 9,
+    "step": 6,
+    "refs": {
+      "deal1": "CRM-DEAL-2026-00085",
+      "quotation1": "SAL-QTN-2026-00085",
+      "so1": "SAL-ORD-2026-00085",
+      "suggestion1": "RS-2026-00090",
+      "mr1": "MAT-MR-2026-00089",
+      "po1": "PUR-ORD-2026-00089",
+      "receipt1": "MAT-PRE-2026-00080",
+      "pinv1": "ACC-PINV-2026-00080",
+      "payment1": "ACC-PAY-2026-00143",
+      "plan1": "MFG-PP-2026-00078",
+      "work_order1": "MFG-WO-2026-00078",
+      "material_transfer1": "MAT-STE-2026-00149",
+      "job_card1": "PO-JOB00474",
+      "manufacture_entry1": "MAT-STE-2026-00150",
+      "act7_order": "SAL-ORD-2026-00137",
+      "delivery1": "MAT-DN-2026-00147",
+      "sinv1": "ACC-SINV-2026-00147",
+      "receipt_payment1": "ACC-PAY-2026-00254",
+      "closing_voucher": "JZ-HDTH-202603-001",
+      "cash_flow_worksheet": "XJ-HDTH-202603",
+      "eoq_suggestion": "RS-2026-00159",
+      "mr9": "MAT-MR-2026-00155"
+    },
+    "scene_date": "2026-10-23",
+    "base_db": "_3ba7ba1053a80306"
+  },
+  "form": {
+    "doctype": "Material Request",
+    "name": "MAT-MR-2026-00155",
+    "docstatus": 1
+  },
+  "report": {
+    "name": "Replenishment Strategy Comparison",
+    "filters": {
+      "company": "华东弹簧有限公司",
+      "items": [],
+      "period_1_from": "2025-10-01",
+      "period_1_to": "2026-01-31",
+      "period_2_from": "2026-02-01",
+      "period_2_to": "2026-05-31",
+      "period_3_from": "2026-06-01",
+      "period_3_to": "2026-10-22"
+    },
+    "rows": [
+      {
+        "period": "第 1 段",
+        "from_date": "2025-10-01",
+        "to_date": "2026-01-31",
+        "days": 123,
+        "avg_value": 13434.398617886167,
+        "po_count": 104,
+        "total": 9134.897494246574,
+        "shortage": 32
+      },
+      {
+        "period": "第 2 段",
+        "from_date": "2026-02-01",
+        "to_date": "2026-05-31",
+        "days": 120,
+        "avg_value": 66913.70950000001,
+        "po_count": 25,
+        "total": 5959.825000547946,
+        "shortage": 3
+      },
+      {
+        "period": "第 3 段",
+        "from_date": "2026-06-01",
+        "to_date": "2026-10-22",
+        "days": 144,
+        "avg_value": 62078.553402777725,
+        "po_count": 25,
+        "total": 6408.427682739722,
+        "shortage": 1
+      }
+    ]
+  },
+  "dialogs": [],
+  "errors": [
+    "Filter missing"
+  ],
+  "routes": [
+    "/desk/query-report/Replenishment%20Strategy%20Comparison?sidebar=Business%20Flow",
+    "/desk/query-report/Replenishment%20Strategy%20Comparison",
+    "/desk/query-report/Replenishment%20Strategy%20Comparison?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&period_1_from=2025-10-01&period_1_to=2026-01-31&period_2_from=2026-02-01&period_2_to=2026-05-31&period_3_from=2026-06-01&period_3_to=2026-10-22",
+    "/desk/replenishment-suggestion",
+    "/desk/replenishment-suggestion/RS-2026-00159",
+    "/desk/item-price",
+    "/desk/item-price?buying=1&item_code=WIRE-65MN-3.0",
+    "/desk/supplier-scorecard",
+    "/desk/supplier-scorecard?supplier=%E9%92%A2%E4%B8%9D%E4%BE%9B%E5%BA%94%E5%95%8601",
+    "/desk/replenishment-suggestion/RS-2026-00159",
+    "/desk/material-request/MAT-MR-2026-00155"
+  ]
+}
