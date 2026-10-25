@@ -9,12 +9,12 @@
       "deal1": "CRM-DEAL-2026-00085",
       "quotation1": "SAL-QTN-2026-00085",
       "so1": "SAL-ORD-2026-00085",
-      "suggestion1": "RS-2026-00090",
-      "mr1": "MAT-MR-2026-00089",
-      "po1": "PUR-ORD-2026-00089",
-      "receipt1": "MAT-PRE-2026-00080",
-      "pinv1": "ACC-PINV-2026-00080",
-      "payment1": "ACC-PAY-2026-00143",
+      "suggestion1": "RS-2026-00119",
+      "mr1": "MAT-MR-2026-00118",
+      "po1": "PUR-ORD-2026-00118",
+      "receipt1": "MAT-PRE-2026-00107",
+      "pinv1": "ACC-PINV-2026-00107",
+      "payment1": "ACC-PAY-2026-00169",
       "plan1": "MFG-PP-2026-00078",
       "work_order1": "MFG-WO-2026-00078",
       "material_transfer1": "MAT-STE-2026-00149",
@@ -23,7 +23,7 @@
       "act7_order": "SAL-ORD-2026-00137",
       "delivery1": "MAT-DN-2026-00147",
       "sinv1": "ACC-SINV-2026-00147",
-      "receipt_payment1": "ACC-PAY-2026-00254",
+      "receipt_payment1": "ACC-PAY-2026-00281",
       "closing_voucher": "JZ-HDTH-202603-001",
       "cash_flow_worksheet": "XJ-HDTH-202603"
     },
@@ -68,8 +68,8 @@
       {
         "cash_flow_name": "购买原材料、商品、接受劳务支付的现金",
         "code": "3",
-        "yearly_amount": 245136.53,
-        "monthly_amount": 33919.33,
+        "yearly_amount": 227661.7,
+        "monthly_amount": 33706,
         "_bold": false
       },
       {
@@ -89,15 +89,15 @@
       {
         "cash_flow_name": "支付其他与经营活动有关的现金",
         "code": "6",
-        "yearly_amount": 0,
-        "monthly_amount": 0,
+        "yearly_amount": 21878.45,
+        "monthly_amount": 7362.81,
         "_bold": false
       },
       {
         "cash_flow_name": "经营活动产生的现金流量净额",
         "code": "7",
-        "yearly_amount": 233973.47,
-        "monthly_amount": 78205.67,
+        "yearly_amount": 229569.85,
+        "monthly_amount": 71056.19,
         "_bold": true
       },
       {
@@ -201,44 +201,105 @@
       {
         "cash_flow_name": "四、现金净增加额",
         "code": "20",
-        "yearly_amount": 233973.47,
-        "monthly_amount": 78205.67,
+        "yearly_amount": 229569.85,
+        "monthly_amount": 71056.19,
         "_bold": true
       },
       {
         "cash_flow_name": "加：期初现金余额",
         "code": "21",
-        "yearly_amount": 3151419.76,
-        "monthly_amount": 3307187.56,
+        "yearly_amount": 3117094.95,
+        "monthly_amount": 3275608.61,
         "_bold": false
       },
       {
         "cash_flow_name": "五、期末现金余额",
         "code": "22",
-        "yearly_amount": 3385393.23,
-        "monthly_amount": 3385393.23,
+        "yearly_amount": 3346664.8,
+        "monthly_amount": 3346664.8,
         "_bold": true
       }
     ]
   },
   "dialogs": [
     {
+      "title": "确认物料清单推荐",
+      "text": "确认物料清单推荐\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t推荐物料清单：HDTH-C3-ABOM单位成本HDTH-C3-A0.265216HDTH-C3-B0.275910\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t保留当前\n\t\t\t\t\t\t换用推荐"
+    },
+    {
       "title": "信息",
-      "text": "需要检验\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t确认"
+      "text": "信息\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t生产工单已创建未创建采购订单\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t确认"
+    },
+    {
+      "title": "选择数量",
+      "text": "选择数量\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t工单发料 数量\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t5,259.299\n\t\t\t\t\t\t最大值：5259.299\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tqty\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t创建"
+    },
+    {
+      "title": "停止计时",
+      "text": "停止计时\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t本批次生产数量\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t2,000\n\t\t\t\t\t\t完工、待完工与制程损耗数量之和须等于此数。\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tfor_quantity\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t完成数量\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t1,940\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tcompleted_qty\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t待处理数量\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t0\n\t\t\t\t\t\t本批次未完成、留给后续批次或其他生产任务单的数量。\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tpending_qty\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t加工损耗量\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t60\n\t\t\t\t\t\t本批次报废的数量，不再生产。\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tprocess_loss_qty\n\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t结束时间\n\t\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t2026-01-07 07:10:00\n\t\t\t\t\t\tAsia/Kolkata\n\t\t\t\t\t\n\t\t\t\t\n\t\t\tend_time\n\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t\t\t更新"
     }
   ],
-  "errors": [
-    "Cannot read properties of null (reading 'name')"
-  ],
+  "errors": [],
   "routes": [
-    "/desk/sales-order?sidebar=Business%20Flow",
+    "/desk",
+    "/desk/quotation/SAL-QTN-2026-00085",
+    "/desk/sales-order/new-sales-order-rvvbyllykj",
+    "/desk/sales-order/SAL-ORD-2026-00085",
+    "/desk/replenishment-suggestion",
+    "/desk/replenishment-suggestion/RS-2026-00119",
+    "/desk/material-request/MAT-MR-2026-00118",
+    "/desk/purchase-order/new-purchase-order-dfvavqyfic",
+    "/desk/purchase-order/PUR-ORD-2026-00118",
+    "/desk/purchase-order",
+    "/desk/purchase-order/PUR-ORD-2026-00118",
+    "/desk/purchase-receipt/new-purchase-receipt-egztfjxxxq",
+    "/desk/purchase-receipt/MAT-PRE-2026-00107",
+    "/desk/purchase-invoice/new-purchase-invoice-vzfqcbjlfg",
+    "/desk/purchase-invoice/ACC-PINV-2026-00107",
+    "/desk/payment-entry/new-payment-entry-cnrjqkcozc",
+    "/desk/payment-entry/ACC-PAY-2026-00169",
+    "/desk/query-report/Stock%20and%20Account%20Value%20Comparison",
+    "/desk/query-report/Stock%20and%20Account%20Value%20Comparison?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&as_on_date=2026-01-07",
+    "/desk/production-plan",
+    "/desk/production-plan?status=%5B%22%21%3D%22%2C%22Closed%22%5D",
+    "/desk/production-plan/new-production-plan-eklifpyvax",
+    "/desk/production-plan/MFG-PP-2026-00078",
+    "/desk/work-order/MFG-WO-2026-00078",
+    "/desk/stock-entry/new-stock-entry-azyaihrrcz",
+    "/desk/stock-entry/MAT-STE-2026-00149",
+    "/desk/job-card/PO-JOB00474",
+    "/desk/job-card",
+    "/desk/job-card?work_order=MFG-WO-2026-00078",
+    "/desk/work-order",
+    "/desk/work-order?status=%5B%22%21%3D%22%2C%22Stopped%22%5D",
+    "/desk/job-card/PO-JOB00475",
+    "/desk/job-card/PO-JOB00476",
+    "/desk/job-card/PO-JOB00477",
+    "/desk/job-card/PO-JOB00478",
+    "/desk/job-card/PO-JOB00479",
+    "/desk/job-card/PO-JOB00480",
+    "/desk/job-card/PO-JOB00481",
+    "/desk/job-card/PO-JOB00482",
+    "/desk/work-order",
+    "/desk/work-order?sales_order=SAL-ORD-2026-00085&status=In+Process",
+    "/desk/work-order/MFG-WO-2026-00078",
+    "/desk/stock-entry/new-stock-entry-xehjpdkkxl",
+    "/desk/stock-entry/MAT-STE-2026-00150",
+    "/desk/query-report/Stock%20Ledger",
+    "/desk/query-report/Stock%20Ledger?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&from_date=2026-01-07&to_date=2026-01-07&valuation_field_type=Currency",
+    "/desk/query-report/Capacity%20Load",
+    "/desk/query-report/Capacity%20Load?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8&from_date=2026-04-01&to_date=2026-05-13&bucket=Week",
+    "/desk/spc-chart",
+    "/desk/piece-rate-summary",
+    "/desk/piece-rate-summary?company=%E5%8D%8E%E4%B8%9C%E5%BC%B9%E7%B0%A7%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8",
+    "/desk/sales-order",
     "/desk/sales-order/SAL-ORD-2026-00137",
-    "/desk/delivery-note/new-delivery-note-yczqjlojpr",
+    "/desk/delivery-note/new-delivery-note-hftozfesqu",
     "/desk/delivery-note/MAT-DN-2026-00147",
-    "/desk/sales-invoice/new-sales-invoice-cqirphbius",
+    "/desk/sales-invoice/new-sales-invoice-mlmcsvotqq",
     "/desk/sales-invoice/ACC-SINV-2026-00147",
-    "/desk/payment-entry/new-payment-entry-cbmxizriwk",
-    "/desk/payment-entry/ACC-PAY-2026-00254",
+    "/desk/payment-entry/new-payment-entry-nonmjpbpln",
+    "/desk/payment-entry/ACC-PAY-2026-00281",
     "/desk/month-end-closing-voucher/JZ-HDTH-202603-001",
     "/desk/cash-flow-worksheet/XJ-HDTH-202603",
     "/desk/query-report/%E5%B0%8F%E4%BC%81%E4%B8%9A%E8%B5%84%E4%BA%A7%E8%B4%9F%E5%80%BA%E8%A1%A8",

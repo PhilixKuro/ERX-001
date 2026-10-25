@@ -207,3 +207,12 @@ TS-008 无新增工程约定：沿用已有补货模块、frappe.local 请求内
 - 经Git Bash实际调用docker/configure-apps.sh --site test.localhost --company '_FCT CRM 验证'两次（保留测试站原CRM公司，站内两家中式公司故显式指定）。首轮输出批号开关0→1、Administrator→演示管理员；第二轮输出“无改动”。两次均退出0，日志s8-ts012-config-first.log、s8-ts012-config-second.log；未调用演示站。
 - 只读查询s8-demo-prerequisites-data.json：Gender7、Salutation9，批号1，User.first_name/full_name均为演示管理员；英文原始记录名保持。真实员工性别下拉七项全中文；用户表单、会话姓名及侧栏可见演示管理员，截图SL010-employee-gender.png、SL010-batch-setting.png、SL010-administrator-name.png。首轮浏览器脚本错误读取boot.user.full_name为undefined，已按原生侧栏真实读取端改为frappe.session.user_fullname，重跑退出0，未改产品实现。
 - SL-010标准全量已完成：集成465/465（2434.073秒）、旧类6/6（0.312秒）、未分类4/4（0.004秒），退出码0；日志s8-sl010-full.log与s8-sl010-full.exit。运行期间app源码冻结。
+
+### 2026-10-25 E 步核出的更正（R7 IT-008～011）
+
+按 [R7 E 确认报告](../R07-确认/P1-S8-R7-E确认报告.md) 更正，原文保留：
+
+- **IT-008**：TS-002「保存无 COGS 提示」的测试在中文会话下找英文源词，问题复发也照样通过；R7 改为同时查中文译文并补一条能拦住中文提示的用例。
+- **IT-009**：`s8_cn_accounting_defaults` 补丁缺 1002 时 `throw` 中断迁移、缺 410199／400101 静默跳过，与方案「log_error＋print，不抛」不符；且每次无条件 `save()`。R7 已改并补测试。
+- **IT-010**：TS-009 ⑩「覆盖周三」的用例日期 2026-10-06 实为周二；R7 补 2026-10-07 用例。HT-001 退路（附加费用空科目补库存费用科目）补登为偏离。
+- **IT-011**：TS-010 方案要求的整年计时当时标「待 TS-017」后未补；R7 在 `s8eoqformal` 全年数据上实测 2.383 秒、未转 Prepared Report。

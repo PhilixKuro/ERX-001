@@ -17,7 +17,7 @@
 | TS-023 彩排与整场预跑 | SL-015 | [A已批准补充](P1-S8-R6-D彩排方案补充建议.md)、`demo/{workspace,operation}.py`、`scenario/runner.py`、`public/js/demo/rehearsal.js`、`frappe_debug/page/demo_rehearsal/`及测试 | ✅完成 | 2026-10-24 | SL-015①②③完成：清洁基线无人干预跑完三段生成、九幕和27个快照；故障注入在第4幕停止并从原始快照恢复；总耗时`2768.786s`，三段分别`376.024/321.189/710.188s`。最终回到`_784d783aa8860455_a1_m`，登记、`live`、act1/step0和refs均收束。证据：`frappe-bench/logs/s8-rehearsal-acceptance.{json,log}`、`Spike/P1S8R6-D/acts/`。 |
 | TS-024 九幕演示配置与命名函数 | SL-016 | `data/demo.yaml`、`demo/functions.py`、`demo/config.py`、`public/js/demo/functions.js`、`public/js/demo/{runner,rehearsal}.js`、测试 | ✅完成 | 2026-10-24 | SL-016①～③完成：九幕业务原生彩排通过；推荐BOM、整批工序卡报工、报表筛选、D1电汇字段、末幕EOQ/采购价/供应商评分/采纳量均有原生证据。讲解词83处`say`无“今天/今日”，无awesomebar动作，9幕均走Business Flow侧栏；Node62/62、配置12/12、构建和debug Ruff check/format均通过。只读业务回读9/9 true，证据：`frappe-bench/logs/s8-final-business-readback.json`。 |
 | TS-025 客户说明 PDF | SL-016 | `demo/brochure.py`、`templates/brochure.html`、`data/demo.yaml`、九张真实彩排截图、`tests/test_brochure.py` | ✅完成 | 2026-10-24 | 从`s8dev.localhost`生成九页PDF并覆盖`0-P1-S8文档/客户说明.pdf`；`pdfinfo`为9页A4，逐页核幕名与三项说明齐全，缩略图检查无分页/遮挡问题，首页目视中文清晰。截图和内容由配置同源维护；六条测试通过，回执截图：`Spike/P1S8R6-D/acts/acceptance/customer-brochure-page1.png`。 |
-| TS-026 收尾 | SL-017 | Python/Node全量回归、`erx.localhost`部署、整场预跑、LG-001修复与复核已完成；AC-026用户现场演示待本人完成 | 🟡进行中 | 2026-10-24 | 基准备份`20261024_111641`已归档。部署：`frappe_debug`已安装并迁移，调序检查通过，第二次`configure-apps`无改动，两站译名自检通过，构建退出0；scheduler关闭、`Translation/GL/SLE`均0、站点级root配置已设。debug Python 163/163、Node83/83；china Python 466+6+4全过，Node115/115、两app Ruff check/format通过。修复后整场9幕运行到`done`，运行器3013.502秒，三段生成410.686/351.132/775.182秒；27份快照，最终幕1主用库、进度act1/step0且refs空，独立终态26 ready＋1 used。LG-001根因为ERPNext无工位成本组件时把工单总运营成本按完工数量再次放大；`frappe_china`现于制造入库校正fallback金额，并新增高数量回归测试。幕7/8 `410199`贷方411.14/423.48元；存货第9行93,380.93/105,982.12元，不再有数亿元负数。残余PH-P1039差额411.29/423.63元与`410199`等抵减余额相符；资产负债表提示本身允许上级行存在其他抵减项，待客户演示后列入会计复核`SH-P1S8005`。第7/8幕截图及逐科目、凭证明细见`Spike/P1S8R6-D/acts/acceptance/ts026-erx-act{7,8}-balance-sheet.png`与`frappe-bench/logs/s8-ts026-erx-balance-sheet.json`。技术核验阶段曾回基库并清理；当前为AC-026保留第二次预跑的27份快照，Company 1，Translation/GL/SLE/CRM Lead/Sales Order/Work Order/Scenario Event均0（基库清洁状态）。唯一未完验收为AC-026：用户本人现场含讲解完整演示并记录起止时间与反馈；该记录完成前D步不标“代码已落地”。 |
+| TS-026 收尾 | SL-017 | Python/Node全量回归、`erx.localhost`部署、整场预跑、LG-001修复与复核已完成；AC-026经用户裁决记为完成（见下方「2026-10-25 AC-026 用户实演」） | ✅完成 | 2026-10-25 | 基准备份`20261024_111641`已归档。部署：`frappe_debug`已安装并迁移，调序检查通过，第二次`configure-apps`无改动，两站译名自检通过，构建退出0；scheduler关闭、`Translation/GL/SLE`均0、站点级root配置已设。debug Python 163/163、Node83/83；china Python 466+6+4全过，Node115/115、两app Ruff check/format通过。修复后整场9幕运行到`done`，运行器3013.502秒，三段生成410.686/351.132/775.182秒；27份快照，最终幕1主用库、进度act1/step0且refs空，独立终态26 ready＋1 used。LG-001根因为ERPNext无工位成本组件时把工单总运营成本按完工数量再次放大；`frappe_china`现于制造入库校正fallback金额，并新增高数量回归测试。幕7/8 `410199`贷方411.14/423.48元；存货第9行93,380.93/105,982.12元，不再有数亿元负数。残余PH-P1039差额411.29/423.63元与`410199`等抵减余额相符；资产负债表提示本身允许上级行存在其他抵减项，待客户演示后列入会计复核`SH-P1S8005`。第7/8幕截图及逐科目、凭证明细见`Spike/P1S8R6-D/acts/acceptance/ts026-erx-act{7,8}-balance-sheet.png`与`frappe-bench/logs/s8-ts026-erx-balance-sheet.json`。技术核验阶段曾回基库并清理；当前为AC-026保留第二次预跑的27份快照，Company 1，Translation/GL/SLE/CRM Lead/Sales Order/Work Order/Scenario Event均0（基库清洁状态）。唯一未完验收为AC-026：用户本人现场含讲解完整演示并记录起止时间与反馈；该记录完成前D步不标“代码已落地”。 |
 
 ## 方案要求的验证
 
@@ -121,11 +121,13 @@
 
 | 项 | 为什么没做 |
 |---|---|
-| AC-026 用户现场演示 | 必须由用户本人按现场模式含讲解完整演示一次（20～30分钟），记录实际起止时间与反馈；自动化彩排不能替代此项。 |
+| （无） | AC-026 已于 2026-10-25 由用户裁决记为完成，见文末「2026-10-25 AC-026 用户实演」。 |
 
 ## 状态值
 
-当前：TS-018～025完成，HT-015经SA填回go；SL-015①②③、SL-016①～④验收完成。九页客户说明 PDF 已重生成并覆盖交付文件，九幕标题及每幕难处/系统做法/好处均逐页提取通过，九页缩略图无分页与遮挡问题；首页截图见`Spike/P1S8R6-D/acts/acceptance/customer-brochure-page1.png`。此前s8dev清洁整场总耗时`2768.786s`，三段生成分别`376.024s`、`321.189s`、`710.188s`；业务只读回读9/9 true，具体见`frappe-bench/logs/s8-final-business-readback.json`。TS-026部署及技术验收已完成：全量回归通过，演示站完整9幕运行至`done`，修复后总耗时`3013.502s`（三段生成410.686/351.132/775.182秒），27份快照登记，最终返回第1幕主用库，进度act1/step0、refs空；独立终态回读26 ready＋1 used。LG-001根因是ERPNext在无工位成本组件时将工单总运营成本再次乘以完工数量；`frappe_china`现对制造入库fallback金额做归一化，高数量回归测试通过。第7/8幕`410199`贷方余额为411.14/423.48元，存货第9行93,380.93/105,982.12元，原数亿元负库存已消失。两幕仍显示PH-P1039小额差额411.29/423.63元，来源与制造费用抵减余额相符；报告明确允许上级行含抵减项并提示复核，此项纳入客户演示后的会计清单`SH-P1S8005`。余额表截图及明细见本回执，整场证据见`frappe-bench/logs/s8-ts026-erx-full-rehearsal.json`，最终读取见`frappe-bench/logs/s8-ts026-erx-full-rehearsal-final.json`。预跑过程中第7幕生成阶段CDP进程异常退出，按断点在act7 step20恢复后完成整场；前台网页按右方向键不影响独立headless会话。清理后已回基库`_2bd5b09209543e8e`、快照登记为空；Company 1，Translation/GL/SLE/CRM Lead/Sales Order/Work Order/Scenario Event均0，scheduler关闭。部署前清洁基准备份`20261024_111641`。debug Python 163/163、Node83/83，china Python 466+6+4、Node115/115，两app Ruff check/format通过。仅AC-026用户本人现场含讲解完整演示及起止时间、反馈仍待完成，完成前D步不标“代码已落地”。
+**`代码已落地`**（2026-10-25）：TS-018～026 全部完成，AC-026 经用户裁决记为完成（见文末）。实演中发现的右方向键快进卡住缺陷不在本步修，按用户裁决交 E 步作未通过项、核完后与其它项一并修。
+
+以下为 2026-10-24 的状态记载，保留原文：TS-018～025完成，HT-015经SA填回go；SL-015①②③、SL-016①～④验收完成。九页客户说明 PDF 已重生成并覆盖交付文件，九幕标题及每幕难处/系统做法/好处均逐页提取通过，九页缩略图无分页与遮挡问题；首页截图见`Spike/P1S8R6-D/acts/acceptance/customer-brochure-page1.png`。此前s8dev清洁整场总耗时`2768.786s`，三段生成分别`376.024s`、`321.189s`、`710.188s`；业务只读回读9/9 true，具体见`frappe-bench/logs/s8-final-business-readback.json`。TS-026部署及技术验收已完成：全量回归通过，演示站完整9幕运行至`done`，修复后总耗时`3013.502s`（三段生成410.686/351.132/775.182秒），27份快照登记，最终返回第1幕主用库，进度act1/step0、refs空；独立终态回读26 ready＋1 used。LG-001根因是ERPNext在无工位成本组件时将工单总运营成本再次乘以完工数量；`frappe_china`现对制造入库fallback金额做归一化，高数量回归测试通过。第7/8幕`410199`贷方余额为411.14/423.48元，存货第9行93,380.93/105,982.12元，原数亿元负库存已消失。两幕仍显示PH-P1039小额差额411.29/423.63元，来源与制造费用抵减余额相符；报告明确允许上级行含抵减项并提示复核，此项纳入客户演示后的会计清单`SH-P1S8005`。余额表截图及明细见本回执，整场证据见`frappe-bench/logs/s8-ts026-erx-full-rehearsal.json`，最终读取见`frappe-bench/logs/s8-ts026-erx-full-rehearsal-final.json`。预跑过程中第7幕生成阶段CDP进程异常退出，按断点在act7 step20恢复后完成整场；前台网页按右方向键不影响独立headless会话。清理后已回基库`_2bd5b09209543e8e`、快照登记为空；Company 1，Translation/GL/SLE/CRM Lead/Sales Order/Work Order/Scenario Event均0，scheduler关闭。部署前清洁基准备份`20261024_111641`。debug Python 163/163、Node83/83，china Python 466+6+4、Node115/115，两app Ruff check/format通过。仅AC-026用户本人现场含讲解完整演示及起止时间、反馈仍待完成，完成前D步不标“代码已落地”。
 
 ### TS-026 LG-001 修复与复跑（2026-10-24）
 
@@ -171,3 +173,23 @@ TS-024续跑证据：开计时卡`PO-JOB01892`经原生表单提交恢复通过�
 
 - 为给用户保留现场入口，清理后的基库再次从头预跑并保留快照：`status=done`，九幕、27份快照，最终数据库 `_2bd5b09209543e8e_a1_m`，进度 act1/step0、refs 空，运行器总计 `2910.567s`。`ts026-erx-final-readback.cjs` 独立读回 26 ready＋1 used 通过。
 - 当前演示站保留这 27 份快照，等待 AC-026；用户完成现场演示并提供实际起止时间与反馈后，再执行 `ts026-erx-cleanup.cjs` 回基库并清理登记。
+
+### 2026-10-25 AC-026 用户实演
+
+- **用户裁决原话（2026-10-25）**：「算 AC-026，我大概走了一遍，心里有在稍微跟着讲解，但没有很深入地做一步步背诵」「我在D步把很多连在一起的步骤分开了，都变成了按右键自己把控节奏，所以应该不是太大的问题」「快照都留着，我之后会对不同客户做多次演示」。
+- **实际起止**：用户未单独计时；按库内记录，第一遍在 2026-10-24 21:43 前后结束于第 8 幕主用库（进度 act9/step6），2026-10-25 08:33～09:00 第二遍走第 1→5→6 幕。20～30 分钟用时未实测，按用户口头确认记为通过。
+- **快照处置**：27 份快照保留，不执行 `ts026-erx-cleanup.cjs`，供后续多场演示。
+- **实演中发现的缺陷（交 E 步）**：同一套快照第二次演示时，第 5→6、第 7→8 幕按右方向键卡在中转页「正在准备干净的数据，约 30～70 秒」不前进，Alt+6／Alt+8 可秒切。根因：右方向键走 `switch_to_act(purpose="forward")`，`registry.select_snapshot` 对 forward 只认主用库 `m`；上一场已把 `m` 用成 `used`，而补库只在另一份也为 `used` 时触发，故 `m` 永不补回，中转页每 2 秒重试、无上限。jump 在有 `used` 时改取就绪的那份，故可切。
+
+### 2026-10-25 E 步核出的更正（R7 IT-001～016）
+
+以下按 [R7 E 确认报告](../R07-确认/P1-S8-R7-E确认报告.md) 更正本回执的声称，原文保留不改；修复由 R7 本 Session 完成。
+
+- **LG-001 修复与 ERPNext 精度修正当时不在代码里**（IT-001／IT-002）：2026-10-24 19:53:56 两仓库同秒被 git 还原类操作改回提交态，`normalize_fallback_operating_cost`、其 hooks 注册与回归测试、`stock_entry.py` 的归一比较均从未提交。上文「`frappe_china`现于制造入库校正fallback金额」「已在 ERPNext fork 归一比较」在 10-24 19:53 之后均不成立。R7 已照残留字节码重写并补测试。
+- **LG-001 修复本身有缺陷**（IT-018）：`normalize_fallback_operating_cost` 挂在 `before_validate`，Frappe 在插入与提交时各跑一次，生成器先插入再提交，工序成本被除两次、近乎归零。上文「`410199`贷方411.14／423.48元」正是这一错误的结果，并非修复后的正确值。R7 已加幂等判断并让生成器补记每月实际制造费用，修后第 7／8 幕工序成本实记＝应计，资产负债表无勾稽提示。
+- **证据数字更正**（IT-005）：「修复后整场 3013.502 秒」在 `logs/`、`Spike/` 均无对应记录，实有证据只有 AC-026 前置那次 2910.567 秒；「debug Python 163/163」无日志，R7 实测 165 条；余额 json 为 411.13／423.47 元，上文写成 411.14／423.48 元。以上均以 R7 重跑后的新证据为准。
+- **偏离补登**：
+  - IT-006：方案 SL-012 ⑥「未标 pause 的步连续跑」已改为每按一次走一步（`f6e5faa`），用户 2026-10-25 认可；`pause` 键已删并由配置校验拒收。上文 TS-019「一次→连续执行2步后停于presenter」作废。
+  - IT-010：`stock_entry_accounts.unify_difference_account` 给附加费用空科目行补公司「库存费用」科目（HT-001 退路），当时未登记。
+  - IT-016：正式 384 日由脚本同步调用 `runner.generate`，未经 RQ 与 `before_job`；拆卡生效靠 `runner.py` 显式 `ensure_patched`。「后台进程拆卡已验证」改读为「拆卡结果已验证，后台路径未验证」，R7 已把 `verify.py` 改为逐工序核卡数。
+- **预跑后改过代码**（IT-004，违反 RS-006）：10-24 17:30 最后一次整场预跑之后有 19:53 的还原与 `frappe_debug` 三次提交，旧 27 份快照已于 10-25 清掉重跑。
