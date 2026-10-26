@@ -144,9 +144,9 @@
 
 | # | 严重程度 | 定位 | 问题描述 | 违背的标准/意图 | 建议 | 建议档位 | 待裁决点 | 状态 | 用户裁决 | 片内号 |
 |---|---|---|---|---|---|---|---|---|---|---|
-| FD-001 | 中 | `frappe_china/accounting/install.py:6-64`（建「支」不设 `must_be_whole_number`）；`process_loss.py:71-106`；`frappe_debug/scenario/masters.py:594` | 演示数据里「支」不是整数单位，取整逻辑走小数分支：BOM 整体损耗率存 4.9303、A18 从不触发，计划与工单数量全是小数。第 4 幕计划数量实为 5,259.299 支，不是 AC-004 的 5261。测试能过是因为 `setUp` 临时设了整数 | 需求 §4.6.1「支须为整数」、§4.6.2、AC-004；总纲 A18 | ① 「支」改整数单位（`ensure_cn_uoms` 设 1＋迁移补丁），核生成器全链后整场重跑；② 接受小数支，改 AC-004 与第 4 幕讲解口径，去掉测试里临时改单位的写法 | `出方案修` | 选①还是②；选①时「个」「件」等计数单位要不要一起改 | 待详细修复方案 | 出方案修（2026-10-26 按建议）；待裁决点待答 | P1-01 |
+| FD-001 | 中 | `frappe_china/accounting/install.py:6-64`（建「支」不设 `must_be_whole_number`）；`process_loss.py:71-106`；`frappe_debug/scenario/masters.py:594` | 演示数据里「支」不是整数单位，取整逻辑走小数分支：BOM 整体损耗率存 4.9303、A18 从不触发，计划与工单数量全是小数。第 4 幕计划数量实为 5,259.299 支，不是 AC-004 的 5261。测试能过是因为 `setUp` 临时设了整数 | 需求 §4.6.1「支须为整数」、§4.6.2、AC-004；总纲 A18 | ① 「支」改整数单位（`ensure_cn_uoms` 设 1＋迁移补丁），核生成器全链后整场重跑；② 接受小数支，改 AC-004 与第 4 幕讲解口径，去掉测试里临时改单位的写法 | `出方案修` | 选①还是②；选①时「个」「件」等计数单位要不要一起改 | 待详细修复方案 | 出方案修（2026-10-26 按建议）；待裁决点 2026-10-26 答：选①「支」改整数单位，按件计的单位（支、个、台、只、件、张、套、片、条）一并设整数 | P1-01 |
 | FD-002 | 中 | `frappe_china/translations/zh.csv:3142`（`New,新线索`）、`:3901`（`Qualification,需求确认`）及 `Qualified`／`Converted`／`Unqualified`；`tests/translation_overrides.py:28-33` | 为 CRM 下拉加的 5 条无 context 覆盖全站生效：六类单据提交成功提示里的「新建」按钮显示「新线索」（彩排取证 `act3-step14.json`），树视图主按钮、HRMS 前端「New」按钮同受影响；HRMS 教育经历列名显示「需求确认」。`Created` 也由「创建」改成「已创建」 | OB-029 只针对 CRM；开发守则「覆盖官方词典逐条写依据」；项目概况「改无 context 行前查六个 app 全部出处」 | 把 CRM 状态译名收窄到 `/crm`（带 context 的键，或只进 `website_translation.py` 的注入词典），撤掉 5 条全局覆盖 | `新Session修` | 收窄到 `/crm`，还是保留全局、只另补 Desk 提交提示按钮 | 待新Session修 | 新Session修（2026-10-26 按建议）；待裁决点待答 | P1-02 |
-| FD-003 | 中 | `frappe_china/accounting/stock_entry_accounts.py:162-194` | `normalize_fallback_operating_cost` 以「工单工序总成本×本次完工数÷工单数」为正确值，只在全部报工完、一次入库时成立。分批完工时两张入库合计少记 25%（mock 探针 `Spike/P1S8R8-F/p1/probe_normalize_partial.out`）。演示数据每单一张入库不暴露，但 `frappe_china` 要装客户正式库 | 需求 §4.7 成本完整性；E IT-018「工序成本按实计入」 | 改为「累计实际工序成本 − 本工单已提交入库已吸收的成本」再按剩余数量分摊，补分批完工用例；先在测试站真跑一张分批工单确认上游公式 | `出方案修` | 分摊口径；是否与 `SH-P1S8010` 一起交会计 | 待详细修复方案 | 出方案修（2026-10-26 按建议）；待裁决点待答 | P1-03 |
+| FD-003 | 中 | `frappe_china/accounting/stock_entry_accounts.py:162-194` | `normalize_fallback_operating_cost` 以「工单工序总成本×本次完工数÷工单数」为正确值，只在全部报工完、一次入库时成立。分批完工时两张入库合计少记 25%（mock 探针 `Spike/P1S8R8-F/p1/probe_normalize_partial.out`）。演示数据每单一张入库不暴露，但 `frappe_china` 要装客户正式库 | 需求 §4.7 成本完整性；E IT-018「工序成本按实计入」 | 改为「累计实际工序成本 − 本工单已提交入库已吸收的成本」再按剩余数量分摊，补分批完工用例；先在测试站真跑一张分批工单确认上游公式 | `出方案修` | 分摊口径；是否与 `SH-P1S8010` 一起交会计 | 待详细修复方案 | 出方案修（2026-10-26 按建议）；待裁决点 2026-10-26 答：按累计实际工序成本分摊（累计实际－已吸收，按本次入库数占已报工未入库数的比例）；口径并入 `SH-P1S8010` 演示后交会计，不阻塞 | P1-03 |
 | FD-004 | 中 | `frappe_debug/scenario/day.py:260-283`、`builders/buying.py:44-73`；`Buying Settings.bill_for_rejected_quantity_in_purchase_invoice=1`（原生缺省） | 拒收数量照开票照付款：订 100、拒 5，入库 95，发票按 100、付 800，`220202 应付账款-暂估库存` 余借 35.39；整年约 2% 的采购额如此，拒收品还以 0 成本留在不合格品仓 | 需求 §4.9.2 收货→发票→付款的会计正确性 | 生成器前置把该开关置 0（或按合格数开票），补用例核 220202 归零 | `新Session修` | 拒收品是否开票付款（原生缺省是为退货、扣款流程，演示无退货环节） | 待新Session修 | 新Session修（2026-10-26 按建议）；待裁决点待答 | P2-01 |
 | FD-005 | 中 | `frappe_debug/scenario/day.py:409-411` | 每张工序卡的报工员工都取「公司第一个在职员工」：4208 条时间行全挂 `HR-EMP-00001`，12 名员工只用了 1 个；第 6 幕计件汇总每月只有 1 张；同一员工同时段跨工位报工 2130 对 | 需求 §4.9.1 员工与计件；方案 TS-014 `staff.employees: 12` 的意图 | 按工位或工序给员工分组轮派，`verify` 加同员工不重叠检查 | `新Session修` | — | 待新Session修 | 新Session修（2026-10-26 按建议） | P2-02 |
 | FD-006 | 中 | `frappe_debug/scenario/day.py:394`（`allocator.take` 未传 `not_before`）、`:423`（`validate_sequence_id` 换成空函数）、`:432` | ① 332 个工单里 89 个后道卡开工早于前道卡；② 完工入库过账时间早于当天报工结束，1493 行；③ 提交工序卡时绕过原生工序顺序校验，方案没写，回执与 README 未登记 | 方案 TS-015 步骤 5「按工序顺序报工」；绕过原生校验须登记 | `take` 传上一道卡止时作 `not_before`；入库时间取末道卡止时之后；说明并登记绕过理由，能去就去 | `新Session修` | 是否保留对 `validate_sequence_id` 的绕过 | 待新Session修 | 新Session修（2026-10-26 按建议）；待裁决点待答 | P2-03 |
@@ -191,7 +191,7 @@
 
 ## 当场修清单
 
-改动已提交并推送（用户 2026-10-26 许可）：`frappe_china` `a8b495f`、`frappe_debug` `e1fdc14`，`docker/apps.json` 已锁定这两个提交。行号为修后行号。修后全量回归在提交时仍在跑（`frappe-bench/logs/s8-r8f-fix-*`），结果见下方「修后回归」。
+改动已提交并推送（用户 2026-10-26 许可）：`frappe_china` `a8b495f`、`frappe_debug` `e1fdc14`，`docker/apps.json` 已锁定这两个提交。行号为修后行号。修后全量回归结果见下方「修后回归」。
 
 | # | 对应问题 | 改动位置（文件:行） | 用户确认于 |
 |---|---|---|---|
@@ -207,6 +207,17 @@
 | 10 | FD-023 | `frappe_debug/README.md:60`（26 份就绪＋1 份已用）、`:65`（停在第 1 幕主用库时 17/18 即就绪）、`:67`（删「或空格」） | 2026-10-26 |
 | 11 | FD-024 | `frappe_debug/demo/dbops.py:25`（`_connection_args` 统一主机与端口，`drop_db` 也带端口）；`README.md:43`（注明备份含 root 口令勿外传、临时站用完撤回）；`sites/s8ts023preview.localhost/site_config.json` 的 `root_password` 已撤回（`set-config root_password None`，读回不存在）；测试 `tests/test_dbops.py` 补端口断言 | 2026-10-26 |
 | 12 | FD-028 | `frappe_china/tests/test_strategy_comparison.py:63-65`（采购单显式 `currency: CNY`、`conversion_rate: 1`，不再向外网取汇率）；单独重跑 7/7 | 2026-10-26 |
+
+**修后回归**（`test.localhost`，测的是上述两个提交的代码；脚本 `Spike/P1S8R8-F/gates-fix.sh`，日志 `frappe-bench/logs/s8-r8f-fix-*`，2026-10-26 06:29～07:13 UTC）：
+
+| 门 | 修前（本步验证门） | 修后 | 只增不减 |
+|---|---|---|---|
+| `frappe_debug` Python | 178/178 | **183/183**（新增 5 条：FD-009 一条、FD-010 两条、FD-015 两条） | ✅ |
+| `frappe_china` Python | 470/471＋6＋4 | **471/471＋6/6＋4/4** | ✅（FD-028 报错消除） |
+| `frappe_debug` Node | 97/97 | **98/98**（新增 FD-014 一条） | ✅ |
+| `frappe_china` Node | 115/115 | 115/115 | ✅ |
+| Ruff check／format | 通过 | 两 app 全过（71／185 文件） | ✅ |
+| `bench build` | 退出 0 | 两 app 各退出 0 | ✅ |
 
 **未做的连带动作**：FD-009 改了生成器主数据、FD-010 改了预跑开工条件、FD-014 改了中转页，按 RS-006 演示站须整场重跑预跑；本步没重跑（演示站仍是修前代码生成的 27 份快照），与 `新Session修`／`出方案修` 的修复攒齐后一次重跑。FD-016 的精度要演示站 `migrate` 后才生效，同上。
 
