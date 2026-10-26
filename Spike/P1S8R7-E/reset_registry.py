@@ -17,7 +17,7 @@ from pathlib import Path
 import frappe
 
 site = sys.argv[1]
-assert site in {"erx.localhost", "s8ts023preview.localhost"}, site
+assert site in {"erx.localhost", "s8ts023preview.localhost", "s8dev.localhost"}, site
 os.chdir("/workspace/frappe-bench/sites")
 frappe.init(site=site, sites_path=".")
 from frappe.installer import update_site_config  # noqa: E402
