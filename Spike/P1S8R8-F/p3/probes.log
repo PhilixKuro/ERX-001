@@ -1,0 +1,6 @@
+## flock_probe (bind mount, cross-process)
+while_held: child_blocked Timeout | after_release: child_acquired
+## thread_lock_probe (same process, other thread, timeout=0 like demo/operation.py)
+{'other': 'Timeout'}
+## leftovers
+0
