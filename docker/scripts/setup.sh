@@ -11,6 +11,8 @@
 set -euo pipefail
 
 SITE_NAME="${SITE_NAME:-erx.localhost}"
+# 1＝演示站或开发站：装 apps.json 里标 demo_only 的 app（frappe_debug）。缺省 0，客户正式库不装（FD-012）
+DEMO_SITE="${DEMO_SITE:-0}"
 BENCH_NAME="${BENCH_NAME:-frappe-bench}"
 DB_ROOT_PASSWORD="${DB_ROOT_PASSWORD:-123}"
 ADMIN_PASSWORD="${ADMIN_PASSWORD:-admin}"
@@ -149,12 +151,13 @@ for a in json.load(open(sys.argv[1], encoding="utf-8")):
         a.get("commit") or "-",
         a.get("app_name") or "-",
         "1" if a.get("official") else "0",
+        "1" if a.get("demo_only") else "0",
         sep="\t",
     )
 PY
 ) || { echo "错误：解析 $APPS_JSON 失败（见上方 python 报错）：JSON 语法错，或某条缺 url？" >&2; exit 1; }
 
-while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official; do
+while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official _app_demo_only; do
   [ -z "$app_url" ] && continue
   if [ "$app_url" = "-" ]; then
     echo "警告：apps.json 里 ${app_name} 这一条没有 url，跳过（先给该 app 加 origin 并推送，再跑 docker/lock-apps.sh）" >&2
@@ -349,11 +352,19 @@ else
 fi
 
 # ---------- 6. 按 apps.json 顺序在站点上装 app ----------
-while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official; do
+while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official app_demo_only; do
   [ -z "$app_name" ] || [ "$app_name" = "-" ] && continue
   # 没有 url 的条目第 3 段已跳过并警告；本机已有该目录时照装，没有时跳过（FD-053）
   [ "$app_url" = "-" ] && [ ! -d "apps/$app_name" ] && continue
   [ "$app_name" = "frappe" ] && continue   # frappe 随建站自动装
+  # 演示专用 app 只装演示站／开发站；装前写站点许可标记，app 自身的 before_install 认它（FD-012）
+  if [ "$app_demo_only" = "1" ]; then
+    if [ "$DEMO_SITE" != "1" ]; then
+      ok "$app_name 是演示专用 app，DEMO_SITE 不为 1，不装（客户正式库不装）"
+      continue
+    fi
+    bench --site "$SITE_NAME" set-config -p frappe_debug_allowed 1
+  fi
   # list-apps 每行是「名称 版本 分支」，只比第一列（R19 FD-109：原先整行比对永不成立，每次都重调 install-app）
   if bench --site "$SITE_NAME" list-apps 2>/dev/null | awk '{print $1}' | grep -qx "$app_name"; then
     ok "$app_name 已安装在站点上"

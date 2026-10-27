@@ -439,6 +439,11 @@ def main(argv=None) -> int:
         default=None,
         help="CRM 生成报价单用的公司；缺省取站上唯一一家中式公司",
     )
+    parser.add_argument(
+        "--demo",
+        action="store_true",
+        help="演示站前置（改 Administrator 显示名、开批号全局开关等）；客户正式库不加（FD-012）",
+    )
     args = parser.parse_args(argv)
 
     # 工作目录须是 sites/：框架日志写 ../logs（frappe/utils/logger.py），同 seed-demo.sh 的跑法
@@ -452,8 +457,11 @@ def main(argv=None) -> int:
         changes = {}
         changes.update(configure_crm(company, notes))
         changes.update(configure_stock(notes))
-        for target, fields in configure_demo_prerequisites(notes).items():
-            changes.setdefault(target, {}).update(fields)
+        if args.demo:
+            for target, fields in configure_demo_prerequisites(notes).items():
+                changes.setdefault(target, {}).update(fields)
+        else:
+            notes.append("未带 --demo：跳过演示前置（Administrator 显示名、批号开关、性别与称呼）")
         changes.update(configure_raven(url, key, notes))
         changes.update(
             ensure_bot_and_functions(os.environ.get("RAVEN_LLM_MODEL", ""), notes)

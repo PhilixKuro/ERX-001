@@ -238,6 +238,14 @@ grep socketio_port frappe-bench/sites/common_site_config.json
 
 **曾经踩过**：环境从 v15 时期起，compose 映射一直是 `9100:9000`，而站点配置是 `9000`，所以 realtime 全程断连、界面从不自动刷新。P1-S1 的全部实操都是在这个状态下做的（P1-S2-R1 第 15、16 步查明并修复）。
 
+## 演示专用 app 与客户正式库
+
+`apps.json` 里标 `"demo_only": true` 的条目（现为 `frappe_debug`）只装演示站和开发站，两层把关（S8 R8 FD-012，依据 ADR-0013）：
+
+- `setup.sh` 只在 `DEMO_SITE=1`（`docker/.env`，缺省 0）时装它，装前写站点配置 `frappe_debug_allowed=1`；缺省时跳过并打一行说明。代码照样克隆进 `apps/`，只是不装到站点上。
+- `frappe_debug` 自身的 `before_install` 在站点配置没有 `frappe_debug_allowed=1` 时拒装。手工 `bench install-app` 前须先 `bench --site <站点> set-config -p frappe_debug_allowed 1`，确认不是客户正式库再做。
+- 已装好的站不受影响：守卫只在安装时检查。
+
 ## 配置四个 App
 
 `docker/configure-apps.sh` 把 CRM 集成、Raven 连接、演示 bot 和 15 条只读工具配到站点上。各段可重复跑，某个 App 没装时跳过该段。
@@ -261,8 +269,10 @@ grep socketio_port frappe-bench/sites/common_site_config.json
 ```bash
 docker/configure-apps.sh                                   # 站点取 .env 的 SITE_NAME
 docker/configure-apps.sh --site test.localhost
-docker/configure-apps.sh --site erx.localhost --company 华东弹簧有限公司
+docker/configure-apps.sh --site erx.localhost --company 华东弹簧有限公司 --demo
 ```
+
+- `--demo` 才跑演示前置（性别与称呼原生清单、批号全局开关、Administrator 显示名改「演示管理员」）。只对演示站、开发站加；客户正式库不加（S8 R8 FD-012）。
 
 - `--company` 是 CRM 生成报价单时用的公司，填公司全名（`HDTH` 是缩写，按缩写查不到）。缺省取站上唯一一家「小企业会计准则(2024)」公司；零家或多家时报错，要求显式传。
 - 除 CRM 集成本身，还会把 `CRM Settings.enable_frappe_crm_data_synchronization` 置 1：不开它，CRM 由 Deal 建客户时报错（`validate_frappe_crm_sync`），销售漏斗那条链走不通。

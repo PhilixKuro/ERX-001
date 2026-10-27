@@ -35,6 +35,7 @@ HOST_GIT_AUTOCRLF=$(cd / && git config --get core.autocrlf 2>/dev/null || true)
 docker compose exec -T \
   -e HOST_GIT_AUTOCRLF="$HOST_GIT_AUTOCRLF" \
   -e SITE_NAME="${SITE_NAME:-erx.localhost}" \
+  -e DEMO_SITE="${DEMO_SITE:-0}" \
   -e BENCH_NAME="${BENCH_NAME:-frappe-bench}" \
   -e DB_ROOT_PASSWORD="${DB_ROOT_PASSWORD:-123}" \
   -e ADMIN_PASSWORD="${ADMIN_PASSWORD:-admin}" \

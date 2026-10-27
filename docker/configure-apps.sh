@@ -3,8 +3,9 @@
 #
 #   docker/configure-apps.sh                          站点取 .env 的 SITE_NAME
 #   docker/configure-apps.sh --site test.localhost
-#   docker/configure-apps.sh --site erx.localhost --company 华东弹簧有限公司
+#   docker/configure-apps.sh --site erx.localhost --company 华东弹簧有限公司 --demo
 #
+# --demo：演示站前置（Administrator 显示名、批号开关、性别与称呼），只对演示站／开发站加，客户正式库不加。
 # --company 缺省取站上唯一一家「小企业会计准则(2024)」公司；零家或多家时报错要求显式传。
 # 可重复跑：第二次起输出「无改动」。RAVEN_LLM_URL／KEY／MODEL 从 .env 读，密钥不打印。
 # 实际逻辑在 docker/scripts/configure_apps.py（容器内跑）。
@@ -16,16 +17,19 @@ cd "$(dirname "$0")"
 
 site="${SITE_NAME:-erx.localhost}"
 company=""
+demo=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --site) site="${2:?--site 需要一个值}"; shift 2 ;;
     --company) company="${2:?--company 需要一个值}"; shift 2 ;;
+    --demo) demo=1; shift ;;
     *) echo "configure-apps：未知参数 $1" >&2; exit 2 ;;
   esac
 done
 
 args=(--site "$site")
 [ -n "$company" ] && args+=(--company "$company")
+[ -n "$demo" ] && args+=(--demo)
 
 # 只写变量名、不写值：密钥不出现在宿主的进程参数里（.env 已由 set -a 导出）
 docker compose exec -T \
