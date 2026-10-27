@@ -269,7 +269,7 @@ done <<<"$app_entries"
 # 这里归位成：origin = 自有 fork（推改动），upstream = 官方（只读拉更新，
 # push URL 设为无效值以防误推）。
 log "归位各 app 的 remote 命名"
-while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official; do
+while IFS=$'\t' read -r app_url app_ref app_commit app_name app_official _app_demo_only; do
   [ -z "$app_name" ] || [ "$app_name" = "-" ] && continue
   d="apps/$app_name"
   [ -d "$d/.git" ] || continue
