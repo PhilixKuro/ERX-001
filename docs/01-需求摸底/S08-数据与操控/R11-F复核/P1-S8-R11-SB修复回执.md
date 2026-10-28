@@ -13,13 +13,14 @@
 |---|---|---|---|---|---|
 | 1 | FD-037 | 新增 `frappe_debug/demo/locks.py`（`acquire`:24、`release`:44、`site_lock`:52：在 `sites/{site}/locks/{name}.lock` 上 `fcntl.flock`，文件建了就不删，超时抛 `filelock.Timeout`，每 0.05 秒轮询一次）；`demo/registry.py:20-26`（`_registry_lock`：包 `site_lock("frappe_debug_snapshots", timeout=30)`，超时转 `frappe.utils.file_lock.LockTimeoutError`，与原 `frappe.utils.synchronization.filelock` 超时时抛的类型相同）；同文件 7 处 `with filelock("frappe_debug_snapshots")` 改为 `with _registry_lock()`（:140、145、150、164、254、283、299）；新增 `tests/test_locks.py` 3 条 | ✅完成 | 2026-10-27 | 按裁决①。锁文件名、路径、超时 30 秒都照旧，只换实现，调用方一处未动。原生 `filelock` 释放时先 `unlink` 再解锁，正是竞争窗口所在；新锁不 `unlink`，另一进程 `os.open` 总能打开同一个 inode，也就不必像 filelock 那样核 `st_nlink`。旧锁文件留在原处，新锁直接复用，不用迁移。新锁不可重入，读过原代码：登记表锁内没有嵌套再取同一把锁的路径（`_read_unlocked`／`_write_unlocked`／`_claim_refill_unlocked` 都不取锁） |
 | 2 | FD-037 | `frappe_debug/demo/operation.py:17-25`（`operation`：`locks.acquire("frappe_debug_demo_operation", timeout)`／`locks.release(fd)`，去掉 `filelock.FileLock` 与 `Path`） | ✅完成 | 2026-10-27 | 按裁决「一起改」。超时仍转 `DemoOperationBusy`（FD-014 的「请稍后重试」），`site_operation` 装饰器与 `runner._run_generate` 的 `operation(timeout=10)` 不用改。原实现每次调用都新建一个 `FileLock` 实例，同一进程内嵌套取锁本来就超时（容器内实测：持锁时另建实例 `acquire(timeout=0)` 得 `Timeout`），新锁不可重入与此相同，不是新行为。另查过所有 `site_operation` 函数与 `operation()` 调用点：没有在持锁时再进另一个 `site_operation` 的路径（`_run_generate` 调的是 `generate.__wrapped__`；`replenish` 由 `_replenish_after_response` 在响应结束、换库锁已释放后调用）。`test_workspace` 里「生成与换库同锁」用例照过 |
-| 3 | FD-037 | 复验：挂载目录探针 `Spike/P1S8R11-SB/site_lock_probe.py`、锁相关 7 个测试模块、全量门禁、整场重跑预跑（RS-006） | ⚠️部分 | | 探针与模块测试已过（见「复验结果」）；全量门禁见「全量验证」。**整场重跑预跑未做**：用户 2026-10-28 裁决，等 FD-043 的 C 方案（R12）与代码（R13）都落地后整场只重跑一次，FD-037 与 FD-043 一并复验，省掉一轮约两小时 |
+| 3 | FD-037 | 复验：挂载目录探针 `Spike/P1S8R11-SB/site_lock_probe.py`、锁相关 7 个测试模块、全量门禁、整场重跑预跑（RS-006） | ✅完成 | 2026-10-28 | 探针与模块测试已过（见「复验结果」）；全量门禁见「全量验证」。整场重跑按用户 2026-10-28 裁决与 FD-043 合并，在 R13 D 的 TS-037 里做完（[R13 D 回执](../R13-代码/P1-S8-R13-D回执.md)「TS-037 续做记录」）：`s8r9` 带各幕整场彩排 3306.7 秒、`erx` 整场预跑 3328.1 秒都一次通过，换库与快照登记全程正常，三份新日志里 `FileNotFoundError`、`frappe_debug_snapshots`、HTTP 500 均为 0（见「复验结果」第 3 行） |
 
 ## 复验结果
 | 报告项号 | 报告的判定标准 | 怎么复验的 | 实测结果 |
 |---|---|---|---|
 | FD-037 | 修后用 `Spike/P1S8R11-F/p3/lock_unlink_probe.py` 在挂载目录复跑应为 0 | 原探针只测 `filelock`，测不到新锁，故另写 `Spike/P1S8R11-SB/site_lock_probe.py`：同一目录、同样 4 进程×300 次，先跑修前的 `filelock` 作对照，再跑修后的 `locks.site_lock`。在挂载目录 `sites/test.localhost/locks/r11sb-probe` 与容器本地 `/tmp/r11sb-probe` 各跑一次 | 挂载目录：`filelock` 217/1200 次 `FileNotFoundError`（与 R11 F 的 216/1200 一致，复现成立），`site_lock` **0/1200**；`/tmp` 两者均 0 |
-| FD-037 | 凡取这把锁的接口都不再偶发报错（问题描述） | 新增 `tests/test_locks.py`：释放后锁文件仍在且能再取、持锁时 `timeout=0` 抛 `Timeout`、4 进程×200 次在锁内做无保护的读改写计数（互斥失效就会丢更新；`TemporaryDirectory` 在容器本地 `/tmp`，挂载目录上的竞争由上一行探针覆盖）。连同调用方模块一起跑：`test_locks` 3/3、`test_registry` 9/9、`test_workspace` 16/16、`test_switch` 12/12、`test_snapshot` 4/4、`test_progress` 6/6、`test_scenario_runner` 9/9 | 通过。计数 800/800、错误 0。真实接口层面的复验（演示中途 `save_progress`／`switch_to_act`／`snapshot_status` 不再 500）要等整场预跑与换库实跑，见未做项 |
+| FD-037 | 凡取这把锁的接口都不再偶发报错（问题描述） | 新增 `tests/test_locks.py`：释放后锁文件仍在且能再取、持锁时 `timeout=0` 抛 `Timeout`、4 进程×200 次在锁内做无保护的读改写计数（互斥失效就会丢更新；`TemporaryDirectory` 在容器本地 `/tmp`，挂载目录上的竞争由上一行探针覆盖）。连同调用方模块一起跑：`test_locks` 3/3、`test_registry` 9/9、`test_workspace` 16/16、`test_switch` 12/12、`test_snapshot` 4/4、`test_progress` 6/6、`test_scenario_runner` 9/9 | 通过。计数 800/800、错误 0。真实接口层面的复验见下一行 |
+| FD-037 | 真实接口层面：演示中途 `save_progress`／`switch_to_act`／`snapshot_status` 不再 500（R11 F 片 3 的查法：web 日志搜 `FileNotFoundError`） | R13 D TS-037 整场重跑（2026-10-28）：web 与 worker 都在新代码上重启并换新日志，`s8r9`（6787）带各幕整场彩排、`erx`（8000）整场预跑，跑完在日志里搜 `FileNotFoundError`、`frappe_debug_snapshots`、`" 500 ` | `s8-r13d-s8r9-web.log` 3132 行、`s8-r13d-erx-web.log` 3188 行、`s8-r13d-worker.log`：三项均为 **0**。两场各 27 份快照登记（26 ready＋1 used），彩排运行器全程未报请求失败 |
 
 ## 全量验证
 | 门 | 结果 |
@@ -49,11 +50,11 @@
 ## 未做项
 | 项 | 为什么没做 |
 |---|---|
-| 整场重跑预跑（RS-006）与真实接口复验 | 用户 2026-10-27 裁决明天做全套（见偏离与暂停）。做法：先在 `s8r9` 带各幕整场彩排，重筛 SPC 候选计划；把计划拷到 `erx`，回基库、清快照与工作库，整场预跑；跑完核工作库 `verify` 与 27 份快照登记，再在 web 日志里搜 `FileNotFoundError` 与 `frappe_debug_snapshots`，应为 0 |
+| （无）整场重跑预跑与真实接口复验原列于此，已在 R13 D TS-037 做完（2026-10-28），见任务 3 与「复验结果」第 3 行 | — |
 
 ## 状态值
 
-**暂未给出**：任务 3 为 ⚠️。代码已改，探针与模块测试已过，整场重跑预跑还没跑，所以不标 `修复已落地`。下一 Session 跑完全套后再定状态。
+**`修复已落地`**（2026-10-28 定）：任务 1～3 全部完成。整场重跑与 FD-043 合并在 R13 D 的 TS-037 里做，两场整跑一次通过，日志里 `FileNotFoundError` 为 0。按出口路由交回 F 复核。
 
 ## 复核建议
 
