@@ -409,6 +409,8 @@ def eoq_proposals(company, as_of, problems) -> list[Proposal]:
         if pq > row.warehouse_reorder_level: continue              # 不触发
         p = get_item_params(item, company); d̄ = mean(daily_demand(...))
         D_year = d̄ * 365; H = p.valuation_rate * p.holding_rate / 100
+        # P1-S8-R15 PT-061 修订：p.valuation_rate 先换成补货仓库内库存的加权移动平均，无库存才用 Item.valuation_rate
+        # （rules.py _stock_valuation_rate；S8 R16 F 复核报告 FD-063）
         if not (D_year and p.order_cost and H): problems「参数缺失：…」; continue   # 需求 §4.2.3
         q = sqrt(2 * D_year * p.order_cost / H)
         if p.min_order_qty and q < p.min_order_qty: q = p.min_order_qty
