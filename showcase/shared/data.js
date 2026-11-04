@@ -55,15 +55,16 @@
     "包装线-1": "上道检验未放行",
   };
   // ---------- 工艺路线（每 1000 支的标准分钟、工序损耗率；前三道取自场景，喷丸、检验、包装为扩规模新增） ----------
+  // piece：计件单价，元／千支良品（演示值，P1-S9-R6 第 1 步），按满负荷一天约 190～240 元定；只用于手机端报工，不进单位成本（成本里的人工已含在设备小时费率 × 制造费用系数里）
   const routings = {
     compression: [
-      { op: "卷簧", type: "卷簧", min: 50, loss: 3 }, { op: "回火", type: "回火", min: 18, loss: 1 },
-      { op: "磨端", type: "磨端", min: 36, loss: 1 }, { op: "喷丸", type: "喷丸", min: 12, loss: 0 },
-      { op: "检验", type: "检验", min: 6, loss: 0 }, { op: "包装", type: "包装", min: 6, loss: 0 },
+      { op: "卷簧", type: "卷簧", min: 50, loss: 3, piece: 20 }, { op: "回火", type: "回火", min: 18, loss: 1, piece: 4 },
+      { op: "磨端", type: "磨端", min: 36, loss: 1, piece: 14 }, { op: "喷丸", type: "喷丸", min: 12, loss: 0, piece: 5 },
+      { op: "检验", type: "检验", min: 6, loss: 0, piece: 3 }, { op: "包装", type: "包装", min: 6, loss: 0, piece: 2.5 },
     ],
     tension: [
-      { op: "卷簧", type: "卷簧", min: 65, loss: 3 }, { op: "回火", type: "回火", min: 18, loss: 1 },
-      { op: "检验", type: "检验", min: 6, loss: 0 }, { op: "包装", type: "包装", min: 6, loss: 0 },
+      { op: "卷簧", type: "卷簧", min: 65, loss: 3, piece: 26 }, { op: "回火", type: "回火", min: 18, loss: 1, piece: 4 },
+      { op: "检验", type: "检验", min: 6, loss: 0, piece: 3 }, { op: "包装", type: "包装", min: 6, loss: 0, piece: 2.5 },
     ],
   };
 
@@ -338,6 +339,40 @@
   }
   const twin = { now: NOW, end: HORIZON_DAYS * DAY, day: DAY, date: workDate, clock, at: twinAt };
 
+  // ---------- 工人报工（P1-S9-R6）：每台设备一名操作者，此刻在做的那道工序就是扫码扫到的工序卡 ----------
+  // 今日已报：从 08:00 到此刻按标准工时连续生产的良品，取整到 10 支；待料、停机、空闲的设备今天还没开工，记 0
+  // 工序卡号沿用 ERPNext 命名 PO-JOB#####，按工单与工序顺序取场景 1963 张里末尾的号段（01890 起）
+  const workers = workstations.map((ws) => {
+    const working = ["run", "over", "alarm"].includes(ws.status) && ws.current;
+    const w = working ? workOrders.find((x) => x.id === ws.current.workOrder) : null;
+    let card = null, todayGood = 0;
+    if (w) {
+      const i = w.operations.findIndex((o) => o.op === ws.current.op), o = w.operations[i], r = routings[P[w.product].routing][i];
+      const perMin = (1000 * ws.capacity) / (r.min * ws.speed);
+      todayGood = Math.floor((NOW * perMin * (1 - r.loss / 100)) / 10) * 10;
+      const inQty = Math.round(w.plannedQty * routings[P[w.product].routing].slice(0, i).reduce((y, x) => y * (1 - x.loss / 100), 1));
+      card = { id: "PO-JOB" + String(1890 + (parseInt(w.id.slice(-3)) - 301) * 6 + i).padStart(5, "0"), workOrder: w.id, salesOrder: w.salesOrder,
+        customer: w.customer, product: w.product, delivery: w.delivery, risk: w.risk, op: o.op, workstation: ws.id,
+        inQty, goodQty: o.goodQty, done: o.done, remainQty: Math.max(0, Math.round(inQty * (1 - r.loss / 100)) - o.goodQty),
+        piece: r.piece, lossPct: r.loss, next: (w.operations[i + 1] || {}).op || "入库" };
+    }
+    return { name: ws.operator, workstation: ws.id, status: ws.status, note: statusNote[ws.id] || null, card,
+      todayGood, todayPay: card ? round2((todayGood * card.piece) / 1000) : 0 };
+  });
+  const WK = byId(workers, "name");
+  // 报工试算：本次良品、不良提交后，本卡与今天的累计；already 为本次之前在页面里已报的良品（连报多次时传）
+  // 不良超过本道损耗率时提醒。演示时数字只在页面里累加，不写回
+  function report(name, good, bad, already = 0) {
+    const k = WK[name], c = k.card; if (!c) return null;
+    const pay = round2((good * c.piece) / 1000), badRate = good + bad > 0 ? round2(bad / (good + bad)) : 0;
+    const remain = Math.max(0, c.remainQty - already), warnings = [];
+    if (good > remain) warnings.push({ level: "wait", text: "超出本道还应产出的 " + remain.toLocaleString("zh-CN") + " 支" });
+    if (badRate * 100 > c.lossPct) warnings.push({ level: "over", text: "不良率 " + (badRate * 100).toFixed(1) + "%，高于本道损耗率 " + c.lossPct + "%，会通知质检" });
+    const cardGood = c.goodQty + already + good;
+    return { good, bad, badRate, pay, cardGood, cardDone: round2(Math.min(1, cardGood / (c.goodQty + c.remainQty))), remainAfter: Math.max(0, remain - good),
+      todayGood: k.todayGood + already + good, todayPay: round2(k.todayPay + ((already + good) * c.piece) / 1000), warnings };
+  }
+
   // ---------- 能不能接（CTP）：把商机插到现有排程之后，每道工序挑最早空出的同类设备 ----------
   function ctp(product, qty, wantDate) {
     const p = P[product], f = { ...free }, plannedQty = Math.ceil(qty / yieldOf(product));
@@ -511,6 +546,8 @@
     ctp, // 现场改数量、交期再算：SC_DATA.ctp("SPR-C-3.0-23-50", 40000, "2026-11-16")
     twin, // 车间孪生时间轴：SC_DATA.twin.at(SC_DATA.twin.now + 480) 取明天 10:30 各设备与工单的位置
     quote, // 报价试算：SC_DATA.quote("常州弹簧厂", "SPR-C-3.0-23-50", 40000, "2026-11-16", 0.85)
-    get: { product: (c) => P[c], material: (c) => M[c], workstation: (id) => WS[id], customer: (n) => C[n], salesOrder: (id) => SO[id] },
+    workers, // 工人与此刻的工序卡（P1-S9-R6）
+    report, // 报工试算：SC_DATA.report("HDTH 场景员工 01", 500, 10)
+    get: { product: (c) => P[c], material: (c) => M[c], workstation: (id) => WS[id], customer: (n) => C[n], salesOrder: (id) => SO[id], worker: (n) => WK[n] },
   };
 })();
