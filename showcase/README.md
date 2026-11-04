@@ -11,9 +11,10 @@
 | `shared/components.css` | 通用组件，类名统一用 `sc-` 前缀 |
 | `shared/theme.js` | 深浅主题切换；`SC.chart()` 建 ECharts 图，切换主题时自动重画 |
 | `shared/data.js` | 各界面共用的一份假数据，挂在 `window.SC_DATA` |
-| `shared/vendor/` | ECharts 5.6.0（Apache-2.0，许可文件同目录），从 `frappe_china` 拷来 |
+| `shared/vendor/` | ECharts 5.6.0（Apache-2.0，许可文件同目录），从 `frappe_china` 拷来；three.js 0.147.0 与其 `OrbitControls`（MIT，`THREE-LICENSE`），从 npm 包取的 UMD 版（更新版只有 ES 模块，`file://` 下加载不了） |
 | `sales/index.html` | 销售工作台（销售负责人，默认浅色）：商机与能不能接、漏斗、线索、报价试算、重点客户、应收账龄、在手订单交期；点商机或客户从右侧滑出详情（P1-S9 R03） |
 | `cockpit/index.html` | 老板驾驶舱（生产负责人，默认深色）：宽屏一屏不滚动；指标条、工位负荷、交期风险单、缺料与预警、质量（SPC 与不良率）、毛利漏在哪；点工位、工单或预警从右侧滑出详情（P1-S9 R04） |
+| `twin/index.html` | 车间数字孪生（生产负责人，默认深色）：3D 厂区可拖动旋转缩放，11 台设备按状态着色，每张在制工单一个料箱（颜色按交期风险）；底部时间轴可回放未来 6 个工作日的排程；点设备或料箱从右侧滑出详情；地址带 `?ws=设备名` 时打开即转到该设备（驾驶舱工位抽屉的「到车间看」用它）（P1-S9 R05） |
 | `{界面}/index.html` | 其余界面各一个子目录，后续各 Round 建 |
 
 ## 新界面怎么接
@@ -52,6 +53,8 @@
 | `workOrders[].operations[].startDate`、`endDate` | 该道工序排程的开工、完工日期（工作分钟换算成日期） |
 | `kpi.marginBridge` | 当月毛利差异拆解：标准毛利按当月已开票单的产品结构和标准成本算，与 `monthly[]` 的实际毛利之差按 `marginLeaks` 的占比（演示值）拆成报废与返工、停机与等料、钢丝涨价、价格折让四项，金额按当月销售额折算，合计等于差额 |
 | `kpi.wipByOp` | 在制工单按当前工序计数 |
+| `workstations[].loadByDay`、`beyondMin` | 未来 6 个工作日每天的已排工时与负荷（设备占用区间 `[start, start + remainMin)` 落在当天的部分）；排到第 7 个工作日以后的工时 |
+| `twin.at(min)` | 某个工作分钟各设备的状态与在做的单、各工单停在哪台设备（加工中、排队或完工）。此刻沿用 `status`；之后按排程算运行或空闲，喷丸机-1 到 15:00 前仍停机、卷簧机-4 在首道工序开工前仍待料。`twin.now`／`end`／`day`／`date()`／`clock()` 供时间轴换算 |
 | `materials[].suggestQty` | 库存 ＋ 在途低于再订货点时，按经济订货量给建议（订货成本 80，持有成本率 18%） |
 | `spc` | X̄-R 控制限取前 16 组计算；按 Nelson 第 2 条判异；算 Cpk |
 | `kpi` | 汇总指标与预警清单；`kpi.funnel` 商机漏斗（到达过各阶段的商机数），`kpi.aging` 应收账龄与近期开票回款 |

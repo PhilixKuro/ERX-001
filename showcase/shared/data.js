@@ -297,6 +297,47 @@
     ws.queue = ops.map((o) => o.workOrder);
     ws.freeDate = workDate(free[ws.id]);
   });
+  // ---------- 车间孪生（P1-S9-R5）：每日排产与按时刻查询 ----------
+  // 设备占用区间取 [start, start + remainMin)；工序完工取 end（可能晚于占用结束，因要等上道）
+  const busyOf = (id) => order.flatMap((w) => w.operations.filter((o) => o.workstation === id && o.remainMin > 0)
+    .map((o) => ({ workOrder: w.id, op: o.op, from: o.start, to: o.start + o.remainMin })));
+  const overlap = (a, b, c, e) => Math.max(0, Math.min(b, e) - Math.max(a, c));
+  workstations.forEach((ws) => {
+    const busy = busyOf(ws.id);
+    ws.loadByDay = Array.from({ length: HORIZON_DAYS }, (_, k) => {
+      const a = k === 0 ? NOW : k * DAY, b = (k + 1) * DAY, min = busy.reduce((s, x) => s + overlap(a, b, x.from, x.to), 0);
+      return { date: workDate(k * DAY), min: Math.round(min), capMin: b - a, load: round2(min / (b - a)) };
+    });
+    ws.beyondMin = Math.round(busy.reduce((s, x) => s + overlap(HORIZON_DAYS * DAY, 1e9, x.from, x.to), 0)); // 排到第 7 个工作日以后的工时
+  });
+  const wsBusy = Object.fromEntries(workstations.map((w) => [w.id, busyOf(w.id)]));
+  const statusNow = Object.fromEntries(workstations.map((w) => [w.id, w.status]));
+  const downUntil = 360; // 喷丸机-1 今天 15:00 恢复（同排程 freeInit）
+  function twinAt(t) {
+    const ws = {}, orders = {};
+    workstations.forEach((w) => {
+      const b = wsBusy[w.id], cur = b.find((x) => x.from <= t && x.to > t);
+      let status;
+      if (t <= NOW) status = statusNow[w.id];
+      else if (statusNow[w.id] === "down" && t < downUntil) status = "down";
+      else if (cur) status = "run";
+      else if (statusNow[w.id] === "wait" && b.length && t < Math.min(...b.map((x) => x.from))) status = "wait";
+      else status = "idle";
+      // 此刻沿用 current，但空闲、待料、停机的设备不显示在做的单（包装线-1 的 current 是 00301，状态却是「上道未放行」）
+      const doing = t <= NOW ? (["run", "over", "alarm"].includes(status) ? w.current : null) : cur ? { workOrder: cur.workOrder, op: cur.op } : null;
+      ws[w.id] = { status, current: doing };
+    });
+    workOrders.forEach((w) => {
+      if (t >= w.finishMin) { orders[w.id] = { state: "done", op: "完工", workstation: null, progress: 1 }; return; }
+      const i = w.operations.findIndex((o) => o.remainMin > 0 && o.end > t), o = w.operations[i];
+      const b = wsBusy[o.workstation].find((x) => x.workOrder === w.id && x.op === o.op);
+      const run = b.from <= t && b.to > t, progress = o.done + (1 - o.done) * Math.min(1, Math.max(0, (t - b.from) / (b.to - b.from)));
+      orders[w.id] = { state: run ? "run" : t >= b.to ? "wait-next" : "queue", op: o.op, workstation: o.workstation, progress: round2(progress) };
+    });
+    return { min: t, date: workDate(t), clock: clock(t), workstations: ws, orders };
+  }
+  const twin = { now: NOW, end: HORIZON_DAYS * DAY, day: DAY, date: workDate, clock, at: twinAt };
+
   // ---------- 能不能接（CTP）：把商机插到现有排程之后，每道工序挑最早空出的同类设备 ----------
   function ctp(product, qty, wantDate) {
     const p = P[product], f = { ...free }, plannedQty = Math.ceil(qty / yieldOf(product));
@@ -468,6 +509,7 @@
     workstations, routings, products, materials, suppliers, customers,
     leads, leadStatus, deals, dealStatus, salesOrders, workOrders, invoices, monthly, spc, kpi,
     ctp, // 现场改数量、交期再算：SC_DATA.ctp("SPR-C-3.0-23-50", 40000, "2026-11-16")
+    twin, // 车间孪生时间轴：SC_DATA.twin.at(SC_DATA.twin.now + 480) 取明天 10:30 各设备与工单的位置
     quote, // 报价试算：SC_DATA.quote("常州弹簧厂", "SPR-C-3.0-23-50", 40000, "2026-11-16", 0.85)
     get: { product: (c) => P[c], material: (c) => M[c], workstation: (id) => WS[id], customer: (n) => C[n], salesOrder: (id) => SO[id] },
   };

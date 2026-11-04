@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>车间数字孪生 · 华东弹簧演示</title>
+<link rel="stylesheet" href="../shared/tokens.css">
+<link rel="stylesheet" href="../shared/components.css">
+<style>
+  body.sc.twin { height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+  .stage-wrap { position: relative; flex: 1; min-height: 0; overflow: hidden; background: var(--bg); }
+  #stage { position: absolute; inset: 0; }
+  #stage canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+  #labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+  /* 设备标签与区名：每帧按 3D 坐标投影定位 */
+  .ws-label {
+    position: absolute; left: 0; top: 0; pointer-events: auto; cursor: pointer; white-space: nowrap;
+    background: color-mix(in srgb, var(--surface) 86%, transparent); border: 1px solid color-mix(in srgb, var(--st) 70%, transparent);
+    border-radius: var(--radius-sm); padding: 3px 8px; font-size: var(--fs-xs); line-height: 1.35; box-shadow: var(--shadow);
+  }
+  .ws-label:hover, .ws-label:focus-visible, .ws-label.sel { border-color: var(--primary); outline: none; box-shadow: var(--glow), var(--shadow); }
+  .ws-label .nm { font-weight: 650; color: var(--text); }
+  .ws-label .st { color: var(--st); margin-left: 6px; }
+  .ws-label .sub { color: var(--text-2); }
+  .ws-label::after { content: ""; position: absolute; left: 50%; bottom: -5px; width: 8px; height: 8px; margin-left: -4px; transform: rotate(45deg);
+    background: inherit; border-right: inherit; border-bottom: inherit; }
+  .zone-label { position: absolute; left: 0; top: 0; color: var(--text-3); font-size: var(--fs-xs); letter-spacing: .2em; white-space: nowrap; }
+
+  /* 浮层：图例、汇总、提示 */
+  .overlay { position: absolute; z-index: 2; background: color-mix(in srgb, var(--surface) 88%, transparent); border: 1px solid var(--border);
+    border-radius: var(--radius-md); padding: var(--sp-2) var(--sp-3); font-size: var(--fs-xs); box-shadow: var(--shadow); }
+  .legend { left: var(--sp-3); top: var(--sp-3); display: flex; flex-direction: column; gap: 4px; }
+  .legend .row { display: flex; flex-wrap: wrap; gap: 4px var(--sp-3); align-items: center; }
+  .legend .it { display: inline-flex; align-items: center; gap: 5px; color: var(--text-2); }
+  .legend .it i { width: 9px; height: 9px; border-radius: 2px; background: var(--st); box-shadow: 0 0 6px var(--st); }
+  .legend .it b { color: var(--text); font-family: var(--font-mono); }
+  .legend .it.zero { opacity: .4; }
+  .summary { right: var(--sp-3); top: var(--sp-3); text-align: right; }
+  .summary .mode { font-size: var(--fs-sm); font-weight: 600; }
+  .summary .mode.replay { color: var(--st-wait); }
+  .summary .nums { color: var(--text-2); margin-top: 2px; }
+  .summary .nums b { color: var(--text); font-family: var(--font-mono); }
+  .hint { left: var(--sp-3); bottom: var(--sp-3); color: var(--text-3); }
+  #tip { position: absolute; z-index: 3; pointer-events: none; left: 0; top: 0; white-space: nowrap; }
+  #nogl { position: absolute; inset: 0; display: grid; place-items: center; color: var(--text-2); font-size: var(--fs-lg); padding: var(--sp-5); text-align: center; }
+  #nogl[hidden], #tip[hidden] { display: none; }
+
+  /* 时间轴 */
+  .timeline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2) var(--sp-3); padding: var(--sp-2) var(--sp-5) var(--sp-3);
+    background: var(--surface); border-top: 1px solid var(--border); }
+  .tl-time { min-width: 150px; }
+  .tl-time .t { font-family: var(--font-mono); font-size: var(--fs-lg); font-weight: 600; }
+  .tl-time .m { font-size: var(--fs-xs); color: var(--text-3); }
+  .tl-track { flex: 1; min-width: min(100%, 220px); position: relative; padding-bottom: 16px; }
+  .tl-track input { width: 100%; accent-color: var(--primary); margin: 0; }
+  .tl-ticks { position: absolute; left: 0; right: 0; bottom: 0; height: 14px; font-size: 11px; color: var(--text-3); }
+  .tl-ticks span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+  .tl-ticks span:first-child { transform: none; }
+  .tl-ctl { display: flex; gap: var(--sp-2); align-items: center; }
+  .tl-ctl select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 5px 6px; font: inherit; font-size: var(--fs-sm); }
+
+  /* 右侧滑出详情（同驾驶舱） */
+  .scrim { position: fixed; inset: 0; background: rgba(2, 6, 18, .5); opacity: 0; pointer-events: none; transition: opacity var(--dur); z-index: 20; }
+  .drawer {
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(620px, 100vw); z-index: 21;
+    background: var(--surface); border-left: 1px solid var(--border); box-shadow: -8px 0 32px rgba(0, 0, 0, .3);
+    transform: translateX(105%); transition: transform .24s ease; display: flex; flex-direction: column;
+  }
+  body.drawer-open .scrim { opacity: 1; pointer-events: auto; }
+  body.drawer-open .drawer { transform: none; }
+  .drawer-head { display: flex; align-items: center; gap: var(--sp-2); padding: var(--sp-4) var(--sp-5); border-bottom: 1px solid var(--border); }
+  .drawer-head h2 { margin: 0; font-size: var(--fs-xl); }
+  .drawer-body { overflow-y: auto; padding: var(--sp-4) var(--sp-5) var(--sp-6); flex: 1; }
+  .drawer-body h3 { margin-top: var(--sp-5); }
+  .drawer .sc-chart { height: 220px; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 120px), 1fr)); gap: var(--sp-2); margin: var(--sp-2) 0; }
+  .facts > div { background: var(--surface-2); border-radius: var(--radius-sm); padding: 6px var(--sp-3); }
+  .facts .k { color: var(--text-2); font-size: var(--fs-xs); }
+  .facts .v { font-size: var(--fs-lg); font-weight: 600; }
+  .alert-item { display: flex; gap: var(--sp-2); align-items: flex-start; padding: 5px 0; border-bottom: 1px dashed var(--border); font-size: var(--fs-sm); }
+  .alert-item .sc-badge { flex: none; }
+  .actions { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-top: var(--sp-3); }
+  .link { color: var(--primary); cursor: pointer; }
+  .link:hover { text-decoration: underline; }
+
+  /* 窄屏：场景定高、页面可滚动，标签只留设备名 */
+  @media (max-width: 700px) {
+    body.sc.twin { height: auto; overflow: auto; }
+    .stage-wrap { flex: none; height: 70vh; min-height: 360px; }
+    .ws-label { padding: 1px 5px; font-size: 11px; }
+    .ws-label .sub, .ws-label .st { display: none; }
+    .zone-label { display: none; }
+    .hint { display: none; }
+    .summary { top: auto; bottom: var(--sp-3); }
+    .timeline { padding-left: var(--sp-4); padding-right: var(--sp-4); }
+    .drawer-head, .drawer-body { padding-left: var(--sp-4); padding-right: var(--sp-4); }
+  }
+</style>
+</head>
+<body class="sc twin">
+<header class="sc-topbar">
+  <span class="sc-brand" id="brand"></span>
+  <span class="sc-muted" id="role"></span>
+  <span class="sc-spacer"></span>
+  <span class="sc-faint" id="today"></span>
+  <a class="sc-btn" href="../cockpit/index.html">驾驶舱</a>
+  <button class="sc-btn" onclick="SC.toggleTheme()">切换深浅</button>
+</header>
+
+<main class="stage-wrap">
+  <div id="stage"></div>
+  <div id="labels"></div>
+  <div class="overlay legend" id="legend"></div>
+  <div class="overlay summary" id="summary"></div>
+  <div class="overlay hint">拖动旋转 · 滚轮缩放 · 右键平移 · 点设备或料箱看详情 · 空格播放 <button class="sc-btn ghost" style="padding: 0 6px" onclick="resetView()">复位视角</button></div>
+  <div class="overlay" id="tip" hidden></div>
+  <div id="nogl" hidden>这台电脑的浏览器不支持 3D 显示（WebGL），请换用较新的 Chrome 或 Edge 打开</div>
+</main>
+
+<footer class="timeline">
+  <div class="tl-ctl">
+    <button class="sc-btn" id="btn-now" onclick="goNow()">此刻</button>
+    <button class="sc-btn primary" id="btn-play" onclick="togglePlay()">▶ 播放排程</button>
+  </div>
+  <div class="tl-time"><div class="t sc-num" id="tl-t"></div><div class="m" id="tl-m"></div></div>
+  <div class="tl-track"><input type="range" id="tl-range" aria-label="时间"><div class="tl-ticks" id="tl-ticks"></div></div>
+  <div class="tl-ctl"><label class="sc-faint" for="tl-speed">速度</label>
+    <select id="tl-speed"><option value="30">慢</option><option value="90" selected>中</option><option value="240">快</option></select></div>
+</footer>
+
+<div class="scrim" onclick="closeDrawer()"></div>
+<aside class="drawer" aria-hidden="true">
+  <div class="drawer-head"><h2 id="dr-title"></h2><span id="dr-badge"></span><span class="sc-spacer"></span><button class="sc-btn ghost" onclick="closeDrawer()">关闭</button></div>
+  <div class="drawer-body">
+    <div id="dr-top"></div>
+    <div id="dr-chart-box"><h3 id="dr-chart-title"></h3><div class="sc-chart" id="dr-chart"></div><p class="sc-faint" id="dr-chart-note"></p></div>
+    <div id="dr-bottom"></div>
+  </div>
+</aside>
+
+<script src="../shared/vendor/echarts-5.6.0.min.js"></script>
+<script src="../shared/vendor/three-0.147.0.min.js"></script>
+<script src="../shared/vendor/OrbitControls-0.147.0.js"></script>
+<script src="../shared/data.js"></script>
+<script src="../shared/theme.js"></script>
+<script>
+const d = SC_DATA, T = d.twin, spc = d.spc, $ = (id) => document.getElementById(id);
+const P = d.get.product, WS = d.get.workstation, SO = d.get.salesOrder;
+const badge = (st, text) => `<span class="sc-badge ${st}">${text}</span>`;
+const riskBadge = { late: badge("alarm", "延误"), tight: badge("wait", "偏紧"), ok: badge("run", "正常") };
+const num = (v) => Number(v).toLocaleString("zh-CN");
+const hours = (m) => (m / 60).toFixed(m < 600 ? 1 : 0) + " 小时";
+const short = (id) => id.slice(-5);
+const woById = Object.fromEntries(d.workOrders.map((w) => [w.id, w]));
+const STATUS = ["run", "over", "alarm", "wait", "down", "idle"];
+const WEEK = "日一二三四五六";
+const dayName = (date) => date.slice(5) + " 周" + WEEK[new Date(date + "T00:00:00").getDay()];
+// 某工作分钟的显示：480 的整数倍既是前一天 17:00 也是后一天 08:00，回放里取前者
+const fmtT = (t) => t > T.now && t % T.day === 0 ? { date: T.date(t - 1), clock: "17:00" } : { date: T.date(t), clock: T.clock(t) };
+
+$("brand").textContent = d.company.name;
+$("role").textContent = "车间数字孪生 · " + d.roles.production.title;
+$("today").textContent = "今天 " + d.today + " " + d.nowClock;
+
+// ---------- 状态 ----------
+let tMin = T.now, playing = false, snap = T.at(T.now), selected = null;
+const isNow = () => tMin <= T.now;
+
+// ---------- 3D 场景 ----------
+const CELL = 2, wx = (p) => (p.x - 5.5) * CELL, wz = (p) => (p.y - 2.5) * CELL;
+const SHIP = { x: 12.6, z: 0 }; // 成品区（检验包装区右侧）
+const CENTER = new THREE.Vector3(0.6, 0, -1.2); // 往远处挪一点，让近处留白、左上角图例不压住卷簧区
+const stage = $("stage"), labelsEl = $("labels");
+let renderer, scene, camera, controls, gl = true;
+const themed = []; // [材质, 取色变量, 是否同时设自发光]
+const machines = {}, pallets = {}, pickables = [], zones = [], flowDots = [];
+const css = (v) => SC.css(v);
+function stdMat(v, opts = {}) { const m = new THREE.MeshStandardMaterial({ roughness: 0.55, metalness: 0.25, ...opts }); themed.push([m, v]); return m; }
+
+class Helix extends THREE.Curve {
+  constructor(r, len, turns) { super(); this.r = r; this.len = len; this.turns = turns; }
+  getPoint(t, v = new THREE.Vector3()) { const a = t * this.turns * Math.PI * 2; return v.set(t * this.len - this.len / 2, Math.cos(a) * this.r, Math.sin(a) * this.r); }
+}
+
+function initScene() {
+  try {
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    if (!renderer.getContext()) throw new Error("no webgl");
+  } catch (e) { gl = false; $("nogl").hidden = false; return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  stage.appendChild(renderer.domElement);
+  scene = new THREE.Scene();
+  camera = new THREE.PerspectiveCamera(38, 1, 0.1, 300);
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.08;
+  controls.maxPolarAngle = Math.PI * 0.46; controls.minDistance = 6; controls.maxDistance = 80;
+  controls.target.copy(CENTER);
+
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x445066, 0.75));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.85);
+  sun.position.set(-10, 24, 14); sun.castShadow = true; sun.shadow.mapSize.set(2048, 2048);
+  Object.assign(sun.shadow.camera, { left: -20, right: 20, top: 14, bottom: -14, near: 1, far: 70 });
+  sun.shadow.bias = -0.0005; scene.add(sun);
+
+  // 地面与 12×6 格线（每格 2 个单位）
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(30, 17), stdMat("--surface", { roughness: 0.95, metalness: 0 }));
+  floor.rotation.x = -Math.PI / 2; floor.position.set(CENTER.x, 0, 0); floor.receiveShadow = true; scene.add(floor);
+  const gp = [];
+  for (let x = -13; x <= 15; x += CELL) gp.push(x, 0.005, -7.5, x, 0.005, 7.5);
+  for (let z = -7; z <= 7; z += CELL) gp.push(-14.4, 0.005, z, 15.6, 0.005, z);
+  const gg = new THREE.BufferGeometry(); gg.setAttribute("position", new THREE.Float32BufferAttribute(gp, 3));
+  const gm = new THREE.LineBasicMaterial({ transparent: true, opacity: 0.55 }); themed.push([gm, "--border"]);
+  scene.add(new THREE.LineSegments(gg, gm));
+
+  buildZones(); d.workstations.forEach(buildMachine); buildFlows(); d.workOrders.forEach(buildPallet);
+  fitCamera(); resize();
+}
+
+function buildZones() {
+  const byZone = {};
+  d.workstations.forEach((w) => (byZone[w.zone] = byZone[w.zone] || []).push(w));
+  const colors = { 卷簧区: "--c1", 热处理区: "--c6", 磨端区: "--c5", 表面处理区: "--c4", 检验包装区: "--c2" };
+  const rects = Object.entries(byZone).map(([name, ws]) => {
+    const xs = ws.map((w) => wx(w.pos)), zs = ws.map((w) => wz(w.pos));
+    return { name, color: colors[name] || "--c1", x0: Math.min(...xs) - 1.7, x1: Math.max(...xs) + 1.7, z0: Math.min(...zs) - 1.5, z1: Math.max(...zs) + 1.9 };
+  });
+  rects.push({ name: "成品区", color: "--c3", x0: SHIP.x - 1.2, x1: SHIP.x + 1.2, z0: -5.5, z1: 5.5 });
+  rects.forEach((r) => {
+    const fm = new THREE.MeshBasicMaterial({ transparent: true, opacity: 0.1, depthWrite: false }); themed.push([fm, r.color]);
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(r.x1 - r.x0, r.z1 - r.z0), fm); m.rotation.x = -Math.PI / 2; m.position.set((r.x0 + r.x1) / 2, 0.01, (r.z0 + r.z1) / 2); scene.add(m);
+    const lm = new THREE.LineBasicMaterial({ transparent: true, opacity: 0.55 }); themed.push([lm, r.color]);
+    const pts = [[r.x0, r.z0], [r.x1, r.z0], [r.x1, r.z1], [r.x0, r.z1]].map(([x, z]) => new THREE.Vector3(x, 0.015, z));
+    scene.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(pts), lm));
+    const el = document.createElement("div"); el.className = "zone-label"; el.textContent = r.name; labelsEl.appendChild(el);
+    zones.push({ el, pos: new THREE.Vector3(r.x0 + 0.2, 0, r.z1 - 0.1) });
+  });
+}
+
+// 设备按类型做成简单立体：顶板与状态灯按状态着色
+function buildMachine(w) {
+  const g = new THREE.Group(); g.position.set(wx(w.pos), 0, wz(w.pos)); scene.add(g);
+  const body = stdMat("--border"), dark = stdMat("--surface-2"), steel = stdMat("--text-3", { metalness: 0.7, roughness: 0.3 });
+  const plate = new THREE.MeshStandardMaterial({ roughness: 0.4, emissiveIntensity: 0.5 });
+  const lamp = new THREE.MeshStandardMaterial({ roughness: 0.2, emissiveIntensity: 1 });
+  const add = (geo, m, x, y, z, shadow = true) => { const o = new THREE.Mesh(geo, m); o.position.set(x, y, z); o.castShadow = o.receiveShadow = shadow; o.userData.ws = w.id; g.add(o); pickables.push(o); return o; };
+  const box = (a, b, c) => new THREE.BoxGeometry(a, b, c);
+  const spin = []; let h, pw = 1.5, pd = 1.1, pz = 0, main, glow = null;
+  if (w.type === "卷簧") {
+    h = 1.0; main = add(box(1.6, 1.0, 1.2), body, 0, 0.5, 0);
+    add(box(0.5, 0.45, 0.6), dark, 0.5, 1.25, 0);
+    const coil = add(new THREE.TubeGeometry(new Helix(0.2, 0.75, 7), 180, 0.035, 6), steel, -0.25, 1.28, 0.1); spin.push([coil, "x", 4]);
+    const reel = add(new THREE.TorusGeometry(0.32, 0.06, 8, 24), steel, -0.55, 0.55, -0.75); spin.push([reel, "z", 1.2]);
+  } else if (w.type === "回火") {
+    h = 1.5; main = add(box(1.7, 1.5, 1.5), body, 0, 0.75, 0);
+    glow = new THREE.MeshStandardMaterial({ roughness: 0.4, emissiveIntensity: 0.05 });
+    add(box(1.1, 0.8, 0.04), glow, 0, 0.7, 0.77, false);
+    add(new THREE.CylinderGeometry(0.12, 0.12, 0.7, 12), dark, 0.55, 1.85, -0.45);
+  } else if (w.type === "磨端") {
+    h = 0.8; main = add(box(1.5, 0.8, 1.2), body, 0, 0.4, 0);
+    [-0.28, 0.28].forEach((x) => { const disc = add(new THREE.CylinderGeometry(0.34, 0.34, 0.12, 28), steel, x, 1.2, 0); disc.rotation.z = Math.PI / 2; spin.push([disc, "x", 6]); });
+    add(box(0.1, 0.5, 0.1), dark, -0.62, 1.05, 0); add(box(0.1, 0.5, 0.1), dark, 0.62, 1.05, 0);
+  } else if (w.type === "喷丸") {
+    h = 1.2; main = add(box(1.5, 1.2, 1.3), body, 0, 0.6, 0);
+    const hop = add(new THREE.ConeGeometry(0.5, 0.6, 4), dark, 0, 1.55, -0.1); hop.rotation.x = Math.PI; hop.rotation.y = Math.PI / 4;
+  } else if (w.type === "检验") {
+    h = 0.82; main = add(box(1.6, 0.06, 1.0), body, 0, 0.79, 0);
+    [[-0.7, -0.4], [0.7, -0.4], [-0.7, 0.4], [0.7, 0.4]].forEach(([x, z]) => add(box(0.07, 0.76, 0.07), dark, x, 0.38, z));
+    add(box(0.4, 0.3, 0.3), dark, -0.35, 0.99, -0.15); add(box(0.5, 0.32, 0.04), steel, 0.35, 1.05, -0.3);
+    pw = 0.9; pd = 0.15; pz = 0.42;
+  } else {
+    h = 0.6; main = add(box(2.4, 0.18, 0.8), dark, 0, 0.5, 0);
+    [-0.9, 0.9].forEach((x) => [-0.32, 0.32].forEach((z) => add(box(0.07, 0.42, 0.07), dark, x, 0.21, z)));
+    for (let i = -5; i <= 5; i++) { const r = add(new THREE.CylinderGeometry(0.05, 0.05, 0.78, 10), steel, i * 0.21, 0.61, 0); r.rotation.x = Math.PI / 2; spin.push([r, "y", 5]); }
+    add(box(0.5, 0.45, 0.5), body, 1.0, 0.95, 0);
+    pw = 2.4; pd = 0.12; pz = 0.46;
+  }
+  add(box(pw, 0.05, pd), plate, 0, h + 0.03, pz, false);
+  add(new THREE.CylinderGeometry(0.025, 0.025, 0.7, 8), dark, -0.72, h + 0.35, -0.45);
+  add(new THREE.SphereGeometry(0.11, 16, 12), lamp, -0.72, h + 0.75, -0.45, false);
+  const em = new THREE.LineBasicMaterial({ transparent: true, opacity: 0.45 });
+  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(main.geometry), em); edges.position.copy(main.position); g.add(edges);
+
+  const el = document.createElement("div"); el.className = "ws-label"; el.tabIndex = 0; el.setAttribute("role", "button");
+  el.onclick = () => { focusWs(w.id); openWs(w.id); };
+  el.onkeydown = (e) => { if (e.key === "Enter") el.onclick(); };
+  labelsEl.appendChild(el);
+  machines[w.id] = { w, plate, lamp, glow, spin, em, el, pos: g.position, labelPos: new THREE.Vector3(g.position.x, h + 1.25, g.position.z), status: null };
+}
+
+// 工序间物流线：按两条工艺路线连各类设备的前方，线上小点流动（装饰，表示物料在走）
+function buildFlows() {
+  const cent = (type) => { const ws = d.workstations.filter((w) => w.type === type);
+    return new THREE.Vector3(ws.reduce((s, w) => s + wx(w.pos), 0) / ws.length, 0.04, ws.reduce((s, w) => s + wz(w.pos), 0) / ws.length + 1.3); };
+  const ship = new THREE.Vector3(SHIP.x, 0.04, SHIP.z);
+  Object.values(d.routings).forEach((r, ri) => {
+    const pts = [...r.map((op) => cent(op.type)), ship];
+    const lm = new THREE.LineDashedMaterial({ dashSize: 0.35, gapSize: 0.25, transparent: true, opacity: 0.6 }); themed.push([lm, "--primary"]);
+    const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), lm); line.computeLineDistances(); scene.add(line);
+    const segs = []; let total = 0;
+    for (let i = 1; i < pts.length; i++) { const len = pts[i].distanceTo(pts[i - 1]); segs.push({ a: pts[i - 1], b: pts[i], len, at: total }); total += len; }
+    const dm = new THREE.MeshStandardMaterial({ emissiveIntensity: 1.2 }); themed.push([dm, "--primary", true]);
+    const n = Math.round(total / 2.2);
+    for (let k = 0; k < n; k++) { const s = new THREE.Mesh(new THREE.SphereGeometry(0.07, 10, 8), dm); scene.add(s); flowDots.push({ s, segs, total, off: (k / n) * total + ri * 0.7 }); }
+  });
+}
+
+// 每张在制工单一个料箱，颜色按交期风险
+const riskVar = { late: "--st-alarm", tight: "--st-wait", ok: "--c1" };
+function buildPallet(w) {
+  const m = new THREE.MeshStandardMaterial({ roughness: 0.5, emissiveIntensity: 0.25 }); themed.push([m, riskVar[w.risk], true]);
+  const o = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.26, 0.34), m); o.castShadow = true; o.userData.wo = w.id; scene.add(o); pickables.push(o);
+  pallets[w.id] = { o, m, target: new THREE.Vector3(), placed: false };
+}
+
+function applyTheme() {
+  if (!gl) return;
+  scene.background = new THREE.Color(css("--bg"));
+  themed.forEach(([m, v, emissive]) => { m.color.set(css(v)); if (emissive) m.emissive.set(css(v)); });
+  Object.values(machines).forEach((mc) => { if (mc.glow) { mc.glow.color.set(css("--surface-2")); mc.glow.emissive.set(css("--st-over")); } });
+  select(selected);
+  update(true);
+}
+new MutationObserver(applyTheme).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+
+// ---------- 相机：横屏沿长边看；竖屏转 90°，让卷簧区在上、成品区在下 ----------
+let portrait = null, focusAnim = null;
+const viewDir = () => portrait ? new THREE.Vector3(1, 1.4, 0.1).normalize() : new THREE.Vector3(0.05, 1.3, 1.0).normalize();
+function fitCamera() {
+  const w = stage.clientWidth || 1, h = stage.clientHeight || 1, aspect = w / h;
+  portrait = aspect < 0.9;
+  const vf = THREE.MathUtils.degToRad(camera.fov), hf = 2 * Math.atan(Math.tan(vf / 2) * aspect);
+  const across = portrait ? 17 : 30, deep = portrait ? 30 : 17;
+  // 近处的地面边比远处宽，透视下要多留余量
+  const dist = Math.max(across / 2 / Math.tan(hf / 2), (deep * 0.8) / 2 / Math.tan(vf / 2)) * 1.3;
+  controls.target.copy(CENTER); camera.position.copy(CENTER).addScaledVector(viewDir(), dist); controls.update();
+}
+function focusWs(id, drawer = true) {
+  if (!gl) return;
+  const tgt = new THREE.Vector3(machines[id].pos.x, 0.6, machines[id].pos.z), dir = viewDir(), dist = 16;
+  // 宽屏时右侧抽屉会盖住画面右半，把视点往右挪，让设备落在抽屉左边的可见区中间
+  const sw = stage.clientWidth, drawerPx = drawer && sw > 700 ? Math.min(620, sw) : 0;
+  if (drawerPx) {
+    const right = new THREE.Vector3().crossVectors(dir.clone().negate(), new THREE.Vector3(0, 1, 0)).normalize();
+    const hf = 2 * Math.atan(Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2) * camera.aspect);
+    tgt.addScaledVector(right, (drawerPx / 2 / sw) * 2 * dist * Math.tan(hf / 2));
+  }
+  focusAnim = { t: 0, p0: camera.position.clone(), t0: controls.target.clone(), p1: tgt.clone().addScaledVector(dir, dist), t1: tgt };
+  select(id);
+}
+function resetView() {
+  if (!gl) return;
+  const p = camera.position.clone(), t = controls.target.clone(); fitCamera();
+  focusAnim = { t: 0, p0: p, t0: t, p1: camera.position.clone(), t1: controls.target.clone() };
+  camera.position.copy(p); controls.target.copy(t); select(null);
+}
+function select(id) {
+  selected = id;
+  Object.values(machines).forEach((mc) => { const on = mc.w.id === id; mc.el.classList.toggle("sel", on); mc.em.color.set(css(on ? "--primary" : "--text-3")); mc.em.opacity = on ? 1 : 0.45; });
+}
+function resize() {
+  if (!gl) return;
+  const w = stage.clientWidth, h = stage.clientHeight; if (!w || !h) return;
+  renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+  if ((w / h < 0.9) !== portrait) fitCamera();
+}
+new ResizeObserver(resize).observe(stage);
+
+// ---------- 按时刻刷新：设备状态、标签、料箱位置、图例与汇总 ----------
+function update(force) {
+  snap = T.at(Math.round(tMin));
+  const counts = Object.fromEntries(STATUS.map((s) => [s, 0]));
+  Object.values(machines).forEach((mc) => {
+    const s = snap.workstations[mc.w.id], st = s.status; counts[st]++;
+    if (gl && (force || mc.status !== st)) { const c = css("--st-" + st); mc.plate.color.set(c); mc.plate.emissive.set(c); mc.lamp.color.set(c); mc.lamp.emissive.set(c); }
+    mc.status = st;
+    const note = !s.current && (isNow() || st === "wait" || st === "down") ? d.statusNote[mc.w.id] : null;
+    const sub = s.current ? `在做 ${short(s.current.workOrder)} ${s.current.op}` : note ? (note.length > 13 ? note.slice(0, 12) + "…" : note) : "";
+    const html = `<span class="nm">${mc.w.id}</span><span class="st">${d.statusText[st]}</span>${sub ? `<div class="sub">${sub}</div>` : ""}`;
+    if (mc.el.dataset.html !== html) { mc.el.innerHTML = html; mc.el.dataset.html = html; }
+    mc.el.className = "ws-label " + st + (selected === mc.w.id ? " sel" : "");
+  });
+  // 料箱：停在所在设备前排一行，加工中的排前面；完工的进成品区
+  const at = {}, done = [];
+  d.workOrders.forEach((w) => { const o = snap.orders[w.id]; if (o.state === "done") done.push(w.id); else (at[o.workstation] = at[o.workstation] || []).push(w.id); });
+  Object.entries(at).forEach(([ws, ids]) => {
+    ids.sort((a, b) => (snap.orders[b].state === "run") - (snap.orders[a].state === "run") || woById[a].delivery.localeCompare(woById[b].delivery));
+    const p = WS(ws).pos;
+    ids.forEach((id, k) => pallets[id] && pallets[id].target.set(wx(p) - 0.62 + (k % 4) * 0.42, 0.13, wz(p) + 1.15 + Math.floor(k / 4) * 0.42));
+  });
+  done.forEach((id, k) => pallets[id] && pallets[id].target.set(SHIP.x - 0.45 + (k % 3) * 0.45, 0.13, -4.6 + Math.floor(k / 3) * 0.5));
+  if (gl) d.workOrders.forEach((w) => { const pl = pallets[w.id], o = snap.orders[w.id];
+    pl.m.emissiveIntensity = o.state === "run" ? 0.75 : o.state === "done" ? 0.05 : 0.2;
+    if (!pl.placed) { pl.o.position.copy(pl.target); pl.placed = true; } });
+
+  $("legend").innerHTML = `<div class="row">${STATUS.map((s) => `<span class="it ${s}${counts[s] ? "" : " zero"}"><i></i>${d.statusText[s]} <b>${counts[s]}</b></span>`).join("")}</div>
+    <div class="row"><span class="it" style="--st: var(--c1)"><i></i>料箱＝在制工单</span><span class="it" style="--st: var(--st-alarm)"><i></i>会延误</span><span class="it" style="--st: var(--st-wait)"><i></i>偏紧</span></div>`;
+  const os = Object.values(snap.orders), cnt = (f) => os.filter(f).length, f = fmtT(Math.round(tMin));
+  $("summary").innerHTML = `<div class="mode${isNow() ? "" : " replay"}">${isNow() ? "此刻 " + d.nowClock : "排程回放 · " + dayName(f.date) + " " + f.clock}</div>
+    <div class="nums">在制 <b>${d.workOrders.length}</b> 张：加工中 <b>${cnt((o) => o.state === "run")}</b> · 排队 <b>${cnt((o) => o.state === "queue" || o.state === "wait-next")}</b> · 已完工 <b>${cnt((o) => o.state === "done")}</b></div>`;
+  $("tl-t").textContent = dayName(f.date) + " " + f.clock;
+  $("tl-m").textContent = isNow() ? "此刻 · 按实际状态" : "按排程推演";
+  $("btn-now").disabled = isNow();
+  range.value = Math.round(tMin);
+}
+
+// ---------- 时间轴 ----------
+const range = $("tl-range");
+range.min = T.now; range.max = T.end; range.step = 5;
+range.oninput = () => { stop(); tMin = +range.value; update(); };
+$("tl-ticks").innerHTML = Array.from({ length: Math.round(T.end / T.day) }, (_, k) => {
+  const m = k === 0 ? T.now : k * T.day, left = ((m - T.now) / (T.end - T.now)) * 100;
+  return `<span style="left:${left}%">${k === 0 ? "今天" : dayName(T.date(m)).slice(0, 5)}</span>`;
+}).join("");
+function togglePlay() { if (playing) return stop(); if (tMin >= T.end) tMin = T.now; playing = true; $("btn-play").textContent = "❚❚ 暂停"; }
+function stop() { playing = false; $("btn-play").textContent = "▶ 播放排程"; }
+function goNow() { stop(); tMin = T.now; update(); }
+
+// ---------- 动画循环 ----------
+const _v = new THREE.Vector3();
+let last = performance.now(), clockS = 0;
+const blink = () => (Math.sin(clockS * 9) > 0 ? 1 : 0);
+function frame(nowMs) {
+  const dt = Math.min(0.1, Math.max(0, (nowMs - last) / 1000)); last = nowMs; clockS += dt;
+  if (playing) { const prev = Math.floor(tMin); tMin = Math.min(T.end, tMin + dt * +$("tl-speed").value); if (Math.floor(tMin) !== prev) update(); if (tMin >= T.end) stop(); }
+  if (focusAnim) { focusAnim.t = Math.min(1, focusAnim.t + dt * 1.6); const e = 1 - Math.pow(1 - focusAnim.t, 3);
+    camera.position.lerpVectors(focusAnim.p0, focusAnim.p1, e); controls.target.lerpVectors(focusAnim.t0, focusAnim.t1, e); if (focusAnim.t >= 1) focusAnim = null; }
+  controls.update();
+  Object.values(machines).forEach((mc) => {
+    const st = mc.status, busy = st === "run" || st === "over" || st === "alarm";
+    if (busy) mc.spin.forEach(([o, axis, sp]) => { o.rotation[axis] += dt * sp; });
+    mc.lamp.emissiveIntensity = st === "alarm" ? 0.4 + 1.2 * blink() : st === "over" ? 0.7 + 0.5 * Math.sin(clockS * 5) : st === "wait" ? 0.6 + 0.4 * Math.sin(clockS * 2.5) : st === "down" ? 0.08 : 0.9;
+    mc.plate.emissiveIntensity = st === "down" ? 0.05 : st === "alarm" ? 0.35 + 0.4 * blink() : 0.5;
+    if (mc.glow) mc.glow.emissiveIntensity = busy ? 0.7 + 0.15 * Math.sin(clockS * 3) : 0.03;
+  });
+  const flowSpeed = playing ? 3 : 0.8;
+  flowDots.forEach((fd) => { fd.off = (fd.off + dt * flowSpeed) % fd.total;
+    const sg = fd.segs.find((s) => fd.off >= s.at && fd.off < s.at + s.len) || fd.segs[0];
+    fd.s.position.lerpVectors(sg.a, sg.b, Math.min(1, (fd.off - sg.at) / sg.len)); });
+  Object.values(pallets).forEach((pl) => { _v.copy(pl.target); _v.y += Math.min(1.0, pl.o.position.distanceTo(pl.target) * 0.25);
+    pl.o.position.lerp(_v, 1 - Math.exp(-dt * 3.2)); });
+  renderer.render(scene, camera);
+  placeLabels();
+  requestAnimationFrame(frame);
+}
+function project(v) { _v.copy(v).project(camera); return { x: ((_v.x + 1) / 2) * stage.clientWidth, y: ((1 - _v.y) / 2) * stage.clientHeight, hidden: _v.z > 1 }; }
+function placeLabels() {
+  Object.values(machines).forEach((mc) => { const p = project(mc.labelPos), el = mc.el;
+    el.style.visibility = p.hidden ? "hidden" : "visible"; el.style.transform = `translate(${Math.round(p.x - el.offsetWidth / 2)}px, ${Math.round(p.y - el.offsetHeight - 6)}px)`; });
+  zones.forEach((z) => { const p = project(z.pos); z.el.style.visibility = p.hidden ? "hidden" : "visible"; z.el.style.transform = `translate(${Math.round(p.x)}px, ${Math.round(p.y - 16)}px)`; });
+}
+
+// ---------- 点选与悬停：拖动不算点击 ----------
+const ray = new THREE.Raycaster(), ndc = new THREE.Vector2(); let down = null;
+function pick(e) {
+  const r = renderer.domElement.getBoundingClientRect(); ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+  ray.setFromCamera(ndc, camera); const hit = ray.intersectObjects(pickables, false)[0]; return hit ? hit.object.userData : null;
+}
+function bindPointer() {
+  const cv = renderer.domElement, tip = $("tip");
+  cv.addEventListener("pointerdown", (e) => { down = { x: e.clientX, y: e.clientY }; });
+  cv.addEventListener("pointerup", (e) => {
+    if (!down || Math.hypot(e.clientX - down.x, e.clientY - down.y) > 6) return; down = null;
+    const u = pick(e); if (!u) return;
+    if (u.wo) openWo(u.wo); else if (u.ws) { focusWs(u.ws); openWs(u.ws); }
+  });
+  cv.addEventListener("pointermove", (e) => {
+    if (e.buttons) { tip.hidden = true; return; }
+    const u = pick(e); cv.style.cursor = u ? "pointer" : "grab";
+    if (u && u.wo) { const w = woById[u.wo], o = snap.orders[u.wo];
+      tip.innerHTML = `<b class="sc-num">${u.wo}</b> ${riskBadge[w.risk]}<br>${w.customer} · ${P(w.product).name}<br>${o.state === "done" ? "已完工，待发货" : `${o.op} ${Math.round(o.progress * 100)}% · ${o.state === "run" ? "加工中" : "排队"}`} · 交期 ${w.delivery.slice(5)}`;
+      const r = stage.getBoundingClientRect(); tip.style.transform = `translate(${Math.max(0, Math.min(e.clientX - r.left + 14, r.width - 240))}px, ${e.clientY - r.top + 14}px)`; tip.hidden = false;
+    } else tip.hidden = true;
+  });
+  cv.addEventListener("pointerleave", () => { tip.hidden = true; });
+}
+
+// ---------- 右侧详情：设备、工单（写法同驾驶舱） ----------
+let drChart = null, drWs = null;
+function showDrawer(withChart) {
+  $("dr-chart-box").hidden = !withChart;
+  document.body.classList.add("drawer-open"); document.querySelector(".drawer").setAttribute("aria-hidden", "false");
+  document.querySelector(".drawer-body").scrollTop = 0;
+  if (withChart) { if (!drChart) drChart = SC.chart($("dr-chart"), drOption); else { drChart.inst.setOption(drOption(SC), true); drChart.inst.resize(); } }
+}
+function closeDrawer() { document.body.classList.remove("drawer-open"); document.querySelector(".drawer").setAttribute("aria-hidden", "true"); }
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeDrawer();
+  if (e.key === " " && !document.body.classList.contains("drawer-open") && !["INPUT", "SELECT", "BUTTON", "A"].includes(e.target.tagName)) { e.preventDefault(); togglePlay(); }
+});
+const fact = (k2, v) => `<div><div class="k">${k2}</div><div class="v sc-num">${v}</div></div>`;
+const wsLink = (id) => `<a class="link" onclick="focusWs('${id}');openWs('${id}')">${id}</a>`;
+const woLink = (id) => `<a class="link" onclick="openWo('${id}')">${id}</a>`;
+const bottleneckOf = (w) => w.operations.filter((o) => o.remainMin > 0).reduce((a, b) => (b.end - b.start > a.end - a.start ? b : a), { end: 0, start: 0 });
+
+function spcOption(s) {
+  return {
+    tooltip: { trigger: "axis", valueFormatter: (v) => v.toFixed(3) + " mm" }, grid: { left: 44, right: 72, top: 10, bottom: 22 },
+    xAxis: { type: "category", data: spc.groups.map((g) => g.no) },
+    yAxis: { type: "value", min: 49.7, max: 50.3, interval: 0.1, axisLabel: { formatter: (v) => v.toFixed(1) } },
+    series: [{ name: "子组均值", type: "line", symbolSize: 7, data: spc.groups.map((g) => ({ value: g.mean, itemStyle: { color: s.css(g.flagged ? "--st-alarm" : "--c1") } })), lineStyle: { color: s.css("--c1") },
+      markArea: { silent: true, itemStyle: { color: s.css("--st-alarm"), opacity: 0.08 },
+        data: spc.violations.length ? [[{ xAxis: String(spc.violations[0].group) }, { xAxis: String(spc.violations[spc.violations.length - 1].group) }]] : [] },
+      markLine: { symbol: "none", label: { position: "end", color: s.css("--text-2"), formatter: (p) => p.name + " " + p.value.toFixed(3) }, data: [
+        { name: "UCL", yAxis: spc.xbar.ucl, lineStyle: { color: s.css("--st-alarm"), type: "dashed" } },
+        { name: "CL", yAxis: spc.xbar.cl, lineStyle: { color: s.css("--text-3") } },
+        { name: "LCL", yAxis: spc.xbar.lcl, lineStyle: { color: s.css("--st-alarm"), type: "dashed" } }] } }],
+  };
+}
+function loadOption(s, w) {
+  return {
+    tooltip: { trigger: "axis", valueFormatter: (v) => v + " 小时" }, grid: { left: 40, right: 12, top: 26, bottom: 22 },
+    legend: { top: 0, right: 0, itemWidth: 12, itemHeight: 8, textStyle: { fontSize: 11 } },
+    xAxis: { type: "category", data: w.loadByDay.map((x) => dayName(x.date)) },
+    yAxis: { type: "value", max: 8, interval: 2, axisLabel: { formatter: (v) => v + "h" } },
+    series: [
+      { name: "可用工时", type: "bar", barGap: "-100%", barWidth: "46%", silent: true, data: w.loadByDay.map((x) => +(x.capMin / 60).toFixed(1)), itemStyle: { color: s.css("--surface-2"), borderColor: s.css("--border") } },
+      { name: "已排工时", type: "bar", barWidth: "46%", data: w.loadByDay.map((x) => ({ value: +(x.min / 60).toFixed(1), itemStyle: { color: s.css(x.load >= 0.99 ? "--st-over" : "--c1") } })) },
+    ],
+  };
+}
+function drOption(s) { return drWs === spc.workstation ? spcOption(s) : loadOption(s, WS(drWs)); }
+
+function openWs(id) {
+  const w = WS(id), s = snap.workstations[id], f = fmtT(Math.round(tMin)); drWs = id;
+  $("dr-title").textContent = id;
+  $("dr-badge").innerHTML = badge(w.status, d.statusText[w.status]);
+  const rows = d.workOrders.flatMap((x) => x.operations.filter((o) => o.workstation === id && o.remainMin > 0).map((o) => ({ w: x, o }))).sort((a, b) => a.o.start - b.o.start);
+  const note = d.statusNote[id], doing = ["run", "over", "alarm"].includes(w.status) && w.current;
+  $("dr-top").innerHTML = `<p class="sc-muted" style="margin:0">${w.zone} · 操作工 ${w.operator}${w.maxWireMm ? " · 最大线径 φ" + w.maxWireMm.toFixed(1) : ""}</p>
+    ${isNow() ? "" : `<div class="alert-item">${badge(s.status, "回放")}<span>${dayName(f.date)} ${f.clock} 按排程：${d.statusText[s.status]}${s.current ? "，在做 " + short(s.current.workOrder) + " " + s.current.op : ""}。下面是此刻的数字</span></div>`}
+    <div class="facts">${fact("未来 6 天负荷", `<span class="${w.load > 1 ? "sc-down" : ""}">${Math.round(w.load * 100)}%</span>`)}${fact("排队工时", hours(w.backlogMin))}
+      ${fact("排到哪天", w.freeDate)}${fact("正在做", doing ? short(w.current.workOrder) + " " + w.current.op : "—")}</div>
+    ${note ? `<div class="alert-item">${badge(w.status, d.statusText[w.status])}<span>${note}</span></div>` : ""}
+    ${w.load > 1 ? `<div class="alert-item">${badge("over", "负荷")}<span>未来 6 个工作日排了 ${hours(w.backlogMin)}，超出可用工时 ${Math.round((w.load - 1) * 100)}%</span></div>` : ""}`;
+  const isSpc = id === spc.workstation, v = spc.violations;
+  $("dr-chart-title").textContent = isSpc ? `SPC 控制图 · ${P(spc.item).name} ${spc.param}（规格 ${spc.lsl}～${spc.usl} mm）` : "未来 6 个工作日每日排产";
+  $("dr-chart-note").textContent = isSpc ? `Cpk ${spc.cpk}；第 ${v[0].group}～${v[v.length - 1].group} 组${v[0].text}`
+    : [w.beyondMin > 0 ? `另有 ${hours(w.beyondMin)} 排到第 7 个工作日以后` : "", ["卷簧", "回火", "磨端", "喷丸"].includes(w.type) ? "过程受控，无 SPC 判异" : ""].filter(Boolean).join("；");
+  $("dr-bottom").innerHTML = `<h3>排在这台设备上的工序</h3>` + (rows.length ? `<div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>工单</th><th>客户</th><th>产品</th><th>工序</th>
+      <th class="r">剩余工时</th><th>开工</th><th>完工</th><th>交期</th></tr></thead><tbody>` +
+    rows.map(({ w: x, o }) => `<tr><td class="sc-num">${woLink(x.id)}</td><td>${x.customer}</td><td>${P(x.product).name}</td><td>${o.op}${o.done > 0 ? ` <span class="sc-faint">${Math.round(o.done * 100)}%</span>` : ""}</td>
+      <td class="r sc-num">${hours(o.remainMin)}</td><td class="sc-num">${o.startDate.slice(5)}</td><td class="sc-num">${o.endDate.slice(5)}</td><td>${riskBadge[x.risk]}</td></tr>`).join("") +
+    "</tbody></table></div>" : `<p class="sc-faint">没有排队的工序</p>`);
+  showDrawer(true);
+}
+
+function openWo(id) {
+  const w = woById[id], s = SO(w.salesOrder), p = P(w.product), o = snap.orders[id], bn = bottleneckOf(w);
+  $("dr-title").textContent = w.customer + " · " + p.name;
+  $("dr-badge").innerHTML = riskBadge[w.risk];
+  $("dr-top").innerHTML = `<p class="sc-muted" style="margin:0">${w.id} · 销售订单 ${w.salesOrder}</p>
+    <div class="facts">${fact("订单数量", num(s.qty) + " 支")}${fact("计划投产", num(w.plannedQty) + " 支")}${fact("交期", w.delivery)}
+      ${fact("预计完工", `<span class="${w.risk === "late" ? "sc-down" : ""}">${w.finishDate}</span>`)}</div>
+    <div class="alert-item">${badge(o.state === "run" ? "run" : o.state === "done" ? "idle" : "wait", isNow() ? "此刻" : "回放")}<span>${o.state === "done" ? "已完工，在成品区待发货" : `在 ${o.workstation} ${o.op}，${o.state === "run" ? "加工中" : "排队等开工"}，本道完成 ${Math.round(o.progress * 100)}%`}</span></div>
+    ${w.risk === "late" ? `<div class="alert-item">${badge("alarm", "延误")}<span>比交期晚 ${-w.slackDays} 个工作日；最耗时的是 ${bn.op}（${bn.workstation}）</span></div>` : ""}
+    ${w.risk === "tight" ? `<div class="alert-item">${badge("wait", "偏紧")}<span>交期当天完工，没有余量</span></div>` : ""}
+    ${w.materialNote ? `<div class="alert-item">${badge("wait", "钢丝")}<span>${w.materialNote}</span></div>` : ""}
+    ${o.workstation ? `<div class="actions"><button class="sc-btn" onclick="closeDrawer();focusWs('${o.workstation}', false)">在车间里定位</button></div>` : ""}`;
+  $("dr-bottom").innerHTML = `<h3>各工序进度与排程</h3><div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>工序</th><th>设备</th><th>完成</th>
+      <th class="r">良品（支）</th><th class="r">剩余工时</th><th>开工</th><th>完工</th></tr></thead><tbody>` +
+    w.operations.map((op) => `<tr><td>${op.op}</td><td>${wsLink(op.workstation)}</td>
+      <td><div class="sc-bar ${op.done >= 1 ? "run" : "idle"}" style="min-width: 80px"><i style="--v: ${op.done * 100}%"></i></div></td>
+      <td class="r sc-num">${num(op.goodQty)}</td><td class="r sc-num">${op.remainMin ? hours(op.remainMin) : "—"}</td>
+      <td class="sc-num">${op.startDate ? op.startDate.slice(5) : "—"}</td><td class="sc-num">${op.endDate ? op.endDate.slice(5) : "已完成"}</td></tr>`).join("") + "</tbody></table></div>";
+  showDrawer(false);
+}
+
+// ---------- 启动 ----------
+initScene();
+applyTheme();
+update(true);
+if (gl) { bindPointer(); requestAnimationFrame(frame); }
+const qWs = new URLSearchParams(location.search).get("ws");
+if (qWs && WS(qWs)) { focusWs(qWs); openWs(qWs); }
+</script>
+</body>
+</html>

@@ -314,7 +314,8 @@ function openWs(id) {
   const rows = d.workOrders.flatMap((x) => x.operations.filter((o) => o.workstation === id && o.remainMin > 0).map((o) => ({ w: x, o })))
     .sort((a, b) => a.o.start - b.o.start);
   const note = d.statusNote[id];
-  $("dr-top").innerHTML = `<p class="sc-muted" style="margin:0">${w.zone} · 操作工 ${w.operator}${w.maxWireMm ? " · 最大线径 φ" + w.maxWireMm.toFixed(1) : ""}</p>
+  $("dr-top").innerHTML = `<p class="sc-muted" style="margin:0; display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap">${w.zone} · 操作工 ${w.operator}${w.maxWireMm ? " · 最大线径 φ" + w.maxWireMm.toFixed(1) : ""}
+      <span class="sc-spacer" style="flex: 1"></span><a class="sc-btn" href="../twin/index.html?ws=${encodeURIComponent(id)}">到车间看</a></p>
     <div class="facts">${fact("未来 6 天负荷", `<span class="${w.load > 1 ? "sc-down" : ""}">${Math.round(w.load * 100)}%</span>`)}${fact("排队工时", hours(w.backlogMin))}
       ${fact("排到哪天", w.freeDate)}${fact("正在做", w.current ? w.current.workOrder.slice(-5) + " " + w.current.op : "—")}</div>
     ${note ? `<div class="alert-item">${badge(w.status, d.statusText[w.status])}<span>${note}</span></div>` : ""}
