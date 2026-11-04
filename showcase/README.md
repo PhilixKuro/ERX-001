@@ -12,7 +12,8 @@
 | `shared/theme.js` | 深浅主题切换；`SC.chart()` 建 ECharts 图，切换主题时自动重画 |
 | `shared/data.js` | 各界面共用的一份假数据，挂在 `window.SC_DATA` |
 | `shared/vendor/` | ECharts 5.6.0（Apache-2.0，许可文件同目录），从 `frappe_china` 拷来 |
-| `{界面}/index.html` | 各界面一个子目录，后续各 Round 建 |
+| `sales/index.html` | 销售工作台（销售负责人，默认浅色）：商机与能不能接、漏斗、线索、报价试算、重点客户、应收账龄、在手订单交期；点商机或客户从右侧滑出详情（P1-S9 R03） |
+| `{界面}/index.html` | 其余界面各一个子目录，后续各 Round 建 |
 
 ## 新界面怎么接
 
@@ -44,10 +45,12 @@
 | `workOrders[].operations`、`finishDate`、`risk` | 按交期先后排程：每道工序取「上道完工」和「设备空出」中较晚的时刻；每天 480 分钟，周日休息；计划数量按工序损耗反算 |
 | `workstations[].load` | 未来 6 个工作日的剩余工时 ÷ 可用工时 |
 | `ctp(product, qty, wantDate)` | 能不能接：插在现有排程之后，每道工序挑最早空出的同类设备，并检查钢丝够不够、是否要等在途或新采购 |
+| `quote(customer, product, qty, wantDate, price?)` | 报价试算：单价缺省取标准价；返回未税与含税金额、毛利、`ctp()` 结果、接下后的信用占用、账期，以及警示（会晚、缺钢丝、超信用额度、有逾期、毛利低于 20%） |
 | `customers[].creditUsage` | （应收 ＋ 在手订单含税额）÷ 信用额度 |
+| `customers[].history`、`yearRevenue`、`trend3m` | 近 12 个月每月销售额（未税、已开票口径）与单数，逐月合计等于 `monthly[]`；当月已开票的发票先落到对应客户，余额按客户等级和走势分摊，建档前的月份为 0。另起随机种子，不影响 SPC 读数。`trend3m` 为近 3 个月对前 3 个月，单太稀的为空 |
 | `materials[].suggestQty` | 库存 ＋ 在途低于再订货点时，按经济订货量给建议（订货成本 80，持有成本率 18%） |
 | `spc` | X̄-R 控制限取前 16 组计算；按 Nelson 第 2 条判异；算 Cpk |
-| `kpi` | 汇总指标与预警清单 |
+| `kpi` | 汇总指标与预警清单；`kpi.funnel` 商机漏斗（到达过各阶段的商机数），`kpi.aging` 应收账龄与近期开票回款 |
 
 目前这份数据能讲的情节：
 
@@ -59,5 +62,6 @@
 | 设备停机 | 喷丸机-1 计划保养 |
 | 接不下的单 | 商机 `CRM-DEAL-2026-00087`（常州弹簧厂 4 万支）比客户要的日期晚 1 天 |
 | 回款问题 | 泰州弹簧厂信用额度占用约 96%，并有逾期应收 |
+| 客户走势 | 常州弹簧厂近 3 个月销售额比前 3 个月涨 55%（它正谈着商机 087）；泰州弹簧厂跌 38% |
 
 要核对数字，可以在浏览器控制台里看 `SC_DATA`，也可以用 node 跑：`node -e "global.window={};require('./shared/data.js');console.log(window.SC_DATA.kpi)"`。

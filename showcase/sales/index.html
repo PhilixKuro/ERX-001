@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>销售工作台 · 华东弹簧演示</title>
+<link rel="stylesheet" href="../shared/tokens.css">
+<link rel="stylesheet" href="../shared/components.css">
+<style>
+  .lead-intro { margin: 0 0 var(--sp-5); }
+  .clickable tbody tr { cursor: pointer; }
+  .link { color: var(--primary); cursor: pointer; text-decoration: none; }
+  .link:hover { text-decoration: underline; }
+  .meter { display: grid; grid-template-columns: 1fr 44px; gap: var(--sp-2); align-items: center; min-width: 120px; }
+  .meter .sc-num { text-align: right; font-size: var(--fs-xs); }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); gap: var(--sp-3); margin: var(--sp-3) 0; }
+  .facts > div { background: var(--surface-2); border-radius: var(--radius-sm); padding: var(--sp-2) var(--sp-3); }
+  .facts .k { color: var(--text-2); font-size: var(--fs-xs); }
+  .facts .v { font-size: var(--fs-lg); font-weight: 600; }
+  .verdict { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2); font-size: var(--fs-lg); margin: var(--sp-2) 0; }
+  .warn-item { display: flex; gap: var(--sp-2); align-items: flex-start; padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: var(--fs-sm); }
+  .gantt { position: relative; height: 10px; background: var(--surface-2); border-radius: 999px; min-width: 140px; }
+  .gantt > i { position: absolute; top: 0; height: 100%; border-radius: 999px; }
+  .gantt > i.wait { background: color-mix(in srgb, var(--st-wait) 45%, transparent); }
+  .gantt > i.runbar { background: var(--primary); }
+  .legend { display: flex; gap: var(--sp-4); font-size: var(--fs-xs); color: var(--text-2); margin-top: var(--sp-2); }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 4px; vertical-align: -1px; }
+
+  /* 报价试算 */
+  .quote { display: grid; grid-template-columns: minmax(min(100%, 280px), 340px) minmax(0, 1fr); gap: var(--sp-5); }
+  .quote > * { min-width: 0; }
+  @media (max-width: 860px) { .quote { grid-template-columns: minmax(0, 1fr); } }
+  .form label { display: block; font-size: var(--fs-sm); color: var(--text-2); margin-bottom: var(--sp-3); }
+  .form input, .form select {
+    display: block; width: 100%; margin-top: 4px; font: inherit; font-size: var(--fs-md); color: var(--text);
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 6px 10px;
+  }
+  .form input:focus, .form select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+  .form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+  .form .hint { font-size: var(--fs-xs); color: var(--text-3); }
+
+  /* 右侧滑出详情 */
+  .scrim { position: fixed; inset: 0; background: rgba(8, 14, 30, .32); opacity: 0; pointer-events: none; transition: opacity var(--dur); z-index: 20; }
+  .drawer {
+    position: fixed; top: 0; right: 0; bottom: 0; width: min(620px, 100vw); z-index: 21;
+    background: var(--surface); border-left: 1px solid var(--border); box-shadow: -8px 0 32px rgba(0, 0, 0, .18);
+    transform: translateX(105%); transition: transform .24s ease; display: flex; flex-direction: column;
+  }
+  body.drawer-open .scrim { opacity: 1; pointer-events: auto; }
+  body.drawer-open .drawer { transform: none; }
+  .drawer-head { display: flex; align-items: center; gap: var(--sp-2); padding: var(--sp-4) var(--sp-5); border-bottom: 1px solid var(--border); }
+  .drawer-head h2 { margin: 0; font-size: var(--fs-xl); }
+  .drawer-body { overflow-y: auto; padding: var(--sp-4) var(--sp-5) var(--sp-6); flex: 1; }
+  .drawer-body h3 { margin-top: var(--sp-5); }
+  .drawer .sc-chart { height: 200px; }
+  @media (max-width: 600px) { .drawer-head, .drawer-body { padding-left: var(--sp-4); padding-right: var(--sp-4); } }
+</style>
+</head>
+<body class="sc">
+<header class="sc-topbar">
+  <span class="sc-brand" id="brand"></span>
+  <span class="sc-muted" id="role"></span>
+  <span class="sc-spacer"></span>
+  <span class="sc-faint" id="today"></span>
+  <button class="sc-btn" onclick="SC.toggleTheme()">切换深浅</button>
+</header>
+<main class="sc-page">
+  <h1>销售工作台</h1>
+  <p class="sc-muted lead-intro">商机、客户、报价和回款放在一处。「能不能接」按车间现有排程算到哪天完工、卡在哪道工序。</p>
+
+  <div class="sc-grid cols-4" id="kpis"></div>
+
+  <section class="sc-section sc-grid cols-2">
+    <div class="sc-card">
+      <div class="sc-card-head"><h3>线索</h3><span class="sc-spacer"></span><span class="sc-faint" id="lead-count"></span></div>
+      <div class="sc-table-wrap"><table class="sc-table" id="leads"></table></div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-card-head"><h3>商机漏斗</h3><span class="sc-spacer"></span><span class="sc-faint">到达过各阶段的商机数</span></div>
+      <div class="sc-chart" id="ch-funnel" style="height: 280px"></div>
+    </div>
+  </section>
+
+  <section class="sc-section">
+    <div class="sc-card">
+      <div class="sc-card-head"><h3>商机</h3><span class="sc-spacer"></span><span class="sc-faint">点一行看能不能接</span></div>
+      <div class="sc-table-wrap"><table class="sc-table clickable" id="deals"></table></div>
+    </div>
+  </section>
+
+  <section class="sc-section" id="quote-section">
+    <div class="sc-card">
+      <div class="sc-card-head"><h3>报价试算</h3><span class="sc-spacer"></span><span class="sc-faint">改数量、交期或单价，结果当场重算</span></div>
+      <div class="quote">
+        <form class="form" id="quote-form" onsubmit="return false">
+          <label>客户<select id="q-customer"></select></label>
+          <label>产品<select id="q-product"></select></label>
+          <div class="row2">
+            <label>数量（支）<input id="q-qty" type="number" min="1000" step="1000" inputmode="numeric"></label>
+            <label>客户要的日期<input id="q-date" type="date"></label>
+          </div>
+          <label>单价（元／支，未税）<input id="q-price" type="number" min="0.01" step="0.01" inputmode="decimal"><span class="hint" id="q-price-hint"></span></label>
+        </form>
+        <div id="quote-result"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sc-section sc-grid cols-2">
+    <div class="sc-card">
+      <div class="sc-card-head"><h3>重点客户</h3><span class="sc-spacer"></span><button class="sc-btn ghost" id="toggle-customers"></button></div>
+      <div class="sc-table-wrap"><table class="sc-table clickable" id="customers"></table></div>
+    </div>
+    <div class="sc-card">
+      <div class="sc-card-head"><h3>应收与回款</h3><span class="sc-spacer"></span><span class="sc-faint" id="collect-rate"></span></div>
+      <div class="sc-chart" id="ch-aging" style="height: 180px"></div>
+      <h3 style="margin-top: var(--sp-3)">逾期未收</h3>
+      <div class="sc-table-wrap"><table class="sc-table clickable" id="overdue"></table></div>
+    </div>
+  </section>
+
+  <section class="sc-section">
+    <div class="sc-card">
+      <div class="sc-card-head"><h3>在手订单交期</h3><span class="sc-spacer"></span><span class="sc-faint">预计完工按车间现有排程</span></div>
+      <div class="sc-table-wrap"><table class="sc-table clickable" id="orders"></table></div>
+    </div>
+  </section>
+</main>
+
+<div class="scrim" onclick="closeDrawer()"></div>
+<aside class="drawer" aria-hidden="true">
+  <div class="drawer-head"><h2 id="dr-title"></h2><span id="dr-badge"></span><span class="sc-spacer"></span><button class="sc-btn ghost" onclick="closeDrawer()">关闭</button></div>
+  <div class="drawer-body">
+    <div id="dr-top"></div>
+    <div id="dr-chart-box"><h3 id="dr-chart-title"></h3><div class="sc-chart" id="dr-chart"></div></div>
+    <div id="dr-bottom"></div>
+  </div>
+</aside>
+
+<script src="../shared/vendor/echarts-5.6.0.min.js"></script>
+<script src="../shared/data.js"></script>
+<script src="../shared/theme.js"></script>
+<script>
+const d = SC_DATA, k = d.kpi, $ = (id) => document.getElementById(id);
+const P = d.get.product, C = d.get.customer;
+const badge = (st, text) => `<span class="sc-badge ${st}">${text}</span>`;
+const riskBadge = { late: badge("alarm", "延误"), tight: badge("wait", "偏紧"), ok: badge("run", "正常") };
+const ctpBadge = (c) => c.slackDays < 0 ? badge("alarm", "晚 " + -c.slackDays + " 天") : c.slackDays === 0 ? badge("wait", "刚好赶上") : badge("run", "能接");
+const stageBadge = { Qualification: "idle", "Demo/Making": "idle", "Proposal/Quotation": "wait", Negotiation: "over", "Ready to Close": "run", Won: "run", Lost: "down" };
+const leadBadge = { New: "idle", Contacted: "wait", Nurture: "wait", Qualified: "run", Unqualified: "down", Junk: "down" };
+const num = (v) => Number(v).toLocaleString("zh-CN");
+const hours = (m) => (m / 60).toFixed(m < 600 ? 1 : 0) + " 小时";
+const meter = (v) => `<div class="meter"><div class="sc-bar ${v > 0.9 ? "alarm" : v > 0.7 ? "wait" : "run"}"><i style="--v: ${Math.min(v, 1) * 100}%"></i></div><span class="sc-num">${Math.round(v * 100)}%</span></div>`;
+const custLink = (n) => `<a class="link" onclick="event.stopPropagation(); openCustomer('${n}')">${n}</a>`;
+
+$("brand").textContent = d.company.name;
+$("role").textContent = "销售工作台 · " + d.roles.sales.title;
+$("today").textContent = "今天 " + d.today + " " + d.nowClock;
+
+// ---------- 指标卡 ----------
+const openDeals = d.deals.filter((x) => x.ctp), lateDeals = openDeals.filter((x) => !x.ctp.ok);
+$("kpis").innerHTML = [
+  ["商机金额", SC.yuan(k.pipeline), `<span class="sc-muted">${openDeals.length} 张在谈，按赢率加权 ${SC.yuan(k.weightedPipeline)}</span>`],
+  ["本月销售额", SC.yuan(k.monthRevenue), `<span class="sc-up">较上月 +${SC.pct(k.monthRevenueDelta)}</span>`],
+  ["应收账款", SC.yuan(k.receivable), `<span class="sc-down">逾期 ${SC.yuan(k.overdue)}</span>`],
+  ["在手订单", SC.yuan(k.openOrderAmount), `<span class="sc-down">${k.riskOrders} 单交期有风险，其中 ${k.lateOrders} 单会晚</span>`],
+].map(([l, v, delta]) => `<div class="sc-card sc-kpi"><div class="sc-kpi-label">${l}</div>
+  <div class="sc-kpi-value sc-num">${v}</div><div class="sc-kpi-delta">${delta}</div></div>`).join("");
+
+// ---------- 商机列表 ----------
+const dealOrder = ["Ready to Close", "Negotiation", "Proposal/Quotation", "Demo/Making", "Qualification", "Won", "Lost"];
+const dealsSorted = d.deals.slice().sort((a, b) => dealOrder.indexOf(a.status) - dealOrder.indexOf(b.status));
+$("deals").innerHTML = `<thead><tr><th>商机</th><th>客户</th><th>产品</th><th class="r">数量（支）</th><th class="r">金额</th>
+  <th>阶段</th><th class="r">赢率</th><th>客户要</th><th>最早完工</th><th>能不能接</th></tr></thead><tbody>` +
+  dealsSorted.map((x) => {
+    const so = x.salesOrder && d.get.salesOrder(x.salesOrder);
+    const can = x.ctp ? ctpBadge(x.ctp) : x.status === "Won" ? `<span class="sc-faint">已转 ${x.salesOrder.slice(-5)}</span>` : `<span class="sc-faint">${x.lostReason}</span>`;
+    return `<tr onclick="openDeal('${x.id}')"><td class="sc-num">${x.id}</td><td>${custLink(x.customer)}</td><td>${P(x.product).name}</td>
+      <td class="r sc-num">${num(x.qty)}</td><td class="r sc-num">${SC.yuan(x.amount)}</td><td>${badge(stageBadge[x.status], d.dealStatus[x.status])}</td>
+      <td class="r sc-num">${x.probability}%</td><td class="sc-num">${x.status === "Lost" ? "—" : x.wantDate}</td>
+      <td class="sc-num">${x.ctp ? x.ctp.finishDate : so ? so.finishDate : "—"}</td><td>${can}</td></tr>`;
+  }).join("") + "</tbody>";
+
+// ---------- 线索 ----------
+$("lead-count").textContent = `近两周 ${d.leads.length} 条`;
+$("leads").innerHTML = `<thead><tr><th>公司</th><th>联系人</th><th>来源</th><th>状态</th><th>登记</th></tr></thead><tbody>` +
+  d.leads.map((l) => `<tr><td>${l.org}</td><td>${l.contact}</td><td>${l.source}</td><td>${badge(leadBadge[l.status], d.leadStatus[l.status])}</td>
+    <td class="sc-num">${l.created.slice(5)}</td></tr>`).join("") + "</tbody>";
+
+// ---------- 重点客户 ----------
+let showAllCustomers = false;
+function renderCustomers() {
+  const list = d.customers.slice().sort((a, b) => b.yearRevenue - a.yearRevenue).slice(0, showAllCustomers ? 30 : 8);
+  $("toggle-customers").textContent = showAllCustomers ? "只看前 8 家" : `全部 ${d.customers.length} 家`;
+  $("customers").innerHTML = `<thead><tr><th>客户</th><th>等级</th><th class="r">近 12 个月</th><th class="r">近 3 月</th><th>信用占用</th></tr></thead><tbody>` +
+    list.map((c) => `<tr onclick="openCustomer('${c.name}')"><td>${c.name}</td><td>${c.level}</td><td class="r sc-num">${SC.yuan(c.yearRevenue)}</td>
+      <td class="r sc-num">${c.trend3m == null ? '<span class="sc-faint">—</span>' : `<span class="${c.trend3m >= 0 ? "sc-up" : "sc-down"}">${c.trend3m >= 0 ? "+" : ""}${Math.round(c.trend3m * 100)}%</span>`}</td>
+      <td>${meter(c.creditUsage)}</td></tr>`).join("") + "</tbody>";
+}
+$("toggle-customers").onclick = () => { showAllCustomers = !showAllCustomers; renderCustomers(); };
+renderCustomers();
+
+// ---------- 应收 ----------
+$("collect-rate").textContent = `近 8 周开票 ${SC.yuan(k.aging.invoiced)}（含税），已回款 ${SC.pct(k.aging.collected / k.aging.invoiced, 0)}`;
+const overdueList = d.invoices.filter((v) => v.overdueDays > 0).sort((a, b) => b.overdueDays - a.overdueDays);
+$("overdue").innerHTML = `<thead><tr><th>客户</th><th>发票</th><th class="r">未收</th><th>到期日</th><th class="r">逾期</th></tr></thead><tbody>` +
+  overdueList.map((v) => `<tr onclick="openCustomer('${v.customer}')"><td>${v.customer}</td><td class="sc-num">${v.id}</td><td class="r sc-num">${SC.yuan(v.outstanding)}</td>
+    <td class="sc-num">${v.due}</td><td class="r sc-num">${badge("alarm", v.overdueDays + " 天")}</td></tr>`).join("") + "</tbody>";
+
+// ---------- 在手订单 ----------
+$("orders").innerHTML = `<thead><tr><th>销售订单</th><th>客户</th><th>产品</th><th class="r">数量（支）</th><th class="r">含税金额</th>
+  <th>当前工序</th><th>交期</th><th>预计完工</th><th>风险</th></tr></thead><tbody>` +
+  d.salesOrders.slice().sort((a, b) => a.delivery.localeCompare(b.delivery)).map((o) => {
+    const w = d.workOrders.find((x) => x.salesOrder === o.id);
+    return `<tr onclick="openCustomer('${o.customer}')"><td class="sc-num">${o.id}</td><td>${o.customer}</td><td>${P(o.product).name}</td>
+      <td class="r sc-num">${num(o.qty)}</td><td class="r sc-num">${SC.yuan(o.amountWithTax)}</td><td>${w.currentOp}</td>
+      <td class="sc-num">${o.delivery}</td><td class="sc-num">${o.finishDate}</td><td>${riskBadge[o.risk]}</td></tr>`;
+  }).join("") + "</tbody>";
+</script>
+<script>
+// ---------- 图表 ----------
+const stageColor = { Qualification: "--c5", "Demo/Making": "--c4", "Proposal/Quotation": "--c3", Negotiation: "--c6", "Ready to Close": "--c2", Won: "--c1" };
+SC.chart($("ch-funnel"), (s) => ({
+  tooltip: { trigger: "item", formatter: (p) => { const f = k.funnel[p.dataIndex];
+    return `${f.name}<br>到达过 ${f.reached} 张<br>现停在此 ${f.count} 张，${SC.yuan(f.amount)}`; } },
+  series: [{ type: "funnel", sort: "none", left: "8%", right: "8%", top: 8, bottom: 8, gap: 3, minSize: "18%",
+    label: { position: "inside", color: s.css("--on-primary"), formatter: (p) => `${p.name}  ${p.value} 张` },
+    itemStyle: { borderWidth: 0 },
+    data: k.funnel.map((f) => ({ name: f.name, value: f.reached, itemStyle: { color: s.css(stageColor[f.status]) } })) }],
+}));
+
+SC.chart($("ch-aging"), (s) => ({
+  tooltip: { trigger: "axis", axisPointer: { type: "shadow" }, valueFormatter: (v) => SC.yuan(v) },
+  grid: { left: 96, right: 72, top: 4, bottom: 4 },
+  xAxis: { type: "value", show: false },
+  yAxis: { type: "category", inverse: true, data: k.aging.buckets.map((b) => b.name), axisLine: { show: false } },
+  series: [{ type: "bar", barWidth: 14, label: { show: true, position: "right", color: s.css("--text-2"), formatter: (p) => p.value ? SC.yuan(p.value) : "0" },
+    data: k.aging.buckets.map((b, i) => ({ value: b.amount, itemStyle: { borderRadius: 7, color: s.css(i === 0 ? "--st-run" : i === 1 ? "--st-wait" : "--st-alarm") } })) }],
+}));
+</script>
+<script>
+// ---------- 报价试算 ----------
+const qc = $("q-customer"), qp = $("q-product"), qq = $("q-qty"), qd = $("q-date"), qr = $("q-price");
+qc.innerHTML = d.customers.map((c) => `<option>${c.name}</option>`).join("");
+qp.innerHTML = d.products.map((p) => `<option value="${p.code}">${p.name}</option>`).join("");
+function fillQuote(customer, product, qty, wantDate) {
+  qc.value = customer; qp.value = product; qq.value = qty; qd.value = wantDate; qr.value = P(product).price.toFixed(2); runQuote();
+}
+function runQuote() {
+  const p = P(qp.value), qty = Math.max(0, Math.round(+qq.value || 0));
+  $("q-price-hint").textContent = `标准价 ${p.price.toFixed(2)}，单位成本 ${p.unitCost.toFixed(3)}`;
+  if (!qty || !qd.value) { $("quote-result").innerHTML = '<p class="sc-muted">填数量和日期后出结果</p>'; return; }
+  const q = d.quote(qc.value, qp.value, qty, qd.value, +qr.value);
+  const disc = q.discount ? `<span class="${q.discount < 0 ? "sc-down" : "sc-up"}">${q.discount > 0 ? "+" : ""}${SC.pct(q.discount, 1)}</span>` : "标准价";
+  $("quote-result").innerHTML = `
+    <div class="verdict">最早 <b class="sc-num">${q.ctp.finishDate}</b> 完工，客户要 <b class="sc-num">${q.wantDate}</b> ${ctpBadge(q.ctp)}</div>
+    <p class="sc-muted" style="margin:0">计划投产 ${num(q.ctp.plannedQty)} 支（按工序损耗反算）；卡在<b>${q.ctp.bottleneck.op}</b>（${q.ctp.bottleneck.workstation}），排队 ${hours(q.ctp.bottleneck.waitMin)}、加工 ${hours(q.ctp.bottleneck.runMin)}</p>
+    <div class="facts">
+      <div><div class="k">未税金额</div><div class="v sc-num">${SC.yuan(q.amount)}</div></div>
+      <div><div class="k">含税（13%）</div><div class="v sc-num">${SC.yuan(q.withTax)}</div></div>
+      <div><div class="k">单价对标准价</div><div class="v sc-num">${disc}</div></div>
+      <div><div class="k">毛利率</div><div class="v sc-num ${q.margin < 0.2 ? "sc-down" : ""}">${SC.pct(q.margin, 0)}</div></div>
+      <div><div class="k">接下后信用占用</div><div class="v sc-num ${q.creditOk ? "" : "sc-down"}">${Math.round(q.usageAfter * 100)}%</div></div>
+      <div><div class="k">账期</div><div class="v sc-num">${q.termDays} 天</div></div>
+    </div>
+    ${q.warnings.length ? q.warnings.map((w) => `<div class="warn-item">${badge(w.level, w.level === "alarm" ? "注意" : "提醒")}<span>${w.text}</span></div>`).join("")
+      : `<div class="warn-item">${badge("run", "可以报")}<span>交期、钢丝、信用额度都没有问题</span></div>`}
+    ${stepTable(q.ctp)}`;
+}
+[qc, qp, qq, qd, qr].forEach((el) => el.addEventListener("input", runQuote));
+qp.addEventListener("change", () => { qr.value = P(qp.value).price.toFixed(2); runQuote(); });
+
+// 各工序排程：灰黄段是排队，蓝段是加工，横轴从今天到最晚完工
+function stepTable(c) {
+  const total = c.steps.reduce((s, x) => s + x.waitMin + x.runMin, 0) || 1;
+  let acc = 0;
+  return `<div class="sc-table-wrap" style="margin-top: var(--sp-3)"><table class="sc-table"><thead><tr><th>工序</th><th>设备</th><th>开工</th><th>完工</th><th>排队与加工</th></tr></thead><tbody>` +
+    c.steps.map((x) => { const a = acc / total * 100, w = x.waitMin / total * 100, r = x.runMin / total * 100; acc += x.waitMin + x.runMin;
+      return `<tr${x === c.bottleneck ? ' style="font-weight:600"' : ""}><td>${x.op}${x === c.bottleneck ? " " + badge("over", "瓶颈") : ""}</td><td>${x.workstation}</td>
+        <td class="sc-num">${x.start.slice(5)}</td><td class="sc-num">${x.end.slice(5)}</td>
+        <td><div class="gantt"><i class="wait" style="left:${a}%;width:${w}%"></i><i class="runbar" style="left:${a + w}%;width:${Math.max(r, 0.8)}%"></i></div></td></tr>`; }).join("") +
+    `</tbody></table></div><div class="legend"><span><i style="background: color-mix(in srgb, var(--st-wait) 45%, transparent)"></i>排队等设备</span><span><i style="background: var(--primary)"></i>加工</span></div>`;
+}
+const firstLate = d.deals.find((x) => x.ctp && !x.ctp.ok) || d.deals.find((x) => x.ctp);
+fillQuote(firstLate.customer, firstLate.product, firstLate.qty, firstLate.wantDate);
+</script>
+<script>
+// ---------- 右侧详情：商机、客户档案 ----------
+let drChart = null, drMode = null, drCustomer = null;
+function showDrawer() { document.body.classList.add("drawer-open"); document.querySelector(".drawer").setAttribute("aria-hidden", "false"); }
+function closeDrawer() { document.body.classList.remove("drawer-open"); document.querySelector(".drawer").setAttribute("aria-hidden", "true"); }
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawer(); });
+
+function openDeal(id) {
+  const x = d.deals.find((y) => y.id === id), p = P(x.product);
+  drMode = "deal";
+  $("dr-title").textContent = x.customer + " · " + p.name;
+  $("dr-badge").innerHTML = badge(stageBadge[x.status], d.dealStatus[x.status]);
+  $("dr-chart-box").hidden = true;
+  const facts = `<div class="facts">
+    <div><div class="k">商机</div><div class="v sc-num" style="font-size: var(--fs-md)">${x.id}</div></div>
+    <div><div class="k">数量</div><div class="v sc-num">${num(x.qty)} 支</div></div>
+    <div><div class="k">金额（未税）</div><div class="v sc-num">${SC.yuan(x.amount)}</div></div>
+    <div><div class="k">赢率</div><div class="v sc-num">${x.probability}%</div></div></div>`;
+  let body;
+  if (x.ctp) {
+    const c = x.ctp;
+    body = `<h3>能不能接</h3>
+      <div class="verdict">最早 <b class="sc-num">${c.finishDate}</b> 完工，客户要 <b class="sc-num">${c.wantDate}</b> ${ctpBadge(c)}</div>
+      <p class="sc-muted">把这张单插在车间现有排程之后：计划投产 ${num(c.plannedQty)} 支，卡在<b>${c.bottleneck.op}</b>（${c.bottleneck.workstation}），排队 ${hours(c.bottleneck.waitMin)}、加工 ${hours(c.bottleneck.runMin)}。</p>
+      ${c.material ? `<div class="warn-item">${badge("wait", "钢丝")}<span>${c.material}</span></div>` : `<div class="warn-item">${badge("run", "钢丝")}<span>${d.get.material(p.wire).name} 现有库存够用</span></div>`}
+      <h3>各工序排到哪天</h3>${stepTable(c)}
+      <div style="margin-top: var(--sp-5); display:flex; gap: var(--sp-2); flex-wrap: wrap">
+        <button class="sc-btn primary" onclick="quoteFromDeal('${x.id}')">用这单试算报价</button>
+        <button class="sc-btn" onclick="openCustomer('${x.customer}')">看客户档案</button></div>`;
+  } else if (x.status === "Won") {
+    const so = d.get.salesOrder(x.salesOrder);
+    body = `<h3>已转销售订单</h3><p>${so.id}，交期 <b class="sc-num">${so.delivery}</b>，预计 <b class="sc-num">${so.finishDate}</b> 完工 ${riskBadge[so.risk]}</p>
+      <button class="sc-btn" onclick="openCustomer('${x.customer}')">看客户档案</button>`;
+  } else {
+    body = `<h3>输单原因</h3><p>${x.lostReason}</p><button class="sc-btn" onclick="openCustomer('${x.customer}')">看客户档案</button>`;
+  }
+  $("dr-top").innerHTML = facts + body; $("dr-bottom").innerHTML = "";
+  showDrawer(); document.querySelector(".drawer-body").scrollTop = 0;
+}
+function quoteFromDeal(id) {
+  const x = d.deals.find((y) => y.id === id);
+  fillQuote(x.customer, x.product, x.qty, x.wantDate); closeDrawer();
+  $("quote-section").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function custChartOption(s) {
+  const c = C(drCustomer);
+  return { tooltip: { trigger: "axis", valueFormatter: (v) => SC.yuan(v) }, grid: { left: 52, right: 12, top: 12, bottom: 24 },
+    xAxis: { type: "category", data: c.history.map((h) => h.month.slice(2)) },
+    yAxis: { type: "value", axisLabel: { formatter: (v) => v / 10000 + "万" } },
+    series: [{ name: "销售额", type: "bar", barWidth: "55%", itemStyle: { borderRadius: [4, 4, 0, 0] }, data: c.history.map((h) => h.revenue) }] };
+}
+function openCustomer(name) {
+  const c = C(name);
+  drMode = "customer"; drCustomer = name;
+  $("dr-title").textContent = name;
+  $("dr-badge").innerHTML = badge(c.level === "A" ? "run" : c.level === "B" ? "idle" : "down", c.level + " 级客户");
+  $("dr-top").innerHTML = `<p class="sc-muted" style="margin:0">联系人 ${c.contact} · 账期 ${c.termDays} 天 · ${c.since} 起合作</p>
+    <div class="facts">
+      <div><div class="k">近 12 个月销售额</div><div class="v sc-num">${SC.yuan(c.yearRevenue)}</div></div>
+      <div><div class="k">应收</div><div class="v sc-num">${SC.yuan(c.receivable)}</div></div>
+      <div><div class="k">其中逾期</div><div class="v sc-num ${c.overdue ? "sc-down" : ""}">${SC.yuan(c.overdue)}</div></div>
+      <div><div class="k">在手订单（含税）</div><div class="v sc-num">${SC.yuan(c.openOrderAmount)}</div></div></div>
+    <div class="sc-faint">信用额度 ${SC.yuan(c.creditLimit)}，已占用 ${SC.yuan(c.creditUsed)}（应收＋在手订单）</div>${meter(c.creditUsage)}`;
+  $("dr-chart-box").hidden = false;
+  $("dr-chart-title").textContent = "近 12 个月销售额（已开票，未税）";
+  const orders = d.salesOrders.filter((o) => o.customer === name), invs = d.invoices.filter((v) => v.customer === name), deals = d.deals.filter((x) => x.customer === name);
+  const empty = (t) => `<p class="sc-faint">${t}</p>`;
+  $("dr-bottom").innerHTML = `<h3>在手订单</h3>` + (orders.length ? `<div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>订单</th><th>产品</th><th class="r">数量</th><th>交期</th><th>预计完工</th><th>风险</th></tr></thead><tbody>` +
+      orders.map((o) => `<tr><td class="sc-num">${o.id}</td><td>${P(o.product).name}</td><td class="r sc-num">${num(o.qty)}</td><td class="sc-num">${o.delivery}</td><td class="sc-num">${o.finishDate}</td><td>${riskBadge[o.risk]}</td></tr>`).join("") + "</tbody></table></div>" : empty("没有在手订单"))
+    + `<h3>发票与回款</h3>` + (invs.length ? `<div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>发票</th><th>开票</th><th class="r">含税金额</th><th class="r">未收</th><th>到期</th><th>状态</th></tr></thead><tbody>` +
+      invs.map((v) => `<tr><td class="sc-num">${v.id}</td><td class="sc-num">${v.invoiced}</td><td class="r sc-num">${SC.yuan(v.amount)}</td><td class="r sc-num">${SC.yuan(v.outstanding)}</td><td class="sc-num">${v.due}</td>
+        <td>${v.outstanding === 0 ? badge("run", "已收清") : v.overdueDays ? badge("alarm", "逾期 " + v.overdueDays + " 天") : badge("idle", v.paid ? "部分回款" : "未到期")}</td></tr>`).join("") + "</tbody></table></div>" : empty("近 8 周没有开票"))
+    + `<h3>商机</h3>` + (deals.length ? deals.map((x) => `<div class="warn-item">${badge(stageBadge[x.status], d.dealStatus[x.status])}<span><a class="link" onclick="openDeal('${x.id}')">${x.id}</a> ${P(x.product).name} ${num(x.qty)} 支 ${x.ctp ? "· " + ctpBadge(x.ctp) : ""}</span></div>`).join("") : empty("没有商机"));
+  showDrawer(); document.querySelector(".drawer-body").scrollTop = 0;
+  if (!drChart) drChart = SC.chart($("dr-chart"), custChartOption);
+  else { drChart.inst.setOption(custChartOption(SC), true); drChart.inst.resize(); }
+}
+</script>
+</body>
+</html>

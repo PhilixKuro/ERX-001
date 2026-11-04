@@ -161,7 +161,7 @@
     wo(302, 308, W(2, 1, 1), [1, 1, 1, 0.8, 0.6, 0.4]), wo(301, 307, W(4, 2, 2), [1, 1, 1, 1, 0.7, 0.5]),
   ];
 
-  // ---------- 已交货开票与回款（含税 13%）：近 6 周交货的 14 张 ----------
+  // ---------- 已交货开票与回款（含税 13%）：近 8 周开票的 16 张 ----------
   const inv = (n, customer, product, qty, invoiced, paidRatio) =>
     ({ id: "ACC-SINV-2026-00" + n, salesOrder: "SAL-ORD-2026-00" + n, customer, product, qty, invoiced: D(invoiced), paidRatio });
   const invoices = [
@@ -327,6 +327,57 @@
     c.creditUsage = round2(c.creditUsed / c.creditLimit);
   });
 
+  // ---------- 客户近 12 个月销售额（未税、已开票口径）与单数：逐月合计等于 monthly[].revenue、monthly[].orders ----------
+  // 另起种子，不动上面 SPC 用的 rand（P1-S9-R3 第 1 步）。当月已开票的发票先落到对应客户，余额按客户等级、走势分摊；建档前的月份为 0
+  const hrand = rng(2026);
+  const levelWeight = { A: 3, B: 1.4, C: 0.6 }, levelActive = { A: 1, B: 0.5, C: 0.25 };
+  const trendOf = { "常州弹簧厂": 0.08, "泰州弹簧厂": -0.1 }; // 情节：常州在涨（商机 087 是它的），泰州在跌、又有逾期；两家每月都有单
+  const cw = Object.fromEntries(customers.map((c) => [c.name, { w: levelWeight[c.level] * (0.6 + hrand() * 0.8),
+    trend: trendOf[c.name] ?? (hrand() - 0.5) * 0.08 }]));
+  customers.forEach((c) => { c.history = []; });
+  monthly.forEach((m, i) => {
+    const fixed = {};
+    invoices.filter((v) => v.invoiced.startsWith(m.month)).forEach((v) => { fixed[v.customer] = (fixed[v.customer] || 0) + v.amount / 1.13; });
+    let active = customers.filter((c) => fixed[c.name] || (c.since.slice(0, 7) <= m.month && (trendOf[c.name] || hrand() < levelActive[c.level])));
+    if (active.length > m.orders) active = active.sort((a, b) => (fixed[b.name] ? 1e9 : cw[b.name].w) - (fixed[a.name] ? 1e9 : cw[a.name].w)).slice(0, m.orders);
+    const wt = Object.fromEntries(active.map((c) => [c.name, cw[c.name].w * Math.pow(1 + cw[c.name].trend, i - 11) * (0.85 + hrand() * 0.3)]));
+    const W = Object.values(wt).reduce((a, b) => a + b, 0), rest = m.revenue - Object.values(fixed).reduce((a, b) => a + b, 0);
+    const rev = Object.fromEntries(active.map((c) => [c.name, Math.round((fixed[c.name] || 0) + (rest * wt[c.name]) / W)]));
+    const big = active.reduce((a, b) => (rev[b.name] > rev[a.name] ? b : a));
+    rev[big.name] += m.revenue - Object.values(rev).reduce((a, b) => a + b, 0); // 取整尾差放到最大的那家
+    // 单数：每家至少 1 单，余下按金额占比用最大余数法分
+    const cnt = Object.fromEntries(active.map((c) => [c.name, 1])), extra = m.orders - active.length;
+    const share = active.map((c) => ({ n: c.name, q: (extra * rev[c.name]) / m.revenue }));
+    share.forEach((s) => { cnt[s.n] += Math.floor(s.q); });
+    share.sort((a, b) => (b.q % 1) - (a.q % 1)).slice(0, m.orders - Object.values(cnt).reduce((a, b) => a + b, 0)).forEach((s) => { cnt[s.n]++; });
+    customers.forEach((c) => c.history.push({ month: m.month, revenue: rev[c.name] || 0, orders: cnt[c.name] || 0 }));
+  });
+  customers.forEach((c) => {
+    const h = c.history.map((x) => x.revenue), sum = (a) => a.reduce((s, v) => s + v, 0);
+    c.yearRevenue = sum(h);
+    const recent = h.slice(-3), before = h.slice(-6, -3), act = (a) => a.filter((v) => v > 0).length;
+    c.trend3m = act(recent) >= 2 && act(before) >= 2 ? round2(sum(recent) / sum(before) - 1) : null; // 近 3 个月对前 3 个月；单太稀的不算
+  });
+
+  // ---------- 报价试算：金额、毛利、能不能接（ctp）、信用额度够不够；单价缺省取产品标准价，可现场改 ----------
+  const yuanText = (v) => Math.round(v).toLocaleString("zh-CN") + " 元";
+  function quote(customer, product, qty, wantDate, price) {
+    const p = P[product], c = C[customer], unit = price > 0 ? price : p.price;
+    const amount = round2(qty * unit), withTax = round2(amount * 1.13), cost = round2(qty * p.unitCost);
+    const margin = round2(1 - cost / amount), plan = ctp(product, qty, wantDate);
+    const creditAfter = round2(c.creditUsed + withTax), usageAfter = round2(creditAfter / c.creditLimit);
+    const warnings = [];
+    if (!plan.ok) warnings.push({ level: "alarm", text: "按现有排程 " + plan.finishDate + " 完工，比客户要的晚 " + -plan.slackDays + " 个工作日" });
+    if (plan.material) warnings.push({ level: "wait", text: plan.material });
+    if (creditAfter > c.creditLimit) warnings.push({ level: "alarm", text: "接下后信用占用 " + Math.round(usageAfter * 100) + "%，超出额度 " + yuanText(creditAfter - c.creditLimit) });
+    if (c.overdue > 0) warnings.push({ level: "over", text: "该客户有逾期应收 " + yuanText(c.overdue) });
+    if (margin < 0.2) warnings.push({ level: "wait", text: "毛利率 " + Math.round(margin * 100) + "%，低于 20%" });
+    return { customer, product, qty, wantDate, price: unit, listPrice: p.price, discount: round2(unit / p.price - 1),
+      amount, tax: round2(withTax - amount), withTax, unitCost: p.unitCost, cost, margin, ctp: plan,
+      creditLimit: c.creditLimit, creditUsedBefore: c.creditUsed, creditUsageBefore: c.creditUsage, creditAfter, usageAfter,
+      creditOk: creditAfter <= c.creditLimit, termDays: c.termDays, warnings };
+  }
+
   // ---------- 补货：低于安全库存报警；库存＋在途低于再订货点则按经济订货量建议（订货成本 80、持有成本率 18%，同场景） ----------
   materials.forEach((m) => {
     m.belowSafety = m.stock < m.safety;
@@ -367,6 +418,20 @@
     pipeline: round2(deals.filter((d) => d.ctp).reduce((s, d) => s + d.amount, 0)),
     weightedPipeline: round2(deals.filter((d) => d.ctp).reduce((s, d) => s + (d.amount * d.probability) / 100, 0)),
     avgLoad: round2(workstations.reduce((s, w) => s + w.load, 0) / workstations.length),
+    // 商机漏斗：到达过该阶段的商机数（赢单算走完全程，输单不计），另记当前停在该阶段的张数与金额
+    funnel: ["Qualification", "Demo/Making", "Proposal/Quotation", "Negotiation", "Ready to Close", "Won"].map((st, i, arr) => {
+      const at = deals.filter((x) => x.status === st), reached = deals.filter((x) => x.status !== "Lost" && arr.indexOf(x.status) >= i);
+      return { status: st, name: dealStatus[st], reached: reached.length, count: at.length, amount: round2(at.reduce((s, x) => s + x.amount, 0)) };
+    }),
+    // 应收账龄（含税未收）与近期开票回款
+    aging: {
+      buckets: [["未到期", 0, 0], ["逾期 1～30 天", 1, 30], ["逾期 31～60 天", 31, 60], ["逾期 60 天以上", 61, 1e9]].map(([name, lo, hi]) => {
+        const vs = invoices.filter((v) => v.outstanding > 0 && v.overdueDays >= lo && v.overdueDays <= hi);
+        return { name, count: vs.length, amount: round2(vs.reduce((s, v) => s + v.outstanding, 0)) };
+      }),
+      invoiced: round2(invoices.reduce((s, v) => s + v.amount, 0)),
+      collected: round2(invoices.reduce((s, v) => s + v.paid, 0)),
+    },
     alerts: [
       ...materials.filter((m) => m.belowSafety).map((m) => ({ level: "alarm", text: m.name + " 低于安全库存（" + m.stock + "／" + m.safety + " 千克）" })),
       ...materials.filter((m) => m.suggestQty).map((m) => ({ level: "wait", text: m.name + " 建议补货 " + m.suggestQty + " 千克" })),
@@ -381,6 +446,7 @@
     workstations, routings, products, materials, suppliers, customers,
     leads, leadStatus, deals, dealStatus, salesOrders, workOrders, invoices, monthly, spc, kpi,
     ctp, // 现场改数量、交期再算：SC_DATA.ctp("SPR-C-3.0-23-50", 40000, "2026-11-16")
+    quote, // 报价试算：SC_DATA.quote("常州弹簧厂", "SPR-C-3.0-23-50", 40000, "2026-11-16", 0.85)
     get: { product: (c) => P[c], material: (c) => M[c], workstation: (id) => WS[id], customer: (n) => C[n], salesOrder: (id) => SO[id] },
   };
 })();
