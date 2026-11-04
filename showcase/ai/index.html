@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分析助手 · 华东弹簧演示</title>
+<link rel="stylesheet" href="../shared/tokens.css">
+<link rel="stylesheet" href="../shared/components.css">
+<style>
+  body.sc { display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
+  .ai { flex: 1; min-height: 0; width: 100%; max-width: 1280px; margin: 0 auto; padding: var(--sp-4) var(--sp-5);
+    display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: var(--sp-4); }
+
+  /* 左侧：常问的问题 */
+  .qs { overflow-y: auto; min-height: 0; }
+  .qs h3 { font-size: var(--fs-sm); color: var(--text-2); font-weight: 500; margin: var(--sp-4) 0 var(--sp-2); }
+  .qs h3:first-child { margin-top: 0; }
+  .q-btn { display: block; width: 100%; text-align: left; font: inherit; font-size: var(--fs-sm); color: var(--text); cursor: pointer;
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 12px; margin-bottom: var(--sp-2);
+    transition: border-color var(--dur), color var(--dur); }
+  .q-btn:hover { border-color: var(--primary); color: var(--primary); }
+  .q-btn:disabled, .chip:disabled { opacity: .5; cursor: default; color: var(--text); border-color: var(--border); }
+  .qs .tip { font-size: var(--fs-xs); color: var(--text-3); margin-top: var(--sp-4); }
+
+  /* 对话区 */
+  .chat { display: flex; flex-direction: column; min-height: 0; min-width: 0; background: var(--surface);
+    border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+  .log { flex: 1; overflow-y: auto; padding: var(--sp-5); min-height: 0; }
+  .msg { display: flex; gap: var(--sp-3); margin-bottom: var(--sp-5); }
+  .msg.user { justify-content: flex-end; }
+  .msg.user .bubble { background: var(--primary); color: var(--on-primary); border-radius: 14px 14px 4px 14px; padding: 8px 14px; max-width: min(80%, 520px); }
+  .avatar { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: var(--fs-sm); font-weight: 600;
+    background: var(--primary-soft); color: var(--primary); }
+  .bot { flex: 1; min-width: 0; }
+  .bot .who { font-size: var(--fs-xs); color: var(--text-3); margin-bottom: 4px; }
+  .bot p { margin: 0 0 var(--sp-3); }
+  .bot .note { font-size: var(--fs-sm); color: var(--text-2); background: var(--surface-2); border-radius: var(--radius-sm); padding: var(--sp-2) var(--sp-3); margin: 0 0 var(--sp-3); }
+  .bot .sc-table-wrap { border: 1px solid var(--border); border-radius: var(--radius-sm); margin: 0 0 var(--sp-3); }
+  .bot .sc-table tr:last-child td { border-bottom: 0; }
+  .bot .sc-chart { height: 220px; margin: 0 0 var(--sp-3); }
+  .fade { animation: fade .35s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+  .checks { list-style: none; margin: 0 0 var(--sp-3); padding: 0; font-size: var(--fs-xs); color: var(--text-3); }
+  .checks li { display: flex; gap: 6px; align-items: center; padding: 1px 0; }
+  .checks li::before { content: ""; width: 10px; height: 10px; flex: none; border-radius: 50%; border: 2px solid var(--border); border-top-color: var(--primary); animation: spin .7s linear infinite; }
+  .checks li.ok::before { content: "✓"; border: 0; animation: none; width: auto; height: auto; color: var(--st-run); font-weight: 700; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .caret::after { content: "▍"; color: var(--primary); animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .chips { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-1); }
+  .chips .lbl { width: 100%; font-size: var(--fs-xs); color: var(--text-3); }
+  .chip { font: inherit; font-size: var(--fs-sm); cursor: pointer; color: var(--primary); background: var(--primary-soft);
+    border: 1px solid transparent; border-radius: 999px; padding: 4px 12px; max-width: 100%; text-align: left; }
+  .chip:hover { border-color: var(--primary); }
+
+  .ask { display: flex; gap: var(--sp-2); padding: var(--sp-3) var(--sp-4); border-top: 1px solid var(--border); }
+  .ask input { flex: 1; min-width: 0; font: inherit; font-size: var(--fs-md); color: var(--text); background: var(--surface);
+    border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 8px 12px; }
+  .ask input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-soft); }
+
+  @media (max-width: 760px) {
+    .ai { grid-template-columns: minmax(0, 1fr); padding: var(--sp-3) var(--sp-4); }
+    .qs { display: none; }
+    .log { padding: var(--sp-4) var(--sp-3); }
+    .avatar { display: none; }
+    .ask { padding: var(--sp-2) var(--sp-3); }
+  }
+  @media (max-width: 600px) { .top-links { display: none; } }
+</style>
+</head>
+<body class="sc">
+<header class="sc-topbar">
+  <span class="sc-brand" id="brand"></span>
+  <span class="sc-muted">分析助手</span>
+  <span class="sc-spacer"></span>
+  <span class="sc-faint" id="today"></span>
+  <span class="top-links"><a class="sc-btn ghost" href="../cockpit/index.html">驾驶舱</a><a class="sc-btn ghost" href="../sales/index.html">销售工作台</a></span>
+  <button class="sc-btn" onclick="SC.toggleTheme()">切换深浅</button>
+</header>
+<main class="ai">
+  <aside class="qs" id="qs"></aside>
+  <section class="chat">
+    <div class="log" id="log"></div>
+    <form class="ask" id="ask">
+      <input id="input" autocomplete="off" placeholder="问车间、订单、客户、回款，例如：哪几张单会晚？">
+      <button class="sc-btn primary" id="send">发送</button>
+    </form>
+  </section>
+</main>
+
+<script src="../shared/vendor/echarts-5.6.0.min.js"></script>
+<script src="../shared/data.js"></script>
+<script src="../shared/theme.js"></script>
+<script>
+const d = SC_DATA, k = d.kpi, $ = (id) => document.getElementById(id);
+const P = d.get.product, WS = d.get.workstation, C = d.get.customer;
+const qs = new URLSearchParams(location.search);
+const FAST = qs.get("fast") === "1"; // 无动画，供核对用
+const role = qs.get("role") === "sales" ? "sales" : "production";
+
+const badge = (st, text) => `<span class="sc-badge ${st}">${text}</span>`;
+const num = (v) => Math.round(v).toLocaleString("zh-CN");
+const yuan = (v) => num(v) + " 元";
+const wan = (v) => (v / 10000).toFixed(1) + " 万";
+const pct = (v, n = 1) => (v * 100).toFixed(n) + "%";
+const hours = (m) => (m / 60).toFixed(m < 600 ? 1 : 0) + " 小时";
+const md = (s) => s.slice(5); // 2026-11-14 → 11-14
+const margin = (p) => 1 - p.unitCost / p.price;
+const woById = Object.fromEntries(d.workOrders.map((w) => [w.id, w]));
+// 同驾驶舱：最耗时的那道（剩余工序里排程跨度最长的）
+const bottleneckOf = (w) => w.operations.filter((o) => o.remainMin > 0).reduce((a, b) => (b.end - b.start > a.end - a.start ? b : a), { end: 0, start: 0 });
+
+$("brand").textContent = d.company.name;
+$("today").textContent = "今天 " + d.today + " " + d.nowClock;
+
+// ==================== 问题与回答：数字全部现取 SC_DATA ====================
+// blocks：p 文字（逐字打出）、table、chart、note；follow：答完后推荐的追问
+const Q = [
+  { id: "late", role: "production", q: "哪几张单会晚？", kw: ["晚", "延误", "延期", "交期", "赶不上", "来得及", "风险", "拖"],
+    checks: () => [`读取在制工单 ${d.workOrders.length} 张`, `排程到工序：${d.workOrders.reduce((s, w) => s + w.operations.length, 0)} 道`, "对比销售订单交期"],
+    blocks() {
+      const ws = d.workOrders.filter((w) => w.risk !== "ok").sort((a, b) => a.slackDays - b.slackDays);
+      const late = ws.filter((w) => w.risk === "late"), busy = d.workstations.reduce((a, b) => (b.load > a.load ? b : a));
+      return [
+        { p: `按现在的排程，${d.workOrders.length} 张在制工单里有 ${late.length} 张会晚于交期，另有 ${ws.length - late.length} 张刚好在交期当天完工、没有余量。` },
+        { table: { head: ["销售订单", "客户", "产品", "交期", "预计完工", "情况", "最耗时的工序"],
+          rows: ws.map((w) => { const bn = bottleneckOf(w);
+            return [w.salesOrder, w.customer, P(w.product).name, md(w.delivery), md(w.finishDate),
+              w.risk === "late" ? badge("alarm", "晚 " + -w.slackDays + " 天") : badge("wait", "当天完工"), bn.op + "（" + bn.workstation + "）"]; }) } },
+        { p: `会晚的 ${late.length} 张里，${late.map((w) => { const bn = bottleneckOf(w); return w.salesOrder.slice(-5) + " 最耗时的是" + bn.workstation + "上的" + bn.op; }).join("，")}。另外${busy.id}未来 6 个工作日负荷 ${Math.round(busy.load * 100)}%，是全厂最紧的一台，后面的单也会往后挤。建议先和${late.map((w) => w.customer).join("、")}沟通交期。` },
+      ];
+    }, follow: ["busy", "deal087"] },
+
+  { id: "busy", role: "production", q: "哪台设备最忙？", kw: ["忙", "负荷", "满", "设备", "机器", "瓶颈", "产能", "卷簧机"],
+    checks: () => [`读取设备 ${d.workstations.length} 台的排程`, "按未来 6 个工作日的可用工时算负荷"],
+    blocks() {
+      const ws = d.workstations.slice().sort((a, b) => b.load - a.load), top = ws[0], w4 = WS("卷簧机-4");
+      const st = (w) => ["wait", "down", "alarm", "idle"].includes(w.status) ? w.status : w.load > 1 ? "over" : w.load > 0.85 ? "wait" : "run";
+      return [
+        { p: `最忙的是${top.id}：未来 6 个工作日负荷 ${Math.round(top.load * 100)}%，排满之后还有约 ${hours(top.beyondMin)}要排到第 7 个工作日以后。全厂平均负荷 ${Math.round(k.avgLoad * 100)}%。负荷最高的 5 台如下：` },
+        { table: { head: ["设备", "此刻状态", "未来 6 天负荷", "排到第 7 天以后"], right: [2, 3],
+          rows: ws.slice(0, 5).map((w) => [w.id, badge(st(w), d.statusText[w.status]), Math.round(w.load * 100) + "%", w.beyondMin ? hours(w.beyondMin) : "—"]) } },
+        { p: `同是卷簧，卷簧机-4 现在负荷只有 ${Math.round(w4.load * 100)}%，它在等 φ8.0 钢丝（${md(d.get.material("WIRE-60SI2MN-8.0").arrival)} 到货）。到货后可以考虑把卷簧机-1 的一部分压簧 3.0 分过去。` },
+        { note: "负荷＝未来 6 个工作日已排的剩余工时 ÷ 可用工时，每天按 8 小时、周日休息算。" },
+      ];
+    }, follow: ["late", "wire"] },
+
+  { id: "wire", role: "production", q: "钢丝够不够用？", kw: ["钢丝", "原料", "材料", "缺料", "补货", "采购", "够不够", "供应商", "库存"],
+    checks: () => [`读取钢丝库存 ${d.materials.length} 种`, "核对安全库存、再订货点与在途", `读取钢丝供应商 ${d.suppliers.length} 家的评分`],
+    blocks() {
+      const low = d.materials.filter((m) => m.belowSafety), sug = d.materials.filter((m) => m.suggestQty);
+      const best = (code) => d.suppliers.filter((s) => s.item === code).sort((a, b) => b.score - a.score)[0];
+      return [
+        { p: `${d.materials.length} 种钢丝里，${low.map((m) => m.name).join("、")}已经低于安全库存；${sug.map((m) => m.name).join("、")}库存加在途低于再订货点，建议补货。` },
+        { table: { head: ["钢丝", "库存（千克）", "安全库存", "在途", "到货日", "够用天数", "建议"], right: [1, 2, 3, 5],
+          rows: d.materials.map((m) => [m.name, num(m.stock), num(m.safety), m.onOrder ? num(m.onOrder) : "—", m.arrival ? md(m.arrival) : "—", m.coverDays.toFixed(1) + " 天",
+            m.belowSafety ? badge("alarm", "低于安全库存") : m.suggestQty ? badge("wait", "补 " + num(m.suggestQty) + " 千克") : badge("run", "够用")]) } },
+        ...sug.map((m) => { const s = best(m.code);
+          return { p: `${m.name}建议按经济订货量补 ${num(m.suggestQty)} 千克，现在库存够用约 ${m.coverDays.toFixed(1)} 天，采购提前期 ${m.leadDays} 天。供应商里评分最高的是${s.name}（${s.score} 分，准时率 ${pct(s.onTime, 0)}、合格率 ${pct(s.passRate)}，单价 ${s.price.toFixed(2)} 元／千克）。` }; }),
+        ...low.map((m) => ({ note: `${m.name}有 ${num(m.onOrder)} 千克在途，${md(m.arrival)} 到货后回到安全库存以上；到货前卷簧机-4 停着等料。` })),
+      ];
+    }, follow: ["busy", "margin"] },
+
+  { id: "margin", role: "production", q: "哪个产品最不赚钱？", kw: ["毛利", "赚钱", "利润", "成本", "亏", "不赚"],
+    checks: () => [`读取产品 ${d.products.length} 个的标准成本`, `读取 ${k.marginBridge.month} 的经营数据`, "拆解实际毛利与标准毛利的差额"],
+    blocks() {
+      const ps = d.products.slice().sort((a, b) => margin(a) - margin(b)), lo = ps[0], hi = ps[ps.length - 1], mb = k.marginBridge;
+      return [
+        { p: `按标准成本算，最不赚钱的是${lo.name}，毛利 ${pct(margin(lo))}；最赚钱的是${hi.name}，${pct(margin(hi))}。` },
+        { table: { head: ["产品", "单价", "标准单位成本", "标准毛利"], right: [1, 2, 3],
+          rows: ps.map((p) => [p.name, p.price.toFixed(2) + " 元", p.unitCost.toFixed(3) + " 元", pct(margin(p))]) } },
+        { p: `不过实际比标准还差。${mb.month.slice(5)} 月销售额 ${wan(mb.revenue)}，按标准成本应赚 ${wan(mb.standardProfit)}（${pct(mb.standard)}），实际赚了 ${wan(mb.actualProfit)}（${pct(mb.actual)}），少了 ${wan(mb.gap)}，漏在这几处：` },
+        { table: { head: ["漏在哪", "金额", "占销售额", "说明"], right: [1, 2],
+          rows: mb.items.map((x) => [x.name, yuan(x.amount), pct(x.points), x.note]) } },
+        { p: `${mb.items.slice().sort((a, b) => b.amount - a.amount)[0].name}漏得最多，先看卷簧机-2 的质量异常和超出损耗率的废品。` },
+      ];
+    }, follow: ["late", "revenue"] },
+
+  { id: "deal087", role: "sales", q: "商机 087 能不能接？", kw: ["087", "商机", "能不能接", "接单", "接得下", "能接"],
+    checks: () => ["读取商机 CRM-DEAL-2026-00087", `把 4 万支插进现有排程（${d.workOrders.length} 张工单之后）`, "核对钢丝库存与在途", "核对客户信用额度"],
+    blocks() {
+      const x = d.deals.find((v) => v.id === "CRM-DEAL-2026-00087"), c = x.ctp, p = P(x.product), qt = d.quote(x.customer, x.product, x.qty, x.wantDate);
+      let most = 0; // 客户要的日期之前最多能交多少：按千支往下试
+      for (let q = Math.floor(x.qty / 1000) * 1000; q >= 1000; q -= 1000) if (d.ctp(x.product, q, x.wantDate).ok) { most = q; break; }
+      return [
+        { p: `${x.customer}要 ${num(x.qty)} 支${p.name}，${md(x.wantDate)} 交货。按现在的排程 ${md(c.finishDate)} 能做完，${c.ok ? "来得及" : "比客户要的晚 " + -c.slackDays + " 个工作日"}。考虑工序损耗，要投产 ${num(c.plannedQty)} 支。` },
+        { table: { head: ["工序", "设备", "开工", "完工", "排队等待", "加工"], right: [4, 5],
+          rows: c.steps.map((s) => [s.op, s.workstation, md(s.start), md(s.end), s.waitMin ? hours(s.waitMin) : "—", hours(s.runMin)]) } },
+        { p: (() => { const b = c.bottleneck, w = WS(b.workstation);
+            const m = w.status === "wait" ? d.materials.find((x) => x.belowSafety && x.arrival) : null;
+            const queued = d.workOrders.filter((o) => o.operations.some((op) => op.workstation === b.workstation && op.remainMin > 0)).map((o) => o.customer + " " + o.salesOrder.slice(-5));
+            return `卡在${b.op}：${b.workstation}${m ? "现在在等" + m.name + "（" + md(m.arrival) + " 到货）" : ""}${queued.length ? "，" + (m ? "到货后" : "") + "要先做已排的" + queued.join("、") : ""}，排队约 ${hours(b.waitMin)}，${md(b.start)} 才能开工。这单用的${d.get.material(p.wire).name}${c.material ? c.material.note : "现有库存够用"}。`; })() },
+        { p: most ? `如果要赶 ${md(x.wantDate)}，最多能先交 ${num(most)} 支，剩下的 ${md(c.finishDate)} 补齐；也可以和客户商量把交期放到 ${md(c.finishDate)}。` : `${md(x.wantDate)} 前一支也排不出来，建议和客户商量交期。` },
+        { note: `按标准价 ${qt.price.toFixed(2)} 元，这单未税 ${yuan(qt.amount)}、毛利 ${pct(qt.margin, 0)}。接下后${x.customer}的信用占用从 ${pct(qt.creditUsageBefore, 0)} 到 ${pct(qt.usageAfter, 0)}，额度 ${yuan(qt.creditLimit)}，${qt.creditOk ? "够用" : "不够"}。` },
+      ];
+    }, follow: ["taizhou", "late"] },
+
+  { id: "overdue", role: "sales", q: "哪些客户逾期没回款？", kw: ["逾期", "回款", "欠款", "应收", "收款", "没付", "欠", "账期"],
+    checks: () => [`读取近 8 周销售发票 ${d.invoices.length} 张`, "按客户账期算到期日", "汇总信用额度占用"],
+    blocks() {
+      const vs = d.invoices.filter((v) => v.overdueDays > 0).sort((a, b) => b.outstanding - a.outstanding);
+      const tight = d.customers.filter((c) => c.creditUsage >= 0.9);
+      return [
+        { p: `现在应收 ${wan(k.receivable)}，其中逾期 ${wan(k.overdue)}，共 ${vs.length} 张发票，都在逾期 30 天以内：` },
+        { table: { head: ["客户", "发票", "未收（含税）", "到期日", "逾期", "信用占用"], right: [2, 4, 5],
+          rows: vs.map((v) => { const c = C(v.customer); return [v.customer, v.id, yuan(v.outstanding), md(v.due), v.overdueDays + " 天",
+            c.creditUsage >= 0.9 ? badge("alarm", pct(c.creditUsage, 0)) : pct(c.creditUsage, 0)]; }) } },
+        { p: `最要紧的是${tight.map((c) => c.name).join("、")}：逾期 ${yuan(tight[0].overdue)}，信用额度已经用了 ${pct(tight[0].creditUsage, 0)}，再接新单就超额度了。建议先催这一笔。` },
+      ];
+    }, follow: ["taizhou", "revenue"] },
+
+  { id: "taizhou", role: "sales", q: "泰州弹簧厂最近怎么样？", kw: ["泰州", "变少", "下滑", "流失", "走势", "少了"],
+    checks: () => ["读取泰州弹簧厂近 12 个月的销售额", "读取它的应收、在手订单与信用额度"],
+    blocks() {
+      const c = C("泰州弹簧厂"), h = c.history.slice(-6), open = d.salesOrders.filter((s) => s.customer === c.name);
+      const inv = d.invoices.find((v) => v.customer === c.name && v.overdueDays > 0);
+      return [
+        { p: `${c.name}近 3 个月的销售额比前 3 个月少了 ${pct(-c.trend3m, 0)}，10 月只有 ${yuan(h[h.length - 1].revenue)}。同时它还欠着一笔逾期款，信用额度快用满了。` },
+        { table: { head: ["月份", "销售额（未税）", "单数"], right: [1, 2], rows: h.map((m) => [m.month, yuan(m.revenue), m.orders]) } },
+        { table: { head: ["项目", "数"], right: [1], rows: [
+          ["信用额度", yuan(c.creditLimit)], ["已占用（应收＋在手订单）", yuan(c.creditUsed) + "（" + pct(c.creditUsage, 0) + "）"],
+          ["逾期应收", inv ? yuan(inv.outstanding) + "，逾期 " + inv.overdueDays + " 天" : "—"],
+          ["在手订单", open.map((s) => s.id.slice(-5) + " " + P(s.product).name + " " + num(s.qty) + " 支，" + md(s.delivery) + " 交").join("；") || "—"]] } },
+        { p: `建议这周去一趟：先把 ${inv ? yuan(inv.outstanding) : "逾期款"}收回来，再问清楚下单变少的原因，是价格、交期还是对方自己的生意变了。` },
+      ];
+    }, follow: ["overdue", "revenue"] },
+
+  { id: "revenue", role: "sales", q: "这个月销售额怎么样？", kw: ["销售额", "业绩", "营收", "收入", "这个月", "本月", "上月", "上个月", "卖了", "经营"],
+    checks: () => [`读取近 12 个月经营数据（${d.monthly[0].month} 起）`, "汇总销售额、毛利率、准时交付率"],
+    blocks() {
+      const m = d.monthly, last = m[m.length - 1], prev = m[m.length - 2], best = m.reduce((a, b) => (b.revenue > a.revenue ? b : a));
+      return [
+        { p: `${last.month.slice(5)} 月（最近一个完整月）销售额 ${wan(last.revenue)}，比 ${prev.month.slice(5)} 月${last.revenue >= prev.revenue ? "多" : "少"} ${pct(Math.abs(k.monthRevenueDelta), 0)}，${best === last ? "是近 12 个月最高的一个月" : "近 12 个月最高是 " + best.month + " 的 " + wan(best.revenue)}。毛利率 ${pct(last.grossMargin)}，准时交付率 ${pct(last.onTimeRate, 0)}。` },
+        { chart: (S) => ({ grid: { left: 48, right: 16, top: 24, bottom: 28 }, tooltip: { trigger: "axis" },
+          xAxis: { type: "category", data: m.map((x) => x.month.slice(2)) }, yAxis: { type: "value", axisLabel: { formatter: (v) => v / 10000 + " 万" } },
+          series: [{ type: "bar", name: "销售额", data: m.map((x) => x.revenue), barMaxWidth: 26,
+            itemStyle: { color: (p) => (p.dataIndex === m.length - 1 ? S.css("--primary") : S.css("--c2")), borderRadius: [4, 4, 0, 0] } }] }) },
+        { table: { head: ["月份", "销售额", "单数", "毛利率", "准时交付率"], right: [1, 2, 3, 4],
+          rows: m.slice(-4).reverse().map((x) => [x.month, wan(x.revenue), x.orders, pct(x.grossMargin), pct(x.onTimeRate, 0)]) } },
+        { note: `在谈商机 ${wan(k.pipeline)}，按成交概率折算 ${wan(k.weightedPipeline)}。2 月是春节，回落是正常的。` },
+      ];
+    }, follow: ["deal087", "margin"] },
+];
+const QB = Object.fromEntries(Q.map((x) => [x.id, x]));
+const groups = [["production", "生产负责人常问"], ["sales", "销售负责人常问"]].sort((a) => (a[0] === role ? -1 : 1));
+
+// ---------- 左侧问题列表 ----------
+$("qs").innerHTML = groups.map(([r, title]) => `<h3>${title}</h3>` +
+  Q.filter((x) => x.role === r).map((x) => `<button class="q-btn" data-q="${x.id}">${x.q}</button>`).join("")).join("") +
+  `<p class="tip">也可以在右边直接打字问。</p>`;
+
+// ---------- 对话 ----------
+const log = $("log");
+let busy = false;
+const wait = (ms) => new Promise((r) => setTimeout(r, FAST ? 0 : ms));
+const scroll = () => { log.scrollTop = log.scrollHeight; };
+function setBusy(b) {
+  busy = b;
+  document.querySelectorAll(".q-btn, .chip, #send").forEach((el) => { el.disabled = b; });
+}
+function addUser(text) {
+  const el = document.createElement("div");
+  el.className = "msg user"; el.innerHTML = `<div class="bubble"></div>`;
+  el.firstChild.textContent = text; log.appendChild(el); scroll();
+}
+function addBot() {
+  const el = document.createElement("div");
+  el.className = "msg"; el.innerHTML = `<div class="avatar">析</div><div class="bot"><div class="who">分析助手</div></div>`;
+  log.appendChild(el); scroll(); return el.querySelector(".bot");
+}
+function chips(ids, label) {
+  return `<div class="chips fade"><span class="lbl">${label}</span>${ids.map((id) => `<button class="chip" data-q="${id}">${QB[id].q}</button>`).join("")}</div>`;
+}
+async function typeInto(el, html) { // 先逐字打纯文本，打完换成带格式的原文
+  const tmp = document.createElement("div"); tmp.innerHTML = html;
+  const text = tmp.textContent, step = Math.max(1, Math.ceil(text.length / 45));
+  el.classList.add("caret");
+  for (let i = 0; i < text.length && !FAST; i += step) { el.textContent = text.slice(0, i + step); scroll(); await wait(22); }
+  el.classList.remove("caret"); el.innerHTML = html; scroll();
+}
+function tableHtml(t) {
+  const r = new Set(t.right || []);
+  return `<div class="sc-table-wrap fade"><table class="sc-table"><thead><tr>${t.head.map((h, i) => `<th${r.has(i) ? ' class="r"' : ""}>${h}</th>`).join("")}</tr></thead>
+    <tbody>${t.rows.map((row) => `<tr>${row.map((v, i) => `<td${r.has(i) ? ' class="r sc-num"' : ""}>${v}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+async function answer(q) {
+  const bot = addBot();
+  const ul = document.createElement("ul"); ul.className = "checks"; bot.appendChild(ul);
+  for (const c of q.checks()) {
+    const li = document.createElement("li"); li.textContent = c; ul.appendChild(li); scroll();
+    await wait(380); li.classList.add("ok");
+  }
+  for (const b of q.blocks()) {
+    if (b.p) { const p = document.createElement("p"); bot.appendChild(p); await typeInto(p, b.p); }
+    else if (b.table) { bot.insertAdjacentHTML("beforeend", tableHtml(b.table)); scroll(); await wait(260); }
+    else if (b.chart) { const el = document.createElement("div"); el.className = "sc-chart fade"; bot.appendChild(el); SC.chart(el, b.chart); scroll(); await wait(260); }
+    else if (b.note) { bot.insertAdjacentHTML("beforeend", `<p class="note fade">${b.note}</p>`); scroll(); await wait(200); }
+  }
+  bot.insertAdjacentHTML("beforeend", chips(q.follow, "还可以问")); scroll();
+}
+// 打字提问：按关键词命中数（长词权重高）选最接近的问题
+function match(text) {
+  const t = text.replace(/\s+/g, "");
+  let best = null, bestScore = 0;
+  Q.forEach((x) => {
+    const s = x.kw.reduce((sum, w) => sum + (t.includes(w) ? w.length : 0), 0) + (t === x.q.replace(/[？?]/g, "") ? 10 : 0);
+    if (s > bestScore) { best = x; bestScore = s; }
+  });
+  return best;
+}
+async function ask(text, q) {
+  if (busy || !text.trim()) return;
+  setBusy(true);
+  addUser(text.trim());
+  q = q || match(text);
+  if (q) await answer(q);
+  else {
+    const bot = addBot(), p = document.createElement("p"); bot.appendChild(p);
+    await wait(500);
+    await typeInto(p, "这个问题我还要更多数据才答得准。车间负荷、交期、钢丝、毛利、商机、回款这些，我现在就能查，你可以试试：");
+    bot.insertAdjacentHTML("beforeend", chips(groups.flatMap(([r]) => Q.filter((x) => x.role === r).map((x) => x.id)), ""));
+    scroll();
+  }
+  setBusy(false);
+}
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-q]"); if (!b || b.disabled) return;
+  const q = QB[b.dataset.q]; ask(q.q, q);
+});
+$("ask").addEventListener("submit", (e) => { e.preventDefault(); const v = $("input").value; if (busy || !v.trim()) return; $("input").value = ""; ask(v); });
+
+// ---------- 开场 ----------
+(async () => {
+  const bot = addBot(), p = document.createElement("p"); bot.appendChild(p);
+  setBusy(true);
+  await typeInto(p, `你好，我是分析助手。车间、订单、客户和回款的数，都可以直接问我，我查完系统里的数据再回答。`);
+  bot.insertAdjacentHTML("beforeend", chips(Q.filter((x) => x.role === role).map((x) => x.id), "可以先试试"));
+  setBusy(false); scroll();
+  const first = qs.get("q"); if (first && QB[first]) ask(QB[first].q, QB[first]);
+})();
+</script>
+</body>
+</html>
