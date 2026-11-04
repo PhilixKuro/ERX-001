@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>设计语言样板 · 华东弹簧演示</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="components.css">
+<style>
+  .swatches { display: flex; flex-wrap: wrap; gap: var(--sp-4); }
+  .type-row { display: flex; align-items: baseline; gap: var(--sp-4); padding: var(--sp-2) 0; border-bottom: 1px dashed var(--border); }
+  .type-row code { width: 90px; color: var(--text-3); font-size: var(--fs-xs); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+  .load-row { display: grid; grid-template-columns: 80px 1fr 48px; gap: var(--sp-3); align-items: center; margin: 6px 0; }
+  .alert-item { display: flex; gap: var(--sp-2); align-items: flex-start; padding: 6px 0; border-bottom: 1px dashed var(--border); font-size: var(--fs-sm); }
+</style>
+</head>
+<body class="sc">
+<header class="sc-topbar">
+  <span class="sc-brand" id="brand"></span>
+  <span class="sc-muted">设计语言样板</span>
+  <span class="sc-spacer"></span>
+  <span class="sc-faint" id="today"></span>
+  <button class="sc-btn" onclick="SC.toggleTheme()">切换深浅</button>
+</header>
+<main class="sc-page">
+  <h1>设计语言样板</h1>
+  <p class="sc-muted">七个演示界面共用的配色、字体、组件和图表。数据全部来自 <code>data.js</code>，同一张订单在各界面数字一致。</p>
+
+  <section class="sc-section">
+    <h2>配色</h2>
+    <div class="sc-card"><div class="swatches" id="swatches"></div></div>
+  </section>
+
+  <section class="sc-section">
+    <h2>字体</h2>
+    <div class="sc-card" id="type"></div>
+  </section>
+
+  <section class="sc-section">
+    <h2>指标卡</h2>
+    <div class="sc-grid cols-4" id="kpis"></div>
+  </section>
+  <section class="sc-section">
+    <h2>按钮、状态、页签</h2>
+    <div class="sc-card">
+      <div class="row">
+        <button class="sc-btn primary">采纳建议</button>
+        <button class="sc-btn">查看详情</button>
+        <button class="sc-btn ghost">更多</button>
+        <button class="sc-btn danger">忽略</button>
+        <button class="sc-btn" disabled>已提交</button>
+      </div>
+      <div class="row" style="margin-top: var(--sp-4)" id="badges"></div>
+      <div class="sc-tabs" style="margin-top: var(--sp-5)">
+        <span class="sc-tab active">设备负荷</span><span class="sc-tab">交期风险</span><span class="sc-tab">质量</span>
+      </div>
+      <div id="loads"></div>
+    </div>
+  </section>
+
+  <section class="sc-section">
+    <h2>图表</h2>
+    <div class="sc-grid cols-2">
+      <div class="sc-card"><div class="sc-card-head"><h3>近 12 个月销售额与毛利率</h3></div><div class="sc-chart" id="ch-revenue"></div></div>
+      <div class="sc-card"><div class="sc-card-head"><h3>设备负荷（未来 6 个工作日）</h3></div><div class="sc-chart" id="ch-load"></div></div>
+      <div class="sc-card"><div class="sc-card-head"><h3>本月交付准时率</h3></div><div class="sc-chart" id="ch-gauge"></div></div>
+      <div class="sc-card"><div class="sc-card-head"><h3 id="spc-title"></h3><span class="sc-spacer"></span><span class="sc-badge alarm" id="spc-cpk"></span></div><div class="sc-chart" id="ch-spc"></div></div>
+    </div>
+  </section>
+
+  <section class="sc-section">
+    <h2>表格</h2>
+    <div class="sc-card">
+      <div class="sc-card-head"><h3>在手订单</h3><span class="sc-spacer"></span><span class="sc-faint">交期风险按现有排程算出</span></div>
+      <div class="sc-table-wrap"><table class="sc-table" id="orders"></table></div>
+    </div>
+  </section>
+
+  <section class="sc-section sc-grid cols-2">
+    <div class="sc-card"><div class="sc-card-head"><h3>预警</h3></div><div id="alerts"></div></div>
+    <div class="sc-card"><div class="sc-card-head"><h3 id="ctp-title"></h3></div><div id="ctp"></div></div>
+  </section>
+</main>
+<script src="vendor/echarts-5.6.0.min.js"></script>
+<script src="data.js"></script>
+<script src="theme.js"></script>
+<script>
+const d = SC_DATA, $ = (id) => document.getElementById(id);
+const badge = (st, text) => `<span class="sc-badge ${st}">${text || d.statusText[st]}</span>`;
+const riskBadge = { late: badge("alarm", "延误"), tight: badge("wait", "偏紧"), ok: badge("run", "正常") };
+
+$("brand").textContent = d.company.name;
+$("today").textContent = "今天 " + d.today + " " + d.nowClock;
+
+$("swatches").innerHTML = [
+  ["--bg", "底色"], ["--surface", "卡片"], ["--border", "边线"], ["--text", "正文"], ["--text-2", "次要文字"], ["--primary", "主色"],
+  ["--st-run", "运行"], ["--st-wait", "待料"], ["--st-down", "停机"], ["--st-over", "超负荷"], ["--st-alarm", "异常"], ["--st-idle", "空闲"],
+  ["--c1", "系列 1"], ["--c2", "系列 2"], ["--c3", "系列 3"], ["--c4", "系列 4"], ["--c5", "系列 5"], ["--c6", "系列 6"],
+].map(([v, n]) => `<div class="sc-swatch"><b style="--sw: var(${v})"></b><div>${n}<div class="sc-faint">${v}</div></div></div>`).join("");
+
+$("type").innerHTML = [
+  ["--fs-3xl", "1,284,600"], ["--fs-2xl", "车间今日在制 12 单"], ["--fs-xl", "交期风险"], ["--fs-lg", "卷簧机-1 未来 6 天负荷 123%"],
+  ["--fs-md", "压簧 YA 3.0×23×50，计划 26,297 支，已完成卷簧 0%"], ["--fs-sm", "表格与说明文字"], ["--fs-xs", "角注、时间戳"],
+].map(([v, t]) => `<div class="type-row"><code>${v}</code><span style="font-size: var(${v})">${t}</span></div>`).join("");
+
+const k = d.kpi;
+$("kpis").innerHTML = [
+  ["本月销售额", SC.yuan(k.monthRevenue), "", `<span class="sc-up">较上月 +${SC.pct(k.monthRevenueDelta)}</span>`],
+  ["在制工单", k.wipOrders, "单", `<span class="sc-down">交期风险 ${k.riskOrders} 单，其中延误 ${k.lateOrders}</span>`],
+  ["应收账款", SC.yuan(k.receivable), "", `<span class="sc-down">逾期 ${SC.yuan(k.overdue)}</span>`],
+  ["商机金额", SC.yuan(k.pipeline), "", `<span class="sc-muted">按赢率加权 ${SC.yuan(k.weightedPipeline)}</span>`],
+].map(([l, v, u, delta]) => `<div class="sc-card sc-kpi"><div class="sc-kpi-label">${l}</div>
+  <div class="sc-kpi-value sc-num">${v}<small>${u}</small></div><div class="sc-kpi-delta">${delta}</div></div>`).join("");
+
+$("badges").innerHTML = Object.keys(d.statusText).map((s) => badge(s)).join("") + riskBadge.late + riskBadge.tight + riskBadge.ok;
+
+$("loads").innerHTML = d.workstations.map((w) => `<div class="load-row"><span>${w.id}</span>
+  <div class="sc-bar ${w.load > 1 ? "over" : w.load > 0.85 ? "wait" : "run"}"><i style="--v: ${Math.min(w.load, 1) * 100}%"></i></div>
+  <span class="sc-num" style="text-align:right">${Math.round(w.load * 100)}%</span></div>`).join("");
+</script>
+<script>
+SC.chart($("ch-revenue"), (s) => ({
+  tooltip: { trigger: "axis" }, legend: { top: 0, right: 0 }, grid: { left: 56, right: 48, top: 36, bottom: 28 },
+  xAxis: { type: "category", data: d.monthly.map((m) => m.month.slice(2)) },
+  yAxis: [{ type: "value", axisLabel: { formatter: (v) => v / 10000 + "万" } },
+          { type: "value", min: 0.2, max: 0.4, splitLine: { show: false }, axisLabel: { formatter: (v) => Math.round(v * 100) + "%" } }],
+  series: [
+    { name: "销售额", type: "bar", barWidth: "45%", data: d.monthly.map((m) => m.revenue), itemStyle: { borderRadius: [4, 4, 0, 0] } },
+    { name: "毛利率", type: "line", yAxisIndex: 1, smooth: true, symbolSize: 6, data: d.monthly.map((m) => m.grossMargin) },
+  ],
+}));
+
+SC.chart($("ch-load"), (s) => ({
+  tooltip: { trigger: "axis", valueFormatter: (v) => v + "%" }, grid: { left: 64, right: 24, top: 12, bottom: 24 },
+  xAxis: { type: "value", axisLabel: { formatter: "{value}%" } },
+  yAxis: { type: "category", inverse: true, data: d.workstations.map((w) => w.id) },
+  series: [{ type: "bar", barWidth: 12, data: d.workstations.map((w) => ({ value: Math.round(w.load * 100),
+      itemStyle: { borderRadius: 6, color: s.css(w.load > 1 ? "--st-over" : w.load > 0.85 ? "--st-wait" : "--st-run") } })),
+    markLine: { symbol: "none", data: [{ xAxis: 100 }], lineStyle: { color: s.css("--st-alarm"), type: "dashed" }, label: { show: false } } }],
+}));
+
+SC.chart($("ch-gauge"), (s) => ({
+  series: [{ type: "gauge", startAngle: 210, endAngle: -30, min: 0, max: 100, radius: "92%", center: ["50%", "58%"],
+    progress: { show: true, width: 14, itemStyle: { color: s.css("--primary"), shadowBlur: s.theme === "dark" ? 12 : 0, shadowColor: s.css("--primary") } },
+    axisLine: { lineStyle: { width: 14, color: [[1, s.css("--surface-2")]] } },
+    axisTick: { show: false }, splitLine: { show: false }, axisLabel: { show: false }, pointer: { show: false },
+    title: { offsetCenter: [0, "38%"], color: s.css("--text-2") },
+    detail: { valueAnimation: true, offsetCenter: [0, "0%"], fontSize: 40, fontWeight: 650, formatter: "{value}%", color: s.css("--text") },
+    data: [{ value: Math.round(d.kpi.onTimeRate * 100), name: "目标 95%" }] }],
+}));
+
+const spc = d.spc;
+$("spc-title").textContent = `SPC 控制图 · ${spc.param}（${spc.workstation}）`;
+$("spc-cpk").textContent = "Cpk " + spc.cpk.toFixed(2);
+SC.chart($("ch-spc"), (s) => ({
+  tooltip: { trigger: "axis" }, grid: { left: 56, right: 104, top: 16, bottom: 28 },
+  xAxis: { type: "category", data: spc.groups.map((g) => g.no) },
+  yAxis: { type: "value", min: 49.7, max: 50.3, axisLabel: { formatter: (v) => v.toFixed(2) } },
+  series: [{ name: "子组均值", type: "line", symbolSize: 7, data: spc.groups.map((g) => ({ value: g.mean,
+      itemStyle: { color: s.css(g.flagged ? "--st-alarm" : "--c1") } })), lineStyle: { color: s.css("--c1") },
+    markLine: { symbol: "none", label: { position: "end", formatter: (p) => p.name + " " + p.value.toFixed(3) }, data: [
+      { name: "UCL", yAxis: spc.xbar.ucl, lineStyle: { color: s.css("--st-alarm"), type: "dashed" } },
+      { name: "CL", yAxis: spc.xbar.cl, lineStyle: { color: s.css("--text-3") } },
+      { name: "LCL", yAxis: spc.xbar.lcl, lineStyle: { color: s.css("--st-alarm"), type: "dashed" } }] } }],
+}));
+</script>
+<script>
+const woOf = Object.fromEntries(d.workOrders.map((w) => [w.salesOrder, w]));
+$("orders").innerHTML = `<thead><tr><th>销售订单</th><th>客户</th><th>产品</th><th class="r">数量（支）</th><th class="r">金额</th>
+  <th class="r">毛利率</th><th>当前工序</th><th>交期</th><th>预计完工</th><th>风险</th></tr></thead><tbody>` +
+  d.salesOrders.slice().sort((a, b) => a.delivery.localeCompare(b.delivery)).map((o) => { const w = woOf[o.id]; return `<tr>
+    <td class="sc-num">${o.id}</td><td>${o.customer}</td><td>${d.get.product(o.product).name}</td>
+    <td class="r sc-num">${o.qty.toLocaleString()}</td><td class="r sc-num">${SC.yuan(o.amount)}</td><td class="r sc-num">${SC.pct(o.margin, 0)}</td>
+    <td>${w.currentOp}</td><td class="sc-num">${o.delivery}</td><td class="sc-num">${w.finishDate}</td><td>${riskBadge[w.risk]}</td></tr>`; }).join("") + "</tbody>";
+
+$("alerts").innerHTML = d.kpi.alerts.map((a) => `<div class="alert-item">${badge(a.level, a.level === "alarm" ? "严重" : a.level === "over" ? "负荷" : "提醒")}<span>${a.text}</span></div>`).join("");
+
+const deal = d.deals.find((x) => x.ctp && !x.ctp.ok) || d.deals.find((x) => x.ctp), c = deal.ctp;
+$("ctp-title").textContent = `能不能接 · ${deal.customer} ${deal.qty.toLocaleString()} 支`;
+$("ctp").innerHTML = `<p>${d.get.product(deal.product).name}，客户要 <b class="sc-num">${c.wantDate}</b>，按现有排程最早
+  <b class="sc-num">${c.finishDate}</b> 完工 ${c.ok ? badge("run", "能接") : badge("alarm", "晚 " + -c.slackDays + " 天")}</p>
+  <p class="sc-muted">卡在 <b>${c.bottleneck.op}</b>（${c.bottleneck.workstation}），要排队 ${Math.round(c.bottleneck.waitMin / 60)} 小时、加工 ${Math.round(c.bottleneck.runMin / 60)} 小时${c.material ? "；" + c.material : ""}</p>
+  <div class="sc-table-wrap"><table class="sc-table"><thead><tr><th>工序</th><th>设备</th><th>开工</th><th>完工</th></tr></thead><tbody>
+  ${c.steps.map((st) => `<tr><td>${st.op}</td><td>${st.workstation}</td><td class="sc-num">${st.start}</td><td class="sc-num">${st.end}</td></tr>`).join("")}</tbody></table></div>`;
+</script>
+</body>
+</html>

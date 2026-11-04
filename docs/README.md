@@ -8,6 +8,7 @@
 | ERPNext 业务源码 | `frappe-bench/apps/erpnext/`（同上） |
 | 本项目二次开发内容 | `frappe-bench/apps/frappe_china/`（独立 app；中国财税、译名与导航、计算层、上游修复） |
 | 演示操控与场景数据（客户正式库不装） | `frappe-bench/apps/frappe_debug/`（独立 app；用法见其 README） |
+| 客户演示用示意界面（静态 HTML，不连系统） | [../showcase/README.md](../showcase/README.md) |
 | 装了哪些 app、锁在哪个版本 | `docker/apps.json` |
 | 开发环境怎么起、怎么换机器 | [../docker/README.md](../docker/README.md) |
 

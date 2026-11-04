@@ -1,0 +1,93 @@
+/* 通用组件。依赖 tokens.css。类名统一 sc- 前缀，避免与各界面自有样式冲突。 */
+*, *::before, *::after { box-sizing: border-box; }
+body.sc {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: var(--fs-md)/1.55 var(--font-sans);
+  font-variant-numeric: tabular-nums;
+  transition: background var(--dur), color var(--dur);
+}
+.sc h1 { font-size: var(--fs-2xl); margin: 0 0 var(--sp-2); font-weight: 650; }
+.sc h2 { font-size: var(--fs-xl); margin: 0 0 var(--sp-3); font-weight: 600; }
+.sc h3 { font-size: var(--fs-lg); margin: 0 0 var(--sp-2); font-weight: 600; }
+.sc-muted { color: var(--text-2); }
+.sc-faint { color: var(--text-3); font-size: var(--fs-sm); }
+.sc-num { font-family: var(--font-mono); }
+
+/* 布局 */
+.sc-page { max-width: 1440px; margin: 0 auto; padding: var(--sp-5) var(--sp-5) var(--sp-6); }
+.sc-topbar {
+  display: flex; align-items: center; gap: var(--sp-4); flex-wrap: wrap;
+  padding: var(--sp-3) var(--sp-5); background: var(--surface);
+  border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 10;
+}
+.sc-topbar .sc-brand { font-weight: 650; font-size: var(--fs-lg); }
+.sc-topbar .sc-spacer { flex: 1; }
+.sc-grid { display: grid; gap: var(--sp-4); }
+.sc-grid > * { min-width: 0; } /* 防止宽表格把格子撑宽 */
+@media (max-width: 600px) { .sc-page { padding: var(--sp-4) var(--sp-4) var(--sp-5); } .sc-topbar { padding: var(--sp-2) var(--sp-4); } .sc-kpi .sc-kpi-value { font-size: var(--fs-2xl); } }
+.sc-grid.cols-2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 560px), 1fr)); }
+.sc-grid.cols-3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.sc-grid.cols-4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.sc-section { margin-top: var(--sp-6); }
+
+/* 卡片与指标卡 */
+.sc-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: var(--sp-4) var(--sp-5);
+}
+.sc-card-head { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-3); }
+.sc-card-head h3 { margin: 0; }
+.sc-card-head .sc-spacer { flex: 1; }
+.sc-kpi .sc-kpi-label { color: var(--text-2); font-size: var(--fs-sm); }
+.sc-kpi .sc-kpi-value { font-size: var(--fs-3xl); font-weight: 650; line-height: 1.15; margin: var(--sp-1) 0; }
+.sc-kpi .sc-kpi-value small { font-size: var(--fs-lg); font-weight: 500; color: var(--text-2); margin-left: 2px; }
+.sc-kpi .sc-kpi-delta { font-size: var(--fs-sm); }
+.sc-up { color: var(--st-run); } .sc-down { color: var(--st-alarm); }
+[data-theme="dark"] .sc-kpi .sc-kpi-value { text-shadow: var(--glow); }
+.sc-chart { width: 100%; height: 260px; }
+
+/* 表格：宽表放进 .sc-table-wrap 横向滚动 */
+.sc-table-wrap { overflow-x: auto; }
+.sc-table { width: 100%; border-collapse: collapse; font-size: var(--fs-sm); }
+.sc-table th, .sc-table td { padding: var(--sp-2) var(--sp-3); text-align: left; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.sc-table th { color: var(--text-2); font-weight: 500; background: var(--surface-2); }
+.sc-table td.r, .sc-table th.r { text-align: right; }
+.sc-table tbody tr:hover { background: var(--primary-soft); }
+
+/* 按钮 */
+.sc-btn {
+  display: inline-flex; align-items: center; gap: var(--sp-1); cursor: pointer;
+  font: inherit; font-size: var(--fs-sm); padding: 6px 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  transition: background var(--dur), border-color var(--dur);
+}
+.sc-btn:hover { border-color: var(--primary); color: var(--primary); }
+.sc-btn.primary { background: var(--primary); border-color: var(--primary); color: var(--on-primary); }
+.sc-btn.primary:hover { filter: brightness(1.08); color: var(--on-primary); }
+.sc-btn.ghost { background: transparent; border-color: transparent; color: var(--primary); }
+.sc-btn.danger { color: var(--st-alarm); border-color: var(--st-alarm); background: transparent; }
+.sc-btn:disabled { opacity: .45; cursor: not-allowed; }
+
+/* 徽标与状态点：.sc-badge.run|wait|down|over|alarm|idle */
+.sc-badge {
+  display: inline-flex; align-items: center; gap: 6px; padding: 1px 10px; border-radius: 999px;
+  font-size: var(--fs-xs); line-height: 20px; color: var(--st, var(--text-2));
+  background: color-mix(in srgb, var(--st, var(--text-3)) 14%, transparent);
+}
+.sc-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.run { --st: var(--st-run); } .wait { --st: var(--st-wait); } .down { --st: var(--st-down); }
+.over { --st: var(--st-over); } .alarm { --st: var(--st-alarm); } .idle { --st: var(--st-idle); }
+[data-theme="dark"] .sc-badge::before { box-shadow: 0 0 6px currentColor; }
+
+/* 页签 */
+.sc-tabs { display: flex; gap: var(--sp-1); border-bottom: 1px solid var(--border); margin-bottom: var(--sp-4); }
+.sc-tab { padding: var(--sp-2) var(--sp-4); cursor: pointer; color: var(--text-2); border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.sc-tab.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+
+/* 进度条：style="--v: 72%"，加 .over 等类可改色 */
+.sc-bar { height: 8px; border-radius: 999px; background: var(--surface-2); overflow: hidden; }
+.sc-bar > i { display: block; height: 100%; width: var(--v, 0%); background: var(--st, var(--primary)); border-radius: inherit; }
+
+/* 色块（样板页展示配色用） */
+.sc-swatch { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-sm); }
+.sc-swatch > b { width: 36px; height: 36px; border-radius: var(--radius-sm); border: 1px solid var(--border); background: var(--sw); }
