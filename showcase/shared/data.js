@@ -185,6 +185,14 @@
     defectRate: [0.021, 0.019, 0.020, 0.024, 0.018, 0.026, 0.016, 0.017, 0.015, 0.014, 0.013, 0.012][i],
   }));
 
+  // ---------- 10 月毛利差异：标准成本毛利与实际经营毛利（monthly 的 33.5%）之差，按下列占比拆开（演示值，P1-S9-R4 第 1 步） ----------
+  const marginLeaks = [
+    { name: "报废与返工", share: 0.34, note: "超出工序损耗率的废品，以及返工占用的工时" },
+    { name: "停机与等料", share: 0.24, note: "设备保养、等钢丝期间的人工与折旧照付" },
+    { name: "钢丝涨价", share: 0.18, note: "部分批次的钢丝采购价高于标准成本里的单价" },
+    { name: "价格折让", share: 0.24, note: "大单让价、尾款抹零，实际成交价低于标准价" },
+  ];
+
   // ---------- SPC：压簧 3.0 自由长度，卷簧机-2，近 25 组、每组 5 件（均值 50、σ0.15、规格 49.5～50.5，同场景） ----------
   const spcSpec = { item: "SPR-C-3.0-23-50", param: "自由长度", unit: "mm", workstation: "卷簧机-2", usl: 50.5, lsl: 49.5, target: 50 };
   const spcGroups = [];
@@ -267,6 +275,7 @@
         row.start = Math.max(free[ws.id], done > 0 ? NOW : prev);
         row.end = Math.max(row.start + remain, prev); free[ws.id] = row.start + remain; prev = row.end;
       } else { row.start = row.end = null; }
+      row.startDate = row.start == null ? null : workDate(row.start); row.endDate = row.end == null ? null : workDate(row.end);
       return row;
     });
     w.finishMin = prev; w.finishDate = workDate(prev);
@@ -405,7 +414,20 @@
   spcGroups.forEach((g, i) => { g.flagged = flagged.has(i); });
   // ---------- 汇总指标（驾驶舱、销售工作台、手机端共用） ----------
   const last = monthly[monthly.length - 1], prevM = monthly[monthly.length - 2];
+  // 毛利差异拆解：标准毛利按当月已开票单的产品结构算，差额按 marginLeaks 占比分摊，金额按当月销售额折算，取整尾差放最后一项
+  const monthInv = invoices.filter((v) => v.invoiced.startsWith(last.month));
+  const stdRev = monthInv.reduce((s, v) => s + v.qty * P[v.product].price, 0), stdCost = monthInv.reduce((s, v) => s + v.qty * P[v.product].unitCost, 0);
+  const stdMargin = Math.round((1 - stdCost / stdRev) * 1000) / 1000, gapAmount = Math.round(last.revenue * (stdMargin - last.grossMargin));
+  const leakItems = marginLeaks.map((x) => ({ name: x.name, note: x.note, amount: Math.round(gapAmount * x.share) }));
+  leakItems[leakItems.length - 1].amount += gapAmount - leakItems.reduce((s, x) => s + x.amount, 0);
+  leakItems.forEach((x) => { x.points = Math.round((x.amount / last.revenue) * 10000) / 10000; });
+  const marginBridge = { month: last.month, revenue: last.revenue, standard: stdMargin, actual: last.grossMargin,
+    standardProfit: Math.round(last.revenue * stdMargin), actualProfit: Math.round(last.revenue * stdMargin) - gapAmount, gap: gapAmount, items: leakItems };
+  const opOrder = ["卷簧", "回火", "磨端", "喷丸", "检验", "包装", "完工"];
+  const wipByOp = opOrder.map((op) => ({ op, count: workOrders.filter((w) => w.currentOp === op).length })).filter((x) => x.count > 0);
   const kpi = {
+    marginBridge, // 驾驶舱「毛利漏在哪」（P1-S9-R4）
+    wipByOp, // 在制工单按当前工序计数
     wipOrders: workOrders.length,
     riskOrders: workOrders.filter((w) => w.risk !== "ok").length,
     lateOrders: workOrders.filter((w) => w.risk === "late").length,
