@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI 助手 — 华东弹簧</title>
+  <script>try { document.documentElement.dataset.theme = localStorage.getItem("board-theme") || "light"; } catch (e) { document.documentElement.dataset.theme = "light"; }</script>
+  <style>
+    :root {
+      --bg: #fafaf9; --fg: #1c1b1a; --muted: #6b6964; --border: #e6e4e0;
+      --accent: #c96442; --surface: #ffffff; --good: #2f7d4a; --bad: #b53a2a;
+      --soft: rgba(201,100,66,0.10); --shadow: rgba(28,27,26,0.10); color-scheme: light;
+    }
+    [data-theme="dark"] {
+      --bg: #161514; --fg: #ecebe8; --muted: #9c9992; --border: #2f2d2a;
+      --accent: #d97757; --surface: #1f1e1c; --good: #5fb37c; --bad: #e2634f;
+      --soft: rgba(217,119,87,0.14); --shadow: rgba(0,0,0,0.45); color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; background: var(--bg); color: var(--fg); font: 14px/1.5 -apple-system, system-ui, sans-serif; display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+    .sidebar { background: var(--surface); border-right: 1px solid var(--border); padding: 16px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .brand { font-weight: 600; padding: 8px 10px 18px; }
+    .nav { display: flex; flex-direction: column; gap: 2px; }
+    .nav .group-label { font-size: 11px; color: var(--muted); padding: 14px 10px 6px; letter-spacing: 0.06em; }
+    .nav .group-label:first-child { padding-top: 0; }
+    .q-btn { display: block; width: 100%; text-align: left; font: inherit; color: var(--fg); background: transparent; border: 0; padding: 7px 10px; border-radius: 6px; cursor: pointer; }
+    .q-btn:hover { background: var(--bg); color: var(--accent); }
+    .q-btn:disabled, .chip:disabled { opacity: .5; cursor: default; }
+    .q-btn:disabled:hover { background: transparent; color: var(--fg); }
+    .side-tip { font-size: 12px; color: var(--muted); padding: 16px 10px 0; margin: 0; }
+    main { padding: 0 28px 24px; min-width: 0; height: 100vh; display: flex; flex-direction: column; }
+    .topbar { padding: 16px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+    .topbar h1 { font-size: 20px; margin: 0; letter-spacing: -0.01em; }
+    .topbar .right { display: flex; align-items: center; gap: 12px; color: var(--muted); }
+    .clock { font-variant-numeric: tabular-nums; }
+    button { font: inherit; cursor: pointer; padding: 7px 13px; border-radius: 6px; }
+    .btn-primary { background: var(--accent); color: white; border: 1px solid var(--accent); }
+    .btn-primary:disabled { opacity: .5; cursor: default; }
+    .btn-secondary { background: transparent; color: var(--fg); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--bg); }
+
+    /* 对话面板 */
+    .chat { flex: 1; min-height: 0; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+    .log { flex: 1; overflow-y: auto; padding: 24px; min-height: 0; }
+    .msg { display: flex; gap: 12px; margin-bottom: 24px; max-width: 920px; }
+    .msg.user { justify-content: flex-end; margin-left: auto; }
+    .msg.user .bubble { background: var(--accent); color: #fff; border-radius: 14px 14px 4px 14px; padding: 8px 14px; max-width: min(80%, 520px); }
+    .avatar { flex: none; width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 600; background: var(--soft); color: var(--accent); }
+    .bot { flex: 1; min-width: 0; }
+    .bot .who { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+    .bot p { margin: 0 0 12px; }
+    .bot .note { font-size: 13px; color: var(--muted); background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; }
+    .tbl { border: 1px solid var(--border); border-radius: 8px; margin: 0 0 12px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; padding: 9px 10px; border-top: 1px solid var(--border); }
+    th { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; font-weight: 500; border-top: 0; white-space: nowrap; }
+    td.r, th.r { text-align: right; }
+    td.r { font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .pill { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 999px; background: var(--bg); border: 1px solid var(--border); white-space: nowrap; }
+    .pill.good { color: var(--good); border-color: rgba(47,125,74,0.3); }
+    .pill.bad { color: var(--bad); border-color: rgba(181,58,42,0.3); }
+    .pill.warn { color: var(--accent); border-color: rgba(201,100,66,0.35); }
+    .fade { animation: fade .35s ease; }
+    @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+    .checks { list-style: none; margin: 0 0 12px; padding: 0; font-size: 12px; color: var(--muted); }
+    .checks li { display: flex; gap: 6px; align-items: center; padding: 1px 0; }
+    .checks li::before { content: ""; width: 10px; height: 10px; flex: none; border-radius: 50%; border: 2px solid var(--border); border-top-color: var(--accent); animation: spin .7s linear infinite; }
+    .checks li.ok::before { content: "✓"; border: 0; animation: none; width: auto; height: auto; color: var(--good); font-weight: 700; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .caret::after { content: "▍"; color: var(--accent); animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+    .chips .lbl { width: 100%; font-size: 12px; color: var(--muted); }
+    .chips .lbl:empty { display: none; }
+    .chip { font: inherit; font-size: 13px; cursor: pointer; color: var(--accent); background: var(--soft); border: 1px solid transparent; border-radius: 999px; padding: 4px 12px; max-width: 100%; text-align: left; }
+    .chip:hover { border-color: var(--accent); }
+
+    .ask { display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--border); }
+    .ask input { flex: 1; min-width: 0; font: inherit; color: var(--fg); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; }
+    .ask input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--soft); }
+
+    .chart { height: 220px; margin: 0 0 12px; background: linear-gradient(180deg, rgba(201,100,66,0.06), transparent); border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .chart svg { display: block; }
+    .chart svg text { font-size: 11px; fill: var(--muted); }
+    .chart svg text.strong { fill: var(--fg); }
+    .chart svg .grid { stroke: var(--border); }
+    .chart .guide { position: absolute; background: var(--fg); opacity: 0; pointer-events: none; transition: opacity .12s; }
+    .tip { position: fixed; z-index: 40; pointer-events: none; background: var(--surface); color: var(--fg); border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; font-size: 12px; line-height: 1.6; box-shadow: 0 6px 20px var(--shadow); }
+
+    @media (max-width: 760px) {
+      body { grid-template-columns: minmax(0, 1fr); }
+      .sidebar { display: none; }
+      main { padding: 0 12px 12px; }
+      .log { padding: 16px 12px; }
+      .avatar { display: none; }
+      .ask { padding: 8px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar" data-od-id="sidebar">
+    <div class="brand">◐ 华东弹簧</div>
+    <nav class="nav" id="qs"></nav>
+    <p class="side-tip">也可以在右边直接打字问。</p>
+  </aside>
+  <main>
+    <div class="topbar" data-od-id="topbar">
+      <h1>AI 助手</h1>
+      <div class="right">
+        <span class="clock" id="clock"></span>
+        <button class="btn-secondary" onclick="toggleTheme()">切换深浅</button>
+      </div>
+    </div>
+    <section class="chat" data-od-id="chat">
+      <div class="log" id="log"></div>
+      <form class="ask" id="ask">
+        <input id="input" autocomplete="off" placeholder="问车间、订单、客户、回款，例如：哪几张单会晚？">
+        <button class="btn-primary" id="send">发送</button>
+      </form>
+    </section>
+  </main>
+  <div class="tip" id="tip" hidden></div>
+
+<!-- 数据与派生计算都在 data.js 里，回答里的数字打开页面时现取 -->
+<script src="../shared/data.js"></script>
+<script>
+const d = SC_DATA, k = d.kpi, $ = (id) => document.getElementById(id);
+const P = d.get.product, WS = d.get.workstation, C = d.get.customer;
+const qs = new URLSearchParams(location.search);
+const FAST = qs.get("fast") === "1"; // 无动画，供核对用
+const role = qs.get("role") === "sales" ? "sales" : "production"; // 决定侧栏哪组在前、开场推荐哪组
+
+const pillCls = { alarm: "bad", over: "bad", down: "", wait: "warn", run: "good", idle: "" };
+const badge = (st, text) => `<span class="pill ${pillCls[st] || ""}">${text}</span>`;
+const num = (v) => Math.round(v).toLocaleString("zh-CN");
+const yuan = (v) => num(v) + " 元";
+const wan = (v) => (v / 10000).toFixed(1) + " 万";
+const pct = (v, n = 1) => (v * 100).toFixed(n) + "%";
+const hours = (m) => (m / 60).toFixed(m < 600 ? 1 : 0) + " 小时";
+const md = (s) => s.slice(5); // 2026-11-14 → 11-14
+const margin = (p) => 1 - p.unitCost / p.price;
+// 同生产看板：最耗时的那道（剩余工序里排程跨度最长的）
+const bottleneckOf = (w) => w.operations.filter((o) => o.remainMin > 0).reduce((a, b) => (b.end - b.start > a.end - a.start ? b : a), { end: 0, start: 0 });
+
+// ---------- 顶栏：电脑真实时间、主题（三页共用一个记忆） ----------
+const pad = (n) => String(n).padStart(2, "0");
+function tick() { const n = new Date(); $("clock").textContent = `${n.getFullYear()}-${pad(n.getMonth() + 1)}-${pad(n.getDate())} ${pad(n.getHours())}:${pad(n.getMinutes())}:${pad(n.getSeconds())}`; }
+tick(); setInterval(tick, 1000);
+function toggleTheme() {
+  const t = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem("board-theme", t); } catch (e) {}
+}
+
+// ---------- 图表：原生 SVG，按容器实际尺寸画（同生产看板） ----------
+const tip = $("tip");
+function chart(el, spec) {
+  const c = {};
+  const paint = () => {
+    const w = el.clientWidth, h = el.clientHeight; if (!w || !h) return;
+    const [l, r, t, b] = spec.pad(w);
+    const g = { w, h, l, r, t, b, n: spec.n, cw: w - l - r, ch: h - t - b };
+    g.step = g.cw / g.n; g.X = (i) => l + (i + 0.5) * g.step; c.g = g;
+    el.innerHTML = `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">${spec.svg(g)}</svg><i class="guide"></i>`;
+  };
+  new ResizeObserver(paint).observe(el);
+  el.addEventListener("mousemove", (e) => {
+    const g = c.g; if (!g) return;
+    const rect = el.getBoundingClientRect(), i = Math.floor((e.clientX - rect.left - g.l) / g.step), guide = el.querySelector(".guide");
+    if (i < 0 || i >= g.n) { tip.hidden = true; guide.style.opacity = 0; return; }
+    guide.style.cssText = `opacity:.06; left:${g.l + i * g.step}px; width:${g.step}px; top:${g.t}px; height:${g.ch}px`;
+    tip.innerHTML = spec.tip(i); tip.hidden = false;
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 8) + "px";
+    tip.style.top = Math.min(e.clientY + 14, innerHeight - tip.offsetHeight - 8) + "px";
+  });
+  el.addEventListener("mouseleave", () => { tip.hidden = true; const gd = el.querySelector(".guide"); if (gd) gd.style.opacity = 0; });
+}
+const niceStep = (v) => { if (v <= 0) return 1; const p = Math.pow(10, Math.floor(Math.log10(v))), m = v / p; return (m <= 1 ? 1 : m <= 2 ? 2 : m <= 5 ? 5 : 10) * p; };
+
+// ==================== 问题与回答：数字全部现取 SC_DATA ====================
+// blocks：p 文字（逐字打出）、table、chart、note；follow：答完后推荐的追问
+const Q = [
+  { id: "late", role: "production", q: "哪几张单会晚？", kw: ["晚", "延误", "延期", "交期", "赶不上", "来得及", "风险", "拖"],
+    checks: () => [`读取在制工单 ${d.workOrders.length} 张`, `排程到工序：${d.workOrders.reduce((s, w) => s + w.operations.length, 0)} 道`, "对比销售订单交期"],
+    blocks() {
+      const ws = d.workOrders.filter((w) => w.risk !== "ok").sort((a, b) => a.slackDays - b.slackDays);
+      const late = ws.filter((w) => w.risk === "late"), busy = d.workstations.reduce((a, b) => (b.load > a.load ? b : a));
+      return [
+        { p: `按现在的排程，${d.workOrders.length} 张在制工单里有 ${late.length} 张会晚于交期，另有 ${ws.length - late.length} 张刚好在交期当天完工、没有余量。` },
+        { table: { head: ["销售订单", "客户", "产品", "交期", "预计完工", "情况", "最耗时的工序"],
+          rows: ws.map((w) => { const bn = bottleneckOf(w);
+            return [w.salesOrder, w.customer, P(w.product).name, md(w.delivery), md(w.finishDate),
+              w.risk === "late" ? badge("alarm", "晚 " + -w.slackDays + " 天") : badge("wait", "当天完工"), bn.op + "（" + bn.workstation + "）"]; }) } },
+        { p: `会晚的 ${late.length} 张里，${late.map((w) => { const bn = bottleneckOf(w); return w.salesOrder.slice(-5) + " 最耗时的是" + bn.workstation + "上的" + bn.op; }).join("，")}。另外${busy.id}未来 6 个工作日负荷 ${Math.round(busy.load * 100)}%，是全厂最紧的一台，后面的单也会往后挤。建议先和${late.map((w) => w.customer).join("、")}沟通交期。` },
+      ];
+    }, follow: ["busy", "deal087"] },
+
+  { id: "busy", role: "production", q: "哪台设备最忙？", kw: ["忙", "负荷", "满", "设备", "机器", "瓶颈", "产能", "卷簧机"],
+    checks: () => [`读取设备 ${d.workstations.length} 台的排程`, "按未来 6 个工作日的可用工时算负荷"],
+    blocks() {
+      const ws = d.workstations.slice().sort((a, b) => b.load - a.load), top = ws[0], w4 = WS("卷簧机-4");
+      const st = (w) => ["wait", "down", "alarm", "idle"].includes(w.status) ? w.status : w.load > 1 ? "over" : w.load > 0.85 ? "wait" : "run";
+      return [
+        { p: `最忙的是${top.id}：未来 6 个工作日负荷 ${Math.round(top.load * 100)}%，排满之后还有约 ${hours(top.beyondMin)}要排到第 7 个工作日以后。全厂平均负荷 ${Math.round(k.avgLoad * 100)}%。负荷最高的 5 台如下：` },
+        { table: { head: ["设备", "此刻状态", "未来 6 天负荷", "排到第 7 天以后"], right: [2, 3],
+          rows: ws.slice(0, 5).map((w) => [w.id, badge(st(w), d.statusText[w.status]), Math.round(w.load * 100) + "%", w.beyondMin ? hours(w.beyondMin) : "—"]) } },
+        { p: `同是卷簧，卷簧机-4 现在负荷只有 ${Math.round(w4.load * 100)}%，它在等 φ8.0 钢丝（${md(d.get.material("WIRE-60SI2MN-8.0").arrival)} 到货）。到货后可以考虑把卷簧机-1 的一部分压簧 3.0 分过去。` },
+        { note: "负荷＝未来 6 个工作日已排的剩余工时 ÷ 可用工时，每天按 8 小时、周日休息算。" },
+      ];
+    }, follow: ["late", "wire"] },
+
+  { id: "wire", role: "production", q: "钢丝够不够用？", kw: ["钢丝", "原料", "材料", "缺料", "补货", "采购", "够不够", "供应商", "库存"],
+    checks: () => [`读取钢丝库存 ${d.materials.length} 种`, "核对安全库存、再订货点与在途", `读取钢丝供应商 ${d.suppliers.length} 家的评分`],
+    blocks() {
+      const low = d.materials.filter((m) => m.belowSafety), sug = d.materials.filter((m) => m.suggestQty);
+      const best = (code) => d.suppliers.filter((s) => s.item === code).sort((a, b) => b.score - a.score)[0];
+      return [
+        { p: `${d.materials.length} 种钢丝里，${low.map((m) => m.name).join("、")}已经低于安全库存；${sug.map((m) => m.name).join("、")}库存加在途低于再订货点，建议补货。` },
+        { table: { head: ["钢丝", "库存（千克）", "安全库存", "在途", "到货日", "够用天数", "建议"], right: [1, 2, 3, 5],
+          rows: d.materials.map((m) => [m.name, num(m.stock), num(m.safety), m.onOrder ? num(m.onOrder) : "—", m.arrival ? md(m.arrival) : "—", m.coverDays.toFixed(1) + " 天",
+            m.belowSafety ? badge("alarm", "低于安全库存") : m.suggestQty ? badge("wait", "补 " + num(m.suggestQty) + " 千克") : badge("run", "够用")]) } },
+        ...sug.map((m) => { const s = best(m.code);
+          return { p: `${m.name}建议按经济订货量补 ${num(m.suggestQty)} 千克，现在库存够用约 ${m.coverDays.toFixed(1)} 天，采购提前期 ${m.leadDays} 天。供应商里评分最高的是${s.name}（${s.score} 分，准时率 ${pct(s.onTime, 0)}、合格率 ${pct(s.passRate)}，单价 ${s.price.toFixed(2)} 元／千克）。` }; }),
+        ...low.map((m) => ({ note: `${m.name}有 ${num(m.onOrder)} 千克在途，${md(m.arrival)} 到货后回到安全库存以上；到货前卷簧机-4 停着等料。` })),
+      ];
+    }, follow: ["busy", "margin"] },
+
+  { id: "margin", role: "production", q: "哪个产品最不赚钱？", kw: ["毛利", "赚钱", "利润", "成本", "亏", "不赚"],
+    checks: () => [`读取产品 ${d.products.length} 个的标准成本`, `读取 ${k.marginBridge.month} 的经营数据`, "拆解实际毛利与标准毛利的差额"],
+    blocks() {
+      const ps = d.products.slice().sort((a, b) => margin(a) - margin(b)), lo = ps[0], hi = ps[ps.length - 1], mb = k.marginBridge;
+      return [
+        { p: `按标准成本算，最不赚钱的是${lo.name}，毛利 ${pct(margin(lo))}；最赚钱的是${hi.name}，${pct(margin(hi))}。` },
+        { table: { head: ["产品", "单价", "标准单位成本", "标准毛利"], right: [1, 2, 3],
+          rows: ps.map((p) => [p.name, p.price.toFixed(2) + " 元", p.unitCost.toFixed(3) + " 元", pct(margin(p))]) } },
+        { p: `不过实际比标准还差。${mb.month.slice(5)} 月销售额 ${wan(mb.revenue)}，按标准成本应赚 ${wan(mb.standardProfit)}（${pct(mb.standard)}），实际赚了 ${wan(mb.actualProfit)}（${pct(mb.actual)}），少了 ${wan(mb.gap)}，漏在这几处：` },
+        { table: { head: ["漏在哪", "金额", "占销售额", "说明"], right: [1, 2],
+          rows: mb.items.map((x) => [x.name, yuan(x.amount), pct(x.points), x.note]) } },
+        { p: `${mb.items.slice().sort((a, b) => b.amount - a.amount)[0].name}漏得最多，先看卷簧机-2 的质量异常和超出损耗率的废品。` },
+      ];
+    }, follow: ["late", "revenue"] },
+
+  { id: "deal087", role: "sales", q: "商机 087 能不能接？", kw: ["087", "商机", "能不能接", "接单", "接得下", "能接"],
+    checks: () => ["读取商机 CRM-DEAL-2026-00087", `把 4 万支插进现有排程（${d.workOrders.length} 张工单之后）`, "核对钢丝库存与在途", "核对客户信用额度"],
+    blocks() {
+      const x = d.deals.find((v) => v.id === "CRM-DEAL-2026-00087"), c = x.ctp, p = P(x.product), qt = d.quote(x.customer, x.product, x.qty, x.wantDate);
+      let most = 0; // 客户要的日期之前最多能交多少：按千支往下试
+      for (let q = Math.floor(x.qty / 1000) * 1000; q >= 1000; q -= 1000) if (d.ctp(x.product, q, x.wantDate).ok) { most = q; break; }
+      return [
+        { p: `${x.customer}要 ${num(x.qty)} 支${p.name}，${md(x.wantDate)} 交货。按现在的排程 ${md(c.finishDate)} 能做完，${c.ok ? "来得及" : "比客户要的晚 " + -c.slackDays + " 个工作日"}。考虑工序损耗，要投产 ${num(c.plannedQty)} 支。` },
+        { table: { head: ["工序", "设备", "开工", "完工", "排队等待", "加工"], right: [4, 5],
+          rows: c.steps.map((s) => [s.op, s.workstation, md(s.start), md(s.end), s.waitMin ? hours(s.waitMin) : "—", hours(s.runMin)]) } },
+        { p: (() => { const b = c.bottleneck, w = WS(b.workstation);
+            const m = w.status === "wait" ? d.materials.find((y) => y.belowSafety && y.arrival) : null;
+            const queued = d.workOrders.filter((o) => o.operations.some((op) => op.workstation === b.workstation && op.remainMin > 0)).map((o) => o.customer + " " + o.salesOrder.slice(-5));
+            return `卡在${b.op}：${b.workstation}${m ? "现在在等" + m.name + "（" + md(m.arrival) + " 到货）" : ""}${queued.length ? "，" + (m ? "到货后" : "") + "要先做已排的" + queued.join("、") : ""}，排队约 ${hours(b.waitMin)}，${md(b.start)} 才能开工。这单用的${d.get.material(p.wire).name}${c.material ? "：" + c.material : "现有库存够用"}。`; })() },
+        { p: most ? `如果要赶 ${md(x.wantDate)}，最多能先交 ${num(most)} 支，剩下的 ${md(c.finishDate)} 补齐；也可以和客户商量把交期放到 ${md(c.finishDate)}。` : `${md(x.wantDate)} 前一支也排不出来，建议和客户商量交期。` },
+        { note: `按标准价 ${qt.price.toFixed(2)} 元，这单未税 ${yuan(qt.amount)}、毛利 ${pct(qt.margin, 0)}。接下后${x.customer}的信用占用从 ${pct(qt.creditUsageBefore, 0)} 到 ${pct(qt.usageAfter, 0)}，额度 ${yuan(qt.creditLimit)}，${qt.creditOk ? "够用" : "不够"}。` },
+      ];
+    }, follow: ["taizhou", "late"] },
+
+  { id: "overdue", role: "sales", q: "哪些客户逾期没回款？", kw: ["逾期", "回款", "欠款", "应收", "收款", "没付", "欠", "账期"],
+    checks: () => [`读取近 8 周销售发票 ${d.invoices.length} 张`, "按客户账期算到期日", "汇总信用额度占用"],
+    blocks() {
+      const vs = d.invoices.filter((v) => v.overdueDays > 0).sort((a, b) => b.outstanding - a.outstanding);
+      const tight = d.customers.filter((c) => c.creditUsage >= 0.9);
+      return [
+        { p: `现在应收 ${wan(k.receivable)}，其中逾期 ${wan(k.overdue)}，共 ${vs.length} 张发票，都在逾期 30 天以内：` },
+        { table: { head: ["客户", "发票", "未收（含税）", "到期日", "逾期", "信用占用"], right: [2, 4, 5],
+          rows: vs.map((v) => { const c = C(v.customer); return [v.customer, v.id, yuan(v.outstanding), md(v.due), v.overdueDays + " 天",
+            c.creditUsage >= 0.9 ? badge("alarm", pct(c.creditUsage, 0)) : pct(c.creditUsage, 0)]; }) } },
+        { p: `最要紧的是${tight.map((c) => c.name).join("、")}：逾期 ${yuan(tight[0].overdue)}，信用额度已经用了 ${pct(tight[0].creditUsage, 0)}，再接新单就超额度了。建议先催这一笔。` },
+      ];
+    }, follow: ["taizhou", "revenue"] },
+
+  { id: "taizhou", role: "sales", q: "泰州弹簧厂最近怎么样？", kw: ["泰州", "变少", "下滑", "流失", "走势", "少了"],
+    checks: () => ["读取泰州弹簧厂近 12 个月的销售额", "读取它的应收、在手订单与信用额度"],
+    blocks() {
+      const c = C("泰州弹簧厂"), h = c.history.slice(-6), open = d.salesOrders.filter((s) => s.customer === c.name);
+      const inv = d.invoices.find((v) => v.customer === c.name && v.overdueDays > 0);
+      return [
+        { p: `${c.name}近 3 个月的销售额比前 3 个月少了 ${pct(-c.trend3m, 0)}，10 月只有 ${yuan(h[h.length - 1].revenue)}。同时它还欠着一笔逾期款，信用额度快用满了。` },
+        { table: { head: ["月份", "销售额（未税）", "单数"], right: [1, 2], rows: h.map((m) => [m.month, yuan(m.revenue), m.orders]) } },
+        { table: { head: ["项目", "数"], right: [1], rows: [
+          ["信用额度", yuan(c.creditLimit)], ["已占用（应收＋在手订单）", yuan(c.creditUsed) + "（" + pct(c.creditUsage, 0) + "）"],
+          ["逾期应收", inv ? yuan(inv.outstanding) + "，逾期 " + inv.overdueDays + " 天" : "—"],
+          ["在手订单", open.map((s) => s.id.slice(-5) + " " + P(s.product).name + " " + num(s.qty) + " 支，" + md(s.delivery) + " 交").join("；") || "—"]] } },
+        { p: `建议这周去一趟：先把 ${inv ? yuan(inv.outstanding) : "逾期款"}收回来，再问清楚下单变少的原因，是价格、交期还是对方自己的生意变了。` },
+      ];
+    }, follow: ["overdue", "revenue"] },
+
+  { id: "revenue", role: "sales", q: "这个月销售额怎么样？", kw: ["销售额", "业绩", "营收", "收入", "这个月", "本月", "上月", "上个月", "卖了", "经营"],
+    checks: () => [`读取近 12 个月经营数据（${d.monthly[0].month} 起）`, "汇总销售额、毛利率、准时交付率"],
+    blocks() {
+      const m = d.monthly, last = m[m.length - 1], prev = m[m.length - 2], best = m.reduce((a, b) => (b.revenue > a.revenue ? b : a));
+      return [
+        { p: `${last.month.slice(5)} 月（最近一个完整月）销售额 ${wan(last.revenue)}，比 ${prev.month.slice(5)} 月${last.revenue >= prev.revenue ? "多" : "少"} ${pct(Math.abs(k.monthRevenueDelta), 0)}，${best === last ? "是近 12 个月最高的一个月" : "近 12 个月最高是 " + best.month + " 的 " + wan(best.revenue)}。毛利率 ${pct(last.grossMargin)}，准时交付率 ${pct(last.onTimeRate, 0)}。` },
+        { chart: { n: m.length, pad: () => [48, 12, 24, 26],
+          svg(g) {
+            const maxV = Math.max(...m.map((x) => x.revenue)), step = niceStep(maxV / 5), yMax = Math.ceil(maxV / step) * step;
+            const Y = (v) => g.t + (1 - v / yMax) * g.ch, bw = Math.min(g.step * 0.55, 26), lastI = m.length - 1;
+            let s = "";
+            for (let v = 0; v <= yMax + 1e-6; v += step) s += `<line class="grid" x1="${g.l}" x2="${g.w - g.r}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${g.l - 6}" y="${Y(v) + 4}" text-anchor="end">${v / 10000} 万</text>`;
+            m.forEach((x, i) => {
+              s += `<rect x="${g.X(i) - bw / 2}" y="${Y(x.revenue)}" width="${bw}" height="${Y(0) - Y(x.revenue)}" rx="3" style="fill:var(--${i === lastI ? "accent" : "muted"});opacity:${i === lastI ? 1 : 0.35}"/>`;
+              s += `<text x="${g.X(i)}" y="${g.h - 8}" text-anchor="middle">${x.month.slice(2)}</text>`;
+            });
+            s += `<text class="strong" x="${g.X(lastI)}" y="${Y(m[lastI].revenue) - 7}" text-anchor="middle">${wan(m[lastI].revenue)}</text>`;
+            return s;
+          },
+          tip: (i) => `${m[i].month.replace("-", " 年 ")} 月<br>销售额 <b>${wan(m[i].revenue)}</b>，${m[i].orders} 单` } },
+        { table: { head: ["月份", "销售额", "单数", "毛利率", "准时交付率"], right: [1, 2, 3, 4],
+          rows: m.slice(-4).reverse().map((x) => [x.month, wan(x.revenue), x.orders, pct(x.grossMargin), pct(x.onTimeRate, 0)]) } },
+        { note: `在谈商机 ${wan(k.pipeline)}，按成交概率折算 ${wan(k.weightedPipeline)}。2 月是春节，回落是正常的。` },
+      ];
+    }, follow: ["deal087", "margin"] },
+];
+const QB = Object.fromEntries(Q.map((x) => [x.id, x]));
+const groups = [["production", "生产负责人常问"], ["sales", "销售负责人常问"]].sort((a) => (a[0] === role ? -1 : 1));
+
+// ---------- 侧栏问题列表 ----------
+$("qs").innerHTML = groups.map(([r, title]) => `<span class="group-label">${title}</span>` +
+  Q.filter((x) => x.role === r).map((x) => `<button class="q-btn" data-q="${x.id}">${x.q}</button>`).join("")).join("");
+
+// ---------- 对话 ----------
+const log = $("log");
+let busy = false;
+const wait = (ms) => new Promise((r) => setTimeout(r, FAST ? 0 : ms));
+const scroll = () => { log.scrollTop = log.scrollHeight; };
+function setBusy(b) {
+  busy = b;
+  document.querySelectorAll(".q-btn, .chip, #send").forEach((el) => { el.disabled = b; });
+}
+function addUser(text) {
+  const el = document.createElement("div");
+  el.className = "msg user"; el.innerHTML = `<div class="bubble"></div>`;
+  el.firstChild.textContent = text; log.appendChild(el); scroll();
+}
+function addBot() {
+  const el = document.createElement("div");
+  el.className = "msg"; el.innerHTML = `<div class="avatar">AI</div><div class="bot"><div class="who">AI 助手</div></div>`;
+  log.appendChild(el); scroll(); return el.querySelector(".bot");
+}
+function chips(ids, label) {
+  return `<div class="chips fade"><span class="lbl">${label}</span>${ids.map((id) => `<button class="chip" data-q="${id}">${QB[id].q}</button>`).join("")}</div>`;
+}
+async function typeInto(el, html) { // 先逐字打纯文本，打完换成带格式的原文
+  const tmp = document.createElement("div"); tmp.innerHTML = html;
+  const text = tmp.textContent, step = Math.max(1, Math.ceil(text.length / 45));
+  el.classList.add("caret");
+  for (let i = 0; i < text.length && !FAST; i += step) { el.textContent = text.slice(0, i + step); scroll(); await wait(22); }
+  el.classList.remove("caret"); el.innerHTML = html; scroll();
+}
+function tableHtml(t) {
+  const r = new Set(t.right || []);
+  return `<div class="tbl fade"><table><thead><tr>${t.head.map((h, i) => `<th${r.has(i) ? ' class="r"' : ""}>${h}</th>`).join("")}</tr></thead>
+    <tbody>${t.rows.map((row) => `<tr>${row.map((v, i) => `<td${r.has(i) ? ' class="r"' : ""}>${v}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+}
+async function answer(q) {
+  const bot = addBot();
+  const ul = document.createElement("ul"); ul.className = "checks"; bot.appendChild(ul);
+  for (const c of q.checks()) {
+    const li = document.createElement("li"); li.textContent = c; ul.appendChild(li); scroll();
+    await wait(380); li.classList.add("ok");
+  }
+  for (const b of q.blocks()) {
+    if (b.p) { const p = document.createElement("p"); bot.appendChild(p); await typeInto(p, b.p); }
+    else if (b.table) { bot.insertAdjacentHTML("beforeend", tableHtml(b.table)); scroll(); await wait(260); }
+    else if (b.chart) { const el = document.createElement("div"); el.className = "chart fade"; bot.appendChild(el); chart(el, b.chart); scroll(); await wait(260); }
+    else if (b.note) { bot.insertAdjacentHTML("beforeend", `<p class="note fade">${b.note}</p>`); scroll(); await wait(200); }
+  }
+  bot.insertAdjacentHTML("beforeend", chips(q.follow, "还可以问")); scroll();
+}
+// 打字提问：按关键词命中数（长词权重高）选最接近的问题
+function match(text) {
+  const t = text.replace(/\s+/g, "");
+  let best = null, bestScore = 0;
+  Q.forEach((x) => {
+    const s = x.kw.reduce((sum, w) => sum + (t.includes(w) ? w.length : 0), 0) + (t === x.q.replace(/[？?]/g, "") ? 10 : 0);
+    if (s > bestScore) { best = x; bestScore = s; }
+  });
+  return best;
+}
+async function ask(text, q) {
+  if (busy || !text.trim()) return;
+  setBusy(true);
+  addUser(text.trim());
+  q = q || match(text);
+  if (q) await answer(q);
+  else {
+    const bot = addBot(), p = document.createElement("p"); bot.appendChild(p);
+    await wait(500);
+    await typeInto(p, "这个问题我还要更多数据才答得准。车间负荷、交期、钢丝、毛利、商机、回款这些，我现在就能查，你可以试试：");
+    bot.insertAdjacentHTML("beforeend", chips(groups.flatMap(([r]) => Q.filter((x) => x.role === r).map((x) => x.id)), ""));
+    scroll();
+  }
+  setBusy(false);
+}
+document.addEventListener("click", (e) => {
+  const b = e.target.closest("[data-q]"); if (!b || b.disabled) return;
+  const q = QB[b.dataset.q]; ask(q.q, q);
+});
+$("ask").addEventListener("submit", (e) => { e.preventDefault(); const v = $("input").value; if (busy || !v.trim()) return; $("input").value = ""; ask(v); });
+
+// ---------- 开场 ----------
+(async () => {
+  const bot = addBot(), p = document.createElement("p"); bot.appendChild(p);
+  setBusy(true);
+  await typeInto(p, `你好，我是 AI 助手。车间、订单、客户和回款的数，都可以直接问我，我查完系统里的数据再回答。`);
+  bot.insertAdjacentHTML("beforeend", chips(Q.filter((x) => x.role === role).map((x) => x.id), "可以先试试"));
+  setBusy(false); scroll();
+  const first = qs.get("q"); if (first && QB[first]) ask(QB[first].q, QB[first]);
+})();
+</script>
+</body>
+</html>
