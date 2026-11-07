@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>演示讲稿 · ERX-001</title>
+<style>
+  /* 讲稿自成一套：贴纸科普风（回形针式），只有浅色，不用 shared/tokens.css 的双主题（P1-S9 R08 第 7 步）。
+     图表配色经 dataviz 校验器：#2F6DB5 与 #FF5A36 一对全过；灰阶只作对照，不作分类色，靠直接标注区分。 */
+  :root {
+    --bg: #E9EEF2; --panel: #F6F8FA; --ink: #24313F; --ink2: #5A6B7D;
+    --s1: #3B5573; --s2: #7189A3; --s3: #9DB0C3; --s4: #C9D3DD; --hair: #DCE3EA;
+    --acc: #FF5A36; --acc-t: #E2401C; --blue: #2F6DB5;
+    --f-cn: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    --f-num: "Bahnschrift", "DIN Alternate", "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+    --spring: cubic-bezier(.34, 1.56, .64, 1); --eo: cubic-bezier(.22, 1, .36, 1);
+    color-scheme: light;
+  }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--f-cn); }
+  [hidden] { display: none !important; }
+  #view { position: fixed; inset: 0; overflow: hidden; }
+  #world { position: absolute; left: 0; top: 0; width: 7900px; height: 5400px; transform-origin: 0 0; will-change: transform;
+    background-image: radial-gradient(circle, #D2DAE2 2.2px, transparent 2.8px); background-size: 60px 60px; }
+  .route { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; opacity: 0; transition: opacity 1.2s; }
+  .route.on { opacity: 1; }
+  .gap { position: absolute; transform: translate(-50%, -50%); white-space: nowrap; font-size: 54px; font-weight: 700;
+    letter-spacing: .08em; color: var(--ink); background: #fff; border-radius: 999px; padding: 20px 56px;
+    box-shadow: 0 0 0 10px #fff, 0 22px 40px -18px rgba(36, 49, 63, .45); display: flex; align-items: center; gap: 22px; }
+  .gap i { font-style: normal; width: 0; height: 0; border-left: 34px solid var(--acc); border-top: 21px solid transparent; border-bottom: 21px solid transparent; }
+
+  .frame { position: absolute; width: 1600px; height: 900px; background: var(--panel); border-radius: 44px;
+    box-shadow: 0 2px 0 rgba(36, 49, 63, .05), 0 50px 90px -46px rgba(36, 49, 63, .4); }
+  .frame > * { position: absolute; }
+  .ov { left: 0; top: 0; width: 1600px; height: 900px; overflow: visible; pointer-events: none; }
+  .kick { left: 96px; top: 78px; font-size: 22px; font-weight: 700; letter-spacing: .16em; color: var(--ink2); display: flex; align-items: center; gap: 14px; }
+  .kick::before { content: ""; width: 38px; height: 9px; border-radius: 5px; background: var(--acc); }
+  .no { right: 96px; top: 74px; font: 700 26px var(--f-num); color: var(--s3); letter-spacing: .12em; }
+  .title { left: 96px; top: 120px; margin: 0; font-size: 60px; font-weight: 700; line-height: 1.2; letter-spacing: .01em; white-space: nowrap; }
+  .sub { margin: 0; font-size: 28px; line-height: 1.6; color: var(--ink2); }
+  .num { font-family: var(--f-num); font-variant-numeric: tabular-nums; }
+  em.mk { font-style: normal; background: linear-gradient(transparent 58%, rgba(255, 90, 54, .34) 58%); padding: 0 .06em; }
+  .lbl { font-size: 22px; font-weight: 700; line-height: 1.35; text-align: center; }
+  .lbl small { display: block; font-size: 17px; font-weight: 400; color: var(--ink2); }
+  .grp { font-size: 17px; font-weight: 700; letter-spacing: .14em; color: var(--s2); white-space: nowrap; }
+  .card { background: #fff; border-radius: 24px; padding: 26px 30px; box-sizing: border-box;
+    box-shadow: 0 2px 0 rgba(36, 49, 63, .06), 0 18px 34px -18px rgba(36, 49, 63, .32); }
+  .card h3 { margin: 0 0 10px; font-size: 27px; line-height: 1.3; }
+  .card p { margin: 0; font-size: 20px; line-height: 1.65; color: var(--ink2); }
+  .card .tag { position: absolute; right: 24px; top: 24px; font-size: 15px; font-weight: 700; color: var(--s2); }
+  .foot { font-size: 17px; line-height: 1.6; color: var(--ink2); }
+  .src { font-size: 14px; line-height: 1.55; color: var(--ink2); }
+  svg.stk { overflow: visible; display: block; }
+  a.stklink { display: block; text-decoration: none; color: inherit; }
+  a.stklink svg { transition: transform .35s var(--spring); }
+  a.stklink:hover svg, a.stklink:focus-visible svg { transform: translateY(-10px) rotate(-2deg); }
+  a.stklink:focus-visible { outline: 3px solid var(--blue); outline-offset: 12px; border-radius: 14px; }
+  .hero { font: 700 120px/1 var(--f-num); letter-spacing: -.01em; }
+  .hero i { font-style: normal; font-family: var(--f-cn); font-size: .34em; font-weight: 700; margin-left: .12em; }
+
+  /* 入场：节拍到了加 .on。帧之外的跳转用 .instant 关掉过渡 */
+  [data-b] { opacity: 0; transition: opacity .45s var(--eo), transform .8s var(--spring); transition-delay: var(--d, 0s); }
+  [data-b].on { opacity: 1; }
+  .pop { transform: scale(.3) rotate(var(--r, -12deg)); }
+  .pop.on { transform: rotate(var(--rr, 0deg)); }
+  .rise { transform: translateY(44px); }
+  .slide { transform: translateX(-60px); }
+  .rise.on, .slide.on { transform: none; }
+  .grow { opacity: 1; transform: scaleX(0); transform-origin: left center; transition: transform 1s var(--eo); transition-delay: var(--d, 0s); }
+  .grow.on { transform: scaleX(1); }
+  .draw { opacity: 1; stroke-dasharray: var(--len) var(--len); stroke-dashoffset: var(--len); transition: stroke-dashoffset 1.1s var(--eo); transition-delay: var(--d, 0s); }
+  .draw.on { stroke-dashoffset: 0; }
+  .instant, .instant * { transition: none !important; }
+  @media (prefers-reduced-motion: reduce) { [data-b], [data-b] * { transition: none !important; } }
+
+  /* 图表标记 */
+  .bar { position: absolute; height: 30px; border-radius: 0 4px 4px 0; box-sizing: border-box; }
+  .bar.dk { background: var(--s1); }
+  .bar.lo { background: var(--s2); }
+  .bar.me { background: var(--acc); }
+  .bar.h { background: repeating-linear-gradient(135deg, var(--s2) 0 3px, transparent 3px 9px); box-shadow: inset 0 0 0 2px var(--s2); }
+  .bar.q { border: 2px dashed var(--s2); border-radius: 6px; background: none; font-size: 15px; color: var(--ink2);
+    display: flex; align-items: center; justify-content: center; white-space: nowrap; }
+  .tick { position: absolute; width: 1px; background: var(--hair); }
+  .axl { position: absolute; font: 16px var(--f-num); color: var(--ink2); transform: translateX(-50%); white-space: nowrap; }
+  .nm { position: absolute; left: 96px; font-size: 22px; font-weight: 700; white-space: nowrap; line-height: 1.2; }
+  .nm small { display: block; font-size: 15px; font-weight: 400; color: var(--ink2); margin-top: 3px; }
+  .val { position: absolute; font: 700 22px var(--f-num); white-space: nowrap; line-height: 30px; }
+  .who { position: absolute; font-size: 18px; white-space: nowrap; line-height: 30px; color: var(--ink2); }
+  .who.me { color: var(--ink); font-weight: 700; }
+  .mark { position: absolute; width: 0; height: 52px; border-left: 3px solid var(--ink); }
+  .mark.rop { border-left-style: dashed; }
+  .legend { display: flex; gap: 26px; font-size: 16px; color: var(--ink2); align-items: center; white-space: nowrap; }
+  .legend i { display: inline-block; width: 24px; height: 14px; vertical-align: -2px; margin-right: 7px; border-radius: 2px; }
+  .legend i.ln { width: 0; height: 18px; border-left: 3px solid var(--ink); border-radius: 0; margin: 0 9px 0 4px; vertical-align: -4px; }
+  .legend i.ln.d { border-left-style: dashed; }
+  .status { position: absolute; font-size: 20px; font-weight: 700; line-height: 1.4; white-space: nowrap; }
+  .status small { display: block; font-size: 16px; font-weight: 400; color: var(--ink2); }
+  .status.bad { color: var(--acc-t); }
+  #days .d { position: absolute; width: 16px; height: 16px; border-radius: 4px; background: #fff; box-shadow: inset 0 0 0 1.5px var(--hair);
+    opacity: 0; transform: scale(.2); transition: opacity .3s, transform .5s var(--spring); transition-delay: var(--d, 0s); }
+  #days.on .d { opacity: 1; transform: none; }
+  #days .d.a { background: var(--acc); box-shadow: none; }
+  #days .d.b { background: var(--s1); box-shadow: none; }
+  #days .d.c { background: var(--s2); box-shadow: none; }
+  .chip { position: absolute; background: #fff; border-radius: 18px; box-sizing: border-box; padding: 18px 16px;
+    box-shadow: 0 2px 0 rgba(36, 49, 63, .06), 0 14px 26px -16px rgba(36, 49, 63, .35); }
+  .chip b { display: block; font: 700 30px var(--f-num); color: var(--s2); }
+  .chip > span { display: block; font-size: 20px; font-weight: 700; margin-top: 8px; white-space: nowrap; }
+  .chip .ring { position: absolute; inset: -7px; border: 4px solid var(--acc); border-radius: 24px; }
+  .chip .ring em { position: absolute; left: 50%; top: -42px; transform: translateX(-50%); font-style: normal; font-size: 16px; font-weight: 700;
+    color: #fff; background: var(--acc-t); border-radius: 999px; padding: 3px 12px; white-space: nowrap; }
+  .eq { display: flex; align-items: flex-start; gap: 40px; }
+  .eq > div { font: 700 112px/1 var(--f-num); }
+  .eq > div small { display: block; font: 400 20px var(--f-cn); color: var(--ink2); margin-top: 14px; }
+  .eq > div i { font-style: normal; font: 700 44px var(--f-cn); margin-left: 6px; }
+  .eq > b { font: 400 80px/1.2 var(--f-num); color: var(--s3); }
+  .eq .me { color: var(--acc-t); }
+  .minus { display: flex; gap: 14px; align-items: center; flex-wrap: nowrap; }
+  .minus span { border: 2px dashed var(--s2); border-radius: 12px; padding: 10px 18px; font-size: 22px; color: var(--ink2); white-space: nowrap; }
+  .minus b { font-size: 26px; color: var(--ink); white-space: nowrap; }
+  .minus b.big { font: 700 44px var(--f-num); color: var(--acc-t); }
+  .tile { background: #fff; border-radius: 22px; box-sizing: border-box; padding: 22px 26px;
+    box-shadow: 0 2px 0 rgba(36, 49, 63, .06), 0 16px 30px -18px rgba(36, 49, 63, .32); }
+  .tile b { display: block; font: 700 54px/1.05 var(--f-num); }
+  .tile > span { display: block; font-size: 20px; margin-top: 8px; color: var(--ink2); }
+  .pill { font-size: 20px; font-weight: 700; color: #fff; background: var(--ink); border-radius: 999px; padding: 6px 18px; white-space: nowrap; }
+  .tagline { font-size: 18px; font-weight: 700; color: var(--acc-t); border: 2px solid var(--acc); border-radius: 999px; padding: 6px 16px; white-space: nowrap; }
+  .est { display: inline-block; font: 700 13px/1.4 var(--f-cn); color: var(--ink2); border: 1.5px solid var(--s2); border-radius: 4px;
+    padding: 0 5px; margin-left: 8px; vertical-align: 3px; }
+  .nm.one { line-height: 26px; }
+  .nm.one small { display: inline; margin: 0 0 0 12px; }
+  .miss { position: absolute; left: 96px; font-size: 15px; font-weight: 700; line-height: 20px; color: var(--acc-t); white-space: nowrap; }
+  .miss.has { color: var(--ink); }
+  /* 系统全景表 */
+  .sysT { left: 96px; top: 226px; width: 1408px; }
+  .sysT .sr { display: grid; grid-template-columns: 220px 400px 130px minmax(0, 1fr); align-items: center; height: 52px;
+    border-bottom: 1px solid var(--hair); font-size: 18px; line-height: 1.3; }
+  .sysT .sr.h { height: 40px; font-size: 15px; font-weight: 700; letter-spacing: .1em; color: var(--s2); border-bottom: 2px solid var(--ink); }
+  .sysT .sr b { font: 700 22px var(--f-num); letter-spacing: .02em; }
+  .sysT .sr b small { font: 400 15px var(--f-cn); color: var(--ink2); margin-left: 10px; letter-spacing: 0; }
+  .sysT .sr .why { color: var(--ink2); font-size: 17px; }
+  .st { display: inline-block; font-size: 15px; font-weight: 700; line-height: 24px; border-radius: 999px; padding: 0 12px; white-space: nowrap; }
+  .st.ok { background: var(--ink); color: #fff; }
+  .st.part { background: #fff; color: var(--ink); box-shadow: inset 0 0 0 2px var(--s2); }
+  .st.no { background: #fff; color: var(--acc-t); box-shadow: inset 0 0 0 2px var(--acc); }
+  .legend i.st { width: auto; height: auto; margin-right: 8px; vertical-align: middle; border-radius: 999px; }
+  .sumrow { position: absolute; left: 96px; right: 96px; border-top: 2px solid var(--ink); }
+  #tip { position: fixed; z-index: 30; pointer-events: none; background: var(--ink); color: #fff; font-size: 14px; line-height: 1.5;
+    padding: 8px 12px; border-radius: 8px; max-width: 320px; box-shadow: 0 8px 24px rgba(0, 0, 0, .25); }
+
+  /* 操控条与演讲者备注 */
+  #hud { position: fixed; right: 18px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 20; display: flex; gap: 6px; align-items: center;
+    opacity: .22; transition: opacity .3s; }
+  #hud:hover, #hud:focus-within, body.active #hud { opacity: 1; }
+  #hud button { font: inherit; font-size: 14px; border: 0; border-radius: 8px; padding: 7px 11px; background: #fff; color: var(--ink);
+    cursor: pointer; box-shadow: 0 2px 8px rgba(36, 49, 63, .16); }
+  #hud button:focus-visible { outline: 2px solid var(--blue); }
+  #pg { font: 14px var(--f-num); color: var(--ink2); padding: 0 6px; }
+  #prog { position: fixed; left: 0; bottom: 0; height: 4px; width: 0; background: var(--acc); z-index: 20; transition: width .6s var(--eo); }
+  #notes { position: fixed; left: 18px; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); z-index: 20; width: min(580px, calc(100vw - 36px));
+    max-height: 44vh; overflow: auto; background: rgba(36, 49, 63, .95); color: #fff; border-radius: 14px; padding: 14px 18px;
+    font-size: 15px; line-height: 1.7; box-sizing: border-box; }
+  #notes h4 { margin: 0 0 6px; font-size: 13px; letter-spacing: .1em; color: #FFB3A1; }
+  #notes ul { margin: 0; padding-left: 1.1em; }
+  #notes code { font-family: Consolas, monospace; }
+  aside.note { display: none; }
+</style>
+</head>
+<body>
+<style>
+  #world { width: 9200px; height: 5500px; }
+  .node { width: 76px; height: 76px; border-radius: 50%; background: var(--s1); color: #fff; font: 700 30px var(--f-num);
+    display: grid; place-items: center; box-shadow: 0 0 0 8px #fff, 0 16px 24px -12px rgba(36, 49, 63, .5); }
+  .node.k { background: var(--acc); }
+  .eq > div { font-size: 96px; }
+  .eq { gap: 30px; }
+  .chip9 { position: absolute; width: 220px; height: 52px; border-radius: 14px; background: #fff; box-sizing: border-box; padding: 0 16px;
+    display: flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 700; white-space: nowrap;
+    box-shadow: 0 2px 0 rgba(36, 49, 63, .06), 0 10px 20px -14px rgba(36, 49, 63, .4); }
+  .chip9 b { font: 700 18px var(--f-num); color: var(--s2); }
+  .chip9.k { box-shadow: inset 0 0 0 3px var(--acc), 0 10px 20px -14px rgba(36, 49, 63, .4); }
+  .chip9.k b { color: var(--acc-t); }
+  .brk { position: absolute; height: 12px; border: 3px solid var(--ink); border-top: 0; box-sizing: border-box; }
+  .film { background: var(--ink); border-radius: 22px; box-shadow: 0 0 0 10px #fff, 0 26px 40px -22px rgba(36, 49, 63, .55); }
+  .film::before, .film::after { content: ""; position: absolute; left: 34px; right: 34px; height: 14px;
+    background: repeating-linear-gradient(90deg, #fff 0 20px, transparent 20px 46px); border-radius: 4px; opacity: .85; }
+  .film::before { top: 15px; } .film::after { bottom: 15px; }
+  .film .pane { position: absolute; top: 46px; width: 322px; height: 208px; background: var(--bg); border-radius: 12px; display: grid; place-items: center; }
+  .ah { position: absolute; width: 0; height: 0; border-left: 22px solid var(--ink); border-top: 12px solid transparent; border-bottom: 12px solid transparent; }
+  @keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-10px) rotate(1.5deg); } }
+  .float.on > svg { animation: float 5s ease-in-out infinite; }
+  .float.on.f2 > svg { animation-duration: 6.5s; animation-delay: -2s; }
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+  <!-- 贴纸质感：Alpha 外扩成白描边 + 软阴影 -->
+  <filter id="stk" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+    <feMorphology in="SourceAlpha" operator="dilate" radius="10" result="d"/>
+    <feGaussianBlur in="d" stdDeviation="9" result="b"/><feOffset in="b" dy="12" result="o"/>
+    <feFlood flood-color="#24313F" flood-opacity=".26"/><feComposite in2="o" operator="in" result="sh"/>
+    <feFlood flood-color="#fff"/><feComposite in2="d" operator="in" result="w"/>
+    <feMerge><feMergeNode in="sh"/><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="stk-s" x="-50%" y="-50%" width="200%" height="200%" color-interpolation-filters="sRGB">
+    <feMorphology in="SourceAlpha" operator="dilate" radius="6" result="d"/>
+    <feGaussianBlur in="d" stdDeviation="6" result="b"/><feOffset in="b" dy="8" result="o"/>
+    <feFlood flood-color="#24313F" flood-opacity=".24"/><feComposite in2="o" operator="in" result="sh"/>
+    <feFlood flood-color="#fff"/><feComposite in2="d" operator="in" result="w"/>
+    <feMerge><feMergeNode in="sh"/><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+
+  <symbol id="i-spring" viewBox="0 0 120 260">
+    <g fill="none" stroke-linecap="round" stroke-width="13">
+      <path stroke="#9DB0C3" d="M102 38L18 52M102 66L18 80M102 94L18 108M102 122L18 136M102 150L18 164M102 178L18 192M102 206L18 220M102 234L18 248"/>
+      <path stroke="#3B5573" d="M18 24L102 38M18 52L102 66M18 80L102 94M18 108L102 122M18 136L102 150M18 164L102 178M18 192L102 206M18 220L102 234"/>
+    </g>
+  </symbol>
+  <symbol id="i-coil" viewBox="0 0 200 200">
+    <path fill="#7189A3" fill-rule="evenodd" d="M12 100a88 88 0 1 0 176 0a88 88 0 1 0-176 0ZM62 100a38 38 0 1 0 76 0a38 38 0 1 0-76 0Z"/>
+    <g fill="none" stroke="#3B5573" stroke-width="3" opacity=".55"><circle cx="100" cy="100" r="49"/><circle cx="100" cy="100" r="59"/><circle cx="100" cy="100" r="69"/><circle cx="100" cy="100" r="79"/></g>
+    <circle cx="100" cy="100" r="38" fill="none" stroke="#3B5573" stroke-width="5"/>
+    <path d="M178 126C196 148 192 176 170 192" fill="none" stroke="#3B5573" stroke-width="7" stroke-linecap="round"/>
+    <rect x="116" y="4" width="70" height="32" rx="7" fill="#FF5A36"/>
+    <text x="151" y="27" text-anchor="middle" font-size="18" font-weight="700" fill="#fff" font-family="Bahnschrift, Arial, sans-serif">65Mn</text>
+  </symbol>
+  <symbol id="i-factory" viewBox="0 0 240 200">
+    <rect x="10" y="90" width="162" height="104" fill="#C9D3DD"/>
+    <path d="M10 92V50L60 92V50L110 92V50L160 92Z" fill="#3B5573"/>
+    <rect x="170" y="40" width="62" height="154" fill="#9DB0C3"/>
+    <rect x="190" y="6" width="22" height="40" fill="#3B5573"/>
+    <rect x="28" y="116" width="28" height="24" fill="#24313F"/><rect x="72" y="116" width="28" height="24" fill="#FF5A36"/><rect x="116" y="116" width="28" height="24" fill="#24313F"/>
+    <rect x="184" y="60" width="34" height="14" fill="#fff" opacity=".8"/><rect x="184" y="86" width="34" height="14" fill="#fff" opacity=".8"/>
+    <rect x="187" y="140" width="28" height="54" fill="#24313F"/>
+  </symbol>
+  <symbol id="i-laptop" viewBox="0 0 260 180">
+    <rect x="30" y="6" width="200" height="134" rx="10" fill="#24313F"/>
+    <rect x="42" y="18" width="176" height="110" rx="4" fill="#3B5573"/>
+    <rect x="56" y="32" width="90" height="8" rx="4" fill="#fff" opacity=".85"/><rect x="56" y="46" width="60" height="6" rx="3" fill="#fff" opacity=".45"/>
+    <rect x="56" y="88" width="18" height="28" fill="#9DB0C3"/><rect x="82" y="72" width="18" height="44" fill="#9DB0C3"/>
+    <rect x="108" y="58" width="18" height="58" fill="#FF5A36"/><rect x="134" y="78" width="18" height="38" fill="#9DB0C3"/>
+    <circle cx="190" cy="82" r="20" fill="none" stroke="#9DB0C3" stroke-width="8"/>
+    <path d="M190 62a20 20 0 0 1 19 26" fill="none" stroke="#FF5A36" stroke-width="8"/>
+    <path d="M6 146H254L240 172H20Z" fill="#9DB0C3"/><rect x="108" y="146" width="44" height="6" rx="3" fill="#7189A3"/>
+  </symbol>
+  <symbol id="i-clip" viewBox="0 0 180 220">
+    <rect x="10" y="20" width="160" height="196" rx="14" fill="#3B5573"/>
+    <rect x="24" y="38" width="132" height="166" rx="6" fill="#fff"/>
+    <rect x="60" y="6" width="60" height="32" rx="9" fill="#9DB0C3"/>
+    <g fill="none" stroke="#FF5A36" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M40 74l8 8 14-16"/><path d="M40 114l8 8 14-16"/></g>
+    <rect x="40" y="148" width="20" height="20" rx="4" fill="none" stroke="#9DB0C3" stroke-width="4"/>
+    <g fill="#C9D3DD"><rect x="76" y="70" width="64" height="10" rx="5"/><rect x="76" y="110" width="52" height="10" rx="5"/><rect x="76" y="152" width="60" height="10" rx="5"/></g>
+  </symbol>
+  <symbol id="i-ai" viewBox="0 0 200 200">
+    <path d="M100 52V26" stroke="#3B5573" stroke-width="9" stroke-linecap="round"/><circle cx="100" cy="20" r="13" fill="#FF5A36"/>
+    <rect x="14" y="92" width="18" height="44" rx="7" fill="#7189A3"/><rect x="168" y="92" width="18" height="44" rx="7" fill="#7189A3"/>
+    <rect x="30" y="52" width="140" height="124" rx="32" fill="#3B5573"/>
+    <rect x="48" y="76" width="104" height="64" rx="22" fill="#24313F"/>
+    <circle cx="80" cy="108" r="11" fill="#fff"/><circle cx="120" cy="108" r="11" fill="#fff"/>
+    <rect x="84" y="150" width="32" height="8" rx="4" fill="#9DB0C3"/>
+    <path d="M176 18l6 16 16 6-16 6-6 16-6-16-16-6 16-6Z" fill="#FF5A36"/>
+  </symbol>
+  <symbol id="i-gear" viewBox="0 0 220 200">
+    <path id="gA" fill="#3B5573" fill-rule="evenodd"/><path id="gB" fill="#FF5A36" fill-rule="evenodd"/>
+  </symbol>
+  <symbol id="i-cube" viewBox="0 0 200 200">
+    <path d="M100 22L172 62L100 102L28 62Z" fill="#9DB0C3"/><path d="M28 62L100 102V182L28 142Z" fill="#3B5573"/><path d="M100 102L172 62V142L100 182Z" fill="#7189A3"/>
+    <circle cx="100" cy="62" r="11" fill="#FF5A36"/>
+  </symbol>
+  <symbol id="i-spc" viewBox="0 0 220 170">
+    <rect x="4" y="4" width="212" height="162" rx="16" fill="#fff" stroke="#C9D3DD" stroke-width="4"/>
+    <g stroke="#9DB0C3" stroke-width="3"><path d="M22 52H198"/><path d="M22 122H198"/></g><path d="M22 87H198" stroke="#C9D3DD" stroke-width="3"/>
+    <polyline points="28,100 56,80 84,96 112,72 140,90 176,36" fill="none" stroke="#3B5573" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <g fill="#3B5573"><circle cx="56" cy="80" r="6"/><circle cx="84" cy="96" r="6"/><circle cx="112" cy="72" r="6"/><circle cx="140" cy="90" r="6"/></g>
+    <circle cx="176" cy="36" r="10" fill="#FF5A36"/>
+  </symbol>
+  <symbol id="i-coins" viewBox="0 0 180 180">
+    <g fill="#9DB0C3" stroke="#3B5573" stroke-width="5"><ellipse cx="72" cy="150" rx="56" ry="18"/><ellipse cx="72" cy="130" rx="56" ry="18"/><ellipse cx="72" cy="110" rx="56" ry="18"/><ellipse cx="72" cy="90" rx="56" ry="18"/></g>
+    <circle cx="136" cy="58" r="38" fill="#FF5A36"/><text x="136" y="74" text-anchor="middle" font-size="44" font-weight="700" fill="#fff" font-family="Bahnschrift, Arial, sans-serif">¥</text>
+  </symbol>
+  <symbol id="i-ledger" viewBox="0 0 200 200">
+    <rect x="58" y="8" width="130" height="156" rx="10" fill="#9DB0C3"/><rect x="36" y="24" width="130" height="156" rx="10" fill="#C9D3DD"/>
+    <rect x="12" y="40" width="134" height="154" rx="10" fill="#fff" stroke="#C9D3DD" stroke-width="4"/>
+    <rect x="28" y="58" width="102" height="18" rx="4" fill="#3B5573"/>
+    <g fill="#C9D3DD"><rect x="28" y="88" width="60" height="10" rx="5"/><rect x="28" y="112" width="60" height="10" rx="5"/><rect x="28" y="136" width="60" height="10" rx="5"/><rect x="98" y="88" width="32" height="10" rx="5"/><rect x="98" y="112" width="32" height="10" rx="5"/></g>
+    <rect x="98" y="136" width="32" height="10" rx="5" fill="#FF5A36"/><rect x="28" y="162" width="102" height="4" fill="#3B5573"/>
+  </symbol>
+  <symbol id="i-phone" viewBox="0 0 120 220">
+    <rect x="6" y="4" width="108" height="212" rx="18" fill="#24313F"/><rect x="14" y="22" width="92" height="176" rx="8" fill="#fff"/>
+    <rect x="24" y="36" width="56" height="10" rx="5" fill="#3B5573"/>
+    <rect x="24" y="56" width="72" height="42" rx="7" fill="#E9EEF2"/><rect x="32" y="66" width="30" height="8" rx="4" fill="#9DB0C3"/><rect x="32" y="80" width="48" height="8" rx="4" fill="#3B5573"/>
+    <rect x="24" y="106" width="72" height="42" rx="7" fill="#E9EEF2"/><rect x="32" y="116" width="30" height="8" rx="4" fill="#9DB0C3"/><rect x="32" y="130" width="40" height="8" rx="4" fill="#3B5573"/>
+    <rect x="24" y="160" width="72" height="26" rx="13" fill="#FF5A36"/>
+  </symbol>
+  <symbol id="i-chat" viewBox="0 0 220 190">
+    <path d="M84 6H190a24 24 0 0 1 0 48H178l6 16-24-16H84a24 24 0 0 1 0-48Z" fill="#3B5573"/>
+    <rect x="86" y="22" width="80" height="8" rx="4" fill="#fff" opacity=".85"/><rect x="86" y="36" width="50" height="7" rx="3.5" fill="#fff" opacity=".5"/>
+    <rect x="6" y="74" width="182" height="110" rx="20" fill="#fff" stroke="#C9D3DD" stroke-width="4"/>
+    <g fill="#C9D3DD"><rect x="22" y="92" width="70" height="8" rx="4"/><rect x="22" y="110" width="70" height="8" rx="4"/><rect x="22" y="128" width="70" height="8" rx="4"/><rect x="22" y="146" width="56" height="8" rx="4"/></g>
+    <rect x="110" y="140" width="14" height="28" fill="#9DB0C3"/><rect x="130" y="118" width="14" height="50" fill="#FF5A36"/><rect x="150" y="128" width="14" height="40" fill="#9DB0C3"/>
+  </symbol>
+  <symbol id="i-win-sales" viewBox="0 0 240 180">
+    <rect width="240" height="180" rx="14" fill="#fff"/><path d="M0 14a14 14 0 0 1 14-14H226a14 14 0 0 1 14 14V28H0Z" fill="#3B5573"/>
+    <g fill="#fff" opacity=".7"><circle cx="16" cy="14" r="4"/><circle cx="30" cy="14" r="4"/><circle cx="44" cy="14" r="4"/></g>
+    <path d="M14 44H160L148 70H26Z" fill="#9DB0C3"/><path d="M28 76H146L134 102H40Z" fill="#7189A3"/><path d="M42 108H132L120 134H54Z" fill="#3B5573"/><path d="M56 140H118L108 164H66Z" fill="#FF5A36"/>
+    <g fill="#E9EEF2"><rect x="172" y="44" width="54" height="22" rx="5"/><rect x="172" y="74" width="54" height="22" rx="5"/><rect x="172" y="104" width="54" height="22" rx="5"/><rect x="172" y="134" width="54" height="22" rx="5"/></g>
+  </symbol>
+  <symbol id="i-win-cockpit" viewBox="0 0 240 180">
+    <rect width="240" height="180" rx="14" fill="#24313F"/><path d="M0 14a14 14 0 0 1 14-14H226a14 14 0 0 1 14 14V28H0Z" fill="#3B5573"/>
+    <g fill="#fff" opacity=".7"><circle cx="16" cy="14" r="4"/><circle cx="30" cy="14" r="4"/><circle cx="44" cy="14" r="4"/></g>
+    <g fill="#3B5573"><rect x="12" y="40" width="50" height="34" rx="6"/><rect x="70" y="40" width="50" height="34" rx="6"/><rect x="128" y="40" width="50" height="34" rx="6"/><rect x="186" y="40" width="42" height="34" rx="6"/></g>
+    <rect x="20" y="58" width="26" height="8" rx="4" fill="#FF5A36"/><rect x="78" y="58" width="30" height="8" rx="4" fill="#9DB0C3"/><rect x="136" y="58" width="20" height="8" rx="4" fill="#9DB0C3"/>
+    <rect x="12" y="84" width="216" height="84" rx="8" fill="#2E3D50"/>
+    <polyline points="22,150 56,128 90,138 124,104 158,118 196,94 218,100" fill="none" stroke="#FF5A36" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-win-twin" viewBox="0 0 240 180">
+    <rect width="240" height="180" rx="14" fill="#24313F"/><path d="M0 14a14 14 0 0 1 14-14H226a14 14 0 0 1 14 14V28H0Z" fill="#3B5573"/>
+    <g fill="#fff" opacity=".7"><circle cx="16" cy="14" r="4"/><circle cx="30" cy="14" r="4"/><circle cx="44" cy="14" r="4"/></g>
+    <path d="M120 54L214 104L120 154L26 104Z" fill="#3B5573"/>
+    <path d="M78 84L98 95L78 106L58 95Z" fill="#9DB0C3"/><path d="M58 95L78 106V122L58 111Z" fill="#7189A3"/><path d="M78 106L98 95V111L78 122Z" fill="#5A7390"/>
+    <path d="M124 78L144 89L124 100L104 89Z" fill="#FFA08A"/><path d="M104 89L124 100V116L104 105Z" fill="#FF5A36"/><path d="M124 100L144 89V105L124 116Z" fill="#E2401C"/>
+    <path d="M162 100L182 111L162 122L142 111Z" fill="#9DB0C3"/><path d="M142 111L162 122V138L142 127Z" fill="#7189A3"/><path d="M162 122L182 111V127L162 138Z" fill="#5A7390"/>
+  </symbol>
+  <symbol id="i-podium" viewBox="0 0 240 260">
+    <path d="M58 122C58 84 162 84 162 122Z" fill="#24313F"/><circle cx="110" cy="54" r="28" fill="#24313F"/>
+    <path d="M150 108L170 52" stroke="#24313F" stroke-width="7" stroke-linecap="round"/><rect x="160" y="22" width="26" height="40" rx="13" fill="#7189A3"/>
+    <path d="M52 120H188L174 254H66Z" fill="#3B5573"/><rect x="36" y="104" width="168" height="24" rx="9" fill="#24313F"/>
+    <circle cx="120" cy="186" r="26" fill="#FF5A36"/><path d="M108 186h24M120 174v24" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="i-head" viewBox="0 0 100 110">
+    <path d="M8 110C8 70 92 70 92 110Z" fill="currentColor"/><circle cx="50" cy="40" r="24" fill="currentColor"/>
+  </symbol>
+  <symbol id="i-camera" viewBox="0 0 240 170">
+    <circle cx="56" cy="36" r="32" fill="#7189A3"/><circle cx="56" cy="36" r="10" fill="#24313F"/>
+    <circle cx="126" cy="38" r="26" fill="#9DB0C3"/><circle cx="126" cy="38" r="8" fill="#24313F"/>
+    <rect x="10" y="44" width="160" height="112" rx="16" fill="#3B5573"/>
+    <path d="M170 76L232 48V152L170 124Z" fill="#24313F"/>
+    <circle cx="92" cy="100" r="32" fill="#24313F"/><circle cx="92" cy="100" r="16" fill="#7189A3"/>
+    <circle cx="34" cy="70" r="9" fill="#FF5A36"/>
+  </symbol>
+  <symbol id="i-play" viewBox="0 0 120 120">
+    <circle cx="60" cy="60" r="56" fill="#FF5A36"/><path d="M48 34L88 60L48 86Z" fill="#fff"/>
+  </symbol>
+  <symbol id="i-machine" viewBox="0 0 250 180">
+    <path d="M2 74H44" stroke="#9DB0C3" stroke-width="6" stroke-linecap="round"/>
+    <rect x="40" y="36" width="144" height="124" rx="14" fill="#3B5573"/>
+    <rect x="58" y="54" width="64" height="40" rx="6" fill="#24313F"/><circle cx="108" cy="64" r="5" fill="#FF5A36"/><rect x="66" y="74" width="34" height="6" rx="3" fill="#9DB0C3"/>
+    <circle cx="154" cy="74" r="15" fill="#9DB0C3"/><circle cx="154" cy="112" r="15" fill="#9DB0C3"/>
+    <rect x="18" y="152" width="214" height="22" rx="7" fill="#24313F"/>
+    <path d="M186 92L198 116L210 92L222 116L234 92" fill="none" stroke="#FF5A36" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-clock" viewBox="0 0 160 160">
+    <circle cx="80" cy="80" r="68" fill="#fff" stroke="#3B5573" stroke-width="12"/>
+    <path d="M80 80V30A50 50 0 0 1 123 105Z" fill="#FF5A36" opacity=".9"/>
+    <path d="M80 80V40M80 80L108 96" stroke="#24313F" stroke-width="8" stroke-linecap="round"/><circle cx="80" cy="80" r="8" fill="#24313F"/>
+  </symbol>
+  <symbol id="i-cap" viewBox="0 0 220 170">
+    <path d="M50 70V118C50 144 170 144 170 118V70L110 94Z" fill="#3B5573"/>
+    <path d="M110 10L210 52L110 94L10 52Z" fill="#24313F"/>
+    <path d="M110 52L188 66V120" fill="none" stroke="#FF5A36" stroke-width="6" stroke-linecap="round"/><circle cx="188" cy="128" r="10" fill="#FF5A36"/>
+  </symbol>
+  <symbol id="i-badge" viewBox="0 0 240 300">
+    <path d="M72 160L40 290L80 268L104 298L122 176Z" fill="#3B5573"/><path d="M168 160L200 290L160 268L136 298L118 176Z" fill="#7189A3"/>
+    <path id="rosette" fill="#FF5A36"/>
+    <circle cx="120" cy="120" r="78" fill="#fff"/><circle cx="120" cy="120" r="66" fill="none" stroke="#FF5A36" stroke-width="5"/>
+    <text x="120" y="158" text-anchor="middle" font-size="104" font-weight="700" fill="#24313F" font-family="Bahnschrift, Arial, sans-serif">1</text>
+  </symbol>
+</defs>
+</svg>
+
+<div id="view">
+<div id="world">
+  <svg class="route" id="route" width="9200" height="5500"></svg>
+  <div class="gap" id="gapDemo" style="left:8500px;top:1750px"><i></i>实机演示 · 九幕</div>
+  <div class="sect" style="left:300px;top:96px">01　系统</div>
+  <div class="sect" style="left:7700px;top:2120px">02　我的方式</div>
+  <div class="sect" style="left:300px;top:4120px">03　不止一套系统</div>
+
+  <!-- ===== 01 封面 ===== -->
+  <section class="frame" style="left:300px;top:300px" data-title="封面">
+    <div class="kick rise" data-b="0">ERX-001</div>
+    <h1 class="title rise" data-b="0" style="top:236px;font-size:108px;line-height:1.16;white-space:normal;width:800px">工厂 AI<br><em class="mk">数字化系统</em></h1>
+    <p class="sub rise" data-b="0" style="--d:.12s;left:96px;top:520px;width:720px">一套为弹簧厂改过的 ERP，<br>加上一个长期驻厂、会写代码、会用 AI 的人。</p>
+    <div class="rise" data-b="0" style="--d:.24s;left:96px;top:690px;display:flex;gap:14px">
+      <span class="pill">ERP</span><span class="pill">AI 工作流</span><span class="pill" style="background:var(--acc-t)">驻厂陪跑</span>
+    </div>
+    <div class="pop float" data-b="0" style="--d:.15s;--r:-18deg;--rr:-6deg;left:1290px;top:120px"><svg class="stk" width="200" height="433" viewBox="0 0 120 260"><g filter="url(#stk)"><use href="#i-spring" width="120" height="260"/></g></svg></div>
+    <div class="pop float f2" data-b="0" style="--d:.25s;--rr:5deg;left:930px;top:150px"><svg class="stk" width="300" height="208" viewBox="0 0 260 180"><g filter="url(#stk)"><use href="#i-laptop" width="260" height="180"/></g></svg></div>
+    <div class="pop float" data-b="0" style="--d:.35s;--rr:-4deg;left:880px;top:520px"><svg class="stk" width="270" height="225" viewBox="0 0 240 200"><g filter="url(#stk)"><use href="#i-factory" width="240" height="200"/></g></svg></div>
+    <div class="pop float f2" data-b="0" style="--d:.45s;--rr:8deg;left:1200px;top:560px"><svg class="stk" width="230" height="230" viewBox="0 0 200 200"><g filter="url(#stk)"><use href="#i-coil" width="200" height="200"/></g></svg></div>
+    <svg class="ov" viewBox="0 0 1600 900">
+      <g fill="none" stroke="#24313F" stroke-width="2.5">
+        <path class="draw" data-b="0" style="--d:.7s;--len:220" d="M1340 130L1430 60H1500"/>
+        <path class="draw" data-b="0" style="--d:.8s;--len:220" d="M960 170L900 100H830"/>
+        <path class="draw" data-b="0" style="--d:.9s;--len:220" d="M900 760L860 830H780"/>
+        <path class="draw" data-b="0" style="--d:1s;--len:220" d="M1410 760L1450 830H1520"/>
+      </g>
+      <g fill="#24313F"><circle data-b="0" style="--d:.7s" cx="1340" cy="130" r="6"/><circle data-b="0" style="--d:.8s" cx="960" cy="170" r="6"/><circle data-b="0" style="--d:.9s" cx="900" cy="760" r="6"/><circle data-b="0" style="--d:1s" cx="1410" cy="760" r="6"/></g>
+    </svg>
+    <div class="lbl rise" data-b="0" style="--d:.9s;left:1430px;top:20px;text-align:left">弹簧<small>压簧、拉簧</small></div>
+    <div class="lbl rise" data-b="0" style="--d:1s;left:740px;top:60px;text-align:right">系统<small>ERP + AI</small></div>
+    <div class="lbl rise" data-b="0" style="--d:1.1s;left:700px;top:820px;text-align:right">工厂</div>
+    <div class="lbl rise" data-b="0" style="--d:1.2s;left:1450px;top:820px;text-align:left">钢丝</div>
+    <aside class="note"><ul><li>开场不讲价格、不讲合作，先让客户看东西。</li><li>称呼按现场换（老板、老板娘）。</li></ul></aside>
+  </section>
+
+  <!-- ===== 02 系统全景 ===== -->
+  <section class="frame" style="left:2150px;top:300px" data-title="系统全景">
+    <div class="kick">系统全景</div><div class="no">02</div>
+    <h2 class="title rise" data-b="0">工厂常用的系统，ERX-001 做到了哪些</h2>
+    <div class="sysT">
+      <div class="sr h rise" data-b="0"><span>系统</span><span>管什么</span><span>ERX-001</span><span>说明</span></div>
+      <div class="sr rise" data-b="0" style="--d:0.15s"><b>ERP<small>企业资源计划</small></b><span>财务、采购、销售、库存连成一套账</span><span><i class="st ok" style="font-style:normal">✓ 能做</i></span><span class="why">小企业会计准则科目、增值税、三张财务报表已做好</span></div>
+      <div class="sr rise" data-b="0" style="--d:0.22s"><b>CRM<small>客户关系管理</small></b><span>线索、商机、报价、客户跟进</span><span><i class="st ok" style="font-style:normal">✓ 能做</i></span><span class="why">已接入销售漏斗，商机直接生成报价单</span></div>
+      <div class="sr rise" data-b="0" style="--d:0.29s"><b>SRM<small>供应商管理</small></b><span>询价、比价、供应商评分</span><span><i class="st ok" style="font-style:normal">✓ 能做</i></span><span class="why">补货预警时列出历史采购价和供应商评分</span></div>
+      <div class="sr rise" data-b="0" style="--d:0.36s"><b>MES<small>制造执行</small></b><span>工单、工序报工、计件、车间进度</span><span><i class="st part" style="font-style:normal">◐ 部分</i></span><span class="why">报工、计件、损耗反算已做；设备数据自动采集要接 PLC 或传感器</span></div>
+      <div class="sr rise" data-b="0" style="--d:0.43s"><b>APS<small>高级排产</small></b><span>按产能排出每台设备先做哪一单</span><span><i class="st part" style="font-style:normal">◐ 部分</i></span><span class="why">能算每台设备每天的负荷；自动优化排产还没做，先由人排</span></div>
+      <div class="sr rise" data-b="0" style="--d:0.50s"><b>QMS<small>质量管理</small></b><span>来料、过程、出货检验，不合格品处理</span><span><i class="st part" style="font-style:normal">◐ 部分</i></span><span class="why">出货检验、控制图（SPC）已做；来料检验系统自带，要按厂里的检法配</span></div>
+      <div class="sr rise" data-b="0" style="--d:0.57s"><b>WMS<small>仓库管理</small></b><span>库位、批次、盘点、扫码出入库</span><span><i class="st part" style="font-style:normal">◐ 部分</i></span><span class="why">批次、盘点、钢丝公斤与米换算已有；扫码要配扫码枪或手持终端</span></div>
+      <div class="sr rise" data-b="0" style="--d:0.64s"><b>EAM<small>设备管理</small></b><span>设备台账、保养计划、维修记录</span><span><i class="st part" style="font-style:normal">◐ 部分</i></span><span class="why">系统自带资产与保养模块，演示里没配，要先建设备台账</span></div>
+      <div class="sr rise" data-b="0" style="--d:0.71s"><b>HRM<small>人事管理</small></b><span>员工档案、考勤、工资</span><span><i class="st part" style="font-style:normal">◐ 部分</i></span><span class="why">人事模块已装，计件工资已接；考勤机对接要看厂里的设备</span></div>
+      <div class="sr rise" data-b="0" style="--d:0.78s"><b>PLM<small>产品生命周期</small></b><span>图纸版本、设计变更、研发流程</span><span><i class="st no" style="font-style:normal">✗ 暂不做</i></span><span class="why">只有 BOM 多版本；弹簧多按客户图纸生产，研发环节少，有需要再接</span></div>
+    </div>
+    <div class="legend rise" data-b="0" style="--d:1s;left:96px;top:834px"><span><i class="st ok" style="font-style:normal">✓ 能做</i>已做好</span><span><i class="st part" style="font-style:normal">◐ 部分</i>做了一部分，或系统自带、要按厂里的情况配</span><span><i class="st no" style="font-style:normal">✗ 暂不做</i>眼下用不上</span></div>
+    <aside class="note"><ul><li>这页只讲每类系统管什么、做到哪一步，不展开；下一页进九幕。</li><li>「部分」要讲清是哪一种：做了一部分，还是系统自带、要按厂里情况配。</li><li>设备采集、扫码硬件、考勤机都要看厂里现有设备，到厂摸底后再定。</li><li>PLM 被问到：客户若有自己研发的产品线，可以再谈。</li></ul></aside>
+  </section>
+
+  <!-- ===== 03 系统能做什么 ===== -->
+  <section class="frame" style="left:4000px;top:300px" data-title="系统能做什么">
+    <div class="kick">系统</div><div class="no">02</div>
+    <h2 class="title rise" data-b="0">从接单到结账，一条线走完</h2>
+    <svg class="ov" viewBox="0 0 1600 900"><path class="draw" data-b="0" style="--len:1260" d="M176 330H1424" stroke="#C9D3DD" stroke-width="10" stroke-linecap="round" fill="none"/></svg>
+    <div id="track9"></div>
+    <div class="grp rise" data-b="1" style="left:96px;top:556px">九幕之外，还有</div>
+    <div id="extras"></div>
+    <aside class="note"><ul><li>九幕快速过一遍，不展开，实机演示里再看。</li><li>「九幕之外」五项：企业信息面板、车间 3D、手机报工、AI 助手是示意页，不接系统；AI 助手还没接大模型，被问到说下一步接。</li><li>钢丝批次换算系统里已有，九幕里没演。</li></ul></aside>
+  </section>
+
+  <!-- ===== 04 进料与库存 ===== -->
+  <section class="frame" style="left:5850px;top:300px" data-title="进料与库存">
+    <div class="kick">重点</div><div class="no">03</div>
+    <h2 class="title rise" data-b="0">进多少钢丝、什么时候进，系统先算一遍</h2>
+    <div class="legend rise" data-b="0" style="left:96px;top:222px">
+      <span><i style="background:var(--s1)"></i>库存</span>
+      <span><i style="background:repeating-linear-gradient(135deg,var(--s2) 0 3px,transparent 3px 9px);box-shadow:inset 0 0 0 2px var(--s2)"></i>在途</span>
+      <span><i class="ln"></i>安全库存</span><span><i class="ln d"></i>该补货的线</span>
+    </div>
+    <div id="wire"></div>
+    <div class="card slide" data-b="1" style="left:96px;top:676px;width:448px;height:150px"><h3>补货建议</h3><p>订单、库存、在途一起算，告诉采购补哪种、补多少；补不补由人定。</p></div>
+    <div class="card slide" data-b="1" style="--d:.1s;left:576px;top:676px;width:448px;height:150px"><h3>三种补货方法对比</h3><p>按订单补、按经济批量补、定期补：压多少钱、买几次、缺不缺料。</p></div>
+    <div class="card slide" data-b="1" style="--d:.2s;left:1056px;top:676px;width:448px;height:150px"><h3>预警与选供应商</h3><p>低于安全库存就提醒，同时列出历史价和供应商的交货表现。</p></div>
+    <div class="foot rise" data-b="1" style="--d:.3s;left:96px;top:842px">对应演示第 2、8、9 幕 · 图中是演示数据</div>
+    <aside class="note"><ul><li>讲到「原材料堆满仓库」时落到中间那张卡：不是少买，而是按每种钢丝的用量和交期定怎么补。</li><li>钢丝按公斤买、按米用：系统已能按批次换算，九幕里没演，被问到再说。</li><li>悬停在横条上可看具体数字。</li></ul></aside>
+  </section>
+
+  <!-- ===== 04 进入实机演示 ===== -->
+  <section class="frame" style="left:7700px;top:300px" data-title="进入实机演示">
+    <div class="kick">实机演示</div><div class="no">04</div>
+    <h2 class="title rise" data-b="0" style="top:230px;font-size:84px;line-height:1.2;white-space:normal;width:760px">下面在<em class="mk">真系统</em>上<br>走一遍</h2>
+    <p class="sub rise" data-b="0" style="--d:.15s;left:96px;top:470px;width:700px">每一步都在系统里真实建单、真实记账。</p>
+    <div id="dots9" style="left:96px;top:590px"></div>
+    <div class="pop float" data-b="0" style="--d:.2s;--rr:-3deg;left:880px;top:200px"><svg class="stk" width="560" height="388" viewBox="0 0 260 180"><g filter="url(#stk)"><use href="#i-laptop" width="260" height="180"/></g></svg></div>
+    <div class="pop" data-b="0" style="--d:.55s;--r:40deg;--rr:0deg;left:1080px;top:250px"><svg class="stk" width="160" height="160" viewBox="0 0 120 120"><g filter="url(#stk-s)"><use href="#i-play" width="120" height="120"/></g></svg></div>
+    <aside class="note"><ul><li>切到演示站 <code>/desk/demo-rehearsal</code>，「开讲前就绪检查」18/18 再点开始。</li><li>第 5 幕后快进到第 6 幕，第 7 幕后快进到第 8 幕；<code>Alt+R</code> 重来本幕。</li><li>演示完回到这一页，按 → 继续。</li></ul></aside>
+  </section>
+
+  <!-- ===== 05 先不动原有流程 ===== -->
+  <section class="frame" style="left:7700px;top:2300px" data-title="先不动原有流程">
+    <div class="kick">交付方式</div><div class="no">05</div>
+    <h2 class="title rise" data-b="0">先不动厂里原有的流程</h2>
+    <p class="sub rise" data-b="0" style="--d:.1s;left:96px;top:214px;width:1400px">刚才看到的，是最终能做到的样子。一步一步来，不推倒重来。</p>
+    <svg class="ov" viewBox="0 0 1600 900"><g fill="none" stroke="#24313F" stroke-width="4" stroke-linecap="round">
+      <path class="draw" data-b="1" style="--len:200" d="M470 440H650"/><path d="M650 440l-16-10M650 440l-16 10" class="draw" data-b="1" style="--d:.5s;--len:40"/>
+      <path class="draw" data-b="2" style="--len:200" d="M970 440H1150"/><path d="M1150 440l-16-10M1150 440l-16 10" class="draw" data-b="2" style="--d:.5s;--len:40"/>
+    </g></svg>
+    <div class="step" data-b="0" style="--d:.2s;left:150px"><span class="pill">第一步</span><div class="ico"><svg class="stk" width="170" height="208" viewBox="0 0 180 220"><g filter="url(#stk)"><use href="#i-clip" width="180" height="220"/></g></svg></div><h3>摸清办公业务</h3><p>每个岗位做什么、和谁配合、哪些活最费时间。</p></div>
+    <div class="step" data-b="1" style="--d:.3s;left:650px"><span class="pill">第二步</span><div class="ico"><svg class="stk" width="200" height="200" viewBox="0 0 200 200"><g filter="url(#stk)"><use href="#i-ai" width="200" height="200"/></g></svg></div><h3>用 AI 工作流提效</h3><p>对账、录单、做表交给 AI，人只做判断。</p></div>
+    <div class="step" data-b="2" style="--d:.3s;left:1150px"><span class="pill" style="background:var(--acc-t)">第三步</span><div class="ico"><svg class="stk" width="220" height="200" viewBox="0 0 220 200"><g filter="url(#stk)"><use href="#i-gear" width="220" height="200"/></g></svg></div><h3>系统按厂里的做法接上</h3><p>现有的人和软件先快起来，再一步步把系统接上。</p></div>
+    <aside class="note"><ul><li>这一页把「演示的是整套 ERP，交付却从办公室开始」说圆。</li><li>AI 工作流先用现有软件导出的表格做起；以后换系统，只改取数那一层。</li><li>办公资料会不会发到外面的大模型：按资料敏感程度选模型和部署方式，事先跟老板说明。</li></ul></aside>
+  </section>
+
+  <!-- ===== 06 市场怎么收费 ===== -->
+  <section class="frame" style="left:5850px;top:2300px" data-title="市场怎么收费">
+    <div class="kick">价格</div><div class="no">06</div>
+    <h2 class="title rise" data-b="0">买到的是一套软件，还是有人帮着用起来</h2>
+    <div id="price"></div>
+    <aside class="note"><ul><li>页面上不问客户现在用的软件；客户自己提起「买了用不起来」时，接着讲只买软件和有人帮着用的差别。</li><li>标「估」的是按市场行情估算的，被问到出处如实说；拿到本地代理商报价后替换。</li><li>不说别家「派实习生」，只讲结构差别：实施完人员撤走，以后改一个报表也另报价。</li><li>ERPNext 开源，不收许可费；服务器费用谁出还没定，被问到说「另外商量」。</li></ul></aside>
+  </section>
+
+  <!-- ===== 07 按模块报价 ===== -->
+  <section class="frame" style="left:4000px;top:2300px" data-title="按模块报价">
+    <div class="kick">按模块报价 · 市场参考</div><div class="no">07</div>
+    <h2 class="title rise" data-b="0">传统 ERP 按模块收费，一项一项往上加</h2>
+    <div id="mods"></div>
+    <aside class="note"><ul><li>这一页全部是按市场行情整理的估算（约 10 个用户的小厂），不是哪一家的正式报价；被问到出处如实说。</li><li>讲到右边一列时停一下：这些在我的方式里都含在 5000 元/月里，不收许可费。</li><li>拿到本地代理商的真实报价后，替换成真实数字。</li></ul></aside>
+  </section>
+
+  <!-- ===== 08 陪跑 ===== -->
+  <section class="frame" style="left:2150px;top:2300px" data-title="像员工一样陪跑">
+    <div class="kick">陪跑</div><div class="no">07</div>
+    <h2 class="title rise" data-b="0">像厂里的一个员工那样陪跑</h2>
+    <div id="days" data-b="0" style="left:96px;top:310px;width:1092px;height:126px"></div>
+    <div id="dayLabels"></div>
+    <div class="rise" data-b="0" style="--d:1s;left:1236px;top:276px;width:280px">
+      <div class="hero num" style="font-size:104px"><span data-to="96">0</span><i>天</i></div>
+      <div class="foot" style="margin-top:10px">第一年粗算到厂天数<br>（按需那段按每月一次画）</div>
+    </div>
+    <div class="tile rise" data-b="1" style="left:96px;top:486px;width:300px;height:130px"><b class="num">7×24</b><span>小时可以联系</span></div>
+    <div class="tile rise" data-b="1" style="--d:.1s;left:420px;top:486px;width:300px;height:130px"><b class="num"><span data-to="2">0</span><i style="font-style:normal;font-size:28px"> 小时内</i></b><span>回复</span></div>
+    <div class="tile rise" data-b="1" style="--d:.2s;left:744px;top:486px;width:300px;height:130px"><b class="num"><span data-to="24">0</span><i style="font-style:normal;font-size:28px"> 小时内</i></b><span>紧急情况到厂</span></div>
+    <div class="pop" data-b="1" style="--d:.3s;--rr:-6deg;left:1120px;top:470px"><svg class="stk" width="150" height="150" viewBox="0 0 160 160"><g filter="url(#stk-s)"><use href="#i-clock" width="160" height="160"/></g></svg></div>
+    <div class="eq rise" data-b="2" style="left:96px;top:680px"><div class="me num">5000<i>元/月</i><small>我的月费</small></div><b>≈</b><div style="font-family:var(--f-cn);font-size:72px">一个文员<small>还不算社保、公积金</small></div></div>
+    <div class="card slide" data-b="2" style="--d:.2s;left:1000px;top:672px;width:504px;height:156px"><h3>还能让现有的文员更快</h3><p>对账、录单、做表这些重复的活交给 AI，人只做判断。</p></div>
+    <aside class="note"><ul><li>实施期每天在厂，这 3 个月接不了别的客户；合同写「约 3 个月」，不写死。</li><li>文员用工成本：社保单位部分约占缴费基数的 25%–30%，再加公积金；用客户厂里的实际工资说，不报具体数。</li><li>96 天是 78＋13＋5 的粗算，只为说明前期投入，不是承诺。</li></ul></aside>
+  </section>
+
+  <!-- ===== 09 每个岗位一个页面 ===== -->
+  <section class="frame" style="left:300px;top:2300px" data-title="每个岗位一个页面">
+    <div class="kick">岗位页面</div><div class="no">08</div>
+    <h2 class="title rise" data-b="0">每个岗位，一个自己的页面</h2>
+    <div id="apps"></div>
+    <p class="sub rise" data-b="0" style="--d:.1s;left:96px;top:206px;width:1400px">按厂里每个岗位单独做，打开就是自己每天要用的那几样。</p>
+    <div class="card rise" data-b="1" style="left:96px;top:600px;width:448px;height:204px;box-shadow:inset 0 0 0 3px var(--acc),0 18px 34px -18px rgba(36,49,63,.32)"><h3>员工不抵触</h3><p>花几百万上的系统，员工嫌麻烦不用，又回到 Excel 和纸单；照着原来的干活习惯做，就不抵触。</p></div>
+    <div class="card rise" data-b="2" style="left:576px;top:600px;width:448px;height:204px"><h3>培训成本低</h3><p>每个人只学自己用的那几样，上手快，不用全员停工培训。</p></div>
+    <div class="card rise" data-b="2" style="--d:.12s;left:1056px;top:600px;width:448px;height:204px"><h3>系统适应人</h3><p>为企业定制专门的系统，让系统去适应人，而不是让人去适应系统。</p></div>
+    <div class="foot rise" data-b="2" style="--d:.24s;left:96px;top:828px">点一下贴纸，在新标签页打开示意页</div>
+    <aside class="note"><ul><li>示意页不接系统；接到真系统上的岗位页面在实施期做，要算进工时。</li><li>「花几百万没人用」讲成行业里常见的情况，不点具体厂商。</li><li>不说「别人做不到」：金蝶、用友也有角色工作台和低代码，只是通用模板，或者另收开发费。</li><li>示意页把设备扩到了 11 台，比九幕大，被问到说一句。</li></ul></aside>
+  </section>
+
+  <!-- ===== 09 讲座 ===== -->
+  <section class="frame" style="left:300px;top:4300px" data-title="讲座特邀嘉宾">
+    <div class="kick">讲座</div><div class="no">09</div>
+    <h2 class="title rise" data-b="0">企业 AI 改造讲座：首家客户是长期特邀嘉宾</h2>
+    <div class="pop" data-b="0" style="--d:.15s;--rr:-3deg;left:130px;top:250px"><svg class="stk" width="220" height="238" viewBox="0 0 240 260"><g filter="url(#stk)"><use href="#i-podium" width="240" height="260"/></g></svg></div>
+    <div class="rise" data-b="0" style="--d:.4s;left:150px;top:520px"><span class="pill" style="background:var(--acc-t)">特邀嘉宾 · 首家客户</span></div>
+    <svg class="ov" viewBox="0 0 1600 900" id="lectureLines"></svg>
+    <div id="crowd"></div>
+    <div class="card rise" data-b="2" style="left:96px;top:640px;width:448px;height:186px"><h3>谁来听</h3><p>制造业中小企业的老板，不止弹簧厂，也有上下游的厂。</p></div>
+    <div class="card rise" data-b="2" style="--d:.1s;left:576px;top:640px;width:448px;height:186px"><h3>嘉宾做什么</h3><p>作为第一家做成的厂，上台讲用下来的感受。</p></div>
+    <div class="card rise" data-b="2" style="--d:.2s;left:1056px;top:640px;width:448px;height:186px"><h3>嘉宾得到什么</h3><p>在一屋子老板面前露脸，生意从台下来。</p></div>
+    <aside class="note"><ul><li>「比网上广告更容易谈成」是推断，没有数据，别说成定论。</li><li>讲到客户厂里的数据，事先征得同意。</li><li>第一场没有案例时怎么请来老板，靠的正是首家客户做出的成绩。</li></ul></aside>
+  </section>
+
+  <!-- ===== 10 视频 ===== -->
+  <section class="frame" style="left:2150px;top:4300px" data-title="拍成视频">
+    <div class="kick">视频</div><div class="no">10</div>
+    <h2 class="title rise" data-b="0">拍成视频：宣传服务，也帮客户卖货</h2>
+    <div class="pop" data-b="0" style="--d:.1s;--rr:-8deg;left:110px;top:300px"><svg class="stk" width="240" height="170" viewBox="0 0 240 170"><g filter="url(#stk)"><use href="#i-camera" width="240" height="170"/></g></svg></div>
+    <div class="film rise" data-b="0" style="--d:.2s;left:420px;top:262px;width:1090px;height:300px">
+      <div class="pane pop" data-b="1" style="left:40px"><svg class="stk" width="230" height="166" viewBox="0 0 250 180"><g filter="url(#stk-s)"><use href="#i-machine" width="250" height="180"/></g></svg></div>
+      <div class="pane pop" data-b="1" style="--d:.15s;left:384px"><svg class="stk" width="80" height="173" viewBox="0 0 120 260"><g filter="url(#stk-s)"><use href="#i-spring" width="120" height="260"/></g></svg></div>
+      <div class="pane pop" data-b="1" style="--d:.3s;left:728px"><svg class="stk" width="230" height="150" viewBox="0 0 230 150"><g filter="url(#stk-s)"><rect x="20" y="20" width="190" height="110" rx="14" fill="#fff"/></g>
+        <rect x="44" y="50" width="150" height="22" rx="4" fill="#9DB0C3"/><rect x="44" y="84" width="70" height="22" rx="4" fill="#FF5A36"/>
+        <text x="40" y="46" font-size="13" fill="#5A6B7D" font-family="Microsoft YaHei, sans-serif" text-anchor="start" dy="-4">改造前</text>
+        <text x="122" y="101" font-size="13" fill="#24313F" font-weight="700" font-family="Microsoft YaHei, sans-serif">改造后</text></svg></div>
+    </div>
+    <div class="lbl rise" data-b="1" style="left:460px;top:590px;width:322px">工厂的机器<small>它做什么</small></div>
+    <div class="lbl rise" data-b="1" style="--d:.15s;left:804px;top:590px;width:322px">做出来的弹簧<small>科普动画：用在哪、有什么用</small></div>
+    <div class="lbl rise" data-b="1" style="--d:.3s;left:1148px;top:590px;width:322px">改造前后<small>同一件事快了多少</small></div>
+    <div class="rise" data-b="2" style="left:96px;top:730px;display:flex;align-items:center;gap:20px;font-size:30px;font-weight:700">
+      <span class="tagline" style="font-size:24px">宣传我的服务</span><span>＋</span><span class="tagline" style="font-size:24px">宣传客户的产品</span><span>＝</span><span>一份力气，两边得利</span>
+    </div>
+    <aside class="note"><ul><li>拍到工人先征得本人同意；屏幕上的客户名、单价、毛利一律打码或换成演示数据。</li><li>大厂也拍案例视频，但那是给厂商自己打广告，不会帮客户科普产品；这里只讲「帮您卖货」，不说「别人都没有」。</li><li>动画很费时间，排进工时。</li></ul></aside>
+  </section>
+
+  <!-- ===== 11 培训 ===== -->
+  <section class="frame" style="left:4000px;top:4300px" data-title="一起办实战培训">
+    <div class="kick">培训</div><div class="no">11</div>
+    <h2 class="title rise" data-b="0">一起办实战培训：厂里多一份收入</h2>
+    <div class="eq rise" data-b="0" style="--d:.15s;left:96px;top:236px">
+      <div class="num"><span data-to="8000">0</span><i>元</i><small>学费（暂定）</small></div><b>×</b>
+      <div class="num"><span data-to="30">0</span><i>人</i><small>一期</small></div><b>＝</b>
+      <div class="num me"><span data-to="24">0</span><i>万</i><small>一期毛收入</small></div>
+    </div>
+    <div class="pop float" data-b="0" style="--d:.4s;--rr:6deg;left:1250px;top:220px"><svg class="stk" width="240" height="185" viewBox="0 0 220 170"><g filter="url(#stk)"><use href="#i-cap" width="220" height="170"/></g></svg></div>
+    <div class="minus rise" data-b="1" style="left:96px;top:446px">
+      <span>－ 招生</span><span>－ 场地</span><span>－ 学员保险</span><span>－ 退费</span><b>＝ 剩下的</b><b class="big">÷ 2</b><b>对半分</b>
+    </div>
+    <div class="card rise" data-b="2" style="left:96px;top:560px;width:448px;height:206px"><h3>为什么有人来学</h3><p>会把 AI 落到企业里的人很缺，能下厂练手的课很少；就业环境不好，想学实在手艺的人多。</p></div>
+    <div class="card rise" data-b="2" style="--d:.1s;left:576px;top:560px;width:448px;height:206px"><h3>学什么</h3><p>一家真实工厂的流程，以及怎样针对其中的问题动手改进。全程用演示数据。</p></div>
+    <div class="card rise" data-b="2" style="--d:.2s;left:1056px;top:560px;width:448px;height:206px"><h3>下厂怎么保密</h3><p>现场不拍照、签保密协议、买意外保险，不打乱生产。</p></div>
+    <div class="foot rise" data-b="2" style="--d:.3s;left:96px;top:800px;font-size:20px;color:var(--ink)"><b style="color:var(--acc-t)">这是以后的事：</b>系统跑稳、有了这家厂的案例，再开第一期。</div>
+    <aside class="note"><ul><li>这一页给老板看商业逻辑，「就业环境不好」不是以后招生的宣传语。</li><li>24 万是毛收入；招生是最大的一项成本，30 人能不能招满没把握，别说成利润。</li><li>收费培训和学员实习可能涉及办学资质与实习协议，开课前问清当地规定。</li></ul></aside>
+  </section>
+
+  <!-- ===== 12 转介绍 ===== -->
+  <section class="frame" style="left:5850px;top:4300px" data-title="转介绍">
+    <div class="kick">转介绍</div><div class="no">12</div>
+    <div class="hero rise" data-b="0" style="left:84px;top:170px;font-size:300px;color:var(--acc-t)"><span data-to="30">0</span>%</div>
+    <p class="rise" data-b="0" style="--d:.2s;left:96px;top:520px;margin:0;font-size:38px;font-weight:700;line-height:1.5;width:760px">介绍来的厂签约后，续约期间，<br>每年服务费的 30% 归介绍人。</p>
+    <div class="pop" data-b="1" style="--rr:-4deg;left:880px;top:180px"><svg class="stk" width="230" height="192" viewBox="0 0 240 200"><g filter="url(#stk)"><use href="#i-factory" width="240" height="200"/></g></svg></div>
+    <div class="pop" data-b="1" style="--d:.35s;--rr:4deg;left:1260px;top:180px"><svg class="stk" width="230" height="192" viewBox="0 0 240 200"><g filter="url(#stk)"><use href="#i-factory" width="240" height="200"/></g></svg></div>
+    <div class="lbl rise" data-b="1" style="left:880px;top:400px;width:230px">首家客户</div>
+    <div class="lbl rise" data-b="1" style="--d:.35s;left:1260px;top:400px;width:230px">介绍来的厂</div>
+    <svg class="ov" viewBox="0 0 1600 900"><g fill="none" stroke="#24313F" stroke-width="4" stroke-linecap="round">
+      <path class="draw" data-b="1" style="--d:.2s;--len:150" d="M1130 280H1240"/><path class="draw" data-b="1" style="--d:.5s;--len:40" d="M1240 280l-16-10M1240 280l-16 10"/>
+      <path class="draw" data-b="2" style="--len:420" stroke="#FF5A36" stroke-dasharray="none" d="M1375 450C1375 560 1300 640 1200 640"/>
+      <path class="draw" data-b="2" style="--d:.6s;--len:420" stroke="#FF5A36" d="M1000 640C920 640 880 560 880 450"/>
+    </g></svg>
+    <div class="pop" data-b="2" style="--d:.3s;left:1030px;top:560px"><svg class="stk" width="160" height="160" viewBox="0 0 180 180"><g filter="url(#stk-s)"><use href="#i-coins" width="180" height="180"/></g></svg></div>
+    <div class="rise" data-b="2" style="--d:.5s;left:1030px;top:740px;width:340px;text-align:center">
+      <div class="num" style="font-size:44px;font-weight:700">每年 <span data-to="1.8" data-dec="1">0</span> 万</div>
+      <div class="foot">按 5000 元/月算，一家</div>
+    </div>
+    <aside class="note"><ul><li>每年 30% 是有意让利，换第一个案例；有了案例、谈第二家时可以下调。</li><li>被介绍的那家，我每月实收 3500。</li></ul></aside>
+  </section>
+
+  <!-- ===== 13 第一位合作伙伴 ===== -->
+  <section class="frame" style="left:7700px;top:4300px" data-title="第一位合作伙伴" id="fPartner">
+    <div class="kick">第一位合作伙伴</div><div class="no">13</div>
+    <h2 class="title rise" data-b="0" style="top:200px;font-size:104px;line-height:1.16;white-space:normal;width:900px">不只是<br><em class="mk">第一个客户</em></h2>
+    <div class="pop float" data-b="0" style="--d:.2s;--r:30deg;--rr:-8deg;left:1190px;top:130px"><svg class="stk" width="240" height="300" viewBox="0 0 240 300"><g filter="url(#stk)"><use href="#i-badge" width="240" height="300"/></g></svg></div>
+    <div class="card rise" data-b="1" style="left:96px;top:540px;width:448px;height:230px"><span class="tag num">01</span><h3>随时可停</h3><p>不满意，下个月就停。</p></div>
+    <div class="card rise" data-b="1" style="--d:.12s;left:576px;top:540px;width:448px;height:230px"><span class="tag num">02</span><h3>一起定价</h3><p>用老板的眼光，判断别的老板能接受什么价格、什么服务。</p></div>
+    <div class="card rise" data-b="1" style="--d:.24s;left:1056px;top:540px;width:448px;height:230px"><span class="tag num">03</span><h3>互为行业参考</h3><p>我带来别处的做法，合作方带我看懂制造业。</p></div>
+    <aside class="note"><ul><li>这一页只给第一家客户；拿去找别的客户时，地址加 <code>?partner=0</code> 隐藏。</li><li>「伙伴做什么」当面说清：每月坦白讲一次值不值，同意当案例。不写成合同条款。</li><li>再按一次 → 拉远看全图，收尾。</li></ul></aside>
+  </section>
+</div>
+</div>
+
+<div id="tip" hidden></div>
+<div id="notes" hidden><h4>演讲者备注</h4><div id="notesBody"></div></div>
+<div id="prog"></div>
+<div id="hud">
+  <span id="pg"></span>
+  <button id="bPrev" aria-label="上一步">←</button>
+  <button id="bNext" aria-label="下一步">→</button>
+  <button id="bAll" title="快捷键 O">全图</button>
+  <button id="bNote" title="快捷键 N">备注</button>
+  <button id="bFull" title="快捷键 F">全屏</button>
+</div>
+<style>
+  .sect { position: absolute; font-size: 40px; font-weight: 700; letter-spacing: .1em; color: var(--s2); white-space: nowrap; }
+  .step { top: 290px; width: 300px; text-align: center; }
+  .step .ico { height: 230px; display: flex; align-items: center; justify-content: center; margin-top: 18px; }
+  .step h3 { margin: 14px 0 8px; font-size: 30px; }
+  .step p { margin: 0; font-size: 20px; line-height: 1.6; color: var(--ink2); }
+  .app { position: absolute; top: 262px; width: 250px; text-align: center; }
+  .app .lbl { margin-top: 26px; }
+  .head { position: absolute; width: 60px; height: 66px; color: var(--s3); }
+  .head.k { color: var(--acc); }
+  .htag { position: absolute; font-size: 16px; font-weight: 700; color: #fff; background: var(--ink); border-radius: 999px; padding: 3px 12px; white-space: nowrap; transform: translateX(-50%); }
+</style>
+<script src="../shared/data.js"></script>
+<script>
+(function () {
+  "use strict";
+  const D = window.SC_DATA;
+  const $ = (s, r) => (r || document).querySelector(s);
+  const $$ = (s, r) => [...(r || document).querySelectorAll(s)];
+  const fmt = (v, dec) => v.toLocaleString("zh-CN", { minimumFractionDigits: dec || 0, maximumFractionDigits: dec || 0 });
+  const el = (html) => { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content; };
+  const qs = new URLSearchParams(location.search);
+
+  /* ---------- 贴纸里要算的形状 ---------- */
+  function gear(cx, cy, ro, ri, n, hole) {
+    let d = "";
+    for (let i = 0; i < n * 4; i++) {
+      const a = (i / (n * 4)) * Math.PI * 2, r = (i % 4 < 2) ? ro : ri;
+      d += (i ? "L" : "M") + (cx + r * Math.cos(a)).toFixed(1) + " " + (cy + r * Math.sin(a)).toFixed(1);
+    }
+    return d + "Z M" + (cx + hole) + " " + cy + "a" + hole + " " + hole + " 0 1 0 " + (-2 * hole) + " 0a" + hole + " " + hole + " 0 1 0 " + (2 * hole) + " 0Z";
+  }
+  $("#gA").setAttribute("d", gear(80, 112, 66, 52, 10, 20));
+  $("#gB").setAttribute("d", gear(160, 62, 44, 34, 8, 13));
+  (function () {
+    let d = "";
+    for (let i = 0; i < 48; i++) {
+      const a = (i / 48) * Math.PI * 2, r = i % 2 ? 90 : 102;
+      d += (i ? "L" : "M") + (120 + r * Math.cos(a)).toFixed(1) + " " + (120 + r * Math.sin(a)).toFixed(1);
+    }
+    $("#rosette").setAttribute("d", d + "Z");
+  })();
+
+  /* ---------- 02 九幕一条线 ---------- */
+  const ACTS = ["接单", "备料", "采购到付款", "生产", "完工", "看车间", "交付与结账", "策略对比", "预警与选供应商"];
+  const KEY = new Set();  // 不标今天重点看哪几幕（R08 第 11 步）
+  const f2 = $("#track9").parentNode;
+  ACTS.forEach((t, i) => {
+    const x = 176 + i * 156, k = KEY.has(i + 1);
+    f2.appendChild(el(`<div class="pop" data-b="0" style="--d:${(.3 + i * .08).toFixed(2)}s;--r:-30deg;left:${x - 38}px;top:292px"><div class="node num${k ? " k" : ""}">${i + 1}</div></div>`));
+    f2.appendChild(el(`<div class="lbl rise" data-b="0" style="--d:${(.4 + i * .08).toFixed(2)}s;left:${x - 75}px;top:392px;width:150px;${k ? "color:var(--acc-t)" : ""}">${t}</div>`));
+  });
+
+  const EXTRA = [["i-win-cockpit", "240 180", "企业信息面板"], ["i-cube", "200 200", "车间 3D 看板"], ["i-phone", "120 220", "手机扫码报工"],
+    ["i-chat", "220 190", "AI 助手"], ["i-coil", "200 200", "钢丝批次换算"]];
+  EXTRA.forEach(([id, vb, t], i) => {
+    const [w, h] = vb.split(" ").map(Number), s = 120 / Math.max(w, h);
+    f2.appendChild(el(`<div class="pop" data-b="1" style="--d:${(i * .08).toFixed(2)}s;--rr:${i % 2 ? 4 : -4}deg;left:${165 + i * 280}px;top:612px;width:150px;height:130px;display:flex;align-items:flex-end;justify-content:center">
+      <svg class="stk" width="${(w * s).toFixed(0)}" height="${(h * s).toFixed(0)}" viewBox="0 0 ${vb}"><g filter="url(#stk-s)"><use href="#${id}" width="${w}" height="${h}"/></g></svg></div>`));
+    f2.appendChild(el(`<div class="lbl rise" data-b="1" style="--d:${(.15 + i * .08).toFixed(2)}s;left:${155 + i * 280}px;top:766px;width:170px">${t}</div>`));
+  });
+
+  /* ---------- 03 钢丝：库存＋在途 对 安全库存、该补货的线 ---------- */
+  const f3 = $("#wire").parentNode;
+  const X0 = 560, W = 700, MAX = 10000, sx = v => X0 + v / MAX * W;
+  [0, 2500, 5000, 7500, 10000].forEach(v => {
+    f3.appendChild(el(`<div class="tick rise" data-b="0" style="left:${sx(v)}px;top:282px;height:330px"></div>`));
+    f3.appendChild(el(`<div class="axl rise" data-b="0" style="left:${sx(v)}px;top:620px">${fmt(v)}${v === MAX ? " 公斤" : ""}</div>`));
+  });
+  D.materials.forEach((m, i) => {
+    const y = 314 + i * 104, d = (.2 + i * .15).toFixed(2);
+    const name = m.name.replace("弹簧钢丝", " ");
+    const tip = `${m.name}｜库存 ${fmt(m.stock)} 公斤，在途 ${fmt(m.onOrder)} 公斤｜安全库存 ${fmt(m.safety)}，该补货的线 ${fmt(m.rop)}｜每天用约 ${fmt(m.dailyUse)} 公斤，交货要 ${m.leadDays} 天`;
+    f3.appendChild(el(`<div class="pop" data-b="0" style="--d:${d}s;left:96px;top:${y - 22}px"><svg class="stk" width="70" height="70" viewBox="0 0 200 200"><g filter="url(#stk-s)"><use href="#i-coil" width="200" height="200"/></g></svg></div>`));
+    f3.appendChild(el(`<div class="nm rise" data-b="0" style="--d:${d}s;left:196px;top:${y - 6}px">${name}<small>每天用约 ${fmt(m.dailyUse)} 公斤</small></div>`));
+    f3.appendChild(el(`<div class="bar dk grow" data-b="0" data-tip="${tip}" style="--d:${d}s;left:${X0}px;top:${y}px;width:${m.stock / MAX * W}px;border-radius:${m.onOrder ? "0" : "0 4px 4px 0"}"></div>`));
+    if (m.onOrder) f3.appendChild(el(`<div class="bar h grow" data-b="0" data-tip="${tip}" style="--d:${(+d + .5).toFixed(2)}s;left:${sx(m.stock) + 2}px;top:${y}px;width:${m.onOrder / MAX * W - 2}px"></div>`));
+    f3.appendChild(el(`<div class="mark rise" data-b="0" style="--d:${(+d + .8).toFixed(2)}s;left:${sx(m.safety) - 1}px;top:${y - 11}px"></div>`));
+    f3.appendChild(el(`<div class="mark rop rise" data-b="0" style="--d:${(+d + .8).toFixed(2)}s;left:${sx(m.rop) - 1}px;top:${y - 11}px"></div>`));
+    const st = m.belowSafety ? `<div class="status bad">▲ 低于安全库存<small>在途 ${fmt(m.onOrder)} 公斤，${+m.arrival.slice(5, 7)} 月 ${+m.arrival.slice(8)} 日到</small></div>`
+      : m.suggestQty ? `<div class="status bad">● 该补货了<small>建议补 ${fmt(m.suggestQty)} 公斤</small></div>`
+      : `<div class="status">✓ 够用 ${m.coverDays.toFixed(0)} 天<small>不用补</small></div>`;
+    f3.appendChild(el(st.replace('class="status', `data-b="0" style="--d:${(+d + 1).toFixed(2)}s;left:1300px;top:${y - 6}px" class="rise status`)));
+  });
+
+  /* ---------- 04 九个小点 ---------- */
+  const dots = $("#dots9");
+  dots.style.cssText += ";display:flex;gap:14px";
+  ACTS.forEach((t, i) => dots.appendChild(el(`<div class="pop" data-b="0" style="--d:${(.35 + i * .06).toFixed(2)}s" title="${t}"><div class="node num${KEY.has(i + 1) ? " k" : ""}" style="width:52px;height:52px;font-size:22px;box-shadow:0 0 0 6px #fff">${i + 1}</div></div>`)));
+
+  /* ---------- 06 价格：3 年大约多少钱 ---------- */
+  const f6 = $("#price").parentNode;
+  const P0 = 560, PW = 560, PMAX = 80, px = v => P0 + v / PMAX * PW;
+  f6.appendChild(el(`<div class="legend rise" data-b="0" style="left:96px;top:222px">
+    <span><i style="background:var(--s1)"></i>能确定的部分</span>
+    <span><i style="background:repeating-linear-gradient(135deg,var(--s2) 0 3px,transparent 3px 9px);box-shadow:inset 0 0 0 2px var(--s2)"></i>可能再加到</span>
+    <span><i style="background:var(--acc)"></i>我的方式</span>
+    <span><b class="est" style="margin:0 6px 0 0">估</b>按市场行情估算</span>
+    <span style="margin-left:auto">横条：3 年大约花多少（万元）</span></div>`));
+  f6.appendChild(el(`<div class="grp rise" data-b="0" style="left:1200px;top:276px">谁按厂里的做法改、出问题找谁</div>`));
+  [0, 20, 40, 60, 80].forEach(v => {
+    f6.appendChild(el(`<div class="tick rise" data-b="0" style="left:${px(v)}px;top:300px;height:452px"></div>`));
+    f6.appendChild(el(`<div class="axl rise" data-b="0" style="left:${px(v)}px;top:276px">${v}</div>`));
+  });
+  const ROWS = [
+    { g: "只买软件", b: 1 },
+    { n: "金蝶 AI 星辰 旗舰版", s: "产供销一体化 · 4000 元/年起 · 生产管理只在旗舰版", miss: "缺：质检与控制图（功能对照表未列）；流程按软件来，不按厂里改", lo: 1.2, v: "1.2 万起", w: "自己学、自己配", b: 1,
+      t: "官网标价 4000 元/年起（未写用户数），3 年按 ×3 算。标准版、专业版没有生产管理；客户管理三个版本都有" },
+    { n: "黑湖小工单", s: "轻量 MES · 1–2 万/年", miss: "缺：财务总账、CRM 与报价；采购和销售要买旗舰版", lo: 3, hi: 7, v: "3–7 万", w: "基本不改，线上客服", b: 1,
+      t: "年费 1–2 万，实施 0，定制 0–1 万；3 年按年费 ×3 加定制算。有工单、BOM、库存、质检、计件，没有财务总账和 CRM" },
+    { g: "软件 + 一次性实施", b: 2 },
+    { n: "用友 U8+", est: 1, s: "软件 8–15 万 + 实施 5–15 万 + 年服务费", lo: 15, hi: 35, v: "15–35 万", w: "代理商；改动按人天另收", b: 2,
+      t: "估算：软件买断 8–15 万、实施 5–15 万、年服务费约为软件价的 15%" },
+    { n: "金蝶云星空", est: 1, s: "订阅约 3–8 万/年 + 代理商实施 8–20 万", lo: 17, hi: 44, v: "17–44 万", w: "代理商；每加一个流程另收几千", b: 2,
+      t: "实施 8–20 万引自代理商选型文；订阅费为估算；3 年 = 订阅 ×3 + 实施" },
+    { n: "黑湖 中型档 MES", s: "首年 10–38 万，之后每年 6–18 万", lo: 22, hi: 74, v: "22–74 万", w: "实施期改一次，人员撤走", b: 2,
+      t: "首年含实施 3–10 万、定制 2–10 万、培训 1–3 万" },
+    { g: "一个人 + 一套系统", b: 3 },
+    { n: "我的方式", s: "5000 元/月，不收软件许可费", has: "含：财务与增值税、CRM、生产与报工、质检与控制图、计件工资、补货策略、AI 工作流", me: 18, v: "18 万", w: "我，一直在改；前 3 个月每天在厂", b: 3,
+      t: "5000 × 36 个月 = 18 万" }
+  ];
+  let y = 316;
+  ROWS.forEach((r, i) => {
+    if (r.g) { f6.appendChild(el(`<div class="grp rise" data-b="${r.b}" style="left:96px;top:${y + 4}px">${r.g}</div>`)); y += 28; return; }
+    const d = ((i % 4) * .12).toFixed(2), tip = (r.t || r.s).replace(/"/g, "");
+    f6.appendChild(el(`<div class="nm slide" data-b="${r.b}" style="--d:${d}s;top:${y - 4}px${r.me ? ";color:var(--acc-t)" : ""}">${r.n}${r.est ? '<span class="est">估</span>' : ""}<small>${r.s}</small></div>`));
+    if (r.miss || r.has) f6.appendChild(el(`<div class="miss slide${r.has ? " has" : ""}" data-b="${r.b}" style="--d:${d}s;top:${y + 44}px">${r.miss || r.has}</div>`));
+    let end = P0;
+    if (r.q) { f6.appendChild(el(`<div class="bar q rise" data-b="${r.b}" style="--d:${d}s;left:${P0}px;top:${y}px;width:300px">${r.q}</div>`)); end = P0 + 300; }
+    if (r.lo != null) {
+      const w = Math.max(r.lo / PMAX * PW, 6);
+      f6.appendChild(el(`<div class="bar dk grow" data-b="${r.b}" data-tip="${tip}" style="--d:${d}s;left:${P0}px;top:${y}px;width:${w}px;${r.hi ? "border-radius:0" : ""}"></div>`));
+      end = P0 + w;
+      if (r.hi) {
+        f6.appendChild(el(`<div class="bar h grow" data-b="${r.b}" data-tip="${tip}" style="--d:${(+d + .4).toFixed(2)}s;left:${end + 2}px;top:${y}px;width:${(r.hi - r.lo) / PMAX * PW - 2}px"></div>`));
+        end = px(r.hi);
+      }
+      if (r.plus) {
+        f6.appendChild(el(`<div class="bar q rise" data-b="${r.b}" style="--d:${(+d + .7).toFixed(2)}s;left:${end + 6}px;top:${y}px;width:130px">${r.plus}</div>`));
+        end += 136; r.v = "8–20 万";
+      }
+    }
+    if (r.me) { f6.appendChild(el(`<div class="bar me grow" data-b="${r.b}" data-tip="${tip}" style="--d:${d}s;left:${P0}px;top:${y}px;width:${r.me / PMAX * PW}px"></div>`)); end = px(r.me); }
+    if (r.v) f6.appendChild(el(`<div class="val rise num" data-b="${r.b}" style="--d:${(+d + .8).toFixed(2)}s;left:${end + 12}px;top:${y}px${r.me ? ";color:var(--acc-t)" : ""}">${r.v}</div>`));
+    f6.appendChild(el(`<div class="who rise${r.me ? " me" : ""}" data-b="${r.b}" style="--d:${(+d + .3).toFixed(2)}s;left:1200px;top:${y}px">${r.w}</div>`));
+    y += r.miss || r.has ? 70 : 46;
+  });
+  f6.appendChild(el(`<p class="rise" data-b="3" style="--d:.5s;left:96px;top:${y + 4}px;margin:0;font-size:24px;font-weight:700">只买软件最便宜，但流程要<em class="mk">迁就软件</em>；买来用不起来，钱就白花了。</p>`));
+  f6.appendChild(el(`<div class="src rise" data-b="3" style="--d:.6s;left:96px;top:${y + 44}px;width:1400px">来源：金蝶 AI 星辰官网购买页 jdy.com/buy（标价「起」）；黑湖科技自家价格盘点文章；功能缺项：金蝶依据金蝶社区《旗舰版、专业版、标准版功能点区分》，黑湖小工单依据其功能清单文章；金蝶云星空实施费引自无锡代理商选型文，非官方价。标「估」的为按市场行情估算，以代理商实际报价为准。3 年合计按上述数字推算。查询日期 2026-11-05。</div>`));
+
+  /* ---------- 07 按模块报价（估算，万元） ---------- */
+  const fm = $("#mods").parentNode;
+  const M0 = 600, MW = 500, MMAX = 20, mx = v => M0 + v / MMAX * MW;
+  fm.appendChild(el(`<div class="legend rise" data-b="0" style="left:96px;top:222px">
+    <span><i style="background:var(--s1)"></i>起步价</span>
+    <span><i style="background:repeating-linear-gradient(135deg,var(--s2) 0 3px,transparent 3px 9px);box-shadow:inset 0 0 0 2px var(--s2)"></i>可能到</span>
+    <span>横条：传统 ERP 常见报价（万元，估算）</span></div>`));
+  fm.appendChild(el(`<div class="grp rise" data-b="2" style="left:1240px;top:226px;color:var(--acc-t)">我的方式</div>`));
+  [0, 5, 10, 15, 20].forEach(v => {
+    fm.appendChild(el(`<div class="tick rise" data-b="0" style="left:${mx(v)}px;top:290px;height:396px"></div>`));
+    fm.appendChild(el(`<div class="axl rise" data-b="0" style="left:${mx(v)}px;top:268px">${v}</div>`));
+  });
+  const MODS = [
+    ["财务", "总账、报表、应收应付", 1, 3, "已包含", 0],
+    ["进销存", "采购、销售、库存", 2, 5, "已包含", 0],
+    ["生产制造", "BOM、物料需求、工单", 3, 8, "已包含", 0],
+    ["车间与质量", "报工、质检、控制图；常要另买 MES", 2, 6, "已包含", 0],
+    ["销售漏斗", "线索、商机、报价", 1, 3, "已包含", 0],
+    ["手机端", "扫码报工、移动审批", .5, 2, "已包含", 0],
+    ["用户许可", "约 10 人 × 每人 0.3–0.6 万", 3, 6, "不收许可费", 1],
+    ["实施", "1500–3000 元/人天 × 30–60 人天", 4.5, 18, "含在月费里", 1]
+  ];
+  const r1 = v => (Math.round(v * 10) / 10).toString();
+  MODS.forEach(([n, sm, lo, hi, me, b], i) => {
+    const yy = 306 + i * 48, d = ((b ? i - 6 : i) * .08).toFixed(2), tip = `${n}｜${sm}｜估 ${r1(lo)}–${r1(hi)} 万`;
+    fm.appendChild(el(`<div class="nm one slide" data-b="${b}" style="--d:${d}s;top:${yy + 2}px">${n}<small>${sm}</small></div>`));
+    fm.appendChild(el(`<div class="bar dk grow" data-b="${b}" data-tip="${tip}" style="--d:${d}s;left:${M0}px;top:${yy}px;width:${lo / MMAX * MW}px;border-radius:0"></div>`));
+    fm.appendChild(el(`<div class="bar h grow" data-b="${b}" data-tip="${tip}" style="--d:${(+d + .35).toFixed(2)}s;left:${mx(lo) + 2}px;top:${yy}px;width:${(hi - lo) / MMAX * MW - 2}px"></div>`));
+    fm.appendChild(el(`<div class="val num rise" data-b="${b}" style="--d:${(+d + .7).toFixed(2)}s;left:${mx(hi) + 12}px;top:${yy}px">${r1(lo)}–${r1(hi)} 万</div>`));
+    fm.appendChild(el(`<div class="who me rise" data-b="2" style="--d:${(i * .06).toFixed(2)}s;left:1240px;top:${yy}px;color:var(--acc-t)">✓ ${me}</div>`));
+  });
+  const LO = MODS.reduce((t, m) => t + m[2], 0), HI = MODS.reduce((t, m) => t + m[3], 0);
+  fm.appendChild(el(`<div class="sumrow rise" data-b="2" style="top:704px"></div>`));
+  fm.appendChild(el(`<div class="nm rise" data-b="2" style="top:722px;font-size:26px">首年合计<small>之后每年服务费约为软件价的 15%–20%，二次开发按人天另计</small></div>`));
+  fm.appendChild(el(`<div class="val num rise" data-b="2" style="--d:.2s;left:${M0}px;top:718px;font-size:40px;line-height:44px">约 ${r1(LO)}–${r1(HI)} 万</div>`));
+  fm.appendChild(el(`<div class="val num rise" data-b="2" style="--d:.4s;left:1240px;top:718px;font-size:34px;line-height:44px;color:var(--acc-t)">5000 元/月</div>`));
+  fm.appendChild(el(`<div class="src rise" data-b="2" style="--d:.5s;left:96px;top:820px;width:1400px">以上为按市场行情整理的估算区间（约 10 个用户的小厂），不是任何一家的正式报价；各家实际价格以代理商报价为准。</div>`));
+
+  /* ---------- 08 一年 312 个工作日 ---------- */
+  const days = $("#days");
+  const STABLE = new Set([30, 35, 39, 44, 48]);
+  for (let c = 1; c <= 52; c++) for (let r = 0; r < 6; r++) {
+    const cls = c <= 13 ? "a" : (c <= 26 && r === 0) ? "b" : (STABLE.has(c) && r === 0) ? "c" : "";
+    const tip = c <= 13 ? `第 ${c} 周：每天在厂` : c <= 26 ? `第 ${c} 周：到厂一天` : STABLE.has(c) ? `第 ${c} 周：按需到厂一次` : `第 ${c} 周：远程支持`;
+    days.appendChild(el(`<i class="d ${cls}" data-tip="${tip}" style="left:${(c - 1) * 21}px;top:${r * 21}px;--d:${(c * .016).toFixed(3)}s"></i>`));
+  }
+  const f7 = days.parentNode;
+  [[1, 13, "a", "实施期 · 约 3 个月", "每天在厂"], [14, 26, "b", "运行期", "每周到厂一天"], [27, 52, "c", "稳定期", "按需到厂"]].forEach(([a, b, c, t, s], i) => {
+    const l = 96 + (a - 1) * 21, w = (b - a + 1) * 21 - 5;
+    f7.appendChild(el(`<div class="brk rise" data-b="0" style="--d:${(.4 + i * .25).toFixed(2)}s;left:${l}px;top:444px;width:${w}px"></div>`));
+    f7.appendChild(el(`<div class="lbl rise" data-b="0" style="--d:${(.5 + i * .25).toFixed(2)}s;left:${l}px;top:404px;width:${w}px;text-align:left;font-size:18px;display:flex;gap:8px;align-items:center;transform:translateY(-${i ? 0 : 0}px)"></div>`));
+  });
+  // 阶段名放到点阵上方
+  $$(".lbl", f7).filter(n => n.textContent === "" && n.style.top === "404px").forEach((n, i) => {
+    const T = [["a", "实施期 · 约 3 个月", "每天在厂"], ["b", "运行期", "每周到厂一天"], ["c", "稳定期", "按需到厂"]][i];
+    n.style.top = "258px";
+    n.innerHTML = `<i style="width:16px;height:16px;border-radius:4px;flex:none;background:var(${T[0] === "a" ? "--acc" : T[0] === "b" ? "--s1" : "--s2"})"></i>${T[1]}<span style="font-weight:400;color:var(--ink2)">${T[2]}</span>`;
+  });
+
+  /* ---------- 09 岗位页面 ---------- */
+  const f8 = $("#apps").parentNode;
+  [["i-win-cockpit", 240, 180, "../cockpit/index.html", "企业信息面板"],
+   ["i-win-sales", 240, 180, "../sales/index.html", "销售工作台"],
+   ["i-win-twin", 240, 180, "../twin/index.html", "车间 3D"],
+   ["i-phone", 120, 220, "../mobile/index.html?role=worker", "手机报工"],
+   ["i-chat", 220, 190, "../ai/index.html", "AI 助手"]].forEach(([id, w, h, href, name], i) => {
+    const s = Math.min(230 / w, 220 / h);
+    f8.appendChild(el(`<div class="app pop" data-b="0" style="--d:${(.15 + i * .1).toFixed(2)}s;--rr:${[-4, 3, -2, 5, -3][i]}deg;left:${96 + i * 286}px">
+      <a class="stklink" href="${href}" target="_blank" rel="noopener" aria-label="打开${name}示意页">
+        <div style="height:230px;display:flex;align-items:flex-end;justify-content:center"><svg class="stk" width="${(w * s).toFixed(0)}" height="${(h * s).toFixed(0)}" viewBox="0 0 ${w} ${h}"><g filter="url(#stk)"><use href="#${id}" width="${w}" height="${h}"/></g></svg></div>
+        <div class="lbl">${name}</div></a></div>`));
+  });
+
+  /* ---------- 09 讲座：台下的人 ---------- */
+  const f9 = $("#crowd").parentNode, lines = $("#lectureLines");
+  const TAG = { 3: "下游 · 买弹簧的", 12: "上游 · 卖钢丝的", 21: "别的行业" };
+  for (let r = 0; r < 3; r++) for (let c = 0; c < 9; c++) {
+    const k = r * 9 + c, x = 560 + c * 104 + (r % 2) * 40, yy = 262 + r * 112;
+    f9.appendChild(el(`<svg class="head pop${TAG[k] ? " k" : ""}" data-b="1" style="--d:${(k * .025).toFixed(3)}s;left:${x}px;top:${yy}px" viewBox="0 0 100 110"><use href="#i-head" width="100" height="110"/></svg>`));
+    if (TAG[k]) {
+      f9.appendChild(el(`<div class="htag rise" data-b="1" style="--d:${(.8 + k * .02).toFixed(2)}s;left:${x + 30}px;top:${yy + 72}px">${TAG[k]}</div>`));
+      lines.appendChild(document.createRange().createContextualFragment(
+        `<svg><path class="draw" data-b="1" style="--d:.6s;--len:900" d="M330 330C${x - 120} 230 ${x - 60} ${yy + 10} ${x + 4} ${yy + 30}" fill="none" stroke="#FF5A36" stroke-width="3" stroke-dasharray="none"/></svg>`).firstChild.firstChild);
+    }
+  }
+  $$("path", lines).forEach(p => { p.setAttribute("class", "draw"); p.setAttribute("data-b", "1"); });
+
+  /* ---------- 镜头与节拍 ---------- */
+  const view = $("#view"), world = $("#world");
+  if (qs.get("partner") === "0") $("#fPartner").remove();
+  const frames = $$(".frame");
+  frames.forEach((f, i) => { const n = $(".no", f); if (n) n.textContent = String(i + 1).padStart(2, "0"); });
+  const steps = [];
+  frames.forEach((f, fi) => {
+    const max = Math.max(0, ...$$("[data-b]", f).map(n => +n.dataset.b));
+    for (let b = 0; b <= max; b++) steps.push({ fi, b });
+  });
+  const center = f => ({ x: f.offsetLeft + 800, y: f.offsetTop + 450 });
+  /* 镜头路线：按页序连起各页中心，画在画布最底层 */
+  $("#route").innerHTML = `<path d="M${frames.map(f => { const c = center(f); return c.x + " " + c.y; }).join("L")}" fill="none" stroke="#B8C6D4" stroke-width="8" stroke-dasharray="2 22" stroke-linecap="round"/>`;
+  function fitScale() { return Math.min(innerWidth / 1690, innerHeight / 950); }
+  const ALL = { x: 4800, y: 2700, w: 9400, h: 5300 };
+  function allScale() { return Math.min(innerWidth / ALL.w, innerHeight / ALL.h) * .96; }
+  let cam = { x: center(frames[0]).x, y: center(frames[0]).y, s: fitScale() }, anim = null, overview = false;
+  function apply(c) { world.style.transform = `translate(${innerWidth / 2 - c.x * c.s}px,${innerHeight / 2 - c.y * c.s}px) scale(${c.s})`; }
+  const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  function fly(to, ms, done) {
+    cancelAnimationFrame(anim);
+    const from = { ...cam }, dist = Math.hypot(to.x - from.x, to.y - from.y);
+    const dip = Math.min(.55, dist / 6000);
+    ms = ms || Math.min(1900, 900 + dist * .25);
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) ms = 1;
+    const t0 = performance.now();
+    (function tick(now) {
+      const t = Math.min(1, (now - t0) / ms), e = ease(t);
+      cam = { x: from.x + (to.x - from.x) * e, y: from.y + (to.y - from.y) * e,
+        s: (from.s + (to.s - from.s) * e) * (1 - dip * Math.sin(Math.PI * t)) };
+      apply(cam);
+      if (t < 1) anim = requestAnimationFrame(tick); else { cam = { ...to }; apply(cam); done && done(); }
+    })(t0);
+    return ms;
+  }
+  function countUp(n, instant) {
+    const to = +n.dataset.to, dec = +(n.dataset.dec || 0);
+    if (instant) { n.textContent = fmt(to, dec); return; }
+    const t0 = performance.now(), ms = 1100;
+    (function tick(now) {
+      const t = Math.min(1, (now - t0) / ms);
+      n.textContent = fmt(to * (1 - Math.pow(1 - t, 3)), dec);
+      if (t < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+  function setBeat(f, b, instant) {
+    if (instant) f.classList.add("instant");
+    $$("[data-b]", f).forEach(n => {
+      const on = +n.dataset.b <= b, was = n.classList.contains("on");
+      n.classList.toggle("on", on);
+      if (on && !was) $$("[data-to]", n).concat(n.dataset.to ? [n] : []).forEach(c => countUp(c, instant));
+    });
+    if (instant) { void f.offsetWidth; requestAnimationFrame(() => f.classList.remove("instant")); }
+  }
+  let cur = -1;
+  function go(k, instant) {
+    k = Math.max(0, Math.min(steps.length - 1, k));
+    const prev = steps[cur], st = steps[k], f = frames[st.fi];
+    overview = false;
+    frames.forEach((g, i) => { if (i < st.fi) setBeat(g, 99, true); else if (i > st.fi) setBeat(g, -1, true); });
+    if (!prev || prev.fi !== st.fi || instant) {
+      const back = prev && k < cur;
+      if (back) setBeat(f, st.b, true); else setBeat(f, -1, true);
+      const c = center(f), ms = instant ? 0 : fly({ x: c.x, y: c.y, s: fitScale() });
+      if (instant) { cam = { x: c.x, y: c.y, s: fitScale() }; apply(cam); setBeat(f, st.b, true); }
+      else if (!back) setTimeout(() => { if (steps[cur] === st) setBeat(f, st.b); }, prev ? ms * .7 : 60);
+    } else setBeat(f, st.b);
+    cur = k;
+    $("#pg").textContent = `${st.fi + 1} / ${frames.length}`;
+    $("#prog").style.width = ((k + 1) / steps.length * 100) + "%";
+    const note = $("aside.note", f);
+    $("#notesBody").innerHTML = `<b>${f.dataset.title}</b>` + (note ? note.innerHTML : "");
+    try { const u = new URLSearchParams(location.search); u.set("p", st.fi + 1); history.replaceState(null, "", "?" + u); } catch (e) {}
+  }
+  function showAll() {
+    overview = true;
+    frames.forEach(g => setBeat(g, 99, true));
+    fly({ x: ALL.x, y: ALL.y, s: allScale() }, 1800);
+    $("#pg").textContent = `全图`;
+  }
+  const next = () => { if (overview) return; if (cur === steps.length - 1) showAll(); else go(cur + 1); };
+  const prev = () => { if (overview) { go(cur, true); return; } go(cur - 1); };
+  addEventListener("keydown", e => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    const k = e.key;
+    if (["ArrowRight", "ArrowDown", "PageDown", " ", "Enter"].includes(k)) { e.preventDefault(); next(); }
+    else if (["ArrowLeft", "ArrowUp", "PageUp", "Backspace"].includes(k)) { e.preventDefault(); prev(); }
+    else if (k === "Home") go(0, true);
+    else if (k === "End") go(steps.length - 1, true);
+    else if (k === "o" || k === "O") overview ? go(cur, true) : showAll();
+    else if (k === "n" || k === "N") $("#notes").hidden = !$("#notes").hidden;
+    else if (k === "f" || k === "F") toggleFull();
+    else if (/^[1-9]$/.test(k)) { const fi = +k - 1; const s = steps.findIndex(x => x.fi === fi); if (s >= 0) go(s); }
+  });
+  function toggleFull() { try { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); } catch (e) {} }
+  $("#bNext").onclick = next; $("#bPrev").onclick = prev;
+  $("#bAll").onclick = () => overview ? go(cur, true) : showAll();
+  $("#bNote").onclick = () => $("#notes").hidden = !$("#notes").hidden;
+  $("#bFull").onclick = toggleFull;
+  frames.forEach((f, fi) => f.addEventListener("click", e => {
+    if (!overview || e.target.closest("a")) return;
+    go(steps.findIndex(x => x.fi === fi), true); e.stopPropagation();
+  }));
+  addEventListener("resize", () => { cam.s = overview ? allScale() : fitScale(); apply(cam); });
+  let idle; addEventListener("mousemove", () => { document.body.classList.add("active"); clearTimeout(idle); idle = setTimeout(() => document.body.classList.remove("active"), 2200); });
+
+  /* 悬停提示 */
+  const tip = $("#tip");
+  document.addEventListener("mouseover", e => { const t = e.target.closest("[data-tip]"); if (t) { tip.textContent = t.dataset.tip; tip.hidden = false; } });
+  document.addEventListener("mouseout", e => { if (e.target.closest("[data-tip]")) tip.hidden = true; });
+  document.addEventListener("mousemove", e => { if (!tip.hidden) { tip.style.left = Math.min(e.clientX + 14, innerWidth - 340) + "px"; tip.style.top = (e.clientY + 16) + "px"; } });
+
+  if (qs.get("notes") === "1") $("#notes").hidden = false;
+  const p = +qs.get("p");
+  if (qs.get("all") === "1") { go(steps.length - 1, true); overview = true; frames.forEach(g => setBeat(g, 99, true)); cam = { x: ALL.x, y: ALL.y, s: allScale() }; apply(cam); }
+  else if (p >= 1) { const fi = Math.min(p, frames.length) - 1; go(steps.findIndex(x => x.fi === fi) + (qs.get("full") === "1" ? $$("[data-b]", frames[fi]).reduce((m, n) => Math.max(m, +n.dataset.b), 0) : 0), true); }
+  else go(0);
+  setTimeout(() => $("#route").classList.add("on"), 1800);
+})();
+</script>
+</body>
+</html>
