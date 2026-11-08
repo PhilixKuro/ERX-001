@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>手机端 · 华东弹簧</title>
+  <script>
+    // 深浅主题：?theme= 优先，其次沿用第二版各页共用的记忆
+    (function () {
+      var q = new URLSearchParams(location.search).get("theme"), t = "light";
+      try { t = localStorage.getItem("board-theme") || "light"; } catch (e) {}
+      if (q === "dark" || q === "light") t = q;
+      document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <style>
+    :root {
+      --bg:      #fafaf7;
+      --surface: #ffffff;
+      --fg:      #1a1916;
+      --muted:   #6b6964;
+      --border:  #e8e5df;
+      --accent:  #c96442;
+
+      --accent-soft: color-mix(in oklch, var(--accent) 14%, transparent);
+      --fg-soft:     color-mix(in oklch, var(--fg) 6%, transparent);
+
+      /* 状态色：跟模板的暖调走，低饱和；只用在小圆点、胶囊、细条上 */
+      --st-run:   #4a7c59;
+      --st-wait:  #b4862c;
+      --st-over:  #d07a3e;
+      --st-alarm: #b5432f;
+      --st-down:  #8a857c;
+      --st-idle:  #5c8794;
+
+      --font-display: 'Iowan Old Style', 'Charter', Georgia, 'Songti SC', 'STSong', serif;
+      --font-body:    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+      --font-mono:    ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+      --fs-h1: 26px;
+      --fs-h2: 20px;
+      --fs-h3: 16px;
+      --fs-body: 15px;
+      --fs-meta: 12px;
+
+      --radius-card: 18px;
+      --radius-pill: 999px;
+      --ease: cubic-bezier(.32, .72, 0, 1);
+    }
+    [data-theme="dark"] {
+      --bg:      #151412;
+      --surface: #1f1d1a;
+      --fg:      #f1ede5;
+      --muted:   #9d978c;
+      --border:  #302d28;
+      --accent:  #d9774f;
+      --st-run:   #74b086;
+      --st-wait:  #d7aa52;
+      --st-over:  #e8935a;
+      --st-alarm: #e0705a;
+      --st-down:  #8f897e;
+      --st-idle:  #7fb0bd;
+      color-scheme: dark;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html, body { margin: 0; padding: 0; min-height: 100%; }
+    body {
+      background:
+        radial-gradient(60% 80% at 50% 0%, color-mix(in oklch, var(--accent) 6%, var(--bg)) 0%, var(--bg) 60%);
+      color: var(--fg);
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: 1.4;
+      -webkit-font-smoothing: antialiased;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      padding: 32px;
+    }
+    button { font: inherit; color: inherit; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── 外框上方说明 ─── */
+    .stage { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+    .caption {
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+    }
+    .caption strong { color: var(--fg); font-weight: 500; }
+
+
+    /* ─── 手机外框 ─── */
+    .device {
+      position: relative; width: 390px; height: 844px; border-radius: 56px; padding: 12px;
+      background: linear-gradient(160deg, #2a2a2c 0%, #1a1a1c 50%, #0e0e10 100%);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.04) inset,
+        0 0 0 2px #000 inset,
+        0 28px 60px -12px rgba(0,0,0,0.45),
+        0 8px 20px -8px rgba(0,0,0,0.35);
+      isolation: isolate;
+    }
+    .device::before, .device::after {
+      content: ''; position: absolute; width: 3px; top: 100px; bottom: 100px; pointer-events: none;
+      background: linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.06) 8%, transparent 16%, transparent 84%, rgba(255,255,255,0.04) 92%, transparent 100%);
+    }
+    .device::before { left: -1px; }
+    .device::after  { right: -1px; }
+    .btn-rail { position: absolute; width: 4px; background: #0a0a0c; border-radius: 2px; }
+    .btn-rail.left-1  { left: -3px; top: 174px; height: 32px; }
+    .btn-rail.left-2  { left: -3px; top: 220px; height: 60px; }
+    .btn-rail.left-3  { left: -3px; top: 290px; height: 60px; }
+    .btn-rail.right-1 { right: -3px; top: 250px; height: 100px; }
+
+    .screen {
+      position: relative; width: 100%; height: 100%; background: var(--bg); border-radius: 44px;
+      overflow: hidden; overflow: clip; display: flex; flex-direction: column;
+    }
+    .statusbar {
+      flex: 0 0 47px; padding: 18px 26px 0; display: flex; align-items: flex-start; justify-content: space-between;
+      font-size: 15px; font-weight: 600; color: var(--fg); letter-spacing: -0.01em;
+    }
+    .statusbar .right { display: inline-flex; align-items: center; gap: 6px; }
+    .statusbar svg { width: 17px; height: 11px; fill: var(--fg); }
+    .statusbar .battery { width: 25px; }
+
+    .content {
+      flex: 1 1 auto; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; padding: 8px 0 28px;
+      scrollbar-width: none;
+    }
+    .content::-webkit-scrollbar { display: none; }
+    .home-indicator { flex: 0 0 28px; position: relative; background: color-mix(in oklch, var(--surface) 92%, transparent); }
+    .home-indicator::after {
+      content: ''; position: absolute; left: 50%; bottom: 8px; transform: translateX(-50%);
+      width: 134px; height: 5px; background: var(--fg); border-radius: 999px; opacity: 0.85;
+    }
+
+    /* ─── 版式基础件 ─── */
+    .pad     { padding-inline: 20px; }
+    .stack   { display: flex; flex-direction: column; gap: 16px; }
+    .row     { display: flex; align-items: center; gap: 12px; }
+    .row-between { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .grid-2  { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+    .section { margin-top: 22px; }
+
+    .header { padding: 8px 20px 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .header .greeting { margin: 0; }
+    .header .actions { display: flex; gap: 8px; flex: none; padding-top: 2px; }
+    .icon-btn {
+      width: 36px; height: 36px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border);
+      display: grid; place-items: center; color: var(--fg); cursor: pointer; padding: 0; flex: none;
+      transition: border-color .15s, transform .15s;
+    }
+    .icon-btn:active { transform: scale(.94); }
+    .icon-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .greeting { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+
+    .h2  { font-family: var(--font-display); font-size: var(--fs-h2); letter-spacing: -0.015em; line-height: 1.2; margin: 0; font-weight: 600; }
+    .h3  { font-size: var(--fs-h3); font-weight: 600; line-height: 1.3; margin: 0; }
+    .meta { font-family: var(--font-mono); font-size: var(--fs-meta); color: var(--muted); }
+    .num  { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    .label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px;
+      display: flex; justify-content: space-between; gap: 8px; }
+    .label span:last-child { text-transform: none; letter-spacing: 0.02em; }
+    .up { color: var(--st-run); } .down { color: var(--st-alarm); } .faint { color: var(--muted); }
+
+    /* 卡片 */
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); padding: 16px; min-width: 0; }
+    .card.tap { cursor: pointer; transition: border-color .15s, transform .15s; }
+    .card.tap:active { transform: scale(.985); }
+    .stat .num { font-size: 22px; letter-spacing: -0.02em; line-height: 1; display: block; margin-bottom: 6px; }
+    .stat .num small { font-size: 12px; margin-left: 2px; color: var(--muted); letter-spacing: 0; }
+    .stat .meta { display: block; }
+    .stat .delta { display: block; font-size: 11px; margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--muted); }
+
+    /* 强调色主卡（模板的专注卡） */
+    .hero { background: var(--accent); color: #fff; border-radius: 24px; padding: 26px 22px 22px; text-align: center; }
+    .hero .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin: 0; }
+    .hero .big { font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 64px; line-height: 1; letter-spacing: -0.04em; font-weight: 600; margin: 12px 0 8px; }
+    .hero .big small { font-size: 18px; letter-spacing: 0; margin-left: 4px; font-weight: 500; opacity: .85; }
+    .hero .sub { font-size: 13px; color: rgba(255,255,255,0.85); margin: 0 0 16px; }
+    .progress { height: 6px; background: rgba(255,255,255,0.25); border-radius: 999px; overflow: hidden; margin-bottom: 18px; }
+    .progress > span { display: block; height: 100%; background: #fff; border-radius: 999px; transition: width .5s var(--ease); }
+    .hero .btns { display: flex; justify-content: center; gap: 8px; }
+    .hero-btn { min-height: 44px; padding: 10px 22px; border: 1px solid rgba(255,255,255,0.4); background: rgba(255,255,255,0.12); color: #fff;
+      border-radius: 999px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: transform .15s; }
+    .hero-btn.primary { background: #fff; color: var(--accent); border-color: #fff; font-weight: 600; }
+    .hero-btn:active { transform: scale(.96); }
+    .hero-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* 细线列表行 */
+    .list-row { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-top: 1px solid var(--border); min-width: 0; }
+    .list-row:first-child { border-top: 0; }
+    .list-row .body { flex: 1; min-width: 0; }
+    .list-row .title { font-size: 15px; font-weight: 500; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .list-row .sub { color: var(--muted); font-size: 13px; line-height: 1.3; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .list-row .side { flex: none; text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
+    .list-row .side .num { font-size: 14px; }
+    .list-row.tap { cursor: pointer; }
+    .list-row.tap::after { content: ''; flex: none; width: 7px; height: 7px; border-top: 1.5px solid var(--muted); border-right: 1.5px solid var(--muted); transform: rotate(45deg); margin: 0 2px 0 -2px; opacity: .7; }
+    .list-row.tap:active { background: var(--fg-soft); }
+    .dot { flex: none; width: 10px; height: 10px; border-radius: 50%; background: var(--st); box-shadow: 0 0 0 4px color-mix(in oklch, var(--st) 16%, transparent); margin: 0 4px; }
+    .mini { width: 64px; height: 4px; border-radius: 999px; background: var(--fg-soft); overflow: hidden; }
+    .mini > i { display: block; height: 100%; border-radius: 999px; background: var(--st, var(--fg)); }
+
+    /* 胶囊（状态） */
+    .pill {
+      display: inline-flex; align-items: center; gap: 4px; padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+      background: color-mix(in oklch, var(--st, var(--accent)) 14%, transparent); color: var(--st, var(--accent));
+      font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em;
+    }
+    .tag { display: inline-flex; padding: 3px 9px; color: var(--muted); border: 1px solid var(--border); border-radius: 999px; font-size: 11px; white-space: nowrap; }
+    .s-run { --st: var(--st-run); } .s-wait { --st: var(--st-wait); } .s-over { --st: var(--st-over); }
+    .s-alarm { --st: var(--st-alarm); } .s-down { --st: var(--st-down); } .s-idle { --st: var(--st-idle); }
+
+    /* 在制分布条 */
+    .wip-bar { display: flex; gap: 3px; height: 8px; margin: 12px 0 10px; }
+    .wip-bar i { border-radius: 999px; background: var(--fg); }
+    .wip-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--muted); }
+    .wip-legend b { font-family: var(--font-mono); color: var(--fg); font-weight: 500; margin-left: 4px; }
+
+    /* 表单 */
+    .form label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 12px; min-width: 0; }
+    .form input, .form select {
+      display: block; width: 100%; margin-top: 6px; font: inherit; font-size: 16px; color: var(--fg); min-height: 44px;
+      background: var(--bg); border: 1px solid var(--border); border-radius: 12px; padding: 9px 12px; min-width: 0;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .form input:focus, .form select:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+    .form .grid-2 label { margin-bottom: 12px; }
+    .result { border-top: 1px solid var(--border); padding-top: 14px; margin-top: 4px; }
+    .verdict { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; }
+
+    .btn-primary, .btn-secondary {
+      display: flex; align-items: center; justify-content: center; width: 100%; min-height: 48px; padding: 14px 20px;
+      border-radius: 14px; font: inherit; font-size: 15px; cursor: pointer; transition: transform .15s;
+    }
+    .btn-primary { background: var(--accent); color: #fff; border: 0; font-weight: 600; letter-spacing: -0.005em; }
+    .btn-secondary { background: transparent; color: var(--fg); border: 1px solid var(--border); font-weight: 500; }
+    .btn-primary:active, .btn-secondary:active { transform: scale(.985); }
+    .btns-col { display: grid; gap: 10px; margin-top: 22px; }
+
+    /* 详情里的事实格 */
+    .facts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px; margin: 4px 0 6px; }
+    .facts > div { background: var(--fg-soft); border-radius: 12px; padding: 10px 12px; min-width: 0; }
+    .facts .k { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em; color: var(--muted); }
+    .facts .v { font-size: 15px; font-weight: 500; margin-top: 2px; line-height: 1.3; overflow-wrap: anywhere; }
+    .alert { display: flex; gap: 10px; align-items: flex-start; padding: 10px 0; border-top: 1px dashed var(--border); font-size: 14px; line-height: 1.4; }
+    .alert:first-child { border-top: 0; }
+    .alert .pill { flex: none; margin-top: 1px; }
+    .alert .link { cursor: pointer; text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 3px; }
+    .banner { display: flex; gap: 10px; align-items: flex-start; border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.4;
+      background: color-mix(in oklch, var(--st) 9%, var(--surface)); border: 1px solid color-mix(in oklch, var(--st) 30%, transparent); }
+    .banner .dot { margin-top: 5px; }
+    .days { display: grid; grid-template-columns: 46px minmax(0, 1fr) 40px; gap: 8px 10px; align-items: center; font-size: 12px; }
+    .days .num { text-align: right; }
+    .days .num.d { text-align: left; color: var(--muted); }
+    .days .mini { width: auto; height: 6px; }
+    .meter { display: grid; grid-template-columns: minmax(0, 1fr) 44px; gap: 10px; align-items: center; }
+    .meter .mini { width: auto; height: 6px; }
+    .meter .num { text-align: right; font-size: 13px; }
+
+    /* 工人 */
+    .me { display: flex; align-items: center; gap: 14px; }
+    .avatar { flex: none; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+      background: linear-gradient(135deg, var(--accent-soft), var(--fg-soft)), var(--surface); border: 1px solid var(--border);
+      font-family: var(--font-display); font-size: 20px; font-weight: 600; }
+    .check { flex: none; width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--border); display: grid; place-items: center; }
+    .check.done { background: var(--fg); border-color: var(--fg); }
+    .check.done::after { content: ''; width: 8px; height: 4px; border-left: 1.6px solid var(--bg); border-bottom: 1.6px solid var(--bg); transform: rotate(-45deg) translate(1px, -1px); }
+    .list-row.new { animation: rowIn .5s var(--ease); }
+    @keyframes rowIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+    .stepper { display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; gap: 8px; margin-top: 6px; }
+    .stepper button { min-height: 48px; font-size: 20px; border: 1px solid var(--border); background: var(--surface); border-radius: 12px; cursor: pointer; }
+    .stepper button:active { background: var(--fg-soft); }
+    .stepper input { margin-top: 0; text-align: center; font-family: var(--font-mono); font-size: 20px; }
+    .done-mark { width: 72px; height: 72px; border-radius: 50%; margin: 8px auto 14px; display: grid; place-items: center;
+      background: var(--accent-soft); color: var(--accent); animation: pop .45s var(--ease); }
+    .done-mark svg { width: 34px; height: 34px; stroke: currentColor; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    @keyframes pop { from { transform: scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+    .center { text-align: center; }
+
+    /* 页签栏 */
+    .tabbar {
+      flex: 0 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); padding: 8px 8px 0;
+      border-top: 1px solid var(--border); background: color-mix(in oklch, var(--surface) 92%, transparent); backdrop-filter: blur(20px);
+    }
+    .tab { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 8px 0; color: var(--muted); font-size: 10px; letter-spacing: 0.02em;
+      background: none; border: 0; cursor: pointer; transition: color .15s; }
+    .tab.active { color: var(--accent); }
+    .tab svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+    .tab.active svg { stroke-width: 2; }
+
+    .view { animation: viewIn .32s var(--ease); }
+    @keyframes viewIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    /* 底部弹层 */
+    .scrim { position: absolute; inset: 0; z-index: 20; background: rgba(20, 18, 15, .36); opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .sheet {
+      position: absolute; left: 0; right: 0; bottom: 0; max-height: 88%; z-index: 21; display: flex; flex-direction: column;
+      background: var(--surface); border-radius: 28px 28px 0 0; box-shadow: 0 -10px 40px rgba(0, 0, 0, .18);
+      transform: translateY(105%); visibility: hidden; transition: transform .38s var(--ease), visibility 0s .38s;
+    }
+    .screen.sheet-open .scrim { opacity: 1; pointer-events: auto; }
+    .screen.sheet-open .sheet { transform: none; visibility: visible; transition: transform .38s var(--ease); }
+    .sheet .grip { width: 38px; height: 5px; border-radius: 999px; background: var(--border); margin: 8px auto 0; flex: none; }
+    .sheet-head { display: flex; align-items: flex-start; gap: 12px; padding: 14px 20px 10px; flex: none; }
+    .sheet-head .t { flex: 1; min-width: 0; }
+    .sheet-head .h2 { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sheet-head #sh-badge { display: block; margin-top: 6px; }
+    .sheet-body { overflow-y: auto; padding: 4px 20px 36px; scrollbar-width: none; }
+    .sheet-body::-webkit-scrollbar { display: none; }
+    .sheet-body .label { margin-top: 20px; }
+    .sheet-body p { margin: 0 0 10px; line-height: 1.5; }
+
+    /* 扫码层 */
+    .scan { position: absolute; inset: 0; z-index: 30; background: #0f0e0c; color: #fff; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 22px; animation: fadeIn .2s; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .scan .k { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,.6); }
+    .finder { position: relative; width: 230px; height: 230px; border-radius: 28px; overflow: hidden; background: linear-gradient(135deg, #24211d, #15130f); }
+    .finder .cn { position: absolute; width: 34px; height: 34px; border: 0 solid #fff; z-index: 2; }
+    .finder .cn.tl { left: 10px; top: 10px; border-top-width: 3px; border-left-width: 3px; border-top-left-radius: 18px; }
+    .finder .cn.tr { right: 10px; top: 10px; border-top-width: 3px; border-right-width: 3px; border-top-right-radius: 18px; }
+    .finder .cn.bl { left: 10px; bottom: 10px; border-bottom-width: 3px; border-left-width: 3px; border-bottom-left-radius: 18px; }
+    .finder .cn.br { right: 10px; bottom: 10px; border-bottom-width: 3px; border-right-width: 3px; border-bottom-right-radius: 18px; }
+    .finder .code { position: absolute; left: 50%; top: 50%; width: 124px; height: 124px; transform: translate(-50%, -50%) rotate(-4deg);
+      background: repeating-conic-gradient(#efe9df 0 25%, #15130f 0 50%) 0 0 / 20px 20px; border: 8px solid #efe9df; border-radius: 6px; opacity: .85; }
+    .finder .line { position: absolute; left: 14px; right: 14px; height: 2px; background: var(--accent); box-shadow: 0 0 14px var(--accent);
+      animation: sweep 1.1s ease-in-out infinite alternate; }
+    @keyframes sweep { from { top: 16px; } to { top: 212px; } }
+    .scan .tip { font-size: 14px; color: rgba(255,255,255,.75); margin: 0; }
+    .scan .hero-btn { min-width: 120px; justify-content: center; }
+
+    /* 真手机：不画外框，整屏显示 */
+    @media (max-width: 639px), (max-height: 639px) {
+      html, body { height: 100%; overflow: hidden; }
+      body { display: block; place-items: normal; padding: 0; min-height: 0; background: var(--bg); }
+      .stage { display: block; height: 100%; }
+      .caption, .btn-rail, .statusbar, .home-indicator { display: none; }
+      .device { width: 100%; height: 100%; border-radius: 0; padding: 0; background: none; box-shadow: none; }
+      .device::before, .device::after { display: none; }
+      .screen { border-radius: 0; }
+      .content { padding-top: calc(12px + env(safe-area-inset-top)); }
+      .tabbar { padding-bottom: env(safe-area-inset-bottom); }
+      .sheet-body { padding-bottom: calc(28px + env(safe-area-inset-bottom)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="stage">
+    <div class="caption"><strong>华东弹簧</strong> · 手机端 · <span id="cap-view">生产</span></div>
+
+    <div class="device" data-od-id="device">
+      <span class="btn-rail left-1"  aria-hidden="true"></span>
+      <span class="btn-rail left-2"  aria-hidden="true"></span>
+      <span class="btn-rail left-3"  aria-hidden="true"></span>
+      <span class="btn-rail right-1" aria-hidden="true"></span>
+
+      <div class="screen" id="screen">
+        <div class="statusbar">
+          <span class="num" id="sb-clock">10:30</span>
+          <span class="right">
+            <svg viewBox="0 0 17 11" aria-hidden="true">
+              <rect x="0"  y="7" width="3" height="4" rx="0.6"/>
+              <rect x="4"  y="5" width="3" height="6" rx="0.6"/>
+              <rect x="8"  y="3" width="3" height="8" rx="0.6"/>
+              <rect x="12" y="0" width="3" height="11" rx="0.6"/>
+            </svg>
+            <svg viewBox="0 0 17 11" aria-hidden="true">
+              <path d="M8.5 1.5C5.5 1.5 2.7 2.6 0.5 4.6L2 6.1C3.8 4.5 6.1 3.6 8.5 3.6c2.4 0 4.7 0.9 6.5 2.5l1.5-1.5c-2.2-2-5-3.1-8-3.1zM3.5 7.6L5 9.1c1-0.9 2.2-1.4 3.5-1.4 1.3 0 2.5 0.5 3.5 1.4l1.5-1.5c-1.4-1.3-3.1-2-5-2-1.9 0-3.6 0.7-5 2zM6.5 10.6l2 2 2-2c-0.5-0.5-1.2-0.8-2-0.8s-1.5 0.3-2 0.8z"/>
+            </svg>
+            <svg class="battery" viewBox="0 0 25 11" aria-hidden="true">
+              <rect x="0.5" y="0.5" width="21" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-opacity="0.45"/>
+              <rect x="22" y="3.5" width="1.5" height="4" rx="0.4" fill="currentColor" fill-opacity="0.45"/>
+              <rect x="2" y="2" width="15.5" height="7" rx="1.4"/>
+            </svg>
+          </span>
+        </div>
+
+        <main class="content" id="main" data-od-id="content">
+          <div class="header" data-od-id="header">
+            <p class="greeting" id="h-greet"></p>
+            <div class="actions">
+              <button class="icon-btn" aria-label="AI 助手" title="AI 助手" onclick="askAi()">
+                <svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18.5 9.5l-4.7 1.9L12 16l-1.8-4.6L5.5 9.5l4.7-1.9z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>
+              </button>
+              <button class="icon-btn" aria-label="切换深浅" title="切换深浅" onclick="toggleTheme()">
+                <svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- 生产 -->
+          <section class="view" id="v-production" data-od-id="production">
+            <div class="pad">
+              <div class="hero" data-od-id="hero-production">
+                <p class="k">交期风险</p>
+                <div class="big" id="p-hero-n"></div>
+                <p class="sub" id="p-hero-sub"></p>
+                <div class="progress"><span id="p-hero-bar"></span></div>
+                <div class="btns">
+                  <button class="hero-btn" onclick="askAi()">AI 助手</button>
+                  <button class="hero-btn primary" onclick="scrollToEl('p-risk-sec')">看风险单</button>
+                </div>
+              </div>
+            </div>
+            <div class="pad section">
+              <p class="label"><span>今天</span><span id="p-today"></span></p>
+              <div class="grid-2" id="p-stats"></div>
+              <div class="card" style="margin-top: 10px">
+                <div class="row-between"><span class="meta">在制工单 · 按当前工序</span><span class="num" id="p-wip-n"></span></div>
+                <div class="wip-bar" id="p-wip-bar"></div>
+                <div class="wip-legend" id="p-wip-legend"></div>
+              </div>
+            </div>
+            <div class="pad section">
+              <p class="label"><span>预警</span><span id="p-alert-n"></span></p>
+              <div class="card" style="padding-block: 6px" id="p-alerts"></div>
+            </div>
+            <div class="pad section">
+              <p class="label"><span>设备</span><span>未来 6 个工作日负荷</span></p>
+              <div id="p-ws"></div>
+            </div>
+            <div class="pad section" id="p-risk-sec">
+              <p class="label"><span>交期风险单</span><span id="p-risk-n"></span></p>
+              <div id="p-risk"></div>
+            </div>
+          </section>
+
+          <!-- 销售 -->
+          <section class="view" id="v-sales" data-od-id="sales" hidden>
+            <div class="pad">
+              <div class="hero" data-od-id="hero-sales">
+                <p class="k">在谈商机</p>
+                <div class="big" id="s-hero-n"></div>
+                <p class="sub" id="s-hero-sub"></p>
+                <div class="progress"><span id="s-hero-bar"></span></div>
+                <div class="btns">
+                  <button class="hero-btn" onclick="askAi()">AI 助手</button>
+                  <button class="hero-btn primary" onclick="scrollToEl('quote-sec')">试算报价</button>
+                </div>
+              </div>
+            </div>
+            <div class="pad section">
+              <p class="label"><span>本月</span><span id="s-month"></span></p>
+              <div class="card" style="padding-block: 4px" id="s-stats"></div>
+            </div>
+            <div class="pad section">
+              <p class="label"><span>在谈商机</span><span>点开看能不能接</span></p>
+              <div id="s-deals"></div>
+            </div>
+            <div class="pad section" id="quote-sec">
+              <p class="label"><span>报价试算</span><span>改数字当场重算</span></p>
+              <div class="card form">
+                <label>客户<select id="q-customer"></select></label>
+                <label>产品<select id="q-product"></select></label>
+                <div class="grid-2">
+                  <label>数量（支）<input id="q-qty" type="number" min="1000" step="1000" inputmode="numeric"></label>
+                  <label>客户要货日<input id="q-date" type="date"></label>
+                </div>
+                <label>单价（元／支，未税）<input id="q-price" type="number" min="0" step="0.01" inputmode="decimal"></label>
+                <div class="result" id="q-result"></div>
+              </div>
+            </div>
+            <div class="pad section">
+              <p class="label"><span>应收与逾期</span><span id="s-ar-n"></span></p>
+              <div id="s-ar"></div>
+            </div>
+          </section>
+
+          <!-- 报工 -->
+          <section class="view" id="v-worker" data-od-id="worker" hidden>
+            <div class="pad">
+              <div class="me">
+                <div class="avatar" id="w-avatar"></div>
+                <div style="flex: 1; min-width: 0">
+                  <div class="h2" id="w-name"></div>
+                  <div class="meta" style="margin-top: 4px" id="w-ws"></div>
+                </div>
+              </div>
+            </div>
+            <div class="pad" style="margin-top: 16px">
+              <div class="hero" data-od-id="hero-worker">
+                <p class="k">今日计件</p>
+                <div class="big" id="w-pay"></div>
+                <p class="sub" id="w-sub"></p>
+                <div class="progress"><span id="w-bar"></span></div>
+                <div class="btns">
+                  <button class="hero-btn primary" onclick="startScan()">
+                    <svg viewBox="0 0 24 24"><path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3"/><path d="M4 12h16"/></svg>
+                    扫码报工
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="pad" id="w-banner" style="margin-top: 12px"></div>
+            <div class="pad section">
+              <p class="label"><span>今日报工</span><span id="w-good"></span></p>
+              <div id="w-log"></div>
+            </div>
+            <div class="pad section">
+              <p class="label"><span>换个工人看</span><span>演示用</span></p>
+              <div class="form"><label style="margin: 0"><select id="w-pick" aria-label="换个工人看"></select></label></div>
+            </div>
+          </section>
+        </main>
+
+        <nav class="tabbar" id="tabs" data-od-id="tabbar">
+          <button class="tab" data-v="production">
+            <svg viewBox="0 0 24 24"><path d="M3 21V10l5 3V10l5 3V7l8 4v10z"/><path d="M3 21h18M8 17h1M12 17h1M16 17h1"/></svg>
+            生产
+          </button>
+          <button class="tab" data-v="sales">
+            <svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+            销售
+          </button>
+          <button class="tab" data-v="worker">
+            <svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2h-2zM18 18h2v2h-2zM14 20v-2M20 14v2"/></svg>
+            报工
+          </button>
+        </nav>
+        <div class="home-indicator" aria-hidden="true"></div>
+
+        <div class="scrim" onclick="closeSheet()"></div>
+        <div class="sheet" aria-hidden="true" data-od-id="sheet">
+          <div class="grip"></div>
+          <div class="sheet-head">
+            <div class="t"><div class="h2" id="sh-title"></div><span id="sh-badge"></span></div>
+            <button class="icon-btn" aria-label="关闭" onclick="closeSheet()"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          </div>
+          <div class="sheet-body" id="sh-body"></div>
+        </div>
+
+        <div class="scan" id="scan" hidden>
+          <span class="k">扫码报工</span>
+          <div class="finder"><i class="cn tl"></i><i class="cn tr"></i><i class="cn bl"></i><i class="cn br"></i><div class="code"></div><div class="line"></div></div>
+          <p class="tip">对准工序卡上的二维码</p>
+          <button class="hero-btn" onclick="cancelScan()">取消</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="../shared/data.js"></script>
+<script>
+// 跳转地址按 showcase 目录结构写
+const LINK = { ai: "../ai/index-v2.html", twin: "../twin/index.html" };
+
+const d = SC_DATA, k = d.kpi, $ = (id) => document.getElementById(id);
+const P = d.get.product, WS = d.get.workstation, C = d.get.customer, SO = d.get.salesOrder;
+const yuan = (v) => "¥" + Number(v).toLocaleString("zh-CN", { maximumFractionDigits: 0 });
+const pct = (v, n = 1) => (v * 100).toFixed(n) + "%";
+const num = (v) => Number(v).toLocaleString("zh-CN");
+const hours = (m) => (m / 60).toFixed(m < 600 ? 1 : 0) + " 小时";
+const md = (s) => +s.slice(5, 7) + "-" + s.slice(8);
+const pill = (st, text) => `<span class="pill s-${st}">${text}</span>`;
+const riskPill = { late: pill("alarm", "延误"), tight: pill("wait", "偏紧"), ok: pill("run", "正常") };
+const ctpPill = (c) => c.slackDays < 0 ? pill("alarm", "晚 " + -c.slackDays + " 天") : c.slackDays === 0 ? pill("wait", "刚好赶上") : pill("run", "能接");
+const stagePill = { Qualification: "idle", "Demo/Making": "idle", "Proposal/Quotation": "wait", Negotiation: "over", "Ready to Close": "run", Won: "run", Lost: "down" };
+const loadSt = (w) => w.load > 1 ? "over" : w.load > 0.85 ? "wait" : "run";
+const loadStOf = (v) => v > 1 ? "over" : v > 0.85 ? "wait" : "run";
+const mini = (v, st) => `<div class="mini s-${st}"><i style="width: ${Math.min(v, 1) * 100}%"></i></div>`;
+const meter = (v, st) => `<div class="meter">${mini(v, st)}<span class="num">${Math.round(v * 100)}%</span></div>`;
+const facts = (list) => `<div class="facts">${list.map(([kk, v]) => `<div><div class="k">${kk}</div><div class="v">${v}</div></div>`).join("")}</div>`;
+const dot = (st) => `<span class="dot s-${st}"></span>`;
+const woById = Object.fromEntries(d.workOrders.map((w) => [w.id, w]));
+const shortName = (n) => n.replace("HDTH 场景", "");
+const week = "日一二三四五六"[new Date(d.today + "T00:00:00").getDay()];
+const dateText = `周${week} · ${+d.today.slice(5, 7)}/${+d.today.slice(8)}`;
+$("sb-clock").textContent = d.nowClock;
+
+function toggleTheme() {
+  const t = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem("board-theme", t); } catch (e) {}
+}
+// 只滚内容区；scrollIntoView 会连带滚动外层的 .screen，把页签栏和底部横条顶上去
+function scrollToEl(id) {
+  const main = $("main"), top = $(id).getBoundingClientRect().top - main.getBoundingClientRect().top + main.scrollTop - 8;
+  main.scrollTo({ top, behavior: "smooth" });
+}
+// 兜底：输入框获得焦点等情况浏览器仍可能滚动外层，一律拉回
+["screen"].forEach((id) => { const el = $(id); el.addEventListener("scroll", () => { if (el.scrollTop || el.scrollLeft) el.scrollTo(0, 0); }); });
+
+// ---------- 页签 ----------
+const viewName = { production: "生产", sales: "销售", worker: "报工" };
+let current = "production";
+function show(v) {
+  current = v;
+  Object.keys(viewName).forEach((x) => { $("v-" + x).hidden = x !== v; });
+  document.querySelectorAll("#tabs .tab").forEach((b) => b.classList.toggle("active", b.dataset.v === v));
+  $("cap-view").textContent = viewName[v];
+  if (v === "worker") renderWorker(); else setHead(d.roles[v].title);
+  $("main").scrollTop = 0; closeSheet();
+}
+function setHead(who) { $("h-greet").textContent = dateText + " · " + who; }
+document.querySelectorAll("#tabs .tab").forEach((b) => { b.onclick = () => show(b.dataset.v); });
+function askAi() { location.href = LINK.ai + "?role=" + (current === "sales" ? "sales" : "production"); }
+
+// ---------- 底部弹层 ----------
+function openSheet(title, badgeHtml, body) {
+  $("sh-title").textContent = title; $("sh-badge").innerHTML = badgeHtml || ""; $("sh-badge").hidden = !badgeHtml;
+  $("sh-body").innerHTML = body; $("sh-body").scrollTop = 0;
+  $("screen").classList.add("sheet-open"); document.querySelector(".sheet").setAttribute("aria-hidden", "false");
+}
+function closeSheet() { $("screen").classList.remove("sheet-open"); document.querySelector(".sheet").setAttribute("aria-hidden", "true"); }
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") { cancelScan(); closeSheet(); } });
+
+// ==================== 生产 ====================
+const last = d.monthly[d.monthly.length - 1], prev = d.monthly[d.monthly.length - 2], mb = k.marginBridge;
+const busiest = d.workstations.reduce((a, b) => (b.load > a.load ? b : a)), defDelta = last.defectRate - prev.defectRate;
+const risky = d.workOrders.filter((w) => w.risk !== "ok").sort((a, b) => a.slackDays - b.slackDays);
+
+$("p-hero-n").innerHTML = `${k.riskOrders}<small>张</small>`;
+$("p-hero-sub").textContent = `其中 ${k.lateOrders} 张会延误 · 在制共 ${k.wipOrders} 张`;
+$("p-hero-bar").style.width = (k.riskOrders / k.wipOrders) * 100 + "%";
+$("p-today").textContent = d.today;
+
+const stat = ([l, v, u, delta, click]) => `<div class="card stat${click ? " tap" : ""}"${click ? ` onclick="${click}"` : ""}>
+  <span class="num">${v}<small>${u || ""}</small></span><span class="meta">${l}</span><span class="delta">${delta}</span></div>`;
+$("p-stats").innerHTML = [
+  ["平均负荷", Math.round(k.avgLoad * 100), "%", `<span class="down">${busiest.id} ${Math.round(busiest.load * 100)}%</span>`, `openWs('${busiest.id}')`],
+  ["准时交付率", Math.round(k.onTimeRate * 100), "%", `<span class="up">较上月 +${Math.round((last.onTimeRate - prev.onTimeRate) * 100)} 个点</span>`],
+  ["本月不良率", (k.defectRate * 100).toFixed(1), "%", `<span class="${defDelta <= 0 ? "up" : "down"}">较上月 ${defDelta <= 0 ? "−" : "+"}${Math.abs(defDelta * 100).toFixed(1)} 个点</span>`],
+  ["本月毛利率", (mb.actual * 100).toFixed(1), "%", `<span class="down">按标准成本应有 ${(mb.standard * 100).toFixed(1)}%</span>`],
+].map(stat).join("");
+
+$("p-wip-n").textContent = k.wipOrders + " 张";
+const wipOpacity = [1, .78, .6, .45, .34, .25, .18];
+$("p-wip-bar").innerHTML = k.wipByOp.map((x, i) => `<i style="flex: ${x.count}; opacity: ${wipOpacity[i]}"></i>`).join("");
+$("p-wip-legend").innerHTML = k.wipByOp.map((x) => `<span>${x.op}<b>${x.count}</b></span>`).join("");
+
+$("p-alert-n").textContent = k.alerts.length + " 条";
+$("p-alerts").innerHTML = k.alerts.map((a) => {
+  const ws = d.workstations.find((w) => a.text.startsWith(w.id)), wo = d.workOrders.find((w) => a.text.startsWith(w.salesOrder));
+  const click = ws ? ` class="link" onclick="openWs('${ws.id}')"` : wo ? ` class="link" onclick="openWo('${wo.id}')"` : "";
+  return `<div class="alert">${pill(a.level, a.level === "alarm" ? "严重" : a.level === "over" ? "负荷" : "提醒")}<span${click}>${a.text}</span></div>`;
+}).join("");
+
+$("p-ws").innerHTML = d.workstations.map((w) => {
+  const sub = w.current && ["run", "over", "alarm"].includes(w.status) ? `在做 ${w.current.workOrder.slice(-5)} ${w.current.op}` : (d.statusNote[w.id] || d.statusText[w.status]);
+  return `<div class="list-row tap" onclick="openWs('${w.id}')">${dot(w.status)}
+    <div class="body"><div class="title">${w.id} <span class="pill s-${w.status}" style="vertical-align: 2px; margin-left: 4px">${d.statusText[w.status]}</span></div><div class="sub">${sub}</div></div>
+    <div class="side"><span class="num">${Math.round(w.load * 100)}%</span>${mini(w.load, loadSt(w))}<span class="meta" style="font-size: 10.5px">排到 ${md(w.freeDate)}</span></div></div>`;
+}).join("");
+
+$("p-risk-n").textContent = `${risky.length} 张，${k.lateOrders} 张会延误`;
+$("p-risk").innerHTML = risky.map((w) => `<div class="list-row tap" onclick="openWo('${w.id}')">${dot(w.risk === "late" ? "alarm" : "wait")}
+  <div class="body"><div class="title">${w.salesOrder.slice(-5)} · ${w.customer}</div><div class="sub">交期 ${md(w.delivery)}，预计 ${md(w.finishDate)} 完工 · 在${w.currentOp}</div></div>
+  <div class="side">${w.risk === "late" ? pill("alarm", "晚 " + -w.slackDays + " 天") : pill("wait", "当天完工")}</div></div>`).join("");
+
+function openWs(id) {
+  const w = WS(id);
+  const note = d.statusNote[id] ? `<div class="banner s-${w.status}">${dot(w.status)}<span>${d.statusNote[id]}</span></div>` : "";
+  const rows = d.workOrders.flatMap((x) => x.operations.filter((o) => o.workstation === id && o.remainMin > 0).map((o) => ({ w: x, o })))
+    .sort((a, b) => a.o.start - b.o.start);
+  const days = w.loadByDay.map((x) => `<span class="num d">${md(x.date)}</span>${mini(x.load, loadStOf(x.load))}<span class="num">${Math.round(x.load * 100)}%</span>`).join("");
+  openSheet(id, pill(w.status, d.statusText[w.status]), note +
+    facts([["未来 6 天负荷", `<span class="${w.load > 1 ? "down" : ""}">${Math.round(w.load * 100)}%</span>`], ["已排工时", hours(w.backlogMin)],
+      ["排到", w.freeDate], ["操作者", shortName(w.operator)]]) +
+    `<p class="label"><span>每天负荷</span></p><div class="days">${days}</div>` +
+    (w.beyondMin ? `<p class="meta" style="margin-top: 10px">另有 ${hours(w.beyondMin)} 排到第 7 个工作日以后</p>` : "") +
+    `<p class="label"><span>排在这台设备上的工序</span><span>${rows.length} 道</span></p>` +
+    (rows.length ? rows.map(({ w: x, o }) => `<div class="list-row tap" onclick="openWo('${x.id}')">
+      <div class="body"><div class="title">${x.id.slice(-5)} ${o.op} · ${x.customer}</div><div class="sub">${md(o.startDate)} 开工，${hours(o.remainMin)}，完成 ${Math.round(o.done * 100)}%</div></div>
+      <div class="side">${riskPill[x.risk]}</div></div>`).join("") : `<p class="faint">没有排单</p>`) +
+    `<div class="btns-col"><a class="btn-primary" href="${LINK.twin}?ws=${encodeURIComponent(id)}">到车间看</a></div>`);
+}
+function openWo(id) {
+  const w = woById[id], so = SO(w.salesOrder);
+  openSheet(w.salesOrder.slice(-5) + " · " + w.customer, w.risk === "late" ? pill("alarm", "晚 " + -w.slackDays + " 天") : riskPill[w.risk],
+    facts([["产品", P(w.product).name], ["数量", num(so.qty) + " 支"], ["交期", w.delivery], ["预计完工", w.finishDate],
+      ["工单", w.id.slice(-9)], ["计划投产", num(w.plannedQty) + " 支"]]) +
+    (w.materialNote ? `<div class="banner s-wait" style="margin-top: 8px">${dot("wait")}<span>${w.materialNote}</span></div>` : "") +
+    `<p class="label"><span>各工序进度</span><span>${w.operations.length} 道</span></p>` +
+    w.operations.map((o) => `<div class="list-row"><span class="check${o.done >= 1 ? " done" : ""}"></span>
+      <div class="body"><div class="title">${o.op} · ${o.workstation}</div><div class="sub">${o.done >= 1 ? "已完工" : `${md(o.startDate)} 开工，${md(o.endDate)} 完工`}</div></div>
+      <div class="side" style="width: 96px">${meter(o.done, o.done >= 1 ? "run" : "over")}</div></div>`).join(""));
+}
+
+// ==================== 销售 ====================
+const openDeals = d.deals.filter((x) => x.ctp);
+$("s-hero-n").innerHTML = `${(k.pipeline / 10000).toFixed(1)}<small>万元</small>`;
+$("s-hero-sub").textContent = `加权 ${yuan(k.weightedPipeline)} · 按赢率折算`;
+$("s-hero-bar").style.width = (k.weightedPipeline / k.pipeline) * 100 + "%";
+$("s-month").textContent = last.month;
+$("s-stats").innerHTML = [
+  ["本月销售额", yuan(k.monthRevenue), `<span class="up">较上月 +${pct(k.monthRevenueDelta)}</span>`],
+  ["应收账款", yuan(k.receivable), `<span class="down">逾期 ${yuan(k.overdue)}</span>`],
+  ["在手订单", yuan(k.openOrderAmount), `<span class="down">${k.riskOrders} 单有风险，${k.lateOrders} 单会晚</span>`],
+].map(([l, v, delta]) => `<div class="list-row"><div class="body"><div class="title" style="font-weight: 400">${l}</div><div class="sub" style="font-size: 12px">${delta}</div></div>
+  <span class="num" style="font-size: 20px; letter-spacing: -0.02em">${v}</span></div>`).join("");
+
+const dealOrder = ["Ready to Close", "Negotiation", "Proposal/Quotation", "Demo/Making", "Qualification"];
+$("s-deals").innerHTML = openDeals.slice().sort((a, b) => dealOrder.indexOf(a.status) - dealOrder.indexOf(b.status)).map((x) => `<div class="list-row tap" onclick="openDeal('${x.id}')">
+  <div class="body"><div class="title">${x.customer} · ${num(x.qty)} 支</div><div class="sub">${P(x.product).name} · ${yuan(x.amount)} · 要 ${md(x.wantDate)}</div></div>
+  <div class="side">${pill(stagePill[x.status], d.dealStatus[x.status])}${ctpPill(x.ctp)}</div></div>`).join("");
+
+function openDeal(id) {
+  const x = d.deals.find((y) => y.id === id), c = x.ctp, b = c.bottleneck;
+  const verdict = c.ok ? `按现有排程 <b class="num">${c.finishDate}</b> 能完工，比客户要的早 ${c.slackDays} 个工作日`
+    : `按现有排程最早 <b class="num">${c.finishDate}</b> 完工，比客户要的 ${c.wantDate} 晚 <b class="down">${-c.slackDays}</b> 个工作日`;
+  openSheet(x.customer, pill(stagePill[x.status], d.dealStatus[x.status]),
+    facts([["产品", P(x.product).name], ["数量", num(x.qty) + " 支"], ["金额（未税）", yuan(x.amount)], ["赢率", x.probability + "%"]]) +
+    `<p class="label"><span>能不能接</span></p><div class="verdict">${ctpPill(c)}</div><p>${verdict}。</p>` +
+    `<div class="alert">${pill("over", "卡点")}<span>${b.op}（${b.workstation}）要等 ${hours(b.waitMin)}、做 ${hours(b.runMin)}</span></div>` +
+    (c.material ? `<div class="alert">${pill("wait", "钢丝")}<span>${c.material}</span></div>` : "") +
+    `<p class="label"><span>各工序排到哪天</span></p>` + c.steps.map((s) => `<div class="list-row"><div class="body"><div class="title">${s.op} · ${s.workstation}</div><div class="sub">${s.waitMin > 0 ? "等 " + hours(s.waitMin) + "，" : ""}做 ${hours(s.runMin)}</div></div>
+      <div class="side"><span class="num" style="font-size: 13px">${md(s.start)} → ${md(s.end)}</span></div></div>`).join("") +
+    `<div class="btns-col"><button class="btn-primary" onclick="quoteFor('${id}')">按这单试算报价</button>
+      <button class="btn-secondary" onclick="openCustomer('${x.customer}')">看客户档案</button></div>`);
+}
+
+// 报价试算：调 data.js 的 quote()，与销售工作台同一套算法
+$("q-customer").innerHTML = d.customers.map((c) => `<option>${c.name}</option>`).join("");
+$("q-product").innerHTML = d.products.map((p) => `<option value="${p.code}">${p.name}</option>`).join("");
+function setQuote(customer, product, qty, date, price) {
+  $("q-customer").value = customer; $("q-product").value = product; $("q-qty").value = qty; $("q-date").value = date; $("q-price").value = price;
+  renderQuote();
+}
+function renderQuote() {
+  const qty = Math.max(0, +$("q-qty").value || 0), date = $("q-date").value;
+  if (!qty || !date) { $("q-result").innerHTML = `<p class="faint" style="margin: 0">填数量和要货日</p>`; return; }
+  const q = d.quote($("q-customer").value, $("q-product").value, qty, date, +$("q-price").value);
+  $("q-result").innerHTML = `<div class="verdict">${ctpPill(q.ctp)}<span class="meta">最早 ${q.ctp.finishDate} 完工</span></div>` +
+    facts([["含税金额", yuan(q.withTax)], ["毛利率", `<span class="${q.margin < 0.2 ? "down" : ""}">${Math.round(q.margin * 100)}%</span>`],
+      ["接下后信用占用", `<span class="${q.creditOk ? "" : "down"}">${Math.round(q.usageAfter * 100)}%</span>`], ["账期", q.termDays + " 天"]]) +
+    (q.warnings.length ? q.warnings.map((w) => `<div class="alert">${pill(w.level, w.level === "alarm" ? "注意" : "提醒")}<span>${w.text}</span></div>`).join("")
+      : `<div class="alert">${pill("run", "可以报")}<span>交期、钢丝、信用、毛利都没问题</span></div>`);
+}
+["q-customer", "q-product", "q-qty", "q-date", "q-price"].forEach((id) => { $(id).oninput = renderQuote; });
+$("q-product").addEventListener("change", () => { $("q-price").value = P($("q-product").value).price; renderQuote(); });
+function quoteFor(id) {
+  const x = d.deals.find((y) => y.id === id); closeSheet();
+  setQuote(x.customer, x.product, x.qty, x.wantDate, P(x.product).price);
+  setTimeout(() => scrollToEl("quote-sec"), 300);
+}
+const firstDeal = d.deals.find((x) => x.id === "CRM-DEAL-2026-00087") || openDeals[0];
+setQuote(firstDeal.customer, firstDeal.product, firstDeal.qty, firstDeal.wantDate, P(firstDeal.product).price);
+
+// 应收：逾期在前，再看信用占用超过 90% 的客户
+const overdueInv = d.invoices.filter((v) => v.overdueDays > 0).sort((a, b) => b.overdueDays - a.overdueDays);
+const tight = d.customers.filter((c) => c.creditUsage >= 0.9).sort((a, b) => b.creditUsage - a.creditUsage);
+$("s-ar-n").textContent = `逾期 ${overdueInv.length} 张 · 额度快满 ${tight.length} 家`;
+$("s-ar").innerHTML = overdueInv.map((v) => `<div class="list-row tap" onclick="openCustomer('${v.customer}')">${dot("alarm")}
+    <div class="body"><div class="title">${v.customer}</div><div class="sub">${v.id.slice(-5)} · 到期 ${md(v.due)} · 逾期 ${v.overdueDays} 天</div></div>
+    <div class="side"><span class="num">${yuan(v.outstanding)}</span>${pill("alarm", "逾期")}</div></div>`).join("") +
+  tight.map((c) => `<div class="list-row tap" onclick="openCustomer('${c.name}')">${dot("over")}<div class="body"><div class="title">${c.name}</div><div class="sub">信用占用 ${Math.round(c.creditUsage * 100)}%，额度 ${yuan(c.creditLimit)}</div></div>
+    <div class="side">${pill("over", "额度快满")}</div></div>`).join("");
+
+function openCustomer(name) {
+  const c = C(name), invs = d.invoices.filter((v) => v.customer === name), orders = d.salesOrders.filter((s) => s.customer === name);
+  const deals = d.deals.filter((x) => x.customer === name && x.ctp);
+  openSheet(name, `<span class="tag">${c.level} 级客户</span>`,
+    facts([["近 12 个月", yuan(c.yearRevenue)], ["近 3 月走势", c.trend3m == null ? "—" : `<span class="${c.trend3m >= 0 ? "up" : "down"}">${c.trend3m >= 0 ? "+" : ""}${Math.round(c.trend3m * 100)}%</span>`],
+      ["应收", yuan(c.receivable)], ["其中逾期", `<span class="${c.overdue ? "down" : ""}">${yuan(c.overdue)}</span>`]]) +
+    `<p class="label"><span>信用额度 ${yuan(c.creditLimit)}</span><span>账期 ${c.termDays} 天</span></p>${meter(c.creditUsage, c.creditUsage > 0.9 ? "alarm" : c.creditUsage > 0.7 ? "wait" : "run")}` +
+    `<p class="label"><span>在手订单</span><span>${orders.length} 张</span></p>` + (orders.length ? orders.map((s) => `<div class="list-row"><div class="body"><div class="title">${s.id.slice(-5)} · ${P(s.product).name}</div>
+      <div class="sub">${num(s.qty)} 支 · 交期 ${md(s.delivery)} · 预计 ${md(s.finishDate)}</div></div><div class="side">${riskPill[s.risk]}</div></div>`).join("") : `<p class="faint">没有在手订单</p>`) +
+    `<p class="label"><span>发票与回款</span><span>近 8 周</span></p>` + (invs.length ? invs.map((v) => `<div class="list-row"><div class="body"><div class="title">${v.id.slice(-5)} · 开票 ${md(v.invoiced)}</div>
+      <div class="sub">含税 ${yuan(v.amount)} · 到期 ${md(v.due)}</div></div><div class="side"><span class="num">${v.outstanding ? yuan(v.outstanding) : "已收清"}</span>
+      ${v.overdueDays ? pill("alarm", "逾期 " + v.overdueDays + " 天") : v.outstanding ? pill("wait", "未到期") : pill("run", "已收")}</div></div>`).join("") : `<p class="faint">近 8 周没有开票</p>`) +
+    (deals.length ? `<p class="label"><span>商机</span><span>${deals.length} 张</span></p>` + deals.map((x) => `<div class="list-row tap" onclick="openDeal('${x.id}')"><div class="body"><div class="title">${P(x.product).name} ${num(x.qty)} 支</div>
+      <div class="sub">${d.dealStatus[x.status]} · 要 ${md(x.wantDate)}</div></div><div class="side">${ctpPill(x.ctp)}</div></div>`).join("") : ""));
+}
+
+// ==================== 工人报工 ====================
+// 每人在页面里报过的数只累加在这里，刷新即回到初始
+const logs = Object.fromEntries(d.workers.map((w) => [w.name, { good: 0, list: [] }]));
+let me = d.workers[0].name, scanTimer = null, clockMin = 0, justAdded = false;
+$("w-pick").innerHTML = d.workers.map((w) => `<option value="${w.name}">${shortName(w.name)} · ${w.workstation}</option>`).join("");
+$("w-pick").onchange = () => { me = $("w-pick").value; renderWorker(); };
+function nowText() { const m = 30 + clockMin; return `${String(10 + Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`; }
+function renderWorker() {
+  const w = d.get.worker(me), lg = logs[me], r = w.card ? d.report(me, 0, 0, lg.good) : null;
+  setHead(w.workstation);
+  $("w-avatar").textContent = me.slice(-2); $("w-name").textContent = shortName(me);
+  $("w-ws").textContent = w.workstation + (w.card ? ` · 计件 ${w.card.piece} 元／千支` : "");
+  $("w-pay").innerHTML = "¥" + (r ? r.todayPay.toFixed(1) : "0.0");
+  $("w-sub").textContent = w.card ? `${w.card.id} · ${w.card.op} · 本道已完成 ${Math.round(r.cardDone * 100)}%` : "此刻没有开工的工序卡";
+  $("w-bar").style.width = (r ? r.cardDone * 100 : 0) + "%";
+  $("w-good").textContent = "良品 " + num(r ? r.todayGood : 0) + " 支";
+  $("w-banner").innerHTML = w.status === "alarm" ? `<div class="banner s-alarm">${dot("alarm")}<span>本机${d.statusNote[w.workstation]}，质检正在复核；报工时不良如实填</span></div>`
+    : w.note ? `<div class="banner s-${w.status}">${dot(w.status)}<span>${w.note}，此刻没有可报的工序</span></div>` : "";
+  $("w-banner").hidden = !$("w-banner").innerHTML;
+  const first = w.card && w.todayGood ? [{ t: "08:00–10:30", op: w.card.op, good: w.todayGood, bad: null, pay: w.todayPay }] : [];
+  const list = [...first, ...lg.list];
+  $("w-log").innerHTML = list.length ? list.map((x, i) => `<div class="list-row${justAdded && i === list.length - 1 ? " new" : ""}"><span class="check done"></span>
+    <div class="body"><div class="title">${x.t} · ${x.op}</div><div class="sub">良品 ${num(x.good)} 支${x.bad == null ? "（上午已报）" : `，不良 ${x.bad} 支`}</div></div>
+    <div class="side"><span class="num">+¥${x.pay.toFixed(1)}</span></div></div>`).join("")
+    : `<div class="list-row"><span class="check"></span><div class="body"><div class="title faint">今天还没有报工</div></div></div>`;
+  $("w-pick").value = me; justAdded = false;
+}
+
+function startScan() {
+  $("scan").hidden = false;
+  scanTimer = setTimeout(() => { $("scan").hidden = true; openCard(); }, 1400);
+}
+function cancelScan() { clearTimeout(scanTimer); $("scan").hidden = true; }
+function openCard() {
+  const w = d.get.worker(me), c = w.card;
+  if (!c) {
+    openSheet(w.workstation, pill(w.status, d.statusText[w.status]),
+      `<p>扫到的是 ${w.workstation} 的设备码，但这台设备此刻没有开工的工序卡。</p>` +
+      (w.note ? `<div class="banner s-${w.status}">${dot(w.status)}<span>${w.note}</span></div>` : "") +
+      `<div class="btns-col"><button class="btn-secondary" onclick="closeSheet()">知道了</button></div>`);
+    return;
+  }
+  const lg = logs[me], r0 = d.report(me, 0, 0, lg.good);
+  openSheet(c.id, riskPill[c.risk],
+    facts([["工单", c.workOrder.slice(-5) + " · " + c.customer], ["产品", P(c.product).name], ["本道工序", `${c.op} → 下道 ${c.next}`], ["交期", c.delivery]]) +
+    `<p class="label"><span>本道已完成 ${num(r0.cardGood)} 支</span><span>还应产出 ${num(r0.remainAfter)} 支</span></p>${meter(r0.cardDone, "run")}` +
+    `<div class="form" style="margin-top: 18px">
+      <label>本次良品（支）<div class="stepper"><button onclick="step('rp-good', -100)" aria-label="减 100">−</button><input id="rp-good" type="number" min="0" step="100" value="500" inputmode="numeric"><button onclick="step('rp-good', 100)" aria-label="加 100">＋</button></div></label>
+      <label>本次不良（支）<div class="stepper"><button onclick="step('rp-bad', -1)" aria-label="减 1">−</button><input id="rp-bad" type="number" min="0" step="1" value="5" inputmode="numeric"><button onclick="step('rp-bad', 1)" aria-label="加 1">＋</button></div></label>
+    </div><div id="rp-preview"></div>
+    <div class="btns-col" style="margin-top: 14px"><button class="btn-primary" onclick="submitReport()">提交报工</button></div>`);
+  ["rp-good", "rp-bad"].forEach((id) => { $(id).oninput = preview; });
+  preview();
+}
+function step(id, delta) { $(id).value = Math.max(0, (+$(id).value || 0) + delta); preview(); }
+function readInputs() { return [Math.max(0, Math.round(+$("rp-good").value || 0)), Math.max(0, Math.round(+$("rp-bad").value || 0))]; }
+function preview() {
+  const [good, bad] = readInputs(), r = d.report(me, good, bad, logs[me].good);
+  $("rp-preview").innerHTML = facts([["本次计件", `<span class="up">+¥${r.pay.toFixed(1)}</span>`], ["不良率", (r.badRate * 100).toFixed(1) + "%"]]) +
+    r.warnings.map((w) => `<div class="alert">${pill(w.level, "提醒")}<span>${w.text}</span></div>`).join("");
+}
+function submitReport() {
+  const [good, bad] = readInputs(); if (!good && !bad) return;
+  const lg = logs[me], r = d.report(me, good, bad, lg.good), c = d.get.worker(me).card;
+  clockMin += 3 + lg.list.length * 2;
+  lg.list.push({ t: nowText(), op: c.op, good, bad, pay: r.pay }); lg.good += good;
+  justAdded = true; renderWorker();
+  openSheet("已报工", pill("run", "已提交"),
+    `<div class="done-mark"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <p class="center">${c.id} · ${c.op}　良品 <b class="num">${num(good)}</b> 支，不良 <b class="num">${bad}</b> 支</p>` +
+    facts([["今日良品", num(r.todayGood) + " 支"], ["今日计件", "¥" + r.todayPay.toFixed(1)], ["本道完成", Math.round(r.cardDone * 100) + "%"], ["本次计件", "+¥" + r.pay.toFixed(1)]]) +
+    r.warnings.map((w) => `<div class="alert">${pill(w.level, "提醒")}<span>${w.text}</span></div>`).join("") +
+    `<p class="meta" style="margin-top: 12px; line-height: 1.6">工序卡已提交，下道「${c.next}」的数量随之对齐；计件进月底计件汇总单。</p>
+    <div class="btns-col"><button class="btn-secondary" onclick="closeSheet()">完成</button></div>`);
+}
+
+// 地址带 ?role=production|sales|worker 直接打开某个页签
+const qRole = new URLSearchParams(location.search).get("role");
+show(Object.keys(viewName).includes(qRole) ? qRole : "production");
+</script>
+</body>
+</html>
