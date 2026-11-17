@@ -1,0 +1,569 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>经营测算器</title>
+<style>
+  /* 经营测算器（P1-S10 R04）：从合作方案讲稿第 32 页「打开经营测算器」进入。只有浅色、单页、不用外部库。
+     计算在 calc.js；本文件只管输入与呈现。所有输入都可改，默认值出自合作方案草案 v16 与讲稿 v5 经营测算 5 页。
+     配色沿用讲稿：合作公司 #1F9E89 / 技术方 #2F6DB5 / 销售合伙人 #FF5A36；新增其他销售 #EDA100、示范工厂 #B86FC4。
+     五色经 dataviz 校验器（白底）：相邻对全过；任意两两比时示范工厂紫与技术方蓝色盲 ΔE 6.4（6～8 须有第二编码），
+     两者在各条、各柱里都不相邻，且有图例、悬停数字与同数表格。黄色对白底对比度 2.17 不足 3:1，同样靠悬停与表格。
+     成本与税用灰色斜纹，不占类别色。
+     文字一律用墨色，类别色只上色块与图例方块。 */
+  :root {
+    --bg: #E9EEF2; --panel: #F6F8FA; --ink: #24313F; --ink2: #5A6B7D; --s1: #3B5573; --s2: #7189A3; --s3: #9DB0C3; --hair: #DCE3EA;
+    --acc: #FF5A36; --acc-t: #D63A17; --warn-bg: #FFF4EC;
+    --co: #1F9E89; --tech: #2F6DB5; --pp: #FF5A36; --po: #EDA100; --demo: #B86FC4;
+    --f-cn: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    --f-num: "Bahnschrift", "DIN Alternate", "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+    --shadow: 0 2px 0 rgba(36,49,63,.06), 0 18px 34px -18px rgba(36,49,63,.32);
+    color-scheme: light;
+  }
+  [hidden] { display: none !important; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f-cn); font-size: 14px; }
+  .wrap { max-width: 1560px; margin: 0 auto; padding-inline: 20px; padding-block: 18px 40px; }
+
+  header.top { display: flex; align-items: center; gap: 14px 22px; flex-wrap: wrap; margin-bottom: 14px; }
+  header.top h1 { margin: 0; font-size: 28px; letter-spacing: .02em; display: flex; align-items: center; gap: 14px; }
+  header.top h1::before { content: ""; width: 34px; height: 9px; border-radius: 5px; background: var(--acc); }
+  header.top .sub { color: var(--ink2); font-size: 14px; line-height: 1.5; flex: 1 1 360px; }
+  .btn { font: 700 14px var(--f-cn); color: var(--ink2); background: #fff; border: 2px solid var(--hair); border-radius: 999px; padding: 5px 14px; cursor: pointer; text-decoration: none; white-space: nowrap; }
+  .btn:hover, .btn:focus-visible { border-color: var(--s2); color: var(--ink); outline: none; }
+  .btn.sm { font-size: 13px; padding: 2px 10px; }
+  .pill { display: inline-block; font-size: 12px; font-weight: 700; color: var(--ink2); border: 1.5px solid var(--hair); border-radius: 999px; padding: 0 8px; white-space: nowrap; line-height: 18px; }
+  .pill.hot { color: var(--acc-t); border-color: rgba(255,90,54,.5); }
+  .pill.ok { color: #1a6f61; border-color: rgba(31,158,137,.5); }
+
+  .grid { display: grid; grid-template-columns: minmax(0, 430px) minmax(0, 1fr); gap: 18px; align-items: start; }
+  @media (max-width: 980px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+
+  /* 左栏：输入 */
+  .inputs { position: sticky; top: env(safe-area-inset-top, 0px); max-height: 100vh; overflow-y: auto; padding-right: 4px; }
+  @media (max-width: 980px) { .inputs { position: static; max-height: none; overflow: visible; } }
+  details.g { background: #fff; border-radius: 18px; box-shadow: var(--shadow); margin-bottom: 10px; }
+  details.g > summary { cursor: pointer; list-style: none; padding: 12px 16px; font-weight: 700; font-size: 15px; display: flex; align-items: center; gap: 10px; }
+  details.g > summary::-webkit-details-marker { display: none; }
+  details.g > summary::before { content: "▸"; color: var(--s2); width: 12px; }
+  details.g[open] > summary::before { content: "▾"; }
+  details.g > summary .hint { margin-left: auto; font-weight: 400; color: var(--ink2); font-size: 12px; }
+  .gb { padding: 0 16px 14px; }
+  .f { display: grid; grid-template-columns: minmax(0, 1fr) 96px 46px; align-items: center; gap: 8px; padding: 4px 0; border-top: 1px solid var(--hair); }
+  .f:first-child { border-top: 0; }
+  .f label { font-size: 13px; line-height: 1.35; color: var(--ink); }
+  .f label .pill { margin-left: 4px; }
+  .f .u { font-size: 12px; color: var(--ink2); white-space: nowrap; }
+  .f.arr { grid-template-columns: minmax(0, 1fr); }
+  .yrs { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+  .yrs .yc { display: flex; flex-direction: column; gap: 1px; }
+  .yrs .yc span { font-size: 11px; color: var(--ink2); text-align: center; }
+  .yrs input { width: 58px; }
+  .yrs .u { margin-left: 2px; align-self: flex-end; padding-bottom: 5px; }
+  input[type=number], input[type=text] { font: 14px var(--f-num); color: var(--ink); background: var(--panel); border: 1.5px solid var(--hair); border-radius: 8px; padding: 4px 6px; width: 100%; min-width: 0; text-align: right; }
+  input[type=text] { font-family: var(--f-cn); text-align: left; }
+  input:focus { outline: 2px solid var(--tech); outline-offset: 0; border-color: transparent; background: #fff; }
+  input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--tech); }
+  .note { font-size: 12px; color: var(--ink2); line-height: 1.5; margin: 6px 0 0; }
+  .sub-card { border: 1.5px solid var(--hair); border-radius: 12px; padding: 8px 10px; margin-top: 8px; }
+  .sub-card .hd { display: flex; gap: 8px; align-items: center; margin-bottom: 4px; }
+  .sub-card .hd input { flex: 1; font-weight: 700; }
+  table.pt { width: 100%; border-collapse: collapse; font-size: 12px; }
+  table.pt th { text-align: left; font-weight: 700; color: var(--ink2); padding: 3px 3px; font-size: 11.5px; line-height: 1.3; vertical-align: bottom; }
+  table.pt td { padding: 3px 3px; border-top: 1px solid var(--hair); vertical-align: middle; }
+  table.pt input[type=number] { padding: 3px 4px; font-size: 13px; }
+  table.pt input[type=text] { padding: 3px 4px; font-size: 13px; }
+  .x { border: 0; background: none; color: var(--ink2); font-size: 16px; cursor: pointer; padding: 0 4px; line-height: 1; }
+  .x:hover, .x:focus-visible { color: var(--acc-t); outline: none; }
+
+  /* 右栏：结果 */
+  .warns { background: var(--warn-bg); border: 1.5px solid rgba(255,90,54,.35); border-radius: 14px; padding: 8px 14px; margin-bottom: 12px; font-size: 13px; line-height: 1.6; }
+  .warns b { color: var(--acc-t); }
+  .warns ul { margin: 2px 0 0; padding-left: 20px; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; align-items: center; }
+  .tabs button { font: 700 14px var(--f-cn); color: var(--ink2); background: #fff; border: 2px solid transparent; border-radius: 999px; padding: 6px 16px; cursor: pointer; box-shadow: var(--shadow); }
+  .tabs button[aria-selected=true] { color: #fff; background: var(--ink); }
+  .tabs button:focus-visible { outline: 2px solid var(--tech); outline-offset: 2px; }
+  .tabs .yr { margin-left: auto; display: flex; gap: 6px; align-items: center; font-size: 13px; color: var(--ink2); }
+  .tabs select { font: 14px var(--f-cn); padding: 3px 8px; border-radius: 8px; border: 1.5px solid var(--hair); background: #fff; color: var(--ink); }
+  .card { background: #fff; border-radius: 20px; padding: 16px 20px; box-shadow: var(--shadow); min-width: 0; margin-bottom: 14px; }
+  .card h3 { margin: 0 0 4px; font-size: 17px; }
+  .card .cap { margin: 0 0 12px; color: var(--ink2); font-size: 13px; line-height: 1.55; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 14px; }
+  .stat { background: #fff; border-radius: 18px; padding: 12px 16px; box-shadow: var(--shadow); min-width: 0; }
+  .stat .lab { font-size: 13px; font-weight: 700; color: var(--ink2); display: flex; align-items: center; gap: 7px; }
+  .stat .val { font: 700 30px/1.15 var(--f-num); margin-top: 4px; white-space: nowrap; letter-spacing: -.01em; }
+  .stat .val small { font: 700 13px var(--f-cn); color: var(--ink2); margin-left: 4px; }
+  .stat p { margin: 2px 0 0; font-size: 12px; color: var(--ink2); line-height: 1.45; }
+  .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; flex: none; vertical-align: -1px; }
+  .k-co { background: var(--co); } .k-tech { background: var(--tech); } .k-pp { background: var(--pp); } .k-po { background: var(--po); } .k-demo { background: var(--demo); }
+  .k-cost { background: repeating-linear-gradient(45deg, #C9D3DD 0 3px, #EEF2F6 3px 6px); }
+  .legend { display: flex; gap: 6px 18px; flex-wrap: wrap; font-size: 13px; color: var(--ink2); margin-bottom: 10px; align-items: center; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .legend .hint { margin-left: auto; font-size: 12px; }
+
+  .lines .ln { display: grid; grid-template-columns: 150px minmax(0, 1fr) 88px; gap: 12px; align-items: center; padding: 6px 0; }
+  .lines .ln + .ln { border-top: 1px solid var(--hair); }
+  .lines .nm { font-weight: 700; font-size: 13px; line-height: 1.35; }
+  .lines .tot { text-align: right; font: 700 15px var(--f-num); white-space: nowrap; }
+  @media (max-width: 620px) { .lines .ln { grid-template-columns: minmax(0, 1fr) 70px; } .lines .ln .bar { grid-column: 1 / -1; grid-row: 2; } }
+  .bar { display: flex; gap: 2px; height: 24px; min-width: 0; }
+  .bar .seg { flex: var(--v) 0 0; width: 0; min-width: 0; border-radius: 4px; cursor: default; outline-offset: 2px; display: flex; align-items: center; padding-left: 6px;
+    font: 700 12px var(--f-num); white-space: nowrap; overflow: hidden; color: transparent; }
+  .bar .seg.lab { color: #1c1b1a; } .bar .seg.k-tech.lab { color: #fff; }
+  .bar .seg:focus-visible { outline: 2px solid var(--ink); }
+  .bar.empty { background: var(--panel); border-radius: 4px; }
+
+  .tw { overflow-x: auto; }
+  table.t { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.45; }
+  .t th, .t td { padding: 5px 8px; border-top: 1px solid var(--hair); text-align: left; vertical-align: top; }
+  .t thead th { font-size: 12px; color: var(--ink2); font-weight: 700; border-top: 0; white-space: nowrap; }
+  .t td:first-child { color: var(--ink); white-space: nowrap; }
+  .t td { color: var(--ink2); }
+  .t .r { text-align: right; font-family: var(--f-num); font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; }
+  .t tr.sum td { font-weight: 700; color: var(--ink); border-top: 2px solid var(--s3); }
+  .t tr.cat td { font-size: 12px; font-weight: 700; color: var(--s2); letter-spacing: .08em; padding-top: 10px; border-top: 1px solid var(--s3); }
+  .t tr.sub td:first-child { padding-left: 22px; color: var(--ink2); }
+  .t td.neg { color: var(--acc-t); }
+  .t td[data-tip] { cursor: help; text-decoration: underline dotted var(--s3); text-underline-offset: 3px; }
+  .t .sw { margin-right: 7px; }
+
+  .chart svg { width: 100%; height: auto; display: block; }
+  .chart .gl { stroke: var(--hair); stroke-width: 1; }
+  .chart .ax { stroke: var(--s3); stroke-width: 1; }
+  .chart text { font-family: var(--f-num); fill: var(--ink2); font-size: 12px; }
+  .chart text.tl { fill: var(--ink); font-weight: 700; font-size: 13px; }
+  .chart rect.m { cursor: default; }
+  .chart rect.m:focus { outline: none; stroke: var(--ink); stroke-width: 2; }
+
+  details.notes { margin-top: 4px; }
+  details.notes summary { cursor: pointer; font-weight: 700; font-size: 14px; }
+  details.notes ul { margin: 8px 0 0; padding-left: 20px; color: var(--ink2); font-size: 13px; line-height: 1.65; }
+  .foot { font-size: 12px; color: var(--ink2); margin-top: 6px; line-height: 1.6; }
+
+  #tip { position: fixed; z-index: 30; pointer-events: none; background: #fff; color: var(--ink); border-radius: 12px; padding: 9px 13px;
+    font-size: 13px; line-height: 1.55; box-shadow: 0 10px 28px -10px rgba(36,49,63,.5); max-width: min(520px, calc(100vw - 24px)); }
+  #tip .h { font-weight: 700; display: flex; align-items: center; gap: 7px; }
+  #tip .d { color: var(--ink2); }
+  #tip .v { font: 700 16px var(--f-num); margin: 2px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>经营测算器</h1>
+    <div class="sub">改左边任何一个数，右边立刻重算。金额单位万元，未注明的都不含税。<span class="pill hot">估</span> 是编的或估的数，签约前按实际情况改。</div>
+    <a class="btn" href="../proposal/index-v6.html#x-c5">← 回到讲稿</a>
+    <button class="btn" type="button" id="reset">恢复默认值</button>
+  </header>
+
+  <div class="grid">
+    <aside class="inputs" id="inputs" aria-label="输入"></aside>
+
+    <main aria-label="测算结果">
+      <div class="warns" id="warns" hidden></div>
+      <div class="tabs" role="tablist" aria-label="结果分页">
+        <button role="tab" type="button" data-tab="proj" aria-selected="true">按项目</button>
+        <button role="tab" type="button" data-tab="years" aria-selected="false">逐年</button>
+        <button role="tab" type="button" data-tab="co" aria-selected="false">数字化合作公司</button>
+        <button role="tab" type="button" data-tab="ppl" aria-selected="false">每位合伙人</button>
+        <label class="yr" id="yrbox">看第<select id="yr"></select>年</label>
+      </div>
+      <section id="t-proj" role="tabpanel"></section>
+      <section id="t-years" role="tabpanel" hidden></section>
+      <section id="t-co" role="tabpanel" hidden></section>
+      <section id="t-ppl" role="tabpanel" hidden></section>
+
+      <div class="card">
+        <details class="notes">
+          <summary>怎么算的（口径）</summary>
+          <ul>
+            <li>模块费、降本增效项目费、GEO 服务费：先抽一成给数字化合作公司；销售合伙人介绍时余下的 30% 给介绍人、其余给技术方；其他销售介绍时技术方拿整单 70%，介绍人拿扣掉一成后的 15%，余下归合作公司。实施人天与变更单不抽，技术方 70%，介绍人 30% 或 15%。比例都可以在「分成比例」里改</li>
+            <li>销售合伙人自家工厂买 ERP：按销售合伙人价（介绍人那份返给自己），免实施费；买的钱记作该合伙人的支出，也计入他的介绍业务额</li>
+            <li>年维护与 GEO 续费从卖出的次年起算，老客户每年按续约率留下；年维护按比例给技术方（默认全给）</li>
+            <li>试验厂：项目推向市场那年按市场价锁定待抵金额（试验厂家数 × 半价）；此后每卖一单，从合作公司这一单里拿出整单的一定比例付给技术方，抵清为止</li>
+            <li>驻厂工程师线下课：先扣直接成本，再抽一成给合作公司，余下技术方与示范工厂按比例分；勾了「示范工厂」的合伙人平分示范工厂那份。线上课全归技术方，学员推荐费归合作公司</li>
+            <li>数字化合作公司：收入减运转、宣传获客、新项目硬件（每个项目推向市场那年计一次）、风险准备金（攒到上限为止）和准备金不够付的退款，再减上年结转的亏损，得分红前利润；先发业绩奖，再交所得税、提法定公积金，余下按股份分红。亏损时不发业绩奖、不分红，亏损结转下一年</li>
+            <li>业绩奖按全年介绍成交的业务额分（含实施费与续费）；销售合伙人介绍的单子按各人「介绍业务占比」分到个人</li>
+            <li>技术方成本：本人和员工的月成本、服务器（按在用 ERP 客户数除以每台容量向上取整）、AI 调用费。请人那年起人天价按「请人以后的人天价」</li>
+            <li>交付天数：ERP 实施与变更、年维护、项目实施与研发、GEO 服务、线下课讲课，加起来与本人加员工每年可交付天数比</li>
+            <li>保本单数：只靠当年 ERP 外部单（按当年两种介绍的比例）时，技术方要几单才能盖住当年成本</li>
+            <li>增值税：价格视为含税，填了税率后先换成不含税再分，税额单列。介绍费个税从介绍人那份里扣。两项默认 0，请会计核</li>
+            <li>没算：合伙人中途退出补差、分期付款跨年、坏账（可用退款率代替）、工人培训、股份分期到手、诊断费</li>
+          </ul>
+        </details>
+        <div class="foot" id="selfcheck"></div>
+      </div>
+    </main>
+  </div>
+</div>
+<div id="tip" role="tooltip" hidden></div>
+
+<script src="calc.js"></script>
+<script>
+"use strict";
+(() => {
+  const clone = o => JSON.parse(JSON.stringify(o));
+  let S = clone(CALC.DEFAULTS);
+  let tab = "proj", yr = 1, R = [];
+  const $ = id => document.getElementById(id);
+
+  /* ---------- 格式 ---------- */
+  const fmt = (x, d = 2) => {
+    if (!Number.isFinite(x)) return "—";
+    const v = Math.round(x * 10 ** d) / 10 ** d;
+    return (Object.is(v, -0) ? 0 : v).toLocaleString("zh-CN", { maximumFractionDigits: d });
+  };
+  const wan = x => `${fmt(x)} 万`;
+  const pct = (x, d = 1) => (Number.isFinite(x) ? `${fmt(x * 100, d)}%` : "—");
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+  const tipAttr = lines => esc(lines.join("|"));
+
+  /* ---------- 输入的定义 ---------- */
+  const W = { u: "万元", s: 1 }, P = { u: "%", s: 100 }, Y = { u: "元", s: 10000 }, D = { u: "天", s: 1 };
+  const GROUPS = [
+    { t: "基本", open: true, f: [
+      { p: "years", l: "算几年", u: "年", s: 1, min: 1, max: 10, step: 1, rebuild: true },
+      { p: "tax.vat", l: "增值税率（价格视为含税）", ...P, est: 1 },
+      { p: "tax.introducerTax", l: "介绍费个税（从介绍费里扣）", ...P, est: 1 },
+    ] },
+    { t: "ERP", open: true, f: [
+      { p: "price.erpModule", l: "模块费（每家）", ...W },
+      { p: "price.dayRate", l: "实施人天价", ...Y },
+      { p: "price.dayRateHired", l: "技术方请人以后的人天价", ...Y },
+      { p: "price.implDays", l: "每家实施天数", ...D },
+      { p: "price.changeDays", l: "每家变更单天数", ...D, est: 1 },
+      { p: "price.maintRate", l: "年维护比例（按模块费）", ...P },
+      { p: "price.maintRetain", l: "老客户每年续约率", ...P, est: 1 },
+      { p: "erp.partnerSales", l: "销售合伙人介绍的外部工厂", u: "家", arr: true, est: 1 },
+      { p: "erp.otherSales", l: "其他销售介绍的外部工厂", u: "家", arr: true, est: 1 },
+    ], note: "销售合伙人自家工厂哪年买 ERP，在「合伙人」表里填。第 2 年起的单量是估的" },
+    { t: "降本增效项目", projects: true },
+    { t: "宣传与获客（GEO 年度服务）", f: [
+      { p: "geo.price", l: "每家每年服务费", ...W, est: 1 },
+      { p: "geo.renew", l: "老客户每年续费率", ...P, est: 1 },
+      { p: "geo.days", l: "技术方每家每年服务天数", ...D, est: 1 },
+      { p: "geo.partnerNew", l: "销售合伙人介绍的新客户", u: "家", arr: true, est: 1 },
+      { p: "geo.otherNew", l: "其他销售介绍的新客户", u: "家", arr: true, est: 1 },
+    ] },
+    { t: "驻厂工程师培训班", f: [
+      { p: "course.students", l: "线下课每期人数", u: "人", s: 1 },
+      { p: "course.fee", l: "线下课每人学费", ...Y },
+      { p: "course.directCost", l: "直接成本（占学费）", ...P },
+      { p: "course.cut", l: "扣成本后抽给合作公司", ...P },
+      { p: "course.techShare", l: "余下给技术方（其余给示范工厂）", ...P },
+      { p: "course.teachDays", l: "技术方每期讲课天数", ...D, est: 1 },
+      { p: "course.sessions", l: "线下课期数", u: "期", arr: true },
+      { p: "course.onlineFee", l: "线上课每人学费", ...Y, est: 1 },
+      { p: "course.online", l: "线上课学员", u: "人", arr: true, est: 1 },
+      { p: "course.referralFee", l: "其他工厂招走学员的推荐费（每人）", ...Y, est: 1 },
+      { p: "course.referrals", l: "被招走的学员", u: "人", arr: true, est: 1 },
+    ] },
+    { t: "分成比例", f: [
+      { p: "split.cut", l: "每单先抽给合作公司", ...P },
+      { p: "split.partner", l: "销售合伙人介绍：介绍人拿剩下的", ...P },
+      { p: "split.other", l: "其他销售介绍：介绍人拿剩下的", ...P },
+      { p: "split.techWhenOther", l: "其他销售介绍：技术方拿整单", ...P },
+      { p: "split.dayTech", l: "实施人天与变更单：技术方拿", ...P },
+      { p: "split.maintTech", l: "年维护：技术方拿", ...P },
+      { p: "split.trialRatio", l: "试验厂价（占市场价）", ...P },
+      { p: "split.trialDeduct", l: "每卖一单替试验厂抵扣（占整单）", ...P },
+    ], note: "销售合伙人自家工厂的价格由前两项推出：介绍人那份（1 − 先抽比例）× 介绍人比例返给自己，默认即市场价的 73%" },
+    { t: "合伙人与股份", partners: true },
+    { t: "数字化合作公司支出", f: [
+      { p: "company.ops", l: "每年运转费", ...W, est: 1 },
+      { p: "company.marketing", l: "每年共同宣传获客", ...W, est: 1 },
+      { p: "company.reserveAnnual", l: "风险准备金每年提", ...W, est: 1 },
+      { p: "company.reserveCap", l: "风险准备金上限", ...W },
+      { p: "company.refundRate", l: "退款、赔偿（占收入）", ...P, est: 1 },
+      { p: "company.bonusRate", l: "年度业绩奖（占分红前利润）", ...P },
+      { p: "company.cit", l: "企业所得税率", ...P, est: 1 },
+      { p: "company.legalReserve", l: "法定公积金（占税后利润）", ...P },
+    ], note: "讲稿第一年合计未算所得税与法定公积金，所以默认为 0；草案写的是先提 10% 法定公积金" },
+    { t: "技术方成本与产能", f: [
+      { p: "tech.ownerMonthly", l: "本人每月成本", ...W },
+      { p: "tech.staffMonthly", l: "员工每人每月成本", ...W },
+      { p: "tech.staff", l: "员工人数", u: "人", arr: true, est: 1 },
+      { p: "tech.ownerDays", l: "本人每年可交付天数", ...D, est: 1 },
+      { p: "tech.staffDays", l: "员工每人每年可交付天数", ...D, est: 1 },
+      { p: "tech.maintDays", l: "每家老客户每年维护天数", ...D, est: 1 },
+      { p: "tech.serverCost", l: "每台服务器每年费用（含盘、带宽、备份）", ...W, est: 1 },
+      { p: "tech.perServer", l: "每台服务器可放几家", u: "家", s: 1, est: 1 },
+      { p: "tech.aiCost", l: "每家每年 AI 调用费", ...W, est: 1 },
+    ], note: "服务器容量与价格未实测，签约前按实际报价改" },
+  ];
+  const getP = (o, p) => p.split(".").reduce((a, k) => (a == null ? a : a[k]), o);
+  const setP = (o, p, v) => { const ks = p.split("."); const last = ks.pop(); ks.reduce((a, k) => a[k], o)[last] = v; };
+  const show = (v, s) => (Number.isFinite(+v) ? String(Math.round(+v * s * 1e6) / 1e6) : "");
+  const est = f => (f.est ? '<span class="pill hot">估</span>' : "");
+  const N = () => Math.max(1, Math.min(10, Math.round(+S.years) || 1));
+
+  /* 逐年数组：页面上显示 N 格，没填的格沿用上一年 */
+  function arrCells(path, arr, unit, onIdx) {
+    let h = '<div class="yrs">';
+    for (let i = 0; i < N(); i++) h += `<div class="yc"><span>第 ${i + 1} 年</span><input type="number" step="any" min="0" data-arr="${path}" data-i="${i}" ${onIdx || ""} value="${show(CALC.at(arr, i), 1)}" aria-label="第 ${i + 1} 年"></div>`;
+    return h + `<span class="u">${unit}</span></div>`;
+  }
+  function fieldHTML(f) {
+    const id = "f_" + f.p.replace(/\./g, "_");
+    if (f.arr) return `<div class="f arr"><label>${f.l}${est(f)}</label>${arrCells(f.p, getP(S, f.p), f.u)}</div>`;
+    return `<div class="f"><label for="${id}">${f.l}${est(f)}</label><input id="${id}" type="number" step="${f.step || "any"}" ${f.min != null ? `min="${f.min}"` : ""} ${f.max != null ? `max="${f.max}"` : ""} data-p="${f.p}" data-s="${f.s}" ${f.rebuild ? "data-rebuild" : ""} value="${show(getP(S, f.p), f.s)}"><span class="u">${f.u}</span></div>`;
+  }
+  function projectsHTML() {
+    let h = "";
+    S.projects.forEach((p, j) => {
+      const q = `projects.${j}`;
+      const fld = (k, l, o, e) => fieldHTML({ p: `${q}.${k}`, l, ...o, est: e });
+      h += `<div class="sub-card"><div class="hd"><input type="text" data-p="${q}.name" data-text value="${esc(p.name)}" aria-label="项目名"><button class="x" type="button" data-delproj="${j}" aria-label="删去这个项目" title="删去">×</button></div>`
+        + fld("price", "市场价（每家）", W, 1) + fld("launch", "第几年推向市场", { u: "年", s: 1 }, 1) + fld("trials", "试验厂家数", { u: "家", s: 1 }, 1)
+        + fld("implDays", "每家实施天数", D, 1) + fld("maintRate", "年维护比例", P, 1) + fld("rdDays", "研发天数（推向市场那年）", D, 1)
+        + fld("hardware", "新项目硬件（推向市场那年，合作公司出）", W, 1)
+        + `<div class="f arr"><label>销售合伙人介绍<span class="pill hot">估</span></label>${arrCells(`${q}.partnerSales`, p.partnerSales, "家")}</div>`
+        + `<div class="f arr"><label>其他销售介绍<span class="pill hot">估</span></label>${arrCells(`${q}.otherSales`, p.otherSales, "家")}</div>`
+        + `<p class="note">推向市场之前那几年填的单量不算</p></div>`;
+    });
+    return h + `<button class="btn sm" type="button" id="addproj" style="margin-top:8px">＋ 加一个项目</button>`;
+  }
+  function partnersHTML() {
+    let h = `<div class="tw"><table class="pt"><thead><tr><th>名称</th><th>股份 %</th><th>介绍业务占比 %</th><th>自家工厂第几年买 ERP（0 不买）</th><th>示范工厂</th><th></th></tr></thead><tbody>`;
+    S.partners.forEach((p, k) => {
+      const q = `partners.${k}`;
+      if (p.tech) h += `<tr><td><b>技术方</b></td><td><input type="number" step="any" data-p="${q}.share" data-s="100" value="${show(p.share, 100)}" aria-label="技术方股份"></td><td colspan="4" class="note" style="padding-top:0">不介绍单，只按股份分红</td></tr>`;
+      else h += `<tr><td><input type="text" data-p="${q}.name" data-text value="${esc(p.name)}" aria-label="名称"></td>`
+        + `<td><input type="number" step="any" data-p="${q}.share" data-s="100" value="${show(p.share, 100)}" aria-label="${esc(p.name)} 股份"></td>`
+        + `<td><input type="number" step="any" data-p="${q}.weight" data-s="100" value="${show(p.weight, 100)}" aria-label="${esc(p.name)} 介绍业务占比"></td>`
+        + `<td><input type="number" step="1" min="0" data-p="${q}.ownErpYear" data-s="1" value="${show(p.ownErpYear, 1)}" aria-label="${esc(p.name)} 自家工厂第几年买 ERP"></td>`
+        + `<td style="text-align:center"><input type="checkbox" data-p="${q}.demo" data-bool ${p.demo ? "checked" : ""} aria-label="${esc(p.name)} 是示范工厂"></td>`
+        + `<td><button class="x" type="button" data-delpartner="${k}" aria-label="删去 ${esc(p.name)}" title="删去">×</button></td></tr>`;
+    });
+    h += `</tbody></table></div><button class="btn sm" type="button" id="addpartner" style="margin-top:8px">＋ 加一位销售合伙人</button>`;
+    h += `<div style="margin-top:8px">${fieldHTML({ p: "company.techShareMin", l: "技术方股份下限", ...P })}</div>`;
+    h += `<p class="note">「介绍业务占比」决定销售合伙人介绍的单子算到谁头上，各行按比例分（不必加满 100）。股份合计不是 100% 或技术方低于下限时，上方会提示。</p>`;
+    return h;
+  }
+  function buildInputs() {
+    const box = $("inputs");
+    const open = [...box.querySelectorAll("details.g")].map(d => d.open);
+    box.innerHTML = GROUPS.map((g, gi) => {
+      const body = g.projects ? projectsHTML() : g.partners ? partnersHTML() : g.f.map(fieldHTML).join("") + (g.note ? `<p class="note">${g.note}</p>` : "");
+      const isOpen = open.length ? open[gi] : g.open;
+      return `<details class="g" ${isOpen ? "open" : ""}><summary>${g.t}</summary><div class="gb">${body}</div></details>`;
+    }).join("");
+  }
+
+  /* ---------- 输入事件 ---------- */
+  $("inputs").addEventListener("input", e => {
+    const el = e.target;
+    if (el.dataset.arr) {
+      const arr = getP(S, el.dataset.arr), i = +el.dataset.i;
+      for (let k = arr.length; k < i; k++) arr[k] = CALC.at(arr, k);   /* 中间没填的年份先补成沿用值 */
+      arr[i] = el.value === "" ? 0 : +el.value;
+    } else if (el.dataset.p) {
+      if (el.hasAttribute("data-text")) setP(S, el.dataset.p, el.value);
+      else if (el.hasAttribute("data-bool")) setP(S, el.dataset.p, el.checked);
+      else if (el.hasAttribute("data-rebuild")) return;              /* 年数：改完（change）再重排 */
+      else setP(S, el.dataset.p, el.value === "" ? 0 : +el.value / +el.dataset.s);
+    } else return;
+    run();
+  });
+  $("inputs").addEventListener("change", e => {
+    const el = e.target;
+    if (el.hasAttribute("data-rebuild")) {
+      S.years = Math.max(1, Math.min(10, Math.round(+el.value) || 1));
+      buildInputs(); run();
+    } else if (el.hasAttribute("data-bool")) { setP(S, el.dataset.p, el.checked); run(); }
+  });
+  $("inputs").addEventListener("click", e => {
+    const t = e.target;
+    if (t.id === "addpartner") S.partners.push({ name: `销售合伙人 ${S.partners.filter(p => !p.tech).length + 1}`, share: 0, weight: 1, ownErpYear: 0, demo: false });
+    else if (t.id === "addproj") S.projects.push({ name: `新项目 ${S.projects.length + 1}`, price: 5, launch: 2, trials: 1, implDays: 0, maintRate: 0.1, rdDays: 60, hardware: 1, partnerSales: [2], otherSales: [1] });
+    else if (t.dataset.delpartner) S.partners.splice(+t.dataset.delpartner, 1);
+    else if (t.dataset.delproj) S.projects.splice(+t.dataset.delproj, 1);
+    else return;
+    buildInputs(); run();
+  });
+  $("reset").onclick = () => { S = clone(CALC.DEFAULTS); buildInputs(); run(); };
+
+  /* ---------- 页签 ---------- */
+  document.querySelectorAll(".tabs [role=tab]").forEach(b => b.onclick = () => {
+    tab = b.dataset.tab;
+    document.querySelectorAll(".tabs [role=tab]").forEach(x => x.setAttribute("aria-selected", x === b));
+    ["proj", "years", "co", "ppl"].forEach(k => $("t-" + k).hidden = k !== tab);
+    $("yrbox").hidden = tab !== "proj";
+  });
+  $("yr").onchange = () => { yr = +$("yr").value; renderProj(); };
+
+  /* ---------- 呈现：类别 ---------- */
+  const PARTY = [
+    { k: "tech", n: "技术方", c: "k-tech" }, { k: "partners", n: "销售合伙人", c: "k-pp" }, { k: "other", n: "其他销售", c: "k-po" },
+    { k: "demo", n: "示范工厂", c: "k-demo" }, { k: "coKept", n: "数字化合作公司留存", c: "k-co" }, { k: "costTax", n: "成本与税", c: "k-cost" },
+  ];
+  const LINEK = [
+    { k: "co", n: "数字化合作公司", c: "k-co" }, { k: "tech", n: "技术方", c: "k-tech" }, { k: "introP", n: "销售合伙人（介绍费）", c: "k-pp" },
+    { k: "introO", n: "其他销售（介绍费）", c: "k-po" }, { k: "demo", n: "示范工厂", c: "k-demo" }, { k: "direct", n: "直接成本", c: "k-cost" },
+  ];
+  const legend = (arr, hint) => `<div class="legend">${arr.map(a => `<span><i class="sw ${a.c}"></i>${a.n}</span>`).join("")}${hint ? `<span class="hint">移到色块或带虚线的数上，看怎么算</span>` : ""}</div>`;
+  const stat = (lab, v, c, p) => `<div class="stat"><div class="lab">${c ? `<i class="sw ${c}"></i>` : ""}${lab}</div><div class="val">${fmt(v)}<small>万元</small></div>${p ? `<p>${p}</p>` : ""}</div>`;
+  const partsTip = (title, line, k, v) => {
+    const ps = line.parts[k] || [];
+    return [title + "|" + line.name, `${wan(v)}`, ...ps.map(([l, x]) => `${l}：${wan(x)}`), ...(ps.length > 1 ? [`合计：${wan(v)}`] : [])];
+  };
+
+  function renderProj() {
+    const r = R[yr - 1]; if (!r) return;
+    const lines = r.all.filter(l => l.gross > 0 || KEYS6(l));
+    const p = r.parties;
+    let h = `<div class="stats">${stat("总收入", r.gross, "", `第 ${yr} 年，${lines.length} 项业务`)}${stat("技术方", p.tech, "k-tech", `含分红 ${fmt(r.tech.div)}，未扣成本`)}${stat("销售合伙人（合计）", p.partners, "k-pp", "介绍费＋业绩奖＋分红")}${stat("其他销售（合计）", p.other, "k-po", "介绍费＋业绩奖")}${stat("示范工厂", p.demo, "k-demo", "线下课分成")}${stat("合作公司留存", p.coKept, "k-co", "留作支出与准备金")}</div>`;
+    h += `<div class="card"><h3>第 ${yr} 年每项业务的钱分到哪</h3><p class="cap">每条的长短按这项业务的收入；介绍费此处是销售合伙人、其他销售各自的合计，业绩奖与分红在「数字化合作公司」页</p>${legend(LINEK, true)}<div class="lines">`;
+    const max = Math.max(...lines.map(l => l.gross), 1e-9);
+    for (const l of lines) {
+      const segs = LINEK.map(a => ({ ...a, v: l[a.k] })).filter(a => a.v > 1e-9);
+      const tot = segs.reduce((s, a) => s + a.v, 0);
+      const bar = segs.map(a => `<span class="seg ${a.c}" style="--v:${a.v}" tabindex="0" data-tip="${tipAttr(partsTip(a.n, l, a.k, a.v))}">${fmt(a.v)}</span>`).join("")
+        + (l.vat > 1e-9 ? `<span class="seg k-cost" style="--v:${l.vat}" tabindex="0" data-tip="${tipAttr(["增值税|" + l.name, wan(l.vat)])}"></span>` : "")
+        + (max - l.gross > 1e-9 ? `<span style="flex:${max - l.gross} 0 0"></span>` : "");
+      h += `<div class="ln"><div class="nm">${esc(l.name)}</div><div class="bar${tot ? "" : " empty"}" role="img" aria-label="${esc(l.name)} ${fmt(l.gross)} 万元：${segs.map(a => `${a.n} ${fmt(a.v)} 万元`).join("，")}">${bar}</div><div class="tot">${fmt(l.gross)} 万</div></div>`;
+    }
+    h += `</div></div>`;
+    /* 同数表格 */
+    h += `<div class="card"><h3>同一组数的表格</h3><div class="tw"><table class="t"><thead><tr><th>万元</th>${LINEK.map(a => `<th class="r"><i class="sw ${a.c}"></i>${a.n}</th>`).join("")}<th class="r">增值税</th><th class="r">合计</th></tr></thead><tbody>`;
+    for (const l of lines) h += `<tr><td>${esc(l.name)}</td>${LINEK.map(a => cell(l[a.k], partsTip(a.n, l, a.k, l[a.k]))).join("")}<td class="r">${fmt(l.vat)}</td><td class="r"><b>${fmt(l.gross)}</b></td></tr>`;
+    h += `<tr class="sum"><td>合计</td>${LINEK.map(a => `<td class="r">${fmt(lines.reduce((s, l) => s + l[a.k], 0))}</td>`).join("")}<td class="r">${fmt(r.vat)}</td><td class="r">${fmt(r.gross)}</td></tr></tbody></table></div></div>`;
+    $("t-proj").innerHTML = h; labelSegs($("t-proj"));
+  }
+  const KEYS6 = l => LINEK.some(a => Math.abs(l[a.k]) > 1e-9);
+  const cell = (v, tip) => `<td class="r${v < -1e-9 ? " neg" : ""}"${tip && Math.abs(v) > 1e-9 ? ` tabindex="0" data-tip="${tipAttr(tip)}"` : ""}>${Math.abs(v) > 1e-9 ? fmt(v) : "—"}</td>`;
+  function labelSegs(root) { root.querySelectorAll(".bar .seg").forEach(s => { s.classList.remove("lab"); if (s.textContent && s.scrollWidth <= s.clientWidth + 1 && s.clientWidth > 34) s.classList.add("lab"); }); }
+
+  /* ---------- 逐年 ---------- */
+  function chartSVG() {
+    const W = 760, H = 300, L = 46, Rm = 10, T = 26, B = 30, n = R.length;
+    const tot = R.map(r => r.gross), top = Math.max(...tot, 1);
+    const step = niceStep(top / 4), ymax = Math.ceil(top / step) * step;
+    const y = v => T + (H - T - B) * (1 - v / ymax), bw = Math.min(70, (W - L - Rm) / n * 0.56);
+    let g = "";
+    for (let v = 0; v <= ymax + 1e-9; v += step) g += `<line class="${v ? "gl" : "ax"}" x1="${L}" x2="${W - Rm}" y1="${y(v)}" y2="${y(v)}"/><text x="${L - 6}" y="${y(v) + 4}" text-anchor="end">${fmt(v, 0)}</text>`;
+    R.forEach((r, i) => {
+      const cx = L + (W - L - Rm) * (i + .5) / n; let acc = 0;
+      const segs = PARTY.map(a => ({ ...a, v: Math.max(0, r.parties[a.k]) })).filter(a => a.v > 1e-9);
+      segs.forEach((a, si) => {
+        const y0 = y(acc), y1 = y(acc + a.v); acc += a.v;
+        const hgt = Math.max(0, y0 - y1 - (si ? 2 : 0));
+        const fill = a.k === "costTax" ? "url(#hatch)" : `var(--${{ tech: "tech", partners: "pp", other: "po", demo: "demo", coKept: "co" }[a.k]})`;
+        const tip = [`${a.n}|第 ${r.y} 年`, wan(a.v), `占总收入 ${pct(a.v / r.gross)}`, ...(a.k === "costTax" ? [`增值税 ${wan(r.vat)}，线下课直接成本 ${wan(r.direct)}，介绍费个税 ${wan(r.parties.costTax - r.vat - r.direct)}`] : [])];
+        const isTop = si === segs.length - 1;
+        g += `<rect class="m" tabindex="0" x="${cx - bw / 2}" y="${y1}" width="${bw}" height="${hgt}" ${isTop ? 'rx="4"' : ""} fill="${fill}" data-tip="${tipAttr(tip)}" aria-label="第 ${r.y} 年 ${a.n} ${fmt(a.v)} 万元"/>`;
+        if (isTop && hgt > 8) g += `<rect x="${cx - bw / 2}" y="${y1 + 4}" width="${bw}" height="${Math.min(hgt - 4, 6)}" fill="${fill}" pointer-events="none"/>`;
+      });
+      g += `<text class="tl" x="${cx}" y="${y(r.gross) - 8}" text-anchor="middle">${fmt(r.gross, 1)}</text><text x="${cx}" y="${H - 10}" text-anchor="middle">第 ${r.y} 年</text>`;
+    });
+    return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="逐年总收入的去向，下方表格有同样的数"><defs><pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="#EEF2F6"/><rect width="3" height="6" fill="#C9D3DD"/></pattern></defs>${g}</svg>`;
+  }
+  function niceStep(x) { const p = 10 ** Math.floor(Math.log10(x || 1)), m = x / p; return (m <= 1 ? 1 : m <= 2 ? 2 : m <= 5 ? 5 : 10) * p; }
+  const yh = () => `<thead><tr><th>万元</th>${R.map(r => `<th class="r">第 ${r.y} 年</th>`).join("")}<th class="r">${R.length > 1 ? "合计" : ""}</th></tr></thead>`;
+  function row(name, f, o = {}) {
+    const vals = R.map(f), sum = o.nosum ? null : vals.reduce((a, b) => a + (Number.isFinite(b) ? b : 0), 0);
+    const show1 = v => (o.fmt ? o.fmt(v) : fmt(v));
+    return `<tr class="${o.cls || ""}"><td>${o.sw ? `<i class="sw ${o.sw}"></i>` : ""}${name}</td>${vals.map((v, i) => `<td class="r${Number.isFinite(v) && v < -1e-9 ? " neg" : ""}${o.flag && o.flag(R[i]) ? " neg" : ""}"${o.tip ? ` tabindex="0" data-tip="${tipAttr(o.tip(R[i]))}"` : ""}>${show1(v)}</td>`).join("")}<td class="r">${R.length > 1 && sum !== null ? show1(sum) : ""}</td></tr>`;
+  }
+  const cat = t => `<tr class="cat"><td colspan="${R.length + 2}">${t}</td></tr>`;
+  function renderYears() {
+    let h = `<div class="card"><h3>每年的收入分到哪</h3><p class="cap">柱高是当年总收入；技术方含分红、未扣成本，各方都是合计</p>${legend(PARTY, true)}<div class="chart">${chartSVG()}</div></div>`;
+    h += `<div class="card"><h3>逐年总表</h3><div class="tw"><table class="t">${yh()}<tbody>`;
+    h += cat("收入与去向") + row("总收入", r => r.gross, { cls: "sum" });
+    PARTY.forEach(a => { h += row(a.n, r => r.parties[a.k], { sw: a.c, cls: "sub" }); });
+    if (R.some(r => r.parties.unpaid > 1e-9)) h += row("介绍费无人领", r => r.parties.unpaid, { cls: "sub" });
+    h += cat("技术方") + row("收入（含分红）", r => r.tech.income, { cls: "sum" })
+      + row("本人成本", r => -r.tech.cost.owner, { cls: "sub" }) + row("员工成本", r => -r.tech.cost.staff, { cls: "sub", tip: r => [`员工成本|第 ${r.y} 年`, `${r.tech.staff} 人 × 12 个月 × ${fmt(S.tech.staffMonthly)} 万 ＝ ${wan(r.tech.cost.staff)}`] })
+      + row("服务器", r => -r.tech.cost.server, { cls: "sub", tip: r => [`服务器|第 ${r.y} 年`, `在用 ERP 客户 ${fmt(r.tech.clients, 1)} 家，每台 ${fmt(S.tech.perServer)} 家，${r.tech.servers} 台 × ${fmt(S.tech.serverCost)} 万`] })
+      + row("AI 调用", r => -r.tech.cost.ai, { cls: "sub" })
+      + row("利润", r => r.tech.profit, { cls: "sum" }) + row("利润率", r => r.tech.margin, { fmt: v => pct(v), nosum: true });
+    h += cat("技术方产能") + row("员工人数", r => r.tech.staff, { fmt: v => `${fmt(v, 1)} 人`, nosum: true })
+      + row("人天价", r => r.tech.rate * 10000, { fmt: v => `${fmt(v, 0)} 元`, nosum: true })
+      + row("需要的交付天数", r => r.tech.need, { fmt: v => `${fmt(v, 0)} 天`, tip: r => { const d = r.tech.days; return [`需要的交付天数|第 ${r.y} 年`, `${fmt(r.tech.need, 0)} 天`, `ERP 实施与变更 ${fmt(d.impl, 0)} 天`, `年维护 ${fmt(d.maint, 0)} 天`, `项目实施 ${fmt(d.proj, 0)} 天、研发 ${fmt(d.rd, 0)} 天`, `GEO 服务 ${fmt(d.geo, 0)} 天`, `线下课讲课 ${fmt(d.teach, 0)} 天`]; } })
+      + row("可交付天数", r => r.tech.cap, { fmt: v => `${fmt(v, 0)} 天` })
+      + row("占用产能", r => r.tech.util, { fmt: v => pct(v, 0), nosum: true, flag: r => r.tech.util > 1 })
+      + row("按需要的天数，应有员工", r => r.tech.needStaff, { fmt: v => `${fmt(v, 0)} 人`, nosum: true, flag: r => r.tech.needStaff > r.tech.staff })
+      + row("只靠 ERP 外部单的保本单数", r => r.tech.breakeven, { fmt: v => (Number.isFinite(v) ? `${fmt(v, 0)} 单` : "—"), nosum: true, tip: r => [`保本单数|第 ${r.y} 年`, `技术方当年成本 ${wan(r.tech.cost.total)} ÷ 每单技术方收入 ${wan(r.tech.perOrder)}`] })
+      + row("在用 ERP 客户", r => r.tech.clients, { fmt: v => `${fmt(v, 1)} 家`, nosum: true });
+    h += `</tbody></table></div></div>`;
+    $("t-years").innerHTML = h;
+  }
+
+  /* ---------- 数字化合作公司 ---------- */
+  function renderCo() {
+    const people = S.partners.filter(p => !p.tech);
+    let h = `<div class="card"><h3>数字化合作公司逐年的账</h3><p class="cap">收入是各项业务抽给合作公司的部分（已扣替试验厂抵扣）；减支出得分红前利润，先发业绩奖，再交税、提公积金，余下按股份分红</p><div class="tw"><table class="t">${yh()}<tbody>`;
+    h += row("收入", r => r.company.rev, { cls: "sum", sw: "k-co", tip: r => [`合作公司收入|第 ${r.y} 年`, wan(r.company.rev), ...r.all.filter(l => Math.abs(l.co) > 1e-9).map(l => `${l.name}：${wan(l.co)}`)] })
+      + row("运转", r => -r.company.ops, { cls: "sub" }) + row("共同宣传获客", r => -r.company.marketing, { cls: "sub" })
+      + row("新项目硬件", r => -r.company.hardware, { cls: "sub" }) + row("提风险准备金", r => -r.company.contrib, { cls: "sub" })
+      + row("退款中准备金不够付的", r => -r.company.shortfall, { cls: "sub" }) + row("上年结转的亏损", r => -r.company.lossIn, { cls: "sub" })
+      + row("分红前利润", r => r.company.pre, { cls: "sum" })
+      + row("年度业绩奖", r => -r.company.bonus, { cls: "sub" }) + row("企业所得税", r => -r.company.cit, { cls: "sub" }) + row("法定公积金", r => -r.company.legal, { cls: "sub" })
+      + row("分红", r => r.company.div, { cls: "sum" })
+      + row("技术方", r => r.company.divTech, { cls: "sub", sw: "k-tech" });
+    people.forEach((p, k) => { h += row(esc(p.name || `销售合伙人 ${k + 1}`), r => r.company.divP[k], { cls: "sub", sw: "k-pp" }); });
+    if (R.some(r => Math.abs(r.company.unallocated) > 1e-6)) h += row("未分配（股份没加满 100%）", r => r.company.unallocated, { cls: "sub" });
+    h += cat("余额") + row("风险准备金余额", r => r.company.reserve, { nosum: true }) + row("当年退款、赔偿", r => r.company.refunds) + row("结转到下一年的亏损", r => r.company.lossOut, { nosum: true });
+    h += `</tbody></table></div></div>`;
+    $("t-co").innerHTML = h;
+  }
+
+  /* ---------- 每位合伙人 ---------- */
+  function renderPpl() {
+    const people = S.partners.filter(p => !p.tech);
+    let h = `<div class="card"><h3>每位合伙人每年得多少</h3><p class="cap">净收益 ＝ 介绍费 ＋ 业绩奖 ＋ 分红 ＋ 示范工厂线下课分成 − 自家工厂买系统的支出</p><div class="tw"><table class="t">${yh()}<tbody>`;
+    h += cat("技术方") + row("收入（项目分成＋分红）", r => r.tech.income, { sw: "k-tech" }) + row("减：成本", r => -r.tech.cost.total, { cls: "sub" }) + row("净收益", r => r.tech.profit, { cls: "sum" });
+    people.forEach((p, k) => {
+      h += cat(esc(p.name || `销售合伙人 ${k + 1}`) + `　股份 ${pct(p.share)}`)
+        + row("介绍费", r => r.people[k].intro, { sw: "k-pp", tip: r => [`介绍费|第 ${r.y} 年`, `销售合伙人介绍费合计 ${wan(r.introP)} × 本人介绍业务占比`, ...(S.tax.introducerTax ? [`已扣个税 ${pct(S.tax.introducerTax)}`] : [])] })
+        + row("业绩奖", r => r.people[k].bonus, { cls: "sub", tip: r => [`业绩奖|第 ${r.y} 年`, `业绩奖 ${wan(r.company.bonus)} × 本人介绍业务额 ${wan(r.people[k].vol)} ÷ 全部介绍业务额`] })
+        + row("分红", r => r.people[k].div, { cls: "sub" })
+        + (people.some(q => q.demo) ? row("示范工厂线下课分成", r => r.people[k].demo, { cls: "sub" }) : "")
+        + row("自家工厂买系统", r => -r.people[k].own, { cls: "sub" })
+        + row("净收益", r => r.people[k].net, { cls: "sum" });
+    });
+    h += cat("其他销售（全体合计）") + row("介绍费", r => r.other.intro, { sw: "k-po" }) + row("业绩奖", r => r.other.bonus, { cls: "sub" }) + row("合计", r => r.other.net, { cls: "sum" });
+    h += `</tbody></table></div></div>`;
+    $("t-ppl").innerHTML = h;
+  }
+
+  /* ---------- 重算 ---------- */
+  function run() {
+    R = CALC.compute(S);
+    if (yr > R.length) yr = R.length;
+    $("yr").innerHTML = R.map(r => `<option value="${r.y}" ${r.y === yr ? "selected" : ""}>${r.y}</option>`).join("");
+    const w = CALC.warnings(S, R);
+    $("warns").hidden = !w.length;
+    $("warns").innerHTML = `<b>请留意</b><ul>${w.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
+    renderProj(); renderYears(); renderCo(); renderPpl();
+  }
+
+  /* ---------- 悬停提示 ---------- */
+  const tip = $("tip");
+  function showTip(el, x, y) {
+    const lines = el.dataset.tip.split("|");
+    tip.innerHTML = `<div class="h">${esc(lines[0])}</div>${lines[1] ? `<div class="d">${esc(lines[1])}</div>` : ""}${lines.slice(2).map((l, i) => `<div class="${i === 0 ? "v" : "d"}">${esc(l)}</div>`).join("")}`;
+    tip.hidden = false;
+    const r = tip.getBoundingClientRect();
+    tip.style.left = Math.max(8, Math.min(innerWidth - r.width - 8, x + 14)) + "px";
+    tip.style.top = (y + 16 + r.height > innerHeight ? Math.max(8, y - r.height - 12) : y + 16) + "px";
+  }
+  document.addEventListener("pointermove", e => { const s = e.target.closest && e.target.closest("[data-tip]"); s ? showTip(s, e.clientX, e.clientY) : (tip.hidden = true); });
+  document.addEventListener("focusin", e => { const s = e.target.closest && e.target.closest("[data-tip]"); if (s) { const r = s.getBoundingClientRect(); showTip(s, r.left, r.bottom - 8); } else tip.hidden = true; });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") tip.hidden = true; });
+  addEventListener("resize", () => labelSegs($("t-proj")));
+
+  /* ---------- 自检：默认值下第一年应与讲稿经营测算 5 页一致 ---------- */
+  const sc = CALC.selfCheck(), bad = sc.filter(c => !c.ok);
+  $("selfcheck").innerHTML = bad.length
+    ? `<span class="pill hot">自检未过</span> 默认值下第一年与讲稿不一致：${bad.map(c => `${c.name} 应为 ${c.want}、算得 ${fmt(c.got, 3)}`).join("；")}`
+    : `<span class="pill ok">自检通过</span> 用默认值算的第一年，与讲稿「经营测算」5 页的 ${sc.length} 个数一致（总收入 209、技术方 122.11、销售合伙人 31.08、其他销售 7.87、示范工厂 27.54、合作公司留存 9.6 万元等）`;
+  window.__selfcheck = bad.length ? "fail" : "ok";
+
+  buildInputs(); run();
+})();
+</script>
+</body>
+</html>

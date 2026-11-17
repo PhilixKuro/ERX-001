@@ -1,0 +1,1555 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>合作方案 · 草案</title>
+<style>
+  /* 合作方案讲稿 v6（P1-S10 R04 第 2 步，复制自 index-v5.html，只把第 32 页「打开经营测算器」接到 ../calculator/index.html）：样式 A（讲稿 v8 贴纸大画布风）为底，重点数字用样式 C 的数字卡。只有浅色。
+     内容出自 docs/01-需求摸底/S10-商业化商讨/R02-合作方案草案/合作方案草案.md v16，数字不改。
+     三方配色全稿固定，经 dataviz 校验器（--pairs all，白底）全过：合作公司 #1F9E89 / 技术方 #2F6DB5 / 介绍人 #FF5A36。
+     文字一律用墨色，三方颜色只上色块与图例方块。 */
+  :root {
+    --bg: #E9EEF2; --panel: #F6F8FA; --ink: #24313F; --ink2: #5A6B7D; --s1: #3B5573; --s2: #7189A3; --s3: #9DB0C3; --hair: #DCE3EA;
+    --acc: #FF5A36; --acc-t: #D63A17;
+    --p0: #1F9E89; --p1: #2F6DB5; --p2: #FF5A36; --p0-ink: #1c1b1a; --p1-ink: #ffffff; --p2-ink: #1c1b1a;
+    --f-cn: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", sans-serif;
+    --f-num: "Bahnschrift", "DIN Alternate", "Helvetica Neue", Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+    --eo: cubic-bezier(.22, 1, .36, 1);
+    --shadow: 0 2px 0 rgba(36,49,63,.06), 0 18px 34px -18px rgba(36,49,63,.32);
+    color-scheme: light;
+  }
+  [hidden] { display: none !important; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--ink); font-family: var(--f-cn); }
+  #view { position: fixed; inset: 0; overflow: hidden; }
+  #world { position: absolute; left: 0; top: 0; transform-origin: 0 0; will-change: transform; transition: transform .75s var(--eo);
+    background-image: radial-gradient(circle, #D2DAE2 2.2px, transparent 2.8px); background-size: 60px 60px; }
+  #world.instant { transition: none; }
+  @media (prefers-reduced-motion: reduce) { #world { transition: none; } }
+  .aplabel { position: absolute; font-size: 64px; font-weight: 700; letter-spacing: .2em; color: var(--s2); display: flex; align-items: center; gap: 26px; white-space: nowrap; }
+  .aplabel::before { content: ""; width: 80px; height: 14px; border-radius: 7px; background: var(--acc); }
+
+  /* 页 */
+  .frame { position: absolute; width: 1600px; height: 900px; padding: 52px 72px 40px; display: flex; flex-direction: column;
+    background: var(--panel); border-radius: 44px; box-shadow: 0 2px 0 rgba(36,49,63,.05), 0 50px 90px -46px rgba(36,49,63,.4); }
+  #world.ov .frame { cursor: pointer; }
+  #world.ov .frame * { pointer-events: none; }
+  #world.ov .frame:hover { outline: 10px solid var(--acc); }
+  .fh { display: flex; align-items: center; gap: 18px; height: 32px; flex: none; }
+  .kick { font-size: 21px; font-weight: 700; letter-spacing: .16em; color: var(--ink2); display: flex; align-items: center; gap: 14px; white-space: nowrap; }
+  .kick::before { content: ""; width: 38px; height: 9px; border-radius: 5px; background: var(--acc); }
+  .no { margin-left: auto; font: 700 26px var(--f-num); color: var(--s3); letter-spacing: .12em; white-space: nowrap; }
+  .back { font-size: 17px; font-weight: 700; color: var(--ink2); text-decoration: none; border: 2px solid var(--hair); border-radius: 999px; padding: 4px 16px; white-space: nowrap; }
+  .back:hover, .back:focus-visible { border-color: var(--s2); color: var(--ink); outline: none; }
+  .title { margin: 12px 0 0; font-size: 62px; font-weight: 700; line-height: 1.2; flex: none; }
+  .sub { margin: 10px 0 0; font-size: 26px; line-height: 1.55; color: var(--ink2); flex: none; }
+  .sub b, p b { color: var(--ink); }
+  em.mk { font-style: normal; color: var(--ink); font-weight: 700; background: linear-gradient(transparent 58%, rgba(255,90,54,.34) 58%); padding: 0 .06em; }
+  .body { flex: 1; min-height: 0; margin-top: 26px; display: grid; gap: 22px; align-content: start; }
+  .ap .title { font-size: 48px; margin-top: 10px; }
+  .ap .sub { font-size: 22px; margin-top: 6px; }
+  .ap .body { gap: 18px; }
+  /* 正文自动字号：.body 包进 .bwrap，按页找出不溢出的最大倍数（0.7～1.8）整体放大 */
+  .bwrap { flex: 1; min-height: 0; position: relative; margin-top: 20px; }
+  .bwrap > .body { position: absolute; left: 0; top: 0; margin: 0; transform-origin: 0 0; }
+  .body svg[viewBox] { width: 100%; height: auto; }
+  .t td .sw { margin-right: 9px; }
+  .t.parties td:first-child { white-space: nowrap; }
+  .t td.big { font: 700 36px/1.1 var(--f-num); vertical-align: middle; }
+  .t td.big small { font: 700 15px var(--f-cn); color: var(--ink2); margin-left: 4px; }
+
+  .card { background: #fff; border-radius: 24px; padding: 24px 28px; box-shadow: var(--shadow); min-width: 0; }
+  .card h3 { margin: 0 0 10px; font-size: 23px; line-height: 1.3; }
+  .card p { margin: 0; font-size: 18px; line-height: 1.6; color: var(--ink2); }
+  .card p + p { margin-top: 8px; }
+  .card.tint { background: #EEF3F8; box-shadow: none; }
+  .muted { color: var(--ink2); }
+  .num { font-family: var(--f-num); font-variant-numeric: tabular-nums; }
+  .sw { display: inline-block; width: 14px; height: 14px; border-radius: 4px; flex: none; vertical-align: -1px; }
+  .sw.p0 { background: var(--p0); } .sw.p1 { background: var(--p1); } .sw.p2 { background: var(--p2); } .sw.nz { background: var(--s3); }
+  .ref { color: var(--acc-t); font-weight: 700; text-decoration: none; font-size: 17px; white-space: nowrap; }
+  .ref:hover, .ref:focus-visible { text-decoration: underline; outline: none; }
+  .refs { display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: center; font-size: 17px; color: var(--ink2); }
+  .pill { display: inline-block; font-size: 15px; font-weight: 700; color: var(--ink2); border: 2px solid var(--hair); border-radius: 999px; padding: 2px 12px; white-space: nowrap; }
+  .pill.hot { color: var(--acc-t); border-color: rgba(255,90,54,.5); }
+
+  /* 数字卡（样式 C 的形式）：标签、大数字、单位、说明 */
+  .stat .lab { font-size: 17px; font-weight: 700; color: var(--ink2); display: flex; align-items: center; gap: 9px; }
+  .stat .val { font: 700 56px/1.08 var(--f-num); color: var(--ink); margin: 10px 0 8px; white-space: nowrap; letter-spacing: -.01em; }
+  .stat .val small { font: 700 21px var(--f-cn); color: var(--ink2); margin-left: 6px; letter-spacing: 0; }
+  .stat .val.md { font-size: 44px; }
+  .stat p { font-size: 16px; line-height: 1.55; }
+  .tri { display: flex; gap: 30px; margin: 10px 0 6px; }
+  .tri b { display: block; font: 700 44px/1.1 var(--f-num); white-space: nowrap; }
+  .tri span { display: flex; align-items: center; gap: 7px; font-size: 15px; color: var(--ink2); margin-top: 4px; white-space: nowrap; }
+
+  /* 表 */
+  table.t { width: 100%; border-collapse: collapse; font-size: 17px; line-height: 1.5; }
+  .t th, .t td { padding: 8px 10px; border-top: 1px solid var(--hair); text-align: left; vertical-align: top; }
+  .t thead th { font-size: 14px; color: var(--ink2); font-weight: 700; border-top: 0; letter-spacing: .04em; }
+  .t td:first-child { font-weight: 700; color: var(--ink); }
+  .t td { color: var(--ink2); }
+  .t td.r, .t th.r { text-align: right; font-family: var(--f-num); font-variant-numeric: tabular-nums; color: var(--ink); white-space: nowrap; }
+  .t tr.sum td { font-weight: 700; color: var(--ink); border-top: 2px solid var(--s3); }
+  .t.sm { font-size: 15px; } .t.sm td, .t.sm th { padding: 6px 8px; }
+  .t.xs { font-size: 14px; line-height: 1.42; } .t.xs td, .t.xs th { padding: 4px 7px; }
+  .t td.nw, .t th.nw { white-space: nowrap; }
+  .t tr.cat td { font-size: 13px; font-weight: 700; color: var(--s2); letter-spacing: .1em; padding-top: 9px; border-top: 1px solid var(--s3); }
+
+  /* 编号列表 */
+  ol.steps { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+  ol.steps > li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; font-size: 18px; line-height: 1.55; color: var(--ink2); }
+  ol.steps > li + li { margin-top: 14px; }
+  ol.steps > li::before { content: counter(s); width: 34px; height: 34px; border-radius: 50%; background: var(--ink); color: #fff; font: 700 17px/34px var(--f-num); text-align: center; }
+  ol.steps > li.pre { counter-increment: none; }
+  ol.steps > li.pre::before { content: "先"; background: var(--acc); color: var(--ink); font: 700 16px/34px var(--f-cn); }
+  ol.steps b { color: var(--ink); }
+  ul.dots { margin: 0; padding-left: 22px; font-size: 17px; line-height: 1.6; color: var(--ink2); }
+  ul.dots li + li { margin-top: 6px; }
+  ul.dots b { color: var(--ink); }
+
+  /* 流程 */
+  .flow { display: flex; align-items: stretch; gap: 0; }
+  .flow > .fs { flex: 1 1 0; min-width: 0; background: #fff; border-radius: 20px; padding: 20px 20px; box-shadow: var(--shadow); }
+  .flow > .ar { flex: none; width: 38px; display: flex; align-items: center; justify-content: center; }
+  .flow > .ar::after { content: ""; border-left: 16px solid var(--acc); border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
+  .fs .fn { font: 700 15px var(--f-num); color: var(--s2); letter-spacing: .1em; }
+  .fs h4 { margin: 4px 0 6px; font-size: 21px; line-height: 1.3; }
+  .fs p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--ink2); }
+  .fs p + p { margin-top: 6px; }
+  .fs .k { font-size: 13px; font-weight: 700; color: var(--s2); letter-spacing: .08em; display: block; margin-top: 8px; }
+
+  /* 比例条 */
+  .bar { display: flex; gap: 2px; height: 28px; }
+  .seg { flex: var(--v) 0 0; width: 0; border-radius: 4px; display: flex; align-items: center; padding-left: 10px;
+    font: 700 16px var(--f-num); white-space: nowrap; overflow: visible; cursor: default; outline-offset: 3px; }
+  .seg:focus-visible { outline: 3px solid var(--ink); }
+  .seg.p0 { background: var(--p0); color: var(--p0-ink); } .seg.p1 { background: var(--p1); color: var(--p1-ink); } .seg.p2 { background: var(--p2); color: var(--p2-ink); }
+  .seg.nolab { color: transparent; }
+  .legend { display: flex; gap: 28px; font-size: 17px; color: var(--ink2); align-items: center; flex-wrap: wrap; }
+  .legend span { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+  .tbtn { font: 700 16px var(--f-cn); color: var(--ink2); background: none; border: 2px solid var(--hair); border-radius: 999px; padding: 5px 16px; cursor: pointer; }
+  .tbtn:hover, .tbtn:focus-visible { border-color: var(--s2); color: var(--ink); outline: none; }
+  .tbtn[disabled] { cursor: not-allowed; opacity: .7; }
+  .rows .grp { font-size: 20px; font-weight: 700; margin: 0 0 8px; }
+  .rows .row { display: grid; grid-template-columns: 190px 1fr; align-items: center; gap: 18px; margin-bottom: 10px; }
+  .rows .row .who { font-size: 18px; color: var(--ink2); white-space: nowrap; }
+  .rows .gsp { height: 12px; }
+
+  #tip { position: fixed; z-index: 20; pointer-events: none; background: #fff; color: var(--ink); border-radius: 12px; padding: 10px 14px;
+    font-size: 14px; line-height: 1.55; box-shadow: 0 10px 28px -10px rgba(36,49,63,.45); white-space: nowrap; }
+  #tip b { font-family: var(--f-num); }
+
+  /* 底部导航 */
+  #hud { position: fixed; right: 16px; bottom: 14px; z-index: 10; display: flex; align-items: center; gap: 6px; padding: 5px;
+    background: rgba(255,255,255,.88); border-radius: 999px; box-shadow: 0 6px 20px -10px rgba(36,49,63,.5); font-size: 14px; }
+  #hud button { font: 700 14px var(--f-cn); color: var(--ink); background: none; border: 0; border-radius: 999px; padding: 6px 12px; cursor: pointer; }
+  #hud button:hover, #hud button:focus-visible { background: var(--hair); outline: none; }
+  #hud #pg { min-width: 86px; text-align: center; color: var(--ink2); font-variant-numeric: tabular-nums; }
+
+  /* 封面 */
+  .cover { justify-content: center; padding-left: 130px; }
+  .cover .fh { position: absolute; left: 130px; right: 96px; top: 66px; }
+  .cover h1 { margin: 0; font-size: 128px; line-height: 1.1; letter-spacing: .02em; }
+  .cover .csub { margin: 26px 0 0; font-size: 34px; line-height: 1.55; color: var(--ink2); }
+  .cover .ctags { display: flex; gap: 14px; margin-top: 44px; flex-wrap: wrap; max-width: 900px; }
+  .cover .ctags span { font-size: 21px; font-weight: 700; background: #fff; border-radius: 999px; padding: 10px 22px; box-shadow: var(--shadow); }
+  .cover .cnote { position: absolute; left: 130px; bottom: 64px; margin: 0; font-size: 20px; color: var(--ink2); }
+  .stk { position: absolute; overflow: visible; }
+</style>
+</head>
+<body>
+<div id="view"><div id="world">
+
+<section class="frame cover" data-id="x-cover" data-row="0" aria-label="封面">
+  <header class="fh"><span class="kick">合作方案 · 草案</span><span class="no">v16 · 2026-11-15</span></header>
+  <h1>合作方案</h1>
+  <p class="csub">技术方与销售合伙人合办数字化合作公司，<br>一起做中小工厂的 AI 数字化</p>
+  <p class="cnote">草案，供双方商量，不是合同</p>
+  <svg class="stk" style="right:56px;top:150px;overflow:visible" width="684" height="608" viewBox="0 0 720 640" aria-hidden="true">
+    <defs>
+      <!-- 贴纸质感，与讲稿 v8 相同：Alpha 外扩成白描边 + 软阴影 -->
+      <filter id="stk" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+        <feMorphology in="SourceAlpha" operator="dilate" radius="10" result="d"/>
+        <feGaussianBlur in="d" stdDeviation="9" result="b"/><feOffset in="b" dy="12" result="o"/>
+        <feFlood flood-color="#24313F" flood-opacity=".26"/><feComposite in2="o" operator="in" result="sh"/>
+        <feFlood flood-color="#fff"/><feComposite in2="d" operator="in" result="w"/>
+        <feMerge><feMergeNode in="sh"/><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <!-- 系统、工厂：取自讲稿 v8（showcase/meeting1/deck/index-v8.html）原样 -->
+      <symbol id="i-laptop" viewBox="0 0 260 180">
+        <rect x="30" y="6" width="200" height="134" rx="10" fill="#24313F"/>
+        <rect x="42" y="18" width="176" height="110" rx="4" fill="#3B5573"/>
+        <rect x="56" y="32" width="90" height="8" rx="4" fill="#fff" opacity=".85"/><rect x="56" y="46" width="60" height="6" rx="3" fill="#fff" opacity=".45"/>
+        <rect x="56" y="88" width="18" height="28" fill="#9DB0C3"/><rect x="82" y="72" width="18" height="44" fill="#9DB0C3"/>
+        <rect x="108" y="58" width="18" height="58" fill="#FF5A36"/><rect x="134" y="78" width="18" height="38" fill="#9DB0C3"/>
+        <circle cx="190" cy="82" r="20" fill="none" stroke="#9DB0C3" stroke-width="8"/>
+        <path d="M190 62a20 20 0 0 1 19 26" fill="none" stroke="#FF5A36" stroke-width="8"/>
+        <path d="M6 146H254L240 172H20Z" fill="#9DB0C3"/><rect x="108" y="146" width="44" height="6" rx="3" fill="#7189A3"/>
+      </symbol>
+      <symbol id="i-factory" viewBox="0 0 240 200">
+        <rect x="10" y="90" width="162" height="104" fill="#C9D3DD"/>
+        <path d="M10 92V50L60 92V50L110 92V50L160 92Z" fill="#3B5573"/>
+        <rect x="170" y="40" width="62" height="154" fill="#9DB0C3"/>
+        <rect x="190" y="6" width="22" height="40" fill="#3B5573"/>
+        <rect x="28" y="116" width="28" height="24" fill="#24313F"/><rect x="72" y="116" width="28" height="24" fill="#FF5A36"/><rect x="116" y="116" width="28" height="24" fill="#24313F"/>
+        <rect x="184" y="60" width="34" height="14" fill="#fff" opacity=".8"/><rect x="184" y="86" width="34" height="14" fill="#fff" opacity=".8"/>
+        <rect x="187" y="140" width="28" height="54" fill="#24313F"/>
+      </symbol>
+      <!-- 合作：两块拼图上下平齐，中间留一道 14 宽的缝；凸起与凹口同心，缝宽处处一样（本页新画，配色同 v8） -->
+      <symbol id="i-puzzle" viewBox="0 0 234 130">
+        <path d="M12 0H98A12 12 0 0 1 110 12V43A22 22 0 0 1 110 87V118A12 12 0 0 1 98 130H12A12 12 0 0 1 0 118V12A12 12 0 0 1 12 0Z" fill="#FF5A36"/>
+        <path d="M136 0H222A12 12 0 0 1 234 12V118A12 12 0 0 1 222 130H136A12 12 0 0 1 124 118V98.17A36 36 0 0 0 124 31.83V12A12 12 0 0 1 136 0Z" fill="#3B5573"/>
+        <path d="M20 20H54" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+        <path d="M156 20H206" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".5"/>
+        <circle cx="210" cy="106" r="9" fill="#fff" opacity=".85"/>
+      </symbol>
+    </defs>
+    <!-- 三个贴纸的中心在正三角形三个顶点：拼图 (350,150)，工厂 (160,479)，电脑 (540,479)，边长 380。
+         虚线先画、贴纸后画，虚线从一个中心连到另一个中心，两端藏在贴纸下面 -->
+    <g fill="none" stroke="#9DB0C3" stroke-width="5" stroke-linecap="round" stroke-dasharray="3 13">
+      <path d="M350 150L160 479"/>
+      <path d="M350 150L540 479"/>
+      <path d="M160 479H540"/>
+    </g>
+    <g filter="url(#stk)"><use href="#i-puzzle" x="215" y="75" width="270" height="150"/></g>
+    <g filter="url(#stk)" transform="rotate(-4 160 479)"><use href="#i-factory" x="30" y="370.67" width="260" height="216.67"/></g>
+    <g filter="url(#stk)" transform="rotate(4 540 479)"><use href="#i-laptop" x="395" y="378.62" width="290" height="200.77"/></g>
+  </svg>
+</section>
+
+<section class="frame" data-id="x-intro" data-row="0" aria-label="写在前面">
+  <header class="fh"><span class="kick">一 · 写在前面</span><span class="no"></span></header>
+  <h2 class="title">写在前面</h2>
+  <div class="body" style="grid-template-columns:1fr 1fr;grid-template-rows:1fr">
+    <div class="card">
+      <h3>文中称呼</h3>
+      <table class="t sm">
+        <tr><td class="nw">数字化合作公司</td><td>技术方与销售合伙人合办的公司，数字化业务对外签约、收款</td></tr>
+        <tr><td class="nw">技术方</td><td>负责系统开发、实施、维护的一方，以其注册的技术公司持股数字化合作公司、并为它提供技术服务</td></tr>
+        <tr><td class="nw">销售合伙人</td><td>除技术方以外、一起合办数字化合作公司的股东，都负责销售</td></tr>
+        <tr><td class="nw">其他销售</td><td>不持股、签了渠道协议、帮着介绍客户的人</td></tr>
+        <tr><td class="nw">介绍人</td><td>某一单是谁介绍成交的，谁就是这一单的介绍人；可以是销售合伙人，也可以是其他销售</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>三种工厂</h3>
+      <table class="t sm">
+        <thead><tr><th>工厂</th><th>是谁的</th><th>有什么</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">销售合伙人<br>自家工厂</td><td>某位销售合伙人的</td><td>买 ERP 和降本增效项目按销售合伙人价（市场价的 73%），ERP 免实施费</td></tr>
+          <tr><td class="nw">试验厂</td><td>某位销售合伙人的，自愿先试用某个降本增效项目</td><td>这个项目半价，先用后付</td></tr>
+          <tr><td class="nw">示范工厂</td><td>不一定是销售合伙人的</td><td>对外展示、接待参观，带来客户与名气；驻厂工程师线下课在这里上，分得一半</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px">一家工厂可以同时是其中几种，也可以只是一种</p>
+    </div>
+  </div>
+  <p class="pnote"><b>注意</b>　这份草案是技术方先按自己的想法拟的，把双方各自出什么、得什么都写出来，不藏条件，全部内容都可以商量 · 价格是参考市场区间的估算，拿到本地同行报价后再调整 · 涉及法律、税务的写法，最终以律师、会计的意见为准 · 各个项目可以逐个谈、逐个开始，不必一次谈定</p>
+</section>
+
+<section class="frame" data-id="p3" data-row="1" aria-label="为什么一开始就合办公司">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">为什么一开始就合办公司</h2>
+  <p class="sub">所有数字化业务的合同都由数字化合作公司签、钱都进数字化合作公司，<em class="mk">每一笔钱怎么来、怎么分，账上都看得清</em></p>
+  <div class="body" style="grid-template-rows:auto auto">
+    <div class="card" style="padding:26px 28px 20px">
+      <svg width="1352" height="330" viewBox="0 -14 1408 344" role="img" aria-label="钱怎么走：被改造的工厂向数字化合作公司签合同、付款；数字化合作公司付技术服务费给技术方的公司、付介绍费给介绍人，每单留 10%；技术方直接给工厂实施交付与维护">
+        <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 z" fill="#24313F"/></marker></defs>
+        <g font-family="Microsoft YaHei, PingFang SC, sans-serif">
+          <path d="M1268 50 V18 H120 V150" fill="none" stroke="#7189A3" stroke-width="2.5" stroke-dasharray="9 7" marker-end="url(#ah)"/>
+          <text x="694" y="8" text-anchor="middle" font-size="18" fill="#5A6B7D">技术方直接给工厂实施交付与维护</text>
+          <line x1="240" y1="200" x2="512" y2="200" stroke="#24313F" stroke-width="2.5" marker-end="url(#ah)"/>
+          <text x="376" y="186" text-anchor="middle" font-size="19" font-weight="700" fill="#24313F">签合同、付款</text>
+          <path d="M860 178 H990 V100 H1120" fill="none" stroke="#24313F" stroke-width="2.5" marker-end="url(#ah)"/>
+          <text x="1055" y="88" text-anchor="middle" font-size="19" font-weight="700" fill="#24313F">技术服务费</text>
+          <path d="M860 222 H990 V300 H1120" fill="none" stroke="#24313F" stroke-width="2.5" marker-end="url(#ah)"/>
+          <text x="1055" y="288" text-anchor="middle" font-size="19" font-weight="700" fill="#24313F">介绍费</text>
+          <rect x="0" y="152" width="240" height="96" rx="18" fill="#EEF3F8"/>
+          <text x="120" y="194" text-anchor="middle" font-size="24" font-weight="700" fill="#24313F">被改造的工厂</text>
+          <text x="120" y="224" text-anchor="middle" font-size="15" fill="#5A6B7D">外部工厂或销售合伙人自家工厂</text>
+          <rect x="520" y="136" width="340" height="128" rx="20" fill="#fff" stroke="#DCE3EA" stroke-width="2"/>
+          <rect x="520" y="136" width="12" height="128" rx="6" fill="#1F9E89"/>
+          <text x="696" y="182" text-anchor="middle" font-size="25" font-weight="700" fill="#24313F">数字化合作公司</text>
+          <text x="696" y="212" text-anchor="middle" font-size="16" fill="#5A6B7D">签约、收款</text>
+          <text x="696" y="246" text-anchor="middle" font-size="22" font-weight="700" fill="#24313F">每单留 10%</text>
+          <rect x="1128" y="50" width="280" height="100" rx="18" fill="#fff" stroke="#DCE3EA" stroke-width="2"/>
+          <rect x="1128" y="50" width="12" height="100" rx="6" fill="#2F6DB5"/>
+          <text x="1274" y="94" text-anchor="middle" font-size="23" font-weight="700" fill="#24313F">技术方的公司</text>
+          <text x="1274" y="124" text-anchor="middle" font-size="16" fill="#5A6B7D">开发、实施、维护</text>
+          <rect x="1128" y="250" width="280" height="80" rx="18" fill="#fff" stroke="#DCE3EA" stroke-width="2"/>
+          <rect x="1128" y="250" width="12" height="80" rx="6" fill="#FF5A36"/>
+          <text x="1274" y="284" text-anchor="middle" font-size="23" font-weight="700" fill="#24313F">介绍人</text>
+          <text x="1274" y="312" text-anchor="middle" font-size="16" fill="#5A6B7D">销售合伙人或其他销售</text>
+        </g>
+      </svg>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px">
+      <div class="card"><h3>一句话分工</h3><p>技术方出技术，销售合伙人和其他销售出客户，示范工厂出场地；<b>各自先按做的事拿钱，公司赚的钱再按股份分。</b></p></div>
+      <div class="card"><h3>钱怎么走</h3><p>合同由数字化合作公司签、钱先进它的账，再由它付介绍费、付技术服务费给技术方的公司。钱先进公司再分，对双方都是一层保障。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="p4" data-row="1" aria-label="各方出什么、得什么">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">各方出什么、得什么</h2>
+  <p class="sub">技术方出技术，销售合伙人和其他销售出客户，示范工厂出场地；<b>各自先按做的事拿钱，公司赚的钱再按股份分</b></p>
+  <div class="body" style="grid-template-rows:1fr">
+    <div class="card" style="padding:12px 28px">
+      <table class="t parties">
+        <thead><tr><th style="width:17%">谁</th><th style="width:40%">出什么</th><th>得什么</th></tr></thead>
+        <tbody>
+          <tr><td><i class="sw p1"></i>技术方</td><td>技术、实施交付、服务器与维护、驻厂工程师课程、开发成本、全职投入的时间</td><td>技术服务费（主要收入）、按股份分红（不低于 35%）、驻厂工程师培训班收入、技术归自己的公司、一支不用自己找客户的销售队伍</td></tr>
+          <tr><td><i class="sw p2"></i>销售合伙人</td><td>行业关系与销售、参与定价；自家工厂当试验厂时配合试用与反馈</td><td>介绍费、年度业绩奖、按股份分红；自家工厂按销售合伙人价上系统、ERP 免实施费；当试验厂时新项目半价</td></tr>
+          <tr><td><i class="sw p2"></i>其他销售</td><td>介绍客户</td><td>介绍费、年度业绩奖</td></tr>
+          <tr><td><i class="sw nz"></i>示范工厂</td><td>场地、规范化配合、接待参观</td><td>参观带来的客户与名气；驻厂工程师线下课分成</td></tr>
+          <tr><td><i class="sw p0"></i>数字化合作公司</td><td>作为共同对外签约的主体；钱先进公司、再分给技术方和介绍人，对双方都是一层保障；承担公司官网、AI 搜索推荐等宣传费用和日常运营成本；发年度业绩奖与分红</td><td>每单的 10%</td></tr>
+          <tr><td><i class="sw ol"></i>外部工厂</td><td>改造费用</td><td>先参观再决定买；看得见的效率提升</td></tr>
+          <tr><td><i class="sw ol"></i>驻厂工程师学员</td><td>学费</td><td>新技能，有机会成为实施工程师</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="p5" data-row="1" aria-label="公司怎么组成">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">公司怎么组成</h2>
+  <div class="body" style="grid-template-columns:1.5fr 1fr;grid-template-rows:auto 1fr">
+    <div style="grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <div class="card stat"><div class="lab"><i class="sw p1"></i>技术方股份</div><div class="val">≥35%</div></div>
+      <div class="card stat"><div class="lab">注册资本</div><div class="val">1～3<small>万元</small></div></div>
+      <div class="card stat"><div class="lab">表决与分红</div><div class="val md">同股同权<small>同股同分红</small></div></div>
+    </div>
+    <div class="card">
+      <table class="t sm">
+        <thead><tr><th>项</th><th>做法</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">持股方式</td><td>技术方以自己的技术公司持股数字化合作公司，两家公司之间签技术许可与服务合同</td></tr>
+          <tr><td class="nw">技术方股份</td><td>不低于 35%</td></tr>
+          <tr><td class="nw">其他股东</td><td>销售合伙人直接持股，比例由销售合伙人之间商量；其他销售不持股，签渠道协议</td></tr>
+          <tr><td class="nw">表决与分红</td><td>同股同权、同股同分红</td></tr>
+          <tr><td class="nw">须技术方同意的事项</td><td>章程中写明涉及技术的若干事项须技术方同意（见<span data-to="p6"></span>）</td></tr>
+          <tr><td class="nw">出资</td><td>注册资本共 1～3 万元，各方按股权比例出少量现金；场地、人脉、技术都不作价入股</td></tr>
+          <tr><td class="nw">技术方投入</td><td>现在全职投入；培养出驻厂工程师后逐步交给他们</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display:grid;gap:22px;align-content:stretch">
+      <div class="card">
+        <h3>数字资产归属</h3>
+        <table class="t sm">
+          <thead><tr><th>项</th><th>归谁</th></tr></thead>
+          <tbody>
+            <tr><td>软件、代码与后续改进</td><td>技术方的公司，许可给数字化合作公司使用</td></tr>
+            <tr><td>各工厂的配置与数据</td><td>该工厂</td></tr>
+            <tr><td>驻厂工程师课程</td><td>技术方</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card"><h3>出资为什么只出少量现金</h3><p>人脉、劳务依法不能作价出资；技术作价出资等于把技术转让给数字化合作公司，与「技术留在技术方公司」相反。所以<b>股权比例按各方的贡献谈</b>，现金只是形式，够开户、刻章和头几个月记账即可。</p></div>
+    </div>
+      </div>
+</section>
+
+<section class="frame" data-id="p6" data-row="1" aria-label="须技术方同意的 8 件事">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">须技术方同意的 8 件事</h2>
+  <p class="sub">章程中写明涉及技术的若干事项须技术方同意（起点）</p>
+  <div class="body" style="grid-template-columns:1.75fr 1fr">
+    <div class="card" style="padding:12px 26px">
+      <table class="t sm">
+        <thead><tr><th>事项</th><th>指什么</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">1 更换技术供应商</td><td>数字化合作公司把系统的开发、实施或维护交给技术方以外的公司或个人；或另找人做同类系统卖给客户</td></tr>
+          <tr><td class="nw">2 技术对外许可</td><td>把技术方许可给数字化合作公司使用的软件，再许可、转卖或交给第三方，包括源代码、安装包、系统账号</td></tr>
+          <tr><td class="nw">3 低于底价接单</td><td>报价低于双方共同定的底价，或免费赠送模块、人天；底价包括模块费、人天价、年维护比例与免费维护年数</td></tr>
+          <tr><td class="nw">4 竞争对手入股</td><td>新股东或股份受让人是做同类数字化系统或服务的公司、个人，或与它们有关联</td></tr>
+          <tr><td class="nw">5 对外担保</td><td>数字化合作公司为任何公司或个人的债务作担保</td></tr>
+          <tr><td class="nw">6 关联交易</td><td>数字化合作公司向股东、董事、监事本人或其亲属、其开办或持股的公司买东西、付服务费</td></tr>
+          <tr><td class="nw">7 业绩奖比例与规则</td><td>每年从分红前利润里拿出多少发业绩奖、按什么分</td></tr>
+          <tr><td class="nw">8 分红政策</td><td>每年分不分红、分多少比例</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display:grid;gap:22px;align-content:stretch">
+      <div class="card stat"><div class="lab"><i class="sw p1"></i>技术方股份</div><div class="val">35%<small>超过三分之一</small></div><p>章程里的这些条款不会被单方面改掉</p></div>
+      <div class="card"><h3>其他事项</h3><p>按股权比例表决，技术方不干预日常经营</p></div>
+      <div class="card tint"><p>每件事为什么要技术方同意，见<span data-to="a1"></span></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="p7" data-row="1" aria-label="谁管公司、谁管钱">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">谁管公司、谁管钱</h2>
+  <p class="sub">两个人一起管账：<em class="mk">日常不用技术方操心，大钱也动不了</em>，对双方都是保护</p>
+  <div class="body" style="grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr">
+    <div class="card stat"><div class="lab"><i class="sw p2"></i>法定代表人 · 唯一董事 · 保管公章</div><div class="val md">一位销售合伙人</div></div>
+    <div class="card stat"><div class="lab"><i class="sw p1"></i>监事 · 随时查账 · 大额复核</div><div class="val md">技术方本人</div></div>
+    <div class="card" style="grid-column:1/-1">
+      <table class="t">
+        <thead><tr><th style="width:18%">项</th><th>做法</th></tr></thead>
+        <tbody>
+          <tr><td>法定代表人</td><td>由一位销售合伙人担任，同时是公司唯一的董事，公章由其保管</td></tr>
+          <tr><td>监事</td><td>由技术方本人担任：检查公司财务、监督董事；不参与日常经营</td></tr>
+          <tr><td>查账</td><td>技术方可以随时查账，银行到账有通知</td></tr>
+          <tr><td>大额付款</td><td>银行开两级 U 盾，超过一定金额的付款须技术方复核确认</td></tr>
+          <tr><td>记账</td><td>外包代理记账，每月报表发给全体股东</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="a2" data-row="1" aria-label="附 2 以后有新股东进来">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">以后有新股东进来</h2>
+  <div class="body" style="grid-template-columns:1fr 1fr">
+    <div class="card" style="grid-column:1/-1;padding:16px 26px">
+      <table class="t">
+        <thead><tr><th>方式</th><th>怎么回事</th><th>对原股东的影响</th></tr></thead>
+        <tbody>
+          <tr><td>增资</td><td>新股东把钱投进公司</td><td>所有人按比例被稀释</td></tr>
+          <tr><td>转让</td><td>某个老股东把自己的股份卖给新股东</td><td>钱归卖股份的人，其他人比例不变</td></tr>
+          <tr><td>原股东按比例追加</td><td>大家按原比例一起掏钱，比例不变；谁不掏，谁的比例下降</td><td>法律规定原股东有优先认缴权</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card" style="grid-column:1/-1">
+      <h3>稀释举例：投资前估值 300 万元，新股东投 100 万元，投资后估值 400 万元，新股东占 25%</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:6px">
+        <div class="stat"><div class="lab">原股东持股</div><div class="val">35%→26.25%</div></div>
+        <div class="stat"><div class="lab">新股东</div><div class="val">25%<small>投 100 万元</small></div></div>
+        <div class="stat"><div class="lab">原股东所持股份的价值</div><div class="val">105<small>万元，一分没少</small></div><p>35% × 300 万 ＝ 26.25% × 400 万</p></div>
+      </div>
+    </div>
+    <div class="card"><h3>要防的是低价增资</h3><p>价格公道的稀释不吃亏。协议写明增资价格不低于最近一次估值或净资产。</p></div>
+    <div class="card"><h3>技术方的原则</h3><p>增资时技术方的股份可以被稀释，但<b>须技术方同意的事项不随股份稀释而减少</b>。具体怎么写，到时再商量。</p></div>
+  </div>
+</section>
+
+<section class="frame" data-id="a3" data-row="1" aria-label="附 3 股份分期到手">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">股份分期到手</h2>
+  <p class="sub">3 年到手、满 1 年起，对所有股东都适用，包括技术方的公司；股份成立时就全部登记在本人名下，照样分红、投票</p>
+  <div class="body">
+    <div class="card" style="padding:20px 30px 10px">
+      <h3>举例：某销售合伙人持股 20%</h3>
+      <svg width="1348" height="210" viewBox="0 0 1348 210" role="img" aria-label="已到手股份随时间变化：前 12 个月为 0，不满 1 年退出 20% 全部买回；满 1 年一次到手三分之一约 6.67%；之后 24 个月每月到手约 0.56%；满 3 年 20% 全部到手">
+        <g font-family="Microsoft YaHei, PingFang SC, sans-serif">
+          <line x1="40" y1="40" x2="1308" y2="40" stroke="#DCE3EA" stroke-width="1"/>
+          <line x1="40" y1="160" x2="1308" y2="160" stroke="#9DB0C3" stroke-width="1"/>
+          <polygon points="463,160 463,120 1308,40 1308,160" fill="rgba(47,109,181,.12)"/>
+          <polyline points="40,160 463,160 463,120 1308,40" fill="none" stroke="#2F6DB5" stroke-width="3" stroke-linejoin="round"/>
+          <circle cx="463" cy="120" r="6" fill="#2F6DB5" stroke="#fff" stroke-width="2"/>
+          <circle cx="1308" cy="40" r="6" fill="#2F6DB5" stroke="#fff" stroke-width="2"/>
+          <text x="24" y="45" text-anchor="end" font-size="15" fill="#5A6B7D" font-family="Bahnschrift, Arial, sans-serif">20%</text>
+          <text x="24" y="165" text-anchor="end" font-size="15" fill="#5A6B7D" font-family="Bahnschrift, Arial, sans-serif">0</text>
+          <text x="251" y="146" text-anchor="middle" font-size="17" fill="#5A6B7D">不满 1 年退出：20% 全部买回</text>
+          <text x="478" y="116" font-size="24" font-weight="700" fill="#24313F" font-family="Bahnschrift, Arial, Microsoft YaHei, sans-serif">≈6.67%</text>
+          <text x="478" y="138" font-size="15" fill="#5A6B7D">满 1 年一次到手三分之一</text>
+          <text x="900" y="128" text-anchor="middle" font-size="17" fill="#5A6B7D">之后 24 个月，每满一个月到手其中的 1/24（约 0.56%）</text>
+          <text x="1296" y="34" text-anchor="end" font-size="24" font-weight="700" fill="#24313F" font-family="Bahnschrift, Arial, Microsoft YaHei, sans-serif">20% 全部到手</text>
+          <text x="40" y="190" font-size="16" fill="#5A6B7D">成立</text>
+          <text x="463" y="190" text-anchor="middle" font-size="16" font-weight="700" fill="#24313F">满 1 年</text>
+          <text x="1308" y="190" text-anchor="end" font-size="16" font-weight="700" fill="#24313F">满 3 年</text>
+        </g>
+      </svg>
+    </div>
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:22px">
+      <div class="card"><h3>各种情况</h3>
+        <ul class="dots">
+          <li>干了 8 个月就退出：不满 1 年，20% 全部由其他股东按象征价买回</li>
+          <li>干满 1 年退出：三分之一（约 6.67%）已到手、留下，其余约 13.33% 买回</li>
+          <li>其余三分之二（约 13.33%）在之后 24 个月里平均到手：每满一个月，到手其中的 1/24（约 0.56%）</li>
+          <li>满 3 年，20% 全部到手</li>
+          <li>某一年没有介绍成交一单：这一年该到手的部分暂缓，下一年达标时一并到手</li>
+        </ul></div>
+      <div class="card"><h3>到手条件与做法</h3>
+        <p>销售合伙人每年至少介绍成交 1 单，技术方持续提供交付与维护。</p>
+        <p>股东协议另外约定，按干满的时间逐步「到手」。成立时各股东预先签好转让文件，人走时直接办变更。</p>
+        <p><b>这一条防的是有人早早不干了，还一直拿着股份分红、投票。</b></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="a4" data-row="1" aria-label="附 4 股东协议条款">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">股东协议条款（起点）</h2>
+  <p class="sub">由律师起草；章程对外有效、股东协议只约束签字人，关键条款两份都写</p>
+  <div class="body" style="grid-template-columns:1.45fr 1fr;flex:1;align-content:stretch">
+    <div class="card" style="padding:14px 22px">
+      <table class="t xs">
+        <tr><td class="nw">出资</td><td>现金出资；场地以租赁方式提供，不折成股份；注册资本定小，5 年内缴足</td></tr>
+        <tr><td class="nw">表决与分红</td><td>同股同权、同股同分红；写明按实缴还是认缴</td></tr>
+        <tr><td class="nw">股份分期到手</td><td>3 年到手、满 1 年起，对所有股东都适用，包括技术方的公司；到手条件：销售合伙人每年至少介绍成交 1 单，技术方持续提供交付与维护（见<span data-to="a3"></span>）</td></tr>
+        <tr><td class="nw">退出</td><td>没到手的部分由其他股东按持股比例、以象征价买回；已到手部分按净资产或约定公式回购；违反竞业或保密的，低价回购</td></tr>
+        <tr><td class="nw">转让</td><td>设锁定期；随售与拖售（见右）</td></tr>
+        <tr><td class="nw">增资</td><td>增资价不低于最近估值或净资产；新股东须签本协议</td></tr>
+        <tr><td class="nw">决策</td><td>须技术方同意的事项（见<span data-to="p6"></span>）</td></tr>
+        <tr><td class="nw">管理</td><td>只设一名董事，由法定代表人担任；设一名监事，由技术方本人担任；公章与 U 盾分管，大额两人签</td></tr>
+        <tr><td class="nw">财务</td><td>外包记账，每月报表发全体股东</td></tr>
+        <tr><td class="nw">分红</td><td>每年至少分配可分配利润的一定比例；先弥补亏损、再提 10% 法定公积金</td></tr>
+        <tr><td class="nw">竞业</td><td>逐项列出、写窄，双方都受约束；写明技术方公司的其他业务不受限</td></tr>
+        <tr><td class="nw">客户归属</td><td>合作期间客户归数字化合作公司；退出后若干年内不得挖走</td></tr>
+        <tr><td class="nw">僵局</td><td>冷静期 → 第三方调解 → 一方报价、另一方选择买或卖 → 解散</td></tr>
+        <tr><td class="nw">争议</td><td>本地仲裁委：快、不公开</td></tr>
+      </table>
+    </div>
+    <div style="display:grid;gap:18px;align-content:stretch">
+      <div class="card"><h3>随售（一起卖）</h3><p>销售合伙人甲持股 40%，外人出 80 万元买下他的全部股份（每 1% 合 2 万元）。其他股东可以要求外人按同样的价格和条件，把自己的股份也买下，不会被留在一家换了大股东的公司里。</p></div>
+      <div class="card"><h3>拖售（强制一起卖）</h3><p>有人要买下整个公司。持股合计超过约定门槛的股东同意卖时，其余股东须按同样价格一起卖，避免少数股东卡住整体出售。</p><p>为防被迫贱卖，<b>门槛设高（如 70%），并设底价</b>（如不低于最近一次估值或净资产）。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="a5" data-row="1" aria-label="附 5 要签的文件">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">要签的文件（由律师起草）</h2>
+  <div class="body" style="grid-template-columns:1.5fr 1fr;flex:1;align-content:stretch">
+    <div class="card" style="padding:14px 22px">
+      <table class="t xs">
+        <thead><tr><th>什么时候</th><th>文件</th><th>谁签</th><th>主要内容</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">成立公司时</td><td class="nw">股东协议</td><td>全体股东</td><td>见<span data-to="a4"></span></td></tr>
+          <tr><td class="nw">成立公司时</td><td class="nw">公司章程</td><td>全体股东，工商备案</td><td>表决、分红、须技术方同意的事项、转让限制；章程对外有效、股东协议只约束签字人，关键条款两份都写</td></tr>
+          <tr><td class="nw">成立公司时</td><td class="nw">技术许可与服务协议</td><td>技术方的公司与数字化合作公司</td><td>见右</td></tr>
+          <tr><td class="nw">成立公司时</td><td class="nw">保密协议</td><td>所有人，含员工与学员</td><td>—</td></tr>
+          <tr><td class="nw">每位其他销售</td><td class="nw">渠道协议</td><td>数字化合作公司与其他销售</td><td>介绍费 15% 与计算基数、随每笔到账付、出了问题按责任表扣；客户先报备、不得把单子转挂给别人；不得承诺系统没有的功能；不得私下接单；介绍费个税（代扣，或对方注册个体户开票）</td></tr>
+          <tr><td class="nw">每个新项目</td><td class="nw">一页立项附件</td><td>数字化合作公司与技术方的公司</td><td>立项登记、试用标准、市场价与试验厂价</td></tr>
+          <tr><td class="nw">办驻厂工程师线下课时</td><td class="nw">培训合作协议</td><td>数字化合作公司与示范工厂</td><td>分成办法、课程归属、学员去向、安全责任</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card" style="padding:14px 22px">
+      <h3>技术许可与服务协议条款（起点）</h3>
+      <table class="t xs">
+        <tr><td class="nw">许可范围</td><td>非独占、有期限，限地区与行业</td></tr>
+        <tr><td class="nw">知识产权</td><td>通用代码与改进归技术方的公司；各工厂配置与数据归该工厂</td></tr>
+        <tr><td class="nw">源代码</td><td>平时不交源代码；技术方公司停业或无法继续服务时，数字化合作公司可取得源代码继续维护（这一条是给数字化合作公司的保障）</td></tr>
+        <tr><td class="nw">赔偿上限</td><td>以合同金额为限</td></tr>
+        <tr><td class="nw">控制权变化</td><td>数字化合作公司换控股股东时，许可重新谈</td></tr>
+        <tr><td class="nw">终止</td><td>提前通知；终止后协助交接若干个月</td></tr>
+        <tr><td class="nw">双向排他</td><td>数字化合作公司的数字化项目优先或独家交给技术方的公司；技术方的公司不在本地区另找驻厂工程师线下培训的合作方</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-split" data-row="1" aria-label="每一笔收入怎么分">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">每一笔收入怎么分</h2>
+  <p class="sub">不论介绍人是谁，模块费、项目费每一单都<em class="mk">先抽 10%</em> 到数字化合作公司</p>
+  <div class="body" style="grid-template-rows:auto auto">
+    <div class="card" id="split8">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <div class="legend" aria-hidden="true"><span><i class="sw p0"></i>数字化合作公司</span><span><i class="sw p1"></i>技术方</span><span><i class="sw p2"></i>介绍人</span></div>
+        <span class="hint">移到色块上，看每个数字怎么来</span>
+      </div>
+      <div class="rows chart"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+      <div class="card stat"><div class="lab">年维护费</div><div class="val">100%<small>技术方</small></div><p>不抽，全部付给技术方，用于持续的维护人力与服务器</p></div>
+      <div class="card stat"><div class="lab">驻厂工程师线上课</div><div class="val">100%<small>技术方</small></div><p>由技术方的公司直接收，不经过数字化合作公司</p></div>
+      <div class="card stat"><div class="lab">驻厂工程师线下实践课</div><div class="val">50/50<small>技术方 / 示范工厂</small></div><p>先扣材料、学员意外险等直接成本，再抽 10%，剩下的两家各 50%</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="p9" data-row="1" aria-label="算例：一单 17.5 万">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">算例：一单 17.5 万元</h2>
+  <p class="sub">销售合伙人介绍的外部工厂，首期 17.5 万元：模块费 13 万元，实施 30 天 4.5 万元</p>
+  <div class="body" style="grid-template-columns:1fr 1fr 1fr">
+    <div class="card stat"><div class="lab"><i class="sw p1"></i>技术方</div><div class="val">11.34<small>万元</small></div><p>模块费的 63% ＋ 实施费的 70%</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p2"></i>介绍人（销售合伙人）</div><div class="val">4.86<small>万元</small></div><p>模块费的 27% ＋ 实施费的 30%</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p0"></i>数字化合作公司</div><div class="val">1.3<small>万元</small></div><p>模块费的 10%；实施费不抽</p></div>
+    <div class="card" style="grid-column:1/3">
+      <table class="t">
+        <thead><tr><th></th><th class="r">数字化合作公司</th><th class="r">技术方</th><th class="r">介绍人（销售合伙人）</th></tr></thead>
+        <tbody>
+          <tr><td>模块费 13 万</td><td class="r">1.3 万</td><td class="r">8.19 万</td><td class="r">3.51 万</td></tr>
+          <tr><td>实施费 4.5 万</td><td class="r">—</td><td class="r">3.15 万</td><td class="r">1.35 万</td></tr>
+          <tr class="sum"><td>合计 17.5 万</td><td class="r">1.3 万</td><td class="r">11.34 万</td><td class="r">4.86 万</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card stat"><div class="lab">此后每年 · 年维护费</div><div class="val">1.3～2<small>万元</small></div><p>全部付技术方，用于持续的维护人力与服务器</p></div>
+  </div>
+</section>
+
+<section class="frame" data-id="p10" data-row="1" aria-label="怎么付、出了问题谁负责">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">怎么付、出了问题谁负责</h2>
+  <div class="body" style="grid-template-columns:1.2fr 1fr;grid-template-rows:auto 1fr">
+    <div style="grid-column:1/-1;display:flex;align-items:stretch">
+      <div class="card stat" style="flex:1"><div class="lab">签约付</div><div class="val">30%</div></div>
+      <div class="flow"><div class="ar"></div></div>
+      <div class="card stat" style="flex:1"><div class="lab">上线付</div><div class="val">40%</div></div>
+      <div class="flow"><div class="ar"></div></div>
+      <div class="card stat" style="flex:1"><div class="lab">验收付</div><div class="val">30%</div></div>
+    </div>
+    <div class="card">
+      <h3>怎么付</h3>
+      <table class="t sm">
+        <thead><tr><th>项</th><th>做法</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">客户分期付款</td><td>签约付 30%、上线付 40%、验收付 30%</td></tr>
+          <tr><td class="nw">每笔到账怎么分</td><td>每笔到账都按<span data-to="x-split"></span>的比例分，不等全款到齐；介绍费与技术服务费同时付</td></tr>
+          <tr><td class="nw">谁是介绍人</td><td>第一次接触客户时就在系统里报备，报备人即这一单的介绍人；介绍人身份不得转让，也不得把单子挂到别人名下</td></tr>
+          <tr><td class="nw">几个人一起谈成一单</td><td>介绍费原则上全额付给报备的介绍人。几个人一起谈成一单的（如一人引荐、一人陪同参观、一人跟进到签约），可以书面约定怎么分这笔介绍费，数字化合作公司按约定付给各人；没有约定的，全额付给报备人。技术方不参与介绍费怎么分</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>出了问题谁负责</h3>
+      <table class="t sm">
+        <thead><tr><th>情况</th><th>谁负责</th></tr></thead>
+        <tbody>
+          <tr><td>系统质量问题（功能做不出来、出错）</td><td>技术方负责修好；修不好要退款的，技术服务费按退款比例退回</td></tr>
+          <tr><td>介绍人承诺了合同以外的内容，引起纠纷或退款</td><td>从该介绍人的介绍费里扣</td></tr>
+          <tr><td>其他原因的退款、赔偿</td><td>用数字化合作公司的风险准备金</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-tenpct" data-row="1" aria-label="数字化合作公司的 10% 怎么用">
+  <header class="fh"><span class="kick">二 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">数字化合作公司的 10% 怎么用</h2>
+  <div class="body" style="grid-template-columns:1.6fr 1fr;grid-template-rows:1fr">
+    <div class="card">
+      <h3>按顺序用</h3>
+      <table class="t sm">
+        <thead><tr><th>顺序</th><th>用途</th><th>说明</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td class="nw"><b>公司运转</b></td><td>代理记账、报税、银行账户、年报，每年几千元</td></tr>
+          <tr><td>2</td><td class="nw"><b>风险准备金</b></td><td>用于退款、赔偿、售后纠纷；数字化合作公司是签约方，出了问题先由它兜底；攒到 5 万元为止</td></tr>
+          <tr><td>3</td><td class="nw"><b>共同获客</b></td><td>公司自己的宣传内容（AI 搜索推荐、视频号）、示范工厂接待资料、行业展会</td></tr>
+          <tr><td>4</td><td class="nw"><b>新项目所需硬件</b></td><td>在试验厂试用新项目要买的传感器、平板等，归数字化合作公司所有</td></tr>
+          <tr><td>5</td><td class="nw"><b>年度业绩奖</b></td><td>每年从分红前利润里拿出 30%，按各人全年介绍成交的业务额发</td></tr>
+          <tr><td>6</td><td class="nw"><b>年底分红</b></td><td>剩下的按股份分</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display:grid;gap:22px;grid-template-rows:auto auto 1fr">
+      <div class="card stat"><div class="lab">风险准备金</div><div class="val">5<small>万元封顶</small></div></div>
+      <div class="card stat"><div class="lab">年度业绩奖 · 起点</div><div class="val">30%<small>分红前利润</small></div><p>分红只按股份，与每个人带来的业务量无关。为了多卖多得，另发业绩奖，销售合伙人和其他销售都能拿</p></div>
+      <div class="card"><h3>谁能动这笔钱</h3><p>每年股东会定一次预算。预算内的开支由法定代表人执行；超出预算，或单笔超过大额标准的，须股东会同意。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-six" data-row="2" aria-label="六个合作项目">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">六个合作项目</h2>
+  <p class="sub">各个项目可以逐个谈、逐个开始；<em class="mk">起步阶段只收 ERP 的钱</em>，签约即付款</p>
+  <div class="body" style="grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr">
+    <div class="card stat"><div class="lab">1 · ERP</div><div class="val">13<small>万元 · 9 个模块</small></div><p>已做好的 9 个模块，加按人天收的实施费</p><p class="pref"><span data-to="p13,a6"></span></p></div>
+    <div class="card stat"><div class="lab">2 · 降本增效项目</div><div class="val md">先试用再推出</div><p>ERP 以外帮工厂省钱、省人、提高效率的项目；先在试验厂试用到稳定，再推向市场</p><p class="pref"><span data-to="x-price,x-flow,x-what,x-ai"></span></p></div>
+    <div class="card stat"><div class="lab">3 · 驻厂工程师（FDE）培训班</div><div class="val">50/50<small>线下课</small></div><p>线上课归技术方；线下实践课只在示范工厂上，与示范工厂分</p><p class="pref"><span data-to="p16"></span></p></div>
+    <div class="card stat"><div class="lab">4 · 示范工厂</div><div class="val md">先建设再获客</div><p>请其他工厂来参观，看到实际效果再谈：参观、诊断、改造、培训、运营</p><p class="pref"><span data-to="x-demo1,x-demo2"></span></p></div>
+    <div class="card stat"><div class="lab">5 · 宣传与获客（含 GEO）</div><div class="val md">被 AI 推荐</div><p>视频、自有渠道、电商平台、AI 搜索推荐；合作办法同降本增效项目</p><p class="pref"><span data-to="a11"></span></p></div>
+    <div class="card stat"><div class="lab">6 · 工人培训</div><div class="val md">未定</div><p>是否一起合作还没定；技术方能做配套：SOP 视频、课件题库、学习平台、AI 陪练、数字模拟器</p><p class="pref"><span data-to="a12"></span></p></div>
+  </div>
+</section>
+
+<section class="frame" data-id="p13" data-row="2" aria-label="ERP">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">ERP：13 万元，含已做好的 9 个模块</h2>
+  <div class="body" style="grid-template-columns:1fr 470px;flex:1;align-content:stretch">
+    <div class="card" style="display:flex;flex-direction:column">
+      <h3>模块费（万元）</h3>
+      <div id="mods" role="img" aria-label="9 个模块的价格：财务 1，进销存 2，生产制造 3，车间管理 2，销售漏斗 1，手机端 0.5，质检与控制图 2，计件工资 0.5，补货策略 1，合计 13 万元" style="margin-top:8px"></div>
+      <p style="margin-top:auto;font-size:16px">ERP 本身<b>不按用户数收费</b>。排产优化、企业信息面板、车间 3D、岗位页面、AI 工作流等还没做好的模块，不在 13 万元里，做好后另行报价。服务器由技术方统一提供。</p>
+      <p class="pref" style="margin-top:10px">合同细则见<span data-to="a6"></span>；工厂要自己准备的硬件见<span data-to="a13"></span></p>
+    </div>
+    <div style="display:grid;gap:18px;align-content:stretch">
+      <div class="card stat"><div class="lab">实施费 · 按人天</div><div class="val">1500<small>元 / 天</small></div><p>一家工厂约 30～60 天，合计 4.5～9 万元。技术方请人交付以后，人天价按员工成本重新商定（起点每天 1800 元）</p></div>
+      <div class="card stat"><div class="lab">外部工厂首期</div><div class="val">17.5～22<small>万元</small></div><p>模块费加实施费</p></div>
+      <div class="card stat"><div class="lab">年维护费</div><div class="val">10～15%<small>模块费</small></div><p>每年 1.3～2 万元；销售合伙人自家工厂同样按 13 万元计，不打折</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="a6" data-row="2" aria-label="附 6 ERP 合同细则">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">ERP：合同细则</h2>
+  <div class="body" style="grid-template-columns:1.4fr 1fr">
+    <div class="card" style="padding:16px 26px">
+      <table class="t sm">
+        <tr><td class="nw">年维护包含什么</td><td>合同写清：服务器与备份、远程支持多少小时、上门几次、版本升级</td></tr>
+        <tr><td class="nw">停付年维护</td><td>数据始终归工厂。停付后系统转为只读 3 个月，期间可免费导出全部数据；也可付迁移费，把系统搬到工厂自己的服务器上</td></tr>
+        <tr><td class="nw">合同范围</td><td>合同写清交付哪些模块、包含多少人天；超出范围的另开变更单，按人天收费，介绍人同样分成</td></tr>
+        <tr><td class="nw">谁定价</td><td>市场价由销售合伙人定；包括底价在内的所有价格双方共同商量</td></tr>
+        <tr><td class="nw">起步收什么</td><td>起步阶段只收 ERP 的钱，签约即付款；其他项目按降本增效项目的办法</td></tr>
+        <tr><td class="nw">实施费</td><td>按人天收，每天 1500 元；一家工厂约 30～60 天，合计 4.5～9 万元。技术方请人交付以后，人天价按员工成本重新商定（起点每天 1800 元）</td></tr>
+      </table>
+    </div>
+    <div style="display:grid;gap:18px;align-content:stretch">
+      <div class="card stat"><div class="lab">销售合伙人自家工厂 · 销售合伙人价</div><div class="val">≈9.5<small>万元 · 免实施费</small></div><p>自己介绍自己：照常先抽 10%，介绍人那份（整单 27%）返给自己作为折扣，即市场价的 73%</p></div>
+      <div class="card stat"><div class="lab">销售合伙人退出后 · 补差价</div><div class="val">≈1.76<small>万元</small></div><p>按其他销售介绍的价格补：介绍费从 30% 降为 15%，补回整单的 13.5%</p></div>
+      <div class="card stat"><div class="lab">年维护费 · 自家工厂同样计</div><div class="val">1.3～2<small>万元 / 年</small></div><p>模块费的 10～15%，按 13 万元计，不打折</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-price" data-row="2" aria-label="降本增效项目：三种工厂，三个价">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">降本增效项目：三种工厂，三个价</h2>
+  <p class="sub">以一个市场价 10 万元的降本增效项目为例；<b>ERP 用同一算法</b></p>
+  <div class="body" style="grid-template-rows:auto 1fr">
+    <div class="card" style="padding:14px 28px 6px">
+      <svg width="1352" height="132" viewBox="0 0 1352 132" role="img" aria-label="价格刻度：试验厂半价 5 万，销售合伙人价 7.3 万，退出后统一补到 8.65 万，外部工厂市场价 10 万">
+        <g font-family="Bahnschrift, Arial, Microsoft YaHei, sans-serif">
+          <line x1="40" y1="70" x2="1312" y2="70" stroke="#DCE3EA" stroke-width="2"/>
+          <line x1="40" y1="62" x2="40" y2="78" stroke="#9DB0C3" stroke-width="2"/><text x="40" y="104" text-anchor="middle" font-size="16" fill="#5A6B7D">0</text>
+          <g><circle cx="676" cy="70" r="11" fill="#3B5573" stroke="#fff" stroke-width="3"/><text x="676" y="44" text-anchor="middle" font-size="26" font-weight="700" fill="#24313F">5 万</text><text x="676" y="106" text-anchor="middle" font-size="17" fill="#5A6B7D" font-family="Microsoft YaHei, sans-serif">试验厂 · 半价</text></g>
+          <g><circle cx="968.6" cy="70" r="11" fill="#3B5573" stroke="#fff" stroke-width="3"/><text x="968.6" y="44" text-anchor="middle" font-size="26" font-weight="700" fill="#24313F">7.3 万</text><text x="968.6" y="106" text-anchor="middle" font-size="17" fill="#5A6B7D" font-family="Microsoft YaHei, sans-serif">销售合伙人价 · 73%</text></g>
+          <g><circle cx="1140.3" cy="70" r="11" fill="#fff" stroke="#3B5573" stroke-width="3"/><text x="1140.3" y="44" text-anchor="middle" font-size="26" font-weight="700" fill="#24313F">8.65 万</text><text x="1140.3" y="106" text-anchor="middle" font-size="17" fill="#5A6B7D" font-family="Microsoft YaHei, sans-serif">退出后补到 · 86.5%</text></g>
+          <g><circle cx="1312" cy="70" r="11" fill="#3B5573" stroke="#fff" stroke-width="3"/><text x="1306" y="44" text-anchor="end" font-size="26" font-weight="700" fill="#24313F">10 万</text><text x="1312" y="106" text-anchor="end" font-size="17" fill="#5A6B7D" font-family="Microsoft YaHei, sans-serif">市场价</text></g>
+        </g>
+      </svg>
+    </div>
+    <div class="card" style="padding:12px 28px">
+      <table class="t">
+        <thead><tr><th style="width:17%">谁买</th><th style="width:26%">价格</th><th class="r" style="width:13%">例</th><th>怎么付</th></tr></thead>
+        <tbody>
+          <tr><td>外部工厂</td><td>市场价</td><td class="r big">10<small>万元</small></td><td>按分期付款与分配比例付、分（<span data-to="x-split,p10"></span>）</td></tr>
+          <tr><td>销售合伙人自家工厂</td><td>销售合伙人价：自己介绍自己，介绍费返给自己，即市场价的 73%，与 ERP 同一算法</td><td class="r big">7.3<small>万元</small></td><td>同上</td></tr>
+          <tr><td>试验厂</td><td>半价</td><td class="r big">5<small>万元</small></td><td>先用后付：项目推向市场后，这个项目每卖出一单，不论是谁介绍的，都从数字化合作公司这一单的收入里拿出<b>整单的 5% 替试验厂抵扣</b>，付给技术方，直到半价抵清；试验厂自己不用掏钱。金额按推向市场那天的市场价锁定，不设期限；项目最终没有推向市场的，不用付。例：每卖出一单抵 0.5 万元，卖出 10 单抵清</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="pnote"><b>销售合伙人中途退出</b>不论以销售合伙人价买的还是以试验厂半价用的，统一补到市场价的 86.5%（其他销售介绍的价格），ERP 补约 1.76 万元；四种情况各补多少见<span data-to="a7"></span></p>
+</section>
+
+<section class="frame" data-id="x-flow" data-row="2" aria-label="降本增效项目：怎么合作">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">降本增效项目：怎么合作</h2>
+  <p class="sub">ERP 以外，帮工厂省钱、省人、提高效率的项目</p>
+  <div class="body" style="grid-template-rows:1fr">
+    <div class="flow vert">
+      <div class="fs" data-nozoom><span class="fn">01</span><h4>一起探讨可行性</h4>
+        <div class="whos"><span><i class="sw p1"></i>技术方</span><span><i class="sw p2"></i>销售合伙人</span></div>
+        <div class="fbig">做得出、卖得动</div>
+        <div class="fx"><p>技术方判断技术上做不做得出来；销售合伙人结合成本判断市场上卖不卖得动</p></div></div>
+      <div class="ar"></div>
+      <div class="fs" data-nozoom><span class="fn">02</span><h4>技术方开发</h4>
+        <div class="whos"><span><i class="sw p1"></i>技术方</span></div>
+        <div class="fbig">研发成本技术方承担</div>
+        <div class="fx"><p>不向销售合伙人收取</p></div></div>
+      <div class="ar"></div>
+      <div class="fs" data-nozoom><span class="fn">03</span><h4>在试验厂试用</h4>
+        <div class="whos"><span><i class="sw p2"></i>试验厂</span></div>
+        <div class="fbig">连续 4～8 周</div>
+        <div class="fx"><p>试用到运行稳定：员工每天在用、没有丢数据一类的问题；双方签一页纸确认</p><p>试验厂这个项目半价、先用后付</p></div></div>
+      <div class="ar"></div>
+      <div class="fs" data-nozoom><span class="fn">04</span><h4>共同决定</h4>
+        <div class="whos"><span><i class="sw p1"></i>技术方</span><span><i class="sw p2"></i>销售合伙人</span></div>
+        <div class="fbig">推不推向市场</div>
+        <div class="fx"><p>双方共同决定是否推向市场；最终没有推向市场的，试验厂不用付</p></div></div>
+      <div class="ar"></div>
+      <div class="fs" data-nozoom><span class="fn">05</span><h4>按市场价销售</h4>
+        <div class="whos"><span><i class="sw p2"></i>销售合伙人定价</span></div>
+        <div class="fbig">市场价由销售合伙人定</div>
+        <div class="fx"><p>外部工厂、销售合伙人自家工厂、试验厂三个价见<span data-to="x-price"></span></p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-what" data-row="2" aria-label="降本增效项目：可以做哪些">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">降本增效项目：可以做哪些</h2>
+  <p class="sub">每一类都按<span data-to="x-flow"></span>的办法推进，按<span data-to="x-price"></span>的三个价卖</p>
+  <div class="body" style="grid-template-rows:1fr">
+    <div class="card">
+      <table class="t">
+        <thead><tr><th style="width:20%">类别</th><th>是什么</th></tr></thead>
+        <tbody>
+          <tr><td>车间可视化</td><td>车间数字孪生、企业信息面板、车间看板</td></tr>
+          <tr><td>AI 办公助手</td><td>办公室各岗位的固定工作交给 AI 打草稿，人做判断；含报价助手、内部问答</td></tr>
+          <tr><td>AI 车间助手</td><td>车间里看图纸、报工、质检、排产、安全、设备的 AI 帮手；含维修经验库、工艺参数库</td></tr>
+          <tr><td>规范化文档</td><td>用 AI 起草 ISO9001、IATF16949 体系文件、作业指导书、检验规范、5S 与目视化标识设计</td></tr>
+          <tr><td>能耗管理</td><td>车间加装智能电表，按设备、班次统计用电，找出空转、待机耗电；回火炉等大功率设备错开峰谷用电</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-ai" data-row="2" aria-label="降本增效项目：AI 用起来是什么样">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">降本增效项目：AI 用起来是什么样</h2>
+  <p class="sub">分工的原则：规则写得清的交给 ERP，要看材料下判断的交给 AI，拍板的交给人。<b>AI 打八成草稿，人做两成判断</b></p>
+  <div class="body" style="grid-template-columns:1.6fr 1fr;grid-template-rows:1fr">
+    <div class="card">
+      <h3>AI 办公助手 · 办公室</h3>
+      <table class="t sm">
+        <thead><tr><th style="width:13%">岗位</th><th style="width:36%">以前</th><th>用 AI 以后</th></tr></thead>
+        <tbody>
+          <tr><td>销售</td><td>客户微信发来图纸或截图，人工看规格、查价格、做报价单，半小时以上；跟进靠记性</td><td>AI 读图，提出线径、外径、圈数、材质，生成报价草稿，人核一遍就发；微信语音转成订单要点，到期自动提醒跟进。整套获客做法见<span data-to="a10"></span></td></tr>
+          <tr><td>采购</td><td>几家供应商的报价单手工汇总比较</td><td>把报价单丢进去，自动出比价表</td></tr>
+          <tr><td>财务</td><td>发票、流水手工录入；月底跟客户对账逐行核对</td><td>识别后自动录入；两份对账单自动标出差异；自动起草催款函。整套做法见<span data-to="a9"></span></td></tr>
+          <tr><td>人事行政</td><td>考勤异常逐条翻；写招聘启事</td><td>自动汇总异常；生成招聘启事和面试题</td></tr>
+          <tr><td>管理</td><td>开会记笔记，事后整理</td><td>录音后自动出纪要和待办；周报从系统数据自动生成</td></tr>
+          <tr><td>外贸</td><td>邮件翻译、写回复</td><td>自动翻译并起草回复</td></tr>
+          <tr><td>老板</td><td>想知道数字要打电话问人</td><td>直接问「这个月哪个客户回款最慢」</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <h3>AI 车间助手 · 车间</h3>
+      <table class="t sm">
+        <thead><tr><th style="width:26%">场景</th><th>用 AI 以后</th></tr></thead>
+        <tbody>
+          <tr><td>图纸转工艺</td><td>客户图纸自动生成工艺卡和 BOM 草稿</td></tr>
+          <tr><td>报工</td><td>工人对手机说一句「工单 123 做了 500 件」就报完</td></tr>
+          <tr><td>质检</td><td>SPC 异常自动报警并列出可能原因；以后可以上视觉检测，用相机查尺寸和外观缺陷</td></tr>
+          <tr><td>排产</td><td>插单时先模拟，看会影响哪些交期</td></tr>
+          <tr><td>安全</td><td>摄像头识别没戴安全帽、闯入危险区域</td></tr>
+          <tr><td>设备</td><td>加装电流或计数传感器，提前发现异常</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="p16" data-row="2" aria-label="驻厂工程师培训班">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">驻厂工程师（FDE）培训班</h2>
+  <p class="sub">驻厂工程师指懂工厂业务、也能动手配置系统的实施人员</p>
+  <div class="body" style="grid-template-columns:1.7fr 1fr">
+    <div class="card">
+      <table class="t sm">
+        <thead><tr><th>项</th><th>做法</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">目的</td><td>除收学费外，也为其他工厂和技术方培养驻厂工程师，解决交付只靠一个人的问题</td></tr>
+          <tr><td class="nw">线上课</td><td>由技术方的公司开、收款，收入归技术方，开课不受限制</td></tr>
+          <tr><td class="nw">线下实践课</td><td>由数字化合作公司收款，只在示范工厂上；未经示范工厂同意，不与别的工厂合办；分配见<span data-to="x-split"></span></td></tr>
+          <tr><td class="nw">怎么算线下</td><td>含工厂实操的整门课都算线下</td></tr>
+          <tr><td class="nw">学员来源</td><td>工厂的文员、IT 或年轻管理者（学成回厂当数字化负责人，工厂成为长期客户）；职校毕业生（可成为实施工程师）</td></tr>
+          <tr><td class="nw">学员去向</td><td>自由；技术方的公司可以招聘学员；其他工厂招走学员时收推荐费，归数字化合作公司</td></tr>
+          <tr><td class="nw">学员安全</td><td>线下学员都买意外险、签安全须知</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display:grid;gap:22px;align-content:stretch">
+      <div class="card stat"><div class="lab"><i class="sw p1"></i>线上课</div><div class="val">100%<small>技术方</small></div><p>不经过数字化合作公司</p></div>
+      <div class="card stat"><div class="lab">线下实践课</div><div class="val">50/50<small>技术方 / 示范工厂</small></div><p>先扣材料、学员意外险等直接成本，再抽 10%，剩下的各 50%</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-demo1" data-row="2" aria-label="示范工厂：先做这些建设">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">示范工厂：先做这些建设</h2>
+  <p class="sub">获客主要靠请其他工厂来示范工厂参观，看到实际效果再谈；示范工厂先把这些建设做好</p>
+  <div class="body" style="grid-template-rows:1fr">
+    <div class="card">
+      <table class="t">
+        <thead><tr><th style="width:24%">建设</th><th>是什么</th><th style="width:28%">放在哪</th></tr></thead>
+        <tbody>
+          <tr><td>规范化车间</td><td>按精益、5S 与目视化整理过的车间</td><td>车间</td></tr>
+          <tr><td>车间数字孪生</td><td>3D 显示车间里每台设备的状态与在做的单</td><td>展厅大屏</td></tr>
+          <tr><td>企业信息面板</td><td>订单、生产、质量、财务的关键数字一屏看完</td><td>展厅大屏、车间看板电视</td></tr>
+          <tr><td>ERP 与 AI 现场演示</td><td>现场操作系统、问 AI 助手</td><td>参观时</td></tr>
+          <tr><td>讲解视频</td><td>每个参观点放一段讲解</td><td>参观动线上</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-demo2" data-row="2" aria-label="示范工厂：再通过这些环节带来客户与收入">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">示范工厂：再通过这些环节带来客户与收入</h2>
+  <p class="sub">参观以后，<b>可以买整套，也可以只买一部分</b>：只做诊断、只上 ERP、只送人来培训，或只做宣传与获客</p>
+  <div class="body" style="grid-template-rows:1fr">
+    <div class="card">
+      <table class="t">
+        <thead><tr><th style="width:16%">环节</th><th style="width:30%">内容</th><th style="width:30%">谁主导</th><th>怎么收费</th></tr></thead>
+        <tbody>
+          <tr><td>1 参观示范工厂</td><td>参观<span data-to="x-demo1"></span>的各项建设，看实际效果</td><td>介绍人带客户来，示范工厂接待</td><td>免费，用来获客</td></tr>
+          <tr><td>2 诊断</td><td>制造业方面的诊断（精益、规范化）与数字化方面的诊断，出一份诊断报告</td><td>示范工厂做制造业方面，技术方做数字化方面</td><td>小额，可抵后续改造费</td></tr>
+          <tr><td>3 改造</td><td>ERP、降本增效项目</td><td>技术方</td><td>一次性加年维护</td></tr>
+          <tr><td>4 培训</td><td>驻厂工程师培训班；工人培训（如果一起合作）</td><td>驻厂工程师班由技术方主导；工人培训由办培训的一方主导</td><td>学费，可能有政府补贴</td></tr>
+          <tr><td>5 运营</td><td>宣传与获客、在 AI 搜索中被推荐</td><td>技术方</td><td>见<span data-to="a11"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="a11" data-row="2" aria-label="附 11 宣传与获客（含 GEO）">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">宣传与获客（含 GEO）</h2>
+  <p class="sub">帮工厂对外获客的服务，不在工厂内部，所以与降本增效项目分开；合作办法同降本增效项目</p>
+  <div class="body" style="grid-template-columns:1fr 1.6fr;flex:1;align-content:stretch">
+    <div style="display:grid;gap:18px;align-content:stretch">
+      <div class="card" style="padding:16px 24px">
+        <h3>做哪些</h3>
+        <table class="t sm">
+          <tr><td class="nw">视频</td><td>工厂宣传片、产品与工艺短视频</td></tr>
+          <tr><td class="nw">自有渠道</td><td>官网、公众号、视频号、抖音</td></tr>
+          <tr><td class="nw">电商平台</td><td>1688 与阿里国际站商品页</td></tr>
+          <tr><td class="nw">AI 搜索推荐</td><td>GEO，按右边五步做</td></tr>
+        </table>
+      </div>
+      <div class="card"><h3>GEO 是什么</h3><p>让豆包、元宝、DeepSeek 等 AI 在回答「哪家弹簧厂做得好」一类问题时，提到并推荐这家工厂；它靠的正是视频、自有渠道、电商平台上的内容，所以和宣传获客放在一起做。</p></div>
+    </div>
+    <div class="card" style="padding:16px 24px">
+      <h3>GEO 怎么做</h3>
+      <table class="t sm">
+        <thead><tr><th>步骤</th><th>做什么</th><th>交付物</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">1 诊断</td><td>整理 30～50 个买家真会问的问题，逐个去问 AI，记下有没有提到、排第几、引用了哪个来源、正面还是负面</td><td class="nw">基线报告</td></tr>
+          <tr><td class="nw">2 定内容</td><td>根据 AI 爱引用的来源，规划要写什么：参数、对比、案例、常见问题</td><td class="nw">内容清单</td></tr>
+          <tr><td class="nw">3 做内容</td><td>写成结构清楚、有具体数据、可以被直接引用的内容：官网常见问题页、百科词条、头条文章、带字幕和文案的抖音视频</td><td class="nw">内容本身</td></tr>
+          <tr><td class="nw">4 分发</td><td>发到 AI 常引用的平台；一次拍摄多处分发（视频号、抖音、公众号、头条、官网）</td><td class="nw">发布记录</td></tr>
+          <tr><td class="nw">5 监测</td><td>每月复测同一批问题，看提及率、排名、正负面怎么变</td><td class="nw">月报</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:12px;font-size:16px">各平台的引用来源以实测为准。</p>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="a12" data-row="2" aria-label="附 12 工人培训配套">
+  <header class="fh"><span class="kick">三 · 合作项目</span><span class="no"></span></header>
+  <h2 class="title">工人培训配套（是否一起合作还没定）</h2>
+  <p class="sub">技术方能为工人培训做的配套</p>
+  <div class="body" style="grid-template-columns:1.6fr 1fr;flex:1;align-content:stretch">
+    <div class="card" style="padding:14px 24px">
+      <table class="t sm">
+        <tr><td class="nw">SOP 视频化</td><td>每道工序拍成 2～3 分钟视频，工位贴二维码，扫码就能看；可以直接问「这台机器报 E07 怎么办」，答案来自老师傅的维修记录</td></tr>
+        <tr><td class="nw">课件与题库</td><td>培训课件、考核题库</td></tr>
+        <tr><td class="nw">线上学习平台</td><td>线上学习与证书管理。以后可以发展成面向制造业的通用教学平台：不同行业、不同工种的课程、题库、模拟器都放在上面，其他工厂和职校也能用</td></tr>
+        <tr><td class="nw">AI 陪练</td><td>AI 陪练问答</td></tr>
+        <tr><td class="nw">数字模拟器</td><td>在电脑上模拟设备和工序，学员先在模拟器上练熟再上真机，省材料、省机时、少占老师傅，用来降低培训成本、提高培训效率。网页打开就能用，不绑某个品牌的机器</td></tr>
+      </table>
+    </div>
+    <div style="display:grid;gap:18px;align-content:stretch">
+      <div class="card"><h3>第一个模拟器：调机</h3><p>输入送线长度、芯轴与顶杆位置、节距、切断时机，3D 看弹簧成型，量尺寸判断合不合格，并练常见故障排查。</p><p>要先准备：卷簧机型号、老师傅调机录像、钢丝回弹实测数据。</p></div>
+      <div class="card tint"><h3>培训资质</h3><p>发国家认可的职业技能等级证书、拿政府培训补贴，一般要有人社部门的资质；不发证的企业内训，营业范围含培训即可开展。须先向当地人社局问清楚。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-c1" data-row="3" aria-label="经营测算：ERP">
+  <header class="fh"><span class="kick">经营测算 · 1 / 5 · ERP</span><span class="no"></span></header>
+  <h2 class="title">经营测算：ERP（第一年做 6 家）</h2>
+  <p class="sub"><span class="pill hot">估 · 假设待定</span>　6 家外部工厂，每家模块费 13 万元＋实施 30 天 4.5 万元；4 家由销售合伙人介绍，2 家由其他销售介绍</p>
+  <div class="body" style="grid-template-columns:repeat(4,1fr);grid-template-rows:auto 1fr">
+    <div class="card stat"><div class="lab">总收入</div><div class="val">105<small>万元</small></div><p>6 家 × 17.5 万元</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p1"></i>技术方</div><div class="val">69.86<small>万元</small></div><p>模块费 63% 或 70%，实施费 70%</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p2"></i>介绍人</div><div class="val">24.3<small>万元</small></div><p>销售合伙人 19.44，其他销售 4.86</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p0"></i>数字化合作公司</div><div class="val">10.84<small>万元</small></div><p>模块费先抽的 10%，其他销售介绍时另有余下的部分</p></div>
+    <div class="card" style="grid-column:1/4">
+      <div class="legend" aria-hidden="true" style="margin-bottom:10px"><span><i class="sw p0"></i>数字化合作公司</span><span><i class="sw p1"></i>技术方</span><span><i class="sw p2"></i>介绍人</span><span class="hint">移到色块上，看怎么算</span></div>
+      <div class="bar" role="img" aria-label="ERP 105 万元的分配：数字化合作公司 10.84 万元，技术方 69.86 万元，介绍人 24.3 万元" style="margin-bottom:14px">
+        <span class="seg p0" style="--v:10.84" tabindex="0" data-tip="数字化合作公司|ERP 6 家合计|10.84 万元，占 10.3%|销售合伙人介绍 4 家：13 万 × 10% × 4 ＝ 5.2 万|其他销售介绍 2 家：（13 万 × 16.5% ＋ 4.5 万 × 15%）× 2 ＝ 5.64 万|合计：5.2 ＋ 5.64 ＝ 10.84 万">10.84 万</span>
+        <span class="seg p1" style="--v:69.86" tabindex="0" data-tip="技术方|ERP 6 家合计|69.86 万元，占 66.5%|销售合伙人介绍 4 家：（13 万 × 63% ＋ 4.5 万 × 70%）× 4 ＝ 45.36 万|其他销售介绍 2 家：（13 万 × 70% ＋ 4.5 万 × 70%）× 2 ＝ 24.5 万|合计：45.36 ＋ 24.5 ＝ 69.86 万">69.86 万</span>
+        <span class="seg p2" style="--v:24.3" tabindex="0" data-tip="介绍人|ERP 6 家合计|24.3 万元，占 23.1%|销售合伙人介绍 4 家：（13 万 × 27% ＋ 4.5 万 × 30%）× 4 ＝ 19.44 万|其他销售介绍 2 家：（13 万 × 13.5% ＋ 4.5 万 × 15%）× 2 ＝ 4.86 万|合计：19.44 ＋ 4.86 ＝ 24.3 万">24.3 万</span>
+      </div>
+      <table class="t sm">
+        <thead><tr><th>万元</th><th class="r">数字化合作公司</th><th class="r">技术方</th><th class="r">介绍人</th><th class="r">合计</th></tr></thead>
+        <tbody>
+          <tr><td>销售合伙人介绍 4 家</td><td class="r">5.2</td><td class="r">45.36</td><td class="r">19.44</td><td class="r">70</td></tr>
+          <tr><td>其他销售介绍 2 家</td><td class="r">5.64</td><td class="r">24.5</td><td class="r">4.86</td><td class="r">35</td></tr>
+          <tr class="sum"><td>合计</td><td class="r">10.84</td><td class="r">69.86</td><td class="r">24.3</td><td class="r">105</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card"><h3>还要看的</h3>
+      <ul class="dots"><li>交付 6 × 30 ＝ <b>180 天</b>，是否超出技术方产能</li><li>第二年起年维护每年 <b>7.8～12 万元</b>，全归技术方</li><li>未算税、服务器与 AI 费用</li></ul></div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-c2" data-row="3" aria-label="经营测算：降本增效项目">
+  <header class="fh"><span class="kick">经营测算 · 2 / 5 · 降本增效项目</span><span class="no"></span></header>
+  <h2 class="title">经营测算：降本增效项目（AI 报价助手）</h2>
+  <p class="sub"><span class="pill hot">估 · 编的例子</span>　市场价 4 万元；1 家试验厂半价 2 万元；推向市场后第一年卖 5 家：3 家由销售合伙人介绍，2 家由其他销售介绍</p>
+  <div class="body" style="grid-template-columns:repeat(4,1fr);grid-template-rows:auto 1fr">
+    <div class="card stat"><div class="lab">总收入</div><div class="val">20<small>万元</small></div><p>5 家 × 4 万元</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p1"></i>技术方</div><div class="val">14.16<small>万元</small></div><p>含替试验厂抵扣的 1 万元</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p2"></i>介绍人</div><div class="val">4.32<small>万元</small></div><p>销售合伙人 3.24，其他销售 1.08</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p0"></i>数字化合作公司</div><div class="val">1.52<small>万元</small></div><p>已扣替试验厂抵扣的 1 万元</p></div>
+    <div class="card" style="grid-column:1/4">
+      <div class="legend" aria-hidden="true" style="margin-bottom:10px"><span><i class="sw p0"></i>数字化合作公司</span><span><i class="sw p1"></i>技术方</span><span><i class="sw p2"></i>介绍人</span><span class="hint">移到色块上，看怎么算</span></div>
+      <div class="bar" role="img" aria-label="AI 报价助手 20 万元的分配：数字化合作公司 1.52 万元，技术方 14.16 万元，介绍人 4.32 万元" style="margin-bottom:14px">
+        <span class="seg p0" style="--v:1.52" tabindex="0" data-tip="数字化合作公司|AI 报价助手 5 家合计|1.52 万元，占 7.6%|销售合伙人介绍 3 家：4 万 × 10% × 3 ＝ 1.2 万|其他销售介绍 2 家：4 万 × 16.5% × 2 ＝ 1.32 万|替试验厂抵扣：4 万 × 5% × 5 单 ＝ 1 万，从这里扣出|合计：1.2 ＋ 1.32 − 1 ＝ 1.52 万">1.52 万</span>
+        <span class="seg p1" style="--v:14.16" tabindex="0" data-tip="技术方|AI 报价助手 5 家合计|14.16 万元，占 70.8%|销售合伙人介绍 3 家：4 万 × 63% × 3 ＝ 7.56 万|其他销售介绍 2 家：4 万 × 70% × 2 ＝ 5.6 万|替试验厂抵扣的 1 万元付给技术方|合计：7.56 ＋ 5.6 ＋ 1 ＝ 14.16 万">14.16 万</span>
+        <span class="seg p2" style="--v:4.32" tabindex="0" data-tip="介绍人|AI 报价助手 5 家合计|4.32 万元，占 21.6%|销售合伙人介绍 3 家：4 万 × 27% × 3 ＝ 3.24 万|其他销售介绍 2 家：4 万 × 13.5% × 2 ＝ 1.08 万|合计：3.24 ＋ 1.08 ＝ 4.32 万">4.32 万</span>
+      </div>
+      <table class="t sm">
+        <thead><tr><th>万元</th><th class="r">数字化合作公司</th><th class="r">技术方</th><th class="r">介绍人</th><th class="r">合计</th></tr></thead>
+        <tbody>
+          <tr><td>销售合伙人介绍 3 家</td><td class="r">1.2</td><td class="r">7.56</td><td class="r">3.24</td><td class="r">12</td></tr>
+          <tr><td>其他销售介绍 2 家</td><td class="r">1.32</td><td class="r">5.6</td><td class="r">1.08</td><td class="r">8</td></tr>
+          <tr><td>替试验厂抵扣：5 单 × 整单 5%</td><td class="r">−1</td><td class="r">＋1</td><td class="r">—</td><td class="r">—</td></tr>
+          <tr class="sum"><td>合计</td><td class="r">1.52</td><td class="r">14.16</td><td class="r">4.32</td><td class="r">20</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card"><h3>还要看的</h3>
+      <ul class="dots"><li>试验厂半价 2 万元，第一年抵掉 <b>1 万元</b>，再卖 5 单抵清</li><li>研发成本由技术方承担，未算进去</li><li>不含实施人天</li></ul></div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-c4" data-row="3" aria-label="经营测算：驻厂工程师培训班">
+  <header class="fh"><span class="kick">经营测算 · 3 / 5 · 驻厂工程师培训班</span><span class="no"></span></header>
+  <h2 class="title">经营测算：驻厂工程师培训班</h2>
+  <p class="sub">线下实践课每期 30 人、每人 6000 元、每三个月一期，一年 4 期；直接成本按学费的 15% 算（工厂场地以外，可能还要租带电脑的场地等）</p>
+  <div class="body" style="grid-template-columns:repeat(4,1fr);grid-template-rows:auto 1fr">
+    <div class="card stat"><div class="lab">线下课收入</div><div class="val">72<small>万元</small></div><p>4 期 × 30 人 × 6000 元</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p1"></i>技术方</div><div class="val">27.54<small>万元</small></div><p>每期 6.885 万元</p></div>
+    <div class="card stat"><div class="lab"><i class="sw nz"></i>示范工厂</div><div class="val">27.54<small>万元</small></div><p>每期 6.885 万元</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p0"></i>数字化合作公司</div><div class="val">6.12<small>万元</small></div><p>每期 1.53 万元</p></div>
+    <div class="card" style="grid-column:1/3">
+      <h3>一期怎么算</h3>
+      <ol class="steps">
+        <li><span>学费 30 人 × 6000 元 ＝ <b>18 万元</b></span></li>
+        <li><span>先扣直接成本 18 万 × 15% ＝ <b>2.7 万元</b>，剩 15.3 万元</span></li>
+        <li><span>再抽 10% 给数字化合作公司 ＝ <b>1.53 万元</b>，剩 13.77 万元</span></li>
+        <li><span>技术方、示范工厂各 50% ＝ 各 <b>6.885 万元</b></span></li>
+      </ol>
+    </div>
+    <div class="card" style="grid-column:3/5">
+      <table class="t sm">
+        <thead><tr><th>万元</th><th class="r">收入</th><th class="r">直接成本</th><th class="r">合作公司</th><th class="r">技术方</th><th class="r">示范工厂</th></tr></thead>
+        <tbody>
+          <tr><td>一期</td><td class="r">18</td><td class="r">2.7</td><td class="r">1.53</td><td class="r">6.885</td><td class="r">6.885</td></tr>
+          <tr class="sum"><td>一年 4 期</td><td class="r">72</td><td class="r">10.8</td><td class="r">6.12</td><td class="r">27.54</td><td class="r">27.54</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:12px">直接成本含材料、学员意外险与租场地；技术方讲课的时间、示范工厂自己的场地未算成本</p>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-c3" data-row="3" aria-label="经营测算：宣传与获客">
+  <header class="fh"><span class="kick">经营测算 · 4 / 5 · 宣传与获客</span><span class="no"></span></header>
+  <h2 class="title">经营测算：宣传与获客（GEO 年度服务）</h2>
+  <p class="sub"><span class="pill hot">估 · 编的例子</span>　每家每年 3 万元；第一年 4 家：2 家由销售合伙人介绍，2 家由其他销售介绍；合作办法同降本增效项目</p>
+  <div class="body" style="grid-template-columns:repeat(4,1fr);grid-template-rows:auto 1fr">
+    <div class="card stat"><div class="lab">总收入</div><div class="val">12<small>万元</small></div><p>4 家 × 3 万元</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p1"></i>技术方</div><div class="val">7.98<small>万元</small></div><p>销售合伙人介绍 63%，其他销售介绍 70%</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p2"></i>介绍人</div><div class="val">2.43<small>万元</small></div><p>销售合伙人 1.62，其他销售 0.81</p></div>
+    <div class="card stat"><div class="lab"><i class="sw p0"></i>数字化合作公司</div><div class="val">1.59<small>万元</small></div><p>先抽的 10%，其他销售介绍时另加 6.5%</p></div>
+    <div class="card" style="grid-column:1/4">
+      <div class="legend" aria-hidden="true" style="margin-bottom:10px"><span><i class="sw p0"></i>数字化合作公司</span><span><i class="sw p1"></i>技术方</span><span><i class="sw p2"></i>介绍人</span><span class="hint">移到色块上，看怎么算</span></div>
+      <div class="bar" role="img" aria-label="GEO 年度服务 12 万元的分配：数字化合作公司 1.59 万元，技术方 7.98 万元，介绍人 2.43 万元" style="margin-bottom:14px">
+        <span class="seg p0" style="--v:1.59" tabindex="0" data-tip="数字化合作公司|GEO 年度服务 4 家合计|1.59 万元，占 13.3%|销售合伙人介绍 2 家：3 万 × 10% × 2 ＝ 0.6 万|其他销售介绍 2 家：3 万 × 16.5% × 2 ＝ 0.99 万|合计：0.6 ＋ 0.99 ＝ 1.59 万">1.59 万</span>
+        <span class="seg p1" style="--v:7.98" tabindex="0" data-tip="技术方|GEO 年度服务 4 家合计|7.98 万元，占 66.5%|销售合伙人介绍 2 家：3 万 × 63% × 2 ＝ 3.78 万|其他销售介绍 2 家：3 万 × 70% × 2 ＝ 4.2 万|合计：3.78 ＋ 4.2 ＝ 7.98 万">7.98 万</span>
+        <span class="seg p2" style="--v:2.43" tabindex="0" data-tip="介绍人|GEO 年度服务 4 家合计|2.43 万元，占 20.3%|销售合伙人介绍 2 家：3 万 × 27% × 2 ＝ 1.62 万|其他销售介绍 2 家：3 万 × 13.5% × 2 ＝ 0.81 万|合计：1.62 ＋ 0.81 ＝ 2.43 万">2.43 万</span>
+      </div>
+      <table class="t sm">
+        <thead><tr><th>万元</th><th class="r">数字化合作公司</th><th class="r">技术方</th><th class="r">介绍人</th><th class="r">合计</th></tr></thead>
+        <tbody>
+          <tr><td>销售合伙人介绍 2 家</td><td class="r">0.6</td><td class="r">3.78</td><td class="r">1.62</td><td class="r">6</td></tr>
+          <tr><td>其他销售介绍 2 家</td><td class="r">0.99</td><td class="r">4.2</td><td class="r">0.81</td><td class="r">6</td></tr>
+          <tr class="sum"><td>合计</td><td class="r">1.59</td><td class="r">7.98</td><td class="r">2.43</td><td class="r">12</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card"><h3>还要看的</h3>
+      <ul class="dots"><li>按年收费，第二年起老客户续费继续算</li><li>未算拍摄与平台投放费用</li></ul></div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-c5" data-row="3" aria-label="经营测算：第一年合计">
+  <header class="fh"><span class="kick">经营测算 · 5 / 5 · 合计</span><span class="no"></span></header>
+  <h2 class="title">经营测算：第一年合计</h2>
+  <p class="sub">把前四页加起来，总收入 <b>209 万元</b>；<span class="pill hot">估</span> 未扣技术方人力、服务器与 AI 费用，未算税与法定公积金</p>
+  <div class="body" style="grid-template-columns:repeat(4,1fr);grid-template-rows:auto 1fr">
+    <div class="card stat"><div class="lab"><i class="sw p1"></i>技术方</div><div class="val">122.11<small>万元</small></div></div>
+    <div class="card stat"><div class="lab"><i class="sw p2"></i>销售合伙人（合计）</div><div class="val">31.08<small>万元</small></div></div>
+    <div class="card stat"><div class="lab"><i class="sw p2"></i>其他销售（合计）</div><div class="val">7.87<small>万元</small></div></div>
+    <div class="card stat"><div class="lab"><i class="sw nz"></i>示范工厂</div><div class="val">27.54<small>万元</small></div></div>
+    <div class="card" style="grid-column:1/4">
+      <table class="t sm">
+        <thead><tr><th>万元</th><th class="r">ERP</th><th class="r">降本增效</th><th class="r">工程师班</th><th class="r">宣传获客</th><th class="r">业绩奖</th><th class="r">分红</th><th class="r">合计</th></tr></thead>
+        <tbody>
+          <tr><td><i class="sw p1"></i>技术方</td><td class="r">69.86</td><td class="r">14.16</td><td class="r">27.54</td><td class="r">7.98</td><td class="r">—</td><td class="r">2.57</td><td class="r"><b>122.11</b></td></tr>
+          <tr><td><i class="sw p2"></i>销售合伙人</td><td class="r">19.44</td><td class="r">3.24</td><td class="r">—</td><td class="r">1.62</td><td class="r">2.02</td><td class="r">4.76</td><td class="r"><b>31.08</b></td></tr>
+          <tr><td><i class="sw p2"></i>其他销售</td><td class="r">4.86</td><td class="r">1.08</td><td class="r">—</td><td class="r">0.81</td><td class="r">1.12</td><td class="r">—</td><td class="r"><b>7.87</b></td></tr>
+          <tr><td><i class="sw nz"></i>示范工厂</td><td class="r">—</td><td class="r">—</td><td class="r">27.54</td><td class="r">—</td><td class="r">—</td><td class="r">—</td><td class="r"><b>27.54</b></td></tr>
+          <tr><td><i class="sw p0"></i>数字化合作公司</td><td class="r">10.84</td><td class="r">1.52</td><td class="r">6.12</td><td class="r">1.59</td><td class="r">−3.14</td><td class="r">−7.33</td><td class="r"><b>9.6</b><small>　留作支出</small></td></tr>
+          <tr><td><i class="sw ol"></i>线下课直接成本</td><td class="r">—</td><td class="r">—</td><td class="r">10.8</td><td class="r">—</td><td class="r">—</td><td class="r">—</td><td class="r"><b>10.8</b></td></tr>
+          <tr class="sum"><td>合计</td><td class="r">105</td><td class="r">20</td><td class="r">72</td><td class="r">12</td><td class="r">0</td><td class="r">0</td><td class="r">209</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px">销售合伙人、其他销售各是全体合计；业绩奖按全年介绍成交的业务额分：销售合伙人 88 万元、其他销售 49 万元</p>
+    </div>
+    <div class="card">
+      <h3><i class="sw p0"></i>　数字化合作公司的账</h3>
+      <table class="t sm">
+        <tr><td>收入</td><td class="r">20.07</td></tr>
+        <tr><td>减：运转、风险准备金（攒满 5 万）、共同获客、新项目硬件</td><td class="r">−9.6</td></tr>
+        <tr class="sum"><td>分红前利润</td><td class="r">10.47</td></tr>
+        <tr><td>减：年度业绩奖 30%</td><td class="r">−3.14</td></tr>
+        <tr class="sum"><td>分红</td><td class="r">7.33</td></tr>
+        <tr><td>技术方 35%</td><td class="r">2.57</td></tr>
+        <tr><td>销售合伙人 65%</td><td class="r">4.76</td></tr>
+      </table>
+      <p style="margin-top:8px">支出各项为估：运转 0.6、准备金 5、获客 3、硬件 1</p>
+      <a class="tbtn" href="../calculator/index.html" style="margin-top:10px;display:inline-block;text-decoration:none">打开经营测算器 →</a>
+    </div>
+  </div>
+</section>
+
+<section class="frame" data-id="x-todo" data-row="4" aria-label="需要一起定的事">
+  <header class="fh"><span class="kick">四 · 需要一起定的事</span><span class="no"></span></header>
+  <h2 class="title">需要一起定的事</h2>
+  <p class="sub">这份草案全部可以商量；定下来的，由律师起草成正式文件、会计核税</p>
+  <div class="body" style="grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr">
+    <div class="card todo" style="grid-column:1/-1"><h3>成立数字化合作公司前后</h3>
+      <table class="t sm">
+        <thead><tr><th>事项</th><th style="width:30%">什么时候定</th></tr></thead>
+        <tbody>
+          <tr><td>ERP 最终价格</td><td>拿到本地同行报价后</td></tr>
+          <tr><td>每单实际到手：两层发票的增值税、付给个人的介绍费的发票与个税、10% 扣完税还剩多少</td><td>成立前请会计按一单 17.5 万元算一遍</td></tr>
+          <tr><td>各销售合伙人的持股比例</td><td>成立数字化合作公司前</td></tr>
+          <tr><td>年度业绩奖的比例与规则</td><td>成立数字化合作公司前</td></tr>
+          <tr><td>须技术方同意的事项清单；增资稀释后这些事项怎么保住</td><td>谈股东协议时</td></tr>
+          <tr><td>股东协议、技术许可协议各条款</td><td>律师起草时</td></tr>
+          <tr><td>所有合同与公司设立</td><td>律师起草、会计核税</td></tr>
+        </tbody>
+      </table></div>
+    <div class="card todo"><h3>开户、签第一单时</h3>
+      <table class="t sm">
+        <tbody>
+          <tr><td>每笔到账后几天付介绍费与技术服务费、大额付款标准</td><td style="width:30%">开公司账户时</td></tr>
+          <tr><td>年维护费比例与包含内容</td><td>签第一份 ERP 合同前</td></tr>
+        </tbody>
+      </table></div>
+    <div class="card todo"><h3>做到再定</h3>
+      <table class="t sm">
+        <tbody>
+          <tr><td>替试验厂抵扣的比例（起点整单 5%）</td><td style="width:30%">第一个降本增效项目推向市场前</td></tr>
+          <tr><td>诊断费由谁收、怎么分</td><td>做第一份诊断前</td></tr>
+          <tr><td>工人培训是否一起合作、怎么合作；培训资质与补贴</td><td>办培训的一方向人社局问过后</td></tr>
+        </tbody>
+      </table></div>
+  </div>
+</section>
+
+<div class="aplabel" id="aplabel">附录 · 细则</div>
+
+<section class="frame ap" data-id="a1" data-row="5" aria-label="附 1 须技术方同意的事项">
+  <header class="fh"><span class="kick">附录 · 合作方式</span><span class="no"></span></header>
+  <h2 class="title">须技术方同意的事项</h2>
+  <p class="sub">起点；章程中写明。其他事项按股权比例表决，技术方不干预日常经营</p>
+  <div class="body">
+    <div class="card" style="padding:16px 26px">
+      <table class="t sm">
+        <thead><tr><th>事项</th><th>指什么</th><th>为什么要技术方同意</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">更换技术供应商</td><td>数字化合作公司把系统的开发、实施或维护交给技术方以外的公司或个人；或另找人做同类系统卖给客户</td><td>技术方以技术入伙、全职投入，换掉技术方等于拿走它的贡献</td></tr>
+          <tr><td class="nw">技术对外许可</td><td>把技术方许可给数字化合作公司使用的软件，再许可、转卖或交给第三方，包括源代码、安装包、系统账号</td><td>软件归技术方的公司，数字化合作公司只有使用权</td></tr>
+          <tr><td class="nw">低于底价接单</td><td>报价低于双方共同定的底价，或免费赠送模块、人天；底价包括模块费、人天价、年维护比例与免费维护年数</td><td>每一单都由技术方交付，年维护也由技术方承担，低于底价会让交付和维护亏本</td></tr>
+          <tr><td class="nw">竞争对手入股</td><td>新股东或股份受让人是做同类数字化系统或服务的公司、个人，或与它们有关联</td><td>防止技术和客户资料流到对手手里</td></tr>
+          <tr><td class="nw">对外担保</td><td>数字化合作公司为任何公司或个人的债务作担保</td><td>担保出了事由公司赔，最终由全体股东承担</td></tr>
+          <tr><td class="nw">关联交易</td><td>数字化合作公司向股东、董事、监事本人或其亲属、其开办或持股的公司买东西、付服务费</td><td>钱付出去后，那位股东拿全部，其他股东的分红跟着变少</td></tr>
+          <tr><td class="nw">业绩奖比例与规则</td><td>每年从分红前利润里拿出多少发业绩奖、按什么分</td><td>技术方不介绍单，拿不到业绩奖；比例调高等于把技术方的分红转给销售</td></tr>
+          <tr><td class="nw">分红政策</td><td>每年分不分红、分多少比例</td><td>利润长期不分，技术方 35% 的回报就落不到手</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card tint" style="padding:14px 26px"><p style="font-size:17px">持股 35% 超过三分之一，章程里的这些条款不会被单方面改掉。</p></div>
+  </div>
+</section>
+
+<section class="frame ap" data-id="a13" data-row="5" aria-label="附 13 硬件清单">
+  <header class="fh"><span class="kick">附录 · 硬件清单</span><span class="no"></span></header>
+  <h2 class="title">硬件清单</h2>
+  <p class="sub"><b>服务器由技术方统一提供</b>，费用含在服务费里。价格全为估算；工厂已有的设备先盘点，能用就不买。车间终端按约 7 个作业区估</p>
+  <div class="body" style="grid-template-columns:repeat(4,1fr);gap:14px">
+    <div class="card hwsum" style="grid-column:1/-1">
+      <div class="stat"><div class="lab">工厂要自己买 · 必需项</div><div class="val">0.5～2<small>万元</small></div></div>
+      <div class="stat"><div class="lab">建议项 · 再加</div><div class="val">3～6<small>万元</small></div></div>
+      <div class="stat"><div class="lab">可选项</div><div class="val">按需<small>另算</small></div></div>
+      <div class="stat"><div class="lab">自建服务器 · 另加</div><div class="val">0.8～2<small>万元</small></div></div>
+    </div>
+    <div class="card" style="grid-column:1/-1;padding:8px 18px">
+      <div class="hw" id="hw"></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame ap" data-id="a7" data-row="5" aria-label="附 7 降本增效项目退出补多少">
+  <header class="fh"><span class="kick">附录 · 降本增效项目</span><span class="no"></span></header>
+  <h2 class="title">降本增效项目：试验厂与退出补差</h2>
+  <p class="sub">例：项目市场价 10 万元，其他销售介绍的价格 8.65 万元。补的金额 ＝ 市场价的 86.5% − 已经付了的（试验厂算已经抵扣了的）</p>
+  <div class="body" style="grid-template-columns:1.25fr 1fr">
+    <div class="card" style="padding:16px 26px">
+      <h3>销售合伙人中途退出，还想继续用</h3>
+      <table class="t">
+        <thead><tr><th>情况</th><th class="r">已经付了</th><th class="r">还要补</th><th class="r">合计</th></tr></thead>
+        <tbody>
+          <tr><td>以销售合伙人价买的</td><td class="r">7.3 万元</td><td class="r">1.35 万元</td><td class="r">8.65 万元</td></tr>
+          <tr><td>试验厂，还没开始抵扣</td><td class="r">0</td><td class="r">8.65 万元</td><td class="r">8.65 万元</td></tr>
+          <tr><td>试验厂，已抵扣 2 万元</td><td class="r">2 万元</td><td class="r">6.65 万元</td><td class="r">8.65 万元</td></tr>
+          <tr><td>试验厂，半价已抵扣完</td><td class="r">5 万元</td><td class="r">3.65 万元</td><td class="r">8.65 万元</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:12px;font-size:16px">其他销售介绍时介绍人拿整单的 13.5%，所以这个价格是市场价的 86.5%</p>
+    </div>
+    <div style="display:grid;gap:18px;align-content:stretch">
+      <div class="card"><h3>试验厂怎么抵扣</h3><p>项目推向市场后，这个项目每卖出一单，不论是谁介绍的，都从数字化合作公司这一单的收入里拿出整单的 5% 替试验厂抵扣，付给技术方，直到半价抵清；试验厂自己不用掏钱。金额按推向市场那天的市场价锁定，不设期限；项目最终没有推向市场的，不用付。</p></div>
+      <div class="card"><h3>几家都想当试验厂</h3><p>试验厂是销售合伙人的工厂。几位销售合伙人都想试用同一个项目时，都可以当试验厂，各按半价计；每单那 5% 平均分给还没抵清的各家。</p></div>
+      <div class="card tint"><p>试验厂替大家先承担了试用的风险，所以由大家共同的钱来补。例：一家试验厂，半价 5 万元；之后每卖出一单抵 0.5 万元，卖出 10 单抵清。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="frame ap" data-id="a10" data-row="5" aria-label="附 10 销售 AI 获客工作流">
+  <header class="fh"><span class="kick">附录 · 降本增效项目</span><span class="no"></span></header>
+  <h2 class="title">降本增效项目：销售 AI 获客工作流</h2>
+  <div class="body">
+    <div class="card" style="padding:14px 26px">
+      <table class="t sm">
+        <thead><tr><th>步骤</th><th>AI 做什么</th><th>人做什么</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">1 画理想客户</td><td>从 ERP 现有客户里找毛利最高、回款最好的那类（行业、地区、订单规模）</td><td class="nw">确认</td></tr>
+          <tr><td class="nw">2 找线索</td><td>从企业公开信息、1688、展会名录、招标公告、招聘信息（在招人说明在扩产）里找符合画像的企业，并写理由</td><td>—</td></tr>
+          <tr><td class="nw">3 研究打分</td><td>读对方官网的产品，推测会用什么弹簧，按匹配度打分</td><td class="nw">挑要跟的</td></tr>
+          <tr><td class="nw">4 首次联系</td><td>结合对方产品起草针对性的第一条消息</td><td class="nw">审核后一条条发，不群发</td></tr>
+          <tr><td class="nw">5 内容吸引</td><td>把工厂素材写成视频号、抖音脚本与公众号文章</td><td class="nw">拍摄</td></tr>
+          <tr><td class="nw">6 回复询价</td><td>微信、1688、官网来的询价，AI 读图提规格、追问缺的参数、按 ERP 报价规则给区间，转给销售</td><td class="nw">定价、谈判</td></tr>
+          <tr><td class="nw">7 跟进</td><td>沟通记进 CRM，提醒下一步，按客户上一条消息起草跟进；发现下单变少时提醒</td><td class="nw">维护关系</td></tr>
+          <tr><td class="nw">8 复盘</td><td>每周分析赢单、丢单的原因</td><td class="nw">改话术与画像</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card tint" style="padding:14px 26px"><p style="font-size:17px"><b>合规</b>：只用企业公开信息，不买个人手机号数据，不群发骚扰。</p></div>
+  </div>
+</section>
+
+<section class="frame ap" data-id="a9" data-row="5" aria-label="附 9 财务 AI 工作流">
+  <header class="fh"><span class="kick">附录 · 降本增效项目</span><span class="no"></span></header>
+  <h2 class="title">降本增效项目：财务 AI 工作流</h2>
+  <div class="body">
+    <div class="card" style="padding:16px 26px">
+      <table class="t sm">
+        <thead><tr><th>工作流</th><th>流程</th><th>AI 下的判断</th></tr></thead>
+        <tbody>
+          <tr><td class="nw">经营月报</td><td>ERP 出数 → 与上月、预算比 → 挑变化最大的几项 → 到凭证里找原因 → 写成老板看得懂的月报 → 财务审核</td><td>哪些变化值得说、原因是什么（如制造费用涨 18%，是因为 3 张维修单）</td></tr>
+          <tr><td class="nw">应收催收</td><td>每天看账龄、回款历史、聊天记录 → 欠款客户分类 → 按类型起草催款话术 → 建议是否停供 → 人发出</td><td>客户是忘了、资金紧张，还是对货有意见</td></tr>
+          <tr><td class="nw">客户对账</td><td>客户发来的 Excel、PDF、照片 → AI 读出后与 ERP 逐行核 → 解释差在哪 → 起草回复</td><td>读懂各种格式；差额是没开票、在途还是价格不同</td></tr>
+          <tr><td class="nw">报销审核</td><td>读发票、报销单、出差审批 → 对照文字报销制度 → 标出异常并说明 → 人审批</td><td>拿一段文字规定判断一张票是否合规</td></tr>
+          <tr><td class="nw">毛利漏在哪</td><td>实际毛利与标准毛利对不上 → 查哪些工单、哪些材料涨价 → 写分析</td><td>找出主因</td></tr>
+          <tr><td class="nw">资金预测</td><td>结合各客户平均晚付天数、应付到期、工资 → 未来 13 周资金预测与说明</td><td>估每个客户实际哪天付款</td></tr>
+          <tr><td class="nw">财税政策解读</td><td>读新的财税公告 → 说明对本公司的影响并附出处 → 人核实</td><td>哪些条款与本公司有关</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+</div></div>
+<div id="tip" hidden></div>
+<nav id="hud" aria-label="翻页"><button id="prev" type="button" aria-label="上一页">‹</button><span id="pg" aria-live="polite"></span><button id="next" type="button" aria-label="下一页">›</button><button id="ovb" type="button">全图</button></nav>
+<style>
+  /* 模块费条形图（单一系列，技术方蓝；数值在条尾） */
+  .mrow { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 16px; height: 40px; }
+  .mrow .ml { font-size: 18px; color: var(--ink); white-space: nowrap; }
+  .mrow .mt { display: flex; align-items: center; gap: 10px; border-left: 1px solid var(--s3); height: 100%; }
+  .mrow .mb { height: 22px; background: var(--p1); border-radius: 0 4px 4px 0; }
+  .mrow .mv { font: 700 19px var(--f-num); color: var(--ink); white-space: nowrap; }
+  .msum { display: flex; justify-content: flex-end; align-items: baseline; gap: 10px; margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--hair); font-size: 18px; color: var(--ink2); }
+  .msum b { font: 700 34px var(--f-num); color: var(--ink); }
+  /* 硬件清单：按类分小表，两栏自动排 */
+  .hw { column-count: 2; column-gap: 26px; }
+  .hw table { break-inside: avoid; width: 100%; border-collapse: collapse; font-size: 12.5px; line-height: 1.22; margin-bottom: 3px; table-layout: fixed; }
+  .hw caption { text-align: left; font-size: 12.5px; font-weight: 700; color: var(--s2); letter-spacing: .1em; padding: 0; }
+  .hw td { padding: 1px 6px; border-top: 1px solid var(--hair); color: var(--ink2); vertical-align: top; }
+  .hwsum { display: flex; justify-content: space-between; gap: 20px; padding: 8px 26px; }
+  .hwsum .val { font-size: 28px; margin: 0; }
+  [data-id="a13"] .body { gap: 10px; }
+  .hwsum .val small { font-size: 16px; }
+  .hwsum .lab { font-size: 15px; }
+  .hw td:first-child { color: var(--ink); font-weight: 700; }
+  .hw td:nth-child(4) { text-align: right; font-family: var(--f-num); color: var(--ink); }
+  #back { display: none; }
+  #back.on { display: inline-block; }
+</style>
+<style>
+  /* v3 新增（P1-S10 R03 第 5 步） */
+  .frame { contain: size layout style; }
+  .pnote { flex: none; margin: 16px 0 0; font-size: 17px; line-height: 1.65; color: var(--ink2); }
+  .pnote b { color: var(--ink); margin-right: 6px; }
+  .pref, .card p.pref { font-size: 16px; font-weight: 700; color: var(--s1); }
+  .hint { font-size: 15px; color: var(--ink2); }
+  .sw.ol { background: none; box-shadow: inset 0 0 0 2px var(--s3); }
+  .t td small { font-size: 13px; color: var(--ink2); font-weight: 400; }
+  .flow.big { height: 100%; }
+  .flow.big > .ar { width: 26px; }
+  .flow.big > .fs { display: flex; flex-direction: column; padding: 22px 16px; }
+  .flow.big .fs h4 { font-size: 21px; margin: 10px 0 8px; }
+  .flow.big .fs p { font-size: 16px; }
+  .flow.big .fs .fbig { white-space: nowrap; font-size: 22px; margin: auto 0; }
+  .whos { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 15px; font-weight: 700; color: var(--ink2); margin-top: 8px; }
+  .whos span { display: flex; align-items: center; gap: 7px; white-space: nowrap; }
+  .fs .fbig { font-family: var(--f-num); font-weight: 700; font-size: 30px; line-height: 1.25; color: var(--ink); margin: 4px 0 10px; }
+  #tip { white-space: normal; max-width: 460px; }
+</style>
+<style>
+  /* v5 新增（P1-S10 R03 第 7 步） */
+  .flow.vert { flex-direction: column; height: 100%; }
+  .flow.vert > .fs { display: grid; grid-template-columns: 54px 1fr .85fr 1.75fr 2.2fr; align-items: center; column-gap: 22px; padding: 0 26px; min-height: 0; }
+  .flow.vert > .ar { width: auto; height: 20px; flex: none; }
+  .flow.vert > .ar::after { border-left: 11px solid transparent; border-right: 11px solid transparent; border-top: 13px solid var(--acc); border-bottom: 0; }
+  .flow.vert .fs .fn { font-size: 22px; }
+  .flow.vert .fs h4 { margin: 0; font-size: 24px; }
+  .flow.vert .fs .whos { margin: 0; flex-direction: column; gap: 4px; }
+  .flow.vert .fs .fbig { margin: 0; font-size: 26px; line-height: 1.25; white-space: nowrap; }
+  .flow.vert .fx p { margin: 0; font-size: 17px; line-height: 1.5; color: var(--ink2); }
+  .flow.vert .fx p + p { margin-top: 4px; }
+  .legend .hint { margin-left: auto; }
+</style>
+<script>
+(() => {
+  /* ---------- 版面：每节一行（data-row），附录另起一行；平时按顺序一页页翻 ---------- */
+  const W = 1600, H = 900, G = 200;
+  const world = document.getElementById("world"), view = document.getElementById("view");
+  const frames = [...world.querySelectorAll(".frame")];
+  const main = frames.filter(f => !f.classList.contains("ap")), aps = frames.filter(f => f.classList.contains("ap"));
+  const byId = Object.fromEntries(frames.map(f => [f.dataset.id, f]));
+  const at = (f, x, y) => { f.style.left = x + "px"; f.style.top = y + "px"; f._x = x; f._y = y; };
+  const groups = []; let last = null;
+  frames.forEach(f => { const r = f.dataset.row || "0"; if (r !== last) { groups.push([]); last = r; } groups[groups.length - 1].push(f); });
+  const lab = document.getElementById("aplabel");
+  let y = 0, WW = 0;
+  groups.forEach(g => {
+    if (g[0].classList.contains("ap")) { y += 160; lab.style.left = "0px"; lab.style.top = (y - 130) + "px"; }
+    g.forEach((f, i) => at(f, i * (W + G), y));
+    WW = Math.max(WW, g.length * (W + G) - G);
+    y += H + G;
+  });
+  const WH = y - G;
+  world.style.width = WW + "px"; world.style.height = WH + "px";
+  const pno = f => main.indexOf(f) + 1, ano = f => aps.indexOf(f) + 1;
+  const name = f => f.classList.contains("ap") ? "附录 " + ano(f) : pno(f) + " / " + main.length;
+  const short = f => f.classList.contains("ap") ? "附录 " + ano(f) : "第 " + pno(f) + " 页";
+  main.forEach(f => { const n = f.querySelector(".no"); if (n && !n.textContent.trim()) n.textContent = String(pno(f)).padStart(2, "0"); });
+  aps.forEach(f => { const n = f.querySelector(".no"); if (n && !n.textContent.trim()) n.textContent = "附录 " + ano(f); });
+
+  /* ---------- 页码引用：data-to 写页的 id。指向正文的换成「第 N 页」；指向附录的换成可点的链接 ---------- */
+  document.querySelectorAll("[data-to]").forEach(s => {
+    const fs = s.dataset.to.split(",").map(id => byId[id.trim()]);
+    if (fs.some(f => !f)) { console.error("bad data-to: " + s.dataset.to); s.textContent = "??"; return; }
+    if (fs.every(f => !f.classList.contains("ap"))) {
+      const n = fs.map(pno).sort((a, b) => a - b);
+      const run = n.length > 2 && n.every((x, i) => !i || x === n[i - 1] + 1);
+      s.textContent = "第 " + (run ? n[0] + "～" + n[n.length - 1] : n.join("、")) + " 页";
+    } else s.innerHTML = fs.map(f => f.classList.contains("ap") ? `<a class="ref" href="#${f.dataset.id}">附录 ${ano(f)} →</a>` : short(f)).join("、");
+  });
+
+  /* ---------- 镜头 ---------- */
+  let cur = 0, ov = false, back = null;
+  const pg = document.getElementById("pg"), hud = document.getElementById("hud");
+  const bk = document.createElement("button"); bk.id = "back"; bk.type = "button"; hud.insertBefore(bk, hud.firstChild);
+  function place(instant) {
+    world.classList.toggle("instant", !!instant);
+    let k, tx, ty;
+    if (ov) { k = Math.min(innerWidth / WW, (innerHeight - 60) / WH) * 0.96; tx = (innerWidth - WW * k) / 2; ty = (innerHeight - 60 - WH * k) / 2; }
+    else { const f = frames[cur]; k = Math.min((innerWidth - 40) / W, (innerHeight - 76) / H); tx = (innerWidth - W * k) / 2 - f._x * k; ty = (innerHeight - 56 - H * k) / 2 - f._y * k; }
+    world.style.transform = `translate(${tx}px, ${ty}px) scale(${k})`;
+    view.scrollLeft = view.scrollTop = 0;
+    if (instant) { void world.offsetWidth; world.classList.remove("instant"); }
+  }
+  function go(i, instant) {
+    cur = Math.max(0, Math.min(frames.length - 1, i)); ov = false; world.classList.remove("ov");
+    pg.textContent = name(frames[cur]);
+    if (back !== null && back === cur) back = null;
+    bk.classList.toggle("on", back !== null);
+    if (back !== null) bk.textContent = "↩ 回到" + short(frames[back]);
+    try { history.replaceState(null, "", "#" + frames[cur].dataset.id); } catch (e) {}
+    place(instant);
+  }
+  function overview(on) { ov = on; world.classList.toggle("ov", on); pg.textContent = on ? "全图" : name(frames[cur]); place(); }
+  document.getElementById("prev").onclick = () => go(cur - 1);
+  document.getElementById("next").onclick = () => go(cur + 1);
+  document.getElementById("ovb").onclick = () => overview(!ov);
+  bk.onclick = () => { const b = back; back = null; go(b); };
+  addEventListener("keydown", e => {
+    if (e.altKey || e.ctrlKey || e.metaKey) return;
+    const k = e.key;
+    if (k === "ArrowRight" || k === "PageDown" || (k === " " && e.target === document.body)) { e.preventDefault(); go(cur + 1); }
+    else if (k === "ArrowLeft" || k === "PageUp") { e.preventDefault(); go(cur - 1); }
+    else if (k === "Home") go(0);
+    else if (k === "End") go(frames.length - 1);
+    else if (k === "o" || k === "O") overview(!ov);
+    else if (k === "Escape" && ov) overview(false);
+    else if (k === "Backspace" && back !== null) { e.preventDefault(); bk.onclick(); }
+  });
+  world.addEventListener("click", e => {
+    if (ov) { const f = e.target.closest(".frame"); if (f) go(frames.indexOf(f)); return; }
+    const a = e.target.closest("a[href^='#']"); if (!a) return;
+    const j = frames.findIndex(f => f.dataset.id === a.getAttribute("href").slice(1));
+    if (j < 0) return; e.preventDefault(); back = cur; go(j);
+  });
+  document.addEventListener("focusin", e => { const f = e.target.closest && e.target.closest(".frame"); if (f && !ov && frames.indexOf(f) !== cur) go(frames.indexOf(f)); else view.scrollLeft = view.scrollTop = 0; });
+  addEventListener("resize", () => place(true));
+
+  /* ---------- 每一笔收入怎么分：比例条，悬停写明每个数怎么来 ---------- */
+  const PARTS = ["数字化合作公司", "技术方", "介绍人"];
+  const SPLIT = [
+    { item: "模块费、降本增效项目费", rows: [
+      { who: "销售合伙人介绍", v: [10, 63, 27], how: [
+        "每单先抽 10% 到数字化合作公司",
+        "先抽 10%，剩下的 90% 按七三分：90% × 70% ＝ 63%",
+        "先抽 10%，剩下的 90% 按七三分：90% × 30% ＝ 27%"] },
+      { who: "其他销售介绍", v: [16.5, 70, 13.5], how: [
+        "先抽的 10%，加上分完剩下的 6.5%（100% − 10% − 70% − 13.5%）",
+        "其他销售介绍时，技术方拿整单的 70%",
+        "先抽 10%，介绍人拿剩下 90% 的 15%：90% × 15% ＝ 13.5%"] }] },
+    { item: "实施人天费、变更单", rows: [
+      { who: "销售合伙人介绍", v: [0, 70, 30], how: [null,
+        "人天不抽 10%，直接七三分：技术方 70%",
+        "人天不抽 10%，直接七三分：介绍人 30%"] },
+      { who: "其他销售介绍", v: [15, 70, 15], how: [
+        "人天不抽 10%；技术方 70%、介绍人 15%，剩下的 15% 归数字化合作公司",
+        "人天不抽 10%，技术方拿 70%",
+        "人天不抽 10%，介绍人拿 15%"] }] }
+  ];
+  const pct = n => (Math.round(n * 10) / 10) + "%";
+  const wan = n => (Math.round(n * 100) / 1000) + " 万元";
+  (function split(root) {
+    if (!root) return;
+    let h = "";
+    SPLIT.forEach((g, gi) => {
+      if (gi) h += '<div class="gsp"></div>';
+      h += `<p class="grp">${g.item}</p>`;
+      g.rows.forEach(r => {
+        const nm = `${g.item}，${r.who}：` + r.v.map((x, i) => `${PARTS[i]} ${pct(x)}`).join("，");
+        h += `<div class="row"><span class="who">${r.who}</span><div class="bar" role="img" aria-label="${nm}">`;
+        r.v.forEach((x, i) => { if (x > 0) h += `<span class="seg p${i}" style="--v:${x}" tabindex="0" data-tip="${PARTS[i]}|${g.item}，${r.who}|整单 ${pct(x)}|怎么来：${r.how[i]}|一单 10 万元时 ${wan(x)}">${pct(x)}</span>`; });
+        h += "</div></div>";
+      });
+    });
+    root.querySelector(".chart").innerHTML = h;
+  })(document.getElementById("split8"));
+
+  /* ---------- ERP 9 个模块 ---------- */
+  const MODS = [["财务", 1], ["进销存", 2], ["生产制造", 3], ["车间管理", 2], ["销售漏斗", 1], ["手机端", 0.5], ["质检与控制图", 2], ["计件工资", 0.5], ["补货策略", 1]];
+  const mods = document.getElementById("mods");
+  if (mods) mods.innerHTML = MODS.map(([n, v]) =>
+    `<div class="mrow"><span class="ml">${n}</span><span class="mt"><span class="mb" style="width:calc((100% - 70px) * ${v / 3})"></span><span class="mv">${v}</span></span></div>`).join("")
+    + `<div class="msum">合计<b>${MODS.reduce((s, m) => s + m[1], 0)}</b>万元</div>`;
+
+  /* ---------- 硬件清单（草案附录原表） ---------- */
+  const HW = [
+    ["服务器", [["服务器与异地备份", "运行整套系统", "技术方提供，含在服务费里", "—"],
+      ["自建服务器（迷你主机 32GB／1TB 固态，或塔式）", "系统放在厂里", "自建时", "0.3～1.2 万"],
+      ["在线式 UPS 2kVA（能发关机信号）", "停电时安全关机，防数据库损坏", "自建时", "0.15～0.3 万"],
+      ["NAS 双盘加异地或云备份", "每天备份", "自建时", "0.25～0.4 万"],
+      ["带 VPN 的企业路由器", "厂外访问厂里的服务器", "自建时", "0.05～0.2 万"]]],
+    ["网络", [["千兆 PoE 交换机", "厂内局域网", "必需", "0.08～0.2 万"],
+      ["车间吸顶无线 AP 3～6 个", "车间金属多、信号差", "必需", "0.1～0.5 万"],
+      ["4G/5G 备用路由", "系统在厂外时，宽带断了靠它继续用", "建议", "0.03～0.08 万"]]],
+    ["办公", [["A4 激光打印机", "凭证、报表", "必需", "0.1～0.2 万"],
+      ["针式打印机", "送货单等多联单", "建议", "0.15～0.3 万"],
+      ["高拍仪或双面扫描仪", "发票、图纸进系统，供 AI 读图报价", "建议", "0.03～0.4 万"]]],
+    ["车间数据采集", [["工位三防平板或壁挂一体机约 7 台", "工序报工；也可用工人自己的手机", "建议", "每台 0.2～0.5 万"],
+      ["无线扫码枪", "工单、批次条码", "必需", "每把 0.015～0.05 万"],
+      ["工业标签打印机", "批次、物料、成品箱标签", "必需", "0.15～0.5 万"],
+      ["计数秤（可连电脑）", "按重量算支数", "建议", "0.08～0.3 万"],
+      ["数显卡尺、千分尺加无线传输", "测量值直接进质检单与控制图", "建议", "每套 0.05～0.2 万"],
+      ["弹簧拉压试验机加数据导出", "负荷读数进控制图", "按需", "加导出 0.1 万起，新机 1～5 万"],
+      ["车间看板电视加盒子", "企业信息面板、负荷看板", "建议", "每台 0.25～0.5 万"],
+      ["仓库手持终端", "收发料、盘点", "建议", "每台 0.15～0.3 万"],
+      ["人脸考勤机", "接人事系统打卡", "按需", "0.05～0.15 万"]]],
+    ["设备联网（二期）", [["电流传感器加采集模块", "设备运行、空闲、停机状态，数字孪生显示真实数据", "可选", "每台 0.03～0.08 万"],
+      ["智能电表（可远程读数）", "按设备、班次统计用电，供能耗管理", "可选", "每块 0.03～0.1 万"],
+      ["计数传感器", "自动计产量", "可选", "每台几百元"],
+      ["物联网网关", "汇总设备数据；有网口的数控卷簧机可直连", "可选", "每个 0.1～0.3 万"],
+      ["回火炉温度记录", "炉温曲线可追溯；做汽车弹簧时热处理审核要求", "做汽车件时建议", "每台 0.1～0.5 万"]]],
+    ["AI", [["云端大模型按量付费", "分析助手与各 AI 工作流", "推荐", "每月几十到几百元"],
+      ["本地 GPU 工作站", "数据不能出厂时", "可选", "2～4 万"]]],
+    ["安防与视觉", [["网络摄像头加录像机", "安防，兼拍 SOP 素材", "按需", "每个 0.02～0.06 万"],
+      ["AI 识别盒", "安全帽、危险区域", "可选", "0.3～1 万"],
+      ["视觉质检", "外观、尺寸", "可选", "每个检测点 1～5 万以上"]]],
+    ["示范工厂与培训", [["展厅大屏", "数字孪生与企业信息面板", "按需", "LED 每平方米 0.2～0.6 万"],
+      ["培训教室电脑（独显）加投影", "驻厂工程师班、数字模拟器", "按需", "每座 0.4～0.6 万"],
+      ["录课设备（相机、无线麦、补光灯）", "SOP 视频与课程", "建议", "0.5～1 万"]]]
+  ];
+  const hw = document.getElementById("hw");
+  if (hw) hw.innerHTML = HW.map(([c, rows]) => `<table><caption>${c}</caption><colgroup><col style="width:31%"><col style="width:35%"><col style="width:13%"><col style="width:21%"></colgroup>`
+    + rows.map(r => "<tr>" + r.map(x => `<td>${x}</td>`).join("") + "</tr>").join("") + "</table>").join("");
+
+  /* ---------- 比例条提示 ---------- */
+  const tip = document.getElementById("tip");
+  const show = (el, x, y) => {
+    const [p, ctx, a, ...rest] = el.dataset.tip.split("|");
+    tip.innerHTML = `${ctx}<br>${p}：<b>${a}</b>` + rest.map(s => "<br>" + s).join("");
+    tip.hidden = false;
+    const w = tip.offsetWidth, hh = tip.offsetHeight;
+    tip.style.left = Math.max(8, Math.min(x + 14, innerWidth - w - 8)) + "px";
+    tip.style.top = Math.max(8, y - hh - 14) + "px";
+  };
+  document.addEventListener("pointermove", e => { const s = !ov && e.target.closest && e.target.closest(".seg[data-tip]"); s ? show(s, e.clientX, e.clientY) : (tip.hidden = true); });
+  document.addEventListener("focusin", e => { const s = e.target.closest && e.target.closest(".seg[data-tip]"); if (s) { const r = s.getBoundingClientRect(); show(s, r.left, r.top); } });
+  document.addEventListener("focusout", () => { tip.hidden = true; });
+
+  /* ---------- 正文自动字号 ----------
+     第一轮：整页正文按同一倍数放大（0.7～1.8），取不溢出的最大值。
+     第二轮：框里还空着一截的，单独放大框内文字（1～1.7），放到刚好填满或会撑破页面为止。
+     叠放的几个框会拉伸到与旁边一栏等高，多出的高度也在第二轮里填满。 */
+  const CHECK = ".card,.fs,.val,.fbig,h3,h4,.lab,td,th";
+  frames.forEach(f => {
+    const b = f.querySelector(":scope > .body"); if (!b) return;
+    const w = document.createElement("div"); w.className = "bwrap"; b.before(w); w.appendChild(b);
+    const W0 = w.clientWidth, H0 = w.clientHeight;
+    const set = z => { b.style.width = W0 / z + "px"; b.style.height = H0 / z + "px"; b.style.transform = "scale(" + z + ")"; };
+    const over = () => {
+      if (b.scrollHeight > b.clientHeight + 1 || b.scrollWidth > b.clientWidth + 1) return true;
+      for (const e of b.querySelectorAll(CHECK)) if (e.scrollHeight > e.clientHeight + 1 || e.scrollWidth > e.clientWidth + 1) return true;
+      return false;
+    };
+    let lo = 0.7, hi = 1.8;
+    set(hi);
+    if (!over()) lo = hi;
+    else { set(lo); if (over()) f.dataset.overflow = "1"; else for (let i = 0; i < 9; i++) { const m = (lo + hi) / 2; set(m); if (over()) hi = m; else lo = m; } }
+    set(lo); f.dataset.z = lo.toFixed(3);
+
+    const freeOf = c => {
+      const r = c.getBoundingClientRect(); if (!r.height || !c.offsetHeight) return 0;
+      const k = r.height / c.offsetHeight, cs = getComputedStyle(c);
+      let bot = r.top + parseFloat(cs.paddingTop) * k;
+      for (const x of c.children) { const xr = x.getBoundingClientRect(); if (xr.height) bot = Math.max(bot, xr.bottom); }
+      return (r.bottom - parseFloat(cs.paddingBottom) * k - bot) / r.height;
+    };
+    const boxes = [...b.querySelectorAll(".card,.fs")].filter(c => !c.querySelector(".card,.fs") && !c.hasAttribute("data-nozoom"));
+    boxes.forEach(c => {
+      if (freeOf(c) < 0.06) return;
+      const kids = [...c.children]; if (!kids.length) return;
+      const zs = z => kids.forEach(x => { x.style.zoom = z; });
+      let a = 1, z2 = 1.7;
+      zs(z2);
+      if (!over()) a = z2;
+      else for (let i = 0; i < 7; i++) { const m = (a + z2) / 2; zs(m); if (over()) z2 = m; else a = m; }
+      zs(a); if (a > 1.005) c.dataset.cz = a.toFixed(2);
+    });
+    boxes.forEach(c => { const fr = freeOf(c); if (fr > 0.12) c.dataset.free = fr.toFixed(2); });
+    const br = b.getBoundingClientRect(); let bb = br.top;
+    for (const x of b.children) bb = Math.max(bb, x.getBoundingClientRect().bottom);
+    const pf = (br.bottom - bb) / br.height; if (pf > 0.08) f.dataset.pfree = pf.toFixed(2);
+  });
+
+  document.querySelectorAll(".seg").forEach(s => { if (s.scrollWidth > s.clientWidth + 1) s.classList.add("nolab"); });
+
+  /* ---------- 开场 ---------- */
+  const start = frames.findIndex(f => "#" + f.dataset.id === location.hash);
+  go(start < 0 ? 0 : start, true);
+})();
+</script>
+</body>
+</html>
